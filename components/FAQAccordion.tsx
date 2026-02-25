@@ -22,12 +22,12 @@ export default function FAQAccordion({ faqs, heading = "Frequently Asked Questio
           {faqs.map((faq, i) => (
             <div key={i} className="border border-gray-200 rounded-lg overflow-hidden">
               <button
-                className="w-full text-left px-6 py-5 font-heading font-semibold text-gray-900 text-base flex justify-between items-center hover:bg-gray-50 transition-colors"
+                className={`w-full text-left px-6 py-5 font-heading font-semibold text-gray-900 text-base flex justify-between items-center hover:bg-orange-50 transition-colors ${open === i ? "border-l-4 border-l-[#EE6C13]" : ""}`}
                 onClick={() => setOpen(open === i ? null : i)}
                 aria-expanded={open === i}
               >
                 <span>{faq.question}</span>
-                <span className="text-xl text-gray-400 ml-4 flex-shrink-0">{open === i ? "−" : "+"}</span>
+                <span className="text-xl ml-4 flex-shrink-0" style={{ color: open === i ? "#EE6C13" : "#9ca3af" }}>{open === i ? "−" : "+"}</span>
               </button>
               {open === i && (
                 <div className="px-6 pb-5 text-gray-600 leading-relaxed text-base">

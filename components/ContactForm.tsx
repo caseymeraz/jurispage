@@ -179,7 +179,7 @@ export default function ContactForm() {
         type="submit"
         disabled={status === "loading"}
         className="w-full py-4 rounded-lg font-heading font-bold text-gray-900 text-base disabled:opacity-60 transition-opacity"
-        style={{ background: "linear-gradient(135deg, #6FFF2C, #14EEEE)" }}
+        style={{ background: "linear-gradient(135deg, #EE6C13, #982A0B)" }}
       >
         {status === "loading" ? "Sending..." : "Get My Free Marketing Plan"}
       </button>

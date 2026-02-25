@@ -301,7 +301,7 @@ export default function BestLawFirmSEOPage() {
               <p className="text-gray-600 text-sm"><strong>Best for:</strong> {agency.bestFor}</p>
               {agency.ctaHref && (
                 <div className="mt-4">
-                  <Link href={agency.ctaHref} className="inline-block font-bold text-sm px-6 py-3 rounded-lg no-underline" style={{ background: "linear-gradient(135deg, #6FFF2C, #14EEEE)", color: "#222222" }}>
+                  <Link href={agency.ctaHref} className="inline-block font-bold text-sm px-6 py-3 rounded-lg no-underline" style={{ background: "linear-gradient(135deg, #EE6C13, #982A0B)", color: "#222222" }}>
                     {agency.ctaText}
                   </Link>
                 </div>

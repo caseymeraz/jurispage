@@ -20,27 +20,27 @@ const aboutSchema = {
 
 const differences = [
   {
-    color: "#14EEEE",
+    color: "#EE6C13",
     title: "We Publish Our Pricing",
     body: "Most agencies won't tell you what anything costs until you've been on three calls and signed an NDA. We think that's a bad start to any business relationship. Our pricing is on our website — no sales games, no mystery packages.",
   },
   {
-    color: "#6FFF2C",
+    color: "#EE6C13",
     title: "100% Law Firm Focus",
     body: "We don't do e-commerce SEO. We don't run campaigns for restaurants or HVAC companies. Every single thing we do is built for law firms — the compliance considerations, the YMYL standards, the local map pack tactics that actually move the needle.",
   },
   {
-    color: "#14EEEE",
+    color: "#EE6C13",
     title: "Month-to-Month Contracts",
     body: "We don't lock you into 12-month agreements and collect a check whether you're happy or not. We operate month-to-month because we believe we should earn your business every single month.",
   },
   {
-    color: "#6FFF2C",
+    color: "#EE6C13",
     title: "Ethical SEO — No Shortcuts",
     body: "No black hat link schemes, no keyword stuffing, no fake reviews, no tricks. Ethical SEO takes longer to ramp, but it builds rankings that last and won't get you penalized when Google updates.",
   },
   {
-    color: "#14EEEE",
+    color: "#EE6C13",
     title: "Built for Small Firms",
     body: "The attorney running a three-person PI firm deserves the same caliber of digital marketing as the 50-attorney firm down the street. We built JurisPage specifically for small and mid-size firms that are underserved by the market.",
   },
@@ -58,7 +58,7 @@ export default function AboutPage() {
       <SchemaOrg schema={aboutSchema} />
 
       {/* Hero */}
-      <section className="bg-gray-50 py-20 px-6 text-center border-b-4" style={{ borderBottomColor: "#14EEEE" }}>
+      <section className="bg-gray-50 py-20 px-6 text-center border-b-4" style={{ borderBottomColor: "#EE6C13" }}>
         <div className="max-w-3xl mx-auto">
           <h1 className="font-heading font-extrabold text-gray-900 text-5xl mb-6 leading-tight">
             Law Firm Marketing Built on Ethics, Not Empty Promises
@@ -71,7 +71,7 @@ export default function AboutPage() {
 
       {/* Our Story */}
       <section className="py-16 px-6 max-w-3xl mx-auto">
-        <h2 className="font-heading font-extrabold text-gray-900 text-3xl mb-6 pb-3 inline-block border-b-4" style={{ borderBottomColor: "#14EEEE" }}>Our Story</h2>
+        <h2 className="font-heading font-extrabold text-gray-900 text-3xl mb-6 pb-3 inline-block border-b-4" style={{ borderBottomColor: "#EE6C13" }}>Our Story</h2>
         <div className="space-y-4 text-gray-700 text-base leading-relaxed">
           <p>JurisPage has been around for years, but in February 2026 we entered a new chapter. Ethical SEO Consulting LLC acquired JurisPage and brought in a leadership team with over 15 years of hands-on experience in legal digital marketing.</p>
           <p>We've grown and evolved significantly over time — and today we're building something we're genuinely proud of: a focused, ethical, results-driven agency for law firms that are serious about growth but not interested in paying big-agency prices for big-agency indifference.</p>
@@ -83,7 +83,7 @@ export default function AboutPage() {
       {/* Meet Casey */}
       <section className="bg-gray-50 py-16 px-6">
         <div className="max-w-3xl mx-auto">
-          <h2 className="font-heading font-extrabold text-gray-900 text-3xl mb-6 pb-3 inline-block border-b-4" style={{ borderBottomColor: "#6FFF2C" }}>Meet Casey Meraz, CEO</h2>
+          <h2 className="font-heading font-extrabold text-gray-900 text-3xl mb-6 pb-3 inline-block border-b-4" style={{ borderBottomColor: "#EE6C13" }}>Meet Casey Meraz, CEO</h2>
           <div className="space-y-4 text-gray-700 text-base leading-relaxed">
             <p>Casey Meraz has spent 15 years doing one thing: helping law firms get found online and turn that traffic into clients.</p>
             <p>He's personally managed SEO campaigns for 100+ law firms — from solo practitioners to multi-location regional firms. He's built one of the most-read blogs on legal marketing online, and has contributed to industry publications on the topics of local SEO, ethical link building, and content strategy for attorneys.</p>
@@ -96,7 +96,7 @@ export default function AboutPage() {
 
       {/* What Makes Us Different */}
       <section className="py-16 px-6 max-w-3xl mx-auto">
-        <h2 className="font-heading font-extrabold text-gray-900 text-3xl mb-10 pb-3 inline-block border-b-4" style={{ borderBottomColor: "#14EEEE" }}>What Makes JurisPage Different</h2>
+        <h2 className="font-heading font-extrabold text-gray-900 text-3xl mb-10 pb-3 inline-block border-b-4" style={{ borderBottomColor: "#EE6C13" }}>What Makes JurisPage Different</h2>
         <div className="space-y-4">
           {differences.map((d) => (
             <div key={d.title} className="bg-white rounded-lg p-6 border-l-4 shadow-sm" style={{ borderLeftColor: d.color }}>
@@ -110,13 +110,13 @@ export default function AboutPage() {
       {/* Comparison Table */}
       <section className="bg-gray-50 py-16 px-6">
         <div className="max-w-3xl mx-auto">
-          <h2 className="font-heading font-extrabold text-gray-900 text-3xl mb-10 pb-3 inline-block border-b-4" style={{ borderBottomColor: "#6FFF2C" }}>Why JurisPage vs Your Other Options</h2>
+          <h2 className="font-heading font-extrabold text-gray-900 text-3xl mb-10 pb-3 inline-block border-b-4" style={{ borderBottomColor: "#EE6C13" }}>Why JurisPage vs Your Other Options</h2>
           <div className="overflow-x-auto">
             <table className="w-full border-collapse text-sm shadow-sm">
               <thead>
                 <tr>
                   <th className="p-4 text-left bg-gray-900 text-white font-semibold rounded-tl-lg w-1/4"> </th>
-                  <th className="p-4 text-center font-extrabold text-gray-900 text-base rounded-none" style={{ background: "linear-gradient(135deg, #6FFF2C, #14EEEE)" }}>JurisPage</th>
+                  <th className="p-4 text-center font-extrabold text-gray-900 text-base rounded-none" style={{ background: "linear-gradient(135deg, #EE6C13, #982A0B)" }}>JurisPage</th>
                   <th className="p-4 text-center bg-gray-700 text-white font-semibold">Large Agencies</th>
                   <th className="p-4 text-center bg-gray-700 text-white font-semibold rounded-tr-lg">Freelancers</th>
                 </tr>
@@ -145,12 +145,12 @@ export default function AboutPage() {
       {/* Who We Serve */}
       <section className="py-16 px-6">
         <div className="max-w-3xl mx-auto">
-          <h2 className="font-heading font-extrabold text-gray-900 text-3xl mb-6 pb-3 inline-block border-b-4" style={{ borderBottomColor: "#6FFF2C" }}>Who We Serve</h2>
+          <h2 className="font-heading font-extrabold text-gray-900 text-3xl mb-6 pb-3 inline-block border-b-4" style={{ borderBottomColor: "#EE6C13" }}>Who We Serve</h2>
           <p className="text-gray-700 leading-relaxed mb-4">JurisPage works with law firms across the United States — from solo practitioners launching their first marketing campaign to established regional firms looking to take their online presence to the next level.</p>
           <p className="text-gray-700 leading-relaxed mb-6">We work across nearly every practice area, including:</p>
           <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 mb-6">
             {practiceAreasList.map((area) => (
-              <div key={area} className="bg-white px-4 py-3 border-l-4 text-sm font-medium text-gray-700 shadow-sm" style={{ borderLeftColor: "#14EEEE" }}>
+              <div key={area} className="bg-white px-4 py-3 border-l-4 text-sm font-medium text-gray-700 shadow-sm" style={{ borderLeftColor: "#EE6C13" }}>
                 {area}
               </div>
             ))}

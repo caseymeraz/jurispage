@@ -50,9 +50,9 @@ export default function ScorpionAlternativePage() {
           <div className="overflow-x-auto mb-10">
             <table className="w-full border-collapse text-sm">
               <thead>
-                <tr style={{ background: "#111827" }}>
+                <tr style={{ background: "#1a1a1a" }}>
                   <th className="p-4 text-left text-white font-semibold"> </th>
-                  <th className="p-4 text-center font-bold" style={{ color: "#14EEEE" }}>JurisPage</th>
+                  <th className="p-4 text-center font-bold" style={{ color: "#EE6C13" }}>JurisPage</th>
                   <th className="p-4 text-center text-gray-300 font-semibold">Scorpion</th>
                 </tr>
               </thead>
@@ -87,7 +87,7 @@ export default function ScorpionAlternativePage() {
               "Your budget is $1,500–$5,000/month and you want specialized legal SEO, not a generalist platform",
               "You've been at Scorpion and felt like a small account inside a large agency",
             ].map((item) => (
-              <li key={item} className="flex gap-3 items-start text-gray-700"><span style={{ color: "#6FFF2C" }} className="flex-shrink-0 mt-0.5">✓</span><span>{item}</span></li>
+              <li key={item} className="flex gap-3 items-start text-gray-700"><span style={{ color: "#EE6C13" }} className="flex-shrink-0 mt-0.5">✓</span><span>{item}</span></li>
             ))}
           </ul>
         </div>

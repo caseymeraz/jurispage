@@ -61,7 +61,7 @@ export default function LawFirmSEOCostPage() {
           <div className="overflow-x-auto my-6">
             <table style={{ width: "100%", borderCollapse: "collapse", fontSize: "15px" }}>
               <thead>
-                <tr style={{ background: "#111827", color: "#fff" }}>
+                <tr style={{ background: "#1a1a1a", color: "#fff" }}>
                   <th style={{ padding: "12px 16px", textAlign: "left", border: "1px solid #374151" }}>Tier</th>
                   <th style={{ padding: "12px 16px", textAlign: "left", border: "1px solid #374151" }}>Monthly Cost</th>
                   <th style={{ padding: "12px 16px", textAlign: "left", border: "1px solid #374151" }}>Best For</th>
@@ -112,7 +112,7 @@ export default function LawFirmSEOCostPage() {
             <li><strong>Grow</strong> — $2,497/month, no setup fee</li>
             <li><strong>Dominate</strong> — $4,497/month, no setup fee</li>
           </ul>
-          <p>All plans are month-to-month. <Link href="/services/pricing/" style={{ color: "#14EEEE" }}>See full plan details →</Link></p>
+          <p>All plans are month-to-month. <Link href="/services/pricing/" style={{ color: "#EE6C13" }}>See full plan details →</Link></p>
         </div>
       </article>
 

@@ -40,7 +40,7 @@ export default function ContactPage() {
                 { step: "4", title: "You decide", body: "No pressure. If it's a fit, great. If not, you still got a free audit. We think that's fair." },
               ].map((item) => (
                 <div key={item.step} className="flex gap-4">
-                  <div className="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center font-heading font-bold text-sm text-gray-900" style={{ background: "linear-gradient(135deg, #6FFF2C, #14EEEE)" }}>
+                  <div className="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center font-heading font-bold text-sm text-gray-900" style={{ background: "linear-gradient(135deg, #EE6C13, #982A0B)" }}>
                     {item.step}
                   </div>
                   <div>
@@ -53,7 +53,7 @@ export default function ContactPage() {
 
             <div className="mt-10 bg-gray-50 rounded-xl p-6 border border-gray-200">
               <h3 className="font-heading font-bold text-gray-900 mb-4">Prefer to call?</h3>
-              <a href="tel:+18887677447" className="font-heading font-extrabold text-2xl no-underline" style={{ color: "#14EEEE" }}>
+              <a href="tel:+18887677447" className="font-heading font-extrabold text-2xl no-underline" style={{ color: "#EE6C13" }}>
                 (888) 767-7447
               </a>
               <p className="text-gray-500 text-sm mt-2">Available Mon–Fri, 9am–5pm MT</p>

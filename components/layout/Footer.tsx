@@ -1,21 +1,28 @@
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
   return (
-    <footer className="bg-gray-900 border-t border-gray-800 pt-16 pb-8 px-6">
+    <footer className="bg-[#1a1a1a] border-t border-gray-800 pt-16 pb-8 px-6">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
           {/* Brand */}
           <div>
-            <div className="font-heading font-extrabold text-xl text-white mb-3">
-              Juris<span style={{ color: "#14EEEE" }}>Page</span>
+            <div className="mb-4">
+              <Image
+                src="/images/jurispage-logo.svg"
+                alt="JurisPage Law Firm Marketing"
+                width={150}
+                height={34}
+                className="h-8 w-auto"
+              />
             </div>
             <p className="text-gray-400 text-sm leading-relaxed mb-4">
               Law firm marketing built on ethics, not empty promises. Transparent pricing, month-to-month contracts, 100% legal focus.
             </p>
             <a href="tel:+18887677447" className="text-gray-300 hover:text-white text-sm font-medium no-underline block mb-1">(888) 767-7447</a>
-            <Link href="/contact/" className="text-sm no-underline" style={{ color: "#14EEEE" }}>Get a Free Strategy Call →</Link>
+            <Link href="/contact/" className="text-sm no-underline" style={{ color: "#EE6C13" }}>Get a Free Strategy Call →</Link>
           </div>
 
           {/* Services */}
@@ -66,6 +73,7 @@ export default function Footer() {
             <ul className="space-y-2 text-sm text-gray-400 mb-6">
               {[
                 ["About JurisPage", "/about-us/"],
+                ["Success Stories", "/case-studies/"],
                 ["Blog", "/blog/"],
                 ["Best Law Firm SEO Companies", "/best-law-firm-seo-companies/"],
                 ["Law Firm SEO Cost", "/law-firm-seo-cost/"],

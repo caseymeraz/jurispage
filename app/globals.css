@@ -2,18 +2,14 @@
 @plugin "@tailwindcss/typography";
 
 @theme {
-  --color-brand-dark: #111827;
-  --color-brand-darker: #1f2937;
-  --color-brand-cyan: #14EEEE;
-  --color-brand-green: #6FFF2C;
-  --color-brand-muted: #9ca3af;
+  --color-brand-primary: #EE6C13;
+  --color-brand-hover:   #982A0B;
+  --color-brand-cream:   #FEF3EC;
+  --color-brand-dark:    #1a1a1a;
+  --color-brand-muted:   #6b7280;
 
-  --font-heading: "Montserrat", system-ui, sans-serif;
-  --font-body: system-ui, sans-serif;
-}
-
-:root {
-  --font-montserrat: "Montserrat", system-ui, sans-serif;
+  --font-heading: "Quicksand", system-ui, sans-serif;
+  --font-body:    "Poppins", system-ui, sans-serif;
 }
 
 @layer base {
@@ -22,24 +18,24 @@
   }
 
   body {
-    font-family: system-ui, sans-serif;
+    font-family: "Poppins", system-ui, sans-serif;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-montserrat);
+    font-family: "Quicksand", system-ui, sans-serif;
   }
 }
 
 @layer utilities {
   .font-heading {
-    font-family: var(--font-montserrat);
+    font-family: "Quicksand", system-ui, sans-serif;
   }
 
   .font-body {
-    font-family: system-ui, sans-serif;
+    font-family: "Poppins", system-ui, sans-serif;
   }
 
   .bg-brand-gradient {
-    background: linear-gradient(135deg, #6FFF2C, #14EEEE);
+    background: linear-gradient(135deg, #EE6C13, #982A0B);
   }
 }

@@ -61,5 +61,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.6,
   }));
 
-  return [...staticPages, ...servicePages, ...practiceAreaPages, ...metroPages, ...blogPosts, ...newsPages];
+  const caseStudyPages: MetadataRoute.Sitemap = [
+    { url: BASE_URL + "/case-studies/", lastModified: new Date(), changeFrequency: "monthly" as const, priority: 0.8 },
+    ...["wilson-criminal-defence", "the-sands-law-group", "immigration-desk"].map((slug) => ({
+      url: BASE_URL + "/case-studies/" + slug + "/",
+      lastModified: new Date(),
+      changeFrequency: "monthly" as const,
+      priority: 0.7,
+    })),
+  ];
+
+  return [...staticPages, ...servicePages, ...practiceAreaPages, ...metroPages, ...blogPosts, ...newsPages, ...caseStudyPages];
 }

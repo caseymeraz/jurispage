@@ -76,7 +76,7 @@ export default async function BlogPostPage({ params }: Props) {
             <span className="text-gray-300">{post.title}</span>
           </nav>
           <div className="flex items-center gap-3 mb-4">
-            <span className="text-xs font-semibold uppercase tracking-widest px-3 py-1 rounded-full" style={{ background: "#14EEEE22", color: "#14EEEE" }}>
+            <span className="text-xs font-semibold uppercase tracking-widest px-3 py-1 rounded-full" style={{ background: "#EE6C1322", color: "#EE6C13" }}>
               {post.category}
             </span>
             <time className="text-gray-400 text-sm" dateTime={post.datePublished}>

@@ -71,7 +71,7 @@ export default async function NewsPage({ params }: Props) {
             <Link href="/" className="hover:text-white no-underline">Home</Link> /{" "}
             <span className="text-gray-300">News</span>
           </nav>
-          <span className="inline-block text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-4" style={{ background: "#14EEEE22", color: "#14EEEE" }}>
+          <span className="inline-block text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-4" style={{ background: "#EE6C1322", color: "#EE6C13" }}>
             Press Release
           </span>
           <h1 className="font-heading font-extrabold text-white text-4xl leading-tight">{post.title}</h1>

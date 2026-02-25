@@ -5,6 +5,20 @@ const nextConfig: NextConfig = {
   turbopack: {
     root: path.resolve(__dirname),
   },
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "www.jurispage.com",
+        pathname: "/wp-content/uploads/**",
+      },
+      {
+        protocol: "https",
+        hostname: "jurispage.com",
+        pathname: "/wp-content/uploads/**",
+      },
+    ],
+  },
   async redirects() {
     return [
       {

@@ -88,13 +88,13 @@ export default function MetroPage({ metro, service }: MetroPageProps) {
       <SchemaOrg schema={schema} />
 
       {/* Hero */}
-      <section className="bg-gray-900 py-20 px-6">
+      <section className="bg-[#1a1a1a] py-20 px-6">
         <div className="max-w-3xl mx-auto">
           <nav className="text-sm text-gray-400 mb-6">
             <Link href="/" className="hover:text-white no-underline">Home</Link> /{" "}
             <span className="text-gray-300">{heading}</span>
           </nav>
-          <span className="inline-block text-xs font-heading font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-4" style={{ background: "#14EEEE22", color: "#14EEEE" }}>
+          <span className="inline-block text-xs font-heading font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-4" style={{ background: "#EE6C1322", color: "#EE6C13" }}>
             {metro.city}, {metro.stateAbbr}
           </span>
           <h1 className="font-heading font-extrabold text-white text-4xl md:text-5xl leading-tight mb-6">{heading}</h1>
@@ -102,7 +102,7 @@ export default function MetroPage({ metro, service }: MetroPageProps) {
             JurisPage helps {metro.city} law firms get more qualified case inquiries through ethical, transparent digital marketing. Month-to-month contracts. Pricing published online.
           </p>
           <div className="flex flex-wrap gap-4">
-            <Link href="/contact/" className="inline-block font-heading font-bold text-gray-900 text-sm px-7 py-3.5 rounded-lg no-underline" style={{ background: "linear-gradient(135deg, #6FFF2C, #14EEEE)" }}>
+            <Link href="/contact/" className="inline-block font-heading font-bold text-white text-sm px-7 py-3.5 rounded-[40px] no-underline transition-colors" style={{ background: "#EE6C13" }}>
               Free {metro.city} Marketing Audit
             </Link>
             <Link href="/services/pricing/" className="inline-block font-heading font-bold text-white text-sm px-7 py-3.5 rounded-lg border border-gray-600 no-underline hover:border-gray-400 transition-colors">
@@ -133,7 +133,7 @@ export default function MetroPage({ metro, service }: MetroPageProps) {
               { step: "4", title: "You stay because the results are there", body: "Month-to-month contracts. If we're not delivering, you can leave with 30 days notice. We earn your business every month." },
             ].map((item) => (
               <div key={item.step} className="flex gap-5">
-                <div className="flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center font-heading font-extrabold text-gray-900" style={{ background: "linear-gradient(135deg, #6FFF2C, #14EEEE)" }}>
+                <div className="flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center font-heading font-extrabold text-white" style={{ background: "linear-gradient(135deg, #EE6C13, #982A0B)" }}>
                   {item.step}
                 </div>
                 <div className="pt-1.5">

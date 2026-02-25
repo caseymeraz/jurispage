@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import CTASection from "@/components/CTASection";
 import SchemaOrg from "@/components/SchemaOrg";
+import CaseStudyCard from "@/components/CaseStudyCard";
+import { caseStudies } from "@/data/caseStudies";
 
 export const metadata: Metadata = {
   title: "Law Firm Marketing That Gets Cases, Not Just Clicks | JurisPage",
@@ -95,9 +97,9 @@ export default function HomePage() {
       <SchemaOrg schema={homeSchema} />
 
       {/* Hero */}
-      <section className="bg-gray-900 py-20 px-6 text-center">
+      <section className="bg-[#1a1a1a] py-20 px-6 text-center">
         <div className="max-w-4xl mx-auto">
-          <span className="inline-block text-xs font-heading font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-6" style={{ background: "#14EEEE", color: "#111827" }}>
+          <span className="inline-block text-xs font-heading font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-6 text-white" style={{ background: "#EE6C13" }}>
             Acquired February 2026 — Under New Ownership
           </span>
           <h1 className="font-heading font-extrabold text-white text-4xl md:text-6xl leading-tight mb-6">
@@ -112,14 +114,14 @@ export default function HomePage() {
           <div className="flex flex-wrap gap-4 justify-center">
             <Link
               href="/contact/"
-              className="font-heading font-bold text-gray-900 text-base px-8 py-4 rounded-lg no-underline hover:opacity-90 transition-opacity"
-              style={{ background: "linear-gradient(135deg, #6FFF2C, #14EEEE)" }}
+              className="font-heading font-bold text-white text-base px-8 py-4 rounded-[40px] no-underline hover:opacity-90 transition-opacity"
+              style={{ background: "#EE6C13" }}
             >
               Get Free Marketing Plan
             </Link>
             <Link
               href="/services/pricing/"
-              className="font-heading font-bold text-white text-base px-8 py-4 rounded-lg border border-gray-600 no-underline hover:border-gray-400 transition-colors"
+              className="font-heading font-bold text-white text-base px-8 py-4 rounded-[40px] border border-gray-600 no-underline hover:border-gray-400 transition-colors"
             >
               See Pricing
             </Link>
@@ -132,7 +134,7 @@ export default function HomePage() {
         <div className="max-w-4xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
           {trustStats.map((stat) => (
             <div key={stat.label}>
-              <div className="font-heading font-extrabold text-2xl" style={{ color: "#14EEEE" }}>{stat.value}</div>
+              <div className="font-heading font-extrabold text-2xl" style={{ color: "#EE6C13" }}>{stat.value}</div>
               <div className="text-gray-400 text-sm mt-1">{stat.label}</div>
             </div>
           ))}
@@ -151,21 +153,47 @@ export default function HomePage() {
               <Link
                 key={service.href}
                 href={service.href}
-                className="bg-white rounded-xl p-6 border border-gray-200 hover:border-cyan-400 hover:shadow-lg transition-all no-underline block"
-                style={{ borderColor: undefined }}
+                className="bg-white rounded-xl p-6 border border-gray-200 hover:border-orange-300 hover:shadow-lg transition-all no-underline block"
               >
                 <div className="text-3xl mb-3">{service.icon}</div>
                 <h3 className="font-heading font-bold text-gray-900 text-lg mb-2">{service.title}</h3>
                 <p className="text-gray-600 text-sm leading-relaxed">{service.description}</p>
-                <span className="text-sm font-semibold mt-3 inline-block" style={{ color: "#14EEEE" }}>Learn more →</span>
+                <span className="text-sm font-semibold mt-3 inline-block" style={{ color: "#EE6C13" }}>Learn more →</span>
               </Link>
             ))}
           </div>
         </div>
       </section>
 
+      {/* Real Results — Case Studies */}
+      <section className="bg-[#FEF3EC] py-20 px-6">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-14">
+            <span className="inline-block text-xs font-heading font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-4 text-white" style={{ background: "#EE6C13" }}>
+              Real Client Results
+            </span>
+            <h2 className="font-heading font-extrabold text-gray-900 text-4xl mb-4">Real Results from Real Law Firms</h2>
+            <p className="text-gray-600 text-lg max-w-2xl mx-auto">We don&apos;t promise clicks. We deliver cases. Here&apos;s what happened when these firms partnered with JurisPage.</p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-10">
+            {caseStudies.map((cs) => (
+              <CaseStudyCard key={cs.slug} caseStudy={cs} />
+            ))}
+          </div>
+          <div className="text-center">
+            <Link
+              href="/case-studies/"
+              className="inline-block font-heading font-bold text-white text-sm px-7 py-3.5 rounded-[40px] no-underline hover:opacity-90 transition-opacity"
+              style={{ background: "#EE6C13" }}
+            >
+              View All Success Stories
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* Why JurisPage */}
-      <section className="bg-gray-900 py-20 px-6">
+      <section className="bg-[#1a1a1a] py-20 px-6">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-14">
             <h2 className="font-heading font-extrabold text-white text-4xl mb-4">We Do Legal Marketing Differently</h2>
@@ -174,21 +202,21 @@ export default function HomePage() {
           <div className="space-y-6">
             {[
               {
-                color: "#14EEEE",
+                color: "#EE6C13",
                 title: "Pricing Published Online",
                 body: "Every competitor will make you sit through a 45-minute sales call before they'll tell you what anything costs. We put our pricing on the website. Launchpad starts at $1,497/month. See exactly what you get.",
                 link: "/services/pricing/",
                 linkText: "See all pricing →",
               },
               {
-                color: "#6FFF2C",
+                color: "#EE6C13",
                 title: "Month-to-Month Contracts",
                 body: "We don't lock you into 12-month agreements and collect a check whether you're happy or not. You stay because the results are there. You leave with 30 days notice if they're not. It's that simple.",
                 link: null,
                 linkText: null,
               },
               {
-                color: "#14EEEE",
+                color: "#EE6C13",
                 title: "100% Legal Focus",
                 body: "We don't do e-commerce SEO. We don't run campaigns for restaurants. Every person on our team lives in legal marketing. That specialization is what makes the difference.",
                 link: "/about-us/",
@@ -219,7 +247,7 @@ export default function HomePage() {
               <Link
                 key={pa.href}
                 href={pa.href}
-                className="bg-gray-50 border border-gray-200 rounded-lg px-4 py-3 text-sm font-medium text-gray-700 hover:bg-gray-900 hover:text-white hover:border-gray-900 transition-all no-underline text-center"
+                className="bg-gray-50 border border-gray-200 rounded-lg px-4 py-3 text-sm font-medium text-gray-700 hover:bg-[#1a1a1a] hover:text-white hover:border-[#1a1a1a] transition-all no-underline text-center"
               >
                 {pa.label}
               </Link>
@@ -232,33 +260,33 @@ export default function HomePage() {
       <section className="bg-gray-50 py-20 px-6">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="font-heading font-extrabold text-gray-900 text-4xl mb-4">Simple, Transparent Pricing</h2>
-          <p className="text-gray-600 text-lg mb-3">We publish our pricing because we're not afraid of scrutiny.</p>
+          <p className="text-gray-600 text-lg mb-3">We publish our pricing because we&apos;re not afraid of scrutiny.</p>
           <p className="text-gray-600 mb-10">Three plans. Month-to-month. Results in 90 days or we work for free.</p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
             {[
-              { name: "Launchpad", price: "$1,497", desc: "New & startup firms", color: "#6FFF2C" },
-              { name: "Grow", price: "$2,497", desc: "Established firms", color: "#14EEEE", featured: true },
-              { name: "Dominate", price: "$4,497", desc: "Market leaders", color: "#6FFF2C" },
+              { name: "Launchpad", price: "$1,497", desc: "New & startup firms" },
+              { name: "Grow", price: "$2,497", desc: "Established firms", featured: true },
+              { name: "Dominate", price: "$4,497", desc: "Market leaders" },
             ].map((plan) => (
               <div
                 key={plan.name}
-                className={`rounded-xl p-6 text-center ${plan.featured ? "bg-gray-900 border-2 text-white" : "bg-white border border-gray-200 text-gray-900"}`}
-                style={plan.featured ? { borderColor: "#14EEEE" } : {}}
+                className={`rounded-xl p-6 text-center ${plan.featured ? "bg-[#1a1a1a] border-2 text-white" : "bg-white border border-gray-200 text-gray-900"}`}
+                style={plan.featured ? { borderColor: "#EE6C13" } : {}}
               >
                 {plan.featured && (
-                  <div className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: "#14EEEE" }}>Most Popular</div>
+                  <div className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: "#EE6C13" }}>Most Popular</div>
                 )}
                 <div className="font-heading font-extrabold text-xl mb-1">{plan.name}</div>
-                <div className="font-heading font-extrabold text-4xl mb-1" style={{ color: plan.color }}>{plan.price}</div>
+                <div className="font-heading font-extrabold text-4xl mb-1" style={{ color: "#EE6C13" }}>{plan.price}</div>
                 <div className={`text-sm mb-4 ${plan.featured ? "text-gray-400" : "text-gray-500"}`}>/month · {plan.desc}</div>
-                <Link href="/services/pricing/" className="text-sm font-semibold no-underline" style={{ color: plan.color }}>See what's included →</Link>
+                <Link href="/services/pricing/" className="text-sm font-semibold no-underline" style={{ color: "#EE6C13" }}>See what&apos;s included →</Link>
               </div>
             ))}
           </div>
           <Link
             href="/services/pricing/"
-            className="inline-block font-heading font-bold text-gray-900 text-base px-8 py-4 rounded-lg no-underline hover:opacity-90 transition-opacity"
-            style={{ background: "linear-gradient(135deg, #6FFF2C, #14EEEE)" }}
+            className="inline-block font-heading font-bold text-white text-base px-8 py-4 rounded-[40px] no-underline hover:opacity-90 transition-opacity"
+            style={{ background: "#EE6C13" }}
           >
             View Full Pricing Details
           </Link>

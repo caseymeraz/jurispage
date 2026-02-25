@@ -111,9 +111,9 @@ export default function PricingPage() {
       <SchemaOrg schema={[faqSchema, serviceSchema]} />
 
       {/* Hero */}
-      <section className="py-20 px-6 text-center" style={{ background: "#111827" }}>
+      <section className="py-20 px-6 text-center" style={{ background: "#1a1a1a" }}>
         <div className="max-w-3xl mx-auto">
-          <span className="inline-block text-xs font-heading font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-5" style={{ background: "#14EEEE", color: "#111827" }}>Transparent Pricing</span>
+          <span className="inline-block text-xs font-heading font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-5" style={{ background: "#EE6C13", color: "#ffffff" }}>Transparent Pricing</span>
           <h1 className="font-heading font-extrabold text-white text-5xl leading-tight mb-6">
             Law Firm Marketing Pricing.<br />No Smoke. No Mirrors.
           </h1>
@@ -134,7 +134,7 @@ export default function PricingPage() {
             { val: "No Hidden Fees", sub: "Price shown is price paid", green: true },
           ].map((item) => (
             <div key={item.val}>
-              <div className="font-heading font-extrabold text-xl" style={{ color: item.green ? "#6FFF2C" : "#14EEEE" }}>{item.val}</div>
+              <div className="font-heading font-extrabold text-xl" style={{ color: item.green ? "#EE6C13" : "#EE6C13" }}>{item.val}</div>
               <div className="text-gray-400 text-xs mt-1">{item.sub}</div>
             </div>
           ))}
@@ -153,10 +153,10 @@ export default function PricingPage() {
               <div
                 key={plan.name}
                 className={`rounded-2xl overflow-hidden ${plan.featured ? "shadow-2xl" : "shadow-sm border border-gray-200"}`}
-                style={plan.featured ? { border: "2px solid #14EEEE", background: "#111827" } : { background: "#fff" }}
+                style={plan.featured ? { border: "2px solid #EE6C13", background: "#1a1a1a" } : { background: "#fff" }}
               >
                 {plan.badge && (
-                  <div className="py-2.5 text-center text-xs font-extrabold uppercase tracking-widest" style={{ background: "linear-gradient(135deg, #6FFF2C, #14EEEE)", color: "#111827" }}>
+                  <div className="py-2.5 text-center text-xs font-extrabold uppercase tracking-widest" style={{ background: "linear-gradient(135deg, #EE6C13, #982A0B)", color: "#ffffff" }}>
                     {plan.badge}
                   </div>
                 )}
@@ -172,7 +172,7 @@ export default function PricingPage() {
                   <Link
                     href="/contact/"
                     className="block text-center font-heading font-bold py-3.5 px-6 rounded-lg text-sm no-underline"
-                    style={plan.featured ? { background: "linear-gradient(135deg, #6FFF2C, #14EEEE)", color: "#111827" } : { background: "#111827", color: "#fff" }}
+                    style={plan.featured ? { background: "linear-gradient(135deg, #EE6C13, #982A0B)", color: "#1a1a1a" } : { background: "#1a1a1a", color: "#fff" }}
                   >
                     Get Started
                   </Link>
@@ -182,13 +182,13 @@ export default function PricingPage() {
                   <ul className="space-y-3">
                     {plan.features.map((f) => (
                       <li key={f} className={`flex gap-3 items-start text-sm ${plan.featured ? "text-gray-300" : "text-gray-700"}`}>
-                        <span className="flex-shrink-0 font-bold mt-0.5" style={{ color: "#6FFF2C" }}>✓</span>
+                        <span className="flex-shrink-0 font-bold mt-0.5" style={{ color: "#EE6C13" }}>✓</span>
                         <span dangerouslySetInnerHTML={{ __html: f.replace(" OR ", " <em>or</em> ") }} />
                       </li>
                     ))}
                   </ul>
                   {plan.highlight && (
-                    <div className="mt-4 p-3 rounded-lg text-xs" style={{ background: plan.featured ? "#1a3a3a" : "#f0fdf4", color: plan.featured ? "#14EEEE" : "#166534", border: `1px solid ${plan.featured ? "#14EEEE33" : "#bbf7d0"}` }}>
+                    <div className="mt-4 p-3 rounded-lg text-xs" style={{ background: plan.featured ? "#1a1a1a" : "#f0fdf4", color: plan.featured ? "#EE6C13" : "#166534", border: `1px solid ${plan.featured ? "#EE6C1333" : "#bbf7d0"}` }}>
                       <strong>{plan.featured ? "Available Add-Ons" : ""}</strong>{plan.featured ? " · " : ""}{plan.highlight}
                     </div>
                   )}
@@ -207,10 +207,10 @@ export default function PricingPage() {
           <div className="overflow-x-auto">
             <table className="w-full border-collapse font-heading text-sm">
               <thead>
-                <tr style={{ background: "#111827" }}>
+                <tr style={{ background: "#1a1a1a" }}>
                   <th className="text-left p-4 text-white font-semibold">Feature</th>
                   <th className="text-center p-4 text-white font-semibold">Launchpad<br /><span className="text-xs font-normal text-gray-400">$1,497/mo</span></th>
-                  <th className="text-center p-4 font-bold" style={{ background: "#1f2937", color: "#14EEEE" }}>Grow<br /><span className="text-xs font-normal text-gray-400">$2,497/mo</span></th>
+                  <th className="text-center p-4 font-bold" style={{ background: "#1f2937", color: "#EE6C13" }}>Grow<br /><span className="text-xs font-normal text-gray-400">$2,497/mo</span></th>
                   <th className="text-center p-4 text-white font-semibold">Dominate<br /><span className="text-xs font-normal text-gray-400">$4,497/mo</span></th>
                 </tr>
               </thead>
@@ -242,7 +242,7 @@ export default function PricingPage() {
       </section>
 
       {/* Competitor Comparison */}
-      <section className="py-20 px-6" style={{ background: "#111827" }}>
+      <section className="py-20 px-6" style={{ background: "#1a1a1a" }}>
         <div className="max-w-3xl mx-auto">
           <h2 className="font-heading font-extrabold text-white text-3xl text-center mb-3">JurisPage vs. The Big Agencies</h2>
           <p className="text-gray-400 text-center mb-10">This isn&apos;t a knock on anyone. It&apos;s a factual look at how we&apos;re different.</p>
@@ -251,19 +251,19 @@ export default function PricingPage() {
               <thead>
                 <tr>
                   <th className="text-left p-4 text-gray-400 font-semibold text-xs uppercase tracking-widest border-b border-gray-700"> </th>
-                  <th className="text-center p-4 font-bold border-b border-gray-700" style={{ color: "#14EEEE" }}>JurisPage</th>
+                  <th className="text-center p-4 font-bold border-b border-gray-700" style={{ color: "#EE6C13" }}>JurisPage</th>
                   <th className="text-center p-4 text-gray-400 font-semibold border-b border-gray-700">Large Agencies<br /><span className="text-xs font-normal">(e.g., Scorpion, Martindale)</span></th>
                 </tr>
               </thead>
               <tbody>
                 {[
-                  ["Pricing published publicly", { v: "Yes", color: "#6FFF2C" }, { v: "No — requires sales call", color: "#ef4444" }],
-                  ["You own your website", { v: "Always", color: "#6FFF2C" }, { v: "Often no — site disappears if you leave", color: "#ef4444" }],
-                  ["Long-term contract", { v: "No", color: "#6FFF2C" }, { v: "Typically 12-month minimum", color: "#ef4444" }],
-                  ["Dedicated point of contact", { v: "Yes, from day one", color: "#6FFF2C" }, { v: "After onboarding, often rotates", color: "#fbbf24" }],
-                  ["Specializes in law firms only", { v: "Yes", color: "#6FFF2C" }, { v: "Varies", color: "#fbbf24" }],
+                  ["Pricing published publicly", { v: "Yes", color: "#EE6C13" }, { v: "No — requires sales call", color: "#ef4444" }],
+                  ["You own your website", { v: "Always", color: "#EE6C13" }, { v: "Often no — site disappears if you leave", color: "#ef4444" }],
+                  ["Long-term contract", { v: "No", color: "#EE6C13" }, { v: "Typically 12-month minimum", color: "#ef4444" }],
+                  ["Dedicated point of contact", { v: "Yes, from day one", color: "#EE6C13" }, { v: "After onboarding, often rotates", color: "#fbbf24" }],
+                  ["Specializes in law firms only", { v: "Yes", color: "#EE6C13" }, { v: "Varies", color: "#fbbf24" }],
                 ].map(([feature, jp, la], i) => (
-                  <tr key={feature as string} style={{ background: i % 2 === 0 ? "#1f2937" : "#111827" }}>
+                  <tr key={feature as string} style={{ background: i % 2 === 0 ? "#1f2937" : "#1a1a1a" }}>
                     <td className="p-4 text-gray-300 border-b border-gray-800">{feature as string}</td>
                     <td className="text-center p-4 font-bold border-b border-gray-800" style={{ color: (jp as { v: string; color: string }).color }}>{(jp as { v: string; color: string }).v}</td>
                     <td className="text-center p-4 border-b border-gray-800" style={{ color: (la as { v: string; color: string }).color }}>{(la as { v: string; color: string }).v}</td>
@@ -287,12 +287,12 @@ export default function PricingPage() {
       <FAQAccordion faqs={faqs} heading="Pricing Questions, Answered" />
 
       {/* Bottom CTA */}
-      <section className="py-12 px-6 text-center" style={{ background: "linear-gradient(135deg, #6FFF2C, #14EEEE)" }}>
+      <section className="py-12 px-6 text-center" style={{ background: "linear-gradient(135deg, #EE6C13, #982A0B)" }}>
         <div className="max-w-3xl mx-auto">
-          <p className="font-heading font-extrabold text-gray-900 text-xl mb-4">No long-term contracts. No hidden fees. No surprises.</p>
+          <p className="font-heading font-extrabold text-white text-xl mb-4">No long-term contracts. No hidden fees. No surprises.</p>
           <div className="flex flex-wrap gap-4 justify-center">
-            <Link href="/contact/" className="inline-block bg-gray-900 text-white font-heading font-bold py-4 px-8 rounded-lg no-underline">Start the conversation</Link>
-            <a href="tel:+18887677447" className="inline-block border-2 border-gray-900 text-gray-900 font-heading font-bold py-4 px-8 rounded-lg no-underline">(888) 767-7447</a>
+            <Link href="/contact/" className="inline-block bg-white font-heading font-bold py-4 px-8 rounded-[40px] no-underline" style={{ color: "#982A0B" }}>Start the conversation</Link>
+            <a href="tel:+18887677447" className="inline-block border-2 border-white text-white font-heading font-bold py-4 px-8 rounded-[40px] no-underline">(888) 767-7447</a>
           </div>
         </div>
       </section>

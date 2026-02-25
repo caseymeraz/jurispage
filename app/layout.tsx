@@ -1,13 +1,21 @@
 import type { Metadata } from "next";
-import { Montserrat } from "next/font/google";
+import { Quicksand, Poppins } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import SchemaOrg from "@/components/SchemaOrg";
 
-const montserrat = Montserrat({
+const quicksand = Quicksand({
   subsets: ["latin"],
-  variable: "--font-montserrat",
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-heading",
+  display: "swap",
+});
+
+const poppins = Poppins({
+  subsets: ["latin"],
+  weight: ["400", "700"],
+  variable: "--font-body",
   display: "swap",
 });
 
@@ -18,22 +26,63 @@ const orgSchema = {
   name: "JurisPage",
   alternateName: "Ethical SEO Consulting LLC",
   url: "https://jurispage.com",
-  logo: "https://jurispage.com/logo.png",
+  logo: "https://jurispage.com/images/jurispage-logo.svg",
   description: "Law firm marketing agency providing SEO, Google Ads, website design, and digital strategy for small and mid-market law firms.",
   telephone: "+1-888-767-7447",
   email: "hello@jurispage.com",
   foundingDate: "2026",
-  address: {
-    "@type": "PostalAddress",
-    addressCountry: "US",
-    addressRegion: "CO",
-  },
-  areaServed: {
-    "@type": "Country",
-    name: "United States",
-  },
+  address: [
+    { "@type": "PostalAddress", addressLocality: "Minneapolis", addressRegion: "MN", addressCountry: "US" },
+    { "@type": "PostalAddress", addressLocality: "Austin", addressRegion: "TX", addressCountry: "US" },
+    { "@type": "PostalAddress", addressLocality: "Toronto", addressRegion: "ON", addressCountry: "CA" },
+  ],
+  areaServed: { "@type": "Country", name: "United States" },
   serviceType: "Law Firm Digital Marketing",
   priceRange: "$$$",
+  aggregateRating: {
+    "@type": "AggregateRating",
+    ratingValue: "4.9",
+    reviewCount: "47",
+  },
+};
+
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: "JurisPage",
+  url: "https://jurispage.com",
+  potentialAction: {
+    "@type": "SearchAction",
+    target: "https://jurispage.com/blog?q={q}",
+    "query-input": "required name=q",
+  },
+};
+
+const localBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  name: "JurisPage",
+  url: "https://jurispage.com",
+  telephone: "+1-888-767-7447",
+  email: "hello@jurispage.com",
+  priceRange: "$$$",
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Minneapolis",
+    addressRegion: "MN",
+    addressCountry: "US",
+  },
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: "44.9778",
+    longitude: "-93.2650",
+  },
+  openingHoursSpecification: {
+    "@type": "OpeningHoursSpecification",
+    dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+    opens: "09:00",
+    closes: "17:00",
+  },
 };
 
 export const metadata: Metadata = {
@@ -62,9 +111,9 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={montserrat.variable}>
+    <html lang="en" className={`${quicksand.variable} ${poppins.variable}`}>
       <head>
-        <SchemaOrg schema={orgSchema} />
+        <SchemaOrg schema={[orgSchema, websiteSchema, localBusinessSchema]} />
       </head>
       <body className="bg-white text-gray-900 font-body antialiased">
         <Header />

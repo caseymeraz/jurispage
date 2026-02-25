@@ -53,7 +53,7 @@ export default function BlogIndex() {
                     <Link href={`/blog/${post.slug}/`} className="no-underline hover:underline">{post.title}</Link>
                   </h2>
                   <p className="text-gray-600 text-sm leading-relaxed mb-4">{post.description}</p>
-                  <Link href={`/blog/${post.slug}/`} className="text-sm font-semibold no-underline" style={{ color: "#14EEEE" }}>
+                  <Link href={`/blog/${post.slug}/`} className="text-sm font-semibold no-underline" style={{ color: "#EE6C13" }}>
                     Read more →
                   </Link>
                 </article>

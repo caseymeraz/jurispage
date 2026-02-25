@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 const services = [
   { label: "Law Firm SEO", href: "/law-firm-seo/" },
@@ -34,12 +35,19 @@ export default function Header() {
   const [practiceOpen, setPracticeOpen] = useState(false);
 
   return (
-    <header className="bg-gray-900 border-b border-gray-800 sticky top-0 z-50">
+    <header className="bg-[#1a1a1a] border-b border-gray-800 sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link href="/" className="font-heading font-extrabold text-xl text-white no-underline">
-            Juris<span style={{ color: "#14EEEE" }}>Page</span>
+          <Link href="/" className="flex items-center no-underline">
+            <Image
+              src="/images/jurispage-logo.svg"
+              alt="JurisPage Law Firm Marketing"
+              width={160}
+              height={36}
+              priority
+              className="h-9 w-auto"
+            />
           </Link>
 
           {/* Desktop Nav */}
@@ -55,7 +63,7 @@ export default function Header() {
               </button>
               {servicesOpen && (
                 <div
-                  className="absolute top-full left-0 bg-gray-900 border border-gray-700 rounded-lg shadow-xl py-2 w-64 z-50"
+                  className="absolute top-full left-0 bg-[#1a1a1a] border border-gray-700 rounded-lg shadow-xl py-2 w-64 z-50"
                   onMouseEnter={() => setServicesOpen(true)}
                   onMouseLeave={() => setServicesOpen(false)}
                 >
@@ -83,7 +91,7 @@ export default function Header() {
               </button>
               {practiceOpen && (
                 <div
-                  className="absolute top-full left-0 bg-gray-900 border border-gray-700 rounded-lg shadow-xl py-2 w-56 z-50"
+                  className="absolute top-full left-0 bg-[#1a1a1a] border border-gray-700 rounded-lg shadow-xl py-2 w-56 z-50"
                   onMouseEnter={() => setPracticeOpen(true)}
                   onMouseLeave={() => setPracticeOpen(false)}
                 >
@@ -101,6 +109,7 @@ export default function Header() {
             </div>
 
             <Link href="/services/pricing/" className="text-gray-300 hover:text-white font-medium transition-colors no-underline">Pricing</Link>
+            <Link href="/case-studies/" className="text-gray-300 hover:text-white font-medium transition-colors no-underline">Success Stories</Link>
             <Link href="/best-law-firm-seo-companies/" className="text-gray-300 hover:text-white font-medium transition-colors no-underline">Compare</Link>
             <Link href="/blog/" className="text-gray-300 hover:text-white font-medium transition-colors no-underline">Blog</Link>
             <Link href="/about-us/" className="text-gray-300 hover:text-white font-medium transition-colors no-underline">About</Link>
@@ -113,8 +122,10 @@ export default function Header() {
             </a>
             <Link
               href="/contact/"
-              className="font-heading font-bold text-sm text-gray-900 px-5 py-2.5 rounded-lg no-underline transition-opacity hover:opacity-90"
-              style={{ background: "linear-gradient(135deg, #6FFF2C, #14EEEE)" }}
+              className="font-heading font-bold text-sm text-white px-5 py-2.5 rounded-[40px] no-underline transition-colors"
+              style={{ background: "#EE6C13" }}
+              onMouseOver={(e) => (e.currentTarget.style.background = "#982A0B")}
+              onMouseOut={(e) => (e.currentTarget.style.background = "#EE6C13")}
             >
               Free Marketing Plan
             </Link>
@@ -135,7 +146,7 @@ export default function Header() {
 
       {/* Mobile Menu */}
       {mobileOpen && (
-        <div className="lg:hidden bg-gray-900 border-t border-gray-800 py-4 px-4 space-y-1">
+        <div className="lg:hidden bg-[#1a1a1a] border-t border-gray-800 py-4 px-4 space-y-1">
           <p className="text-xs font-semibold uppercase tracking-widest text-gray-500 px-2 pt-2 pb-1">Services</p>
           {services.map((s) => (
             <Link key={s.href} href={s.href} className="block py-2 px-2 text-gray-300 hover:text-white text-sm no-underline" onClick={() => setMobileOpen(false)}>
@@ -150,9 +161,15 @@ export default function Header() {
           ))}
           <div className="pt-4 border-t border-gray-800 space-y-2">
             <Link href="/services/pricing/" className="block py-2 px-2 text-gray-300 hover:text-white text-sm font-medium no-underline" onClick={() => setMobileOpen(false)}>Pricing</Link>
+            <Link href="/case-studies/" className="block py-2 px-2 text-gray-300 hover:text-white text-sm font-medium no-underline" onClick={() => setMobileOpen(false)}>Success Stories</Link>
             <Link href="/blog/" className="block py-2 px-2 text-gray-300 hover:text-white text-sm font-medium no-underline" onClick={() => setMobileOpen(false)}>Blog</Link>
             <Link href="/about-us/" className="block py-2 px-2 text-gray-300 hover:text-white text-sm font-medium no-underline" onClick={() => setMobileOpen(false)}>About</Link>
-            <Link href="/contact/" className="block mt-3 text-center py-3 rounded-lg font-bold text-gray-900 text-sm no-underline" style={{ background: "linear-gradient(135deg, #6FFF2C, #14EEEE)" }} onClick={() => setMobileOpen(false)}>
+            <Link
+              href="/contact/"
+              className="block mt-3 text-center py-3 rounded-[40px] font-bold text-white text-sm no-underline"
+              style={{ background: "#EE6C13" }}
+              onClick={() => setMobileOpen(false)}
+            >
               Get Free Marketing Plan
             </Link>
             <a href="tel:+18887677447" className="block text-center py-2 text-gray-400 text-sm no-underline">(888) 767-7447</a>

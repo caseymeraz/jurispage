@@ -61,21 +61,21 @@ export default function PracticeAreaPage({ practiceArea: pa }: PracticeAreaPageP
       <SchemaOrg schema={schemas} />
 
       {/* Hero */}
-      <section className="bg-gray-900 py-20 px-6">
+      <section className="bg-[#1a1a1a] py-20 px-6">
         <div className="max-w-3xl mx-auto">
           <nav className="text-sm text-gray-400 mb-6">
             <Link href="/" className="hover:text-white no-underline">Home</Link> /{" "}
             <span className="text-gray-300">Practice Areas</span>
           </nav>
-          <span className="inline-block text-xs font-heading font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-4" style={{ background: "#6FFF2C22", color: "#6FFF2C" }}>
+          <span className="inline-block text-xs font-heading font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-4" style={{ background: "#EE6C1322", color: "#EE6C13" }}>
             {pa.primaryKeyword}
           </span>
           <h1 className="font-heading font-extrabold text-white text-4xl md:text-5xl leading-tight mb-6">{pa.heading}</h1>
           <div className="flex flex-wrap gap-4">
-            <Link href="/contact/" className="inline-block font-heading font-bold text-gray-900 text-sm px-7 py-3.5 rounded-lg no-underline" style={{ background: "linear-gradient(135deg, #6FFF2C, #14EEEE)" }}>
+            <Link href="/contact/" className="inline-block font-heading font-bold text-white text-sm px-7 py-3.5 rounded-[40px] no-underline transition-colors hover:opacity-90" style={{ background: "#EE6C13" }}>
               Get a Free {pa.primaryKeyword.split(" ")[0]} Marketing Plan
             </Link>
-            <Link href="/services/pricing/" className="inline-block font-heading font-bold text-white text-sm px-7 py-3.5 rounded-lg border border-gray-600 no-underline hover:border-gray-400 transition-colors">
+            <Link href="/services/pricing/" className="inline-block font-heading font-bold text-white text-sm px-7 py-3.5 rounded-[40px] border border-gray-600 no-underline hover:border-gray-400 transition-colors">
               See Pricing
             </Link>
           </div>
@@ -113,21 +113,21 @@ export default function PracticeAreaPage({ practiceArea: pa }: PracticeAreaPageP
       </section>
 
       {/* Services */}
-      <section className="py-16 px-6 bg-gray-900">
+      <section className="py-16 px-6 bg-[#1a1a1a]">
         <div className="max-w-3xl mx-auto">
           <h2 className="font-heading font-extrabold text-white text-3xl mb-8">Services That Work for {pa.primaryKeyword}</h2>
           <div className="flex flex-wrap gap-3">
             {pa.services.map((service) => (
-              <span key={service} className="px-4 py-2 rounded-full text-sm font-semibold text-gray-900" style={{ background: "#14EEEE" }}>
+              <span key={service} className="px-4 py-2 rounded-full text-sm font-semibold text-white" style={{ background: "#EE6C13" }}>
                 {service}
               </span>
             ))}
           </div>
           <div className="mt-8 pt-8 border-t border-gray-700 grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
-              { color: "#14EEEE", title: "Month-to-Month", body: "No long-term contracts. Cancel anytime with 30 days notice." },
-              { color: "#6FFF2C", title: "Published Pricing", body: "See exactly what you pay. No sales calls required." },
-              { color: "#14EEEE", title: "90-Day Guarantee", body: "Results within 90 days or we work for free the next month." },
+              { color: "#EE6C13", title: "Month-to-Month", body: "No long-term contracts. Cancel anytime with 30 days notice." },
+              { color: "#982A0B", title: "Published Pricing", body: "See exactly what you pay. No sales calls required." },
+              { color: "#EE6C13", title: "90-Day Guarantee", body: "Results within 90 days or we work for free the next month." },
             ].map((item) => (
               <div key={item.title} className="bg-gray-800 rounded-xl p-5">
                 <div className="w-6 h-1 rounded mb-3" style={{ background: item.color }}></div>
