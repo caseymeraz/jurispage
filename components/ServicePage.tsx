@@ -61,7 +61,20 @@ export default function ServicePage({ service }: ServicePageProps) {
     ],
   };
 
-  const schemas = [serviceSchema, breadcrumbSchema, ...(faqSchema ? [faqSchema] : [])];
+  const howToSchema = service.process && service.process.length > 0 ? {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": `How ${service.primaryKeyword} works at JurisPage`,
+    "description": service.intro,
+    "step": service.process.map((item, i) => ({
+      "@type": "HowToStep",
+      "position": i + 1,
+      "name": item.step,
+      "text": item.detail,
+    })),
+  } : null;
+
+  const schemas = [serviceSchema, breadcrumbSchema, ...(faqSchema ? [faqSchema] : []), ...(howToSchema ? [howToSchema] : [])];
 
   return (
     <>

@@ -208,6 +208,68 @@ export const services: ServiceData[] = [
       { question: "How long does a new website take?", answer: "Launchpad websites are live within 30 days. Custom redesigns for Grow and Dominate clients typically take 45-60 days depending on content readiness." },
       { question: "Do you design on WordPress?", answer: "Yes. WordPress is the standard for law firm websites for good reason — it's flexible, SEO-friendly, and every developer can work with it if you ever need to change agencies." },
     ],
+    stats: [
+      { value: "57%", label: "Of users abandon sites that take more than 3 seconds to load" },
+      { value: "30 days", label: "Guaranteed launch timeline for Launchpad website projects" },
+      { value: "100%", label: "Client ownership of domain, WordPress, and content" },
+      { value: "3x", label: "Average improvement in contact form submissions after redesign" },
+    ],
+    whyMatters: "Your website is the first thing a prospective client evaluates before calling your office. A slow, generic, or dated site tells that person everything they need to know about how your firm presents itself. Over 70% of legal consumers visit a law firm website before making contact, and most make a decision about credibility within the first 10 seconds. A professionally designed site built for law firms is not a marketing luxury - it is the foundation every other channel (SEO, paid ads, referrals) relies on to actually convert.",
+    process: [
+      {
+        step: "Discovery and Strategy",
+        detail: "We start with a 60-minute intake covering your practice areas, target client profile, geographic focus, and competitive landscape. We research your top local competitors, identify what the top-ranking law firm sites are doing right, and map out a site architecture that positions you to win in your market.",
+      },
+      {
+        step: "Wireframe and Content Planning",
+        detail: "Before any design starts, we wireframe every key page - homepage, practice area pages, attorney bios, and contact. We identify which pages need to convert visitors (practice area pages) versus which build trust (about, attorney profiles), and plan content accordingly so design and copy are built together, not bolted on afterward.",
+      },
+      {
+        step: "Design and Brand Development",
+        detail: "We build a custom WordPress design that reflects your firm's identity - not a recycled template with your logo dropped in. Every page layout is built around conversion: phone number prominent, clear call-to-action above the fold, trust signals (awards, bar memberships, case results where permitted) placed where they will actually be seen.",
+      },
+      {
+        step: "SEO Foundation Setup",
+        detail: "Every site we build launches with proper on-page SEO from day one. Title tags, meta descriptions, heading structure, schema markup (attorney, law firm, FAQ), XML sitemap, robots.txt, and Google Search Console verification are all configured before the site goes live. Most law firm websites launch without any of this in place.",
+      },
+      {
+        step: "Speed and Core Web Vitals Optimization",
+        detail: "We optimize every site for Google's Core Web Vitals - Largest Contentful Paint, Cumulative Layout Shift, and Interaction to Next Paint. This means proper image compression, caching configuration, and code cleanup. A slow site is penalized in rankings and loses visitors before they read a word.",
+      },
+      {
+        step: "Launch and 30-Day Review",
+        detail: "We handle the full launch process including DNS configuration, SSL setup, and analytics installation. At 30 days post-launch, we review heatmap data, form submission rates, and Google Search Console performance to identify any early conversion gaps and address them before they cost you leads.",
+      },
+    ],
+    signs: [
+      "Your current site takes more than 3 seconds to load on mobile - Google's own data shows bounce rate nearly doubles between 1s and 3s load time.",
+      "You have been embarrassed to send potential clients to your website because the design looks unprofessional compared to competitors.",
+      "Your site has no clear call to action above the fold - visitors have to scroll or search to figure out how to contact you.",
+      "You do not own your website outright; you are on a proprietary platform that requires you to stay with your current vendor to maintain access.",
+      "Your attorney bio pages have stock photos and generic descriptions rather than real credentials, case results, and bar admissions.",
+    ],
+    extendedFaqs: [
+      {
+        question: "How much does a law firm website cost?",
+        answer: "Law firm website design ranges from $3,000 to $25,000+ depending on size and complexity. Our Launchpad plan includes a professional WordPress site at a fixed, published price with a 30-day delivery guarantee. Grow and Dominate plan clients get a full custom redesign as part of their engagement. We do not charge ongoing monthly fees to maintain your WordPress installation - your site is yours.",
+      },
+      {
+        question: "What makes a good law firm website?",
+        answer: "The best law firm websites do three things well: they load fast (under 2 seconds on mobile), they establish credibility immediately (real attorney photos, specific credentials, case results where bar rules permit), and they make it frictionless to contact the firm (phone number in the header, contact form on every practice area page). Most law firm sites fail on at least two of those three criteria.",
+      },
+      {
+        question: "Should a law firm use WordPress or a website builder like Wix or Squarespace?",
+        answer: "WordPress is the right choice for law firms that care about SEO and long-term control. Wix and Squarespace have improved, but they still limit how much control you have over technical SEO settings, page speed optimization, and structured data markup. More importantly, you cannot take your Wix or Squarespace site to another developer - you are locked in. WordPress sites can be moved, modified, and managed by any developer.",
+      },
+      {
+        question: "How important is mobile design for law firm websites?",
+        answer: "Over 60% of legal searches happen on mobile devices. If your site is not designed mobile-first, you are delivering a bad experience to the majority of your potential clients. This means easy-to-tap phone numbers, readable text without zooming, and forms that work correctly on small screens. Google also uses mobile page experience as a ranking factor, so a poor mobile site hurts your SEO directly.",
+      },
+      {
+        question: "Do I need a separate page for each practice area?",
+        answer: "Yes, and this is one of the most common structural mistakes law firm websites make. A single practice areas page that lists criminal defense, family law, and personal injury as bullet points is not rankable for any competitive keyword. Each practice area needs its own dedicated page with a specific keyword target, sufficient content depth, and a clear conversion path. Firms that invest in individual practice area pages consistently outrank those that do not.",
+      },
+    ],
   },
   {
     relatedCaseStudies: ["the-sands-law-group"],
@@ -314,6 +376,68 @@ export const services: ServiceData[] = [
       { question: "What's the difference between Launchpad and DIY website builders?", answer: "DIY builders like Squarespace or Wix can look fine but are SEO nightmares for law firms. Launchpad is built on WordPress with proper SEO structure, local optimization, and the same professional foundation that larger firms pay much more for." },
       { question: "Can I upgrade to a higher plan later?", answer: "Yes. Launchpad is designed as a foundation. Most clients move to Grow 6-12 months in once they're established and ready to add SEO and paid advertising. There's no penalty and no restart needed." },
     ],
+    stats: [
+      { value: "30 days", label: "From signed agreement to live website" },
+      { value: "6-12 mo", label: "Typical timeline to upgrade from Launchpad to Grow" },
+      { value: "1 vendor", label: "Website, GBP, local SEO, and email all in one package" },
+      { value: "0", label: "Long-term contracts required" },
+    ],
+    whyMatters: "New law firms face a specific challenge: you need cases now, but most marketing channels take months to produce results. Launchpad is designed for that reality. It puts the foundational assets in place immediately - a professional website, a verified Google Business Profile, and correct citation data across directories - so that when potential clients search for your practice area in your city, they find a firm that looks credible and ready to take their case. Getting these basics right from day one is dramatically easier than trying to fix them after six months of inconsistent data has spread across the web.",
+    process: [
+      {
+        step: "Intake and Brand Alignment",
+        detail: "We gather your practice areas, target geography, bar admissions, attorney bio information, and any existing brand assets (logo, colors). If you have nothing yet, we help you make fast decisions rather than getting stuck. Most Launchpad clients are operational and sending us materials within 48 hours of signing.",
+      },
+      {
+        step: "Website Build",
+        detail: "We build your WordPress site on a clean, fast theme designed specifically for law firms - not a generic business theme adapted for legal. Pages include: homepage, practice area pages for each area you handle, attorney bio, and a contact page with a form and click-to-call phone number. The site launches with title tags, meta descriptions, and schema markup already in place.",
+      },
+      {
+        step: "Google Business Profile Setup and Verification",
+        detail: "We set up or claim your Google Business Profile, complete every field (categories, services, business hours, description, photos), and initiate the verification process. GBP verification can take 5-14 days by postcard for new firms - we start this process on day one so it is resolved by the time your site launches.",
+      },
+      {
+        step: "Citation and Directory Foundation",
+        detail: "We submit your firm to the essential legal directories (Avvo, Justia, FindLaw, Martindale) and local data aggregators with consistent NAP information. Getting this right from the start prevents the citation inconsistency problems that plague firms who let random directory submissions accumulate over time.",
+      },
+      {
+        step: "Branded Email Configuration",
+        detail: "We configure your professional email through Google Workspace or Microsoft 365 so you are sending from yourname@yourfirm.com from day one. This matters for client trust and for email deliverability - emails from gmail.com addresses to potential clients are frequently filtered as spam.",
+      },
+      {
+        step: "Launch Walkthrough and First-30-Days Guidance",
+        detail: "We deliver a recorded walkthrough of your new site, GBP dashboard, and what to focus on in your first 30 days. This includes your first review generation playbook - the right way to ask satisfied contacts, former colleagues, and referral sources for Google reviews before you have active clients leaving reviews organically.",
+      },
+    ],
+    signs: [
+      "You are about to open your firm or recently launched and have no website - potential referrals from colleagues cannot find you online.",
+      "You left a larger firm and your online presence still points to your former employer rather than your own practice.",
+      "You have been practicing solo for 6-12 months on referrals but know you need a digital presence to grow beyond your immediate network.",
+      "Your current website is a DIY Wix or Squarespace build you threw together quickly - it does not rank for any practice area keywords and converts very few visitors.",
+      "You have no Google Business Profile or it was set up incorrectly and shows the wrong address or phone number.",
+    ],
+    extendedFaqs: [
+      {
+        question: "How much should a new law firm spend on marketing?",
+        answer: "Industry benchmarks suggest law firms should allocate 2-5% of gross revenue to marketing, but new firms obviously have little revenue yet. A practical approach: start with the fixed-cost foundational items (website, GBP, citations) that pay dividends indefinitely, and hold off on paid advertising until you have consistent enough cash flow to absorb a 60-90 day ramp period. Launchpad is specifically priced for this phase.",
+      },
+      {
+        question: "Is it true that new law firms should focus on referrals instead of digital marketing?",
+        answer: "Referrals and digital presence are not in competition - they support each other. When a colleague refers a potential client to you, the first thing that person does is Google your name. If they find nothing, or find a half-built site, you lose that referral. A professional website and Google Business Profile make every referral you receive more likely to convert. Referral networking is a great strategy for new firms - just make sure your digital presence does not undermine it.",
+      },
+      {
+        question: "How long does it take for a new law firm website to rank on Google?",
+        answer: "New domains typically take 3-6 months before Google starts ranking them for competitive terms. However, a properly configured Google Business Profile can appear in local map pack results much faster - sometimes within 30-60 days for less competitive markets. This is one reason Launchpad prioritizes GBP setup alongside the website build: it gives new firms a faster path to local visibility while the site's domain authority builds over time.",
+      },
+      {
+        question: "Do I need to hire separate vendors for my website, SEO, and Google Business Profile?",
+        answer: "You do not, and doing so often creates problems. When your website developer, your SEO vendor, and your GBP manager are three different companies, you end up with inconsistent information, conflicting strategies, and no single point of accountability. Launchpad handles all three as a coordinated package with a single team and a single point of contact.",
+      },
+      {
+        question: "What happens if I need to change my address or phone number after launch?",
+        answer: "We update your website, Google Business Profile, and notify the major data aggregators of the change. Address consistency across the web is a live SEO signal, not a one-time setup task. Plan changes (new office, phone system updates) to your Grow or Dominate plan include citation maintenance as a standard service.",
+      },
+    ],
   },
   {
     relatedCaseStudies: ["the-sands-law-group"],
@@ -335,6 +459,68 @@ export const services: ServiceData[] = [
       { question: "What is Generative Engine Optimization (GEO)?", answer: "GEO is the practice of optimizing your law firm's online presence to appear in AI-generated answers — including Google AI Overviews, ChatGPT responses, Perplexity answers, and other AI search tools. As more legal searches go through AI interfaces, GEO becomes as important as traditional SEO." },
       { question: "How is GEO different from traditional SEO?", answer: "Traditional SEO targets the blue link results in Google. GEO targets the AI-generated summaries that appear above those results (AI Overviews) or in standalone AI tools. The signals are different: AI systems favor authoritative, well-structured, E-E-A-T-strong content with clear entity connections." },
       { question: "Which practice areas benefit most from GEO?", answer: "Personal injury, criminal defense, family law, and immigration all see significant question-based searches that AI systems are answering. Any practice area where clients ask research questions before calling a lawyer benefits from GEO visibility." },
+    ],
+    stats: [
+      { value: "28%", label: "Of consumers now use ChatGPT to research lawyers (Juris Digital, 2025)" },
+      { value: "40%+", label: "Of Google searches now show an AI Overview above organic results" },
+      { value: "2.8M", label: "Google results for 'generative engine optimization for law firms'" },
+      { value: "Early", label: "Most law firms have zero deliberate GEO strategy today" },
+    ],
+    whyMatters: "AI search is not coming - it is already here. Over a quarter of legal consumers now use tools like ChatGPT or Perplexity to research their situation before they ever call an attorney. When someone asks 'do I need a personal injury lawyer after a car accident in Denver,' they are a qualified lead - but only the attorneys whose content gets cited in that answer get consideration. GEO is still a first-mover opportunity in legal: the firms that build AI visibility now will be harder to displace as these systems mature and entrench citation patterns.",
+    process: [
+      {
+        step: "AI Presence Audit",
+        detail: "We run systematic queries across ChatGPT, Perplexity, and Google AI Overviews for your practice area and geography to establish your current AI presence baseline. Most law firms discover they are cited in zero of the queries that are actively sending leads to competitors. This audit defines the gap we need to close.",
+      },
+      {
+        step: "Entity and Authority Optimization",
+        detail: "AI systems build their knowledge from the web's entity graph. We strengthen your firm's entity signals - complete attorney profiles on authoritative legal directories (Avvo, Justia, Super Lawyers, state bar), properly structured schema markup, and consistent Name-Address-Phone data across every source AI models index. Weak entity definition is the most common reason law firms are invisible in AI answers.",
+      },
+      {
+        step: "Content Structuring for AI Citation",
+        detail: "AI systems favor content that directly answers questions in clear, citable formats. We audit your existing practice area pages and blog content, then restructure it with direct-answer formatting: explicit question-answer structure, short declarative sentences, and factual statements that AI models can lift and attribute. This is different from writing for human readers or traditional keyword optimization.",
+      },
+      {
+        step: "Authority Content Development",
+        detail: "We identify the specific legal questions your potential clients are asking AI systems right now and build content that answers them with the depth and credibility AI models require for citation. This includes first-person attorney experience signals, specific jurisdictional detail, and references to verifiable facts - the elements that distinguish citable authority content from generic legal information.",
+      },
+      {
+        step: "E-E-A-T Signal Strengthening",
+        detail: "Google's AI Overviews and the underlying models used by ChatGPT and Perplexity all weight Experience, Expertise, Authoritativeness, and Trustworthiness heavily for legal content. We build out the signals they look for: attorney credentials published prominently, case result data where bar rules permit, press mentions, and third-party citations that establish your attorneys as recognized authorities in their practice areas.",
+      },
+      {
+        step: "Monthly Monitoring and Iteration",
+        detail: "AI search results are not static - citation patterns shift as models update and competitors publish new content. We monitor your presence monthly across the major AI platforms, track which queries are citing competitors but not you, and iterate on content and entity optimization based on what we observe. This is ongoing work, not a one-time fix.",
+      },
+    ],
+    signs: [
+      "When you ask ChatGPT 'what is the best personal injury law firm in [your city],' your firm is not mentioned - a competitor you consider less qualified is.",
+      "Your website has good Google rankings but your content is written in the dense, hedged style of legal writing rather than the direct question-answer format AI systems cite.",
+      "Your attorney bio pages and firm profile on legal directories are sparse or inconsistent - making it hard for AI systems to identify your attorneys as recognized authorities.",
+      "Google AI Overviews are appearing at the top of results for your target practice area searches and your content is not being cited in any of them.",
+      "You have not yet thought about how ChatGPT, Perplexity, or Google's AI Mode affects where legal clients find attorneys - your competitors likely have not either, which is the window to act.",
+    ],
+    extendedFaqs: [
+      {
+        question: "Can GEO replace traditional law firm SEO?",
+        answer: "Not yet, and probably not for several years. Traditional organic search still drives the majority of legal client inquiries. GEO is best understood as an additional channel that runs alongside SEO, not instead of it. In practice, the work overlaps significantly: strong E-E-A-T signals, well-structured content, and authoritative backlinks help both traditional rankings and AI citation. Firms that invest in SEO are already partially optimized for GEO.",
+      },
+      {
+        question: "How do AI systems decide which law firms to recommend?",
+        answer: "AI systems do not have a simple ranking algorithm like Google's PageRank. They draw from the content they have indexed, weighted by source authority and content clarity. For legal queries, they prioritize sources that are specific, factual, and clearly attributed to credentialed authors. Law firms that appear consistently across authoritative legal directories, have detailed attorney profiles, and publish direct-answer content are more likely to be cited than firms with thin or generic web presences.",
+      },
+      {
+        question: "Which AI platforms matter most for law firm GEO?",
+        answer: "In 2026, Google AI Overviews matter most because they appear directly in Google Search for the largest volume of queries. ChatGPT is second - it handles an estimated 100M+ queries per day and legal questions are among the most common. Perplexity is third, with a research-oriented user base that skews toward higher-income individuals likely to need professional legal help. Microsoft Copilot (Bing-integrated) is worth tracking given its integration with Microsoft 365 and LinkedIn.",
+      },
+      {
+        question: "How long does GEO take to show results?",
+        answer: "Entity and authority optimizations - cleaning up directory profiles, fixing schema markup, strengthening attorney credentials on authoritative platforms - can show results in AI citations within 60-90 days as models re-index sources. Content changes take longer: new content needs to be indexed, assessed for authority, and incorporated into model training or retrieval systems, which can take 3-6 months. GEO is not a quick fix, but the early movers in each market will be harder to displace as citation patterns set.",
+      },
+      {
+        question: "Is there a way to measure GEO performance for a law firm?",
+        answer: "We track GEO performance through systematic AI query monitoring - running a defined set of practice area and geographic queries monthly across ChatGPT, Perplexity, and Google AI Overviews and recording which law firms are cited. We also track Google Search Console AI Overview impressions (available for sites with GSC access) and monitor referral traffic patterns from AI platforms. It is a younger measurement discipline than traditional SEO, but the metrics are trackable and improving.",
+      },
     ],
   },
   {

@@ -168,8 +168,10 @@ export default function MetroPage({ metro, service }: MetroPageProps) {
           <div className="max-w-3xl mx-auto">
             <h2 className="font-heading font-bold text-gray-700 text-lg mb-4">Also Serving Nearby Areas</h2>
             <div className="flex flex-wrap gap-2">
-              {metro.nearbyCities.map((city) => (
-                <span key={city} className="px-3 py-1.5 bg-gray-200 rounded text-sm text-gray-600">{city}</span>
+              {nearbySlugs.map((city) => (
+                <Link key={city.href} href={city.href} className="px-3 py-1.5 bg-gray-200 rounded text-sm text-gray-600 hover:bg-[#1a1a1a] hover:text-white transition-colors no-underline">
+                  {serviceLabel} in {city.label}
+                </Link>
               ))}
             </div>
           </div>
