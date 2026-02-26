@@ -10,6 +10,9 @@ export interface PracticeAreaData {
   services: string[];
   faqs: { question: string; answer: string }[];
   relatedCaseStudies?: string[];
+  stats?: { value: string; label: string }[];
+  process?: { step: string; detail: string }[];
+  extendedFaqs?: { question: string; answer: string }[];
 }
 
 export const practiceAreas: PracticeAreaData[] = [
@@ -28,9 +31,30 @@ export const practiceAreas: PracticeAreaData[] = [
       "Sending paid traffic to a homepage instead of a dedicated, conversion-optimized landing page",
     ],
     services: ["Law Firm SEO", "Google Ads Management", "Local SEO & Map Pack", "Law Firm Website Design", "GEO Optimization"],
+    stats: [
+      { value: "96%", label: "of PI clients search online before contacting an attorney (Google Consumer Survey)" },
+      { value: "$150-$300", label: "average cost-per-click for PI keywords in major markets" },
+      { value: "3x", label: "more leads from SEO vs. paid for PI firms after 12 months of consistent investment" },
+      { value: "78%", label: "of PI searches have local intent — map pack visibility is not optional" },
+    ],
+    process: [
+      { step: "Injury-Type Keyword Architecture", detail: "We map your target case types (car accidents, slip and fall, trucking, etc.) to dedicated pages with location-specific variants. This is the foundation that separates firms ranking for one keyword from firms owning an entire market." },
+      { step: "Google Business Profile Optimization for PI Searches", detail: "We optimize your GBP specifically for injury-related search categories, build out the services section with case types, and implement a review acquisition process focused on generating 5-star reviews from settled clients." },
+      { step: "Conversion-Optimized Landing Pages", detail: "Every paid traffic source gets a dedicated landing page — not your homepage. We build PI-specific pages with trust signals (verdicts and settlements, attorney credentials), fast load times, and click-to-call designed for mobile users." },
+      { step: "Google Ads Campaign Structure", detail: "PI campaigns require tightly controlled ad groups by injury type and location. We build separate ad groups for car accidents, trucking, motorcycle, and slip-and-fall with match-type controls that prevent wasted spend on unqualified queries." },
+      { step: "Local Service Ads Setup and Management", detail: "LSAs are often the highest-converting placement in PI. We get your firm Google Screened, build out the LSA profile, and manage bids to maximize qualified call volume within your budget." },
+      { step: "Monthly Reporting Tied to Case Inquiries", detail: "We track keyword rankings, map pack positions, and paid campaign performance — but the metric that matters most is qualified case contacts. Every report connects marketing activity to actual intake volume." },
+    ],
     faqs: [
       { question: "How competitive is PI lawyer SEO?", answer: "Personal injury is one of the most competitive verticals in all of search marketing. CPCs can reach $100-$300 per click in major markets. Organic SEO takes longer to establish but produces significantly lower cost-per-lead once rankings are established." },
       { question: "What's the best marketing channel for PI law firms?", answer: "The combination of Google Local Service Ads (for immediate visibility), Google Ads (for targeted volume), and SEO (for long-term compounding results) outperforms any single channel. The right mix depends on your market and budget." },
+    ],
+    extendedFaqs: [
+      { question: "How long does it take for personal injury SEO to generate leads?", answer: "Most PI firms see initial ranking movement within 3-4 months and meaningful lead flow from organic at the 6-9 month mark. Highly competitive markets (Los Angeles, New York, Houston) can take 12-18 months to reach top-5 positions. Paid ads can generate leads in the first week — combining both channels is the fastest path to a full pipeline." },
+      { question: "Should PI firms run Google Ads and SEO at the same time?", answer: "Yes. They serve different functions. Google Ads delivers immediate visibility and cases while your SEO builds authority. As organic rankings improve over time, you can reduce paid spend for terms where you rank organically. Firms that run both in coordination consistently outperform those relying on a single channel." },
+      { question: "What case types should PI firms target first in their SEO?", answer: "Start with your highest-value case types in your primary geographic market. For most PI firms, that means motor vehicle accident pages (car, truck, motorcycle) with city-specific variants. These have the highest search volume and the clearest path to cases. Once those are ranking, expand to slip-and-fall, premises liability, and practice-area adjacent terms." },
+      { question: "How many reviews does a PI firm need to rank in the map pack?", answer: "There's no fixed number, but in most mid-size markets, PI firms in the top 3 map pack positions average 50-150 Google reviews with a 4.7+ rating. Beyond count, review recency matters — a consistent flow of new reviews signals an active practice. We implement review request workflows that generate 3-5 new reviews per month for active clients." },
+      { question: "Do personal injury law firms need separate pages for each accident type?", answer: "Yes. A single 'personal injury' page cannot compete with a firm that has dedicated pages for car accidents, truck accidents, motorcycle accidents, and slip-and-fall with location modifiers. Each page targets its own keyword cluster and provides Google with a clear signal of relevance for that specific case type." },
     ],
   },
   {
@@ -48,9 +72,30 @@ export const practiceAreas: PracticeAreaData[] = [
       "Missing dedicated pages for specific charges (DUI, drug possession, assault, etc.)",
     ],
     services: ["Law Firm SEO", "Google Ads Management", "Local SEO", "Law Firm Website Design"],
+    stats: [
+      { value: "72%", label: "of criminal defense searches happen on mobile — site speed is not optional" },
+      { value: "48hrs", label: "average window from arrest to attorney hire — you must be found fast" },
+      { value: "3x", label: "higher conversion rate for charge-specific landing pages vs. generic criminal defense pages" },
+      { value: "24/7", label: "arrests happen at all hours — your Google Ads must run around the clock" },
+    ],
+    process: [
+      { step: "Charge-Specific Page Architecture", detail: "We build individual pages for every charge type you handle: DUI, drug possession, assault, domestic violence, federal charges, and more. Each page targets the charge name plus location, matching how real clients search in crisis." },
+      { step: "Mobile-First Website Performance", detail: "Criminal defense clients are searching on their phones, often under stress and in a hurry. We audit and optimize your site for sub-2-second load times on mobile, click-to-call placement, and simplified intake forms that don't ask for 20 fields." },
+      { step: "Round-the-Clock Google Ads", detail: "DUI arrests peak on weekends and late nights. Most criminal defense inquiries come outside business hours. We configure campaigns to run 24/7 with bid adjustments for high-intent time windows, and ensure your after-hours contact options are clearly visible." },
+      { step: "Map Pack Dominance for Charge-Specific Searches", detail: "We optimize your Google Business Profile for criminal defense categories, build citations in the right legal directories, and generate a consistent flow of client reviews. The map pack captures searchers who are looking for someone local and available now." },
+      { step: "Trust-Building Content Strategy", detail: "Clients hiring a criminal defense attorney need to believe you can win. We produce case result pages, attorney bio content that highlights courtroom experience, and FAQ content that answers the specific questions people ask after being charged." },
+      { step: "Intake Process Optimization", detail: "Getting to the top of Google means nothing if your intake process loses leads. We audit your contact form, phone answer rates, and after-hours options — then recommend changes that convert more of your inbound traffic into actual consultations." },
+    ],
     faqs: [
       { question: "Should criminal defense firms run Google Ads?", answer: "Yes — criminal defense is one of the best practice areas for PPC because intent is high and timing matters. A client who just got a DUI charge and searches for an attorney needs immediate results. Paid ads put you at the top instantly." },
       { question: "What keywords work best for criminal defense SEO?", answer: "Practice-area specific terms (DUI lawyer, drug charge attorney, assault lawyer) combined with your city name consistently outperform generic 'criminal defense lawyer' terms in both SEO and PPC." },
+    ],
+    extendedFaqs: [
+      { question: "How important is website speed for criminal defense law firms?", answer: "Critical. Criminal defense clients are searching in moments of urgency — they're not going to wait 5 seconds for your page to load. Our analysis of criminal defense firm websites shows that every second of additional load time increases bounce rates by 20-30%. A fast-loading mobile site is one of the highest-ROI improvements a criminal defense firm can make." },
+      { question: "Should criminal defense attorneys have separate pages for DUI and general criminal defense?", answer: "Absolutely. A single criminal defense page competes for a broad, highly competitive term. Separate pages for DUI, drug charges, assault, and other charges each have their own keyword clusters — and someone searching 'DUI lawyer Denver' has much more specific intent than someone searching 'criminal lawyer Denver'. Specific pages convert better and rank faster." },
+      { question: "How do criminal defense firms get more Google reviews?", answer: "The challenge is that many criminal defense clients don't want to publicly advertise that they needed a criminal attorney. The solution is a private, direct review request sent via text or email immediately after a positive case resolution — when client satisfaction is highest. We build these review workflows and typically generate 4-8 new reviews per month for active criminal defense clients." },
+      { question: "What's a realistic SEO timeline for a criminal defense firm in a competitive city?", answer: "In a mid-size market (city population 100,000-500,000), most criminal defense firms see meaningful map pack improvement within 60-90 days and organic ranking improvements for specific charge terms within 3-5 months. Major cities (top 20 metro areas) take longer — typically 6-12 months for top-5 organic positions on competitive terms like 'DUI lawyer [city]'." },
+      { question: "Do criminal defense firms benefit from content marketing?", answer: "Yes, but the content type matters. Educational content that answers post-arrest questions ('what happens after a DUI arrest', 'can a drug charge be expunged') captures high-intent searches from people at the beginning of their attorney search. This content also builds E-E-A-T signals that improve your overall domain authority." },
     ],
   },
   {
@@ -87,8 +132,29 @@ export const practiceAreas: PracticeAreaData[] = [
       "Not optimizing Google Business Profile for the specific communities you serve",
     ],
     services: ["Law Firm SEO", "Content Writing", "Local SEO", "Law Firm Website Design"],
+    stats: [
+      { value: "45M+", label: "Spanish speakers in the US represent a massive underserved legal market" },
+      { value: "60%", label: "of immigration searches in bilingual markets occur in a language other than English" },
+      { value: "120+", label: "distinct immigration visa categories — each with its own search demand" },
+      { value: "2x", label: "higher conversion rate for Spanish-language landing pages in Hispanic-majority markets" },
+    ],
+    process: [
+      { step: "Visa-Type Page Architecture", detail: "We map your practice to specific visa categories: family-based petitions, employment visas (H-1B, L-1, O-1), green card applications, naturalization, DACA, asylum, and deportation defense. Each gets its own page targeting the exact terms people use when searching for that visa type." },
+      { step: "Multilingual SEO Strategy", detail: "We build parallel English and Spanish content tracks where your market justifies it. Spanish-language immigration searches are underserved by most firms — ranking for 'abogado de inmigración [ciudad]' often requires far less competition than its English equivalent." },
+      { step: "Google Business Profile for Community Trust", detail: "Immigration clients pick attorneys who serve their community. We optimize your GBP to reflect the languages you serve, the communities you work with, and the specific immigration services you offer. Photos, service descriptions, and posts all reinforce trust for non-English speaking clients." },
+      { step: "Educational Content for Every Stage of the Process", detail: "Immigration clients research extensively before calling. We produce content that answers the questions people actually ask: how long does a green card take, what happens at a naturalization interview, what are my rights if ICE comes to my door. This builds authority and captures clients early." },
+      { step: "Deportation Defense Urgency Campaigns", detail: "Deportation defense cases are time-critical. We build dedicated pages and, where appropriate, targeted paid campaigns for removal defense, bond hearings, and emergency immigration matters — with 24/7 contact options prominently positioned." },
+      { step: "Referral and Community Network Development", detail: "Immigration clients often find attorneys through community networks — churches, cultural organizations, other immigrants. We help build the online presence that supports these offline referral relationships: reviews in multiple languages, community-specific content, and a website that builds credibility on first visit." },
+    ],
     faqs: [
       { question: "Should immigration law firms have multilingual websites?", answer: "In most markets, yes. Spanish-language search volume alone can represent 20-40% of your total addressable audience. We build multilingual SEO strategies that target both English and Spanish searchers for immigration services." },
+    ],
+    extendedFaqs: [
+      { question: "What are the most searched immigration keywords attorneys should target?", answer: "The highest-volume immigration searches typically include green card lawyer, citizenship attorney, deportation lawyer, DACA attorney, and visa application help — all with city modifiers. Visa-specific terms like H-1B attorney or asylum lawyer have lower volume but higher intent. We research your specific market and recommend a keyword strategy based on actual search demand in your city." },
+      { question: "How does immigration law SEO differ from other practice areas?", answer: "The biggest difference is the multilingual dimension. A well-executed Spanish-language SEO strategy can double your organic traffic in markets with significant Hispanic populations — and that traffic often converts at higher rates because Spanish-language search results are far less competitive. Immigration SEO also requires content organized by visa type rather than just 'immigration lawyer'." },
+      { question: "Should immigration firms invest in Google Ads?", answer: "Selectively. Google Ads work well for deportation defense (time-critical searches), specific visa types with high case values (EB-5, O-1, employment visas), and in markets where organic rankings are still developing. For general immigration and family visas, SEO typically delivers better long-term ROI. We recommend starting with paid ads on your highest-value case types while SEO builds momentum." },
+      { question: "How do immigration attorneys get more positive reviews from clients?", answer: "The challenge is that many immigration clients are cautious about leaving online reviews that identify them as immigrants. The solution is to request reviews immediately after a positive outcome — when satisfaction is highest — and to offer options like leaving an anonymous review or a testimonial without identifying details. We build review systems that generate consistent reviews while being sensitive to client privacy concerns." },
+      { question: "What's the ROI of a Spanish-language SEO strategy for immigration firms?", answer: "In markets with significant Hispanic populations, a Spanish-language SEO investment typically generates leads at 30-50% lower cost than English-language SEO because competition is weaker. For an immigration firm that handles 20-30 cases per month, adding a Spanish-language track to an existing SEO program often pays for itself within the first 3-4 months." },
     ],
   },
   {

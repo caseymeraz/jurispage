@@ -43,6 +43,8 @@ const faqSchema = {
     { "@type": "Question", name: "Do law firm SEO companies guarantee rankings?", acceptedAnswer: { "@type": "Answer", text: "No reputable SEO agency guarantees specific rankings. Google controls rankings, not agencies. Treat any ranking guarantee as a red flag." } },
     { "@type": "Question", name: "What should I look for in a law firm SEO contract?", acceptedAnswer: { "@type": "Answer", text: "Look for month-to-month flexibility or at most a 6-month initial commitment. Confirm you own all content, website assets, and data if you leave." } },
     { "@type": "Question", name: "How do I know if my law firm SEO agency is actually doing work?", acceptedAnswer: { "@type": "Answer", text: "Ask for monthly reports showing specific deliverables: content published, links built, technical fixes completed, and ranking changes for target keywords." } },
+    { "@type": "Question", name: "What's the difference between a legal SEO agency and a general SEO agency?", acceptedAnswer: { "@type": "Answer", text: "Legal SEO has specific requirements: bar advertising ethics rules, E-E-A-T requirements for YMYL legal content, practice area keyword structures, and local map pack strategies specific to legal. Agencies that also do HVAC and dental have split focus and generic strategies." } },
+    { "@type": "Question", name: "How do I evaluate whether a law firm SEO agency's case studies are real?", acceptedAnswer: { "@type": "Answer", text: "Look for case studies that name the client, state the specific market and practice area, show actual keyword rankings or traffic numbers, and include before-and-after comparisons. Ask if you can speak directly with current or former clients in your practice area." } },
   ],
 };
 
@@ -53,6 +55,8 @@ const faqs = [
   { question: "What should I look for in a law firm SEO contract?", answer: "Look for month-to-month flexibility or at most a 6-month initial commitment. Be cautious of 12-24 month contracts with steep cancellation penalties. Confirm that you own all content, website assets, and data if you leave." },
   { question: "Do law firm SEO companies guarantee rankings?", answer: "No reputable SEO agency guarantees specific rankings, and you should treat any guarantee as a red flag. Google controls rankings, not agencies. Agencies that promise 'Page 1 in 90 days' are either targeting very low-competition keywords or making promises they cannot keep." },
   { question: "How do I know if my law firm SEO agency is actually doing work?", answer: "Ask for monthly reports that show specific deliverables: how many pages of content were published, which links were built and from where, what technical fixes were completed, and how rankings changed for your target keywords. Vague reports showing only traffic graphs are a warning sign." },
+  { question: "What's the difference between a legal SEO agency and a general SEO agency?", answer: "Legal SEO has specific requirements that general agencies often miss: state bar advertising rules that vary by jurisdiction, E-E-A-T requirements for YMYL (Your Money or Your Life) legal content, practice area keyword structures that differ completely from other industries, and local map pack optimization strategies that are specific to legal. An agency that also does HVAC, dental, and e-commerce has split attention and generic strategies. The best outcomes for law firms consistently come from agencies that work exclusively in legal." },
+  { question: "How do I evaluate whether a law firm SEO agency's case studies are real?", answer: "Look for case studies that name the client (or at least describe them specifically), state the specific market and practice area, show actual keyword rankings or traffic numbers, and include a before-and-after comparison. Generic testimonials without numbers or specifics are easy to fabricate. Published case studies with named clients and measurable outcomes are the gold standard. Ask the agency if you can speak directly with any of their current or former clients in your practice area." },
 ];
 
 const agencies = [
@@ -234,12 +238,45 @@ export default function BestLawFirmSEOPage() {
             <span className="text-gray-700"> JurisPage is ranked #1 on this list. We wrote this article. That&apos;s an obvious conflict of interest, and we&apos;re disclosing it upfront. We&apos;ve done our best to give honest assessments of every company — including their real weaknesses.</span>
           </div>
 
-          <h2 className="font-heading font-extrabold text-gray-900 text-2xl mt-10 mb-4">How We Evaluated Each Company</h2>
-          <ul className="space-y-2 text-gray-700 mb-8">
-            {["Transparency — Do they publish pricing? Are reports actionable?", "Law firm specialization — Legal-only vs. serving every industry", "Contract terms — Month-to-month vs. long-term lock-in", "Practice area depth — Do they understand specific areas, not just 'legal' generically?", "Track record — Published case studies, verifiable results", "Communication quality — Responsive, proactive, or hard to reach?", "Technology stack — Analytics, tracking, reporting infrastructure"].map((item) => (
-              <li key={item} className="flex gap-2 items-start"><span className="text-gray-400 mt-1">•</span><span>{item}</span></li>
+          <h2 className="font-heading font-extrabold text-gray-900 text-2xl mt-10 mb-4">What to Look For in a Law Firm SEO Company</h2>
+          <p className="text-gray-700 mb-6">Most attorneys evaluate law firm SEO agencies the wrong way. They look at agency size, brand name recognition, or a sales pitch deck. What actually predicts results is different. Here is what to evaluate before signing anything.</p>
+          <div className="space-y-5 mb-10">
+            {[
+              { title: "Published Pricing", body: "If an agency requires a sales call before revealing what anything costs, that's by design. Opaque pricing creates leverage in negotiations and makes it hard to compare. Every agency on this list that refuses to publish pricing is doing so for a reason." },
+              { title: "Legal-Only Specialization", body: "Legal SEO has unique requirements: bar advertising ethics rules vary by state, Google applies YMYL (Your Money or Your Life) content standards to legal pages, and practice area keyword structures are completely different from e-commerce or home services. Agencies that also do HVAC and dental have split attention and generic strategies." },
+              { title: "Contract Terms and Asset Ownership", body: "Before signing, confirm: Who owns the website? Who owns the content? What happens to your rankings data if you leave? Some agencies build your site on proprietary platforms you cannot take with you. Others write content that technically belongs to them. Ask explicitly." },
+              { title: "Verifiable Track Record", body: "Ask for case studies with actual results: which keywords, what market, over what time period, and what the client was willing to say publicly. Generic testimonials without specifics tell you nothing. Published case studies with named clients and real numbers tell you a great deal." },
+              { title: "Practice Area Depth", body: "There is a big difference between an agency that has run campaigns for 50 personal injury firms and one that has run campaigns for 3. Ask specifically: how many clients do you have in my practice area? What are the most competitive markets you've gotten results in for firms like mine?" },
+              { title: "Reporting Quality", body: "Ask to see a sample monthly report before signing. A good report shows specific deliverables completed that month (pages published, links built, technical fixes), ranking changes for tracked keywords, and lead flow tied to SEO activity. A bad report shows a traffic graph and a few vanity metrics." },
+              { title: "Communication Structure", body: "Who is your actual point of contact? Is it an account manager reading from a script, or the person doing the work? What's the escalation path if results stall? How often do you meet? These questions reveal whether you'll be treated like a real partner or a monthly invoice." },
+            ].map((item) => (
+              <div key={item.title} className="bg-gray-50 border border-gray-200 rounded-xl p-5">
+                <h3 className="font-heading font-bold text-gray-900 text-base mb-2">{item.title}</h3>
+                <p className="text-gray-700 text-sm leading-relaxed">{item.body}</p>
+              </div>
             ))}
-          </ul>
+          </div>
+
+          <h2 className="font-heading font-extrabold text-gray-900 text-2xl mt-10 mb-4">Red Flags: What to Avoid When Hiring a Law Firm SEO Agency</h2>
+          <p className="text-gray-700 mb-6">These are not theoretical concerns. Each of these is a pattern that repeats across the legal marketing industry and costs law firms real money.</p>
+          <div className="space-y-4 mb-10">
+            {[
+              { flag: "Guaranteed rankings", detail: "No agency controls Google's algorithm. Any agency guaranteeing specific rankings is either targeting meaningless keywords or making a promise they have no ability to keep. This should be a hard stop in your evaluation." },
+              { flag: "You don't own your website", detail: "Some agencies build your site on proprietary platforms. When you leave, you lose everything — the site, the content, the domain configuration. Always confirm in writing that you own your website files and can take them with you at any time." },
+              { flag: "Multi-year contracts for a new relationship", detail: "A 12- or 24-month contract with an agency you've never worked with is a significant financial risk. Reputable agencies with real results don't need long contracts to retain clients. Shorter initial commitments (month-to-month or 6 months maximum) are a better arrangement." },
+              { flag: "Vague monthly reports", detail: "If your monthly report shows a traffic graph and the phrase 'we continued optimizing your site,' you have a problem. You should know exactly what was delivered each month: which pages went live, which links were built and from where, and which technical issues were resolved." },
+              { flag: "Promises about how fast SEO will work", detail: "Real legal SEO takes time. Agencies promising significant ranking improvements within 30 days are either targeting low-competition terms that won't generate business or misleading you. Expect 3-6 months before meaningful ranking movement and 6-12 months for lead flow improvement in most markets." },
+              { flag: "Pricing that requires a sales call", detail: "If the agency can't put a number on their website, ask yourself why. The answer is almost always that pricing is negotiated based on what they think you'll pay, not what services actually cost. Published pricing is a transparency signal." },
+            ].map((item, i) => (
+              <div key={item.flag} className="flex gap-4 bg-red-50 border border-red-100 rounded-xl p-5">
+                <span className="flex-shrink-0 w-8 h-8 rounded-full bg-red-100 text-red-600 flex items-center justify-center font-bold text-sm">{i + 1}</span>
+                <div>
+                  <p className="font-bold text-gray-900 text-sm mb-1">{item.flag}</p>
+                  <p className="text-gray-700 text-sm leading-relaxed">{item.detail}</p>
+                </div>
+              </div>
+            ))}
+          </div>
 
           <h2 className="font-heading font-extrabold text-gray-900 text-2xl mb-6">Quick Comparison</h2>
           <div className="overflow-x-auto mb-10">

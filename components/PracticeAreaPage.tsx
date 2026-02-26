@@ -25,6 +25,11 @@ export function generatePracticeAreaMetadata(pa: PracticeAreaData): Metadata {
 }
 
 export default function PracticeAreaPage({ practiceArea: pa }: PracticeAreaPageProps) {
+  const allFaqs = [
+    ...pa.faqs,
+    ...(pa.extendedFaqs ?? []),
+  ];
+
   const serviceSchema = {
     "@context": "https://schema.org",
     "@type": "Service",
@@ -36,10 +41,10 @@ export default function PracticeAreaPage({ practiceArea: pa }: PracticeAreaPageP
     areaServed: { "@type": "Country", name: "United States" },
   };
 
-  const faqSchema = pa.faqs.length > 0 ? {
+  const faqSchema = allFaqs.length > 0 ? {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    mainEntity: pa.faqs.map((faq) => ({
+    mainEntity: allFaqs.map((faq) => ({
       "@type": "Question",
       name: faq.question,
       acceptedAnswer: { "@type": "Answer", text: faq.answer },
@@ -83,6 +88,22 @@ export default function PracticeAreaPage({ practiceArea: pa }: PracticeAreaPageP
           </div>
         </div>
       </section>
+
+      {/* Stats bar */}
+      {pa.stats && pa.stats.length > 0 && (
+        <section className="py-10 px-6 bg-[#EE6C13]">
+          <div className="max-w-4xl mx-auto">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+              {pa.stats.map((stat) => (
+                <div key={stat.label} className="text-center">
+                  <div className="font-heading font-extrabold text-white text-3xl md:text-4xl leading-none mb-1">{stat.value}</div>
+                  <div className="text-orange-100 text-sm leading-snug">{stat.label}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* Intro */}
       <section className="py-16 px-6 bg-white">
@@ -141,6 +162,33 @@ export default function PracticeAreaPage({ practiceArea: pa }: PracticeAreaPageP
         </div>
       </section>
 
+      {/* How We Market This Practice Area */}
+      {pa.process && pa.process.length > 0 && (
+        <section className="py-16 px-6 bg-[#1a1a1a]">
+          <div className="max-w-3xl mx-auto">
+            <h2 className="font-heading font-extrabold text-white text-3xl mb-10">
+              How We Market {pa.primaryKeyword.split(" ").slice(0, 2).join(" ")} Firms
+            </h2>
+            <ol className="space-y-8">
+              {pa.process.map((item, index) => (
+                <li key={item.step} className="flex gap-5 items-start">
+                  <span
+                    className="flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center font-heading font-extrabold text-white text-sm"
+                    style={{ background: "#EE6C13" }}
+                  >
+                    {index + 1}
+                  </span>
+                  <div>
+                    <h3 className="font-heading font-bold text-white text-lg mb-2">{item.step}</h3>
+                    <p className="text-gray-400 leading-relaxed">{item.detail}</p>
+                  </div>
+                </li>
+              ))}
+            </ol>
+          </div>
+        </section>
+      )}
+
       {pa.relatedCaseStudies && pa.relatedCaseStudies.length > 0 && (
         <CaseStudyPreview
           caseStudies={caseStudies.filter((cs) => pa.relatedCaseStudies!.includes(cs.slug))}
@@ -148,7 +196,7 @@ export default function PracticeAreaPage({ practiceArea: pa }: PracticeAreaPageP
         />
       )}
 
-      {pa.faqs.length > 0 && <FAQAccordion faqs={pa.faqs} heading="Frequently Asked Questions" />}
+      {allFaqs.length > 0 && <FAQAccordion faqs={allFaqs} heading="Frequently Asked Questions" />}
 
       <CTASection
         heading={`Get a Free ${pa.primaryKeyword.split(" ")[0]} Marketing Plan`}
