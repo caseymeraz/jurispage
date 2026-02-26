@@ -7,6 +7,7 @@ import CTASection from "@/components/CTASection";
 import FAQAccordion from "@/components/FAQAccordion";
 import SchemaOrg from "@/components/SchemaOrg";
 import CaseStudyPreview from "@/components/CaseStudyPreview";
+import HeroForm from "@/components/HeroForm";
 import { caseStudies } from "@/data/caseStudies";
 
 interface ServicePageProps {
@@ -83,25 +84,27 @@ export default function ServicePage({ service }: ServicePageProps) {
       <SchemaOrg schema={schemas} />
 
       {/* Hero */}
-      <section className="bg-[#1a1a1a] py-20 px-6">
-        <div className="max-w-3xl mx-auto">
-          <nav className="text-sm text-gray-400 mb-6">
-            <Link href="/" className="hover:text-white no-underline">Home</Link> /{" "}
-            <Link href="/law-firm-seo/" className="hover:text-white no-underline">Services</Link> /{" "}
-            <span className="text-gray-300">{service.heading}</span>
-          </nav>
-          <span className="inline-block text-xs font-heading font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-4" style={{ background: "#EE6C1322", color: "#EE6C13" }}>
-            {service.primaryKeyword}
-          </span>
-          <h1 className="font-heading font-extrabold text-white text-4xl md:text-5xl leading-tight mb-4">{service.heading}</h1>
-          <p className="text-gray-300 text-xl leading-relaxed mb-8">{service.tagline}</p>
-          <div className="flex flex-wrap gap-4">
-            <Link href="/contact/" className="inline-block font-heading font-bold text-white text-sm px-7 py-3.5 rounded-[40px] no-underline transition-colors hover:opacity-90" style={{ background: "#EE6C13" }}>
-              Get a Free Marketing Plan
-            </Link>
-            <Link href="/services/pricing/" className="inline-block font-heading font-bold text-white text-sm px-7 py-3.5 rounded-[40px] border border-gray-600 no-underline hover:border-gray-400 transition-colors">
-              See Pricing
-            </Link>
+      <section className="bg-white py-16 px-6 border-b border-gray-100">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+            <div className="pt-2">
+              <nav className="text-sm text-gray-500 mb-5">
+                <Link href="/" className="hover:text-gray-900 no-underline">Home</Link> /{" "}
+                <Link href="/law-firm-seo/" className="hover:text-gray-900 no-underline">Services</Link> /{" "}
+                <span className="text-gray-700">{service.heading}</span>
+              </nav>
+              <span className="inline-block text-xs font-heading font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-4" style={{ background: "#EE6C1322", color: "#EE6C13" }}>
+                {service.primaryKeyword}
+              </span>
+              <h1 className="font-heading font-extrabold text-gray-900 text-4xl md:text-5xl leading-tight mb-4">{service.heading}</h1>
+              <p className="text-gray-600 text-xl leading-relaxed mb-6">{service.tagline}</p>
+              <p className="text-sm text-gray-500">Your competitors are stealing your cases online. We fix that.</p>
+            </div>
+            <HeroForm
+              ctaLabel="Outrank Your Competitors"
+              subtext="No contracts. No commitment. We'll respond within one business day."
+              defaultPracticeArea=""
+            />
           </div>
         </div>
       </section>
@@ -284,9 +287,9 @@ export default function ServicePage({ service }: ServicePageProps) {
       {allFaqs.length > 0 && <FAQAccordion faqs={allFaqs} heading={`${service.primaryKeyword} Questions Answered`} />}
 
       <CTASection
-        heading={`Ready to Get Started with ${service.primaryKeyword}?`}
+        heading="Book Your Strategy Session"
         subtext="No long-term contracts. Transparent pricing. 113+ law firms served."
-        primaryLabel="Get a Free Marketing Plan"
+        primaryLabel="Book Your Strategy Session"
         primaryHref="/contact/"
         secondaryLabel="See Pricing"
         secondaryHref="/services/pricing/"

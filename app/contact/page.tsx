@@ -21,10 +21,10 @@ export default function ContactPage() {
   return (
     <>
       <SchemaOrg schema={contactSchema} />
-      <section className="bg-[#1a1a1a] py-16 px-6 text-center">
+      <section className="bg-white py-16 px-6 text-center border-b border-gray-100">
         <div className="max-w-2xl mx-auto">
-          <h1 className="font-heading font-extrabold text-white text-4xl mb-4">Get a Free Law Firm Marketing Plan</h1>
-          <p className="text-gray-300 text-lg leading-relaxed">Tell us about your firm and what you're trying to accomplish. We'll review your situation and come back with a clear plan - no fluff, no vague promises.</p>
+          <h1 className="font-heading font-extrabold text-gray-900 text-4xl mb-4">Let&apos;s Talk Growth</h1>
+          <p className="text-gray-600 text-lg leading-relaxed">Tell us about your firm and what you&apos;re trying to accomplish. We&apos;ll review your situation and come back with a clear plan - no fluff, no vague promises.</p>
         </div>
       </section>
 

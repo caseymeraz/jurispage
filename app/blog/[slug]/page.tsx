@@ -66,24 +66,24 @@ export default async function BlogPostPage({ params }: Props) {
     <>
       <SchemaOrg schema={articleSchema} />
 
-      <section className="bg-[#1a1a1a] py-12 px-6">
+      <section className="bg-white py-12 px-6 border-b border-gray-100">
         <div className="max-w-3xl mx-auto">
-          <nav className="text-sm text-gray-400 mb-4">
-            <Link href="/" className="hover:text-white no-underline">Home</Link>
+          <nav className="text-sm text-gray-500 mb-4">
+            <Link href="/" className="hover:text-gray-900 no-underline">Home</Link>
             {" / "}
-            <Link href="/blog/" className="hover:text-white no-underline">Blog</Link>
+            <Link href="/blog/" className="hover:text-gray-900 no-underline">Blog</Link>
             {" / "}
-            <span className="text-gray-300">{post.title}</span>
+            <span className="text-gray-700">{post.title}</span>
           </nav>
           <div className="flex items-center gap-3 mb-4">
             <span className="text-xs font-semibold uppercase tracking-widest px-3 py-1 rounded-full" style={{ background: "#EE6C1322", color: "#EE6C13" }}>
               {post.category}
             </span>
-            <time className="text-gray-400 text-sm" dateTime={post.datePublished}>
+            <time className="text-gray-500 text-sm" dateTime={post.datePublished}>
               {new Date(post.datePublished).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })}
             </time>
           </div>
-          <h1 className="font-heading font-extrabold text-white text-4xl leading-tight">{post.title}</h1>
+          <h1 className="font-heading font-extrabold text-gray-900 text-4xl leading-tight">{post.title}</h1>
         </div>
       </section>
 

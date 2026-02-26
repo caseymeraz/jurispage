@@ -111,31 +111,31 @@ export default function PricingPage() {
       <SchemaOrg schema={[faqSchema, serviceSchema]} />
 
       {/* Hero */}
-      <section className="py-20 px-6 text-center" style={{ background: "#1a1a1a" }}>
+      <section className="py-20 px-6 text-center bg-white border-b border-gray-100">
         <div className="max-w-3xl mx-auto">
           <span className="inline-block text-xs font-heading font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-5" style={{ background: "#EE6C13", color: "#ffffff" }}>Transparent Pricing</span>
-          <h1 className="font-heading font-extrabold text-white text-5xl leading-tight mb-6">
+          <h1 className="font-heading font-extrabold text-gray-900 text-5xl leading-tight mb-6">
             Law Firm Marketing Pricing.<br />No Smoke. No Mirrors.
           </h1>
-          <p className="text-gray-300 text-lg leading-relaxed mb-4 max-w-2xl mx-auto">
-            We publish our pricing because we're not afraid of scrutiny. Most law firm marketing agencies make you sit through a sales call before they'll tell you what anything costs. We think that's backwards.
+          <p className="text-gray-600 text-lg leading-relaxed mb-4 max-w-2xl mx-auto">
+            We publish our pricing because we&apos;re not afraid of scrutiny. Most law firm marketing agencies make you sit through a sales call before they&apos;ll tell you what anything costs. We think that&apos;s backwards.
           </p>
-          <p className="text-gray-300 text-lg">Three plans. Month-to-month. Results in 90 days or we work for free.</p>
+          <p className="text-gray-600 text-lg">Three plans. Month-to-month. Results in 90 days or we work for free.</p>
         </div>
       </section>
 
       {/* Trust Bar */}
-      <section className="py-6 px-6 border-y border-gray-700" style={{ background: "#1f2937" }}>
+      <section className="py-6 px-6 border-b border-gray-100 bg-gray-50">
         <div className="max-w-4xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
           {[
             { val: "Month-to-Month", sub: "No long-term contracts" },
-            { val: "90-Day Guarantee", sub: "Results or we work free", green: true },
+            { val: "90-Day Guarantee", sub: "Results or we work free" },
             { val: "You Own Everything", sub: "Your site, your data, always" },
-            { val: "No Hidden Fees", sub: "Price shown is price paid", green: true },
+            { val: "No Hidden Fees", sub: "Price shown is price paid" },
           ].map((item) => (
             <div key={item.val}>
-              <div className="font-heading font-extrabold text-xl" style={{ color: item.green ? "#EE6C13" : "#EE6C13" }}>{item.val}</div>
-              <div className="text-gray-400 text-xs mt-1">{item.sub}</div>
+              <div className="font-heading font-extrabold text-xl" style={{ color: "#EE6C13" }}>{item.val}</div>
+              <div className="text-gray-500 text-xs mt-1">{item.sub}</div>
             </div>
           ))}
         </div>
@@ -291,7 +291,7 @@ export default function PricingPage() {
         <div className="max-w-3xl mx-auto">
           <p className="font-heading font-extrabold text-white text-xl mb-4">No long-term contracts. No hidden fees. No surprises.</p>
           <div className="flex flex-wrap gap-4 justify-center">
-            <Link href="/contact/" className="inline-block bg-white font-heading font-bold py-4 px-8 rounded-[40px] no-underline" style={{ color: "#982A0B" }}>Start the conversation</Link>
+            <Link href="/contact/" className="inline-block bg-white font-heading font-bold py-4 px-8 rounded-[40px] no-underline" style={{ color: "#982A0B" }}>Let&apos;s Talk Growth</Link>
             <a href="tel:+18887677447" className="inline-block border-2 border-white text-white font-heading font-bold py-4 px-8 rounded-[40px] no-underline">(888) 767-7447</a>
           </div>
         </div>

@@ -4,6 +4,7 @@ import Image from "next/image";
 import CTASection from "@/components/CTASection";
 import SchemaOrg from "@/components/SchemaOrg";
 import CaseStudyCard from "@/components/CaseStudyCard";
+import HeroForm from "@/components/HeroForm";
 import { caseStudies } from "@/data/caseStudies";
 
 export const metadata: Metadata = {
@@ -98,55 +99,54 @@ export default function HomePage() {
       <SchemaOrg schema={homeSchema} />
 
       {/* Hero */}
-      <section className="bg-[#1a1a1a] py-20 px-6 text-center">
-        <div className="max-w-4xl mx-auto">
-          <span className="inline-block text-xs font-heading font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-6 text-white" style={{ background: "#EE6C13" }}>
-            Acquired February 2026 - Under New Ownership
-          </span>
-          <h1 className="font-heading font-extrabold text-white text-4xl md:text-6xl leading-tight mb-6">
-            Law Firm Marketing That Gets Cases,<br className="hidden md:block" /> Not Just Clicks
-          </h1>
-          <p className="text-gray-300 text-xl max-w-2xl mx-auto mb-4 leading-relaxed">
-            JurisPage provides ethical, transparent digital marketing exclusively for law firms. SEO, Google Ads, websites, and AI search - built around case acquisition, not vanity metrics.
-          </p>
-          <p className="text-gray-400 text-base mb-10">
-            Transparent pricing published online. Month-to-month contracts. 113+ law firms served.
-          </p>
-          <div className="mt-8 mb-10 rounded-2xl overflow-hidden max-w-3xl mx-auto">
-            <Image
-              src="/images/hero-banner.jpg"
-              alt="Law firm digital marketing dashboard showing SEO rankings and lead growth"
-              width={1000}
-              height={857}
-              priority
-              className="w-full h-auto"
-            />
-          </div>
-          <div className="flex flex-wrap gap-4 justify-center">
-            <Link
-              href="/contact/"
-              className="font-heading font-bold text-white text-base px-8 py-4 rounded-[40px] no-underline hover:opacity-90 transition-opacity"
-              style={{ background: "#EE6C13" }}
-            >
-              Get Free Marketing Plan
-            </Link>
-            <Link
-              href="/services/pricing/"
-              className="font-heading font-bold text-white text-base px-8 py-4 rounded-[40px] border border-gray-600 no-underline hover:border-gray-400 transition-colors"
-            >
-              See Pricing
-            </Link>
+      <section className="bg-white py-16 px-6 border-b border-gray-100">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+            {/* Left: headline + proof */}
+            <div className="pt-4">
+              <span className="inline-block text-xs font-heading font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-6 text-white" style={{ background: "#EE6C13" }}>
+                Law Firm Marketing
+              </span>
+              <h1 className="font-heading font-extrabold text-gray-900 text-4xl md:text-5xl leading-tight mb-6">
+                Stop Losing Cases to Firms With Worse Lawyers
+              </h1>
+              <p className="text-gray-600 text-xl leading-relaxed mb-8">
+                Your competitors are outranking you online. JurisPage fixes that with ethical, transparent digital marketing built exclusively for law firms.
+              </p>
+              <div className="grid grid-cols-2 gap-3 mb-8">
+                {trustStats.map((stat) => (
+                  <div key={stat.label} className="bg-gray-50 rounded-xl p-4 border border-gray-100">
+                    <div className="font-heading font-extrabold text-xl" style={{ color: "#EE6C13" }}>{stat.value}</div>
+                    <div className="text-gray-600 text-sm mt-0.5">{stat.label}</div>
+                  </div>
+                ))}
+              </div>
+              <Link
+                href="/services/pricing/"
+                className="text-sm font-semibold no-underline transition-colors"
+                style={{ color: "#EE6C13" }}
+              >
+                See transparent pricing →
+              </Link>
+            </div>
+            {/* Right: inline form */}
+            <div>
+              <HeroForm
+                ctaLabel="Start Getting Better Cases"
+                subtext="No contracts. No commitment. We'll respond within one business day."
+              />
+            </div>
           </div>
         </div>
       </section>
 
       {/* Trust Bar */}
-      <section className="bg-gray-800 border-y border-gray-700 py-6 px-6">
+      <section className="bg-gray-50 border-b border-gray-100 py-6 px-6">
         <div className="max-w-4xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
           {trustStats.map((stat) => (
             <div key={stat.label}>
               <div className="font-heading font-extrabold text-2xl" style={{ color: "#EE6C13" }}>{stat.value}</div>
-              <div className="text-gray-400 text-sm mt-1">{stat.label}</div>
+              <div className="text-gray-600 text-sm mt-1">{stat.label}</div>
             </div>
           ))}
         </div>
@@ -247,7 +247,7 @@ export default function HomePage() {
               className="inline-block font-heading font-bold text-white text-sm px-7 py-3.5 rounded-[40px] no-underline hover:opacity-90 transition-opacity"
               style={{ background: "#EE6C13" }}
             >
-              Start With a Free Audit
+              Book Your Strategy Session
             </Link>
           </div>
         </div>
@@ -382,9 +382,9 @@ export default function HomePage() {
       </section>
 
       <CTASection
-        heading="Ready to Grow Your Law Firm?"
-        subtext="No long-term contracts. No mystery pricing. Just straightforward digital marketing built for law firms that want real cases."
-        primaryLabel="Get a Free Marketing Plan"
+        heading="Book Your Strategy Session"
+        subtext="No long-term contracts. Transparent pricing. 113+ law firms served."
+        primaryLabel="Book Your Strategy Session"
         primaryHref="/contact/"
         secondaryLabel="See Pricing"
         secondaryHref="/services/pricing/"

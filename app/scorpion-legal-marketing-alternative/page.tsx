@@ -32,13 +32,13 @@ export default function ScorpionAlternativePage() {
     <>
       <SchemaOrg schema={schema} />
 
-      <section className="bg-[#1a1a1a] py-16 px-6">
+      <section className="bg-white py-16 px-6 border-b border-gray-100">
         <div className="max-w-3xl mx-auto">
-          <nav className="text-sm text-gray-400 mb-6">
-            <Link href="/" className="hover:text-white no-underline">Home</Link> / <span className="text-gray-300">Scorpion Legal Marketing Alternative</span>
+          <nav className="text-sm text-gray-500 mb-6">
+            <Link href="/" className="hover:text-gray-900 no-underline">Home</Link> / <span className="text-gray-700">Scorpion Legal Marketing Alternative</span>
           </nav>
-          <h1 className="font-heading font-extrabold text-white text-4xl mb-4">Looking for a Scorpion Legal Marketing Alternative?</h1>
-          <p className="text-gray-300 text-lg">Here&apos;s how JurisPage compares - honestly.</p>
+          <h1 className="font-heading font-extrabold text-gray-900 text-4xl mb-4">Looking for a Scorpion Legal Marketing Alternative?</h1>
+          <p className="text-gray-600 text-lg">Here&apos;s how JurisPage compares - honestly.</p>
         </div>
       </section>
 
@@ -96,10 +96,10 @@ export default function ScorpionAlternativePage() {
       <FAQAccordion faqs={faqs} heading="Common Questions About Switching" />
 
       <CTASection
-        heading="Ready to See How JurisPage Compares for Your Firm?"
-        subtext="Tell us what you're currently paying and what you're getting. We'll give you an honest comparison - no sales games."
-        primaryLabel="Get a Free Comparison Consult"
-        primaryHref="/contact/"
+        heading="See Where You Stand"
+        subtext="Free competitive analysis delivered within 24 hours. Tell us about your firm and we&apos;ll show you exactly what it would take to outperform your current agency."
+        primaryLabel="See Where You Stand"
+        primaryHref="/free-market-report/"
         secondaryLabel="See Pricing"
         secondaryHref="/services/pricing/"
       />

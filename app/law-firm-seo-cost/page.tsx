@@ -35,13 +35,13 @@ export default function LawFirmSEOCostPage() {
     <>
       <SchemaOrg schema={faqSchema} />
 
-      <section className="bg-[#1a1a1a] py-16 px-6">
+      <section className="bg-white py-16 px-6 border-b border-gray-100">
         <div className="max-w-3xl mx-auto">
-          <nav className="text-sm text-gray-400 mb-6">
-            <Link href="/" className="hover:text-white no-underline">Home</Link> / <span className="text-gray-300">Law Firm SEO Cost</span>
+          <nav className="text-sm text-gray-500 mb-6">
+            <Link href="/" className="hover:text-gray-900 no-underline">Home</Link> / <span className="text-gray-700">Law Firm SEO Cost</span>
           </nav>
-          <h1 className="font-heading font-extrabold text-white text-4xl mb-4">How Much Does Law Firm SEO Cost in 2026?</h1>
-          <p className="text-gray-300 text-lg">The honest, complete guide to law firm SEO pricing - with no sales agenda.</p>
+          <h1 className="font-heading font-extrabold text-gray-900 text-4xl mb-4">How Much Does Law Firm SEO Cost in 2026?</h1>
+          <p className="text-gray-600 text-lg">The honest, complete guide to law firm SEO pricing - with no sales agenda.</p>
         </div>
       </section>
 
@@ -232,9 +232,9 @@ export default function LawFirmSEOCostPage() {
       <FAQAccordion faqs={faqs} heading="Law Firm SEO Cost: FAQs" />
 
       <CTASection
-        heading="Get a Free Law Firm SEO Audit"
-        subtext="Tell us about your firm and market. We'll review your current SEO and tell you exactly what it would take to compete - no obligation."
-        primaryLabel="Get My Free Audit"
+        heading="Let&apos;s Talk Growth"
+        subtext="Tell us about your firm and market. We&apos;ll review your current SEO and tell you exactly what it would take to compete - no obligation."
+        primaryLabel="Let&apos;s Talk Growth"
         primaryHref="/contact/"
         secondaryLabel="See Pricing"
         secondaryHref="/services/pricing/"

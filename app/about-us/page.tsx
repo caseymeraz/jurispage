@@ -162,7 +162,7 @@ export default function AboutPage() {
       <CTASection
         heading="Ready to Grow Your Firm?"
         subtext="No long-term contracts. No mystery pricing. No runaround. Just a straightforward conversation about what digital marketing can do for your law firm."
-        primaryLabel="Get a Free Strategy Call"
+        primaryLabel="Book Your Strategy Session"
         primaryHref="/contact/"
       />
     </>

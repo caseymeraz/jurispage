@@ -35,16 +35,16 @@ export default function Header() {
   const [practiceOpen, setPracticeOpen] = useState(false);
 
   return (
-    <header className="bg-[#1a1a1a] border-b border-gray-800 sticky top-0 z-50">
+    <header className="bg-white border-b border-gray-100 shadow-sm sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link href="/" className="flex items-center no-underline">
             <Image
-              src="/images/jurispage-logo.svg"
+              src="/images/jurispage-logo.png"
               alt="JurisPage Law Firm Marketing"
-              width={160}
-              height={36}
+              width={213}
+              height={46}
               priority
               className="h-9 w-auto"
             />
@@ -55,7 +55,7 @@ export default function Header() {
             {/* Services Dropdown */}
             <div className="relative group">
               <button
-                className="text-gray-300 hover:text-white font-medium flex items-center gap-1 transition-colors"
+                className="text-gray-700 hover:text-gray-900 font-medium flex items-center gap-1 transition-colors"
                 onMouseEnter={() => setServicesOpen(true)}
                 onMouseLeave={() => setServicesOpen(false)}
               >
@@ -63,7 +63,7 @@ export default function Header() {
               </button>
               {servicesOpen && (
                 <div
-                  className="absolute top-full left-0 bg-[#1a1a1a] border border-gray-700 rounded-lg shadow-xl py-2 w-64 z-50"
+                  className="absolute top-full left-0 bg-white border border-gray-200 rounded-lg shadow-xl py-2 w-64 z-50"
                   onMouseEnter={() => setServicesOpen(true)}
                   onMouseLeave={() => setServicesOpen(false)}
                 >
@@ -71,7 +71,7 @@ export default function Header() {
                     <Link
                       key={s.href}
                       href={s.href}
-                      className="block px-4 py-2.5 text-gray-300 hover:text-white hover:bg-gray-800 text-sm transition-colors no-underline"
+                      className="block px-4 py-2.5 text-gray-700 hover:text-gray-900 hover:bg-gray-50 text-sm transition-colors no-underline"
                     >
                       {s.label}
                     </Link>
@@ -83,7 +83,7 @@ export default function Header() {
             {/* Practice Areas Dropdown */}
             <div className="relative group">
               <button
-                className="text-gray-300 hover:text-white font-medium flex items-center gap-1 transition-colors"
+                className="text-gray-700 hover:text-gray-900 font-medium flex items-center gap-1 transition-colors"
                 onMouseEnter={() => setPracticeOpen(true)}
                 onMouseLeave={() => setPracticeOpen(false)}
               >
@@ -91,7 +91,7 @@ export default function Header() {
               </button>
               {practiceOpen && (
                 <div
-                  className="absolute top-full left-0 bg-[#1a1a1a] border border-gray-700 rounded-lg shadow-xl py-2 w-56 z-50"
+                  className="absolute top-full left-0 bg-white border border-gray-200 rounded-lg shadow-xl py-2 w-56 z-50"
                   onMouseEnter={() => setPracticeOpen(true)}
                   onMouseLeave={() => setPracticeOpen(false)}
                 >
@@ -99,7 +99,7 @@ export default function Header() {
                     <Link
                       key={p.href}
                       href={p.href}
-                      className="block px-4 py-2.5 text-gray-300 hover:text-white hover:bg-gray-800 text-sm transition-colors no-underline"
+                      className="block px-4 py-2.5 text-gray-700 hover:text-gray-900 hover:bg-gray-50 text-sm transition-colors no-underline"
                     >
                       {p.label}
                     </Link>
@@ -108,18 +108,24 @@ export default function Header() {
               )}
             </div>
 
-            <Link href="/services/pricing/" className="text-gray-300 hover:text-white font-medium transition-colors no-underline">Pricing</Link>
-            <Link href="/case-studies/" className="text-gray-300 hover:text-white font-medium transition-colors no-underline">Success Stories</Link>
-            <Link href="/best-law-firm-seo-companies/" className="text-gray-300 hover:text-white font-medium transition-colors no-underline">Compare</Link>
-            <Link href="/blog/" className="text-gray-300 hover:text-white font-medium transition-colors no-underline">Blog</Link>
-            <Link href="/about-us/" className="text-gray-300 hover:text-white font-medium transition-colors no-underline">About</Link>
+            <Link href="/services/pricing/" className="text-gray-700 hover:text-gray-900 font-medium transition-colors no-underline">Pricing</Link>
+            <Link href="/case-studies/" className="text-gray-700 hover:text-gray-900 font-medium transition-colors no-underline">Success Stories</Link>
+            <Link href="/best-law-firm-seo-companies/" className="text-gray-700 hover:text-gray-900 font-medium transition-colors no-underline">Compare</Link>
+            <Link href="/blog/" className="text-gray-700 hover:text-gray-900 font-medium transition-colors no-underline">Blog</Link>
+            <Link href="/about-us/" className="text-gray-700 hover:text-gray-900 font-medium transition-colors no-underline">About</Link>
           </nav>
 
           {/* Desktop CTA */}
           <div className="hidden lg:flex items-center gap-3">
-            <a href="tel:+18887677447" className="text-gray-300 hover:text-white text-sm font-medium transition-colors no-underline">
+            <a href="tel:+18887677447" className="text-gray-600 hover:text-gray-900 text-sm font-medium transition-colors no-underline">
               (888) 767-7447
             </a>
+            <Link
+              href="/free-market-report/"
+              className="text-sm font-medium text-gray-700 hover:text-gray-900 no-underline transition-colors"
+            >
+              Free Market Report
+            </Link>
             <Link
               href="/contact/"
               className="font-heading font-bold text-sm text-white px-5 py-2.5 rounded-[40px] no-underline transition-colors"
@@ -127,13 +133,13 @@ export default function Header() {
               onMouseOver={(e) => (e.currentTarget.style.background = "#982A0B")}
               onMouseOut={(e) => (e.currentTarget.style.background = "#EE6C13")}
             >
-              Free Marketing Plan
+              Let&apos;s Talk Growth
             </Link>
           </div>
 
           {/* Mobile Menu Button */}
           <button
-            className="lg:hidden text-gray-300 hover:text-white p-2"
+            className="lg:hidden text-gray-700 hover:text-gray-900 p-2"
             onClick={() => setMobileOpen(!mobileOpen)}
             aria-label="Toggle menu"
           >
@@ -146,33 +152,34 @@ export default function Header() {
 
       {/* Mobile Menu */}
       {mobileOpen && (
-        <div className="lg:hidden bg-[#1a1a1a] border-t border-gray-800 py-4 px-4 space-y-1">
-          <p className="text-xs font-semibold uppercase tracking-widest text-gray-500 px-2 pt-2 pb-1">Services</p>
+        <div className="lg:hidden bg-white border-t border-gray-100 py-4 px-4 space-y-1">
+          <p className="text-xs font-semibold uppercase tracking-widest text-gray-400 px-2 pt-2 pb-1">Services</p>
           {services.map((s) => (
-            <Link key={s.href} href={s.href} className="block py-2 px-2 text-gray-300 hover:text-white text-sm no-underline" onClick={() => setMobileOpen(false)}>
+            <Link key={s.href} href={s.href} className="block py-2 px-2 text-gray-700 hover:text-gray-900 text-sm no-underline" onClick={() => setMobileOpen(false)}>
               {s.label}
             </Link>
           ))}
-          <p className="text-xs font-semibold uppercase tracking-widest text-gray-500 px-2 pt-4 pb-1">Practice Areas</p>
+          <p className="text-xs font-semibold uppercase tracking-widest text-gray-400 px-2 pt-4 pb-1">Practice Areas</p>
           {practiceAreas.map((p) => (
-            <Link key={p.href} href={p.href} className="block py-2 px-2 text-gray-300 hover:text-white text-sm no-underline" onClick={() => setMobileOpen(false)}>
+            <Link key={p.href} href={p.href} className="block py-2 px-2 text-gray-700 hover:text-gray-900 text-sm no-underline" onClick={() => setMobileOpen(false)}>
               {p.label}
             </Link>
           ))}
-          <div className="pt-4 border-t border-gray-800 space-y-2">
-            <Link href="/services/pricing/" className="block py-2 px-2 text-gray-300 hover:text-white text-sm font-medium no-underline" onClick={() => setMobileOpen(false)}>Pricing</Link>
-            <Link href="/case-studies/" className="block py-2 px-2 text-gray-300 hover:text-white text-sm font-medium no-underline" onClick={() => setMobileOpen(false)}>Success Stories</Link>
-            <Link href="/blog/" className="block py-2 px-2 text-gray-300 hover:text-white text-sm font-medium no-underline" onClick={() => setMobileOpen(false)}>Blog</Link>
-            <Link href="/about-us/" className="block py-2 px-2 text-gray-300 hover:text-white text-sm font-medium no-underline" onClick={() => setMobileOpen(false)}>About</Link>
+          <div className="pt-4 border-t border-gray-100 space-y-2">
+            <Link href="/services/pricing/" className="block py-2 px-2 text-gray-700 hover:text-gray-900 text-sm font-medium no-underline" onClick={() => setMobileOpen(false)}>Pricing</Link>
+            <Link href="/case-studies/" className="block py-2 px-2 text-gray-700 hover:text-gray-900 text-sm font-medium no-underline" onClick={() => setMobileOpen(false)}>Success Stories</Link>
+            <Link href="/free-market-report/" className="block py-2 px-2 text-gray-700 hover:text-gray-900 text-sm font-medium no-underline" onClick={() => setMobileOpen(false)}>Free Market Report</Link>
+            <Link href="/blog/" className="block py-2 px-2 text-gray-700 hover:text-gray-900 text-sm font-medium no-underline" onClick={() => setMobileOpen(false)}>Blog</Link>
+            <Link href="/about-us/" className="block py-2 px-2 text-gray-700 hover:text-gray-900 text-sm font-medium no-underline" onClick={() => setMobileOpen(false)}>About</Link>
             <Link
               href="/contact/"
               className="block mt-3 text-center py-3 rounded-[40px] font-bold text-white text-sm no-underline"
               style={{ background: "#EE6C13" }}
               onClick={() => setMobileOpen(false)}
             >
-              Get Free Marketing Plan
+              Let&apos;s Talk Growth
             </Link>
-            <a href="tel:+18887677447" className="block text-center py-2 text-gray-400 text-sm no-underline">(888) 767-7447</a>
+            <a href="tel:+18887677447" className="block text-center py-2 text-gray-500 text-sm no-underline">(888) 767-7447</a>
           </div>
         </div>
       )}

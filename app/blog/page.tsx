@@ -24,10 +24,10 @@ export default function BlogIndex() {
         description: "Actionable law firm marketing guides from JurisPage.",
       }} />
 
-      <section className="bg-[#1a1a1a] py-16 px-6 text-center">
+      <section className="bg-white py-16 px-6 text-center border-b border-gray-100">
         <div className="max-w-2xl mx-auto">
-          <h1 className="font-heading font-extrabold text-white text-4xl mb-4">Law Firm Marketing Blog</h1>
-          <p className="text-gray-300 text-lg">Actionable guides on SEO, Google Ads, websites, and AI search for law firms. No fluff.</p>
+          <h1 className="font-heading font-extrabold text-gray-900 text-4xl mb-4">Law Firm Marketing Blog</h1>
+          <p className="text-gray-600 text-lg">Actionable guides on SEO, Google Ads, websites, and AI search for law firms. No fluff.</p>
         </div>
       </section>
 

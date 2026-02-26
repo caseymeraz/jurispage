@@ -6,6 +6,7 @@ import CTASection from "@/components/CTASection";
 import FAQAccordion from "@/components/FAQAccordion";
 import SchemaOrg from "@/components/SchemaOrg";
 import CaseStudyPreview from "@/components/CaseStudyPreview";
+import HeroForm from "@/components/HeroForm";
 import { caseStudies } from "@/data/caseStudies";
 
 interface PracticeAreaPageProps {
@@ -69,23 +70,25 @@ export default function PracticeAreaPage({ practiceArea: pa }: PracticeAreaPageP
       <SchemaOrg schema={schemas} />
 
       {/* Hero */}
-      <section className="bg-[#1a1a1a] py-20 px-6">
-        <div className="max-w-3xl mx-auto">
-          <nav className="text-sm text-gray-400 mb-6">
-            <Link href="/" className="hover:text-white no-underline">Home</Link> /{" "}
-            <span className="text-gray-300">Practice Areas</span>
-          </nav>
-          <span className="inline-block text-xs font-heading font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-4" style={{ background: "#EE6C1322", color: "#EE6C13" }}>
-            {pa.primaryKeyword}
-          </span>
-          <h1 className="font-heading font-extrabold text-white text-4xl md:text-5xl leading-tight mb-6">{pa.heading}</h1>
-          <div className="flex flex-wrap gap-4">
-            <Link href="/contact/" className="inline-block font-heading font-bold text-white text-sm px-7 py-3.5 rounded-[40px] no-underline transition-colors hover:opacity-90" style={{ background: "#EE6C13" }}>
-              Get a Free {pa.primaryKeyword.split(" ")[0]} Marketing Plan
-            </Link>
-            <Link href="/services/pricing/" className="inline-block font-heading font-bold text-white text-sm px-7 py-3.5 rounded-[40px] border border-gray-600 no-underline hover:border-gray-400 transition-colors">
-              See Pricing
-            </Link>
+      <section className="bg-white py-16 px-6 border-b border-gray-100">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+            <div className="pt-2">
+              <nav className="text-sm text-gray-500 mb-5">
+                <Link href="/" className="hover:text-gray-900 no-underline">Home</Link> /{" "}
+                <span className="text-gray-700">Practice Areas</span>
+              </nav>
+              <span className="inline-block text-xs font-heading font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-4" style={{ background: "#EE6C1322", color: "#EE6C13" }}>
+                {pa.primaryKeyword}
+              </span>
+              <h1 className="font-heading font-extrabold text-gray-900 text-4xl md:text-5xl leading-tight mb-6">{pa.heading}</h1>
+              <p className="text-gray-500 text-sm">Speak directly with a legal marketing expert today.</p>
+            </div>
+            <HeroForm
+              ctaLabel="Book Your Strategy Session"
+              subtext="No contracts. No commitment. We'll respond within one business day."
+              defaultPracticeArea={pa.primaryKeyword.split(" ")[0]}
+            />
           </div>
         </div>
       </section>
@@ -222,9 +225,9 @@ export default function PracticeAreaPage({ practiceArea: pa }: PracticeAreaPageP
       {allFaqs.length > 0 && <FAQAccordion faqs={allFaqs} heading="Frequently Asked Questions" />}
 
       <CTASection
-        heading={`Get a Free ${pa.primaryKeyword.split(" ")[0]} Marketing Plan`}
+        heading="Book Your Strategy Session"
         subtext={`No long-term contracts. Transparent pricing. We've helped 113+ law firms grow - including ${pa.primaryKeyword.toLowerCase()} practices.`}
-        primaryLabel={`Get My Free ${pa.primaryKeyword.split(" ")[0]} Plan`}
+        primaryLabel="Book Your Strategy Session"
         primaryHref="/contact/"
         secondaryLabel="See Pricing"
         secondaryHref="/services/pricing/"

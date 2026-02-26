@@ -11,9 +11,9 @@ export default function Footer() {
           <div>
             <div className="mb-4">
               <Image
-                src="/images/jurispage-logo.svg"
+                src="/images/jurispage-logo.png"
                 alt="JurisPage Law Firm Marketing"
-                width={150}
+                width={182}
                 height={34}
                 className="h-8 w-auto"
               />
@@ -22,7 +22,7 @@ export default function Footer() {
               Law firm marketing built on ethics, not empty promises. Transparent pricing, month-to-month contracts, 100% legal focus.
             </p>
             <a href="tel:+18887677447" className="text-gray-300 hover:text-white text-sm font-medium no-underline block mb-1">(888) 767-7447</a>
-            <Link href="/contact/" className="text-sm no-underline" style={{ color: "#EE6C13" }}>Get a Free Strategy Call →</Link>
+            <Link href="/contact/" className="text-sm no-underline" style={{ color: "#EE6C13" }}>Let&apos;s Talk Growth →</Link>
           </div>
 
           {/* Services */}
@@ -74,12 +74,12 @@ export default function Footer() {
               {[
                 ["About JurisPage", "/about-us/"],
                 ["Success Stories", "/case-studies/"],
+                ["Free Market Report", "/free-market-report/"],
                 ["Blog", "/blog/"],
                 ["Best Law Firm SEO Companies", "/best-law-firm-seo-companies/"],
                 ["Law Firm SEO Cost", "/law-firm-seo-cost/"],
                 ["Scorpion Alternative", "/scorpion-legal-marketing-alternative/"],
                 ["Contact Us", "/contact/"],
-                ["News", "/news/jurispage-acquired-by-juris-digital-2026/"],
               ].map(([label, href]) => (
                 <li key={href}><Link href={href} className="hover:text-white transition-colors no-underline">{label}</Link></li>
               ))}

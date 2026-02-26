@@ -37,19 +37,19 @@ export default function CaseStudiesPage() {
       <SchemaOrg schema={[listSchema, breadcrumbSchema]} />
 
       {/* Hero */}
-      <section className="bg-[#1a1a1a] py-20 px-6">
+      <section className="bg-white py-20 px-6 border-b border-gray-100">
         <div className="max-w-3xl mx-auto">
-          <nav className="text-sm text-gray-400 mb-6">
-            <a href="/" className="hover:text-white no-underline">Home</a> /{" "}
-            <span className="text-gray-300">Success Stories</span>
+          <nav className="text-sm text-gray-500 mb-6">
+            <a href="/" className="hover:text-gray-900 no-underline">Home</a> /{" "}
+            <span className="text-gray-700">Success Stories</span>
           </nav>
           <span className="inline-block text-xs font-heading font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-4" style={{ background: "#EE6C1322", color: "#EE6C13" }}>
             Real Client Results
           </span>
-          <h1 className="font-heading font-extrabold text-white text-4xl md:text-5xl leading-tight mb-4">
+          <h1 className="font-heading font-extrabold text-gray-900 text-4xl md:text-5xl leading-tight mb-4">
             Law Firm Marketing Success Stories
           </h1>
-          <p className="text-gray-300 text-xl leading-relaxed">
+          <p className="text-gray-600 text-xl leading-relaxed">
             We don&apos;t promise clicks. We deliver cases. Here&apos;s what happens when law firms partner with JurisPage for transparent, ethical digital marketing.
           </p>
         </div>
@@ -83,9 +83,9 @@ export default function CaseStudiesPage() {
       </section>
 
       <CTASection
-        heading="Start Spending Your Marketing Budget Wisely"
-        subtext="Join 113+ law firms who chose transparency over hype. Month-to-month contracts, published pricing, and measurable results."
-        primaryLabel="Get a Free Marketing Plan"
+        heading="Start Getting Better Cases"
+        subtext="Stop wasting money on marketing that doesn&apos;t convert. Join 113+ law firms who chose transparency over hype."
+        primaryLabel="Start Getting Better Cases"
         primaryHref="/contact/"
         secondaryLabel="See Pricing"
         secondaryHref="/services/pricing/"

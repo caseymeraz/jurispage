@@ -65,17 +65,17 @@ export default async function NewsPage({ params }: Props) {
   return (
     <>
       <SchemaOrg schema={schema} />
-      <section className="bg-[#1a1a1a] py-12 px-6">
+      <section className="bg-white py-12 px-6 border-b border-gray-100">
         <div className="max-w-3xl mx-auto">
-          <nav className="text-sm text-gray-400 mb-4">
-            <Link href="/" className="hover:text-white no-underline">Home</Link> /{" "}
-            <span className="text-gray-300">News</span>
+          <nav className="text-sm text-gray-500 mb-4">
+            <Link href="/" className="hover:text-gray-900 no-underline">Home</Link> /{" "}
+            <span className="text-gray-700">News</span>
           </nav>
           <span className="inline-block text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-4" style={{ background: "#EE6C1322", color: "#EE6C13" }}>
             Press Release
           </span>
-          <h1 className="font-heading font-extrabold text-white text-4xl leading-tight">{post.title}</h1>
-          <time className="text-gray-400 text-sm mt-3 block" dateTime={post.datePublished}>
+          <h1 className="font-heading font-extrabold text-gray-900 text-4xl leading-tight">{post.title}</h1>
+          <time className="text-gray-500 text-sm mt-3 block" dateTime={post.datePublished}>
             {new Date(post.datePublished).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })}
           </time>
         </div>

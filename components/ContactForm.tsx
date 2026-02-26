@@ -181,7 +181,7 @@ export default function ContactForm() {
         className="w-full py-4 rounded-lg font-heading font-bold text-gray-900 text-base disabled:opacity-60 transition-opacity"
         style={{ background: "linear-gradient(135deg, #EE6C13, #982A0B)" }}
       >
-        {status === "loading" ? "Sending..." : "Get My Free Marketing Plan"}
+        {status === "loading" ? "Sending..." : "Let\u2019s Talk Growth"}
       </button>
       <p className="text-xs text-gray-500 text-center">No spam. No long-term commitment required to chat.</p>
     </form>

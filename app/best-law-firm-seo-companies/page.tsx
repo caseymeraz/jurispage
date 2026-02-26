@@ -219,13 +219,13 @@ export default function BestLawFirmSEOPage() {
     <>
       <SchemaOrg schema={[itemListSchema, faqSchema]} />
 
-      <section className="bg-[#1a1a1a] py-16 px-6">
+      <section className="bg-white py-16 px-6 border-b border-gray-100">
         <div className="max-w-3xl mx-auto">
-          <nav className="text-sm text-gray-400 mb-6">
-            <Link href="/" className="hover:text-white no-underline">Home</Link> / <span className="text-gray-300">Best Law Firm SEO Companies</span>
+          <nav className="text-sm text-gray-500 mb-6">
+            <Link href="/" className="hover:text-gray-900 no-underline">Home</Link> / <span className="text-gray-700">Best Law Firm SEO Companies</span>
           </nav>
-          <h1 className="font-heading font-extrabold text-white text-4xl mb-4">Best Law Firm SEO Companies in 2026 (Ranked &amp; Reviewed)</h1>
-          <p className="text-gray-300 text-lg">Updated February 2026.</p>
+          <h1 className="font-heading font-extrabold text-gray-900 text-4xl mb-4">Best Law Firm SEO Companies in 2026 (Ranked &amp; Reviewed)</h1>
+          <p className="text-gray-600 text-lg">Updated February 2026.</p>
         </div>
       </section>
 
@@ -368,7 +368,7 @@ export default function BestLawFirmSEOPage() {
         subtext="No long-term contracts. No hidden pricing. Just straightforward SEO built exclusively for law firms."
         primaryLabel="See Transparent Pricing"
         primaryHref="/services/pricing/"
-        secondaryLabel="Get a Free Strategy Call"
+        secondaryLabel="Book Your Strategy Session"
         secondaryHref="/contact/"
       />
     </>

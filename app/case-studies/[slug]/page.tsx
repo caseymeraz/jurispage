@@ -80,19 +80,19 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
       <SchemaOrg schema={schemas} />
 
       {/* Hero */}
-      <section className="bg-[#1a1a1a] py-20 px-6">
+      <section className="bg-white py-20 px-6 border-b border-gray-100">
         <div className="max-w-4xl mx-auto">
-          <nav className="text-sm text-gray-400 mb-6">
-            <Link href="/" className="hover:text-white no-underline">Home</Link> /{" "}
-            <Link href="/case-studies/" className="hover:text-white no-underline">Success Stories</Link> /{" "}
-            <span className="text-gray-300">{cs.client}</span>
+          <nav className="text-sm text-gray-500 mb-6">
+            <Link href="/" className="hover:text-gray-900 no-underline">Home</Link> /{" "}
+            <Link href="/case-studies/" className="hover:text-gray-900 no-underline">Success Stories</Link> /{" "}
+            <span className="text-gray-700">{cs.client}</span>
           </nav>
           <div className="flex flex-col md:flex-row md:items-center gap-6">
             <div className="flex-1">
               <span className="inline-block text-xs font-heading font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-4" style={{ background: "#EE6C1322", color: "#EE6C13" }}>
                 {cs.practiceArea} · {cs.location}
               </span>
-              <h1 className="font-heading font-extrabold text-white text-4xl md:text-5xl leading-tight mb-4">
+              <h1 className="font-heading font-extrabold text-gray-900 text-4xl md:text-5xl leading-tight mb-4">
                 {cs.client}
               </h1>
               <p className="font-heading font-extrabold text-4xl md:text-5xl" style={{ color: "#EE6C13" }}>
@@ -100,7 +100,7 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
               </p>
             </div>
             {isImage && (
-              <div className="w-32 h-32 rounded-2xl overflow-hidden flex-shrink-0 bg-gray-800 flex items-center justify-center">
+              <div className="w-32 h-32 rounded-2xl overflow-hidden flex-shrink-0 bg-gray-100 flex items-center justify-center">
                 <Image src={cs.imageFile} alt={cs.client} width={128} height={128} className="object-cover" />
               </div>
             )}
@@ -214,9 +214,9 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
       )}
 
       <CTASection
-        heading="Get Results Like These for Your Firm"
-        subtext="Join 113+ law firms who chose JurisPage for transparent, ethical digital marketing. No long-term contracts."
-        primaryLabel="Get a Free Marketing Plan"
+        heading="Start Getting Better Cases"
+        subtext="Stop wasting money on marketing that doesn&apos;t convert. Join 113+ law firms who chose JurisPage."
+        primaryLabel="Start Getting Better Cases"
         primaryHref="/contact/"
         secondaryLabel="See Pricing"
         secondaryHref="/services/pricing/"

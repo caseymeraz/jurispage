@@ -88,24 +88,24 @@ export default function MetroPage({ metro, service }: MetroPageProps) {
       <SchemaOrg schema={schema} />
 
       {/* Hero */}
-      <section className="bg-[#1a1a1a] py-20 px-6">
+      <section className="bg-white py-16 px-6 border-b border-gray-100">
         <div className="max-w-3xl mx-auto">
-          <nav className="text-sm text-gray-400 mb-6">
-            <Link href="/" className="hover:text-white no-underline">Home</Link> /{" "}
-            <span className="text-gray-300">{heading}</span>
+          <nav className="text-sm text-gray-500 mb-6">
+            <Link href="/" className="hover:text-gray-900 no-underline">Home</Link> /{" "}
+            <span className="text-gray-700">{heading}</span>
           </nav>
           <span className="inline-block text-xs font-heading font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-4" style={{ background: "#EE6C1322", color: "#EE6C13" }}>
             {metro.city}, {metro.stateAbbr}
           </span>
-          <h1 className="font-heading font-extrabold text-white text-4xl md:text-5xl leading-tight mb-6">{heading}</h1>
-          <p className="text-gray-300 text-xl leading-relaxed mb-8">
+          <h1 className="font-heading font-extrabold text-gray-900 text-4xl md:text-5xl leading-tight mb-6">{heading}</h1>
+          <p className="text-gray-600 text-xl leading-relaxed mb-8">
             JurisPage helps {metro.city} law firms get more qualified case inquiries through ethical, transparent digital marketing. Month-to-month contracts. Pricing published online.
           </p>
           <div className="flex flex-wrap gap-4">
-            <Link href="/contact/" className="inline-block font-heading font-bold text-white text-sm px-7 py-3.5 rounded-[40px] no-underline transition-colors" style={{ background: "#EE6C13" }}>
-              Free {metro.city} Marketing Audit
+            <Link href="/contact/" className="inline-block font-heading font-bold text-white text-sm px-7 py-3.5 rounded-[40px] no-underline transition-colors hover:opacity-90" style={{ background: "#EE6C13" }}>
+              Check Your Market Availability
             </Link>
-            <Link href="/services/pricing/" className="inline-block font-heading font-bold text-white text-sm px-7 py-3.5 rounded-lg border border-gray-600 no-underline hover:border-gray-400 transition-colors">
+            <Link href="/services/pricing/" className="inline-block font-heading font-bold text-gray-700 text-sm px-7 py-3.5 rounded-lg border border-gray-300 no-underline hover:border-gray-500 transition-colors">
               See Pricing
             </Link>
           </div>
@@ -181,9 +181,9 @@ export default function MetroPage({ metro, service }: MetroPageProps) {
       <FAQAccordion faqs={faqs} heading={`${serviceLabel} in ${metro.city} - FAQ`} />
 
       <CTASection
-        heading={`Free ${metro.city} Law Firm ${service === "law-firm-seo" ? "SEO" : service === "google-ads-lawyers" ? "Ads" : "Marketing"} Audit`}
-        subtext={`Tell us about your ${metro.city} law firm and your goals. We'll review your current online presence and come back with a clear plan.`}
-        primaryLabel={`Get My Free ${metro.city} Audit`}
+        heading="Check Your Market Availability"
+        subtext={`We only work with one firm per practice area per market. Tell us about your ${metro.city} firm and we'll check your market.`}
+        primaryLabel="Check Your Market Availability"
         primaryHref="/contact/"
         secondaryLabel="See Pricing"
         secondaryHref="/services/pricing/"
