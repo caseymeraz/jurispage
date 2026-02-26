@@ -9,6 +9,12 @@ export interface ServiceData {
   features: string[];
   faqs: { question: string; answer: string }[];
   relatedCaseStudies?: string[];
+  // Phase 3 enrichment fields
+  whyMatters?: string;
+  process?: { step: string; detail: string }[];
+  stats?: { value: string; label: string }[];
+  signs?: string[];
+  extendedFaqs?: { question: string; answer: string }[];
 }
 
 export const services: ServiceData[] = [
@@ -34,6 +40,68 @@ export const services: ServiceData[] = [
       { question: "What makes law firm SEO different from general SEO?", answer: "Legal is a YMYL (Your Money or Your Life) category, which means Google applies stricter E-E-A-T standards. Legal sites also face unique challenges: bar advertising ethics, local map pack competition, and practice area keyword structures that require legal-specific expertise." },
       { question: "Do I need SEO if I'm already running Google Ads?", answer: "Yes. Paid ads stop the moment you stop paying. SEO compounds over time and eventually produces leads at a fraction of the cost per acquisition. Most firms benefit from running both simultaneously." },
     ],
+    whyMatters: "Law firm SEO is the difference between your website sitting on page three and it generating 15-20 qualified case inquiries every month. Over 70% of prospective legal clients start their search on Google, and the firms in the top three organic positions capture the overwhelming majority of that traffic. Without a disciplined SEO strategy, you are funding your competitors' growth every time a potential client searches for a lawyer in your practice area.",
+    process: [
+      {
+        step: "Technical Audit",
+        detail: "We start with a full crawl of your site to identify indexing issues, Core Web Vitals failures, broken links, duplicate content, and schema gaps. Most law firm sites have 15-25 fixable technical issues holding them back before we ever write a word of content.",
+      },
+      {
+        step: "Keyword Research and Strategy",
+        detail: "We map out every practice area and location combination worth targeting, ranked by search volume and competitive difficulty. You get a clear picture of which keywords drive cases, not just traffic, before we start any work.",
+      },
+      {
+        step: "On-Page Optimization",
+        detail: "We rewrite or restructure your practice area pages around the right keyword targets, proper heading hierarchy, E-E-A-T signals, and conversion-focused copy. Title tags, meta descriptions, schema markup, and internal linking all get cleaned up in month one.",
+      },
+      {
+        step: "Content Publishing",
+        detail: "We build out a content calendar targeting high-intent queries your potential clients are already searching. Each piece is written for the reader first and optimized for Google second — no thin AI content that triggers Google's quality filters.",
+      },
+      {
+        step: "Link Building",
+        detail: "We earn backlinks from legal directories, local news sites, bar associations, and practice-area adjacent publications. Every link is manually vetted. We do not use link farms, private blog networks, or link exchanges.",
+      },
+      {
+        step: "Monthly Reporting",
+        detail: "You get a clear monthly report showing keyword position changes, organic traffic trends, and most importantly, the number of phone calls and form submissions attributable to organic search. Rankings are a means to an end — cases are the metric that matters.",
+      },
+    ],
+    stats: [
+      { value: "113+", label: "Law firms served across every practice area" },
+      { value: "68%", label: "Average increase in organic case inquiries within 12 months" },
+      { value: "6-12 mo", label: "Typical timeline to significant lead flow improvement" },
+      { value: "#1", label: "Focus: case inquiries, not vanity rankings" },
+    ],
+    signs: [
+      "Your website gets traffic but very few consultation requests — you rank for broad terms but not the high-intent practice area searches that convert.",
+      "Competitors you consider inferior are outranking you consistently, even for searches in your own city.",
+      "You have no idea which of your pages are driving calls because no tracking is set up.",
+      "Your last SEO agency sent monthly reports full of graphs but could never connect the work to actual case leads.",
+      "You launched a new website 6-12 months ago and organic traffic has not recovered to prior levels.",
+    ],
+    extendedFaqs: [
+      {
+        question: "How much does law firm SEO cost?",
+        answer: "Law firm SEO typically ranges from $1,500 to $10,000+ per month depending on market competitiveness, practice area, and scope of work. Our Grow plan starts at a published price you can see on our pricing page without booking a discovery call. We do not quote differently based on firm size.",
+      },
+      {
+        question: "What is E-E-A-T and why does it matter for law firm websites?",
+        answer: "E-E-A-T stands for Experience, Expertise, Authoritativeness, and Trustworthiness. Google uses these signals to evaluate whether content on YMYL (Your Money or Your Life) topics like legal advice should rank. For law firms, this means having attorney bios with credentials, bar memberships listed, case results where permitted, and content written or reviewed by actual attorneys. Sites that lack these signals struggle to rank regardless of how good their technical SEO is.",
+      },
+      {
+        question: "What is the difference between law firm SEO and local SEO?",
+        answer: "Traditional law firm SEO targets organic blue-link rankings across all of Google Search. Local SEO specifically targets the map pack — the three local business results shown with a map pin. Both matter, and both are included in our work. For most practice areas, the map pack gets 40%+ of clicks for searches with local intent, so ignoring it means leaving a large portion of potential leads on the table.",
+      },
+      {
+        question: "Can I do law firm SEO myself?",
+        answer: "You can handle some elements, like publishing practice area content and managing your Google Business Profile. But competitive law firm SEO in most markets requires technical expertise, consistent link building, and ongoing optimization that is difficult to manage alongside a full-time legal practice. Most solo attorneys who start DIY SEO see initial gains stall within 6 months as competitors with professional help pull ahead.",
+      },
+      {
+        question: "How do I know if my current SEO agency is actually doing anything?",
+        answer: "Ask for a report that shows keyword position changes tied to specific deliverables (pages published, links built, technical fixes completed). If your agency sends charts without connecting them to work output, that is a red flag. You should also be able to verify in Google Search Console that organic impressions and clicks are trending upward over a 6-month window. If neither of those things is happening, it is time for an audit.",
+      },
+    ],
   },
   {
     relatedCaseStudies: ["immigration-desk", "the-sands-law-group"],
@@ -55,6 +123,68 @@ export const services: ServiceData[] = [
       { question: "How much does Google Ads management cost?", answer: "Our Google Ads management is included in the Grow and Dominate plans, or available as an add-on. Ad spend is separate and paid directly to Google — we don't mark it up." },
       { question: "What's the difference between Google Ads and Local Service Ads?", answer: "Google Ads (traditional PPC) shows text ads across Google's network. Local Service Ads (LSAs) appear at the very top of results with a 'Google Screened' badge and charge per lead rather than per click. Most law firms benefit from running both." },
       { question: "How quickly do Google Ads generate leads?", answer: "Unlike SEO, Google Ads can generate calls and form submissions within 24-48 hours of launch. The first 30-60 days are typically a learning phase where we optimize bidding and targeting for your specific market." },
+    ],
+    whyMatters: "Google Ads for lawyers sits at the top of every high-intent search — the moment someone types 'criminal defense attorney near me' or 'personal injury lawyer free consultation,' paid results are the first thing they see. Legal is one of the most expensive advertising categories on Google, with some keywords costing $50-200+ per click. That means a poorly managed account burns through budget fast, while a well-managed one delivers qualified case inquiries at a predictable cost. The difference is almost entirely in how the account is structured and managed day-to-day.",
+    process: [
+      {
+        step: "Account Audit",
+        detail: "If you have an existing account, we do a full audit before touching anything. We identify wasted spend from broad match keywords, missing negative keyword lists, low-quality score ads, and conversion tracking gaps. Most accounts we inherit have recoverable waste of 30-50% of monthly spend.",
+      },
+      {
+        step: "Campaign Architecture",
+        detail: "We structure campaigns by practice area, not by keyword theme. Each practice area gets its own campaign with tightly themed ad groups of 3-5 keywords maximum. This approach improves Quality Score, reduces cost per click, and makes it easy to allocate budget where it is working.",
+      },
+      {
+        step: "Keyword Strategy and Match Types",
+        detail: "We build precise keyword lists using exact and phrase match types, paired with a robust negative keyword list that blocks irrelevant searches from day one. Legal PPC requires aggressive negative keyword management — terms like 'law school,' 'salary,' and 'template' waste thousands of dollars per month if not excluded.",
+      },
+      {
+        step: "Ad Copy and Landing Page Alignment",
+        detail: "We write ad copy that speaks directly to case-acquisition intent and matches the language of your landing page. A visitor searching 'DUI lawyer no jail time' should land on a page that addresses that exact concern, not your generic homepage. We set up or optimize dedicated landing pages for each practice area.",
+      },
+      {
+        step: "Conversion Tracking Setup",
+        detail: "We implement call tracking and form tracking so every dollar spent is tied to an actual lead action. Without proper conversion data, Google's automated bidding has nothing to optimize for — and you have no idea which keywords are generating cases versus wasting money.",
+      },
+      {
+        step: "Ongoing Optimization and Reporting",
+        detail: "Every month we review search term reports, pause low-performers, expand what is working, and adjust bids based on conversion data. You receive a report showing cost per lead, total leads generated, and the keywords driving them — not just impressions and click-through rates.",
+      },
+    ],
+    stats: [
+      { value: "40-60%", label: "Budget waste in typical unmanaged law firm PPC accounts" },
+      { value: "24-48 hrs", label: "Time to first leads after campaign launch" },
+      { value: "$50-200+", label: "Cost per click for competitive legal keywords" },
+      { value: "113+", label: "Law firm campaigns audited and managed" },
+    ],
+    signs: [
+      "You are spending $3,000+ per month on Google Ads but cannot tell which keywords are generating actual consultations.",
+      "Your campaigns are using broad match keywords on legal terms, which means you are paying for searches like 'law school near me' or 'attorney salary.'",
+      "Your ads send visitors to your homepage instead of a practice area-specific landing page.",
+      "Conversion tracking is not set up, so Google has no data to optimize your bids against.",
+      "Your cost per lead has been climbing every month and your agency's explanation is 'the market is more competitive.'",
+    ],
+    extendedFaqs: [
+      {
+        question: "How much should a law firm spend on Google Ads?",
+        answer: "It depends entirely on your practice area and market. Personal injury and criminal defense in major metros often require $5,000-$20,000+ per month in ad spend to generate meaningful volume. Smaller markets and niche practice areas can see results with $2,000-$5,000 per month. The more important number is cost per acquired case, not total spend. We can estimate realistic lead costs for your specific market before you commit to a budget.",
+      },
+      {
+        question: "Should I use broad match or exact match keywords for legal ads?",
+        answer: "For most law firm campaigns, we start with exact and phrase match keywords. Broad match can work once you have strong conversion data and a robust negative keyword list, but in the early stages it almost always leads to wasted spend on irrelevant searches. Legal keywords are expensive enough that precise targeting from day one is non-negotiable.",
+      },
+      {
+        question: "What is a good cost per lead for law firm Google Ads?",
+        answer: "It varies significantly by practice area. Personal injury leads might cost $150-400 per form submission but represent cases worth $10,000-$100,000+, making even high CPLs worthwhile. Family law and immigration leads in smaller markets might target $50-150 per lead. The right benchmark is your case value and conversion rate from lead to signed client, not an arbitrary CPL target.",
+      },
+      {
+        question: "Should law firms use Performance Max campaigns?",
+        answer: "We approach Performance Max campaigns cautiously for law firms. They offer limited control over placement and search terms, which is a problem in legal where ad placements need to match bar advertising guidelines and irrelevant traffic is expensive. For most firms, we recommend well-structured Search campaigns first, then test Performance Max once you have strong conversion data to guide the algorithm.",
+      },
+      {
+        question: "Can I run Google Ads myself without an agency?",
+        answer: "You can, and some attorneys do manage their own accounts effectively. But legal is one of the most expensive categories on Google, which means mistakes cost more than in most industries. A single week of broad match keywords on the wrong terms can waste an entire month's budget. If you manage it yourself, invest time in learning keyword match types, negative keywords, and conversion tracking before spending significant money.",
+      },
     ],
   },
   {
@@ -99,6 +229,68 @@ export const services: ServiceData[] = [
       { question: "What is local SEO for law firms?", answer: "Local SEO is the set of tactics that help your law firm appear in Google's map pack — the 3-pack of results with a map pin shown for searches like 'personal injury lawyer near me' or 'divorce attorney [city].' It includes Google Business Profile optimization, citation building, and local content strategies." },
       { question: "How important is the Google map pack for law firms?", answer: "Extremely. Studies show that map pack results receive 44% of all clicks for local searches. For practice areas like PI, criminal defense, and family law, most clients search with local intent." },
       { question: "How do reviews affect local SEO rankings?", answer: "Review quantity, recency, and rating are all ranking signals for the map pack. We build a systematic review generation strategy as part of every local SEO engagement." },
+    ],
+    whyMatters: "Local SEO for law firms is not a nice-to-have — it is the primary way most clients find an attorney today. Over 46% of prospective legal clients use Google when researching law firms, and the majority of those searches include local intent. The map pack appears above the organic results for nearly every practice area search in every market. A firm that ranks in the top three map pack positions for their city and practice area typically captures more leads per month from local search alone than firms spending thousands on paid advertising.",
+    process: [
+      {
+        step: "Google Business Profile Audit and Optimization",
+        detail: "We start by claiming and fully completing your Google Business Profile — categories, services, attributes, photos, business hours, and a keyword-rich description. Most GBP profiles we inherit are 40-50% complete. Getting to 100% completion is one of the highest-ROI tasks in local SEO.",
+      },
+      {
+        step: "NAP Consistency Cleanup",
+        detail: "We audit your Name, Address, and Phone number across every directory, legal listing, and data aggregator where your firm appears. Inconsistent information confuses Google and suppresses local rankings. We fix discrepancies across Avvo, Justia, Martindale, FindLaw, Yelp, and 50+ other sources.",
+      },
+      {
+        step: "Citation Building",
+        detail: "We submit your firm to the top legal and local directories, prioritizing those with the highest domain authority and relevance to your practice area. Citation quantity and quality both factor into map pack rankings, and most new and mid-sized firms are significantly under-cited compared to competitors.",
+      },
+      {
+        step: "Review Generation Strategy",
+        detail: "Review quantity, recency, and rating are direct ranking signals in the map pack. We build a review generation process your team can actually execute — typically a simple post-matter email sequence or intake follow-up that increases review volume without violating bar advertising rules.",
+      },
+      {
+        step: "Localized Content and Landing Pages",
+        detail: "We create location-specific practice area pages targeting searches like 'divorce attorney [city]' and 'DUI lawyer [neighborhood].' These pages signal geographic relevance to Google and capture long-tail local searches that the map pack alone does not cover.",
+      },
+      {
+        step: "Ongoing Monitoring and Reporting",
+        detail: "Map pack rankings fluctuate. We track your position weekly using geo-specific rank tracking tools and report on map pack visibility, Google Business Profile views, and direction requests — leading indicators of local search health that most reports ignore.",
+      },
+    ],
+    stats: [
+      { value: "44%", label: "Of local search clicks go to the top 3 map pack results" },
+      { value: "46%+", label: "Of prospective legal clients start their search on Google" },
+      { value: "3x", label: "Average increase in GBP views after full optimization" },
+      { value: "113+", label: "Law firms helped dominate their local markets" },
+    ],
+    signs: [
+      "You search your own practice area and city and your firm does not appear in the map pack — competitors you know are smaller or newer show up instead.",
+      "Your Google Business Profile was set up years ago and has not been updated since — categories, photos, and service descriptions are minimal or missing.",
+      "Your firm appears in Google results but with an incorrect address, old phone number, or wrong business name on some directories.",
+      "You have fewer than 10 Google reviews and your primary competitors have 50, 100, or more — and they are actively getting new ones every month.",
+      "You serve multiple cities or neighborhoods but have only one location page on your website with no geo-specific content.",
+    ],
+    extendedFaqs: [
+      {
+        question: "What is the difference between local SEO and regular SEO for law firms?",
+        answer: "Regular (organic) SEO targets the blue-link results that appear below the map pack. Local SEO specifically targets the map pack — the three results shown with a map pin at the top of the page. Both require different tactics. Organic SEO is driven primarily by content quality and backlinks. Local SEO is driven by Google Business Profile signals, citation consistency, review volume, and proximity to the searcher. Most competitive law firm marketing strategies address both.",
+      },
+      {
+        question: "How long does it take to rank in the Google map pack?",
+        answer: "In less competitive markets, firms with complete GBP profiles and consistent citations can see map pack appearances within 60-90 days. In competitive markets like large metro areas for personal injury or criminal defense, it can take 6-12 months of sustained effort. The starting point matters a lot — a firm with an existing GBP and some reviews can move faster than one starting from scratch.",
+      },
+      {
+        question: "Does having more Google reviews actually help rankings?",
+        answer: "Yes. Google uses review count, average rating, and recency as signals for local prominence — one of the three main map pack ranking factors alongside relevance and proximity. Firms that consistently generate new reviews rank more consistently than those with the same number of old reviews. Responding to reviews also signals active management of your profile, which Google views positively.",
+      },
+      {
+        question: "What local directories matter most for law firms?",
+        answer: "The highest-value legal directories for local SEO are Avvo, Justia, Martindale-Hubbell, FindLaw, Super Lawyers, and the state bar directory. Beyond legal-specific directories, being listed consistently on Google Business Profile, Yelp, Bing Places, Apple Maps, and major data aggregators (Acxiom, Data Axle, Neustar Localeze) is critical for citation consistency. Quality matters more than quantity — being accurate on 30 high-authority directories beats being inconsistent on 200.",
+      },
+      {
+        question: "Can a law firm with multiple offices rank locally in each city?",
+        answer: "Yes, but each office location needs its own Google Business Profile and its own set of local citations. You cannot rank a single GBP listing across multiple cities. Each location should also have a dedicated page on your website with location-specific content. Firms that try to shortcut this — using one address for multiple service areas — typically see weak local rankings everywhere rather than strong rankings anywhere.",
+      },
     ],
   },
   {

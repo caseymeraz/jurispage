@@ -25,6 +25,11 @@ export function generateServiceMetadata(service: ServiceData): Metadata {
 }
 
 export default function ServicePage({ service }: ServicePageProps) {
+  const allFaqs = [
+    ...service.faqs,
+    ...(service.extendedFaqs ?? []),
+  ];
+
   const serviceSchema = {
     "@context": "https://schema.org",
     "@type": "Service",
@@ -36,10 +41,10 @@ export default function ServicePage({ service }: ServicePageProps) {
     areaServed: { "@type": "Country", name: "United States" },
   };
 
-  const faqSchema = service.faqs.length > 0 ? {
+  const faqSchema = allFaqs.length > 0 ? {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    mainEntity: service.faqs.map((faq) => ({
+    mainEntity: allFaqs.map((faq) => ({
       "@type": "Question",
       name: faq.question,
       acceptedAnswer: { "@type": "Answer", text: faq.answer },
@@ -86,6 +91,22 @@ export default function ServicePage({ service }: ServicePageProps) {
         </div>
       </section>
 
+      {/* Stats bar */}
+      {service.stats && service.stats.length > 0 && (
+        <section className="py-10 px-6 bg-[#EE6C13]">
+          <div className="max-w-4xl mx-auto">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+              {service.stats.map((stat) => (
+                <div key={stat.label} className="text-center">
+                  <div className="font-heading font-extrabold text-white text-3xl md:text-4xl leading-none mb-1">{stat.value}</div>
+                  <div className="text-orange-100 text-sm leading-snug">{stat.label}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* Intro */}
       <section className="py-16 px-6 bg-white">
         <div className="max-w-3xl mx-auto">
@@ -93,14 +114,26 @@ export default function ServicePage({ service }: ServicePageProps) {
         </div>
       </section>
 
+      {/* Why This Service Matters */}
+      {service.whyMatters && (
+        <section className="py-16 px-6 bg-[#FEF3EC]">
+          <div className="max-w-3xl mx-auto">
+            <h2 className="font-heading font-extrabold text-gray-900 text-3xl mb-6">
+              Why {service.primaryKeyword} Matters
+            </h2>
+            <p className="text-gray-700 text-lg leading-relaxed">{service.whyMatters}</p>
+          </div>
+        </section>
+      )}
+
       {/* Features */}
-      <section className="py-16 px-6 bg-[#FEF3EC]">
+      <section className="py-16 px-6 bg-white">
         <div className="max-w-3xl mx-auto">
           <h2 className="font-heading font-extrabold text-gray-900 text-3xl mb-8">What&apos;s Included</h2>
           <ul className="space-y-4">
             {service.features.map((feature) => (
-              <li key={feature} className="flex gap-3 items-start bg-white p-5 rounded-xl border border-orange-100 shadow-sm">
-                <span className="flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold mt-0.5 text-white" style={{ background: "#EE6C13" }}>✓</span>
+              <li key={feature} className="flex gap-3 items-start bg-[#FEF3EC] p-5 rounded-xl border border-orange-100 shadow-sm">
+                <span className="flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold mt-0.5 text-white" style={{ background: "#EE6C13" }}>&#10003;</span>
                 <span className="text-gray-700 leading-relaxed">{feature}</span>
               </li>
             ))}
@@ -108,25 +141,71 @@ export default function ServicePage({ service }: ServicePageProps) {
         </div>
       </section>
 
+      {/* How It Works */}
+      {service.process && service.process.length > 0 && (
+        <section className="py-16 px-6 bg-[#1a1a1a]">
+          <div className="max-w-3xl mx-auto">
+            <h2 className="font-heading font-extrabold text-white text-3xl mb-10">
+              How {service.primaryKeyword} Works at JurisPage
+            </h2>
+            <ol className="space-y-8">
+              {service.process.map((item, index) => (
+                <li key={item.step} className="flex gap-5 items-start">
+                  <span
+                    className="flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center font-heading font-extrabold text-white text-sm"
+                    style={{ background: "#EE6C13" }}
+                  >
+                    {index + 1}
+                  </span>
+                  <div>
+                    <h3 className="font-heading font-bold text-white text-lg mb-2">{item.step}</h3>
+                    <p className="text-gray-400 leading-relaxed">{item.detail}</p>
+                  </div>
+                </li>
+              ))}
+            </ol>
+          </div>
+        </section>
+      )}
+
       {/* Why JurisPage */}
-      <section className="py-16 px-6 bg-[#1a1a1a]">
+      <section className="py-16 px-6 bg-white">
         <div className="max-w-3xl mx-auto">
-          <h2 className="font-heading font-extrabold text-white text-3xl mb-8">Why JurisPage for {service.primaryKeyword}?</h2>
+          <h2 className="font-heading font-extrabold text-gray-900 text-3xl mb-8">Why JurisPage for {service.primaryKeyword}?</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
               { color: "#EE6C13", title: "100% Legal Focus", body: "We work exclusively with law firms. Every tactic is built for the legal market specifically." },
               { color: "#982A0B", title: "Transparent Pricing", body: "Our pricing is on the website. No discovery calls required to learn what anything costs." },
               { color: "#EE6C13", title: "Month-to-Month", body: "No long-term contracts. We earn your business every single month." },
             ].map((item) => (
-              <div key={item.title} className="bg-gray-800 rounded-xl p-6">
+              <div key={item.title} className="bg-gray-50 rounded-xl p-6 border border-gray-100">
                 <div className="w-8 h-1 rounded mb-4" style={{ background: item.color }}></div>
-                <h3 className="font-heading font-bold text-white text-base mb-2">{item.title}</h3>
-                <p className="text-gray-400 text-sm leading-relaxed">{item.body}</p>
+                <h3 className="font-heading font-bold text-gray-900 text-base mb-2">{item.title}</h3>
+                <p className="text-gray-600 text-sm leading-relaxed">{item.body}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
+
+      {/* Signs Your Firm Needs This */}
+      {service.signs && service.signs.length > 0 && (
+        <section className="py-16 px-6 bg-[#FEF3EC]">
+          <div className="max-w-3xl mx-auto">
+            <h2 className="font-heading font-extrabold text-gray-900 text-3xl mb-8">
+              Signs Your Firm Needs {service.primaryKeyword}
+            </h2>
+            <ul className="space-y-4">
+              {service.signs.map((sign) => (
+                <li key={sign} className="flex gap-3 items-start bg-white p-5 rounded-xl border border-orange-100 shadow-sm">
+                  <span className="flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold mt-0.5 text-white" style={{ background: "#982A0B" }}>!</span>
+                  <span className="text-gray-700 leading-relaxed">{sign}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+      )}
 
       {service.relatedCaseStudies && service.relatedCaseStudies.length > 0 && (
         <CaseStudyPreview
@@ -135,7 +214,7 @@ export default function ServicePage({ service }: ServicePageProps) {
         />
       )}
 
-      {service.faqs.length > 0 && <FAQAccordion faqs={service.faqs} heading={`${service.primaryKeyword} Questions Answered`} />}
+      {allFaqs.length > 0 && <FAQAccordion faqs={allFaqs} heading={`${service.primaryKeyword} Questions Answered`} />}
 
       <CTASection
         heading={`Ready to Get Started with ${service.primaryKeyword}?`}
