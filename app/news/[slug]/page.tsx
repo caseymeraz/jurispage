@@ -65,7 +65,7 @@ export default async function NewsPage({ params }: Props) {
   return (
     <>
       <SchemaOrg schema={schema} />
-      <section className="bg-gray-900 py-12 px-6">
+      <section className="bg-[#1a1a1a] py-12 px-6">
         <div className="max-w-3xl mx-auto">
           <nav className="text-sm text-gray-400 mb-4">
             <Link href="/" className="hover:text-white no-underline">Home</Link> /{" "}

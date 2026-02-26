@@ -544,6 +544,68 @@ export const services: ServiceData[] = [
       { question: "How much does a law firm AI chatbot cost?", answer: "The AI chatbot is available as an add-on to Grow or Dominate plans. Contact us for current pricing based on your practice area and website traffic volume." },
       { question: "Can the chatbot handle complex legal questions?", answer: "The chatbot is designed for intake, not legal advice. It's trained to gather prospect information, answer basic FAQs about your firm, and route complex questions to a human — while keeping the conversation on track for case qualification." },
     ],
+    stats: [
+      { value: "40%", label: "Of legal case inquiries arrive outside business hours" },
+      { value: "2x", label: "More leads captured by websites with active chat vs. no chat (LawDroid)" },
+      { value: "5 min", label: "Average response time that doubles contact-to-client conversion rates" },
+      { value: "24/7", label: "Coverage with zero additional staffing cost" },
+    ],
+    whyMatters: "The law firm that responds first wins the case - this is not an anecdote, it is documented across legal intake studies. When a prospective client submits a contact form at 11pm or starts a chat on Saturday morning, they are not waiting until Monday. They are simultaneously reaching out to two or three firms. An AI chatbot that engages them immediately, asks the right intake questions, and sends your team a qualified lead summary before 8am is not a novelty - it is a competitive advantage that directly affects how many cases you sign each month.",
+    process: [
+      {
+        step: "Practice Area and Intake Design",
+        detail: "We start by mapping your intake process - what information your staff actually needs to evaluate a potential case, what questions reveal whether a prospect is a good fit, and what common objections or questions come up before someone agrees to a consultation. This is the foundation the chatbot conversation is built on, and it is different for every practice area.",
+      },
+      {
+        step: "Chatbot Training and Configuration",
+        detail: "We configure your chatbot with your firm's specific information: practice areas, geographic scope, attorney names and credentials, office hours, consultation process, and fee structure (where appropriate). The chatbot knows what types of cases you do and do not handle, so it does not waste time collecting information on inquiries you will not take.",
+      },
+      {
+        step: "Compliance Review",
+        detail: "Every chatbot conversation flow is reviewed against bar advertising rules for your state. This includes mandatory disclaimers that no attorney-client relationship is created, that information shared is for contact purposes only, and that the chatbot is not providing legal advice. We have handled this for firms in over 30 states and know the specific requirements that vary by jurisdiction.",
+      },
+      {
+        step: "CRM and Notification Integration",
+        detail: "We integrate the chatbot with your existing intake system - Clio, Lawmatics, Filevine, or a simple email-to-staff workflow - so leads captured overnight arrive in the same place your team checks in the morning. SMS notifications to a designated intake staff member or attorney are configured for high-priority lead types (serious injury, criminal matter with a court date).",
+      },
+      {
+        step: "Installation and Testing",
+        detail: "We install the chatbot widget on your website and run it through a full test cycle covering normal intake flows, edge cases (prospects outside your practice area, Spanish-language inquiries, prospects who abandon mid-conversation), and mobile functionality. We verify the notification system delivers leads correctly before going live.",
+      },
+      {
+        step: "Performance Review and Optimization",
+        detail: "At 30 and 90 days post-launch, we review the conversation logs to identify where prospects are dropping off, what questions they ask that the chatbot is not handling well, and whether the qualification criteria are filtering correctly. Most chatbots improve significantly with two rounds of optimization based on real conversation data.",
+      },
+    ],
+    signs: [
+      "Your contact form submissions come in on weekends and evenings but are not followed up until Monday - by which point the prospect has hired someone else.",
+      "You pay for Google Ads or SEO that drives traffic at all hours, but there is no mechanism to engage visitors who arrive when your office is closed.",
+      "Your intake staff spends significant time on calls with prospects who are clearly not a fit for your practice - a chatbot qualification step would filter these before they reach your team.",
+      "Potential clients visiting your site cannot find basic information (your practice areas, your consultation process, whether you handle their type of case) without calling during business hours.",
+      "You track website traffic and see significant volume at nights and weekends, but your contact-to-client conversion rate suggests most of that traffic leaves without taking any action.",
+    ],
+    extendedFaqs: [
+      {
+        question: "What is the difference between an AI chatbot and a live chat service for law firms?",
+        answer: "Live chat services employ human agents who respond to website visitors in real time during set hours (often 24/7 via outsourced staff). AI chatbots respond instantly at any hour with no staffing cost, but follow a structured conversation flow rather than improvising. For law firm intake, AI chatbots typically outperform live chat for after-hours lead capture and basic qualification, while live chat has advantages for complex inquiries that benefit from human judgment. Many firms use both: AI chatbot after hours, live chat during business hours.",
+      },
+      {
+        question: "Will an AI chatbot create an attorney-client relationship?",
+        answer: "Not when properly designed. The key is explicit disclaimer language in the chatbot conversation - typically at the start and before any case-specific questions - stating that no attorney-client relationship is formed through the chat, that the information collected is for contact and intake purposes only, and that the chatbot is not providing legal advice. We build these disclaimers into every conversation flow and review them against state bar rules for your jurisdiction.",
+      },
+      {
+        question: "How does a law firm chatbot qualify leads?",
+        answer: "The chatbot asks structured intake questions specific to your practice area. For personal injury, this might include: how the injury occurred, when it happened (statute of limitations check), whether medical treatment was sought, and the approximate severity. For criminal defense: the charge, jurisdiction, and whether a court date has been set. The chatbot collects contact information, summarizes the inquiry, and flags it for follow-up - giving your intake staff a pre-screened summary rather than starting from zero.",
+      },
+      {
+        question: "Can the chatbot communicate in languages other than English?",
+        answer: "Yes. We can configure multilingual chatbot flows for firms that serve Spanish-speaking clients or other language communities. This is particularly valuable for immigration law, criminal defense, and personal injury firms in markets with significant non-English-speaking populations. The chatbot detects language preference and routes to the appropriate conversation flow automatically.",
+      },
+      {
+        question: "What happens to leads the chatbot captures?",
+        answer: "Every completed chatbot interaction generates a lead record that is sent to your designated intake system - whether that is Clio Grow, Lawmatics, a shared inbox, or a simple email notification. High-priority leads (serious injury cases, criminal matters with imminent court dates) can trigger an immediate SMS to your on-call attorney or intake staff. Completed lead records include the prospect's name, contact information, case description, and a summary of their answers to your intake questions.",
+      },
+    ],
   },
   {
     relatedCaseStudies: ["the-sands-law-group"],
@@ -564,6 +626,68 @@ export const services: ServiceData[] = [
     faqs: [
       { question: "What kind of emails should a law firm send?", answer: "The most effective law firm emails include: past client newsletters with relevant legal updates, referral partner check-ins, case outcome announcements (for relevant practice areas), and educational content that keeps your firm top of mind when a need arises." },
       { question: "Are there legal compliance concerns with law firm email marketing?", answer: "Yes. CAN-SPAM and state bar advertising rules both apply. We build campaigns with compliant opt-in practices, proper disclaimers, and unsubscribe functionality." },
+    ],
+    stats: [
+      { value: "$36", label: "Average return per $1 spent on email marketing (DMA, 2024)" },
+      { value: "21%", label: "Average open rate for legal industry emails (Mailchimp benchmarks)" },
+      { value: "70%+", label: "Of new clients for established firms come from referrals or past relationships" },
+      { value: "0", label: "Cost per send to your existing client and referral list" },
+    ],
+    whyMatters: "Email is the only marketing channel where you own the audience entirely. Your Google rankings can drop overnight. Your paid ads stop the moment you pause budget. Your social media reach depends on an algorithm you do not control. But your email list - past clients, referral sources, former colleagues, newsletter subscribers - belongs to you. For law firms where a single referral can be worth $5,000 to $50,000 in fees, one well-timed email to a past client who has a friend with a legal problem pays for months of email marketing in a single case.",
+    process: [
+      {
+        step: "List Audit and Segmentation",
+        detail: "We start with what you have. Most firms have contacts scattered across their CRM, their email client, their case management software, and a few business card stacks. We consolidate these into a clean, segmented list with categories that matter: past clients (by practice area), active referral sources, professional contacts, and newsletter subscribers. Segmentation is what allows you to send relevant messages to each group rather than blasting everyone with the same email.",
+      },
+      {
+        step: "Strategy and Cadence Planning",
+        detail: "We establish a realistic send cadence based on your firm size and content capacity. Most law firms do well with one monthly newsletter and periodic targeted sends for specific practice areas or events. We build a 12-month content calendar that maps out topic categories by month so you are never scrambling for content at the last minute.",
+      },
+      {
+        step: "Template Design and Platform Setup",
+        detail: "We design branded email templates in your chosen platform (Mailchimp, Constant Contact, Lawmatics, HubSpot, or similar) with your firm's logo, colors, and professional layout. We configure the platform with your sender domain authentication (SPF, DKIM, DMARC) so emails deliver reliably and do not land in spam folders.",
+      },
+      {
+        step: "Campaign Content Creation",
+        detail: "We write your email campaigns - past client newsletters, referral partner check-ins, practice area updates - in a voice that sounds like your firm, not a marketing agency. Legal email content has to be informative without crossing into legal advice, specific enough to be useful, and short enough to actually get read. We handle the drafting, and you approve before anything sends.",
+      },
+      {
+        step: "Compliance Review",
+        detail: "Every email campaign is reviewed against CAN-SPAM requirements (physical address, unsubscribe link, honest subject lines) and state bar advertising rules for your jurisdiction. Some states require specific disclaimers on attorney marketing emails or prohibit certain types of content. We know these rules and build compliant campaigns from the start rather than fixing problems after complaints.",
+      },
+      {
+        step: "Performance Reporting and Optimization",
+        detail: "Monthly reporting covers open rates, click rates, unsubscribes, and - when trackable - referrals and new matters that originated from email campaigns. We A/B test subject lines and send times to improve open rates over the first 90 days, and refine content topics based on what your list actually engages with versus what gets ignored.",
+      },
+    ],
+    signs: [
+      "You have a list of past client email addresses in your CRM that you have never emailed - each one is a potential referral source that does not know your firm is still active.",
+      "Referral partners who sent you multiple cases two years ago have gone quiet - you have never followed up with them systematically after the initial cases closed.",
+      "You send no emails to prospective clients between the initial consultation and when they decide whether to hire you - a nurture sequence would close more of those prospects.",
+      "Former colleagues, co-counsel, and professional contacts who like you personally do not think to send you referrals because they do not hear from you often enough to keep your firm top of mind.",
+      "You have a newsletter signup form on your website but have never sent a single newsletter to the people who opted in.",
+    ],
+    extendedFaqs: [
+      {
+        question: "How often should a law firm send marketing emails?",
+        answer: "Once a month is the right cadence for most law firms. Enough to stay top of mind, not so frequent that people unsubscribe or start ignoring you. Firms with robust content programs can go bi-weekly. The bigger risk is sending too infrequently - a list you email only once or twice a year will have forgotten who you are by the time your email arrives, and unsubscribe rates will be high.",
+      },
+      {
+        question: "What is a good open rate for law firm email marketing?",
+        answer: "Industry benchmarks from Mailchimp show legal services emails average around 21% open rates. Above 25% is strong for a law firm list. Open rates vary significantly by list quality and subject line. A highly segmented list of past clients who know your firm will open at 30-40%. A cold or stale list might open at 10-15%. The quality of your list matters far more than the size.",
+      },
+      {
+        question: "Can I email past clients after their case closes?",
+        answer: "In most jurisdictions, yes - past clients are considered an existing relationship and can be emailed with a newsletter or legal updates without the same restrictions that apply to unsolicited marketing to strangers. However, the email must not constitute legal advice, must include an unsubscribe option, and must comply with your state bar's advertising rules. We review jurisdiction-specific requirements before setting up any campaign.",
+      },
+      {
+        question: "Should a law firm use Mailchimp or a legal-specific CRM for email marketing?",
+        answer: "It depends on your existing tools. Mailchimp and Constant Contact are excellent, low-cost options for firms without a practice management system that includes email functionality. Lawmatics integrates email directly with your intake and client data, which makes it easier to trigger emails based on case status. Clio Grow has similar functionality. If you already have one of these legal CRMs, use its email tools. If not, Mailchimp is a reliable starting point.",
+      },
+      {
+        question: "Is email marketing worth it for small law firms?",
+        answer: "Email marketing has one of the highest ROI profiles of any marketing channel, precisely because the cost is low. A small firm with 200 past clients and referral sources paying $50/month for an email platform and a few hours of content time per month needs only one referral case per year to justify the entire investment. For practice areas where cases are high value (personal injury, business litigation, estate planning), the math is even more favorable.",
+      },
     ],
   },
   {

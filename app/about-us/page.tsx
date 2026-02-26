@@ -115,7 +115,7 @@ export default function AboutPage() {
             <table className="w-full border-collapse text-sm shadow-sm">
               <thead>
                 <tr>
-                  <th className="p-4 text-left bg-gray-900 text-white font-semibold rounded-tl-lg w-1/4"> </th>
+                  <th className="p-4 text-left bg-[#1a1a1a] text-white font-semibold rounded-tl-lg w-1/4"> </th>
                   <th className="p-4 text-center font-extrabold text-gray-900 text-base rounded-none" style={{ background: "linear-gradient(135deg, #EE6C13, #982A0B)" }}>JurisPage</th>
                   <th className="p-4 text-center bg-gray-700 text-white font-semibold">Large Agencies</th>
                   <th className="p-4 text-center bg-gray-700 text-white font-semibold rounded-tr-lg">Freelancers</th>

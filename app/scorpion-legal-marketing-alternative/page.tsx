@@ -32,7 +32,7 @@ export default function ScorpionAlternativePage() {
     <>
       <SchemaOrg schema={schema} />
 
-      <section className="bg-gray-900 py-16 px-6">
+      <section className="bg-[#1a1a1a] py-16 px-6">
         <div className="max-w-3xl mx-auto">
           <nav className="text-sm text-gray-400 mb-6">
             <Link href="/" className="hover:text-white no-underline">Home</Link> / <span className="text-gray-300">Scorpion Legal Marketing Alternative</span>
