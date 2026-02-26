@@ -710,6 +710,68 @@ export const services: ServiceData[] = [
       { question: "Is Bing Ads worth it for law firms?", answer: "Yes, especially as Bing grows through Microsoft Copilot integration. Average CPCs on Bing are 30-50% lower than Google for legal keywords, and conversion rates are comparable. Most law firms ignore Bing entirely, which means less competition for you." },
       { question: "Can I run Google Ads and Bing Ads simultaneously?", answer: "Absolutely, and it's recommended. We manage both platforms with a unified strategy to maximize coverage without duplicating spend." },
     ],
+    stats: [
+      { value: "30-50%", label: "Lower CPCs on Bing vs. Google for equivalent legal keywords" },
+      { value: "35%", label: "Of US desktop searches happen on Bing-powered properties" },
+      { value: "38", label: "Median age of Bing user is 35-54 - prime demographic for legal services" },
+      { value: "Few", label: "Law firm competitors actively running Bing campaigns in most markets" },
+    ],
+    whyMatters: "Bing is not Google, and that is exactly why it is worth advertising on. Bing's user base skews significantly older and wealthier than Google's - the demographic that is statistically more likely to need estate planning, business litigation, high-asset divorce, or personal injury representation. Because the overwhelming majority of law firm ad budgets go entirely to Google, Bing legal keywords are dramatically underpriced relative to their value. A firm spending $5,000/month on Google Ads can often generate a meaningful additional volume of comparable-quality leads on Bing for $500-1,000/month with far less competition on every keyword.",
+    process: [
+      {
+        step: "Google Ads Account Review",
+        detail: "If you are already running Google Ads, we start by reviewing that campaign's structure, keywords, and conversion data. Bing campaigns are most efficient when built from proven Google data - we import your top-performing search terms, ad copy, and negative keyword lists directly into Microsoft Ads rather than starting from scratch. This cuts the optimization learning curve by weeks.",
+      },
+      {
+        step: "Microsoft Ads Account Setup",
+        detail: "We set up your Microsoft Ads account, link it to your website's UET (Universal Event Tracking) tag for conversion tracking, and configure billing. If you already have a Microsoft Ads account from a previous campaign, we audit it first - many inherited accounts have structural problems that limit performance.",
+      },
+      {
+        step: "Campaign Import and Bing-Specific Adjustments",
+        detail: "We import your Google Ads structure into Microsoft Ads and then make Bing-specific adjustments. Bing has different match type behavior, different demographic targeting options, and different bid adjustments for device and time of day that require calibration to match Bing's audience patterns rather than Google's.",
+      },
+      {
+        step: "Audience and Demographic Targeting",
+        detail: "Bing offers LinkedIn profile data integration that Google does not - you can target by job function, industry, and company size. For practice areas like business law, employment law, and estate planning, this is a meaningful competitive advantage. We configure audience targeting to focus budget on the demographic segments most likely to need your specific practice areas.",
+      },
+      {
+        step: "Copilot AI Integration",
+        detail: "Microsoft's Copilot AI is now integrated with Bing Search, handling a growing share of legal queries that previously would have gone through organic results. We configure your ads and landing pages to capture traffic from Copilot-assisted searches and monitor how AI-influenced queries perform differently from traditional text searches.",
+      },
+      {
+        step: "Unified Cross-Platform Reporting",
+        detail: "You receive a single monthly report covering both Google Ads and Microsoft Ads performance - total leads, cost per lead, and conversion data by platform. This lets you see clearly what each platform is contributing and make informed decisions about budget allocation. Most clients who add Bing find it delivers 10-20% additional lead volume at a cost per lead 30-40% lower than their Google Ads average.",
+      },
+    ],
+    signs: [
+      "You are running Google Ads but have no Microsoft Ads presence - you are leaving a portion of legal search traffic completely uncaptured.",
+      "Your Google Ads CPCs for target keywords are above $50-100 and your budget is constrained - Bing offers the same keywords at a fraction of the price with less competition.",
+      "Your practice area serves clients who are more likely to be 45+ years old, higher income, or in professional/executive roles - Bing's demographic skew aligns well with these segments.",
+      "You serve businesses rather than individual consumers - Bing's LinkedIn audience targeting makes it particularly effective for B2B legal services like employment law and business litigation.",
+      "You target estate planning, elder law, or similar practice areas where Bing's older, wealthier audience demographic is especially relevant to your ideal client profile.",
+    ],
+    extendedFaqs: [
+      {
+        question: "How much traffic does Bing actually have for legal searches?",
+        answer: "Bing holds approximately 27-33% of the US desktop search market and powers search on Microsoft Edge (the default Windows browser), Outlook, Yahoo Search, and now Microsoft Copilot. For legal keyword categories, Bing typically delivers 20-30% of the total search volume you see on Google. That is a meaningful volume - and in most legal markets, there are far fewer competing advertisers, which makes the leads cheaper and easier to win.",
+      },
+      {
+        question: "What types of law firms benefit most from Bing Ads?",
+        answer: "Practice areas that serve older or wealthier demographics see the strongest Bing performance: estate planning and probate, elder law, high-asset divorce, business litigation, and employment law for executives and professionals. Personal injury and criminal defense also work well on Bing, though the demographic advantage is less pronounced. Firms targeting younger demographics (student visa immigration, first-time DUI for young adults) may see less Bing value.",
+      },
+      {
+        question: "Can I import my Google Ads campaigns into Microsoft Ads?",
+        answer: "Yes - Microsoft Ads has a built-in Google import tool that can pull in your campaign structure, ad groups, keywords, ad copy, and negative keyword lists directly from your Google Ads account. We use this as a starting point but always review and adjust the imported campaigns, because Bing's keyword matching behavior and auction dynamics are different enough that a direct copy without adjustment typically underperforms.",
+      },
+      {
+        question: "Is Bing Ads management a significant additional cost on top of Google Ads management?",
+        answer: "We offer Bing Ads management as an add-on to Google Ads management at a reduced rate, since the two accounts share keyword strategy and reporting. You pay separately for ad spend on each platform - Microsoft Ads billing is completely separate from Google's. Most clients allocate 15-25% of their total paid search budget to Bing, which typically generates 10-20% additional lead volume at a lower cost per lead.",
+      },
+      {
+        question: "How does Microsoft Copilot affect Bing Ads for lawyers?",
+        answer: "Microsoft Copilot is now integrated with Bing Search results, and Copilot is handling a growing share of informational legal queries - things like 'what are my rights after a car accident' or 'how does divorce work in Texas.' Microsoft is actively expanding how ads appear alongside Copilot responses. For law firms, this means Bing Ads will increasingly reach prospects at the research stage of the legal hiring process, not just those ready to call immediately. We monitor Copilot-attributed ad performance as a distinct reporting segment.",
+      },
+    ],
   },
   {
     relatedCaseStudies: ["wilson-criminal-defence"],
@@ -730,6 +792,68 @@ export const services: ServiceData[] = [
     faqs: [
       { question: "Do your writers have legal backgrounds?", answer: "Our legal content team combines SEO expertise with legal research skills and attorney review processes. All practice area content is reviewed for accuracy before publication. We're not writing legal advice — we're writing marketing content that accurately represents what attorneys do." },
       { question: "How many articles per month do I get?", answer: "Content writing is included in the Dominate plan (monthly blog + practice pages) or available as a standalone add-on. Volume depends on your plan and goals — contact us for specifics." },
+    ],
+    stats: [
+      { value: "3x", label: "More organic traffic generated by sites publishing 16+ blog posts per month (HubSpot)" },
+      { value: "1,500+", label: "Minimum word count for competitive law firm practice area pages" },
+      { value: "6-12 mo", label: "Typical timeline for legal content to reach peak ranking position" },
+      { value: "113+", label: "Law firms for whom we have produced ranking legal content" },
+    ],
+    whyMatters: "Google's ranking algorithm for legal topics weights content depth and E-E-A-T signals heavily - a thin 300-word practice area page will not rank competitively for any term worth targeting. Beyond rankings, the content on your practice area pages does the job your intake staff would otherwise do: it tells potential clients what you handle, what the process looks like, and why you are the right choice. Law firms that publish consistent, high-quality content generate organic leads that compound over time, while firms that publish nothing remain entirely dependent on paid advertising for new cases.",
+    process: [
+      {
+        step: "Keyword and Topic Research",
+        detail: "We identify every content opportunity worth pursuing for your practice areas and geography - not just the obvious head terms, but the specific questions, local searches, and long-tail queries that attract clients who are ready to hire. We prioritize topics by search volume, competition level, and case acquisition intent. High-volume informational searches (what does a DUI cost in Colorado) bring traffic but may not convert; high-intent searches (DUI lawyer Denver free consultation) are the priority.",
+      },
+      {
+        step: "Content Brief Creation",
+        detail: "Before a word of copy is written, we produce a detailed content brief for each piece. This covers the target keyword, secondary keywords to include naturally, competing pages we need to outperform, required content sections, word count target, internal linking opportunities, and any jurisdiction-specific legal information that must be accurate. The brief is the blueprint that makes content consistent regardless of which writer produces it.",
+      },
+      {
+        step: "Drafting with Legal Accuracy",
+        detail: "Our legal content team drafts the piece against the brief, drawing on legal research tools and established case law references where needed. We write for your target client's reading level and intent - not in the formal tone of a legal brief, and not in the oversimplified tone of generic legal content farms. The draft reflects your practice area, your jurisdiction, and your firm's specific positioning.",
+      },
+      {
+        step: "Attorney Review",
+        detail: "Every substantive practice area page and legal guide goes through an attorney accuracy review before publication. This is not optional. Legal content that contains inaccurate statements about law, process, or procedure is a liability and a credibility problem. The review typically catches 2-5 factual details per piece that need correction or clarification before the content represents your firm accurately.",
+      },
+      {
+        step: "SEO Optimization and Formatting",
+        detail: "Approved content is formatted for both readers and search engines: proper heading hierarchy (H1, H2, H3), keyword placement in title tag and first paragraph, internal links to related practice area pages, schema markup (FAQ, breadcrumb, attorney), and image alt text. We also optimize for featured snippet capture on definition and process-oriented queries where your content can win the top-of-page position.",
+      },
+      {
+        step: "Publication and Performance Tracking",
+        detail: "We publish content directly to your WordPress site with correct canonical tags, meta descriptions, and publication dates. Each piece is submitted to Google Search Console for indexing. At 90 and 180 days post-publication, we review ranking performance and update content that is ranking on page two but not yet page one - often a smaller optimization effort than creating new content from scratch.",
+      },
+    ],
+    signs: [
+      "Your practice area pages are 300-500 words of generic overview content - they would not rank for competitive keywords in any market, and they do not tell potential clients enough to make a decision.",
+      "You have not published a new piece of content to your website in 6+ months - your competitors publishing monthly are steadily building ranking advantages you will need to overcome later.",
+      "Your blog exists but contains only firm announcements and generic legal news reposts that get no organic traffic and serve no keyword-targeting purpose.",
+      "Potential clients tell you they called because they 'read something helpful' on a competitor's website - their content is doing your case qualification work for them.",
+      "You are targeting a competitive market but your practice area pages do not address the specific questions clients in your city have about your specific practice area - content that could rank is not there yet.",
+    ],
+    extendedFaqs: [
+      {
+        question: "How long should a law firm blog post or practice area page be?",
+        answer: "For competitive practice area pages, 1,500-2,500 words is the typical minimum to rank in competitive markets. Top-ranking legal pages for high-value terms like 'personal injury lawyer [major city]' are often 3,000+ words. Blog posts targeting informational queries can be shorter (800-1,200 words) if the topic is focused, but tend to rank better when they are comprehensive enough to answer the searcher's question completely without making them click back to Google for more information.",
+      },
+      {
+        question: "Does AI-generated content work for law firm SEO?",
+        answer: "AI-generated content can pass Google's quality filters if it is accurate, well-structured, and reviewed by a human with legal knowledge before publication. The problem is that most AI-generated legal content is detectably generic - the same information phrased the same way that dozens of other law firm sites already have. Google's quality systems are specifically tuned to identify this pattern in YMYL (legal, medical, financial) content categories. We use AI to assist with research and drafting efficiency, but every piece is substantively written, reviewed, and fact-checked by humans with legal content expertise.",
+      },
+      {
+        question: "What is the difference between a practice area page and a blog post for a law firm?",
+        answer: "Practice area pages are the permanent, high-priority pages that describe what you do and target your most valuable keywords - 'personal injury lawyer Denver' or 'criminal defense attorney Chicago.' They are conversion pages: their job is to get someone to call or submit a form. Blog posts target informational queries that potential clients search during the research phase - 'what happens after a car accident' or 'do I need a lawyer for a DUI.' Blog posts build authority and drive traffic; practice area pages convert that traffic into consultations.",
+      },
+      {
+        question: "How many pieces of content does a law firm need?",
+        answer: "A complete content program for a law firm typically requires: one practice area page per practice area you want to rank for, location pages for each geographic market you serve, 2-4 blog posts per month targeting informational queries, and attorney bio pages with genuine credential depth. A solo practice in a mid-size market might need 15-25 total pages to be competitive. A multi-practice regional firm targeting multiple cities might need 50-100+ pages to capture full market coverage.",
+      },
+      {
+        question: "Can content writing improve my Google Business Profile rankings?",
+        answer: "Not directly - GBP rankings are driven by GBP-specific signals (reviews, citations, proximity). But your website content does influence your GBP rankings indirectly. Google's local algorithm considers the authority and relevance of your website when determining map pack rankings. A site with deep, well-optimized practice area content signals to Google that you are a credible, relevant business for those searches - which lifts both organic and local map pack performance over time.",
+      },
     ],
   },
 ];
