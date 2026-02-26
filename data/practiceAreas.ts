@@ -13,6 +13,7 @@ export interface PracticeAreaData {
   stats?: { value: string; label: string }[];
   process?: { step: string; detail: string }[];
   extendedFaqs?: { question: string; answer: string }[];
+  relatedServices?: string[];       // service slugs
 }
 
 export const practiceAreas: PracticeAreaData[] = [
@@ -56,6 +57,7 @@ export const practiceAreas: PracticeAreaData[] = [
       { question: "How many reviews does a PI firm need to rank in the map pack?", answer: "There's no fixed number, but in most mid-size markets, PI firms in the top 3 map pack positions average 50-150 Google reviews with a 4.7+ rating. Beyond count, review recency matters — a consistent flow of new reviews signals an active practice. We implement review request workflows that generate 3-5 new reviews per month for active clients." },
       { question: "Do personal injury law firms need separate pages for each accident type?", answer: "Yes. A single 'personal injury' page cannot compete with a firm that has dedicated pages for car accidents, truck accidents, motorcycle accidents, and slip-and-fall with location modifiers. Each page targets its own keyword cluster and provides Google with a clear signal of relevance for that specific case type." },
     ],
+    relatedServices: ["law-firm-seo", "google-ads-for-law-firms", "local-seo-for-law-firms", "law-firm-content-writing"],
   },
   {
     relatedCaseStudies: ["wilson-criminal-defence"],
@@ -97,6 +99,7 @@ export const practiceAreas: PracticeAreaData[] = [
       { question: "What's a realistic SEO timeline for a criminal defense firm in a competitive city?", answer: "In a mid-size market (city population 100,000-500,000), most criminal defense firms see meaningful map pack improvement within 60-90 days and organic ranking improvements for specific charge terms within 3-5 months. Major cities (top 20 metro areas) take longer — typically 6-12 months for top-5 organic positions on competitive terms like 'DUI lawyer [city]'." },
       { question: "Do criminal defense firms benefit from content marketing?", answer: "Yes, but the content type matters. Educational content that answers post-arrest questions ('what happens after a DUI arrest', 'can a drug charge be expunged') captures high-intent searches from people at the beginning of their attorney search. This content also builds E-E-A-T signals that improve your overall domain authority." },
     ],
+    relatedServices: ["law-firm-seo", "google-ads-for-law-firms", "local-seo-for-law-firms", "ai-chatbot-for-law-firm-website"],
   },
   {
     relatedCaseStudies: ["the-sands-law-group"],
@@ -137,6 +140,7 @@ export const practiceAreas: PracticeAreaData[] = [
       { question: "Do family law firms need separate pages for divorce and child custody?", answer: "Yes. Divorce and child custody are searched separately by clients who see them as distinct problems -- even when they are part of the same case. Separate pages for each matter allow you to rank for each keyword cluster independently, and they allow you to speak to each client's specific concern without burying it under a generic 'family law' umbrella." },
       { question: "How long does family law SEO take to generate cases?", answer: "Most family law firms see measurable traffic increases within 3-4 months and consistent case inquiries from organic search within 6-8 months. Sub-practice pages and FAQ content can rank faster than competitive head terms. The compounding nature of content SEO means the return grows every month as your content library and authority expand." },
     ],
+    relatedServices: ["law-firm-seo", "law-firm-content-writing", "local-seo-for-law-firms"],
   },
   {
     relatedCaseStudies: ["immigration-desk"],
@@ -177,6 +181,7 @@ export const practiceAreas: PracticeAreaData[] = [
       { question: "How do immigration attorneys get more positive reviews from clients?", answer: "The challenge is that many immigration clients are cautious about leaving online reviews that identify them as immigrants. The solution is to request reviews immediately after a positive outcome — when satisfaction is highest — and to offer options like leaving an anonymous review or a testimonial without identifying details. We build review systems that generate consistent reviews while being sensitive to client privacy concerns." },
       { question: "What's the ROI of a Spanish-language SEO strategy for immigration firms?", answer: "In markets with significant Hispanic populations, a Spanish-language SEO investment typically generates leads at 30-50% lower cost than English-language SEO because competition is weaker. For an immigration firm that handles 20-30 cases per month, adding a Spanish-language track to an existing SEO program often pays for itself within the first 3-4 months." },
     ],
+    relatedServices: ["google-ads-for-law-firms", "law-firm-seo", "local-seo-for-law-firms", "law-firm-content-writing"],
   },
   {
     relatedCaseStudies: ["the-sands-law-group"],
@@ -217,6 +222,7 @@ export const practiceAreas: PracticeAreaData[] = [
       { question: "Do bankruptcy attorneys benefit from Spanish-language SEO?", answer: "Significantly in markets with large Hispanic populations. Bankruptcy search volume in Spanish is real and less competitive than English equivalents. 'Abogado de bancarrota' and 'como declarar bancarrota' searches are common in major metro areas. A Spanish-language page or section can open a meaningfully underserved client segment for minimal additional investment." },
       { question: "What's a realistic timeline to see bankruptcy leads from SEO?", answer: "For most mid-size markets, bankruptcy firms see initial traffic increases within 3 months and consistent consultation requests from organic at the 5-7 month mark. Chapter-specific FAQ content often ranks faster than head terms because it targets less competitive long-tail queries. Paid ads can generate leads immediately while the organic foundation builds." },
     ],
+    relatedServices: ["law-firm-seo", "local-seo-for-law-firms", "law-firm-content-writing"],
   },
   {
     relatedCaseStudies: ["the-sands-law-group"],
@@ -257,6 +263,7 @@ export const practiceAreas: PracticeAreaData[] = [
       { question: "Should estate planning attorneys target high-net-worth clients specifically?", answer: "If that's your focus, yes -- but the keyword strategy is different. High-net-worth clients search for trust attorneys, estate tax planning, and business succession planning rather than 'do I need a will'. Content and landing pages targeting trust administration, charitable giving strategies, and multi-state estate issues positions your firm for more complex, higher-value cases." },
       { question: "How does seasonal demand affect estate planning marketing?", answer: "Estate planning searches peak in January (New Year resolutions), May-June (pre-summer travel), and October-November (year-end tax planning). We schedule content pushes and ad campaigns around these peaks, and build evergreen content libraries that generate consistent traffic during lower-demand periods. Knowing these cycles allows for smarter budget allocation throughout the year." },
     ],
+    relatedServices: ["law-firm-seo", "law-firm-content-writing", "law-firm-email-marketing"],
   },
   {
     relatedCaseStudies: ["the-sands-law-group"],
@@ -297,6 +304,7 @@ export const practiceAreas: PracticeAreaData[] = [
       { question: "What types of employment law content generate the most leads?", answer: "Question-based content targeting specific violations consistently outperforms general 'employment law' content. Pages answering 'what counts as wrongful termination', 'how to file an EEOC complaint', and 'signs your non-compete is unenforceable' capture high-intent searchers and pre-qualify them before they contact you. This content also ranks faster than competitive head terms." },
       { question: "How quickly do employment law leads need to be followed up?", answer: "Employment law has stricter urgency than most practice areas due to filing deadlines. A client who contacts you on a Friday evening about a termination may have a 180-day EEOC clock already running. We recommend same-day response automation and after-hours contact options for employment clients specifically. Firms with sub-1-hour response times consistently report higher consultation conversion rates." },
     ],
+    relatedServices: ["law-firm-seo", "google-ads-for-law-firms", "law-firm-content-writing"],
   },
   {
     relatedCaseStudies: ["the-sands-law-group"],
@@ -337,6 +345,7 @@ export const practiceAreas: PracticeAreaData[] = [
       { question: "How do real estate attorneys compete with national title companies and closing services?", answer: "On local expertise and personalized service. National services can't replicate knowledge of specific county recording requirements, local custom in negotiations, or community relationships. Marketing content that emphasizes your local knowledge -- mentioning specific municipalities, local quirks in the closing process, and community ties -- differentiates you from national competitors." },
       { question: "Is Google Business Profile important for real estate attorneys?", answer: "Very. Real estate attorney searches are local by nature and the map pack captures significant click share for these queries. A fully optimized GBP with reviews, service descriptions, and regular posts can drive a consistent stream of consultation requests at minimal ongoing cost. In many mid-size markets, map pack visibility for real estate attorney searches is achievable within 60-90 days of a properly optimized GBP." },
     ],
+    relatedServices: ["law-firm-seo", "local-seo-for-law-firms", "law-firm-email-marketing"],
   },
   {
     relatedCaseStudies: ["the-sands-law-group"],
@@ -377,6 +386,7 @@ export const practiceAreas: PracticeAreaData[] = [
       { question: "How important is a personal brand for solo attorneys?", answer: "Very. Solo attorneys who communicate their story -- why they practice this area, what drives their work, who they are as an attorney -- consistently outperform solo attorneys who present as generic law offices. A strong attorney bio page with a professional photo, genuine voice, and specific experience is one of the highest-ROI pages on a solo attorney's website." },
       { question: "Do solo attorneys need to blog regularly?", answer: "No -- consistency matters more than frequency, and quality matters more than volume. Two well-researched, practice-area-specific posts per month is more effective than one thin post per week. We recommend a quarterly content calendar of 6-8 targeted articles per quarter rather than a blogging-for-blogging's-sake approach." },
     ],
+    relatedServices: ["launchpad", "law-firm-seo", "local-seo-for-law-firms"],
   },
   {
     relatedCaseStudies: ["the-sands-law-group"],
@@ -417,6 +427,7 @@ export const practiceAreas: PracticeAreaData[] = [
       { question: "What are the most common marketing mistakes small law firms make?", answer: "The three most common mistakes we see: paying a large agency that treats them as a low-priority account, building a website that was never optimized for search, and trying to compete for too many practice areas at once without dominating any of them. A focused strategy in fewer areas consistently outperforms a scattered approach across many." },
       { question: "Do small law firms need social media marketing?", answer: "For most small law firms in traditional practice areas, social media is low-priority compared to SEO, Google Ads, and GBP optimization. The exception is practices that serve business clients, where LinkedIn visibility has genuine value. For consumer-facing practices like family law, criminal defense, and PI, Google is where clients search and where your marketing budget should be concentrated." },
     ],
+    relatedServices: ["law-firm-seo", "google-ads-for-law-firms", "launchpad", "local-seo-for-law-firms"],
   },
   {
     relatedCaseStudies: ["the-sands-law-group"],
@@ -457,6 +468,7 @@ export const practiceAreas: PracticeAreaData[] = [
       { question: "What's the most important page on a divorce attorney's website?", answer: "The attorney bio page and the primary divorce practice area page tie for the most important. The bio page is where clients decide if they trust you as a person -- it needs a professional photo, genuine voice, and specific experience. The practice area page is what ranks for your most valuable keyword and needs to be comprehensive, locally targeted, and conversion-optimized." },
       { question: "How many reviews does a divorce attorney need to compete in the map pack?", answer: "In most mid-size markets, the top 3 map pack positions for divorce attorney searches are held by firms with 30-80 reviews averaging 4.7+. The exact threshold varies by market, but review recency matters as much as total count. A consistent 3-5 new reviews per month from a structured post-case workflow is achievable for most active divorce practices." },
     ],
+    relatedServices: ["law-firm-seo", "law-firm-content-writing", "local-seo-for-law-firms"],
   },
   {
     relatedCaseStudies: ["wilson-criminal-defence"],
@@ -497,6 +509,7 @@ export const practiceAreas: PracticeAreaData[] = [
       { question: "What's a realistic cost per case for DUI attorney Google Ads?", answer: "In most mid-size markets, well-managed DUI Google Ads campaigns generate consultations at $100-$300 per contact and cases at $400-$800 cost per acquisition. The range is wide because it depends heavily on your intake process conversion rate. Firms with fast response times and clear intake paths consistently see lower cost per case than firms that lose leads to slow follow-up." },
       { question: "Do DUI attorneys need a blog or is a landing page enough?", answer: "Both serve different functions. Landing pages capture immediate-intent clients who are ready to call. Blog content captures early-stage researchers asking questions like 'what happens after a first DUI' or 'will I lose my license for a DUI'. The blog content builds organic authority over time and generates free traffic that landing pages alone cannot access. We recommend both as part of a complete DUI marketing strategy." },
     ],
+    relatedServices: ["google-ads-for-law-firms", "law-firm-seo", "ai-chatbot-for-law-firm-website", "local-seo-for-law-firms"],
   },
   {
     relatedCaseStudies: ["the-sands-law-group"],
@@ -537,6 +550,7 @@ export const practiceAreas: PracticeAreaData[] = [
       { question: "Do workers' comp firms need separate pages for different industries?", answer: "Yes, where case volume supports it. Construction site injury, healthcare worker injury, warehouse injury, and transportation injury are distinct search clusters with their own keyword patterns. A firm that handles a high volume of construction accidents, for example, can build significant authority with a focused construction worker injury section that includes OSHA violation content, specific injury types, and relevant case results." },
       { question: "How do workers' comp attorneys handle marketing when so many cases come from referrals?", answer: "Digital marketing doesn't replace referrals for workers' comp attorneys -- it amplifies them. When a co-worker, union rep, or family member refers an injured worker to your firm, that worker will search your name online before calling. A strong website, clean GBP, and solid review profile convert more of those referrals into actual consultations. Digital is the support structure that makes your offline referral network more effective." },
     ],
+    relatedServices: ["law-firm-seo", "local-seo-for-law-firms", "law-firm-content-writing"],
   },
   {
     relatedCaseStudies: ["the-sands-law-group"],
@@ -577,6 +591,7 @@ export const practiceAreas: PracticeAreaData[] = [
       { question: "How long does it take SSDI content marketing to generate leads?", answer: "Condition-specific and denial-related content typically reaches first-page positions within 3-5 months because competition for these longer-tail terms is weaker than for head terms. Head terms like 'SSDI attorney [city]' take 6-9 months in most markets. The advantage of SSDI content marketing is that the research window is so long -- clients searching today may hire you 6 months from now after being denied at reconsideration." },
       { question: "Do SSDI clients rely on reviews when selecting an attorney?", answer: "More than most people expect. SSDI clients are in vulnerable situations, often dealing with serious medical conditions and financial stress. Reviews that speak to attorney compassion, responsiveness, and successful case outcomes matter significantly. A review profile with 25-40 reviews averaging 4.8+ stars is a strong differentiator in most SSDI markets and is achievable through consistent post-case review requests." },
     ],
+    relatedServices: ["law-firm-seo", "law-firm-content-writing", "local-seo-for-law-firms"],
   },
   {
     relatedCaseStudies: ["the-sands-law-group"],
@@ -617,6 +632,7 @@ export const practiceAreas: PracticeAreaData[] = [
       { question: "Do birth injury cases require a different marketing strategy?", answer: "Yes. Birth injury clients are in a very different emotional state than other med mal clients -- they are often parents dealing with a child's long-term disability. Marketing for birth injury cases should lead with compassion and long-term support rather than aggressive case value language. Birth injury is also a distinct keyword cluster with its own search patterns: 'birth injury attorney', 'cerebral palsy lawsuit', 'hypoxic birth injury lawyer'. Dedicated pages for birth injury separate from general med mal produce meaningfully better results." },
       { question: "What's the average timeline to see med mal leads from SEO?", answer: "Med mal SEO typically takes 6-12 months to generate consistent organic leads because it requires building content authority in a specialized domain. Error-specific and condition-specific pages can rank within 3-5 months for long-tail terms. The investment is justified by case values -- one med mal case that generates from organic SEO typically covers 12-18 months of marketing investment." },
     ],
+    relatedServices: ["law-firm-seo", "google-ads-for-law-firms", "law-firm-content-writing"],
   },
   {
     relatedCaseStudies: ["the-sands-law-group"],
@@ -657,6 +673,7 @@ export const practiceAreas: PracticeAreaData[] = [
       { question: "How do you handle mass tort marketing when the litigation is still developing?", answer: "We build placeholder content and monitoring alerts when new potential litigation appears before it officially launches. When a pharmaceutical warning, device recall, or injury cluster becomes public, we're ready to deploy content immediately. Pre-built templates for the most common tort categories -- pharmaceutical, medical device, environmental -- allow faster activation than building from scratch each time." },
       { question: "What happens to mass tort pages after a settlement is reached?", answer: "Retired tort pages should not simply be deleted -- they retain accumulated authority that can be redirected. We either 301-redirect settled campaign pages to your active litigation hub or retain them as historical reference pages that link to your current active campaigns. Either approach preserves the SEO value built during the active campaign period." },
     ],
+    relatedServices: ["google-ads-for-law-firms", "law-firm-seo", "law-firm-content-writing", "law-firm-websites"],
   },
   {
     relatedCaseStudies: ["the-sands-law-group"],
@@ -697,6 +714,7 @@ export const practiceAreas: PracticeAreaData[] = [
       { question: "What's the single most important marketing action for a new law firm?", answer: "Setting up and verifying your Google Business Profile is the single highest-ROI action for a new firm. It's free, it takes 1-2 weeks to verify, and once optimized, it can put your firm in front of local searches within 60-90 days. Every week without a GBP is a week of potential local search visibility lost. We prioritize GBP setup on day one of every new client engagement." },
       { question: "How long until a new law firm's marketing starts paying for itself?", answer: "Most new law firms see their first marketing-generated consultation within 60-90 days of a properly executed Launchpad setup. Consistent organic lead flow from SEO typically develops at the 4-6 month mark. The realistic milestone most startup attorneys target is covering their full marketing investment with one additional case per month -- which most firms achieve within the first 6 months when starting with the Launchpad package." },
     ],
+    relatedServices: ["launchpad", "law-firm-websites", "local-seo-for-law-firms"],
   },
 ];
 

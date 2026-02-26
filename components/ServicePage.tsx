@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import type { ServiceData } from "@/data/services";
+import { getServiceBySlug } from "@/data/services";
+import { getPracticeAreaBySlug } from "@/data/practiceAreas";
 import CTASection from "@/components/CTASection";
 import FAQAccordion from "@/components/FAQAccordion";
 import SchemaOrg from "@/components/SchemaOrg";
@@ -216,6 +218,58 @@ export default function ServicePage({ service }: ServicePageProps) {
                 </li>
               ))}
             </ul>
+          </div>
+        </section>
+      )}
+
+      {service.relatedServices && service.relatedServices.length > 0 && (
+        <section className="py-16 px-6 bg-white">
+          <div className="max-w-3xl mx-auto">
+            <h2 className="font-heading font-extrabold text-gray-900 text-2xl mb-6">
+              Related Law Firm Marketing Services
+            </h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+              {service.relatedServices!.map((slug) => {
+                const relService = getServiceBySlug(slug);
+                if (!relService) return null;
+                return (
+                  <Link
+                    key={slug}
+                    href={`/${slug}/`}
+                    className="block p-4 rounded-xl border border-gray-200 hover:border-orange-300 hover:shadow-sm transition-all no-underline"
+                  >
+                    <div className="font-heading font-bold text-gray-900 text-sm mb-1">{relService.heading}</div>
+                    <div className="text-xs font-semibold" style={{ color: "#EE6C13" }}>Learn more →</div>
+                  </Link>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {service.relatedPracticeAreas && service.relatedPracticeAreas.length > 0 && (
+        <section className="py-16 px-6 bg-[#FEF3EC]">
+          <div className="max-w-3xl mx-auto">
+            <h2 className="font-heading font-extrabold text-gray-900 text-2xl mb-6">
+              {service.primaryKeyword} for These Practice Areas
+            </h2>
+            <div className="flex flex-wrap gap-3">
+              {service.relatedPracticeAreas!.map((slug) => {
+                const pa = getPracticeAreaBySlug(slug);
+                if (!pa) return null;
+                return (
+                  <Link
+                    key={slug}
+                    href={`/${slug}/`}
+                    className="px-4 py-2 rounded-[40px] border text-sm font-medium no-underline transition-all hover:bg-[#EE6C13] hover:text-white hover:border-[#EE6C13]"
+                    style={{ borderColor: "#EE6C13", color: "#EE6C13" }}
+                  >
+                    {pa.primaryKeyword}
+                  </Link>
+                );
+              })}
+            </div>
           </div>
         </section>
       )}

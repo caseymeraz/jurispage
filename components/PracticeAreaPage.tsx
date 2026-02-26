@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import type { PracticeAreaData } from "@/data/practiceAreas";
+import { getServiceBySlug } from "@/data/services";
 import CTASection from "@/components/CTASection";
 import FAQAccordion from "@/components/FAQAccordion";
 import SchemaOrg from "@/components/SchemaOrg";
@@ -194,6 +195,28 @@ export default function PracticeAreaPage({ practiceArea: pa }: PracticeAreaPageP
           caseStudies={caseStudies.filter((cs) => pa.relatedCaseStudies!.includes(cs.slug))}
           heading="Real Results from Law Firms Like Yours"
         />
+      )}
+
+      {pa.relatedServices && pa.relatedServices.length > 0 && (
+        <section className="py-16 px-6 bg-white">
+          <div className="max-w-3xl mx-auto">
+            <h2 className="font-heading font-extrabold text-gray-900 text-2xl mb-6">
+              Services We Use to Grow {pa.primaryKeyword.split(" ").slice(0, 2).join(" ")} Practices
+            </h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+              {pa.relatedServices.map((slug) => {
+                const svc = getServiceBySlug(slug);
+                if (!svc) return null;
+                return (
+                  <Link key={slug} href={`/${slug}/`} className="block p-4 rounded-xl border border-gray-200 hover:border-orange-300 hover:shadow-sm transition-all no-underline">
+                    <div className="font-heading font-bold text-gray-900 text-sm mb-1">{svc.heading}</div>
+                    <div className="text-xs font-semibold" style={{ color: "#EE6C13" }}>Learn more →</div>
+                  </Link>
+                );
+              })}
+            </div>
+          </div>
+        </section>
       )}
 
       {allFaqs.length > 0 && <FAQAccordion faqs={allFaqs} heading="Frequently Asked Questions" />}

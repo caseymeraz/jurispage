@@ -15,6 +15,8 @@ export interface ServiceData {
   stats?: { value: string; label: string }[];
   signs?: string[];
   extendedFaqs?: { question: string; answer: string }[];
+  relatedServices?: string[];       // service slugs
+  relatedPracticeAreas?: string[];  // practice area slugs
 }
 
 export const services: ServiceData[] = [
@@ -102,6 +104,8 @@ export const services: ServiceData[] = [
         answer: "Ask for a report that shows keyword position changes tied to specific deliverables (pages published, links built, technical fixes completed). If your agency sends charts without connecting them to work output, that is a red flag. You should also be able to verify in Google Search Console that organic impressions and clicks are trending upward over a 6-month window. If neither of those things is happening, it is time for an audit.",
       },
     ],
+    relatedServices: ["local-seo-for-law-firms", "law-firm-content-writing", "law-firm-websites"],
+    relatedPracticeAreas: ["personal-injury-lawyer-marketing", "criminal-defense-lawyer-marketing", "family-law-firm-marketing", "immigration-lawyer-marketing", "divorce-lawyer-marketing"],
   },
   {
     relatedCaseStudies: ["immigration-desk", "the-sands-law-group"],
@@ -186,6 +190,8 @@ export const services: ServiceData[] = [
         answer: "You can, and some attorneys do manage their own accounts effectively. But legal is one of the most expensive categories on Google, which means mistakes cost more than in most industries. A single week of broad match keywords on the wrong terms can waste an entire month's budget. If you manage it yourself, invest time in learning keyword match types, negative keywords, and conversion tracking before spending significant money.",
       },
     ],
+    relatedServices: ["law-firm-seo", "bing-ads-for-lawyers", "law-firm-websites"],
+    relatedPracticeAreas: ["personal-injury-lawyer-marketing", "criminal-defense-lawyer-marketing", "dui-lawyer-marketing", "immigration-lawyer-marketing", "mass-tort-law-firm-marketing"],
   },
   {
     relatedCaseStudies: ["the-sands-law-group"],
@@ -270,6 +276,8 @@ export const services: ServiceData[] = [
         answer: "Yes, and this is one of the most common structural mistakes law firm websites make. A single practice areas page that lists criminal defense, family law, and personal injury as bullet points is not rankable for any competitive keyword. Each practice area needs its own dedicated page with a specific keyword target, sufficient content depth, and a clear conversion path. Firms that invest in individual practice area pages consistently outrank those that do not.",
       },
     ],
+    relatedServices: ["law-firm-seo", "local-seo-for-law-firms", "ai-chatbot-for-law-firm-website"],
+    relatedPracticeAreas: ["solo-attorney-marketing", "small-law-firm-marketing", "startup-law-firm-marketing"],
   },
   {
     relatedCaseStudies: ["the-sands-law-group"],
@@ -354,6 +362,8 @@ export const services: ServiceData[] = [
         answer: "Yes, but each office location needs its own Google Business Profile and its own set of local citations. You cannot rank a single GBP listing across multiple cities. Each location should also have a dedicated page on your website with location-specific content. Firms that try to shortcut this — using one address for multiple service areas — typically see weak local rankings everywhere rather than strong rankings anywhere.",
       },
     ],
+    relatedServices: ["law-firm-seo", "law-firm-websites", "law-firm-content-writing"],
+    relatedPracticeAreas: ["personal-injury-lawyer-marketing", "criminal-defense-lawyer-marketing", "dui-lawyer-marketing", "bankruptcy-lawyer-marketing", "workers-comp-lawyer-marketing"],
   },
   {
     relatedCaseStudies: ["the-sands-law-group"],
@@ -438,6 +448,8 @@ export const services: ServiceData[] = [
         answer: "We update your website, Google Business Profile, and notify the major data aggregators of the change. Address consistency across the web is a live SEO signal, not a one-time setup task. Plan changes (new office, phone system updates) to your Grow or Dominate plan include citation maintenance as a standard service.",
       },
     ],
+    relatedServices: ["law-firm-websites", "local-seo-for-law-firms", "law-firm-seo"],
+    relatedPracticeAreas: ["startup-law-firm-marketing", "solo-attorney-marketing"],
   },
   {
     relatedCaseStudies: ["the-sands-law-group"],
@@ -522,6 +534,8 @@ export const services: ServiceData[] = [
         answer: "We track GEO performance through systematic AI query monitoring - running a defined set of practice area and geographic queries monthly across ChatGPT, Perplexity, and Google AI Overviews and recording which law firms are cited. We also track Google Search Console AI Overview impressions (available for sites with GSC access) and monitor referral traffic patterns from AI platforms. It is a younger measurement discipline than traditional SEO, but the metrics are trackable and improving.",
       },
     ],
+    relatedServices: ["law-firm-seo", "law-firm-content-writing", "local-seo-for-law-firms"],
+    relatedPracticeAreas: ["personal-injury-lawyer-marketing", "estate-planning-lawyer-marketing", "immigration-lawyer-marketing"],
   },
   {
     relatedCaseStudies: ["the-sands-law-group"],
@@ -606,6 +620,8 @@ export const services: ServiceData[] = [
         answer: "Every completed chatbot interaction generates a lead record that is sent to your designated intake system - whether that is Clio Grow, Lawmatics, a shared inbox, or a simple email notification. High-priority leads (serious injury cases, criminal matters with imminent court dates) can trigger an immediate SMS to your on-call attorney or intake staff. Completed lead records include the prospect's name, contact information, case description, and a summary of their answers to your intake questions.",
       },
     ],
+    relatedServices: ["law-firm-websites", "google-ads-for-law-firms", "law-firm-seo"],
+    relatedPracticeAreas: ["personal-injury-lawyer-marketing", "criminal-defense-lawyer-marketing", "dui-lawyer-marketing"],
   },
   {
     relatedCaseStudies: ["the-sands-law-group"],
@@ -689,6 +705,8 @@ export const services: ServiceData[] = [
         answer: "Email marketing has one of the highest ROI profiles of any marketing channel, precisely because the cost is low. A small firm with 200 past clients and referral sources paying $50/month for an email platform and a few hours of content time per month needs only one referral case per year to justify the entire investment. For practice areas where cases are high value (personal injury, business litigation, estate planning), the math is even more favorable.",
       },
     ],
+    relatedServices: ["law-firm-seo", "law-firm-content-writing", "law-firm-websites"],
+    relatedPracticeAreas: ["estate-planning-lawyer-marketing", "real-estate-lawyer-marketing", "family-law-firm-marketing"],
   },
   {
     relatedCaseStudies: ["immigration-desk"],
@@ -772,6 +790,8 @@ export const services: ServiceData[] = [
         answer: "Microsoft Copilot is now integrated with Bing Search results, and Copilot is handling a growing share of informational legal queries - things like 'what are my rights after a car accident' or 'how does divorce work in Texas.' Microsoft is actively expanding how ads appear alongside Copilot responses. For law firms, this means Bing Ads will increasingly reach prospects at the research stage of the legal hiring process, not just those ready to call immediately. We monitor Copilot-attributed ad performance as a distinct reporting segment.",
       },
     ],
+    relatedServices: ["google-ads-for-law-firms", "law-firm-seo", "local-seo-for-law-firms"],
+    relatedPracticeAreas: ["estate-planning-lawyer-marketing", "employment-lawyer-marketing", "real-estate-lawyer-marketing"],
   },
   {
     relatedCaseStudies: ["wilson-criminal-defence"],
@@ -855,6 +875,8 @@ export const services: ServiceData[] = [
         answer: "Not directly - GBP rankings are driven by GBP-specific signals (reviews, citations, proximity). But your website content does influence your GBP rankings indirectly. Google's local algorithm considers the authority and relevance of your website when determining map pack rankings. A site with deep, well-optimized practice area content signals to Google that you are a credible, relevant business for those searches - which lifts both organic and local map pack performance over time.",
       },
     ],
+    relatedServices: ["law-firm-seo", "local-seo-for-law-firms", "generative-engine-optimization-for-law-firms"],
+    relatedPracticeAreas: ["personal-injury-lawyer-marketing", "family-law-firm-marketing", "bankruptcy-lawyer-marketing", "social-security-disability-lawyer-marketing"],
   },
 ];
 
