@@ -8,10 +8,12 @@ export interface ServiceData {
   intro: string;
   features: string[];
   faqs: { question: string; answer: string }[];
+  relatedCaseStudies?: string[];
 }
 
 export const services: ServiceData[] = [
   {
+    relatedCaseStudies: ["wilson-criminal-defence", "the-sands-law-group"],
     slug: "law-firm-seo",
     title: "Law Firm SEO Services | JurisPage",
     heading: "Law Firm SEO That Brings In Real Cases",
@@ -34,6 +36,7 @@ export const services: ServiceData[] = [
     ],
   },
   {
+    relatedCaseStudies: ["immigration-desk", "the-sands-law-group"],
     slug: "google-ads-for-law-firms",
     title: "Google Ads for Law Firms | JurisPage",
     heading: "Google Ads for Law Firms That Actually Convert",
@@ -55,6 +58,7 @@ export const services: ServiceData[] = [
     ],
   },
   {
+    relatedCaseStudies: ["the-sands-law-group"],
     slug: "law-firm-websites",
     title: "Law Firm Website Design | JurisPage",
     heading: "Law Firm Websites Built to Convert Visitors Into Clients",
@@ -76,6 +80,7 @@ export const services: ServiceData[] = [
     ],
   },
   {
+    relatedCaseStudies: ["the-sands-law-group"],
     slug: "local-seo-for-law-firms",
     title: "Local SEO for Law Firms | JurisPage",
     heading: "Local SEO for Law Firms: Dominate the Map Pack",
@@ -97,6 +102,7 @@ export const services: ServiceData[] = [
     ],
   },
   {
+    relatedCaseStudies: ["the-sands-law-group"],
     slug: "launchpad",
     title: "Launchpad — Law Firm Marketing for New Attorneys | JurisPage",
     heading: "JurisPage Launchpad: Marketing for New Law Firms",
@@ -118,6 +124,7 @@ export const services: ServiceData[] = [
     ],
   },
   {
+    relatedCaseStudies: ["the-sands-law-group"],
     slug: "generative-engine-optimization-for-law-firms",
     title: "Generative Engine Optimization for Law Firms | JurisPage",
     heading: "GEO for Law Firms: Get Cited in ChatGPT, Perplexity, and AI Overviews",
@@ -139,6 +146,7 @@ export const services: ServiceData[] = [
     ],
   },
   {
+    relatedCaseStudies: ["the-sands-law-group"],
     slug: "ai-chatbot-for-law-firm-website",
     title: "AI Chatbot for Law Firm Websites | JurisPage",
     heading: "AI Chatbot for Law Firms: Capture Leads at 2am",
@@ -160,6 +168,7 @@ export const services: ServiceData[] = [
     ],
   },
   {
+    relatedCaseStudies: ["the-sands-law-group"],
     slug: "law-firm-email-marketing",
     title: "Law Firm Email Marketing | JurisPage",
     heading: "Law Firm Email Marketing That Keeps Clients and Referral Sources Warm",
@@ -180,6 +189,7 @@ export const services: ServiceData[] = [
     ],
   },
   {
+    relatedCaseStudies: ["immigration-desk"],
     slug: "bing-ads-for-lawyers",
     title: "Bing Ads for Lawyers | JurisPage",
     heading: "Bing Ads for Lawyers: The Overlooked 35%",
@@ -200,6 +210,7 @@ export const services: ServiceData[] = [
     ],
   },
   {
+    relatedCaseStudies: ["wilson-criminal-defence"],
     slug: "law-firm-content-writing",
     title: "Law Firm Content Writing Services | JurisPage",
     heading: "Law Firm Content Writing: SEO Blog Posts and Practice Area Pages",

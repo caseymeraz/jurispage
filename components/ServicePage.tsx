@@ -4,6 +4,8 @@ import type { ServiceData } from "@/data/services";
 import CTASection from "@/components/CTASection";
 import FAQAccordion from "@/components/FAQAccordion";
 import SchemaOrg from "@/components/SchemaOrg";
+import CaseStudyPreview from "@/components/CaseStudyPreview";
+import { caseStudies } from "@/data/caseStudies";
 
 interface ServicePageProps {
   service: ServiceData;
@@ -125,6 +127,13 @@ export default function ServicePage({ service }: ServicePageProps) {
           </div>
         </div>
       </section>
+
+      {service.relatedCaseStudies && service.relatedCaseStudies.length > 0 && (
+        <CaseStudyPreview
+          caseStudies={caseStudies.filter((cs) => service.relatedCaseStudies!.includes(cs.slug))}
+          heading="Real Results from Law Firms Like Yours"
+        />
+      )}
 
       {service.faqs.length > 0 && <FAQAccordion faqs={service.faqs} heading={`${service.primaryKeyword} Questions Answered`} />}
 

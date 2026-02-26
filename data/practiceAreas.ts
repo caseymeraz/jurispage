@@ -9,10 +9,12 @@ export interface PracticeAreaData {
   mistakes: string[];
   services: string[];
   faqs: { question: string; answer: string }[];
+  relatedCaseStudies?: string[];
 }
 
 export const practiceAreas: PracticeAreaData[] = [
   {
+    relatedCaseStudies: ["the-sands-law-group"],
     slug: "personal-injury-lawyer-marketing",
     title: "Personal Injury Lawyer Marketing | JurisPage",
     heading: "Personal Injury Lawyer Marketing That Fills Your Pipeline",
@@ -32,6 +34,7 @@ export const practiceAreas: PracticeAreaData[] = [
     ],
   },
   {
+    relatedCaseStudies: ["wilson-criminal-defence"],
     slug: "criminal-defense-lawyer-marketing",
     title: "Criminal Defense Lawyer Marketing | JurisPage",
     heading: "Criminal Defense Attorney Marketing: Get Found When Clients Need You Most",
@@ -51,6 +54,7 @@ export const practiceAreas: PracticeAreaData[] = [
     ],
   },
   {
+    relatedCaseStudies: ["the-sands-law-group"],
     slug: "family-law-firm-marketing",
     title: "Family Law Firm Marketing | JurisPage",
     heading: "Family Law Firm Marketing: More Consultations From Clients Ready to Hire",
@@ -69,6 +73,7 @@ export const practiceAreas: PracticeAreaData[] = [
     ],
   },
   {
+    relatedCaseStudies: ["immigration-desk"],
     slug: "immigration-lawyer-marketing",
     title: "Immigration Lawyer Marketing | JurisPage",
     heading: "Immigration Lawyer Marketing: Reach Clients Across Visa Types and Languages",
@@ -87,6 +92,7 @@ export const practiceAreas: PracticeAreaData[] = [
     ],
   },
   {
+    relatedCaseStudies: ["the-sands-law-group"],
     slug: "bankruptcy-lawyer-marketing",
     title: "Bankruptcy Lawyer Marketing | JurisPage",
     heading: "Bankruptcy Lawyer Marketing: Reach Clients When They Need Help Most",
@@ -105,6 +111,7 @@ export const practiceAreas: PracticeAreaData[] = [
     ],
   },
   {
+    relatedCaseStudies: ["the-sands-law-group"],
     slug: "estate-planning-lawyer-marketing",
     title: "Estate Planning Lawyer Marketing | JurisPage",
     heading: "Estate Planning Attorney Marketing: Build a Steady Stream of Referrals and Organic Leads",
@@ -123,6 +130,7 @@ export const practiceAreas: PracticeAreaData[] = [
     ],
   },
   {
+    relatedCaseStudies: ["the-sands-law-group"],
     slug: "employment-lawyer-marketing",
     title: "Employment Lawyer Marketing | JurisPage",
     heading: "Employment Lawyer Marketing: Reach Clients Facing Workplace Legal Issues",
@@ -141,6 +149,7 @@ export const practiceAreas: PracticeAreaData[] = [
     ],
   },
   {
+    relatedCaseStudies: ["the-sands-law-group"],
     slug: "real-estate-lawyer-marketing",
     title: "Real Estate Lawyer Marketing | JurisPage",
     heading: "Real Estate Attorney Marketing: Get More Closings and Dispute Cases",
@@ -159,6 +168,7 @@ export const practiceAreas: PracticeAreaData[] = [
     ],
   },
   {
+    relatedCaseStudies: ["the-sands-law-group"],
     slug: "solo-attorney-marketing",
     title: "Solo Attorney Marketing | JurisPage",
     heading: "Solo Attorney Marketing: Compete on Equal Ground With Larger Firms",
@@ -177,6 +187,7 @@ export const practiceAreas: PracticeAreaData[] = [
     ],
   },
   {
+    relatedCaseStudies: ["the-sands-law-group"],
     slug: "small-law-firm-marketing",
     title: "Small Law Firm Marketing | JurisPage",
     heading: "Small Law Firm Marketing: Get More Cases Without the Big Agency Price Tag",
@@ -195,6 +206,7 @@ export const practiceAreas: PracticeAreaData[] = [
     ],
   },
   {
+    relatedCaseStudies: ["the-sands-law-group"],
     slug: "divorce-lawyer-marketing",
     title: "Divorce Lawyer Marketing | JurisPage",
     heading: "Divorce Lawyer Marketing: Get More Consultations From People Ready to Hire",
@@ -213,6 +225,7 @@ export const practiceAreas: PracticeAreaData[] = [
     ],
   },
   {
+    relatedCaseStudies: ["wilson-criminal-defence"],
     slug: "dui-lawyer-marketing",
     title: "DUI Lawyer Marketing | JurisPage",
     heading: "DUI Lawyer Marketing: Be There When Someone Needs You Right Now",
@@ -231,6 +244,7 @@ export const practiceAreas: PracticeAreaData[] = [
     ],
   },
   {
+    relatedCaseStudies: ["the-sands-law-group"],
     slug: "workers-comp-lawyer-marketing",
     title: "Workers' Compensation Lawyer Marketing | JurisPage",
     heading: "Workers' Comp Lawyer Marketing: Reach Injured Workers Before the Insurance Companies Do",
@@ -249,6 +263,7 @@ export const practiceAreas: PracticeAreaData[] = [
     ],
   },
   {
+    relatedCaseStudies: ["the-sands-law-group"],
     slug: "social-security-disability-lawyer-marketing",
     title: "Social Security Disability Lawyer Marketing | JurisPage",
     heading: "SSDI Attorney Marketing: Reach Applicants Who Have Been Denied",
@@ -267,6 +282,7 @@ export const practiceAreas: PracticeAreaData[] = [
     ],
   },
   {
+    relatedCaseStudies: ["the-sands-law-group"],
     slug: "medical-malpractice-lawyer-marketing",
     title: "Medical Malpractice Lawyer Marketing | JurisPage",
     heading: "Medical Malpractice Lawyer Marketing: Get Quality Cases From Qualified Clients",
@@ -285,6 +301,7 @@ export const practiceAreas: PracticeAreaData[] = [
     ],
   },
   {
+    relatedCaseStudies: ["the-sands-law-group"],
     slug: "mass-tort-law-firm-marketing",
     title: "Mass Tort Law Firm Marketing | JurisPage",
     heading: "Mass Tort Law Firm Marketing: Scale Case Acquisition for Active Litigation",
@@ -303,6 +320,7 @@ export const practiceAreas: PracticeAreaData[] = [
     ],
   },
   {
+    relatedCaseStudies: ["the-sands-law-group"],
     slug: "startup-law-firm-marketing",
     title: "Startup Law Firm Marketing | JurisPage",
     heading: "Startup Law Firm Marketing: Build Your Online Presence Before Day One",

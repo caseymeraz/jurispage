@@ -4,6 +4,8 @@ import type { PracticeAreaData } from "@/data/practiceAreas";
 import CTASection from "@/components/CTASection";
 import FAQAccordion from "@/components/FAQAccordion";
 import SchemaOrg from "@/components/SchemaOrg";
+import CaseStudyPreview from "@/components/CaseStudyPreview";
+import { caseStudies } from "@/data/caseStudies";
 
 interface PracticeAreaPageProps {
   practiceArea: PracticeAreaData;
@@ -138,6 +140,13 @@ export default function PracticeAreaPage({ practiceArea: pa }: PracticeAreaPageP
           </div>
         </div>
       </section>
+
+      {pa.relatedCaseStudies && pa.relatedCaseStudies.length > 0 && (
+        <CaseStudyPreview
+          caseStudies={caseStudies.filter((cs) => pa.relatedCaseStudies!.includes(cs.slug))}
+          heading="Real Results from Law Firms Like Yours"
+        />
+      )}
 
       {pa.faqs.length > 0 && <FAQAccordion faqs={pa.faqs} heading="Frequently Asked Questions" />}
 

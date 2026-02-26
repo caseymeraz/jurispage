@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import CTASection from "@/components/CTASection";
 import SchemaOrg from "@/components/SchemaOrg";
 import CaseStudyCard from "@/components/CaseStudyCard";
@@ -111,6 +112,16 @@ export default function HomePage() {
           <p className="text-gray-400 text-base mb-10">
             Transparent pricing published online. Month-to-month contracts. 113+ law firms served.
           </p>
+          <div className="mt-8 mb-10 rounded-2xl overflow-hidden max-w-3xl mx-auto">
+            <Image
+              src="/images/hero-banner.jpg"
+              alt="Law firm digital marketing dashboard showing SEO rankings and lead growth"
+              width={1000}
+              height={857}
+              priority
+              className="w-full h-auto"
+            />
+          </div>
           <div className="flex flex-wrap gap-4 justify-center">
             <Link
               href="/contact/"
@@ -161,6 +172,83 @@ export default function HomePage() {
                 <span className="text-sm font-semibold mt-3 inline-block" style={{ color: "#EE6C13" }}>Learn more →</span>
               </Link>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* We Understand / Our Approach */}
+      <section className="bg-white py-20 px-6">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+          <div>
+            <span className="inline-block text-xs font-heading font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-4 text-white" style={{ background: "#EE6C13" }}>
+              100% Legal Focus
+            </span>
+            <h2 className="font-heading font-extrabold text-gray-900 text-3xl md:text-4xl mb-4 leading-tight">
+              We Understand the Pressure of Filling a Pipeline
+            </h2>
+            <p className="text-gray-600 text-lg mb-6 leading-relaxed">
+              Law firm owners don&apos;t have time to babysit an agency. You need a partner who understands your market, shows up with results, and tells you the truth — even when it&apos;s not what you want to hear.
+            </p>
+            <p className="text-gray-600 mb-8 leading-relaxed">
+              JurisPage was built to do exactly that. We work exclusively with law firms, which means every strategy we recommend has been tested across 113+ firms in your exact situation.
+            </p>
+            <Link
+              href="/about-us/"
+              className="inline-block font-heading font-bold text-white text-sm px-7 py-3.5 rounded-[40px] no-underline hover:opacity-90 transition-opacity"
+              style={{ background: "#EE6C13" }}
+            >
+              About JurisPage
+            </Link>
+          </div>
+          <div className="rounded-2xl overflow-hidden shadow-xl">
+            <Image
+              src="/images/we-understand.jpg"
+              alt="Law firm marketing team understanding client needs and case acquisition goals"
+              width={600}
+              height={720}
+              className="w-full h-auto"
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* Our Approach */}
+      <section className="bg-[#FEF3EC] py-20 px-6">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+          <div className="rounded-2xl overflow-hidden shadow-xl order-2 md:order-1">
+            <Image
+              src="/images/our-approach.jpg"
+              alt="JurisPage law firm marketing approach — research, strategy, and execution"
+              width={600}
+              height={750}
+              className="w-full h-auto"
+            />
+          </div>
+          <div className="order-1 md:order-2">
+            <span className="inline-block text-xs font-heading font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-4 text-white" style={{ background: "#EE6C13" }}>
+              Our Process
+            </span>
+            <h2 className="font-heading font-extrabold text-gray-900 text-3xl md:text-4xl mb-4 leading-tight">
+              Strategy First. Execution Second. Results Always.
+            </h2>
+            <p className="text-gray-600 text-lg mb-6 leading-relaxed">
+              Every engagement starts with an honest audit of where you are. We research your market, analyze your competitors, and build a strategy that fits your budget and goals — before we touch anything.
+            </p>
+            <ul className="space-y-3 mb-8">
+              {["Market and competitor analysis before any work begins", "Transparent monthly reporting tied to leads and cases, not rankings", "Dedicated point of contact who knows your firm by name"].map((item) => (
+                <li key={item} className="flex gap-3 items-start">
+                  <span className="flex-shrink-0 w-5 h-5 rounded-full flex items-center justify-center text-xs font-bold text-white mt-0.5" style={{ background: "#EE6C13" }}>✓</span>
+                  <span className="text-gray-700">{item}</span>
+                </li>
+              ))}
+            </ul>
+            <Link
+              href="/contact/"
+              className="inline-block font-heading font-bold text-white text-sm px-7 py-3.5 rounded-[40px] no-underline hover:opacity-90 transition-opacity"
+              style={{ background: "#EE6C13" }}
+            >
+              Start With a Free Audit
+            </Link>
           </div>
         </div>
       </section>
