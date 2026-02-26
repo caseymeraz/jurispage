@@ -27,7 +27,7 @@ const faqs = [
   { question: "What's included in a typical law firm SEO package?", answer: "A complete law firm SEO package typically includes: technical SEO audit and ongoing fixes, on-page optimization for all key pages, keyword research and competitive analysis, content creation (blog posts and practice area pages), link building from legal-relevant and local sources, Google Business Profile optimization, citation building, and monthly reporting tied to rankings and lead flow." },
   { question: "Is there a setup fee for law firm SEO?", answer: "Some agencies charge a one-time setup fee (typically $500–$2,000) that covers the initial audit, keyword research, and onboarding. Others roll these into the monthly rate. At JurisPage, our Launchpad plan has a $497 one-time setup fee; Grow and Dominate have no setup fees." },
   { question: "How do I know if I'm paying a fair price for law firm SEO?", answer: "Ask for a specific list of deliverables: what gets published each month, how many links are built, what technical work gets done, and exactly how results are measured. If an agency gives vague answers or only shows traffic graphs in reporting, you're likely not getting value for the cost." },
-  { question: "Is law firm SEO worth the cost?", answer: "Yes, for most law firms. The cost per acquired client through SEO is significantly lower than paid advertising over time, and unlike PPC, rankings compound. A single PI case paying $50,000+ makes even several months of SEO investment trivially justified. The ROI question is really 'how long until I recoup the cost' — for most practices, the answer is 6-18 months." },
+  { question: "Is law firm SEO worth the cost?", answer: "Yes, for most law firms. The cost per acquired client through SEO is significantly lower than paid advertising over time, and unlike PPC, rankings compound. A single PI case paying $50,000+ makes even several months of SEO investment trivially justified. The ROI question is really 'how long until I recoup the cost' - for most practices, the answer is 6-18 months." },
 ];
 
 export default function LawFirmSEOCostPage() {
@@ -41,7 +41,7 @@ export default function LawFirmSEOCostPage() {
             <Link href="/" className="hover:text-white no-underline">Home</Link> / <span className="text-gray-300">Law Firm SEO Cost</span>
           </nav>
           <h1 className="font-heading font-extrabold text-white text-4xl mb-4">How Much Does Law Firm SEO Cost in 2026?</h1>
-          <p className="text-gray-300 text-lg">The honest, complete guide to law firm SEO pricing — with no sales agenda.</p>
+          <p className="text-gray-300 text-lg">The honest, complete guide to law firm SEO pricing - with no sales agenda.</p>
         </div>
       </section>
 
@@ -53,7 +53,7 @@ export default function LawFirmSEOCostPage() {
           <p className="text-gray-700 mb-5">Understanding the pricing drivers is more useful than any single number. Here are the factors that will determine what you should actually pay:</p>
           <div className="space-y-4 mb-8">
             {[
-              { factor: "Market Competitiveness", detail: "A bankruptcy attorney in a city of 150,000 people is competing in a fundamentally different market than a personal injury firm in Los Angeles. The more competitive your market, the more content velocity, link building, and technical authority your campaign needs — and the higher the cost." },
+              { factor: "Market Competitiveness", detail: "A bankruptcy attorney in a city of 150,000 people is competing in a fundamentally different market than a personal injury firm in Los Angeles. The more competitive your market, the more content velocity, link building, and technical authority your campaign needs - and the higher the cost." },
               { factor: "Practice Area", detail: "Personal injury and mass tort are the most expensive practice areas to rank for. CPCs in major PI markets reach $100-$300 per click, and agencies price SEO campaigns accordingly. Estate planning, immigration, and family law are significantly less competitive and require smaller investments to reach top positions." },
               { factor: "Scope of Services", detail: "A local SEO package covering Google Business Profile optimization and citation building costs far less than a full-service campaign with content creation, link acquisition, technical SEO, and paid media management. Be clear about what you need before comparing prices across agencies." },
               { factor: "Number of Practice Areas and Locations", detail: "A firm covering 5 practice areas across 3 office locations needs significantly more content and optimization work than a single-practice-area firm in one city. More target pages means more ongoing work and higher monthly cost." },
@@ -233,7 +233,7 @@ export default function LawFirmSEOCostPage() {
 
       <CTASection
         heading="Get a Free Law Firm SEO Audit"
-        subtext="Tell us about your firm and market. We'll review your current SEO and tell you exactly what it would take to compete — no obligation."
+        subtext="Tell us about your firm and market. We'll review your current SEO and tell you exactly what it would take to compete - no obligation."
         primaryLabel="Get My Free Audit"
         primaryHref="/contact/"
         secondaryLabel="See Pricing"

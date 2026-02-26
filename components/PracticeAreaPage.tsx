@@ -223,7 +223,7 @@ export default function PracticeAreaPage({ practiceArea: pa }: PracticeAreaPageP
 
       <CTASection
         heading={`Get a Free ${pa.primaryKeyword.split(" ")[0]} Marketing Plan`}
-        subtext={`No long-term contracts. Transparent pricing. We've helped 113+ law firms grow — including ${pa.primaryKeyword.toLowerCase()} practices.`}
+        subtext={`No long-term contracts. Transparent pricing. We've helped 113+ law firms grow - including ${pa.primaryKeyword.toLowerCase()} practices.`}
         primaryLabel={`Get My Free ${pa.primaryKeyword.split(" ")[0]} Plan`}
         primaryHref="/contact/"
         secondaryLabel="See Pricing"

@@ -15,7 +15,7 @@ export async function POST(req: NextRequest) {
 
     const emailHtml = `
       <h2>New Lead from JurisPage.com</h2>
-      ${isPremium ? '<p style="color: red; font-weight: bold;">⭐ PREMIUM LEAD — Budget $5,000+/month</p>' : ""}
+      ${isPremium ? '<p style="color: red; font-weight: bold;">⭐ PREMIUM LEAD - Budget $5,000+/month</p>' : ""}
       <table style="border-collapse: collapse; width: 100%;">
         <tr><td style="padding: 8px; border: 1px solid #ddd; font-weight: bold;">Name</td><td style="padding: 8px; border: 1px solid #ddd;">${firstName} ${lastName}</td></tr>
         <tr><td style="padding: 8px; border: 1px solid #ddd; font-weight: bold;">Email</td><td style="padding: 8px; border: 1px solid #ddd;">${email}</td></tr>
@@ -31,7 +31,7 @@ export async function POST(req: NextRequest) {
     await resend.emails.send({
       from: "JurisPage Leads <leads@jurispage.com>",
       to: ["hello@jurispage.com"],
-      subject: `${isPremium ? "⭐ PREMIUM LEAD" : "New Lead"}: ${firstName} ${lastName} — ${practiceArea || "Law Firm"}`,
+      subject: `${isPremium ? "⭐ PREMIUM LEAD" : "New Lead"}: ${firstName} ${lastName} - ${practiceArea || "Law Firm"}`,
       html: emailHtml,
       replyTo: email,
     });
@@ -41,7 +41,7 @@ export async function POST(req: NextRequest) {
       await resend.emails.send({
         from: "JurisPage Leads <leads@jurispage.com>",
         to: ["cmeraz@jurisdigital.com"],
-        subject: `⭐ PREMIUM LEAD ($5K+): ${firstName} ${lastName} — ${practiceArea || "Law Firm"}`,
+        subject: `⭐ PREMIUM LEAD ($5K+): ${firstName} ${lastName} - ${practiceArea || "Law Firm"}`,
         html: emailHtml,
         replyTo: email,
       });

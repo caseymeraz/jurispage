@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://jurispage.com/best-law-firm-seo-companies/" },
   openGraph: {
     title: "Best Law Firm SEO Companies in 2026 (Ranked & Reviewed)",
-    description: "Honest rankings of the top 8 law firm SEO agencies for 2026 — with pros, cons, pricing, and who each is best for.",
+    description: "Honest rankings of the top 8 law firm SEO agencies for 2026 - with pros, cons, pricing, and who each is best for.",
     url: "https://jurispage.com/best-law-firm-seo-companies/",
   },
 };
@@ -71,9 +71,9 @@ const agencies = [
       { label: "Specialization", val: "100% law firms only" },
       { label: "Contract", val: "Month-to-month" },
     ],
-    body: "JurisPage works exclusively with law firms and publishes its pricing publicly — something almost no other legal SEO agency does. With 113+ law firm clients and a strict month-to-month contract policy, the agency is built around earning retention rather than locking clients in.",
-    pros: ["Only major legal SEO agency with publicly listed pricing — no sales games", "Month-to-month contracts with no cancellation penalties", "100% legal focus means benchmarking against real legal competitors"],
-    cons: ["Not the right fit for firms with $10,000+/month enterprise budgets", "Newer brand name — long experience behind it, but less legacy name recognition", "Less name recognition than legacy agencies for committee-based vendor approval"],
+    body: "JurisPage works exclusively with law firms and publishes its pricing publicly - something almost no other legal SEO agency does. With 113+ law firm clients and a strict month-to-month contract policy, the agency is built around earning retention rather than locking clients in.",
+    pros: ["Only major legal SEO agency with publicly listed pricing - no sales games", "Month-to-month contracts with no cancellation penalties", "100% legal focus means benchmarking against real legal competitors"],
+    cons: ["Not the right fit for firms with $10,000+/month enterprise budgets", "Newer brand name - long experience behind it, but less legacy name recognition", "Less name recognition than legacy agencies for committee-based vendor approval"],
     bestFor: "Solo attorneys, small firms, and mid-market practices that want professional SEO without opaque pricing or long-term commitments.",
     ctaHref: "/services/pricing/",
     ctaText: "See JurisPage Pricing",
@@ -92,7 +92,7 @@ const agencies = [
     ],
     body: "Rankings.io has built a strong reputation in personal injury SEO with a content-heavy, authority-building approach. They've published case studies showing significant ranking improvements for PI firms in competitive markets.",
     pros: ["Established reputation with verifiable PI case studies", "Content-first methodology that builds long-term organic authority", "Deep focus on PI and mass tort means they understand high-value case acquisition"],
-    cons: ["Pricing starts higher — likely not the right fit under $4,000-$5,000/month", "Strong PI focus means other practice areas may not get the same depth", "Longer contract commitments are typical — ask about termination terms"],
+    cons: ["Pricing starts higher - likely not the right fit under $4,000-$5,000/month", "Strong PI focus means other practice areas may not get the same depth", "Longer contract commitments are typical - ask about termination terms"],
     bestFor: "Personal injury firms in mid-to-large markets with $5,000+/month budgets wanting a proven PI-specific track record.",
     ctaHref: null,
     ctaText: null,
@@ -107,11 +107,11 @@ const agencies = [
       { label: "Best For", val: "Analytics-focused law firms" },
       { label: "Starting Price", val: "~$3,000/month (estimated)" },
       { label: "Specialization", val: "100% law firms" },
-      { label: "Contract", val: "Varies — confirm before signing" },
+      { label: "Contract", val: "Varies - confirm before signing" },
     ],
     body: "Grow Law Firm leads with analytics and measurable marketing ROI. Their pitch is built around connecting SEO activity to actual client acquisition metrics, not just ranking reports.",
-    pros: ["Strong focus on connecting SEO metrics to client acquisition — not vanity metrics", "Legal-only focus with team that speaks attorney language", "Solid reputation for communication and responsiveness"],
-    cons: ["Mid-range pricing puts them out of reach for solo attorneys and very small firms", "Contract terms are not publicly disclosed — understand exit provisions before committing", "Less name recognition than legacy agencies"],
+    pros: ["Strong focus on connecting SEO metrics to client acquisition - not vanity metrics", "Legal-only focus with team that speaks attorney language", "Solid reputation for communication and responsiveness"],
+    cons: ["Mid-range pricing puts them out of reach for solo attorneys and very small firms", "Contract terms are not publicly disclosed - understand exit provisions before committing", "Less name recognition than legacy agencies"],
     bestFor: "Growth-stage law firms with $3,000-$6,000/month budgets who prioritize measurable ROI.",
     ctaHref: null,
     ctaText: null,
@@ -128,9 +128,9 @@ const agencies = [
       { label: "Specialization", val: "Multiple industries including legal" },
       { label: "Contract", val: "12-24 month typical" },
     ],
-    body: "Scorpion is a large marketing technology company serving home services, healthcare, and legal, among other verticals. Their platform bundles website hosting, paid advertising, and SEO under one roof. Reviews are genuinely mixed — some firms report solid results, others report frustration with account turnover and difficulty exiting long-term contracts.",
-    pros: ["Comprehensive bundled service — website, SEO, PPC, and reporting in one platform", "Substantial technology investment with a real reporting dashboard", "Large enough to have vertical-specific resources"],
-    cons: ["Not a legal-only agency — limits depth of practice-area expertise", "Long contract terms (often 12-24 months) — read the contract carefully", "Website assets may not be fully portable if you leave"],
+    body: "Scorpion is a large marketing technology company serving home services, healthcare, and legal, among other verticals. Their platform bundles website hosting, paid advertising, and SEO under one roof. Reviews are genuinely mixed - some firms report solid results, others report frustration with account turnover and difficulty exiting long-term contracts.",
+    pros: ["Comprehensive bundled service - website, SEO, PPC, and reporting in one platform", "Substantial technology investment with a real reporting dashboard", "Large enough to have vertical-specific resources"],
+    cons: ["Not a legal-only agency - limits depth of practice-area expertise", "Long contract terms (often 12-24 months) - read the contract carefully", "Website assets may not be fully portable if you leave"],
     bestFor: "Established firms that want a single vendor relationship and are comfortable with longer commitments in exchange for platform convenience.",
     ctaHref: "/scorpion-legal-marketing-alternative/",
     ctaText: "See Scorpion Alternative",
@@ -149,7 +149,7 @@ const agencies = [
     ],
     body: "Foster Web Marketing has been in the legal marketing space for a long time and has built a loyal following, particularly among plaintiff-side personal injury and workers' compensation firms. They run their own proprietary CMS platform (DSS).",
     pros: ["Long track record in legal marketing with recognizable name", "Proprietary CMS with content tools designed for law firm marketing workflows", "Deep PI and plaintiff-side expertise with case studies going back many years"],
-    cons: ["Proprietary CMS creates platform dependency — migration away from Foster can be complicated", "Annual contract commitments are standard — confirm what happens to content if you leave", "Some reviews note responsiveness can be slower than boutique agencies"],
+    cons: ["Proprietary CMS creates platform dependency - migration away from Foster can be complicated", "Annual contract commitments are standard - confirm what happens to content if you leave", "Some reviews note responsiveness can be slower than boutique agencies"],
     bestFor: "Established plaintiff firms with PI or workers' comp focus comfortable with longer commitments and a proprietary platform.",
     ctaHref: null,
     ctaText: null,
@@ -185,9 +185,9 @@ const agencies = [
       { label: "Specialization", val: "Legal content and publication" },
       { label: "Contract", val: "Subscription/package-based" },
     ],
-    body: "National Law Review is a legal news and analysis publication that also offers content marketing services to law firms. Their model is different — they help attorneys publish articles on their platform to build visibility and thought leadership, rather than traditional SEO campaigns.",
+    body: "National Law Review is a legal news and analysis publication that also offers content marketing services to law firms. Their model is different - they help attorneys publish articles on their platform to build visibility and thought leadership, rather than traditional SEO campaigns.",
     pros: ["Established publication with real authority in the legal industry", "Good fit for corporate, business, and transactional law firms reaching in-house counsel", "Content publishing is a legitimate SEO strategy component when combined with on-site work"],
-    cons: ["Not a full-service SEO agency — does not replace technical SEO, on-site optimization, or link building", "Better as a supplement to an existing SEO program, not a standalone solution", "Consumer-facing practices (PI, criminal defense, family law) are not the core use case"],
+    cons: ["Not a full-service SEO agency - does not replace technical SEO, on-site optimization, or link building", "Better as a supplement to an existing SEO program, not a standalone solution", "Consumer-facing practices (PI, criminal defense, family law) are not the core use case"],
     bestFor: "Business law, employment, IP, and regulatory firms building thought leadership and reaching corporate clients.",
     ctaHref: null,
     ctaText: null,
@@ -202,10 +202,10 @@ const agencies = [
       { label: "Best For", val: "Solo attorneys and very small firms" },
       { label: "Starting Price", val: "~$1,500/month (estimated)" },
       { label: "Specialization", val: "Legal focus" },
-      { label: "Contract", val: "Varies — confirm before signing" },
+      { label: "Contract", val: "Varies - confirm before signing" },
     ],
     body: "Omnizant focuses on website design and SEO for attorneys, with a particular reputation for clean, professional designs and local SEO fundamentals. They've carved out a niche serving solo practitioners and small firms who want a polished online presence.",
-    pros: ["Accessible pricing for solo and small firm attorneys", "Clean design with a professional legal aesthetic", "Focused on local SEO fundamentals — the right starting point for most small attorneys"],
+    pros: ["Accessible pricing for solo and small firm attorneys", "Clean design with a professional legal aesthetic", "Focused on local SEO fundamentals - the right starting point for most small attorneys"],
     cons: ["Limited public case study data on competitive ranking outcomes", "May not have capacity for highly competitive markets or aggressive growth goals", "Less suited for mid-to-large firms seeking a growth-stage partner"],
     bestFor: "Solo attorneys and small firms (1-5 attorneys) in less competitive markets needing professional web presence and foundational SEO.",
     ctaHref: null,
@@ -235,7 +235,7 @@ export default function BestLawFirmSEOPage() {
 
           <div className="bg-amber-50 border-l-4 border-amber-400 p-5 rounded mb-8">
             <strong className="text-gray-900">Transparency notice:</strong>
-            <span className="text-gray-700"> JurisPage is ranked #1 on this list. We wrote this article. That&apos;s an obvious conflict of interest, and we&apos;re disclosing it upfront. We&apos;ve done our best to give honest assessments of every company — including their real weaknesses.</span>
+            <span className="text-gray-700"> JurisPage is ranked #1 on this list. We wrote this article. That&apos;s an obvious conflict of interest, and we&apos;re disclosing it upfront. We&apos;ve done our best to give honest assessments of every company - including their real weaknesses.</span>
           </div>
 
           <h2 className="font-heading font-extrabold text-gray-900 text-2xl mt-10 mb-4">What to Look For in a Law Firm SEO Company</h2>
@@ -262,7 +262,7 @@ export default function BestLawFirmSEOPage() {
           <div className="space-y-4 mb-10">
             {[
               { flag: "Guaranteed rankings", detail: "No agency controls Google's algorithm. Any agency guaranteeing specific rankings is either targeting meaningless keywords or making a promise they have no ability to keep. This should be a hard stop in your evaluation." },
-              { flag: "You don't own your website", detail: "Some agencies build your site on proprietary platforms. When you leave, you lose everything — the site, the content, the domain configuration. Always confirm in writing that you own your website files and can take them with you at any time." },
+              { flag: "You don't own your website", detail: "Some agencies build your site on proprietary platforms. When you leave, you lose everything - the site, the content, the domain configuration. Always confirm in writing that you own your website files and can take them with you at any time." },
               { flag: "Multi-year contracts for a new relationship", detail: "A 12- or 24-month contract with an agency you've never worked with is a significant financial risk. Reputable agencies with real results don't need long contracts to retain clients. Shorter initial commitments (month-to-month or 6 months maximum) are a better arrangement." },
               { flag: "Vague monthly reports", detail: "If your monthly report shows a traffic graph and the phrase 'we continued optimizing your site,' you have a problem. You should know exactly what was delivered each month: which pages went live, which links were built and from where, and which technical issues were resolved." },
               { flag: "Promises about how fast SEO will work", detail: "Real legal SEO takes time. Agencies promising significant ranking improvements within 30 days are either targeting low-competition terms that won't generate business or misleading you. Expect 3-6 months before meaningful ranking movement and 6-12 months for lead flow improvement in most markets." },
@@ -316,7 +316,7 @@ export default function BestLawFirmSEOPage() {
           {agencies.map((agency) => (
             <div key={agency.rank} id={agency.anchor} className={`mb-12 ${agency.rank > 1 ? "pt-8 border-t border-gray-200" : ""}`}>
               <h3 className="font-heading font-extrabold text-gray-900 text-xl mb-4">
-                {agency.rank}. {agency.name} — {agency.subtitle}
+                {agency.rank}. {agency.name} - {agency.subtitle}
               </h3>
               <div className="bg-gray-50 border border-gray-200 rounded-lg p-5 mb-4 grid grid-cols-2 gap-4">
                 {agency.meta.map((m) => (

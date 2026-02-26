@@ -6,7 +6,7 @@ import CTASection from "@/components/CTASection";
 
 export const metadata: Metadata = {
   title: "Law Firm Marketing Blog | JurisPage",
-  description: "Actionable guides on law firm SEO, Google Ads, website design, and digital marketing for attorneys. No fluff, no vague advice — just what actually works.",
+  description: "Actionable guides on law firm SEO, Google Ads, website design, and digital marketing for attorneys. No fluff, no vague advice - just what actually works.",
   alternates: { canonical: "https://jurispage.com/blog/" },
 };
 

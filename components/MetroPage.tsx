@@ -25,9 +25,9 @@ export function generateMetroMetadata(metro: MetroData, service: MetroService): 
 }
 
 const serviceDescriptions: Record<MetroService, (city: string) => string> = {
-  "law-firm-seo": (city) => `Law firm SEO in ${city} is a competitive space — but with the right strategy, you can reach top positions for the local searches that drive qualified case inquiries. JurisPage works with ${city} attorneys across practice areas to build lasting organic visibility.`,
+  "law-firm-seo": (city) => `Law firm SEO in ${city} is a competitive space - but with the right strategy, you can reach top positions for the local searches that drive qualified case inquiries. JurisPage works with ${city} attorneys across practice areas to build lasting organic visibility.`,
   "google-ads-lawyers": (city) => `Google Ads for lawyers in ${city} can generate case inquiries within 24-48 hours of launch. But without the right keyword targeting, negative keyword lists, and landing page strategy, most campaigns waste 40-60% of their budget. We fix that.`,
-  "law-firm-website-design": (city) => `A law firm website in ${city} needs to do more than look professional — it needs to convert visitors into consultation requests. We design fast, credible, mobile-first websites that position your firm as the obvious choice for potential clients.`,
+  "law-firm-website-design": (city) => `A law firm website in ${city} needs to do more than look professional - it needs to convert visitors into consultation requests. We design fast, credible, mobile-first websites that position your firm as the obvious choice for potential clients.`,
   "law-firm-marketing": (city) => `Law firm marketing in ${city} requires a strategy that covers SEO, paid ads, local search, and increasingly, AI search visibility. JurisPage builds integrated campaigns that generate consistent case flow across all major search channels.`,
 };
 
@@ -79,7 +79,7 @@ export default function MetroPage({ metro, service }: MetroPageProps) {
   const faqs = [
     { question: `Do you work with law firms in ${metro.city}?`, answer: `Yes. JurisPage provides ${serviceLabel.toLowerCase()} services to law firms across ${metro.city} and the surrounding ${metro.state} area on a fully remote basis. We work with firms nationwide and have experience in markets like ${metro.city}.` },
     { question: `How competitive is the legal market in ${metro.city}?`, answer: metro.legalMarketNote + " JurisPage analyzes your specific competitive landscape before recommending a strategy." },
-    { question: `What does ${serviceLabel.toLowerCase()} cost for ${metro.city} law firms?`, answer: `Our pricing starts at $1,497/month. Transparent tiers are published on our pricing page — no discovery call required to learn what anything costs. We'll recommend the right plan after a free consultation.` },
+    { question: `What does ${serviceLabel.toLowerCase()} cost for ${metro.city} law firms?`, answer: `Our pricing starts at $1,497/month. Transparent tiers are published on our pricing page - no discovery call required to learn what anything costs. We'll recommend the right plan after a free consultation.` },
     { question: "Do you require long-term contracts?", answer: "No. Every plan is month-to-month. You stay because the results are there, not because you're locked in. Cancel anytime with 30 days notice." },
   ];
 
@@ -178,7 +178,7 @@ export default function MetroPage({ metro, service }: MetroPageProps) {
         </section>
       )}
 
-      <FAQAccordion faqs={faqs} heading={`${serviceLabel} in ${metro.city} — FAQ`} />
+      <FAQAccordion faqs={faqs} heading={`${serviceLabel} in ${metro.city} - FAQ`} />
 
       <CTASection
         heading={`Free ${metro.city} Law Firm ${service === "law-firm-seo" ? "SEO" : service === "google-ads-lawyers" ? "Ads" : "Marketing"} Audit`}
@@ -192,5 +192,5 @@ export default function MetroPage({ metro, service }: MetroPageProps) {
   );
 }
 
-// Suppress unused import warning — metros is imported for potential future use
+// Suppress unused import warning - metros is imported for potential future use
 export { metros };

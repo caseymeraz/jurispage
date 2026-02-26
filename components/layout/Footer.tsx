@@ -88,7 +88,7 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-gray-500 text-xs">
-          <p>© {currentYear} JurisPage — Ethical SEO Consulting LLC. All rights reserved.</p>
+          <p>© {currentYear} JurisPage - Ethical SEO Consulting LLC. All rights reserved.</p>
           <p>Law firm marketing services across the United States.</p>
         </div>
       </div>

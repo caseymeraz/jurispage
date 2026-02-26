@@ -56,7 +56,7 @@ export default function CaseStudyCard({ caseStudy: cs }: CaseStudyCardProps) {
 
         {cs.testimonial && (
           <p className="text-sm text-gray-600 italic mb-4 leading-relaxed">
-            &ldquo;{cs.testimonial.quote}&rdquo; — {cs.testimonial.author}
+            &ldquo;{cs.testimonial.quote}&rdquo; - {cs.testimonial.author}
           </p>
         )}
 

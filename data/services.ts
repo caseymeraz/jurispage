@@ -28,7 +28,7 @@ export const services: ServiceData[] = [
     tagline: "Stop guessing. Start ranking.",
     primaryKeyword: "law firm SEO",
     description: "JurisPage provides law firm SEO services that drive qualified traffic and real case inquiries. Transparent pricing, no long-term contracts.",
-    intro: "Most law firms know they need SEO. Few understand what it actually takes to rank competitively and convert that traffic into signed clients. We do — because we've done it for 113+ law firms across every practice area.",
+    intro: "Most law firms know they need SEO. Few understand what it actually takes to rank competitively and convert that traffic into signed clients. We do - because we've done it for 113+ law firms across every practice area.",
     features: [
       "Technical SEO audit and on-page optimization",
       "Practice area and location keyword targeting",
@@ -38,7 +38,7 @@ export const services: ServiceData[] = [
     ],
     faqs: [
       { question: "How long does law firm SEO take to show results?", answer: "Most clients see measurable ranking movement within 60-90 days. Significant lead flow improvements typically appear at the 6-12 month mark, depending on your market and starting point." },
-      { question: "Do you guarantee rankings?", answer: "No ethical SEO agency guarantees rankings — Google controls that. We guarantee our work, our deliverables, and our 90-day results commitment: if you're not seeing movement, we work for free the following month." },
+      { question: "Do you guarantee rankings?", answer: "No ethical SEO agency guarantees rankings - Google controls that. We guarantee our work, our deliverables, and our 90-day results commitment: if you're not seeing movement, we work for free the following month." },
       { question: "What makes law firm SEO different from general SEO?", answer: "Legal is a YMYL (Your Money or Your Life) category, which means Google applies stricter E-E-A-T standards. Legal sites also face unique challenges: bar advertising ethics, local map pack competition, and practice area keyword structures that require legal-specific expertise." },
       { question: "Do I need SEO if I'm already running Google Ads?", answer: "Yes. Paid ads stop the moment you stop paying. SEO compounds over time and eventually produces leads at a fraction of the cost per acquisition. Most firms benefit from running both simultaneously." },
     ],
@@ -58,7 +58,7 @@ export const services: ServiceData[] = [
       },
       {
         step: "Content Publishing",
-        detail: "We build out a content calendar targeting high-intent queries your potential clients are already searching. Each piece is written for the reader first and optimized for Google second — no thin AI content that triggers Google's quality filters.",
+        detail: "We build out a content calendar targeting high-intent queries your potential clients are already searching. Each piece is written for the reader first and optimized for Google second - no thin AI content that triggers Google's quality filters.",
       },
       {
         step: "Link Building",
@@ -66,7 +66,7 @@ export const services: ServiceData[] = [
       },
       {
         step: "Monthly Reporting",
-        detail: "You get a clear monthly report showing keyword position changes, organic traffic trends, and most importantly, the number of phone calls and form submissions attributable to organic search. Rankings are a means to an end — cases are the metric that matters.",
+        detail: "You get a clear monthly report showing keyword position changes, organic traffic trends, and most importantly, the number of phone calls and form submissions attributable to organic search. Rankings are a means to an end - cases are the metric that matters.",
       },
     ],
     stats: [
@@ -76,7 +76,7 @@ export const services: ServiceData[] = [
       { value: "#1", label: "Focus: case inquiries, not vanity rankings" },
     ],
     signs: [
-      "Your website gets traffic but very few consultation requests — you rank for broad terms but not the high-intent practice area searches that convert.",
+      "Your website gets traffic but very few consultation requests - you rank for broad terms but not the high-intent practice area searches that convert.",
       "Competitors you consider inferior are outranking you consistently, even for searches in your own city.",
       "You have no idea which of your pages are driving calls because no tracking is set up.",
       "Your last SEO agency sent monthly reports full of graphs but could never connect the work to actual case leads.",
@@ -93,7 +93,7 @@ export const services: ServiceData[] = [
       },
       {
         question: "What is the difference between law firm SEO and local SEO?",
-        answer: "Traditional law firm SEO targets organic blue-link rankings across all of Google Search. Local SEO specifically targets the map pack — the three local business results shown with a map pin. Both matter, and both are included in our work. For most practice areas, the map pack gets 40%+ of clicks for searches with local intent, so ignoring it means leaving a large portion of potential leads on the table.",
+        answer: "Traditional law firm SEO targets organic blue-link rankings across all of Google Search. Local SEO specifically targets the map pack - the three local business results shown with a map pin. Both matter, and both are included in our work. For most practice areas, the map pack gets 40%+ of clicks for searches with local intent, so ignoring it means leaving a large portion of potential leads on the table.",
       },
       {
         question: "Can I do law firm SEO myself?",
@@ -124,11 +124,11 @@ export const services: ServiceData[] = [
       "Monthly reporting tied to call and form conversions",
     ],
     faqs: [
-      { question: "How much does Google Ads management cost?", answer: "Our Google Ads management is included in the Grow and Dominate plans, or available as an add-on. Ad spend is separate and paid directly to Google — we don't mark it up." },
+      { question: "How much does Google Ads management cost?", answer: "Our Google Ads management is included in the Grow and Dominate plans, or available as an add-on. Ad spend is separate and paid directly to Google - we don't mark it up." },
       { question: "What's the difference between Google Ads and Local Service Ads?", answer: "Google Ads (traditional PPC) shows text ads across Google's network. Local Service Ads (LSAs) appear at the very top of results with a 'Google Screened' badge and charge per lead rather than per click. Most law firms benefit from running both." },
       { question: "How quickly do Google Ads generate leads?", answer: "Unlike SEO, Google Ads can generate calls and form submissions within 24-48 hours of launch. The first 30-60 days are typically a learning phase where we optimize bidding and targeting for your specific market." },
     ],
-    whyMatters: "Google Ads for lawyers sits at the top of every high-intent search — the moment someone types 'criminal defense attorney near me' or 'personal injury lawyer free consultation,' paid results are the first thing they see. Legal is one of the most expensive advertising categories on Google, with some keywords costing $50-200+ per click. That means a poorly managed account burns through budget fast, while a well-managed one delivers qualified case inquiries at a predictable cost. The difference is almost entirely in how the account is structured and managed day-to-day.",
+    whyMatters: "Google Ads for lawyers sits at the top of every high-intent search - the moment someone types 'criminal defense attorney near me' or 'personal injury lawyer free consultation,' paid results are the first thing they see. Legal is one of the most expensive advertising categories on Google, with some keywords costing $50-200+ per click. That means a poorly managed account burns through budget fast, while a well-managed one delivers qualified case inquiries at a predictable cost. The difference is almost entirely in how the account is structured and managed day-to-day.",
     process: [
       {
         step: "Account Audit",
@@ -140,7 +140,7 @@ export const services: ServiceData[] = [
       },
       {
         step: "Keyword Strategy and Match Types",
-        detail: "We build precise keyword lists using exact and phrase match types, paired with a robust negative keyword list that blocks irrelevant searches from day one. Legal PPC requires aggressive negative keyword management — terms like 'law school,' 'salary,' and 'template' waste thousands of dollars per month if not excluded.",
+        detail: "We build precise keyword lists using exact and phrase match types, paired with a robust negative keyword list that blocks irrelevant searches from day one. Legal PPC requires aggressive negative keyword management - terms like 'law school,' 'salary,' and 'template' waste thousands of dollars per month if not excluded.",
       },
       {
         step: "Ad Copy and Landing Page Alignment",
@@ -148,11 +148,11 @@ export const services: ServiceData[] = [
       },
       {
         step: "Conversion Tracking Setup",
-        detail: "We implement call tracking and form tracking so every dollar spent is tied to an actual lead action. Without proper conversion data, Google's automated bidding has nothing to optimize for — and you have no idea which keywords are generating cases versus wasting money.",
+        detail: "We implement call tracking and form tracking so every dollar spent is tied to an actual lead action. Without proper conversion data, Google's automated bidding has nothing to optimize for - and you have no idea which keywords are generating cases versus wasting money.",
       },
       {
         step: "Ongoing Optimization and Reporting",
-        detail: "Every month we review search term reports, pause low-performers, expand what is working, and adjust bids based on conversion data. You receive a report showing cost per lead, total leads generated, and the keywords driving them — not just impressions and click-through rates.",
+        detail: "Every month we review search term reports, pause low-performers, expand what is working, and adjust bids based on conversion data. You receive a report showing cost per lead, total leads generated, and the keywords driving them - not just impressions and click-through rates.",
       },
     ],
     stats: [
@@ -201,7 +201,7 @@ export const services: ServiceData[] = [
     tagline: "Your website is your best salesperson.",
     primaryKeyword: "law firm website design",
     description: "JurisPage designs law firm websites that load fast, rank in Google, and convert visitors into consultation requests.",
-    intro: "Most law firm websites fail the moment a potential client arrives. Slow load times, generic content, no clear call to action, and design that looks like it was built in 2015. We build sites that do the opposite — fast, credible, and conversion-optimized from day one.",
+    intro: "Most law firm websites fail the moment a potential client arrives. Slow load times, generic content, no clear call to action, and design that looks like it was built in 2015. We build sites that do the opposite - fast, credible, and conversion-optimized from day one.",
     features: [
       "Custom WordPress design built for law firms",
       "Mobile-first, Core Web Vitals optimized",
@@ -210,9 +210,9 @@ export const services: ServiceData[] = [
       "Delivered in 30 days for Launchpad clients",
     ],
     faqs: [
-      { question: "Will I own my website?", answer: "Yes, always. Your domain, your WordPress installation, your content — all 100% yours. Unlike agencies that host on proprietary platforms, you can take your website anywhere at any time." },
+      { question: "Will I own my website?", answer: "Yes, always. Your domain, your WordPress installation, your content - all 100% yours. Unlike agencies that host on proprietary platforms, you can take your website anywhere at any time." },
       { question: "How long does a new website take?", answer: "Launchpad websites are live within 30 days. Custom redesigns for Grow and Dominate clients typically take 45-60 days depending on content readiness." },
-      { question: "Do you design on WordPress?", answer: "Yes. WordPress is the standard for law firm websites for good reason — it's flexible, SEO-friendly, and every developer can work with it if you ever need to change agencies." },
+      { question: "Do you design on WordPress?", answer: "Yes. WordPress is the standard for law firm websites for good reason - it's flexible, SEO-friendly, and every developer can work with it if you ever need to change agencies." },
     ],
     stats: [
       { value: "57%", label: "Of users abandon sites that take more than 3 seconds to load" },
@@ -286,7 +286,7 @@ export const services: ServiceData[] = [
     heading: "Local SEO for Law Firms: Dominate the Map Pack",
     tagline: "Get found by clients searching near you.",
     primaryKeyword: "local SEO for law firms",
-    description: "JurisPage specializes in local SEO for law firms — Google Business Profile, map pack rankings, and local citation building that drives case inquiries.",
+    description: "JurisPage specializes in local SEO for law firms - Google Business Profile, map pack rankings, and local citation building that drives case inquiries.",
     intro: "When a potential client types 'personal injury lawyer near me,' they see the map pack first. Three results. If you're not in that pack, you're invisible to the most motivated searchers in your market. Local SEO is how you get there and stay there.",
     features: [
       "Google Business Profile setup and ongoing optimization",
@@ -296,15 +296,15 @@ export const services: ServiceData[] = [
       "Localized landing pages for service areas",
     ],
     faqs: [
-      { question: "What is local SEO for law firms?", answer: "Local SEO is the set of tactics that help your law firm appear in Google's map pack — the 3-pack of results with a map pin shown for searches like 'personal injury lawyer near me' or 'divorce attorney [city].' It includes Google Business Profile optimization, citation building, and local content strategies." },
+      { question: "What is local SEO for law firms?", answer: "Local SEO is the set of tactics that help your law firm appear in Google's map pack - the 3-pack of results with a map pin shown for searches like 'personal injury lawyer near me' or 'divorce attorney [city].' It includes Google Business Profile optimization, citation building, and local content strategies." },
       { question: "How important is the Google map pack for law firms?", answer: "Extremely. Studies show that map pack results receive 44% of all clicks for local searches. For practice areas like PI, criminal defense, and family law, most clients search with local intent." },
       { question: "How do reviews affect local SEO rankings?", answer: "Review quantity, recency, and rating are all ranking signals for the map pack. We build a systematic review generation strategy as part of every local SEO engagement." },
     ],
-    whyMatters: "Local SEO for law firms is not a nice-to-have — it is the primary way most clients find an attorney today. Over 46% of prospective legal clients use Google when researching law firms, and the majority of those searches include local intent. The map pack appears above the organic results for nearly every practice area search in every market. A firm that ranks in the top three map pack positions for their city and practice area typically captures more leads per month from local search alone than firms spending thousands on paid advertising.",
+    whyMatters: "Local SEO for law firms is not a nice-to-have - it is the primary way most clients find an attorney today. Over 46% of prospective legal clients use Google when researching law firms, and the majority of those searches include local intent. The map pack appears above the organic results for nearly every practice area search in every market. A firm that ranks in the top three map pack positions for their city and practice area typically captures more leads per month from local search alone than firms spending thousands on paid advertising.",
     process: [
       {
         step: "Google Business Profile Audit and Optimization",
-        detail: "We start by claiming and fully completing your Google Business Profile — categories, services, attributes, photos, business hours, and a keyword-rich description. Most GBP profiles we inherit are 40-50% complete. Getting to 100% completion is one of the highest-ROI tasks in local SEO.",
+        detail: "We start by claiming and fully completing your Google Business Profile - categories, services, attributes, photos, business hours, and a keyword-rich description. Most GBP profiles we inherit are 40-50% complete. Getting to 100% completion is one of the highest-ROI tasks in local SEO.",
       },
       {
         step: "NAP Consistency Cleanup",
@@ -316,7 +316,7 @@ export const services: ServiceData[] = [
       },
       {
         step: "Review Generation Strategy",
-        detail: "Review quantity, recency, and rating are direct ranking signals in the map pack. We build a review generation process your team can actually execute — typically a simple post-matter email sequence or intake follow-up that increases review volume without violating bar advertising rules.",
+        detail: "Review quantity, recency, and rating are direct ranking signals in the map pack. We build a review generation process your team can actually execute - typically a simple post-matter email sequence or intake follow-up that increases review volume without violating bar advertising rules.",
       },
       {
         step: "Localized Content and Landing Pages",
@@ -324,7 +324,7 @@ export const services: ServiceData[] = [
       },
       {
         step: "Ongoing Monitoring and Reporting",
-        detail: "Map pack rankings fluctuate. We track your position weekly using geo-specific rank tracking tools and report on map pack visibility, Google Business Profile views, and direction requests — leading indicators of local search health that most reports ignore.",
+        detail: "Map pack rankings fluctuate. We track your position weekly using geo-specific rank tracking tools and report on map pack visibility, Google Business Profile views, and direction requests - leading indicators of local search health that most reports ignore.",
       },
     ],
     stats: [
@@ -334,32 +334,32 @@ export const services: ServiceData[] = [
       { value: "113+", label: "Law firms helped dominate their local markets" },
     ],
     signs: [
-      "You search your own practice area and city and your firm does not appear in the map pack — competitors you know are smaller or newer show up instead.",
-      "Your Google Business Profile was set up years ago and has not been updated since — categories, photos, and service descriptions are minimal or missing.",
+      "You search your own practice area and city and your firm does not appear in the map pack - competitors you know are smaller or newer show up instead.",
+      "Your Google Business Profile was set up years ago and has not been updated since - categories, photos, and service descriptions are minimal or missing.",
       "Your firm appears in Google results but with an incorrect address, old phone number, or wrong business name on some directories.",
-      "You have fewer than 10 Google reviews and your primary competitors have 50, 100, or more — and they are actively getting new ones every month.",
+      "You have fewer than 10 Google reviews and your primary competitors have 50, 100, or more - and they are actively getting new ones every month.",
       "You serve multiple cities or neighborhoods but have only one location page on your website with no geo-specific content.",
     ],
     extendedFaqs: [
       {
         question: "What is the difference between local SEO and regular SEO for law firms?",
-        answer: "Regular (organic) SEO targets the blue-link results that appear below the map pack. Local SEO specifically targets the map pack — the three results shown with a map pin at the top of the page. Both require different tactics. Organic SEO is driven primarily by content quality and backlinks. Local SEO is driven by Google Business Profile signals, citation consistency, review volume, and proximity to the searcher. Most competitive law firm marketing strategies address both.",
+        answer: "Regular (organic) SEO targets the blue-link results that appear below the map pack. Local SEO specifically targets the map pack - the three results shown with a map pin at the top of the page. Both require different tactics. Organic SEO is driven primarily by content quality and backlinks. Local SEO is driven by Google Business Profile signals, citation consistency, review volume, and proximity to the searcher. Most competitive law firm marketing strategies address both.",
       },
       {
         question: "How long does it take to rank in the Google map pack?",
-        answer: "In less competitive markets, firms with complete GBP profiles and consistent citations can see map pack appearances within 60-90 days. In competitive markets like large metro areas for personal injury or criminal defense, it can take 6-12 months of sustained effort. The starting point matters a lot — a firm with an existing GBP and some reviews can move faster than one starting from scratch.",
+        answer: "In less competitive markets, firms with complete GBP profiles and consistent citations can see map pack appearances within 60-90 days. In competitive markets like large metro areas for personal injury or criminal defense, it can take 6-12 months of sustained effort. The starting point matters a lot - a firm with an existing GBP and some reviews can move faster than one starting from scratch.",
       },
       {
         question: "Does having more Google reviews actually help rankings?",
-        answer: "Yes. Google uses review count, average rating, and recency as signals for local prominence — one of the three main map pack ranking factors alongside relevance and proximity. Firms that consistently generate new reviews rank more consistently than those with the same number of old reviews. Responding to reviews also signals active management of your profile, which Google views positively.",
+        answer: "Yes. Google uses review count, average rating, and recency as signals for local prominence - one of the three main map pack ranking factors alongside relevance and proximity. Firms that consistently generate new reviews rank more consistently than those with the same number of old reviews. Responding to reviews also signals active management of your profile, which Google views positively.",
       },
       {
         question: "What local directories matter most for law firms?",
-        answer: "The highest-value legal directories for local SEO are Avvo, Justia, Martindale-Hubbell, FindLaw, Super Lawyers, and the state bar directory. Beyond legal-specific directories, being listed consistently on Google Business Profile, Yelp, Bing Places, Apple Maps, and major data aggregators (Acxiom, Data Axle, Neustar Localeze) is critical for citation consistency. Quality matters more than quantity — being accurate on 30 high-authority directories beats being inconsistent on 200.",
+        answer: "The highest-value legal directories for local SEO are Avvo, Justia, Martindale-Hubbell, FindLaw, Super Lawyers, and the state bar directory. Beyond legal-specific directories, being listed consistently on Google Business Profile, Yelp, Bing Places, Apple Maps, and major data aggregators (Acxiom, Data Axle, Neustar Localeze) is critical for citation consistency. Quality matters more than quantity - being accurate on 30 high-authority directories beats being inconsistent on 200.",
       },
       {
         question: "Can a law firm with multiple offices rank locally in each city?",
-        answer: "Yes, but each office location needs its own Google Business Profile and its own set of local citations. You cannot rank a single GBP listing across multiple cities. Each location should also have a dedicated page on your website with location-specific content. Firms that try to shortcut this — using one address for multiple service areas — typically see weak local rankings everywhere rather than strong rankings anywhere.",
+        answer: "Yes, but each office location needs its own Google Business Profile and its own set of local citations. You cannot rank a single GBP listing across multiple cities. Each location should also have a dedicated page on your website with location-specific content. Firms that try to shortcut this - using one address for multiple service areas - typically see weak local rankings everywhere rather than strong rankings anywhere.",
       },
     ],
     relatedServices: ["law-firm-seo", "law-firm-websites", "law-firm-content-writing"],
@@ -368,12 +368,12 @@ export const services: ServiceData[] = [
   {
     relatedCaseStudies: ["the-sands-law-group"],
     slug: "launchpad",
-    title: "Launchpad — Law Firm Marketing for New Attorneys | JurisPage",
+    title: "Launchpad - Law Firm Marketing for New Attorneys | JurisPage",
     heading: "JurisPage Launchpad: Marketing for New Law Firms",
     tagline: "Everything you need to open your doors online. Fast.",
     primaryKeyword: "startup law firm marketing",
     description: "JurisPage Launchpad is a complete marketing package for attorneys launching a new law firm. Website live in 30 days, local SEO, and Google Business Profile included.",
-    intro: "Starting a law firm is hard enough. Marketing it shouldn't require a six-figure budget or three different vendors. Launchpad is a single package that gives you everything you need to start attracting clients online — from your first website to your first Google review strategy.",
+    intro: "Starting a law firm is hard enough. Marketing it shouldn't require a six-figure budget or three different vendors. Launchpad is a single package that gives you everything you need to start attracting clients online - from your first website to your first Google review strategy.",
     features: [
       "Professional WordPress website (live in 30 days)",
       "Google Business Profile setup and verification",
@@ -458,8 +458,8 @@ export const services: ServiceData[] = [
     heading: "GEO for Law Firms: Get Cited in ChatGPT, Perplexity, and AI Overviews",
     tagline: "The next search battle is in AI. Win it first.",
     primaryKeyword: "generative engine optimization for law firms",
-    description: "JurisPage offers Generative Engine Optimization (GEO) services for law firms — helping attorneys get recommended inside ChatGPT, Perplexity, AI Overviews, and other AI-powered search experiences.",
-    intro: "When someone asks ChatGPT 'I was rear-ended yesterday, do I need a lawyer?' — that's a qualified lead. AI search is handling millions of legal queries every day. Most law firms have zero presence in those answers. GEO changes that.",
+    description: "JurisPage offers Generative Engine Optimization (GEO) services for law firms - helping attorneys get recommended inside ChatGPT, Perplexity, AI Overviews, and other AI-powered search experiences.",
+    intro: "When someone asks ChatGPT 'I was rear-ended yesterday, do I need a lawyer?' - that's a qualified lead. AI search is handling millions of legal queries every day. Most law firms have zero presence in those answers. GEO changes that.",
     features: [
       "E-E-A-T authority building for AI search visibility",
       "Structured content formatting for AI citation",
@@ -468,7 +468,7 @@ export const services: ServiceData[] = [
       "Integration with existing SEO content strategy",
     ],
     faqs: [
-      { question: "What is Generative Engine Optimization (GEO)?", answer: "GEO is the practice of optimizing your law firm's online presence to appear in AI-generated answers — including Google AI Overviews, ChatGPT responses, Perplexity answers, and other AI search tools. As more legal searches go through AI interfaces, GEO becomes as important as traditional SEO." },
+      { question: "What is Generative Engine Optimization (GEO)?", answer: "GEO is the practice of optimizing your law firm's online presence to appear in AI-generated answers - including Google AI Overviews, ChatGPT responses, Perplexity answers, and other AI search tools. As more legal searches go through AI interfaces, GEO becomes as important as traditional SEO." },
       { question: "How is GEO different from traditional SEO?", answer: "Traditional SEO targets the blue link results in Google. GEO targets the AI-generated summaries that appear above those results (AI Overviews) or in standalone AI tools. The signals are different: AI systems favor authoritative, well-structured, E-E-A-T-strong content with clear entity connections." },
       { question: "Which practice areas benefit most from GEO?", answer: "Personal injury, criminal defense, family law, and immigration all see significant question-based searches that AI systems are answering. Any practice area where clients ask research questions before calling a lawyer benefits from GEO visibility." },
     ],
@@ -554,9 +554,9 @@ export const services: ServiceData[] = [
       "Compliance-aware conversation design",
     ],
     faqs: [
-      { question: "Is an AI chatbot compliant with bar advertising rules?", answer: "Properly configured, yes. We design chatbot conversations that follow bar advertising guidelines — including disclaimers that the chatbot does not create an attorney-client relationship and that information shared is for contact purposes only." },
+      { question: "Is an AI chatbot compliant with bar advertising rules?", answer: "Properly configured, yes. We design chatbot conversations that follow bar advertising guidelines - including disclaimers that the chatbot does not create an attorney-client relationship and that information shared is for contact purposes only." },
       { question: "How much does a law firm AI chatbot cost?", answer: "The AI chatbot is available as an add-on to Grow or Dominate plans. Contact us for current pricing based on your practice area and website traffic volume." },
-      { question: "Can the chatbot handle complex legal questions?", answer: "The chatbot is designed for intake, not legal advice. It's trained to gather prospect information, answer basic FAQs about your firm, and route complex questions to a human — while keeping the conversation on track for case qualification." },
+      { question: "Can the chatbot handle complex legal questions?", answer: "The chatbot is designed for intake, not legal advice. It's trained to gather prospect information, answer basic FAQs about your firm, and route complex questions to a human - while keeping the conversation on track for case qualification." },
     ],
     stats: [
       { value: "40%", label: "Of legal case inquiries arrive outside business hours" },
@@ -631,7 +631,7 @@ export const services: ServiceData[] = [
     tagline: "The cheapest lead you'll ever get is a referral from a past client.",
     primaryKeyword: "law firm email marketing",
     description: "JurisPage builds and manages email marketing programs for law firms that generate referrals, nurture prospects, and re-engage past clients.",
-    intro: "Most law firms collect email addresses and do nothing with them. Past clients, referral partners, newsletter subscribers — all sitting in a list that generates zero revenue. Email marketing changes that with a disciplined, compliance-aware approach to staying top of mind.",
+    intro: "Most law firms collect email addresses and do nothing with them. Past clients, referral partners, newsletter subscribers - all sitting in a list that generates zero revenue. Email marketing changes that with a disciplined, compliance-aware approach to staying top of mind.",
     features: [
       "Email campaign strategy and content calendar",
       "Referral partner nurture sequences",
@@ -715,8 +715,8 @@ export const services: ServiceData[] = [
     heading: "Bing Ads for Lawyers: The Overlooked 35%",
     tagline: "Your competitors aren't on Bing. That's your advantage.",
     primaryKeyword: "Bing ads for lawyers",
-    description: "JurisPage manages Bing and Microsoft Ads campaigns for law firms. 35% of legal searches happen outside Google — most firms ignore them completely.",
-    intro: "Bing powers search on Edge, Outlook, Copilot AI, and Microsoft 365 — all with users who skew older, wealthier, and more likely to need an attorney. And because most law firms only run Google Ads, competition on Bing is a fraction of what you'd pay on Google.",
+    description: "JurisPage manages Bing and Microsoft Ads campaigns for law firms. 35% of legal searches happen outside Google - most firms ignore them completely.",
+    intro: "Bing powers search on Edge, Outlook, Copilot AI, and Microsoft 365 - all with users who skew older, wealthier, and more likely to need an attorney. And because most law firms only run Google Ads, competition on Bing is a fraction of what you'd pay on Google.",
     features: [
       "Microsoft Ads campaign setup and management",
       "Cross-platform keyword strategy (Google + Bing)",
@@ -810,8 +810,8 @@ export const services: ServiceData[] = [
       "Internal linking strategy built into every piece",
     ],
     faqs: [
-      { question: "Do your writers have legal backgrounds?", answer: "Our legal content team combines SEO expertise with legal research skills and attorney review processes. All practice area content is reviewed for accuracy before publication. We're not writing legal advice — we're writing marketing content that accurately represents what attorneys do." },
-      { question: "How many articles per month do I get?", answer: "Content writing is included in the Dominate plan (monthly blog + practice pages) or available as a standalone add-on. Volume depends on your plan and goals — contact us for specifics." },
+      { question: "Do your writers have legal backgrounds?", answer: "Our legal content team combines SEO expertise with legal research skills and attorney review processes. All practice area content is reviewed for accuracy before publication. We're not writing legal advice - we're writing marketing content that accurately represents what attorneys do." },
+      { question: "How many articles per month do I get?", answer: "Content writing is included in the Dominate plan (monthly blog + practice pages) or available as a standalone add-on. Volume depends on your plan and goals - contact us for specifics." },
     ],
     stats: [
       { value: "3x", label: "More organic traffic generated by sites publishing 16+ blog posts per month (HubSpot)" },

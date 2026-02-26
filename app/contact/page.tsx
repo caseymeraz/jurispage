@@ -3,7 +3,7 @@ import ContactForm from "@/components/ContactForm";
 import SchemaOrg from "@/components/SchemaOrg";
 
 export const metadata: Metadata = {
-  title: "Contact JurisPage — Get a Free Law Firm Marketing Plan",
+  title: "Contact JurisPage - Get a Free Law Firm Marketing Plan",
   description: "Get a free law firm marketing consultation from JurisPage. No obligation. No long-term contract required. Tell us about your firm and goals.",
   alternates: { canonical: "https://jurispage.com/contact/" },
 };
@@ -24,7 +24,7 @@ export default function ContactPage() {
       <section className="bg-[#1a1a1a] py-16 px-6 text-center">
         <div className="max-w-2xl mx-auto">
           <h1 className="font-heading font-extrabold text-white text-4xl mb-4">Get a Free Law Firm Marketing Plan</h1>
-          <p className="text-gray-300 text-lg leading-relaxed">Tell us about your firm and what you're trying to accomplish. We'll review your situation and come back with a clear plan — no fluff, no vague promises.</p>
+          <p className="text-gray-300 text-lg leading-relaxed">Tell us about your firm and what you're trying to accomplish. We'll review your situation and come back with a clear plan - no fluff, no vague promises.</p>
         </div>
       </section>
 

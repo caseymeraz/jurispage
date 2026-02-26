@@ -58,7 +58,7 @@ const services = [
   {
     icon: "🚀",
     title: "Launchpad",
-    description: "The complete marketing package for attorneys opening a new firm. Website, GBP, local SEO — live in 30 days.",
+    description: "The complete marketing package for attorneys opening a new firm. Website, GBP, local SEO - live in 30 days.",
     href: "/launchpad/",
   },
 ];
@@ -82,7 +82,7 @@ const homeSchema = {
   "@context": "https://schema.org",
   "@type": "WebPage",
   "@id": "https://jurispage.com/",
-  name: "JurisPage — Law Firm Marketing",
+  name: "JurisPage - Law Firm Marketing",
   url: "https://jurispage.com/",
   description: "Ethical, transparent law firm marketing. SEO, Google Ads, website design, GEO. Month-to-month contracts. Serving 113+ law firms nationwide.",
   publisher: {
@@ -101,13 +101,13 @@ export default function HomePage() {
       <section className="bg-[#1a1a1a] py-20 px-6 text-center">
         <div className="max-w-4xl mx-auto">
           <span className="inline-block text-xs font-heading font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-6 text-white" style={{ background: "#EE6C13" }}>
-            Acquired February 2026 — Under New Ownership
+            Acquired February 2026 - Under New Ownership
           </span>
           <h1 className="font-heading font-extrabold text-white text-4xl md:text-6xl leading-tight mb-6">
             Law Firm Marketing That Gets Cases,<br className="hidden md:block" /> Not Just Clicks
           </h1>
           <p className="text-gray-300 text-xl max-w-2xl mx-auto mb-4 leading-relaxed">
-            JurisPage provides ethical, transparent digital marketing exclusively for law firms. SEO, Google Ads, websites, and AI search — built around case acquisition, not vanity metrics.
+            JurisPage provides ethical, transparent digital marketing exclusively for law firms. SEO, Google Ads, websites, and AI search - built around case acquisition, not vanity metrics.
           </p>
           <p className="text-gray-400 text-base mb-10">
             Transparent pricing published online. Month-to-month contracts. 113+ law firms served.
@@ -187,7 +187,7 @@ export default function HomePage() {
               We Understand the Pressure of Filling a Pipeline
             </h2>
             <p className="text-gray-600 text-lg mb-6 leading-relaxed">
-              Law firm owners don&apos;t have time to babysit an agency. You need a partner who understands your market, shows up with results, and tells you the truth — even when it&apos;s not what you want to hear.
+              Law firm owners don&apos;t have time to babysit an agency. You need a partner who understands your market, shows up with results, and tells you the truth - even when it&apos;s not what you want to hear.
             </p>
             <p className="text-gray-600 mb-8 leading-relaxed">
               JurisPage was built to do exactly that. We work exclusively with law firms, which means every strategy we recommend has been tested across 113+ firms in your exact situation.
@@ -218,7 +218,7 @@ export default function HomePage() {
           <div className="rounded-2xl overflow-hidden shadow-xl order-2 md:order-1">
             <Image
               src="/images/our-approach.jpg"
-              alt="JurisPage law firm marketing approach — research, strategy, and execution"
+              alt="JurisPage law firm marketing approach - research, strategy, and execution"
               width={600}
               height={750}
               className="w-full h-auto"
@@ -232,7 +232,7 @@ export default function HomePage() {
               Strategy First. Execution Second. Results Always.
             </h2>
             <p className="text-gray-600 text-lg mb-6 leading-relaxed">
-              Every engagement starts with an honest audit of where you are. We research your market, analyze your competitors, and build a strategy that fits your budget and goals — before we touch anything.
+              Every engagement starts with an honest audit of where you are. We research your market, analyze your competitors, and build a strategy that fits your budget and goals - before we touch anything.
             </p>
             <ul className="space-y-3 mb-8">
               {["Market and competitor analysis before any work begins", "Transparent monthly reporting tied to leads and cases, not rankings", "Dedicated point of contact who knows your firm by name"].map((item) => (
@@ -253,7 +253,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Real Results — Case Studies */}
+      {/* Real Results - Case Studies */}
       <section className="bg-[#FEF3EC] py-20 px-6">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-14">

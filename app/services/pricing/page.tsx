@@ -4,7 +4,7 @@ import SchemaOrg from "@/components/SchemaOrg";
 import FAQAccordion from "@/components/FAQAccordion";
 
 export const metadata: Metadata = {
-  title: "Law Firm Marketing Pricing — Transparent, No Surprises | JurisPage",
+  title: "Law Firm Marketing Pricing - Transparent, No Surprises | JurisPage",
   description: "See exactly what law firm SEO costs at JurisPage. Three clear plans starting at $1,497/month. No long-term contracts, no hidden fees, no guessing games.",
   alternates: { canonical: "https://jurispage.com/services/pricing/" },
 };
@@ -16,10 +16,10 @@ const faqSchema = {
     { "@type": "Question", name: "What's included in each plan?", acceptedAnswer: { "@type": "Answer", text: "Launchpad ($1,497/month) covers everything a new firm needs to get online: a WordPress website live in 30 days, Google Business Profile setup, local SEO foundation, citation building, and branded email. Grow ($2,497/month) adds a full SEO campaign plus your choice of Google Ads management or a website redesign, monthly reporting, and ongoing GBP optimization. Dominate ($4,497/month) is full-service: SEO + Google Ads + content writing + GEO optimization, with bi-weekly strategy calls and a dedicated account team." } },
     { "@type": "Question", name: "Are there long-term contracts?", acceptedAnswer: { "@type": "Answer", text: "No. Every plan is month-to-month. You stay because the results are there, not because you signed a 12-month agreement." } },
     { "@type": "Question", name: "How long until I see results?", acceptedAnswer: { "@type": "Answer", text: "Most clients see measurable movement in rankings and traffic within 60 to 90 days. If you're not seeing results within 90 days, we work for free for the following month. No questions asked." } },
-    { "@type": "Question", name: "What if I want to cancel?", acceptedAnswer: { "@type": "Answer", text: "Give us 30 days notice and you're done. We don't hold your website hostage, and we don't make cancellation difficult. Your domain, your content, your data — all yours." } },
+    { "@type": "Question", name: "What if I want to cancel?", acceptedAnswer: { "@type": "Answer", text: "Give us 30 days notice and you're done. We don't hold your website hostage, and we don't make cancellation difficult. Your domain, your content, your data - all yours." } },
     { "@type": "Question", name: "Do you work with all practice areas?", acceptedAnswer: { "@type": "Answer", text: "Yes. We work with personal injury, criminal defense, family law, immigration, estate planning, employment law, and more. If you practice it, we've likely marketed it." } },
     { "@type": "Question", name: "What's the difference between JurisPage and large agencies like Scorpion?", acceptedAnswer: { "@type": "Answer", text: "Scorpion owns your website. If you leave, it disappears. JurisPage builds assets you own. We also don't hide our pricing behind a sales process." } },
-    { "@type": "Question", name: "Can I upgrade or downgrade my plan?", acceptedAnswer: { "@type": "Answer", text: "Yes. You can move between plans at any time with 30 days notice. Firms often start on Launchpad and move to Grow once they're established — we make that transition straightforward." } },
+    { "@type": "Question", name: "Can I upgrade or downgrade my plan?", acceptedAnswer: { "@type": "Answer", text: "Yes. You can move between plans at any time with 30 days notice. Firms often start on Launchpad and move to Grow once they're established - we make that transition straightforward." } },
     { "@type": "Question", name: "Is there a setup fee?", acceptedAnswer: { "@type": "Answer", text: "Launchpad has a one-time $497 setup fee that covers website build and configuration. Grow and Dominate have no setup fees." } },
   ],
 };
@@ -44,9 +44,9 @@ const faqs = [
   { question: "What's included in each plan?", answer: "Launchpad covers everything a new firm needs to get online: WordPress website live in 30 days, Google Business Profile setup, local SEO foundation, citation building, and branded email. Grow adds a full SEO campaign plus your choice of Google Ads management or a website redesign, monthly reporting, and ongoing GBP optimization. Dominate is full-service: SEO, Google Ads, content writing, and GEO optimization (AI search visibility), with bi-weekly strategy calls and a dedicated account team." },
   { question: "Are there long-term contracts?", answer: "No. Every plan is month-to-month. You stay because the results are there, not because you signed a 12-month agreement. We've never believed in locking people in. If we're doing our job, you won't want to leave." },
   { question: "How long until I see results?", answer: "Most clients see measurable movement in rankings and traffic within 60 to 90 days. New websites and newer firms can take a bit longer to build authority. That's why we back it with a 90-day guarantee: if you're not seeing results, we work for free for the following month." },
-  { question: "What if I want to cancel?", answer: "Give us 30 days notice and you're done. We don't hold your website hostage, and we don't make the process difficult. Your domain, your content, your data — all yours, always. We'll hand everything over cleanly." },
-  { question: "Do you work with all practice areas?", answer: "Yes. We work with personal injury, criminal defense, family law, immigration, estate planning, employment law, business law, and more. Legal marketing has specific rules and sensitivities that general marketers miss — we've been doing this long enough to know the difference." },
-  { question: "What's the difference between JurisPage and large agencies like Scorpion?", answer: "A few things. Scorpion owns your website — if you leave, it disappears. JurisPage builds assets you own. Large agencies also don't publish their pricing; you have to sit through a sales process before you learn what anything costs. We think that's a waste of your time." },
+  { question: "What if I want to cancel?", answer: "Give us 30 days notice and you're done. We don't hold your website hostage, and we don't make the process difficult. Your domain, your content, your data - all yours, always. We'll hand everything over cleanly." },
+  { question: "Do you work with all practice areas?", answer: "Yes. We work with personal injury, criminal defense, family law, immigration, estate planning, employment law, business law, and more. Legal marketing has specific rules and sensitivities that general marketers miss - we've been doing this long enough to know the difference." },
+  { question: "What's the difference between JurisPage and large agencies like Scorpion?", answer: "A few things. Scorpion owns your website - if you leave, it disappears. JurisPage builds assets you own. Large agencies also don't publish their pricing; you have to sit through a sales process before you learn what anything costs. We think that's a waste of your time." },
   { question: "Can I upgrade or downgrade my plan?", answer: "Yes. You can move between plans at any time with 30 days notice. Firms often start on Launchpad to get their foundation right, then move to Grow once they're established and ready to compete harder." },
   { question: "Is there a setup fee?", answer: "Launchpad has a one-time $497 setup fee. That covers the website build, DNS configuration, email setup, and getting all your accounts properly configured. Grow and Dominate have no setup fees at all." },
 ];
@@ -257,8 +257,8 @@ export default function PricingPage() {
               </thead>
               <tbody>
                 {[
-                  ["Pricing published publicly", { v: "Yes", color: "#EE6C13" }, { v: "No — requires sales call", color: "#ef4444" }],
-                  ["You own your website", { v: "Always", color: "#EE6C13" }, { v: "Often no — site disappears if you leave", color: "#ef4444" }],
+                  ["Pricing published publicly", { v: "Yes", color: "#EE6C13" }, { v: "No - requires sales call", color: "#ef4444" }],
+                  ["You own your website", { v: "Always", color: "#EE6C13" }, { v: "Often no - site disappears if you leave", color: "#ef4444" }],
                   ["Long-term contract", { v: "No", color: "#EE6C13" }, { v: "Typically 12-month minimum", color: "#ef4444" }],
                   ["Dedicated point of contact", { v: "Yes, from day one", color: "#EE6C13" }, { v: "After onboarding, often rotates", color: "#fbbf24" }],
                   ["Specializes in law firms only", { v: "Yes", color: "#EE6C13" }, { v: "Varies", color: "#fbbf24" }],

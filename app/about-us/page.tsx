@@ -22,12 +22,12 @@ const differences = [
   {
     color: "#EE6C13",
     title: "We Publish Our Pricing",
-    body: "Most agencies won't tell you what anything costs until you've been on three calls and signed an NDA. We think that's a bad start to any business relationship. Our pricing is on our website — no sales games, no mystery packages.",
+    body: "Most agencies won't tell you what anything costs until you've been on three calls and signed an NDA. We think that's a bad start to any business relationship. Our pricing is on our website - no sales games, no mystery packages.",
   },
   {
     color: "#EE6C13",
     title: "100% Law Firm Focus",
-    body: "We don't do e-commerce SEO. We don't run campaigns for restaurants or HVAC companies. Every single thing we do is built for law firms — the compliance considerations, the YMYL standards, the local map pack tactics that actually move the needle.",
+    body: "We don't do e-commerce SEO. We don't run campaigns for restaurants or HVAC companies. Every single thing we do is built for law firms - the compliance considerations, the YMYL standards, the local map pack tactics that actually move the needle.",
   },
   {
     color: "#EE6C13",
@@ -36,7 +36,7 @@ const differences = [
   },
   {
     color: "#EE6C13",
-    title: "Ethical SEO — No Shortcuts",
+    title: "Ethical SEO - No Shortcuts",
     body: "No black hat link schemes, no keyword stuffing, no fake reviews, no tricks. Ethical SEO takes longer to ramp, but it builds rankings that last and won't get you penalized when Google updates.",
   },
   {
@@ -74,8 +74,8 @@ export default function AboutPage() {
         <h2 className="font-heading font-extrabold text-gray-900 text-3xl mb-6 pb-3 inline-block border-b-4" style={{ borderBottomColor: "#EE6C13" }}>Our Story</h2>
         <div className="space-y-4 text-gray-700 text-base leading-relaxed">
           <p>JurisPage has been around for years, but in February 2026 we entered a new chapter. Ethical SEO Consulting LLC acquired JurisPage and brought in a leadership team with over 15 years of hands-on experience in legal digital marketing.</p>
-          <p>We've grown and evolved significantly over time — and today we're building something we're genuinely proud of: a focused, ethical, results-driven agency for law firms that are serious about growth but not interested in paying big-agency prices for big-agency indifference.</p>
-          <p>Our broader organization has served 113+ law firms across the country. That experience shapes everything we do at JurisPage — from how we price our services to how we talk with clients every week.</p>
+          <p>We've grown and evolved significantly over time - and today we're building something we're genuinely proud of: a focused, ethical, results-driven agency for law firms that are serious about growth but not interested in paying big-agency prices for big-agency indifference.</p>
+          <p>Our broader organization has served 113+ law firms across the country. That experience shapes everything we do at JurisPage - from how we price our services to how we talk with clients every week.</p>
           <p>We're not going to pretend we're the biggest agency in legal marketing. We're going to prove we're the best fit for small law firms that want real results and a partner they can actually trust.</p>
         </div>
       </section>
@@ -86,8 +86,8 @@ export default function AboutPage() {
           <h2 className="font-heading font-extrabold text-gray-900 text-3xl mb-6 pb-3 inline-block border-b-4" style={{ borderBottomColor: "#EE6C13" }}>Meet Casey Meraz, CEO</h2>
           <div className="space-y-4 text-gray-700 text-base leading-relaxed">
             <p>Casey Meraz has spent 15 years doing one thing: helping law firms get found online and turn that traffic into clients.</p>
-            <p>He's personally managed SEO campaigns for 100+ law firms — from solo practitioners to multi-location regional firms. He's built one of the most-read blogs on legal marketing online, and has contributed to industry publications on the topics of local SEO, ethical link building, and content strategy for attorneys.</p>
-            <p>Casey is based in Ireland and works with law firms across the United States remotely — a setup that works because this work has always been about strategy and results, not office visits.</p>
+            <p>He's personally managed SEO campaigns for 100+ law firms - from solo practitioners to multi-location regional firms. He's built one of the most-read blogs on legal marketing online, and has contributed to industry publications on the topics of local SEO, ethical link building, and content strategy for attorneys.</p>
+            <p>Casey is based in Ireland and works with law firms across the United States remotely - a setup that works because this work has always been about strategy and results, not office visits.</p>
             <p>His philosophy is simple: <strong>"Do the right thing for the client, be completely transparent about what's working and what isn't, and never take a shortcut that could put their business at risk."</strong></p>
             <p>That's not a tagline. It's how he's operated for 15 years, and it's the standard every JurisPage team member is held to.</p>
           </div>
@@ -146,7 +146,7 @@ export default function AboutPage() {
       <section className="py-16 px-6">
         <div className="max-w-3xl mx-auto">
           <h2 className="font-heading font-extrabold text-gray-900 text-3xl mb-6 pb-3 inline-block border-b-4" style={{ borderBottomColor: "#EE6C13" }}>Who We Serve</h2>
-          <p className="text-gray-700 leading-relaxed mb-4">JurisPage works with law firms across the United States — from solo practitioners launching their first marketing campaign to established regional firms looking to take their online presence to the next level.</p>
+          <p className="text-gray-700 leading-relaxed mb-4">JurisPage works with law firms across the United States - from solo practitioners launching their first marketing campaign to established regional firms looking to take their online presence to the next level.</p>
           <p className="text-gray-700 leading-relaxed mb-6">We work across nearly every practice area, including:</p>
           <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 mb-6">
             {practiceAreasList.map((area) => (

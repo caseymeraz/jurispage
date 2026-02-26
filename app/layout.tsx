@@ -88,7 +88,7 @@ const localBusinessSchema = {
 export const metadata: Metadata = {
   metadataBase: new URL("https://jurispage.com"),
   title: {
-    default: "JurisPage — Law Firm Marketing That Gets Cases, Not Just Clicks",
+    default: "JurisPage - Law Firm Marketing That Gets Cases, Not Just Clicks",
     template: "%s | JurisPage",
   },
   description: "JurisPage provides transparent, ethical digital marketing for law firms. SEO, Google Ads, website design, and GEO optimization. Month-to-month contracts, pricing published online.",
