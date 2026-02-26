@@ -82,7 +82,7 @@ export default function ContactForm() {
             required
             value={formData.firstName}
             onChange={handleChange}
-            className="w-full border border-gray-300 rounded-lg px-4 py-3 text-gray-900 focus:outline-none focus:ring-2 focus:ring-cyan-400"
+            className="w-full border border-gray-300 rounded-lg px-4 py-3 text-gray-900 focus:outline-none focus:ring-2 focus:ring-orange-400"
           />
         </div>
         <div>
@@ -93,7 +93,7 @@ export default function ContactForm() {
             required
             value={formData.lastName}
             onChange={handleChange}
-            className="w-full border border-gray-300 rounded-lg px-4 py-3 text-gray-900 focus:outline-none focus:ring-2 focus:ring-cyan-400"
+            className="w-full border border-gray-300 rounded-lg px-4 py-3 text-gray-900 focus:outline-none focus:ring-2 focus:ring-orange-400"
           />
         </div>
       </div>
@@ -106,7 +106,7 @@ export default function ContactForm() {
             required
             value={formData.email}
             onChange={handleChange}
-            className="w-full border border-gray-300 rounded-lg px-4 py-3 text-gray-900 focus:outline-none focus:ring-2 focus:ring-cyan-400"
+            className="w-full border border-gray-300 rounded-lg px-4 py-3 text-gray-900 focus:outline-none focus:ring-2 focus:ring-orange-400"
           />
         </div>
         <div>
@@ -117,7 +117,7 @@ export default function ContactForm() {
             required
             value={formData.phone}
             onChange={handleChange}
-            className="w-full border border-gray-300 rounded-lg px-4 py-3 text-gray-900 focus:outline-none focus:ring-2 focus:ring-cyan-400"
+            className="w-full border border-gray-300 rounded-lg px-4 py-3 text-gray-900 focus:outline-none focus:ring-2 focus:ring-orange-400"
           />
         </div>
       </div>
@@ -128,7 +128,7 @@ export default function ContactForm() {
           required
           value={formData.practiceArea}
           onChange={handleChange}
-          className="w-full border border-gray-300 rounded-lg px-4 py-3 text-gray-900 focus:outline-none focus:ring-2 focus:ring-cyan-400 bg-white"
+          className="w-full border border-gray-300 rounded-lg px-4 py-3 text-gray-900 focus:outline-none focus:ring-2 focus:ring-orange-400 bg-white"
         >
           <option value="">Select your practice area</option>
           {practiceAreas.map((area) => (
@@ -143,7 +143,7 @@ export default function ContactForm() {
           required
           value={formData.budget}
           onChange={handleChange}
-          className="w-full border border-gray-300 rounded-lg px-4 py-3 text-gray-900 focus:outline-none focus:ring-2 focus:ring-cyan-400 bg-white"
+          className="w-full border border-gray-300 rounded-lg px-4 py-3 text-gray-900 focus:outline-none focus:ring-2 focus:ring-orange-400 bg-white"
         >
           <option value="">Select your budget range</option>
           {budgets.map((b) => (
@@ -158,7 +158,7 @@ export default function ContactForm() {
           name="referral"
           value={formData.referral}
           onChange={handleChange}
-          className="w-full border border-gray-300 rounded-lg px-4 py-3 text-gray-900 focus:outline-none focus:ring-2 focus:ring-cyan-400"
+          className="w-full border border-gray-300 rounded-lg px-4 py-3 text-gray-900 focus:outline-none focus:ring-2 focus:ring-orange-400"
         />
       </div>
       <div>
@@ -168,7 +168,7 @@ export default function ContactForm() {
           rows={4}
           value={formData.message}
           onChange={handleChange}
-          className="w-full border border-gray-300 rounded-lg px-4 py-3 text-gray-900 focus:outline-none focus:ring-2 focus:ring-cyan-400 resize-none"
+          className="w-full border border-gray-300 rounded-lg px-4 py-3 text-gray-900 focus:outline-none focus:ring-2 focus:ring-orange-400 resize-none"
           placeholder="What are you trying to accomplish? What's not working with your current marketing?"
         />
       </div>
