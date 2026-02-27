@@ -71,7 +71,7 @@ export default function MetroPage({ metro, service }: MetroPageProps) {
       mainEntity: [
         { "@type": "Question", name: `Do you work with law firms in ${metro.city}?`, acceptedAnswer: { "@type": "Answer", text: `Yes. JurisPage provides ${serviceLabel.toLowerCase()} services to law firms across ${metro.city} and ${metro.state} on a fully remote basis. We work with firms nationwide and have helped law firms in markets just like ${metro.city}'s grow their case volume through ethical, transparent digital marketing.` } },
         { "@type": "Question", name: `How competitive is the legal market in ${metro.city}?`, acceptedAnswer: { "@type": "Answer", text: `${metro.legalMarketNote} JurisPage analyzes competitor authority and keyword difficulty for your specific market before recommending a strategy.` } },
-        { "@type": "Question", name: `What does ${serviceLabel.toLowerCase()} cost for ${metro.city} law firms?`, acceptedAnswer: { "@type": "Answer", text: `Our pricing starts at $1,497/month with transparent tiers published on our website. The right plan depends on your practice area, competitive landscape, and growth goals. We're happy to recommend the right fit after a free consultation.` } },
+        { "@type": "Question", name: `What does ${serviceLabel.toLowerCase()} cost for ${metro.city} law firms?`, acceptedAnswer: { "@type": "Answer", text: `Our pricing starts at $2,000/month. The right plan depends on your practice area, competitive landscape, and growth goals. We're happy to recommend the right fit after a free consultation.` } },
       ],
     },
   ];
@@ -79,7 +79,7 @@ export default function MetroPage({ metro, service }: MetroPageProps) {
   const faqs = [
     { question: `Do you work with law firms in ${metro.city}?`, answer: `Yes. JurisPage provides ${serviceLabel.toLowerCase()} services to law firms across ${metro.city} and the surrounding ${metro.state} area on a fully remote basis. We work with firms nationwide and have experience in markets like ${metro.city}.` },
     { question: `How competitive is the legal market in ${metro.city}?`, answer: metro.legalMarketNote + " JurisPage analyzes your specific competitive landscape before recommending a strategy." },
-    { question: `What does ${serviceLabel.toLowerCase()} cost for ${metro.city} law firms?`, answer: `Our pricing starts at $1,497/month. Transparent tiers are published on our pricing page - no discovery call required to learn what anything costs. We'll recommend the right plan after a free consultation.` },
+    { question: `What does ${serviceLabel.toLowerCase()} cost for ${metro.city} law firms?`, answer: `Our pricing starts at $2,000/month. We'll give you a straight answer on cost during your first conversation — no runaround, no mystery packages. We'll recommend the right plan after a free consultation.` },
     { question: "Do you require long-term contracts?", answer: "No. Every plan is month-to-month. You stay because the results are there, not because you're locked in. Cancel anytime with 30 days notice." },
   ];
 

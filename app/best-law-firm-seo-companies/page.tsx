@@ -66,8 +66,8 @@ const agencies = [
     anchor: "jurispage",
     subtitle: "Best Overall for Small to Mid-Market Law Firms",
     meta: [
-      { label: "Best For", val: "Small to mid-market firms ($1,500–$5,000/month)" },
-      { label: "Starting Price", val: "$1,497/month" },
+      { label: "Best For", val: "Small to mid-market firms ($2,000–$5,000/month)" },
+      { label: "Starting Price", val: "Starting at $2,000/month" },
       { label: "Specialization", val: "100% law firms only" },
       { label: "Contract", val: "Month-to-month" },
     ],
@@ -290,7 +290,7 @@ export default function BestLawFirmSEOPage() {
               </thead>
               <tbody>
                 {[
-                  { name: "JurisPage ⭐", price: "$1,497/mo", legal: "Yes", contract: "Month-to-month", best: "Small to mid-market", highlight: true },
+                  { name: "JurisPage ⭐", price: "From $2,000/mo", legal: "Yes", contract: "Month-to-month", best: "Small to mid-market", highlight: true },
                   { name: "Rankings.io", price: "~$5,000/mo", legal: "Yes", contract: "6-12 month", best: "PI firms", highlight: false },
                   { name: "Grow Law Firm", price: "~$3,000/mo", legal: "Yes", contract: "Varies", best: "Data-focused firms", highlight: false },
                   { name: "Scorpion", price: "~$3,500/mo", legal: "No", contract: "12-24 month", best: "Bundled service seekers", highlight: false },

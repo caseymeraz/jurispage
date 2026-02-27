@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 
 const faqs = [
   { question: "What's the main difference between JurisPage and Scorpion?", answer: "The biggest difference is website ownership and contract flexibility. With Scorpion, they host your website on their platform - if you leave, your site disappears. With JurisPage, you own everything: your domain, your WordPress site, your content. We also publish our pricing online (Scorpion doesn't), and we operate month-to-month while Scorpion typically requires 12-24 month contracts." },
-  { question: "Is JurisPage cheaper than Scorpion?", answer: "Our published pricing starts at $1,497/month. Scorpion doesn't publish pricing, but based on industry estimates, their services typically start around $3,500-$5,000/month or more. The cost comparison depends on your specific service needs - contact us for a side-by-side analysis for your firm." },
+  { question: "Is JurisPage cheaper than Scorpion?", answer: "Our pricing starts at $2,000/month. Scorpion doesn't publish pricing, but based on industry estimates, their services typically start around $3,500-$5,000/month or more. The cost comparison depends on your specific service needs - contact us for a side-by-side analysis for your firm." },
   { question: "Can I switch from Scorpion to JurisPage without losing my website?", answer: "If your current Scorpion website is hosted on their platform (which is typical), you cannot transfer that website to another host. However, we can build you a new WordPress website that you own - typically live within 30 days on our Launchpad plan. You'll own everything going forward." },
   { question: "Do you require long-term contracts?", answer: "No. Every JurisPage plan is month-to-month. You stay because the results are there. Cancel anytime with 30 days notice." },
 ];
@@ -62,7 +62,7 @@ export default function ScorpionAlternativePage() {
                   ["Website ownership", "You own it, always", "Scorpion hosts - disappears if you leave"],
                   ["Contract terms", "Month-to-month", "Typically 12-24 months"],
                   ["Legal-only focus", "100% legal", "Multiple industries"],
-                  ["Starting price", "$1,497/month (published)", "~$3,500–$5,000+/month (estimated)"],
+                  ["Starting price", "Starting at $2,000/month", "~$3,500–$5,000+/month (estimated)"],
                   ["Dedicated point of contact", "From day one", "Often rotates post-onboarding"],
                 ].map(([feature, jp, sc], i) => (
                   <tr key={feature} style={{ background: i % 2 === 0 ? "#f9fafb" : "#fff" }}>
@@ -84,7 +84,7 @@ export default function ScorpionAlternativePage() {
               "You want to own your website and all assets - permanently",
               "You need month-to-month flexibility with no long-term commitment",
               "You want to see pricing before getting on a sales call",
-              "Your budget is $1,500–$5,000/month and you want specialized legal SEO, not a generalist platform",
+              "Your budget is $2,000–$5,000/month and you want specialized legal SEO, not a generalist platform",
               "You've been at Scorpion and felt like a small account inside a large agency",
             ].map((item) => (
               <li key={item} className="flex gap-3 items-start text-gray-700"><span style={{ color: "#EE6C13" }} className="flex-shrink-0 mt-0.5">✓</span><span>{item}</span></li>

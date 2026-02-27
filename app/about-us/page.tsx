@@ -21,8 +21,8 @@ const aboutSchema = {
 
 const differences = [
   {
-    title: "We Publish Our Pricing",
-    body: "Most agencies won't tell you what anything costs until you've been on three calls and signed an NDA. We think that's a bad start to any business relationship. Our pricing is on our website - no sales games, no mystery packages.",
+    title: "No Hidden Fees or Surprises",
+    body: "We don't play games with pricing. We'll give you a straight answer on cost during your first conversation — no runaround, no mystery packages. Starting at $2,000/month.",
   },
   {
     title: "100% Law Firm Focus",
@@ -219,7 +219,7 @@ export default function AboutPage() {
                   ["Contract terms", "Month-to-month", "12-month lock-in", "Month-to-month"],
                   ["Law firm focus", "100% legal only", "General or 'legal team'", "Rarely specialized"],
                   ["Proven results", "113+ law firms served", "Varies by team", "Hard to verify"],
-                  ["Starting price", "From $1,497/mo", "$5,000 – $15,000+/mo", "Low cost, high risk"],
+                  ["Starting price", "Starting at $2,000/mo", "$5,000 – $15,000+/mo", "Low cost, high risk"],
                 ].map(([feature, juris, large, free], i) => (
                   <tr key={feature} className={i % 2 === 0 ? "bg-gray-50" : "bg-white"}>
                     <td className="p-4 font-semibold text-gray-800">{feature}</td>
