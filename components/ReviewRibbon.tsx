@@ -37,7 +37,7 @@ export default function ReviewRibbon() {
           >
             <div className="text-yellow-400 text-sm leading-none">★★★★★</div>
             <p className="text-gray-700 text-sm leading-snug">&ldquo;{review.quote}&rdquo;</p>
-            <p className="text-gray-500 text-xs font-semibold">— {review.author}</p>
+            <p className="text-gray-500 text-xs font-semibold">- {review.author}</p>
           </div>
         ))}
       </div>

@@ -6,7 +6,7 @@ import Image from "next/image";
 const services = [
   { label: "Law Firm SEO", href: "/law-firm-seo/", desc: "Rank #1 in Google for your practice area and city" },
   { label: "Google Ads for Law Firms", href: "/google-ads-for-law-firms/", desc: "Case inquiries within 24-48 hours of launch" },
-  { label: "Law Firm Websites", href: "/law-firm-websites/", desc: "WordPress sites you own — built to convert" },
+  { label: "Law Firm Websites", href: "/law-firm-websites/", desc: "WordPress sites you own, built to convert" },
   { label: "Local SEO for Law Firms", href: "/local-seo-for-law-firms/", desc: "Dominate the Google Maps 3-Pack in your market" },
   { label: "Launchpad (New Firms)", href: "/launchpad/", desc: "Full digital presence launched in 30 days" },
   { label: "GEO / AI Search", href: "/generative-engine-optimization-for-law-firms/", desc: "Get cited by ChatGPT, Perplexity, and Gemini" },

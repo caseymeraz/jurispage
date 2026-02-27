@@ -20,16 +20,19 @@ const itemListSchema = {
   "@type": "ItemList",
   name: "Best Law Firm SEO Companies in 2026",
   url: "https://jurispage.com/best-law-firm-seo-companies/",
-  numberOfItems: 8,
+  numberOfItems: 11,
   itemListElement: [
     { "@type": "ListItem", position: 1, name: "JurisPage", url: "https://jurispage.com", description: "Transparent pricing, month-to-month contracts, 100% law firm focus. Best for small to mid-market firms." },
-    { "@type": "ListItem", position: 2, name: "Rankings.io", url: "https://rankings.io", description: "Strong legal SEO agency with content-first approach for PI and mass tort firms." },
-    { "@type": "ListItem", position: 3, name: "Grow Law Firm", url: "https://growlawfirm.com", description: "Data-driven legal marketing with measurable ROI reporting." },
-    { "@type": "ListItem", position: 4, name: "Scorpion", url: "https://scorpion.co", description: "Large agency serving multiple industries including legal, bundled services." },
-    { "@type": "ListItem", position: 5, name: "Foster Web Marketing", url: "https://fosterweb.com", description: "Veteran legal marketing with proprietary CMS, plaintiff-side expertise." },
-    { "@type": "ListItem", position: 6, name: "PaperStreet Web Design", url: "https://paperstreet.com", description: "Legal-focused web design and SEO, strong design capabilities." },
-    { "@type": "ListItem", position: 7, name: "National Law Review", url: "https://natlawreview.com", description: "Content marketing and publication for legal thought leadership." },
-    { "@type": "ListItem", position: 8, name: "Omnizant", url: "https://omnizant.com", description: "Legal website and SEO for solo and small firm attorneys." },
+    { "@type": "ListItem", position: 2, name: "Juris Digital", url: "https://jurisdigital.com", description: "Full-service legal marketing for firms serious about market domination. Sister company to JurisPage under the same ownership." },
+    { "@type": "ListItem", position: 3, name: "Rankings.io", url: "https://rankings.io", description: "Strong legal SEO agency with content-first approach for PI and mass tort firms." },
+    { "@type": "ListItem", position: 4, name: "Grow Law Firm", url: "https://growlawfirm.com", description: "Data-driven legal marketing with measurable ROI reporting." },
+    { "@type": "ListItem", position: 5, name: "Attorney Sync", url: "https://attorneysync.com", description: "Technical-first legal SEO agency with deep expertise in content strategy and search authority." },
+    { "@type": "ListItem", position: 6, name: "Mockingbird Marketing", url: "https://mockingbirdmarketing.com", description: "Transparent, candid legal digital marketing led by Conrad Saam." },
+    { "@type": "ListItem", position: 7, name: "Scorpion", url: "https://scorpion.co", description: "Large agency serving multiple industries including legal, bundled services." },
+    { "@type": "ListItem", position: 8, name: "Foster Web Marketing", url: "https://fosterweb.com", description: "Veteran legal marketing with proprietary CMS, plaintiff-side expertise." },
+    { "@type": "ListItem", position: 9, name: "PaperStreet Web Design", url: "https://paperstreet.com", description: "Legal-focused web design and SEO, strong design capabilities." },
+    { "@type": "ListItem", position: 10, name: "National Law Review", url: "https://natlawreview.com", description: "Content marketing and publication for legal thought leadership." },
+    { "@type": "ListItem", position: 11, name: "Omnizant", url: "https://omnizant.com", description: "Legal website and SEO for solo and small firm attorneys." },
   ],
 };
 
@@ -78,9 +81,30 @@ const agencies = [
     ctaHref: "/services/pricing/",
     ctaText: "See JurisPage Pricing",
     highlight: true,
+    ownershipNote: null,
   },
   {
     rank: 2,
+    name: "Juris Digital",
+    anchor: "juris-digital",
+    subtitle: "Best for Established Firms That Want to Dominate Their Market",
+    meta: [
+      { label: "Best For", val: "Established and growth-stage firms ($5,000–$20,000+/month)" },
+      { label: "Starting Price", val: "Custom pricing (typically $5,000+/month)" },
+      { label: "Specialization", val: "100% law firms" },
+      { label: "Contract", val: "Flexible, ask about terms" },
+    ],
+    body: "Juris Digital is a full-service legal marketing agency with deep roots in the industry and a track record spanning over a decade. Where JurisPage is purpose-built for small firms, Juris Digital is the right partner for established practices that want market-wide dominance. Serious firepower in SEO, content, paid media, and brand strategy - all under one roof.",
+    pros: ["Battle-tested track record across hundreds of law firms and highly competitive markets", "Full-service capability: SEO, paid media, content, GEO, and brand strategy in one team", "Deep expertise in practice areas that require aggressive authority-building over time"],
+    cons: ["Higher investment threshold. Not the right fit for solo attorneys or firms early in their growth.", "Custom pricing means you'll need a strategy call to understand the specific scope and cost", "Breadth of services means you should clarify which team members own your account"],
+    bestFor: "Established law firms ready to invest seriously in market domination, brand legacy, and long-term search authority.",
+    ctaHref: null,
+    ctaText: null,
+    highlight: false,
+    ownershipNote: "Disclosure: Juris Digital and JurisPage are owned by the same parent company. We're including it here because it genuinely serves a different client profile. Weigh that context.",
+  },
+  {
+    rank: 3,
     name: "Rankings.io",
     anchor: "rankings-io",
     subtitle: "Best for High-Budget Personal Injury Firms",
@@ -99,7 +123,7 @@ const agencies = [
     highlight: false,
   },
   {
-    rank: 3,
+    rank: 4,
     name: "Grow Law Firm",
     anchor: "grow-law-firm",
     subtitle: "Best for Data-Driven Firms That Want Measurable ROI",
@@ -116,9 +140,50 @@ const agencies = [
     ctaHref: null,
     ctaText: null,
     highlight: false,
+    ownershipNote: null,
   },
   {
-    rank: 4,
+    rank: 5,
+    name: "Attorney Sync",
+    anchor: "attorney-sync",
+    subtitle: "Best for Firms That Want Technical Depth and Content Authority",
+    meta: [
+      { label: "Best For", val: "Firms serious about long-term organic authority" },
+      { label: "Starting Price", val: "~$3,000/month (estimated)" },
+      { label: "Specialization", val: "100% law firms" },
+      { label: "Contract", val: "Confirm before signing" },
+    ],
+    body: "Attorney Sync has earned a respected reputation in the legal SEO community for doing the work seriously. Technical SEO rigor combined with a content strategy built for long-term authority, not shortcuts. Their team genuinely understands how Google evaluates legal content.",
+    pros: ["Technical SEO depth that goes beyond surface-level optimization", "Respected within the legal marketing community. Practitioners know the name.", "Content strategy focused on genuine authority-building, not volume for its own sake"],
+    cons: ["Not the most high-profile brand for firms making committee-based vendor decisions", "Less public case study data than some larger agencies", "Best suited to firms with patience for an organic strategy. Not a quick-win play."],
+    bestFor: "Firms that want a technically rigorous SEO partner with deep content strategy expertise and a long-term outlook.",
+    ctaHref: null,
+    ctaText: null,
+    highlight: false,
+    ownershipNote: null,
+  },
+  {
+    rank: 6,
+    name: "Mockingbird Marketing",
+    anchor: "mockingbird",
+    subtitle: "Best for Firms That Value Transparency and Straight Talk",
+    meta: [
+      { label: "Best For", val: "Firms that want candid, no-nonsense partners" },
+      { label: "Starting Price", val: "~$2,500/month (estimated)" },
+      { label: "Specialization", val: "Legal focus" },
+      { label: "Contract", val: "Varies, confirm before signing" },
+    ],
+    body: "Mockingbird Marketing, led by Conrad Saam, has built a distinct reputation by being unusually candid about how legal marketing actually works. Saam calls out bad agency behavior publicly and publishes real thinking on legal SEO. Refreshing in a space full of polished pitch decks. The agency practices what it preaches.",
+    pros: ["Leadership that openly discusses legal marketing realities. No hype.", "Honest about what SEO can and can't do, which leads to better client relationships", "Strong local SEO fundamentals and a track record across multiple practice areas"],
+    cons: ["Smaller team means capacity may be more limited than larger agencies", "The candid style isn't for everyone. Some firms prefer a more traditional agency relationship.", "Less suited for firms wanting an enterprise-scale, full-service operation"],
+    bestFor: "Firms that want a straight-talking agency partner who will tell them the truth about their market, their timeline, and their results.",
+    ctaHref: null,
+    ctaText: null,
+    highlight: false,
+    ownershipNote: null,
+  },
+  {
+    rank: 7,
     name: "Scorpion",
     anchor: "scorpion",
     subtitle: "Best for Firms That Want a One-Stop Marketing Vendor",
@@ -135,9 +200,10 @@ const agencies = [
     ctaHref: "/scorpion-legal-marketing-alternative/",
     ctaText: "See Scorpion Alternative",
     highlight: false,
+    ownershipNote: null,
   },
   {
-    rank: 5,
+    rank: 8,
     name: "Foster Web Marketing",
     anchor: "foster-web-marketing",
     subtitle: "Best for Plaintiff-Side Firms That Want a Proven Veteran",
@@ -154,9 +220,10 @@ const agencies = [
     ctaHref: null,
     ctaText: null,
     highlight: false,
+    ownershipNote: null,
   },
   {
-    rank: 6,
+    rank: 9,
     name: "PaperStreet Web Design",
     anchor: "paperstreet",
     subtitle: "Best for Firms That Prioritize Website Design",
@@ -173,9 +240,10 @@ const agencies = [
     ctaHref: null,
     ctaText: null,
     highlight: false,
+    ownershipNote: null,
   },
   {
-    rank: 7,
+    rank: 10,
     name: "National Law Review",
     anchor: "national-law-review",
     subtitle: "Best for Content Marketing and Thought Leadership",
@@ -192,9 +260,10 @@ const agencies = [
     ctaHref: null,
     ctaText: null,
     highlight: false,
+    ownershipNote: null,
   },
   {
-    rank: 8,
+    rank: 11,
     name: "Omnizant",
     anchor: "omnizant",
     subtitle: "Best for Solo Attorneys and Very Small Firms",
@@ -211,6 +280,7 @@ const agencies = [
     ctaHref: null,
     ctaText: null,
     highlight: false,
+    ownershipNote: null,
   },
 ];
 
@@ -235,7 +305,7 @@ export default function BestLawFirmSEOPage() {
 
           <div className="bg-amber-50 border-l-4 border-amber-400 p-5 rounded mb-8">
             <strong className="text-gray-900">Transparency notice:</strong>
-            <span className="text-gray-700"> JurisPage is ranked #1 on this list. We wrote this article. That&apos;s an obvious conflict of interest, and we&apos;re disclosing it upfront. We&apos;ve done our best to give honest assessments of every company - including their real weaknesses.</span>
+            <span className="text-gray-700"> JurisPage is ranked #1 on this list and Juris Digital is ranked #2. We wrote this article and we own both companies. They operate under the same parent. That&apos;s an obvious conflict of interest, and we&apos;re disclosing it upfront. We&apos;ve done our best to give honest assessments of every company on this list, including their real weaknesses.</span>
           </div>
 
           <h2 className="font-heading font-extrabold text-gray-900 text-2xl mt-10 mb-4">What to Look For in a Law Firm SEO Company</h2>
@@ -291,8 +361,11 @@ export default function BestLawFirmSEOPage() {
               <tbody>
                 {[
                   { name: "JurisPage ⭐", price: "From $2,000/mo", legal: "Yes", contract: "Month-to-month", best: "Small to mid-market", highlight: true },
+                  { name: "Juris Digital ⚠️ (sister co.)", price: "$5,000+/mo", legal: "Yes", contract: "Flexible", best: "Enterprise & market dominators", highlight: false },
                   { name: "Rankings.io", price: "~$5,000/mo", legal: "Yes", contract: "6-12 month", best: "PI firms", highlight: false },
                   { name: "Grow Law Firm", price: "~$3,000/mo", legal: "Yes", contract: "Varies", best: "Data-focused firms", highlight: false },
+                  { name: "Attorney Sync", price: "~$3,000/mo", legal: "Yes", contract: "Varies", best: "Technical SEO depth", highlight: false },
+                  { name: "Mockingbird Marketing", price: "~$2,500/mo", legal: "Yes", contract: "Varies", best: "Transparent partnerships", highlight: false },
                   { name: "Scorpion", price: "~$3,500/mo", legal: "No", contract: "12-24 month", best: "Bundled service seekers", highlight: false },
                   { name: "Foster Web Marketing", price: "~$3,000/mo", legal: "Yes", contract: "12 month", best: "Plaintiff-side firms", highlight: false },
                   { name: "PaperStreet", price: "~$2,500/mo", legal: "Yes", contract: "Varies", best: "Design-forward firms", highlight: false },
@@ -318,6 +391,11 @@ export default function BestLawFirmSEOPage() {
               <h3 className="font-heading font-extrabold text-gray-900 text-xl mb-4">
                 {agency.rank}. {agency.name} - {agency.subtitle}
               </h3>
+              {agency.ownershipNote && (
+                <div className="bg-amber-50 border-l-4 border-amber-400 p-4 rounded mb-4 text-sm text-gray-700">
+                  <strong className="text-gray-900">⚠️ Ownership disclosure:</strong> {agency.ownershipNote}
+                </div>
+              )}
               <div className="bg-gray-50 border border-gray-200 rounded-lg p-5 mb-4 grid grid-cols-2 gap-4">
                 {agency.meta.map((m) => (
                   <div key={m.label}>
@@ -345,6 +423,47 @@ export default function BestLawFirmSEOPage() {
               )}
             </div>
           ))}
+
+          {/* SEO Consultants Section */}
+          <div className="pt-8 border-t-2 border-gray-900 mt-4">
+            <div className="flex items-center gap-3 mb-2">
+              <h2 className="font-heading font-extrabold text-gray-900 text-2xl">
+                Legal SEO Consultants I Trust
+              </h2>
+            </div>
+            <p className="text-gray-500 text-sm mb-1">
+              <em>A personal list by <strong>Casey Meraz</strong>, CEO of Juris Digital &amp; JurisPage</em>
+            </p>
+            <p className="text-gray-700 mb-6 leading-relaxed">
+              Beyond full-service agencies, there are individual consultants in the legal SEO world who operate at a high level. These are people whose thinking I respect and whose work I&apos;ve seen produce real results. If you&apos;re looking for an independent expert rather than an agency, this short list is a starting point.
+            </p>
+            <div className="space-y-6">
+              {/* Josh Brown */}
+              <div className="bg-gray-50 border border-gray-200 rounded-xl p-6">
+                <div className="flex items-start gap-4">
+                  <div
+                    className="w-12 h-12 rounded-full flex items-center justify-center font-heading font-extrabold text-white text-lg flex-shrink-0"
+                    style={{ background: "#EE6C13" }}
+                  >
+                    JB
+                  </div>
+                  <div>
+                    <h3 className="font-heading font-bold text-gray-900 text-lg">Josh Brown</h3>
+                    <p className="text-xs text-gray-500 mb-3">Legal SEO Consultant &amp; Strategist</p>
+                    <p className="text-gray-700 text-sm leading-relaxed mb-3">
+                      Josh Brown is one of the sharper independent voices in legal search. He brings a practitioner&apos;s perspective to SEO strategy, grounded in how search actually works rather than how agencies prefer to sell it.
+                    </p>
+                    <p className="text-gray-700 text-sm leading-relaxed">
+                      If you&apos;re a law firm owner who wants an independent expert to audit your current situation, map your competitive landscape, or help you evaluate an agency&apos;s work, Josh is worth talking to.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <p className="text-gray-500 text-xs mt-4 italic">
+              This section reflects Casey Meraz&apos;s personal recommendations only. No compensation was exchanged for inclusion.
+            </p>
+          </div>
 
           <h2 className="font-heading font-extrabold text-gray-900 text-2xl mt-10 mb-6">How to Choose the Right Law Firm SEO Company</h2>
           {[

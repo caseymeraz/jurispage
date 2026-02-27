@@ -22,7 +22,7 @@ const aboutSchema = {
 const differences = [
   {
     title: "No Hidden Fees or Surprises",
-    body: "We don't play games with pricing. We'll give you a straight answer on cost during your first conversation — no runaround, no mystery packages. Starting at $2,000/month.",
+    body: "We don't play games with pricing. We'll give you a straight answer on cost during your first conversation. No runaround, no mystery packages. Starting at $2,000/month.",
   },
   {
     title: "100% Law Firm Focus",
@@ -104,8 +104,11 @@ export default function AboutPage() {
             <h2 className="font-heading font-extrabold text-gray-900 text-3xl mb-5 pb-3 inline-block border-b-4" style={{ borderBottomColor: "#EE6C13" }}>
               Your Passion for Law, Our Passion for Legal Marketing
             </h2>
+            <p className="text-gray-700 text-lg leading-relaxed mb-4">
+              At JurisPage, you&apos;re more than a client. You&apos;re a partner looking for more out of your digital marketing efforts.
+            </p>
             <p className="text-gray-700 text-lg leading-relaxed">
-              At JurisPage, you&apos;re more than a client — you&apos;re a partner looking for more out of your digital marketing efforts. Our team combines legal marketing expertise and dynamic energy with the kind of experience that only comes from serving law firms for more than a decade.
+              Our team combines legal marketing expertise and dynamic energy with the kind of experience that only comes from serving law firms for more than a decade.
             </p>
           </div>
         </div>
@@ -118,8 +121,11 @@ export default function AboutPage() {
             <h2 className="font-heading font-extrabold text-gray-900 text-3xl mb-5 pb-3 inline-block border-b-4" style={{ borderBottomColor: "#EE6C13" }}>
               Your Success Is Our Sole Focus
             </h2>
+            <p className="text-gray-700 text-lg leading-relaxed mb-4">
+              We&apos;re dedicated exclusively to the legal industry. We speak your language, understand your needs, and most importantly, we know how to make your phone ring.
+            </p>
             <p className="text-gray-700 text-lg leading-relaxed">
-              We&apos;re dedicated exclusively to the legal industry. We speak your language, understand your needs, and most importantly, we know how to make your phone ring. When you choose JurisPage, you&apos;re choosing a partnership with a team of digital marketing experts who are as committed to your success as you are.
+              When you choose JurisPage, you&apos;re choosing a partnership with a team of digital marketing experts who are as committed to your success as you are.
             </p>
           </div>
           <div className="relative order-1 lg:order-2">
@@ -163,7 +169,8 @@ export default function AboutPage() {
           <h2 className="font-heading font-extrabold text-gray-900 text-3xl mb-6 pb-3 inline-block border-b-4" style={{ borderBottomColor: "#EE6C13" }}>Our Story</h2>
           <div className="space-y-4 text-gray-700 text-base leading-relaxed">
             <p>JurisPage has been around for years, but in February 2026 we entered a new chapter. Ethical SEO Consulting LLC acquired JurisPage and brought in a leadership team with over 15 years of hands-on experience in legal digital marketing.</p>
-            <p>We&apos;ve grown and evolved significantly over time - and today we&apos;re building something we&apos;re genuinely proud of: a focused, ethical, results-driven agency for law firms that are serious about growth but not interested in paying big-agency prices for big-agency indifference.</p>
+            <p>We&apos;ve grown and evolved significantly over time. Today we&apos;re building something we&apos;re genuinely proud of.</p>
+            <p>A focused, ethical, results-driven agency for law firms that are serious about growth - without the big-agency price tag or the big-agency indifference.</p>
             <p>Our broader organization has served 113+ law firms across the country. That experience shapes everything we do at JurisPage - from how we price our services to how we talk with clients every week.</p>
             <p>We&apos;re not going to pretend we&apos;re the biggest agency in legal marketing. We&apos;re going to prove we&apos;re the best fit for small law firms that want real results and a partner they can actually trust.</p>
           </div>
@@ -176,7 +183,8 @@ export default function AboutPage() {
           <h2 className="font-heading font-extrabold text-gray-900 text-3xl mb-6 pb-3 inline-block border-b-4" style={{ borderBottomColor: "#EE6C13" }}>Meet Casey Meraz, CEO</h2>
           <div className="space-y-4 text-gray-700 text-base leading-relaxed">
             <p>Casey Meraz has spent 15 years doing one thing: helping law firms get found online and turn that traffic into clients.</p>
-            <p>He&apos;s personally managed SEO campaigns for 100+ law firms - from solo practitioners to multi-location regional firms. He&apos;s built one of the most-read blogs on legal marketing online, and has contributed to industry publications on the topics of local SEO, ethical link building, and content strategy for attorneys.</p>
+            <p>He&apos;s personally managed SEO campaigns for 100+ law firms - from solo practitioners to multi-location regional firms.</p>
+            <p>He&apos;s built one of the most-read blogs on legal marketing online and contributed to industry publications covering local SEO, ethical link building, and content strategy for attorneys.</p>
             <p>Casey is based in Ireland and works with law firms across the United States remotely - a setup that works because this work has always been about strategy and results, not office visits.</p>
             <p>His philosophy is simple: <strong>&quot;Do the right thing for the client, be completely transparent about what&apos;s working and what isn&apos;t, and never take a shortcut that could put their business at risk.&quot;</strong></p>
             <p>That&apos;s not a tagline. It&apos;s how he&apos;s operated for 15 years, and it&apos;s the standard every JurisPage team member is held to.</p>

@@ -135,7 +135,7 @@ export default function LaunchpadCalculator() {
           {isCustom ? (
             <div className="text-center">
               <p className="text-gray-600 leading-relaxed mb-6">
-                With {attorneys}+ attorneys, your firm needs a strategy built around your specific market and goals — not a template. One of our legal marketing specialists will reach out within one business day with a tailored proposal.
+                With {attorneys}+ attorneys, your firm needs a strategy built around your specific market and goals, not a template. One of our legal marketing specialists will reach out within one business day with a tailored proposal.
               </p>
             </div>
           ) : (
@@ -310,7 +310,7 @@ export default function LaunchpadCalculator() {
                   toggle: () => setChatbot((v) => !v),
                   label: "AI Lead Capture Chatbot",
                   price: "+$299/mo",
-                  desc: "A 24/7 chatbot trained on your firm's practice areas. It answers questions, qualifies visitors, and routes hot leads directly to you — even at 2am.",
+                  desc: "A 24/7 chatbot trained on your firm's practice areas. It answers questions, qualifies visitors, and routes hot leads directly to you, even at 2am.",
                 },
                 {
                   key: "logo",

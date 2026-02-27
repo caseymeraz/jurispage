@@ -120,7 +120,7 @@ const wallOfProof = [
 const riskPillars = [
   {
     title: "Data-Driven Authority",
-    body: "Backed by the proprietary research and strategy of the Juris Digital team — the same playbook used to grow 113+ law firms.",
+    body: "Backed by the proprietary research and strategy of the Juris Digital team - the same playbook used to grow 113+ law firms.",
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-7 h-7">
         <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z" />
@@ -364,7 +364,7 @@ export default function HomePage() {
                     &ldquo;{item.quote}&rdquo;
                   </p>
                   <p className="text-gray-400 text-sm mt-1">
-                    — {item.author}{item.firm ? `, ${item.firm}` : ""}
+                    - {item.author}{item.firm ? `, ${item.firm}` : ""}
                   </p>
                 </div>
               </div>
@@ -525,6 +525,33 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* ── Secret Shop Teaser ── */}
+      <section className="bg-[#1a1a1a] py-20 px-6 border-t border-gray-800">
+        <div className="max-w-4xl mx-auto text-center">
+          <span
+            className="inline-block text-xs font-heading font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-5 text-white"
+            style={{ background: "#EE6C13" }}
+          >
+            New Interactive Tool
+          </span>
+          <h2 className="font-heading font-extrabold text-white text-4xl md:text-5xl leading-tight mb-5">
+            Is Your Intake Team Costing You $10K a Month?
+          </h2>
+          <p className="text-gray-400 text-xl max-w-2xl mx-auto mb-8 leading-relaxed">
+            78% of clients hire the first firm that responds. The average law firm takes 2–3 hours to
+            call back. Find out what that gap is costing you.
+          </p>
+          <Link
+            href="/secret-shop/"
+            className="inline-block font-heading font-bold text-white text-base px-8 py-4 rounded-[40px] no-underline hover:opacity-90 transition-opacity"
+            style={{ background: "linear-gradient(135deg, #EE6C13, #982A0B)" }}
+          >
+            Find Out with the Secret Shop →
+          </Link>
+          <p className="text-gray-600 text-sm mt-5">No email required. Results in under 60 seconds.</p>
+        </div>
+      </section>
+
       {/* ── Why JurisPage ── */}
       <section className="bg-[#1a1a1a] py-20 px-6">
         <div className="max-w-4xl mx-auto">
@@ -586,43 +613,6 @@ export default function HomePage() {
               </Link>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* ── Pricing Preview ── */}
-      <section className="bg-gray-50 py-20 px-6">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="font-heading font-extrabold text-gray-900 text-4xl mb-4">Simple, Transparent Pricing</h2>
-          <p className="text-gray-600 text-lg mb-3">We publish our pricing because we&apos;re not afraid of scrutiny.</p>
-          <p className="text-gray-600 mb-10">Plans starting at $2,000/month. Month-to-month. Results in 90 days or we work for free.</p>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
-            {[
-              { name: "Launchpad", price: "Starting at $2,000", desc: "New & startup firms" },
-              { name: "Grow", price: "Starting at $2,000", desc: "Established firms", featured: true },
-              { name: "Dominate", price: "Starting at $2,000", desc: "Market leaders" },
-            ].map((plan) => (
-              <div
-                key={plan.name}
-                className={`rounded-xl p-6 text-center ${plan.featured ? "bg-[#1a1a1a] border-2 text-white" : "bg-white border border-gray-200 text-gray-900"}`}
-                style={plan.featured ? { borderColor: "#EE6C13" } : {}}
-              >
-                {plan.featured && (
-                  <div className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: "#EE6C13" }}>Most Popular</div>
-                )}
-                <div className="font-heading font-extrabold text-xl mb-1">{plan.name}</div>
-                <div className="font-heading font-extrabold text-4xl mb-1" style={{ color: "#EE6C13" }}>{plan.price}</div>
-                <div className={`text-sm mb-4 ${plan.featured ? "text-gray-400" : "text-gray-500"}`}>/month · {plan.desc}</div>
-                <Link href="/services/pricing/" className="text-sm font-semibold no-underline" style={{ color: "#EE6C13" }}>See what&apos;s included →</Link>
-              </div>
-            ))}
-          </div>
-          <Link
-            href="/services/pricing/"
-            className="inline-block font-heading font-bold text-white text-base px-8 py-4 rounded-[40px] no-underline hover:opacity-90 transition-opacity"
-            style={{ background: "#EE6C13" }}
-          >
-            View Full Pricing Details
-          </Link>
         </div>
       </section>
 

@@ -7,8 +7,8 @@ import YouTubeFacade from "@/components/YouTubeFacade";
 import ReviewRibbon from "@/components/ReviewRibbon";
 
 export const metadata: Metadata = {
-  title: "Launchpad — Law Firm Marketing Foundation Starting at $2,000/mo | JurisPage",
-  description: "Get an instant quote for JurisPage Launchpad — website, SEO, GBP, and ongoing management built for small law firms. Transparent pricing, no contracts. See your exact number now.",
+  title: "Launchpad: Law Firm Marketing Foundation Starting at $2,000/mo | JurisPage",
+  description: "Get an instant quote for JurisPage Launchpad: website, SEO, GBP, and ongoing management built for small law firms. Transparent pricing, no contracts. See your exact number now.",
   alternates: { canonical: "https://jurispage.com/launchpad/" },
 };
 
@@ -18,8 +18,8 @@ const faqSchema = {
   mainEntity: [
     { "@type": "Question", name: "How is Launchpad priced?", acceptedAnswer: { "@type": "Answer", text: "Launchpad is priced based on your firm size and market. It starts at $2,000/month for firms with 1–2 attorneys. Use the quote calculator on this page to see your exact number in under a minute." } },
     { "@type": "Question", name: "Are there long-term contracts?", acceptedAnswer: { "@type": "Answer", text: "No. Launchpad is month-to-month. Give us 30 days notice and you're done." } },
-    { "@type": "Question", name: "How quickly can my campaign launch?", acceptedAnswer: { "@type": "Answer", text: "Full setup is completed within the first 45 days — website, GBP, local SEO, social profiles, and all initial content." } },
-    { "@type": "Question", name: "Will I own my website and content?", acceptedAnswer: { "@type": "Answer", text: "Always. Your domain, your website, your content — all yours. If you ever leave JurisPage, everything transfers cleanly." } },
+    { "@type": "Question", name: "How quickly can my campaign launch?", acceptedAnswer: { "@type": "Answer", text: "Full setup is completed within the first 45 days: website, GBP, local SEO, social profiles, and all initial content." } },
+    { "@type": "Question", name: "Will I own my website and content?", acceptedAnswer: { "@type": "Answer", text: "Always. Your domain, your website, your content. All yours. If you ever leave JurisPage, everything transfers cleanly." } },
     { "@type": "Question", name: "How does the 90-day guarantee work?", acceptedAnswer: { "@type": "Answer", text: "If you don't see measurable progress in your rankings, traffic, or leads within 90 days, we work for free for the following month." } },
   ],
 };
@@ -66,9 +66,9 @@ const monthlyServices = [
 
 const faqs = [
   { question: "How is Launchpad priced?", answer: "It starts at $2,000/month for firms with 1–2 attorneys. Pricing scales based on firm size and market competitiveness. Use the quote calculator on this page to get your exact number instantly." },
-  { question: "Are there long-term contracts?", answer: "No. Launchpad is month-to-month. Give us 30 days notice and you're done. We've never believed in locking clients in — the results should do that." },
-  { question: "How quickly can my campaign launch?", answer: "Full setup is completed within the first 45 days — website, GBP, local SEO foundation, social profiles, and all initial content production." },
-  { question: "Will I own my website and content?", answer: "Always. Your domain, your website, your content — all yours. If you ever leave JurisPage, everything transfers cleanly. We don't hold websites hostage." },
+  { question: "Are there long-term contracts?", answer: "No. Launchpad is month-to-month. Give us 30 days notice and you're done. We've never believed in locking clients in. The results should do that." },
+  { question: "How quickly can my campaign launch?", answer: "Full setup is completed within the first 45 days: website, GBP, local SEO foundation, social profiles, and all initial content production." },
+  { question: "Will I own my website and content?", answer: "Always. Your domain, your website, your content. All yours. If you ever leave JurisPage, everything transfers cleanly. We don't hold websites hostage." },
   { question: "How does the 90-day guarantee work?", answer: "If you don't see measurable progress in your rankings, traffic, or leads within 90 days, we work free the following month. No fine print. No arguing. We either deliver or we earn it back." },
   { question: "Can I add services later?", answer: "Yes. Many Launchpad clients add Google Ads, content writing, or GEO optimization once their foundation is established. Upgrade anytime with 30 days notice." },
 ];
@@ -89,20 +89,20 @@ export default function LaunchpadPage() {
                 className="inline-block text-xs font-heading font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-5 text-white"
                 style={{ background: "#EE6C13" }}
               >
-                Launchpad — For Small Law Firms
+                Launchpad: For Small Law Firms
               </span>
               <h1 className="font-heading font-extrabold text-gray-900 text-4xl md:text-5xl leading-tight mb-5">
                 Your Law Firm&apos;s Digital Foundation.<br />
                 <span style={{ color: "#EE6C13" }}>Instant, Transparent Pricing.</span>
               </h1>
               <p className="text-gray-600 text-xl leading-relaxed mb-8">
-                Website, SEO, Google Business Profile, and ongoing management — built specifically for small firms. Answer a few questions and reveal your exact quote in under a minute.
+                Website, SEO, Google Business Profile, and ongoing management. Built specifically for small firms. Answer a few questions and reveal your exact quote in under a minute.
               </p>
               <div className="space-y-3 mb-8">
                 {[
-                  "Month-to-month — no long-term contracts",
+                  "Month-to-month. No long-term contracts.",
                   "Full setup completed within 45 days",
-                  "90-day results guarantee — or we work free",
+                  "90-day results guarantee. Or we work free.",
                   "You own your website, content, and data",
                 ].map((item) => (
                   <div key={item} className="flex items-center gap-3">
@@ -158,7 +158,7 @@ export default function LaunchpadPage() {
                 The Problem
               </span>
               <h2 className="font-heading font-extrabold text-gray-900 text-3xl md:text-4xl mb-5 leading-tight">
-                Small Firms Get Underserved — or Overcharged.
+                Small Firms Get Underserved. Or Overcharged.
               </h2>
               <p className="text-gray-600 text-lg leading-relaxed mb-4">
                 Most digital marketing agencies are built for big firms with big budgets. If you&apos;re a{" "}
@@ -168,18 +168,18 @@ export default function LaunchpadPage() {
                 you either get ignored or sold an expensive package designed for someone else.
               </p>
               <p className="text-gray-600 leading-relaxed">
-                Launchpad fixes that. It&apos;s a complete digital marketing foundation —{" "}
+                Launchpad fixes that. It&apos;s a complete digital marketing foundation:{" "}
                 <Link href="/law-firm-websites/" className="font-medium underline" style={{ color: "#EE6C13" }}>website</Link>,{" "}
                 <Link href="/law-firm-seo/" className="font-medium underline" style={{ color: "#EE6C13" }}>SEO</Link>,{" "}
                 <Link href="/local-seo-for-law-firms/" className="font-medium underline" style={{ color: "#EE6C13" }}>local presence</Link>,
-                and ongoing management — built specifically for small law firms that need results without the enterprise price tag.
+                and ongoing management. Built specifically for small law firms that need results without the enterprise price tag.
               </p>
             </div>
             <div className="space-y-4">
               {[
                 { problem: "Paid $5,000+/mo for minimal results", fix: "Transparent pricing scaled to your firm size" },
-                { problem: "Locked into 12-month contracts", fix: "Month-to-month — stay because it's working, not because you have to" },
-                { problem: "Lost the website when you switched agencies", fix: "You own your site, content, and data — always" },
+                { problem: "Locked into 12-month contracts", fix: "Month-to-month: stay because it's working, not because you have to" },
+                { problem: "Lost the website when you switched agencies", fix: "You own your site, content, and data. Always." },
                 { problem: "Waited months just to find out the price", fix: "Instant, transparent quote in under 60 seconds" },
               ].map((item) => (
                 <div key={item.problem} className="bg-white rounded-xl p-4 border border-gray-200 flex gap-4 items-start">
@@ -257,7 +257,7 @@ export default function LaunchpadPage() {
             Ready to See Your Quote?
           </h2>
           <p className="text-gray-600 text-lg mb-8">
-            Answer a few questions about your firm and we&apos;ll show you an exact, itemized breakdown — no sales call required.
+            Answer a few questions about your firm and we&apos;ll show you an exact, itemized breakdown. No sales call required.
           </p>
           <a
             href="#get-quote"
@@ -274,7 +274,7 @@ export default function LaunchpadPage() {
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-14">
             <h2 className="font-heading font-extrabold text-gray-900 text-4xl mb-4">
-              From Signup to First Lead — in 45 Days
+              From Signup to First Lead in 45 Days
             </h2>
             <p className="text-gray-600 text-lg max-w-xl mx-auto">
               We move fast. Most firms see their full foundation live within six weeks of signing on.
@@ -285,13 +285,13 @@ export default function LaunchpadPage() {
               {
                 step: "01",
                 title: "Campaign Setup",
-                desc: "We build your website, optimize your Google Business Profile, research your keywords, produce your content, build local citations, and configure tracking — all within the first 45 days.",
+                desc: "We build your website, optimize your Google Business Profile, research your keywords, produce your content, build local citations, and configure tracking. All within the first 45 days.",
                 detail: "Website · GBP · Keywords · Content · Citations · Social profiles · Tracking",
               },
               {
                 step: "02",
                 title: "Monthly Growth",
-                desc: "After launch, we shift into ongoing mode — refreshing content, managing your GBP, posting to social, and reporting on every metric that matters.",
+                desc: "After launch, we shift into ongoing mode: refreshing content, managing your GBP, posting to social, and reporting on every metric that matters.",
                 detail: "Content updates · GBP management · Social posts · Monthly reports",
               },
               {
@@ -354,7 +354,7 @@ export default function LaunchpadPage() {
                     &ldquo;{item.quote}&rdquo;
                   </p>
                   <p className="text-gray-400 text-sm mt-1">
-                    — {item.author}{item.firm ? `, ${item.firm}` : ""}
+                    - {item.author}{item.firm ? `, ${item.firm}` : ""}
                   </p>
                 </div>
               </div>
