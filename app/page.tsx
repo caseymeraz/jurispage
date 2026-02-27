@@ -292,7 +292,7 @@ export default function HomePage() {
               {
                 color: "#EE6C13",
                 title: "Pricing Published Online",
-                body: "Every competitor will make you sit through a 45-minute sales call before they'll tell you what anything costs. We put our pricing on the website. Launchpad starts at $1,497/month. See exactly what you get.",
+                body: "Every competitor will make you sit through a 45-minute sales call before they'll tell you what anything costs. We put our starting price on the website and give you a straight answer on cost in the first conversation. No runaround.",
                 link: "/services/pricing/",
                 linkText: "See all pricing →",
               },
@@ -349,12 +349,12 @@ export default function HomePage() {
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="font-heading font-extrabold text-gray-900 text-4xl mb-4">Simple, Transparent Pricing</h2>
           <p className="text-gray-600 text-lg mb-3">We publish our pricing because we&apos;re not afraid of scrutiny.</p>
-          <p className="text-gray-600 mb-10">Three plans. Month-to-month. Results in 90 days or we work for free.</p>
+          <p className="text-gray-600 mb-10">Plans starting at $2,000/month. Month-to-month. Results in 90 days or we work for free.</p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
             {[
-              { name: "Launchpad", price: "$1,497", desc: "New & startup firms" },
-              { name: "Grow", price: "$2,497", desc: "Established firms", featured: true },
-              { name: "Dominate", price: "$4,497", desc: "Market leaders" },
+              { name: "Launchpad", price: "Starting at $2,000", desc: "New & startup firms" },
+              { name: "Grow", price: "Starting at $2,000", desc: "Established firms", featured: true },
+              { name: "Dominate", price: "Starting at $2,000", desc: "Market leaders" },
             ].map((plan) => (
               <div
                 key={plan.name}
