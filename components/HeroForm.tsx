@@ -107,7 +107,7 @@ export default function HeroForm({
               required
               value={formData.firmName}
               onChange={handleChange}
-              className="w-full border border-gray-200 rounded-lg px-4 py-2.5 text-sm text-gray-900 focus:outline-none focus:ring-2 focus:border-transparent"
+              className="w-full border border-gray-200 rounded-xl px-4 py-2.5 text-sm text-gray-900 focus:outline-none focus:ring-2 focus:border-transparent focus:shadow-[0_0_0_3px_rgba(238,108,19,0.15)]"
               style={{ "--tw-ring-color": "#EE6C13" } as React.CSSProperties}
             />
           </div>
@@ -121,7 +121,7 @@ export default function HeroForm({
             required
             value={formData.firstName}
             onChange={handleChange}
-            className="border border-gray-200 rounded-lg px-4 py-2.5 text-sm text-gray-900 focus:outline-none focus:ring-2 focus:border-transparent"
+            className="border border-gray-200 rounded-xl px-4 py-2.5 text-sm text-gray-900 focus:outline-none focus:ring-2 focus:border-transparent focus:shadow-[0_0_0_3px_rgba(238,108,19,0.15)]"
             style={{ "--tw-ring-color": "#EE6C13" } as React.CSSProperties}
           />
           <input
@@ -130,7 +130,7 @@ export default function HeroForm({
             placeholder="Last Name"
             value={formData.lastName}
             onChange={handleChange}
-            className="border border-gray-200 rounded-lg px-4 py-2.5 text-sm text-gray-900 focus:outline-none focus:ring-2 focus:border-transparent"
+            className="border border-gray-200 rounded-xl px-4 py-2.5 text-sm text-gray-900 focus:outline-none focus:ring-2 focus:border-transparent focus:shadow-[0_0_0_3px_rgba(238,108,19,0.15)]"
             style={{ "--tw-ring-color": "#EE6C13" } as React.CSSProperties}
           />
         </div>
@@ -143,7 +143,7 @@ export default function HeroForm({
             required
             value={formData.email}
             onChange={handleChange}
-            className="border border-gray-200 rounded-lg px-4 py-2.5 text-sm text-gray-900 focus:outline-none focus:ring-2 focus:border-transparent"
+            className="border border-gray-200 rounded-xl px-4 py-2.5 text-sm text-gray-900 focus:outline-none focus:ring-2 focus:border-transparent focus:shadow-[0_0_0_3px_rgba(238,108,19,0.15)]"
             style={{ "--tw-ring-color": "#EE6C13" } as React.CSSProperties}
           />
           <input
@@ -153,7 +153,7 @@ export default function HeroForm({
             required
             value={formData.phone}
             onChange={handleChange}
-            className="border border-gray-200 rounded-lg px-4 py-2.5 text-sm text-gray-900 focus:outline-none focus:ring-2 focus:border-transparent"
+            className="border border-gray-200 rounded-xl px-4 py-2.5 text-sm text-gray-900 focus:outline-none focus:ring-2 focus:border-transparent focus:shadow-[0_0_0_3px_rgba(238,108,19,0.15)]"
             style={{ "--tw-ring-color": "#EE6C13" } as React.CSSProperties}
           />
         </div>
@@ -165,7 +165,7 @@ export default function HeroForm({
               required
               value={formData.practiceArea}
               onChange={handleChange}
-              className="border border-gray-200 rounded-lg px-4 py-2.5 text-sm text-gray-900 focus:outline-none focus:ring-2 focus:border-transparent bg-white"
+              className="border border-gray-200 rounded-xl px-4 py-2.5 text-sm text-gray-900 focus:outline-none focus:ring-2 focus:border-transparent focus:shadow-[0_0_0_3px_rgba(238,108,19,0.15)] bg-white"
               style={{ "--tw-ring-color": "#EE6C13" } as React.CSSProperties}
             >
               <option value="">Practice Area</option>
@@ -180,7 +180,7 @@ export default function HeroForm({
               required
               value={formData.targetMarket}
               onChange={handleChange}
-              className="border border-gray-200 rounded-lg px-4 py-2.5 text-sm text-gray-900 focus:outline-none focus:ring-2 focus:border-transparent"
+              className="border border-gray-200 rounded-xl px-4 py-2.5 text-sm text-gray-900 focus:outline-none focus:ring-2 focus:border-transparent focus:shadow-[0_0_0_3px_rgba(238,108,19,0.15)]"
               style={{ "--tw-ring-color": "#EE6C13" } as React.CSSProperties}
             />
           </div>
@@ -189,7 +189,7 @@ export default function HeroForm({
             name="practiceArea"
             value={formData.practiceArea}
             onChange={handleChange}
-            className="w-full border border-gray-200 rounded-lg px-4 py-2.5 text-sm text-gray-900 focus:outline-none focus:ring-2 focus:border-transparent bg-white"
+            className="w-full border border-gray-200 rounded-xl px-4 py-2.5 text-sm text-gray-900 focus:outline-none focus:ring-2 focus:border-transparent focus:shadow-[0_0_0_3px_rgba(238,108,19,0.15)] bg-white"
             style={{ "--tw-ring-color": "#EE6C13" } as React.CSSProperties}
           >
             <option value="">Practice Area (optional)</option>
@@ -207,9 +207,9 @@ export default function HeroForm({
           type="submit"
           disabled={status === "loading"}
           className="w-full font-heading font-bold text-white text-sm py-3.5 rounded-[40px] transition-colors disabled:opacity-60"
-          style={{ background: "#EE6C13" }}
-          onMouseOver={(e) => { if (status !== "loading") (e.currentTarget as HTMLButtonElement).style.background = "#982A0B"; }}
-          onMouseOut={(e) => { if (status !== "loading") (e.currentTarget as HTMLButtonElement).style.background = "#EE6C13"; }}
+          style={{ background: "#1a1a1a" }}
+          onMouseOver={(e) => { if (status !== "loading") (e.currentTarget as HTMLButtonElement).style.background = "#333333"; }}
+          onMouseOut={(e) => { if (status !== "loading") (e.currentTarget as HTMLButtonElement).style.background = "#1a1a1a"; }}
         >
           {status === "loading" ? "Sending..." : ctaLabel}
         </button>

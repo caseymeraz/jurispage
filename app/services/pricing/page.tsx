@@ -153,9 +153,19 @@ export default function PricingPage() {
             {plans.map((plan) => (
               <div
                 key={plan.name}
-                className={`rounded-2xl overflow-hidden ${plan.featured ? "shadow-2xl" : "shadow-sm border border-gray-200"}`}
+                className={`rounded-2xl ${plan.featured ? "overflow-visible relative shadow-2xl" : "overflow-hidden shadow-sm border border-gray-200"}`}
                 style={plan.featured ? { border: "2px solid #EE6C13", background: "#1a1a1a" } : { background: "#fff" }}
               >
+                {plan.featured && (
+                  <div
+                    className="absolute -top-4 -right-4 z-10 w-20 h-20 rounded-full flex flex-col items-center justify-center text-center shadow-lg border-4 border-white"
+                    style={{ background: "linear-gradient(135deg, #EE6C13, #982A0B)" }}
+                  >
+                    <span className="text-white text-xs font-extrabold leading-tight">90-Day</span>
+                    <span className="text-white font-bold leading-tight" style={{ fontSize: "10px" }}>Guarantee</span>
+                    <span className="text-yellow-300 text-xs leading-none">★★★★★</span>
+                  </div>
+                )}
                 {plan.badge && (
                   <div className="py-2.5 text-center text-xs font-extrabold uppercase tracking-widest" style={{ background: "linear-gradient(135deg, #EE6C13, #982A0B)", color: "#ffffff" }}>
                     {plan.badge}

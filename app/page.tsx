@@ -1,3 +1,4 @@
+import React from "react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
@@ -5,6 +6,7 @@ import CTASection from "@/components/CTASection";
 import SchemaOrg from "@/components/SchemaOrg";
 import CaseStudyCard from "@/components/CaseStudyCard";
 import HeroForm from "@/components/HeroForm";
+import ReviewRibbon from "@/components/ReviewRibbon";
 import { caseStudies } from "@/data/caseStudies";
 
 export const metadata: Metadata = {
@@ -27,37 +29,37 @@ const trustStats = [
 
 const services = [
   {
-    icon: "🔍",
+    icon: "seo",
     title: "Law Firm SEO",
     description: "Rank higher in Google for the keywords that bring in qualified case inquiries. Technical, on-page, and link building done right.",
     href: "/law-firm-seo/",
   },
   {
-    icon: "📢",
+    icon: "ads",
     title: "Google Ads",
     description: "Stop wasting budget on bad clicks. We build law firm PPC campaigns that convert searches into signed cases.",
     href: "/google-ads-for-law-firms/",
   },
   {
-    icon: "🌐",
+    icon: "website",
     title: "Law Firm Websites",
     description: "Fast, credible, conversion-optimized websites built for law firms. Live in 30 days with the Launchpad package.",
     href: "/law-firm-websites/",
   },
   {
-    icon: "📍",
+    icon: "local",
     title: "Local SEO",
     description: "Get into the Google map pack for searches in your market. The most cost-effective source of local legal leads.",
     href: "/local-seo-for-law-firms/",
   },
   {
-    icon: "🤖",
+    icon: "geo",
     title: "GEO / AI Search",
     description: "Get your firm cited inside ChatGPT, Perplexity, and AI Overviews. First-mover advantage before your competitors figure it out.",
     href: "/generative-engine-optimization-for-law-firms/",
   },
   {
-    icon: "🚀",
+    icon: "launchpad",
     title: "Launchpad",
     description: "The complete marketing package for attorneys opening a new firm. Website, GBP, local SEO - live in 30 days.",
     href: "/launchpad/",
@@ -93,6 +95,42 @@ const homeSchema = {
   },
 };
 
+const GBP_URL = "https://search.google.com/local/reviews?placeid=REPLACE_WITH_PLACE_ID";
+
+const serviceIcons: Record<string, React.ReactNode> = {
+  seo: (
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" width="100%" height="100%">
+      <path strokeLinecap="round" strokeLinejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+    </svg>
+  ),
+  ads: (
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" width="100%" height="100%">
+      <path strokeLinecap="round" strokeLinejoin="round" d="M10.34 15.84c-.688-.06-1.386-.09-2.09-.09H7.5a4.5 4.5 0 1 1 0-9h.75c.704 0 1.402-.03 2.09-.09m0 9.18c.253.962.584 1.892.985 2.783.247.55.06 1.21-.463 1.511l-.657.38c-.551.318-1.26.117-1.527-.461a20.845 20.845 0 0 1-1.44-4.282m3.102.069a18.03 18.03 0 0 1-.59-4.59c0-1.586.205-3.124.59-4.59m0 9.18a23.848 23.848 0 0 1 8.835 2.535M10.34 6.66a23.847 23.847 0 0 1 8.835-2.535m0 0A23.74 23.74 0 0 1 18.795 3m.38 1.125a23.91 23.91 0 0 1 1.014 5.395m-1.014 8.855c-.118.38-.245.754-.38 1.125m.38-1.125a23.91 23.91 0 0 0 1.014-5.395m-1.394-9.965c.09.38.187.765.292 1.148m-1.394 9.965a24.05 24.05 0 0 1-.292 1.148" />
+    </svg>
+  ),
+  website: (
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" width="100%" height="100%">
+      <path strokeLinecap="round" strokeLinejoin="round" d="M9 17.25v1.007a3 3 0 0 1-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0 1 15 18.257V17.25m6-12V15a2.25 2.25 0 0 1-2.25 2.25H5.25A2.25 2.25 0 0 1 3 15V5.25m18 0A2.25 2.25 0 0 0 18.75 3H5.25A2.25 2.25 0 0 0 3 5.25m18 0H3" />
+    </svg>
+  ),
+  local: (
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" width="100%" height="100%">
+      <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+      <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" />
+    </svg>
+  ),
+  geo: (
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" width="100%" height="100%">
+      <path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09ZM18.259 8.715 18 9.75l-.259-1.035a3.375 3.375 0 0 0-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 0 0 2.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 0 0 2.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 0 0-2.456 2.456ZM16.894 20.567 16.5 21.75l-.394-1.183a2.25 2.25 0 0 0-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 0 0 1.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 0 0 1.423 1.423l1.183.394-1.183.394a2.25 2.25 0 0 0-1.423 1.423Z" />
+    </svg>
+  ),
+  launchpad: (
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" width="100%" height="100%">
+      <path strokeLinecap="round" strokeLinejoin="round" d="M15.59 14.37a6 6 0 0 1-5.84 7.38v-4.8m5.84-2.58a14.98 14.98 0 0 0 6.16-12.12A14.98 14.98 0 0 0 9.631 8.41m5.96 5.96a14.926 14.926 0 0 1-5.841 2.58m-.119-8.54a6 6 0 0 0-7.381 5.84h4.8m2.581-5.84a14.927 14.927 0 0 0-2.58 5.84m2.699 2.7c-.103.021-.207.041-.311.06a15.09 15.09 0 0 1-2.448-2.448 14.9 14.9 0 0 1 .06-.312m-2.24 2.39a4.493 4.493 0 0 0-1.757 4.306 4.493 4.493 0 0 0 4.306-1.758M16.5 9a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Z" />
+    </svg>
+  ),
+};
+
 export default function HomePage() {
   return (
     <>
@@ -104,9 +142,23 @@ export default function HomePage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
             {/* Left: headline + proof */}
             <div className="pt-4">
-              <span className="inline-block text-xs font-heading font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-6 text-white" style={{ background: "#EE6C13" }}>
+              <span className="inline-block text-xs font-heading font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-4 text-white" style={{ background: "#EE6C13" }}>
                 Law Firm Marketing
               </span>
+              <div className="mb-5">
+                <a href={GBP_URL} target="_blank" rel="noopener noreferrer"
+                   className="inline-flex items-center gap-2 bg-white border border-gray-200 rounded-full px-4 py-2 shadow-sm no-underline hover:shadow-md transition-shadow">
+                  <svg width="16" height="16" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                    <path fill="#4285F4" d="M45.12 24.5c0-1.56-.14-3.06-.4-4.5H24v8.51h11.84c-.51 2.75-2.06 5.08-4.39 6.64v5.52h7.11c4.16-3.83 6.56-9.47 6.56-16.17z"/>
+                    <path fill="#34A853" d="M24 46c5.94 0 10.92-1.97 14.56-5.33l-7.11-5.52c-1.97 1.32-4.49 2.1-7.45 2.1-5.73 0-10.58-3.87-12.31-9.07H4.34v5.7C7.96 41.07 15.4 46 24 46z"/>
+                    <path fill="#FBBC05" d="M11.69 28.18C11.25 26.86 11 25.45 11 24s.25-2.86.69-4.18v-5.7H4.34C2.85 17.09 2 20.45 2 24c0 3.55.85 6.91 2.34 9.88l7.35-5.7z"/>
+                    <path fill="#EA4335" d="M24 10.75c3.23 0 6.13 1.11 8.41 3.29l6.31-6.31C34.91 4.18 29.93 2 24 2 15.4 2 7.96 6.93 4.34 14.12l7.35 5.7c1.73-5.2 6.58-9.07 12.31-9.07z"/>
+                  </svg>
+                  <span className="text-yellow-400 text-sm leading-none">★★★★★</span>
+                  <span className="text-gray-700 text-sm font-semibold">4.9</span>
+                  <span className="text-gray-400 text-xs">on Google</span>
+                </a>
+              </div>
               <h1 className="font-heading font-extrabold text-gray-900 text-4xl md:text-5xl leading-tight mb-6">
                 Stop Losing Cases to Firms With Worse Lawyers
               </h1>
@@ -152,6 +204,8 @@ export default function HomePage() {
         </div>
       </section>
 
+      <ReviewRibbon />
+
       {/* Services */}
       <section className="bg-gray-50 py-20 px-6">
         <div className="max-w-6xl mx-auto">
@@ -164,9 +218,11 @@ export default function HomePage() {
               <Link
                 key={service.href}
                 href={service.href}
-                className="bg-white rounded-xl p-6 border border-gray-200 hover:border-orange-300 hover:shadow-lg transition-all no-underline block"
+                className="group bg-white rounded-xl p-6 border border-gray-200 hover:border-orange-300 hover:shadow-lg transition-all no-underline block"
               >
-                <div className="text-3xl mb-3">{service.icon}</div>
+                <div className="w-8 h-8 mb-3 text-gray-300 group-hover:text-[#EE6C13] transition-colors">
+                  {serviceIcons[service.icon]}
+                </div>
                 <h3 className="font-heading font-bold text-gray-900 text-lg mb-2">{service.title}</h3>
                 <p className="text-gray-600 text-sm leading-relaxed">{service.description}</p>
                 <span className="text-sm font-semibold mt-3 inline-block" style={{ color: "#EE6C13" }}>Learn more →</span>
