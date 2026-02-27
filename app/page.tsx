@@ -7,6 +7,7 @@ import SchemaOrg from "@/components/SchemaOrg";
 import CaseStudyCard from "@/components/CaseStudyCard";
 import HeroForm from "@/components/HeroForm";
 import ReviewRibbon from "@/components/ReviewRibbon";
+import YouTubeFacade from "@/components/YouTubeFacade";
 import { caseStudies } from "@/data/caseStudies";
 
 export const metadata: Metadata = {
@@ -81,6 +82,72 @@ const practiceAreas = [
   { label: "SSDI", href: "/social-security-disability-lawyer-marketing/" },
 ];
 
+const partnerLogos = [
+  { src: "/images/about/partner-forbes.svg", alt: "Forbes" },
+  { src: "/images/about/partner-lawyerist.svg", alt: "Lawyerist" },
+  { src: "/images/about/partner-moz.svg", alt: "Moz" },
+  { src: "/images/about/partner-unbounce-agency.svg", alt: "Unbounce Agency Partner" },
+  { src: "/images/about/partner-expertise-com.svg", alt: "Expertise.com" },
+  { src: "/images/about/partner-backlinko.svg", alt: "Backlinko" },
+  { src: "/images/about/partner-google.svg", alt: "Google" },
+  { src: "/images/about/partner-law360.svg", alt: "Law360" },
+];
+
+const wallOfProof = [
+  {
+    role: "The Scaler",
+    videoId: "F0S1_WvV4qE",
+    author: "Michael Oykhman",
+    firm: "Oykhman Criminal Defence",
+    quote: "My business has grown 10-fold.",
+  },
+  {
+    role: "The Closer",
+    videoId: "l5xHsqhkgI8",
+    author: "Cory Wilson",
+    firm: "Wilson Criminal Defence",
+    quote: "I'm closing more high-value clients than ever.",
+  },
+  {
+    role: "The Believer",
+    videoId: "B9zSA5lzvwc",
+    author: "Williams",
+    firm: "",
+    quote: "Finally, an agency that understands the legal niche.",
+  },
+];
+
+const riskPillars = [
+  {
+    title: "Data-Driven Authority",
+    body: "Backed by the proprietary research and strategy of the Juris Digital team — the same playbook used to grow 113+ law firms.",
+    icon: (
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-7 h-7">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z" />
+      </svg>
+    ),
+  },
+  {
+    title: "Territory Exclusivity",
+    body: "We only partner with one firm per practice area in your market. When you're in, your competitors are locked out.",
+    icon: (
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-7 h-7">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+        <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" />
+      </svg>
+    ),
+  },
+  {
+    title: "The 90-Day Promise",
+    body: "No long-term contracts. If we don't hit our 90-day performance milestones, we work for free until we do.",
+    icon: (
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-7 h-7">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5" />
+      </svg>
+    ),
+  },
+];
+
 const homeSchema = {
   "@context": "https://schema.org",
   "@type": "WebPage",
@@ -105,7 +172,7 @@ const serviceIcons: Record<string, React.ReactNode> = {
   ),
   ads: (
     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" width="100%" height="100%">
-      <path strokeLinecap="round" strokeLinejoin="round" d="M10.34 15.84c-.688-.06-1.386-.09-2.09-.09H7.5a4.5 4.5 0 1 1 0-9h.75c.704 0 1.402-.03 2.09-.09m0 9.18c.253.962.584 1.892.985 2.783.247.55.06 1.21-.463 1.511l-.657.38c-.551.318-1.26.117-1.527-.461a20.845 20.845 0 0 1-1.44-4.282m3.102.069a18.03 18.03 0 0 1-.59-4.59c0-1.586.205-3.124.59-4.59m0 9.18a23.848 23.848 0 0 1 8.835 2.535M10.34 6.66a23.847 23.847 0 0 1 8.835-2.535m0 0A23.74 23.74 0 0 1 18.795 3m.38 1.125a23.91 23.91 0 0 1 1.014 5.395m-1.014 8.855c-.118.38-.245.754-.38 1.125m.38-1.125a23.91 23.91 0 0 0 1.014-5.395m-1.394-9.965c.09.38.187.765.292 1.148m-1.394 9.965a24.05 24.05 0 0 1-.292 1.148" />
+      <path strokeLinecap="round" strokeLinejoin="round" d="M10.34 15.84c-.688-.06-1.386-.09-2.09-.09H7.5a4.5 4.5 0 1 1 0-9h.75c.704 0 1.402-.03 2.09-.09m0 9.18c.253.962.584 1.892.985 2.783.247.55.06 1.21-.463 1.511l-.657.38c-.551.318-1.26.117-1.527-.461a20.845 20.845 0 0 1-1.44-4.282m3.102.069a18.03 18.03 0 0 1-.59-4.59c0-1.586.205-3.124.59-4.59m0 9.18a23.848 23.848 0 0 1 8.835 2.535M10.34 6.66a23.847 23.847 0 0 1 8.835-2.535m0 0A23.74 23.74 0 0 1 18.795 3m.38 1.125a23.91 23.91 0 0 0 1.014 5.395m-1.014 8.855c-.118.38-.245.754-.38 1.125m.38-1.125a23.91 23.91 0 0 0 1.014-5.395m-1.394-9.965c.09.38.187.765.292 1.148m-1.394 9.965a24.05 24.05 0 0 1-.292 1.148" />
     </svg>
   ),
   website: (
@@ -136,14 +203,15 @@ export default function HomePage() {
     <>
       <SchemaOrg schema={homeSchema} />
 
-      {/* Hero */}
+      {/* ── Hero ── */}
       <section className="bg-white py-16 px-6 border-b border-gray-100">
         <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-            {/* Left: headline + proof */}
-            <div className="pt-4">
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 items-start">
+
+            {/* Left: headline + video (3/5) */}
+            <div className="lg:col-span-3 pt-4">
               <span className="inline-block text-xs font-heading font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-4 text-white" style={{ background: "#EE6C13" }}>
-                Law Firm Marketing
+                Now Part of the Juris Digital Family
               </span>
               <div className="mb-5">
                 <a href={GBP_URL} target="_blank" rel="noopener noreferrer"
@@ -159,46 +227,160 @@ export default function HomePage() {
                   <span className="text-gray-400 text-xs">on Google</span>
                 </a>
               </div>
-              <h1 className="font-heading font-extrabold text-gray-900 text-4xl md:text-5xl leading-tight mb-6">
-                Stop Losing Cases to Firms With Worse Lawyers
+              <h1 className="font-heading font-extrabold text-gray-900 text-4xl md:text-5xl leading-tight mb-5">
+                Dominate Your Local Rankings with Specialized Legal SEO.
               </h1>
               <p className="text-gray-600 text-xl leading-relaxed mb-8">
-                Your competitors are outranking you online. JurisPage fixes that with ethical, transparent digital marketing built exclusively for law firms.
+                Stop losing cases to firms with less experience. JurisPage is now part of the Juris Digital family, combining a decade of legal marketing expertise with the data-backed strategies that helped firms like Michael Oykhman&apos;s grow 10-fold.
               </p>
-              <div className="grid grid-cols-2 gap-3 mb-8">
-                {trustStats.map((stat) => (
-                  <div key={stat.label} className="bg-gray-50 rounded-xl p-4 border border-gray-100">
-                    <div className="font-heading font-extrabold text-xl" style={{ color: "#EE6C13" }}>{stat.value}</div>
-                    <div className="text-gray-600 text-sm mt-0.5">{stat.label}</div>
-                  </div>
-                ))}
-              </div>
-              <Link
-                href="/services/pricing/"
-                className="text-sm font-semibold no-underline transition-colors"
-                style={{ color: "#EE6C13" }}
-              >
-                See transparent pricing →
-              </Link>
+              <YouTubeFacade
+                videoId="F0S1_WvV4qE"
+                title="How Michael scaled his firm 10x with JurisPage"
+              />
+              <p className="text-center text-xs text-gray-400 mt-2 italic">
+                &ldquo;How Michael scaled his firm 10x with JurisPage&rdquo;
+              </p>
             </div>
-            {/* Right: inline form */}
-            <div>
+
+            {/* Right: form (2/5) */}
+            <div className="lg:col-span-2">
               <HeroForm
-                ctaLabel="Start Getting Better Cases"
-                subtext="No contracts. No commitment. We'll respond within one business day."
+                ctaLabel="GET MY FREE SEO AUDIT"
+                subtext="No long-term contracts. Territory exclusivity applies."
               />
             </div>
           </div>
         </div>
       </section>
 
-      {/* Trust Bar */}
-      <section className="bg-gray-50 border-b border-gray-100 py-6 px-6">
-        <div className="max-w-4xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-          {trustStats.map((stat) => (
-            <div key={stat.label}>
-              <div className="font-heading font-extrabold text-2xl" style={{ color: "#EE6C13" }}>{stat.value}</div>
-              <div className="text-gray-600 text-sm mt-1">{stat.label}</div>
+      {/* ── Partner / Recognition Ribbon ── */}
+      <section className="bg-gray-50 border-b border-gray-100 py-8 px-6">
+        <div className="max-w-5xl mx-auto">
+          <p className="text-center text-xs font-heading font-bold uppercase tracking-widest text-gray-400 mb-6">
+            As Seen In &amp; Recognized By
+          </p>
+          <div className="flex flex-wrap items-center justify-center gap-8">
+            {partnerLogos.map((logo) => (
+              <img
+                key={logo.alt}
+                src={logo.src}
+                alt={logo.alt}
+                className="h-7 w-auto opacity-50 grayscale hover:opacity-80 hover:grayscale-0 transition-all duration-300"
+                loading="lazy"
+              />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── Ownership Transition Block ── */}
+      <section className="bg-white py-20 px-6 border-b border-gray-100">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
+          {/* Left: copy */}
+          <div>
+            <span className="inline-block text-xs font-heading font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-4 text-white" style={{ background: "#EE6C13" }}>
+              New Ownership
+            </span>
+            <h2 className="font-heading font-extrabold text-gray-900 text-3xl md:text-4xl mb-5 leading-tight">
+              A New Era of Legal Growth: JurisPage x Juris Digital
+            </h2>
+            <p className="text-gray-600 text-lg leading-relaxed mb-6">
+              In February 2026, JurisPage joined the Juris Digital family. Led by CEO Casey Meraz and CSO Matt Green, we&apos;ve united two of the most effective teams in legal SEO to provide a level of transparency and performance that general agencies simply can&apos;t match.
+            </p>
+            <Link
+              href="/about-us/"
+              className="inline-block font-heading font-bold text-white text-sm px-7 py-3.5 rounded-[40px] no-underline hover:opacity-90 transition-opacity"
+              style={{ background: "#EE6C13" }}
+            >
+              Meet the Team
+            </Link>
+          </div>
+          {/* Right: headshots */}
+          <div className="flex gap-6 justify-center lg:justify-end">
+            {[
+              {
+                name: "Casey Meraz",
+                title: "CEO",
+                img: "https://jurisdigital.com/wp-content/uploads/CaseyMeraz_W3A6602.jpg",
+              },
+              {
+                name: "Matt Green",
+                title: "Chief Strategy Officer",
+                img: "https://jurisdigital.com/wp-content/uploads/MattGreen_W3A6645.jpg",
+              },
+            ].map((person) => (
+              <div key={person.name} className="text-center flex-shrink-0">
+                <div className="w-36 h-36 rounded-2xl overflow-hidden shadow-lg mx-auto mb-3">
+                  <img
+                    src={person.img}
+                    alt={`${person.name}, ${person.title} at JurisPage / Juris Digital`}
+                    className="w-full h-full object-cover object-top"
+                    loading="lazy"
+                  />
+                </div>
+                <p className="font-heading font-bold text-gray-900 text-sm">{person.name}</p>
+                <p className="text-gray-500 text-xs mt-0.5">{person.title}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── Wall of Proof ── */}
+      <section className="bg-[#1a1a1a] py-20 px-6">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-12">
+            <span className="inline-block text-xs font-heading font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-4 text-white" style={{ background: "#EE6C13" }}>
+              Real Attorneys. Real Results.
+            </span>
+            <h2 className="font-heading font-extrabold text-white text-4xl mb-3">
+              Don&apos;t Take Our Word for It
+            </h2>
+            <p className="text-gray-400 text-lg max-w-xl mx-auto">
+              Hear directly from the law firm owners who&apos;ve grown their practices with JurisPage.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {wallOfProof.map((item) => (
+              <div key={item.videoId} className="flex flex-col gap-4">
+                <div className="bg-gray-800 rounded-xl px-3 py-1.5 self-start">
+                  <span className="text-xs font-heading font-bold uppercase tracking-widest" style={{ color: "#EE6C13" }}>
+                    {item.role}
+                  </span>
+                </div>
+                <YouTubeFacade
+                  videoId={item.videoId}
+                  title={`${item.author} testimonial - JurisPage`}
+                />
+                <div>
+                  <p className="text-white font-heading font-bold text-lg leading-snug">
+                    &ldquo;{item.quote}&rdquo;
+                  </p>
+                  <p className="text-gray-400 text-sm mt-1">
+                    — {item.author}{item.firm ? `, ${item.firm}` : ""}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── Risk Reversal Pillars (replaces Trust Bar) ── */}
+      <section className="bg-white py-14 px-6 border-b border-gray-100">
+        <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+          {riskPillars.map((pillar) => (
+            <div key={pillar.title} className="flex flex-col items-start gap-4 p-6 rounded-2xl border border-gray-100 bg-gray-50">
+              <div
+                className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0 text-white"
+                style={{ background: "#EE6C13" }}
+              >
+                {pillar.icon}
+              </div>
+              <div>
+                <h3 className="font-heading font-bold text-gray-900 text-lg mb-2">{pillar.title}</h3>
+                <p className="text-gray-600 text-sm leading-relaxed">{pillar.body}</p>
+              </div>
             </div>
           ))}
         </div>
@@ -206,7 +388,7 @@ export default function HomePage() {
 
       <ReviewRibbon />
 
-      {/* Services */}
+      {/* ── Services ── */}
       <section className="bg-gray-50 py-20 px-6">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-14">
@@ -232,7 +414,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* We Understand / Our Approach */}
+      {/* ── We Understand ── */}
       <section className="bg-white py-20 px-6">
         <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <div>
@@ -268,7 +450,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Our Approach */}
+      {/* ── Our Approach ── */}
       <section className="bg-[#FEF3EC] py-20 px-6">
         <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <div className="rounded-2xl overflow-hidden shadow-xl order-2 md:order-1">
@@ -309,7 +491,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Real Results - Case Studies */}
+      {/* ── Real Results - Case Studies ── */}
       <section className="bg-[#FEF3EC] py-20 px-6">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-14">
@@ -336,7 +518,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Why JurisPage */}
+      {/* ── Why JurisPage ── */}
       <section className="bg-[#1a1a1a] py-20 px-6">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-14">
@@ -381,7 +563,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Practice Areas */}
+      {/* ── Practice Areas ── */}
       <section className="bg-white py-20 px-6">
         <div className="max-w-5xl mx-auto text-center">
           <h2 className="font-heading font-extrabold text-gray-900 text-4xl mb-4">We Market Law Firms Across Every Practice Area</h2>
@@ -400,7 +582,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Pricing Preview */}
+      {/* ── Pricing Preview ── */}
       <section className="bg-gray-50 py-20 px-6">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="font-heading font-extrabold text-gray-900 text-4xl mb-4">Simple, Transparent Pricing</h2>

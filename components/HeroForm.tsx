@@ -184,20 +184,7 @@ export default function HeroForm({
               style={{ "--tw-ring-color": "#EE6C13" } as React.CSSProperties}
             />
           </div>
-        ) : (
-          <select
-            name="practiceArea"
-            value={formData.practiceArea}
-            onChange={handleChange}
-            className="w-full border border-gray-200 rounded-xl px-4 py-2.5 text-sm text-gray-900 focus:outline-none focus:ring-2 focus:border-transparent focus:shadow-[0_0_0_3px_rgba(238,108,19,0.15)] bg-white"
-            style={{ "--tw-ring-color": "#EE6C13" } as React.CSSProperties}
-          >
-            <option value="">Practice Area (optional)</option>
-            {practiceAreaOptions.map((area) => (
-              <option key={area} value={area}>{area}</option>
-            ))}
-          </select>
-        )}
+        ) : null}
 
         {status === "error" && (
           <p className="text-red-600 text-sm">Something went wrong. Please try again or call (888) 767-7447.</p>
@@ -207,9 +194,9 @@ export default function HeroForm({
           type="submit"
           disabled={status === "loading"}
           className="w-full font-heading font-bold text-white text-sm py-3.5 rounded-[40px] transition-colors disabled:opacity-60"
-          style={{ background: "#1a1a1a" }}
-          onMouseOver={(e) => { if (status !== "loading") (e.currentTarget as HTMLButtonElement).style.background = "#333333"; }}
-          onMouseOut={(e) => { if (status !== "loading") (e.currentTarget as HTMLButtonElement).style.background = "#1a1a1a"; }}
+          style={{ background: "#EE6C13" }}
+          onMouseOver={(e) => { if (status !== "loading") (e.currentTarget as HTMLButtonElement).style.background = "#d45e0a"; }}
+          onMouseOut={(e) => { if (status !== "loading") (e.currentTarget as HTMLButtonElement).style.background = "#EE6C13"; }}
         >
           {status === "loading" ? "Sending..." : ctaLabel}
         </button>
