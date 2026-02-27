@@ -10,7 +10,7 @@ interface YouTubeFacadeProps {
 export default function YouTubeFacade({ videoId, title = "Watch video", aspectRatio = "16/9" }: YouTubeFacadeProps) {
   const [loaded, setLoaded] = useState(false);
   const paddingTop = aspectRatio === "16/9" ? "56.25%" : "75%";
-  const thumbUrl = `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`;
+  const thumbUrl = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
 
   return (
     <div

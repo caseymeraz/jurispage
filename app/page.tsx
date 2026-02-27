@@ -96,7 +96,7 @@ const partnerLogos = [
 const wallOfProof = [
   {
     role: "The Scaler",
-    videoId: "F0S1_WvV4qE",
+    videoId: "T_7--aGpB54",
     author: "Michael Oykhman",
     firm: "Oykhman Criminal Defence",
     quote: "My business has grown 10-fold.",
@@ -205,11 +205,13 @@ export default function HomePage() {
 
       {/* ── Hero ── */}
       <section className="bg-white py-16 px-6 border-b border-gray-100">
-        <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 items-start">
+        <div className="max-w-6xl mx-auto flex flex-col gap-10">
 
-            {/* Left: headline + video (3/5) */}
-            <div className="lg:col-span-3 pt-4">
+          {/* Row 1: text (left) + form (right) — roughly equal heights */}
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 items-center">
+
+            {/* Left: eyebrow + badge + H1 + sub-headline */}
+            <div className="lg:col-span-3">
               <span className="inline-block text-xs font-heading font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-4 text-white" style={{ background: "#EE6C13" }}>
                 Now Part of the Juris Digital Family
               </span>
@@ -230,15 +232,8 @@ export default function HomePage() {
               <h1 className="font-heading font-extrabold text-gray-900 text-4xl md:text-5xl leading-tight mb-5">
                 Dominate Your Local Rankings with Specialized Legal SEO.
               </h1>
-              <p className="text-gray-600 text-xl leading-relaxed mb-8">
+              <p className="text-gray-600 text-xl leading-relaxed">
                 Stop losing cases to firms with less experience. JurisPage is now part of the Juris Digital family, combining a decade of legal marketing expertise with the data-backed strategies that helped firms like Michael Oykhman&apos;s grow 10-fold.
-              </p>
-              <YouTubeFacade
-                videoId="F0S1_WvV4qE"
-                title="How Michael scaled his firm 10x with JurisPage"
-              />
-              <p className="text-center text-xs text-gray-400 mt-2 italic">
-                &ldquo;How Michael scaled his firm 10x with JurisPage&rdquo;
               </p>
             </div>
 
@@ -250,6 +245,18 @@ export default function HomePage() {
               />
             </div>
           </div>
+
+          {/* Row 2: featured video — full-width within section */}
+          <div className="max-w-3xl mx-auto w-full">
+            <YouTubeFacade
+              videoId="T_7--aGpB54"
+              title="How Michael scaled his firm 10x with JurisPage"
+            />
+            <p className="text-center text-xs text-gray-400 mt-2 italic">
+              &ldquo;How Michael scaled his firm 10x with JurisPage&rdquo;
+            </p>
+          </div>
+
         </div>
       </section>
 
