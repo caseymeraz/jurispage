@@ -55,10 +55,10 @@ export default function Header() {
             <Image
               src="/images/jurispage-logo.png"
               alt="JurisPage Law Firm Marketing"
-              width={213}
-              height={46}
+              width={260}
+              height={56}
               priority
-              className="h-9 w-auto"
+              className="h-11 w-auto"
             />
           </Link>
 
@@ -163,6 +163,7 @@ export default function Header() {
 
             <Link href="/services/pricing/" className="text-gray-700 hover:text-gray-900 font-medium transition-colors no-underline">Pricing</Link>
             <Link href="/case-studies/" className="text-gray-700 hover:text-gray-900 font-medium transition-colors no-underline">Results</Link>
+            <Link href="/about-us/" className="text-gray-700 hover:text-gray-900 font-medium transition-colors no-underline">About</Link>
           </nav>
 
           {/* Desktop CTA */}
@@ -217,9 +218,9 @@ export default function Header() {
             <Image
               src="/images/jurispage-logo.png"
               alt="JurisPage Law Firm Marketing"
-              width={140}
-              height={30}
-              className="h-7 w-auto"
+              width={175}
+              height={38}
+              className="h-9 w-auto"
             />
           </Link>
           <button
