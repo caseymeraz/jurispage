@@ -205,7 +205,7 @@ export default function LaunchpadCalculator() {
     <div className="bg-white rounded-2xl shadow-2xl overflow-hidden">
       <div className="px-8 py-6" style={{ background: "#1a1a1a" }}>
         <h3 className="font-heading font-extrabold text-white text-xl mb-1">Get Your Instant Quote</h3>
-        <p className="text-gray-400 text-sm">Answer 3 quick questions. See your price update in real time.</p>
+        <p className="text-gray-400 text-sm">Answer a few questions, then enter your details to reveal your quote.</p>
       </div>
 
       <form onSubmit={handleSubmit} className="p-8 space-y-8">
@@ -216,23 +216,23 @@ export default function LaunchpadCalculator() {
             How many attorneys are at your firm?
           </label>
           <p className="text-xs text-gray-400 mb-3">Count all active attorneys, including yourself.</p>
-          <div className="flex flex-wrap gap-2">
-            {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11].map((n) => (
-              <button
-                key={n}
-                type="button"
-                onClick={() => setAttorneys(n)}
-                className="w-12 h-12 rounded-xl font-heading font-bold text-sm border-2 transition-all"
-                style={
-                  attorneys === n
-                    ? { background: "#EE6C13", borderColor: "#EE6C13", color: "#fff" }
-                    : { background: "#fff", borderColor: "#e5e7eb", color: "#374151" }
-                }
-              >
-                {n === 11 ? "11+" : n}
-              </button>
-            ))}
-          </div>
+          <select
+            value={attorneys}
+            onChange={(e) => setAttorneys(Number(e.target.value))}
+            className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm text-gray-900 focus:outline-none bg-white"
+          >
+            <option value={1}>1 attorney</option>
+            <option value={2}>2 attorneys</option>
+            <option value={3}>3 attorneys</option>
+            <option value={4}>4 attorneys</option>
+            <option value={5}>5 attorneys</option>
+            <option value={6}>6 attorneys</option>
+            <option value={7}>7 attorneys</option>
+            <option value={8}>8 attorneys</option>
+            <option value={9}>9 attorneys</option>
+            <option value={10}>10 attorneys</option>
+            <option value={11}>11+ attorneys (custom quote)</option>
+          </select>
           {isCustom && (
             <p className="text-sm text-gray-500 mt-3 p-3 rounded-lg bg-gray-50">
               Firms with 11+ attorneys receive a custom proposal. Fill in your details below and we&apos;ll reach out within one business day.
@@ -357,35 +357,15 @@ export default function LaunchpadCalculator() {
           </div>
         )}
 
-        {/* Live price */}
-        <div className="rounded-xl p-5" style={{ background: "#1a1a1a" }}>
-          <div className="flex items-start justify-between gap-4">
-            <div>
-              <p className="text-xs font-bold uppercase tracking-widest text-gray-400 mb-2">
-                Your Estimated Investment
-              </p>
-              {isCustom ? (
-                <p className="font-heading font-extrabold text-2xl text-white">Custom Quote</p>
-              ) : (
-                <div>
-                  <span className="font-heading font-extrabold text-4xl text-white">
-                    ${monthly?.toLocaleString()}
-                  </span>
-                  <span className="text-gray-400 ml-1 text-base">/month</span>
-                  {oneTime > 0 && (
-                    <p className="text-gray-400 text-sm mt-1">
-                      + ${oneTime.toLocaleString()} one-time
-                    </p>
-                  )}
-                </div>
-              )}
-            </div>
-            <div className="text-right flex-shrink-0 hidden sm:block">
-              <p className="text-xs text-gray-500">Month-to-month</p>
-              <p className="text-xs text-gray-500">90-day guarantee</p>
-              <p className="text-xs text-gray-500">You own everything</p>
-            </div>
-          </div>
+        {/* Locked price teaser */}
+        <div className="rounded-xl p-5 border-2 border-dashed border-gray-200 text-center">
+          <div className="text-2xl mb-2">🔒</div>
+          <p className="font-heading font-bold text-gray-800 text-base mb-1">
+            Your quote is calculated.
+          </p>
+          <p className="text-sm text-gray-500">
+            Enter your name and email below to reveal your price.
+          </p>
         </div>
 
         {/* Contact */}

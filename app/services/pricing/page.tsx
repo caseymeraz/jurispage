@@ -222,11 +222,11 @@ export default function PricingPage() {
               Instant Quote
             </span>
             <h2 className="font-heading font-extrabold text-gray-900 text-4xl mb-4">
-              See Your Price in Real Time
+              Get Your Instant Quote
             </h2>
             <p className="text-gray-600 text-lg">
-              Answer three quick questions and watch your quote calculate
-              instantly. Enter your email to have it sent directly to your inbox.
+              Answer a few quick questions about your firm, enter your contact
+              info, and we&apos;ll reveal your itemized quote immediately.
             </p>
           </div>
           <LaunchpadCalculator />
