@@ -95,7 +95,7 @@ const homeSchema = {
   },
 };
 
-const GBP_URL = "https://search.google.com/local/reviews?placeid=REPLACE_WITH_PLACE_ID";
+const GBP_URL = "https://maps.app.goo.gl/smpzUJfYEozJgomE8";
 
 const serviceIcons: Record<string, React.ReactNode> = {
   seo: (

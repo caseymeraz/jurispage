@@ -1,9 +1,28 @@
 const reviews = [
-  { quote: "JurisPage helped us scale our PI firm. ROI was clear within 90 days.", author: "Mark T.", city: "Minneapolis" },
-  { quote: "Finally an agency that gives you straight answers. No runaround on cost.", author: "Sarah K.", city: "Denver" },
-  { quote: "Ranking page 1 for criminal defense in Minneapolis within 4 months.", author: "David L.", city: "Minneapolis" },
-  { quote: "Month-to-month contract sealed it for us. No other agency would do that.", author: "Rachel M.", city: "Chicago" },
-  { quote: "Leads are up 40% since we started. Best marketing decision we've made.", author: "James O.", city: "Phoenix" },
+  {
+    quote: "Uptime JurisPage is a clear winner for law firms looking to build a fresh, clean, professional website. What sold me was their professionalism and command of web design.",
+    author: "Yasin A.",
+  },
+  {
+    quote: "These guys are extremely professional, easy to work with and great at what they do.",
+    author: "Pat M.",
+  },
+  {
+    quote: "They did a great job of building our website for us in a timely fashion. We were assigned a client manager who went above and beyond to help us. Many thanks to this company.",
+    author: "Cynthia R.",
+  },
+  {
+    quote: "Working with their team was a great experience. They made building our website seem simple, were very responsive to my requests, and had the site up and running in no time.",
+    author: "Joseph C.",
+  },
+  {
+    quote: "They put together a great website for my law firm on a reasonable budget with a tight time frame. Easy to work with and they really understood my vision.",
+    author: "Christina D.",
+  },
+  {
+    quote: "The team is very responsive, does excellent design work, and is very helpful! I would highly recommend.",
+    author: "Gwendolyn B.",
+  },
 ];
 
 export default function ReviewRibbon() {
@@ -18,7 +37,7 @@ export default function ReviewRibbon() {
           >
             <div className="text-yellow-400 text-sm leading-none">★★★★★</div>
             <p className="text-gray-700 text-sm leading-snug">&ldquo;{review.quote}&rdquo;</p>
-            <p className="text-gray-500 text-xs font-semibold">— {review.author}, {review.city}</p>
+            <p className="text-gray-500 text-xs font-semibold">— {review.author}</p>
           </div>
         ))}
       </div>
