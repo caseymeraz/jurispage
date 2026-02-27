@@ -3,6 +3,8 @@ import Link from "next/link";
 import SchemaOrg from "@/components/SchemaOrg";
 import FAQAccordion from "@/components/FAQAccordion";
 import LaunchpadCalculator from "@/components/LaunchpadCalculator";
+import YouTubeFacade from "@/components/YouTubeFacade";
+import ReviewRibbon from "@/components/ReviewRibbon";
 
 export const metadata: Metadata = {
   title: "Launchpad — Law Firm Marketing Foundation Starting at $2,000/mo | JurisPage",
@@ -21,6 +23,30 @@ const faqSchema = {
     { "@type": "Question", name: "How does the 90-day guarantee work?", acceptedAnswer: { "@type": "Answer", text: "If you don't see measurable progress in your rankings, traffic, or leads within 90 days, we work for free for the following month." } },
   ],
 };
+
+const wallOfProof = [
+  {
+    role: "The Scaler",
+    videoId: "T_7--aGpB54",
+    author: "Michael Oykhman",
+    firm: "Oykhman Criminal Defence",
+    quote: "My business has grown 10-fold.",
+  },
+  {
+    role: "The Closer",
+    videoId: "l5xHsqhkgI8",
+    author: "Cory Wilson",
+    firm: "Wilson Criminal Defence",
+    quote: "I'm closing more high-value clients than ever.",
+  },
+  {
+    role: "The Believer",
+    videoId: "B9zSA5lzvwc",
+    author: "Williams",
+    firm: "",
+    quote: "Finally, an agency that understands the legal niche.",
+  },
+];
 
 const includedSetup = [
   { icon: "🌐", title: "Professional Website", desc: "Fast, mobile-optimized, built to rank and convert. Live within 45 days." },
@@ -117,6 +143,8 @@ export default function LaunchpadPage() {
           </div>
         </div>
       </section>
+
+      <ReviewRibbon />
 
       {/* ── The Problem ── */}
       <section className="bg-gray-50 py-20 px-6 border-b border-gray-100">
@@ -269,6 +297,52 @@ export default function LaunchpadPage() {
                 <h3 className="font-heading font-bold text-gray-900 text-xl mb-3">{item.title}</h3>
                 <p className="text-gray-600 text-sm leading-relaxed mb-3">{item.desc}</p>
                 <p className="text-xs text-gray-400">{item.detail}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── Wall of Proof ── */}
+      <section className="py-20 px-6" style={{ background: "#1a1a1a" }}>
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-12">
+            <span
+              className="inline-block text-xs font-heading font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-4 text-white"
+              style={{ background: "#EE6C13" }}
+            >
+              Real Attorneys. Real Results.
+            </span>
+            <h2 className="font-heading font-extrabold text-white text-4xl mb-3">
+              Don&apos;t Take Our Word for It
+            </h2>
+            <p className="text-gray-400 text-lg max-w-xl mx-auto">
+              Hear directly from the law firm owners who&apos;ve grown their practices with JurisPage.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {wallOfProof.map((item) => (
+              <div key={item.videoId} className="flex flex-col gap-4">
+                <div className="bg-gray-800 rounded-xl px-3 py-1.5 self-start">
+                  <span
+                    className="text-xs font-heading font-bold uppercase tracking-widest"
+                    style={{ color: "#EE6C13" }}
+                  >
+                    {item.role}
+                  </span>
+                </div>
+                <YouTubeFacade
+                  videoId={item.videoId}
+                  title={`${item.author} testimonial - JurisPage`}
+                />
+                <div>
+                  <p className="text-white font-heading font-bold text-lg leading-snug">
+                    &ldquo;{item.quote}&rdquo;
+                  </p>
+                  <p className="text-gray-400 text-sm mt-1">
+                    — {item.author}{item.firm ? `, ${item.firm}` : ""}
+                  </p>
+                </div>
               </div>
             ))}
           </div>
