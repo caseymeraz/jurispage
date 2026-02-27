@@ -49,12 +49,12 @@ const wallOfProof = [
 ];
 
 const includedSetup = [
-  { icon: "🌐", title: "Professional Website", desc: "Fast, mobile-optimized, built to rank and convert. Live within 45 days." },
-  { icon: "📍", title: "Google Business Profile", desc: "Full GBP setup so you appear in local map results when clients search nearby." },
-  { icon: "🔍", title: "Keyword Research & SEO Content", desc: "We find exactly what your future clients search and create the content to rank for it." },
-  { icon: "📋", title: "Local Citation Building", desc: "Your firm listed and verified on Yelp, Apple Maps, Bing, Avvo, and 30+ other directories." },
-  { icon: "📱", title: "Social Media Setup", desc: "Core profiles created and optimized for a professional, consistent presence everywhere." },
-  { icon: "📊", title: "Performance Tracking", desc: "GA4, Search Console, and call tracking configured from day one." },
+  { icon: "🌐", title: "Professional Website", href: "/law-firm-websites/", desc: "Fast, mobile-optimized, built to rank and convert. Live within 45 days." },
+  { icon: "📍", title: "Google Business Profile", href: "/local-seo-for-law-firms/", desc: "Full GBP setup so you appear in local map results when clients search nearby." },
+  { icon: "🔍", title: "Keyword Research & SEO Content", href: "/law-firm-content-writing/", desc: "We find exactly what your future clients search and create the content to rank for it." },
+  { icon: "📋", title: "Local Citation Building", href: "/local-seo-for-law-firms/", desc: "Your firm listed and verified on Yelp, Apple Maps, Bing, Avvo, and 30+ other directories." },
+  { icon: "📱", title: "Social Media Setup", href: null, desc: "Core profiles created and optimized for a professional, consistent presence everywhere." },
+  { icon: "📊", title: "Performance Tracking", href: "/law-firm-seo/", desc: "GA4, Search Console, and call tracking configured from day one." },
 ];
 
 const monthlyServices = [
@@ -161,10 +161,18 @@ export default function LaunchpadPage() {
                 Small Firms Get Underserved — or Overcharged.
               </h2>
               <p className="text-gray-600 text-lg leading-relaxed mb-4">
-                Most digital marketing agencies are built for big firms with big budgets. If you&apos;re a solo attorney or a small firm, you either get ignored or sold an expensive package designed for someone else.
+                Most digital marketing agencies are built for big firms with big budgets. If you&apos;re a{" "}
+                <Link href="/solo-attorney-marketing/" className="font-medium underline" style={{ color: "#EE6C13" }}>solo attorney</Link>{" "}
+                or a{" "}
+                <Link href="/small-law-firm-marketing/" className="font-medium underline" style={{ color: "#EE6C13" }}>small law firm</Link>,
+                you either get ignored or sold an expensive package designed for someone else.
               </p>
               <p className="text-gray-600 leading-relaxed">
-                Launchpad fixes that. It&apos;s a complete digital marketing foundation — website, SEO, local presence, and ongoing management — built specifically for small law firms that need results without the enterprise price tag.
+                Launchpad fixes that. It&apos;s a complete digital marketing foundation —{" "}
+                <Link href="/law-firm-websites/" className="font-medium underline" style={{ color: "#EE6C13" }}>website</Link>,{" "}
+                <Link href="/law-firm-seo/" className="font-medium underline" style={{ color: "#EE6C13" }}>SEO</Link>,{" "}
+                <Link href="/local-seo-for-law-firms/" className="font-medium underline" style={{ color: "#EE6C13" }}>local presence</Link>,
+                and ongoing management — built specifically for small law firms that need results without the enterprise price tag.
               </p>
             </div>
             <div className="space-y-4">
@@ -213,7 +221,13 @@ export default function LaunchpadPage() {
               {includedSetup.map((item) => (
                 <div key={item.title} className="bg-gray-50 rounded-xl p-5 border border-gray-100">
                   <div className="text-2xl mb-3">{item.icon}</div>
-                  <h3 className="font-heading font-bold text-gray-900 text-base mb-2">{item.title}</h3>
+                  <h3 className="font-heading font-bold text-gray-900 text-base mb-2">
+                    {item.href ? (
+                      <Link href={item.href} className="no-underline hover:underline" style={{ color: "#1a1a1a" }}>
+                        {item.title}
+                      </Link>
+                    ) : item.title}
+                  </h3>
                   <p className="text-gray-600 text-sm leading-relaxed">{item.desc}</p>
                 </div>
               ))}

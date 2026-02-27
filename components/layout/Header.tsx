@@ -78,7 +78,7 @@ export default function Header() {
               </button>
               {/* Mega-menu panel — always in DOM for SEO crawlability */}
               <div
-                className={`absolute top-full left-0 mt-1 min-w-[740px] bg-white rounded-xl shadow-2xl border border-gray-100 p-6 z-50 transition-all duration-200 ease-out
+                className={`absolute top-full left-0 min-w-[740px] bg-white rounded-xl shadow-2xl border border-gray-100 pt-2 px-6 pb-6 z-50 transition-all duration-200 ease-out
                   ${servicesOpen ? "opacity-100 translate-y-0 pointer-events-auto" : "opacity-0 -translate-y-1 pointer-events-none"}`}
               >
                 <div className="grid grid-cols-3 gap-6">
@@ -144,7 +144,7 @@ export default function Header() {
               </button>
               {/* Dropdown panel — always in DOM for SEO crawlability */}
               <div
-                className={`absolute top-full left-0 mt-1 min-w-[340px] bg-white rounded-xl shadow-xl border border-gray-100 p-5 z-50 transition-all duration-200 ease-out
+                className={`absolute top-full left-0 min-w-[340px] bg-white rounded-xl shadow-xl border border-gray-100 pt-2 px-5 pb-5 z-50 transition-all duration-200 ease-out
                   ${practiceOpen ? "opacity-100 translate-y-0 pointer-events-auto" : "opacity-0 -translate-y-1 pointer-events-none"}`}
               >
                 <div className="grid grid-cols-2 gap-x-4 gap-y-1">

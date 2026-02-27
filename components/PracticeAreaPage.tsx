@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import type { PracticeAreaData } from "@/data/practiceAreas";
+import { getPracticeAreaBySlug } from "@/data/practiceAreas";
 import { getServiceBySlug } from "@/data/services";
 import CTASection from "@/components/CTASection";
 import FAQAccordion from "@/components/FAQAccordion";
@@ -8,6 +9,27 @@ import SchemaOrg from "@/components/SchemaOrg";
 import CaseStudyPreview from "@/components/CaseStudyPreview";
 import HeroForm from "@/components/HeroForm";
 import { caseStudies } from "@/data/caseStudies";
+
+// Cross-practice-area related content map
+const RELATED_PRACTICE_AREAS: Record<string, string[]> = {
+  "personal-injury-lawyer-marketing": ["criminal-defense-lawyer-marketing", "workers-comp-lawyer-marketing", "medical-malpractice-lawyer-marketing", "mass-tort-law-firm-marketing"],
+  "criminal-defense-lawyer-marketing": ["dui-lawyer-marketing", "personal-injury-lawyer-marketing", "immigration-lawyer-marketing"],
+  "family-law-firm-marketing": ["divorce-lawyer-marketing", "estate-planning-lawyer-marketing", "immigration-lawyer-marketing"],
+  "immigration-lawyer-marketing": ["family-law-firm-marketing", "criminal-defense-lawyer-marketing", "employment-lawyer-marketing"],
+  "bankruptcy-lawyer-marketing": ["real-estate-lawyer-marketing", "employment-lawyer-marketing", "small-law-firm-marketing"],
+  "estate-planning-lawyer-marketing": ["family-law-firm-marketing", "real-estate-lawyer-marketing", "divorce-lawyer-marketing"],
+  "employment-lawyer-marketing": ["workers-comp-lawyer-marketing", "bankruptcy-lawyer-marketing", "immigration-lawyer-marketing"],
+  "real-estate-lawyer-marketing": ["estate-planning-lawyer-marketing", "bankruptcy-lawyer-marketing", "small-law-firm-marketing"],
+  "solo-attorney-marketing": ["small-law-firm-marketing", "startup-law-firm-marketing"],
+  "small-law-firm-marketing": ["solo-attorney-marketing", "startup-law-firm-marketing"],
+  "divorce-lawyer-marketing": ["family-law-firm-marketing", "estate-planning-lawyer-marketing", "immigration-lawyer-marketing"],
+  "dui-lawyer-marketing": ["criminal-defense-lawyer-marketing", "personal-injury-lawyer-marketing"],
+  "workers-comp-lawyer-marketing": ["personal-injury-lawyer-marketing", "employment-lawyer-marketing", "social-security-disability-lawyer-marketing"],
+  "social-security-disability-lawyer-marketing": ["workers-comp-lawyer-marketing", "bankruptcy-lawyer-marketing", "employment-lawyer-marketing"],
+  "medical-malpractice-lawyer-marketing": ["personal-injury-lawyer-marketing", "mass-tort-law-firm-marketing"],
+  "mass-tort-law-firm-marketing": ["personal-injury-lawyer-marketing", "medical-malpractice-lawyer-marketing"],
+  "startup-law-firm-marketing": ["solo-attorney-marketing", "small-law-firm-marketing"],
+};
 
 interface PracticeAreaPageProps {
   practiceArea: PracticeAreaData;
@@ -144,11 +166,20 @@ export default function PracticeAreaPage({ practiceArea: pa }: PracticeAreaPageP
         <div className="max-w-3xl mx-auto">
           <h2 className="font-heading font-extrabold text-white text-3xl mb-8">Services That Work for {pa.primaryKeyword}</h2>
           <div className="flex flex-wrap gap-3">
-            {pa.services.map((service) => (
-              <span key={service} className="px-4 py-2 rounded-full text-sm font-semibold text-white" style={{ background: "#EE6C13" }}>
-                {service}
-              </span>
-            ))}
+            {(pa.relatedServices ?? []).map((slug) => {
+              const svc = getServiceBySlug(slug);
+              if (!svc) return null;
+              return (
+                <Link
+                  key={slug}
+                  href={`/${slug}/`}
+                  className="px-4 py-2 rounded-full text-sm font-semibold text-white no-underline transition-opacity hover:opacity-80"
+                  style={{ background: "#EE6C13" }}
+                >
+                  {svc.primaryKeyword}
+                </Link>
+              );
+            })}
           </div>
           <div className="mt-8 pt-8 border-t border-gray-700 grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
@@ -214,6 +245,33 @@ export default function PracticeAreaPage({ practiceArea: pa }: PracticeAreaPageP
                   <Link key={slug} href={`/${slug}/`} className="block p-4 rounded-xl border border-gray-200 hover:border-orange-300 hover:shadow-sm transition-all no-underline">
                     <div className="font-heading font-bold text-gray-900 text-sm mb-1">{svc.heading}</div>
                     <div className="text-xs font-semibold" style={{ color: "#EE6C13" }}>Learn more →</div>
+                  </Link>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Cross-practice-area internal links */}
+      {RELATED_PRACTICE_AREAS[pa.slug] && (
+        <section className="py-12 px-6 bg-gray-50 border-t border-gray-100">
+          <div className="max-w-3xl mx-auto">
+            <p className="text-xs font-bold uppercase tracking-widest text-gray-400 mb-4">
+              Attorneys also research
+            </p>
+            <div className="flex flex-wrap gap-3">
+              {RELATED_PRACTICE_AREAS[pa.slug].map((slug) => {
+                const related = getPracticeAreaBySlug(slug);
+                if (!related) return null;
+                return (
+                  <Link
+                    key={slug}
+                    href={`/${slug}/`}
+                    className="text-sm font-medium no-underline px-4 py-2 rounded-[40px] border-2 transition-all hover:bg-[#EE6C13] hover:text-white hover:border-[#EE6C13]"
+                    style={{ borderColor: "#EE6C13", color: "#EE6C13" }}
+                  >
+                    {related.primaryKeyword}
                   </Link>
                 );
               })}
