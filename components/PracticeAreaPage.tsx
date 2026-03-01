@@ -3,6 +3,7 @@ import Link from "next/link";
 import type { PracticeAreaData } from "@/data/practiceAreas";
 import { getPracticeAreaBySlug } from "@/data/practiceAreas";
 import { getServiceBySlug } from "@/data/services";
+import { getIntersectionsForPracticeArea } from "@/data/intersections";
 import CTASection from "@/components/CTASection";
 import FAQAccordion from "@/components/FAQAccordion";
 import SchemaOrg from "@/components/SchemaOrg";
@@ -279,6 +280,43 @@ export default function PracticeAreaPage({ practiceArea: pa }: PracticeAreaPageP
           </div>
         </section>
       )}
+
+      {/* Specialized Service Guides for this practice area */}
+      {(() => {
+        const guides = getIntersectionsForPracticeArea(pa.slug);
+        if (guides.length === 0) return null;
+        return (
+          <section className="py-16 px-6 bg-white border-t border-gray-100">
+            <div className="max-w-3xl mx-auto">
+              <h2 className="font-heading font-extrabold text-gray-900 text-2xl mb-2">
+                Specialized Marketing Guides for {pa.heading.replace(" Marketing", " Attorneys")}
+              </h2>
+              <p className="text-gray-500 text-sm mb-6">
+                In-depth strategies combining {pa.primaryKeyword} with specific marketing services.
+              </p>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {guides.map((guide) => {
+                  const svc = getServiceBySlug(guide.serviceSlug);
+                  return (
+                    <Link
+                      key={guide.serviceSlug}
+                      href={`/${guide.practiceAreaSlug}/${guide.serviceSlug}/`}
+                      className="group flex flex-col gap-1 rounded-xl border border-gray-200 bg-gray-50 p-5 no-underline hover:border-[#EE6C13] hover:bg-[#EE6C1308] transition-colors"
+                    >
+                      <span className="font-heading font-bold text-gray-900 text-base group-hover:text-[#EE6C13] transition-colors">
+                        {guide.heading}
+                      </span>
+                      {svc && (
+                        <span className="text-gray-500 text-sm">{svc.tagline}</span>
+                      )}
+                    </Link>
+                  );
+                })}
+              </div>
+            </div>
+          </section>
+        );
+      })()}
 
       {allFaqs.length > 0 && <FAQAccordion faqs={allFaqs} heading="Frequently Asked Questions" />}
 

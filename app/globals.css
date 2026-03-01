@@ -53,3 +53,8 @@
 .animate-marquee:hover {
   animation-play-state: paused;
 }
+
+@keyframes secret-shop-pulse {
+  0%, 100% { box-shadow: 0 0 0 4px rgba(238, 108, 19, 0.4); }
+  50%       { box-shadow: 0 0 0 10px rgba(238, 108, 19, 0.1); }
+}

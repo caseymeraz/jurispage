@@ -5,6 +5,7 @@ import { getServiceBySlug } from "@/data/services";
 import { getPracticeAreaBySlug } from "@/data/practiceAreas";
 import { getIntersectionsForService } from "@/data/intersections";
 import CTASection from "@/components/CTASection";
+import PortfolioShowcase from "@/components/PortfolioShowcase";
 import FAQAccordion from "@/components/FAQAccordion";
 import SchemaOrg from "@/components/SchemaOrg";
 import CaseStudyPreview from "@/components/CaseStudyPreview";
@@ -147,64 +148,7 @@ export default function ServicePage({ service }: ServicePageProps) {
 
       {/* Portfolio Showcase */}
       {service.portfolio && service.portfolio.length > 0 && (
-        <section className="py-16 px-6 bg-white">
-          <div className="max-w-4xl mx-auto">
-            <h2 className="font-heading font-extrabold text-gray-900 text-3xl mb-2">
-              Law Firm Websites We&apos;ve Built
-            </h2>
-            <p className="text-gray-500 text-lg mb-8">
-              Every site is custom-designed, mobile-first, and built to rank in Google.
-            </p>
-            <div
-              className="flex overflow-x-auto gap-6 pb-4"
-              style={{ scrollSnapType: "x mandatory" }}
-            >
-              {service.portfolio.map((item) => (
-                <div
-                  key={item.name}
-                  className="flex-shrink-0 w-72 rounded-xl border border-gray-200 overflow-hidden shadow-sm"
-                  style={{ scrollSnapAlign: "start" }}
-                >
-                  {/* Browser mock bar */}
-                  <div className="flex items-center gap-1.5 px-3 py-2 bg-gray-100 border-b border-gray-200">
-                    <span className="w-2.5 h-2.5 rounded-full bg-red-400" />
-                    <span className="w-2.5 h-2.5 rounded-full bg-yellow-400" />
-                    <span className="w-2.5 h-2.5 rounded-full bg-green-400" />
-                  </div>
-                  {/* Screenshot */}
-                  <img
-                    src={item.image}
-                    alt={`${item.name} website design`}
-                    className="w-full object-cover object-top"
-                    style={{ height: "180px" }}
-                    loading="lazy"
-                  />
-                  {/* Caption */}
-                  <div className="p-3">
-                    <div className="font-heading font-semibold text-gray-800 text-sm">
-                      {item.name}
-                    </div>
-                    {item.practiceArea && (
-                      <span
-                        className="inline-block text-xs font-bold px-2 py-0.5 rounded-full mt-1"
-                        style={{ background: "#EE6C1322", color: "#EE6C13" }}
-                      >
-                        {item.practiceArea}
-                      </span>
-                    )}
-                  </div>
-                </div>
-              ))}
-            </div>
-            <a
-              href="https://www.jurispage.com/design-portfolio/"
-              className="inline-block mt-4 text-sm font-semibold no-underline hover:underline"
-              style={{ color: "#EE6C13" }}
-            >
-              View all portfolio examples →
-            </a>
-          </div>
-        </section>
+        <PortfolioShowcase items={service.portfolio} />
       )}
 
       {/* Features */}

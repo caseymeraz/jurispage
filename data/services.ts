@@ -331,12 +331,12 @@ export const services: ServiceData[] = [
     relatedServices: ["law-firm-seo", "local-seo-for-law-firms", "ai-chatbot-for-law-firm-website"],
     relatedPracticeAreas: ["solo-attorney-marketing", "small-law-firm-marketing", "startup-law-firm-marketing"],
     portfolio: [
-      { name: "Karns Law Firm", image: "https://www.jurispage.com/wp-content/uploads/2024/07/Karns-Law-Firm-Website.png" },
-      { name: "Noland Law Firm", image: "https://www.jurispage.com/wp-content/uploads/2024/07/Noland-Law-Firm-Website.png" },
-      { name: "Hunt Legal Group", image: "https://www.jurispage.com/wp-content/uploads/2024/07/Hunt-Legal-Group-Website.png" },
-      { name: "Richard Hauchhauser", image: "https://www.jurispage.com/wp-content/uploads/2024/07/Richard-Hauchhauser-Website.png" },
-      { name: "Trey Porter Law", image: "https://www.jurispage.com/wp-content/uploads/2024/07/Trey-Porter-Website.png" },
-      { name: "Oykhman Criminal Defence Law", image: "https://www.jurispage.com/wp-content/uploads/2024/07/Oykhman-Criminal-Defence-Law-Website.png", practiceArea: "Criminal Defence" },
+      { name: "Karns Law Firm", image: "/images/portfolio/karns-law-firm.png" },
+      { name: "Noland Law Firm", image: "/images/portfolio/noland-law-firm.png" },
+      { name: "Hunt Legal Group", image: "/images/portfolio/hunt-legal-group.png" },
+      { name: "Richard Hauchhauser", image: "/images/portfolio/richard-hauchhauser.png" },
+      { name: "Trey Porter Law", image: "/images/portfolio/trey-porter-law.png" },
+      { name: "Oykhman Criminal Defence Law", image: "/images/portfolio/oykhman-criminal-defence.png", practiceArea: "Criminal Defence" },
     ],
   },
   {
