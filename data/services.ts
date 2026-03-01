@@ -17,6 +17,11 @@ export interface ServiceData {
   extendedFaqs?: { question: string; answer: string }[];
   relatedServices?: string[];       // service slugs
   relatedPracticeAreas?: string[];  // practice area slugs
+  portfolio?: Array<{
+    name: string;
+    image: string;
+    practiceArea?: string;
+  }>;
 }
 
 export const services: ServiceData[] = [
@@ -325,6 +330,14 @@ export const services: ServiceData[] = [
     ],
     relatedServices: ["law-firm-seo", "local-seo-for-law-firms", "ai-chatbot-for-law-firm-website"],
     relatedPracticeAreas: ["solo-attorney-marketing", "small-law-firm-marketing", "startup-law-firm-marketing"],
+    portfolio: [
+      { name: "Karns Law Firm", image: "https://www.jurispage.com/wp-content/uploads/2024/07/Karns-Law-Firm-Website.png" },
+      { name: "Noland Law Firm", image: "https://www.jurispage.com/wp-content/uploads/2024/07/Noland-Law-Firm-Website.png" },
+      { name: "Hunt Legal Group", image: "https://www.jurispage.com/wp-content/uploads/2024/07/Hunt-Legal-Group-Website.png" },
+      { name: "Richard Hauchhauser", image: "https://www.jurispage.com/wp-content/uploads/2024/07/Richard-Hauchhauser-Website.png" },
+      { name: "Trey Porter Law", image: "https://www.jurispage.com/wp-content/uploads/2024/07/Trey-Porter-Website.png" },
+      { name: "Oykhman Criminal Defence Law", image: "https://www.jurispage.com/wp-content/uploads/2024/07/Oykhman-Criminal-Defence-Law-Website.png", practiceArea: "Criminal Defence" },
+    ],
   },
   {
     relatedCaseStudies: ["the-sands-law-group"],
