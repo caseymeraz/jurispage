@@ -41,7 +41,7 @@ const filteredFaqs = [
   ...(service.extendedFaqs ?? []),
   {
     question: "How do I get pricing for Google Ads management?",
-    answer: "Call us at (888) 767-7447 or fill out the form above. We'll review your account, goals, and market before giving you a number that makes sense for your firm.",
+    answer: "Call us at (855) 593-6935 or fill out the form above. We'll review your account, goals, and market before giving you a number that makes sense for your firm.",
   },
 ];
 

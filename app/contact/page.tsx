@@ -53,8 +53,8 @@ export default function ContactPage() {
 
             <div className="mt-10 bg-gray-50 rounded-xl p-6 border border-gray-200">
               <h3 className="font-heading font-bold text-gray-900 mb-4">Prefer to call?</h3>
-              <a href="tel:+18887677447" className="font-heading font-extrabold text-2xl no-underline" style={{ color: "#EE6C13" }}>
-                (888) 767-7447
+              <a href="tel:+18555936935" className="font-heading font-extrabold text-2xl no-underline" style={{ color: "#EE6C13" }}>
+                (855) 593-6935
               </a>
               <p className="text-gray-500 text-sm mt-2">Available Mon–Fri, 9am–5pm MT</p>
             </div>

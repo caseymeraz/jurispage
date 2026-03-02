@@ -330,10 +330,10 @@ export default function PricingPage() {
               Get My Instant Quote
             </a>
             <a
-              href="tel:+18887677447"
+              href="tel:+18555936935"
               className="inline-block border-2 border-white text-white font-heading font-bold py-4 px-8 rounded-[40px] no-underline"
             >
-              (888) 767-7447
+              (855) 593-6935
             </a>
           </div>
           <p className="text-orange-200 text-sm mt-5">

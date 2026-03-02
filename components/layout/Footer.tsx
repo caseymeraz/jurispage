@@ -21,7 +21,7 @@ export default function Footer() {
             <p className="text-gray-400 text-sm leading-relaxed mb-4">
               Law firm marketing built on ethics, not empty promises. Transparent pricing, month-to-month contracts, 100% legal focus.
             </p>
-            <a href="tel:+18887677447" className="text-gray-300 hover:text-white text-sm font-medium no-underline block mb-1">(888) 767-7447</a>
+            <a href="tel:+18555936935" className="text-gray-300 hover:text-white text-sm font-medium no-underline block mb-1">(855) 593-6935</a>
             <Link href="/contact/" className="text-sm no-underline" style={{ color: "#EE6C13" }}>Let&apos;s Talk Growth →</Link>
           </div>
 

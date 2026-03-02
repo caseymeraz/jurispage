@@ -168,8 +168,8 @@ export default function Header() {
 
           {/* Desktop CTA */}
           <div className="hidden lg:flex items-center gap-3">
-            <a href="tel:+18887677447" className="text-gray-600 hover:text-gray-900 text-sm font-medium transition-colors no-underline">
-              (888) 767-7447
+            <a href="tel:+18555936935" className="text-gray-600 hover:text-gray-900 text-sm font-medium transition-colors no-underline">
+              (855) 593-6935
             </a>
             <Link
               href="/contact/"
@@ -236,10 +236,10 @@ export default function Header() {
 
         {/* Phone */}
         <a
-          href="tel:+18887677447"
+          href="tel:+18555936935"
           className="flex items-center px-5 py-4 text-base font-semibold text-gray-800 border-b border-gray-100 no-underline hover:text-[#EE6C13] transition-colors"
         >
-          (888) 767-7447
+          (855) 593-6935
         </a>
 
         {/* Services Accordion */}

@@ -173,7 +173,7 @@ export default function ContactForm() {
         />
       </div>
       {status === "error" && (
-        <p className="text-red-600 text-sm">Something went wrong. Please try again or call (888) 767-7447.</p>
+        <p className="text-red-600 text-sm">Something went wrong. Please try again or call (855) 593-6935.</p>
       )}
       <button
         type="submit"

@@ -79,7 +79,7 @@ export async function POST(req: NextRequest) {
             <div style="margin: 28px 0;">
               <a href="https://jurispage.com/contact/" style="display: inline-block; background: #EE6C13; color: white; font-weight: bold; padding: 14px 28px; border-radius: 100px; text-decoration: none; font-size: 15px;">Book a Strategy Call Now</a>
             </div>
-            <p style="color: #6b7280; font-size: 14px;">Or call us directly: <a href="tel:+18887677447" style="color: #EE6C13;">(888) 767-7447</a></p>
+            <p style="color: #6b7280; font-size: 14px;">Or call us directly: <a href="tel:+18555936935" style="color: #EE6C13;">(855) 593-6935</a></p>
             <p style="color: #555; font-size: 14px; margin-top: 24px;">— The JurisPage Team</p>
           </div>
           <div style="background: #f5f5f5; padding: 16px 32px; text-align: center;">
@@ -127,7 +127,7 @@ export async function POST(req: NextRequest) {
               <a href="https://jurispage.com/contact/" style="display: inline-block; background: #EE6C13; color: white; font-weight: bold; padding: 14px 28px; border-radius: 100px; text-decoration: none; font-size: 15px;">Book a Free Strategy Call</a>
             </div>
 
-            <p style="color: #6b7280; font-size: 14px;">Questions? Call us at <a href="tel:+18887677447" style="color: #EE6C13;">(888) 767-7447</a>. We typically respond the same business day.</p>
+            <p style="color: #6b7280; font-size: 14px;">Questions? Call us at <a href="tel:+18555936935" style="color: #EE6C13;">(855) 593-6935</a>. We typically respond the same business day.</p>
             <p style="color: #555; font-size: 14px; margin-top: 24px;">— The JurisPage Team</p>
           </div>
           <div style="background: #f5f5f5; padding: 16px 32px; text-align: center;">

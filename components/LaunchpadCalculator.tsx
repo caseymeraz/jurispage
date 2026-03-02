@@ -189,11 +189,11 @@ export default function LaunchpadCalculator() {
               Book a Free Strategy Call
             </a>
             <a
-              href="tel:+18887677447"
+              href="tel:+18555936935"
               className="flex-1 text-center font-heading font-bold py-3.5 px-6 rounded-[40px] no-underline border-2"
               style={{ borderColor: "#EE6C13", color: "#EE6C13" }}
             >
-              (888) 767-7447
+              (855) 593-6935
             </a>
           </div>
         </div>
@@ -396,7 +396,7 @@ export default function LaunchpadCalculator() {
         {status === "error" && (
           <p className="text-red-600 text-sm">
             Something went wrong. Please try again or call{" "}
-            <a href="tel:+18887677447" className="underline">(888) 767-7447</a>.
+            <a href="tel:+18555936935" className="underline">(855) 593-6935</a>.
           </p>
         )}
 

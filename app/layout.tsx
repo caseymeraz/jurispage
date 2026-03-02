@@ -28,7 +28,7 @@ const orgSchema = {
   url: "https://jurispage.com",
   logo: "https://jurispage.com/images/jurispage-logo.svg",
   description: "Law firm marketing agency providing SEO, Google Ads, website design, and digital strategy for small and mid-market law firms.",
-  telephone: "+1-888-767-7447",
+  telephone: "+1-855-593-6935",
   email: "hello@jurispage.com",
   foundingDate: "2026",
   address: [
@@ -63,7 +63,7 @@ const localBusinessSchema = {
   "@type": "LocalBusiness",
   name: "JurisPage",
   url: "https://jurispage.com",
-  telephone: "+1-888-767-7447",
+  telephone: "+1-855-593-6935",
   email: "hello@jurispage.com",
   priceRange: "$$$",
   address: {

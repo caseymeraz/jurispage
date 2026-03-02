@@ -88,8 +88,8 @@ export default function HeroForm({
         </div>
         <h3 className="font-heading font-bold text-gray-900 text-xl mb-2">We&apos;ll be in touch shortly.</h3>
         <p className="text-gray-600 text-sm mb-3">Expect a response within one business day.</p>
-        <a href="tel:+18887677447" className="font-heading font-bold text-lg no-underline" style={{ color: "#EE6C13" }}>
-          (888) 767-7447
+        <a href="tel:+18555936935" className="font-heading font-bold text-lg no-underline" style={{ color: "#EE6C13" }}>
+          (855) 593-6935
         </a>
       </div>
     );
@@ -187,7 +187,7 @@ export default function HeroForm({
         ) : null}
 
         {status === "error" && (
-          <p className="text-red-600 text-sm">Something went wrong. Please try again or call (888) 767-7447.</p>
+          <p className="text-red-600 text-sm">Something went wrong. Please try again or call (855) 593-6935.</p>
         )}
 
         <button
