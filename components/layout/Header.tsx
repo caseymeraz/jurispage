@@ -53,7 +53,7 @@ export default function Header() {
           {/* Logo */}
           <Link href="/" className="flex items-center no-underline">
             <Image
-              src="/images/jurispage-logo.png"
+              src="/images/jurispage-logo-dark.svg"
               alt="JurisPage Law Firm Marketing"
               width={260}
               height={56}
@@ -216,7 +216,7 @@ export default function Header() {
         <div className="flex items-center justify-between px-5 py-4 border-b border-gray-100">
           <Link href="/" onClick={() => setMobileOpen(false)}>
             <Image
-              src="/images/jurispage-logo.png"
+              src="/images/jurispage-logo-dark.svg"
               alt="JurisPage Law Firm Marketing"
               width={175}
               height={38}

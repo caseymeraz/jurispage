@@ -27,25 +27,13 @@ export async function POST(req: NextRequest) {
       </table>
     `;
 
-    // Send to main inbox
     await resend.emails.send({
       from: "JurisPage Leads <leads@jurispage.com>",
-      to: ["hello@jurispage.com"],
+      to: ["cmeraz@jurisdigital.com", "ahatcher@jurisdigital.com", "jmeans@jurisdigital.com"],
       subject: `${isPremium ? "⭐ PREMIUM LEAD" : "New Lead"}: ${firstName} ${lastName} - ${practiceArea || "Law Firm"}`,
       html: emailHtml,
       replyTo: email,
     });
-
-    // Send premium leads to Casey
-    if (isPremium) {
-      await resend.emails.send({
-        from: "JurisPage Leads <leads@jurispage.com>",
-        to: ["cmeraz@jurisdigital.com"],
-        subject: `⭐ PREMIUM LEAD ($5K+): ${firstName} ${lastName} - ${practiceArea || "Law Firm"}`,
-        html: emailHtml,
-        replyTo: email,
-      });
-    }
 
     return NextResponse.json({ success: true });
   } catch (error) {

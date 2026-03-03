@@ -59,7 +59,7 @@ export async function POST(req: NextRequest) {
 
     await resend.emails.send({
       from: "JurisPage Quotes <leads@jurispage.com>",
-      to: ["hello@jurispage.com"],
+      to: ["cmeraz@jurisdigital.com", "ahatcher@jurisdigital.com", "jmeans@jurisdigital.com"],
       subject: `New Quote: ${name} — ${isCustom ? "Custom (11+ attorneys)" : `$${monthlyTotal?.toLocaleString()}/mo`} | ${practiceArea}`,
       html: internalHtml,
       replyTo: email,

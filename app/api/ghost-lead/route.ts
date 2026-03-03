@@ -56,8 +56,7 @@ export async function POST(req: NextRequest) {
     // Internal notification
     await resend.emails.send({
       from: "JurisPage Leads <leads@jurispage.com>",
-      to: ["hello@jurispage.com"],
-      cc: ["cmeraz@jurisdigital.com"],
+      to: ["cmeraz@jurisdigital.com", "ahatcher@jurisdigital.com", "jmeans@jurisdigital.com"],
       subject: `Secret Shop Audit Request — ${firmName || name} (${fmt(monthlyBleed)}/mo bleed)`,
       html: internalHtml,
       replyTo: email,

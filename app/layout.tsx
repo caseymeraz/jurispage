@@ -26,7 +26,7 @@ const orgSchema = {
   name: "JurisPage",
   alternateName: "Ethical SEO Consulting LLC",
   url: "https://jurispage.com",
-  logo: "https://jurispage.com/images/jurispage-logo.svg",
+  logo: "https://jurispage.com/images/jurispage-logo-dark.svg",
   description: "Law firm marketing agency providing SEO, Google Ads, website design, and digital strategy for small and mid-market law firms.",
   telephone: "+1-855-593-6935",
   email: "hello@jurispage.com",

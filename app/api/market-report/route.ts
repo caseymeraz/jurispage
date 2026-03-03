@@ -26,8 +26,7 @@ export async function POST(req: NextRequest) {
 
     await resend.emails.send({
       from: "JurisPage Leads <leads@jurispage.com>",
-      to: ["hello@jurispage.com"],
-      cc: ["cmeraz@jurisdigital.com"],
+      to: ["cmeraz@jurisdigital.com", "ahatcher@jurisdigital.com", "jmeans@jurisdigital.com"],
       subject: `FREE MARKET REPORT REQUEST: ${firmName} - ${practiceArea} in ${targetMarket}`,
       html: emailHtml,
       replyTo: email,
