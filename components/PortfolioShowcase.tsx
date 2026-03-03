@@ -129,16 +129,6 @@ export default function PortfolioShowcase({ items }: { items: PortfolioItem[] })
           ))}
         </div>
 
-        {/* Footer CTA */}
-        <div className="text-center mt-10">
-          <a
-            href="https://www.jurispage.com/design-portfolio/"
-            className="inline-flex items-center gap-2 text-sm font-semibold hover:underline"
-            style={{ color: "#EE6C13" }}
-          >
-            View all portfolio examples →
-          </a>
-        </div>
       </div>
     </section>
   );

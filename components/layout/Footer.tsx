@@ -11,7 +11,7 @@ export default function Footer() {
           <div>
             <div className="mb-4">
               <Image
-                src="/images/jurispage-logo-dark.svg"
+                src="/images/jurispage-logo-white.svg"
                 alt="JurisPage Law Firm Marketing"
                 width={182}
                 height={34}

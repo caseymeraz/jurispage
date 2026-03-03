@@ -9,6 +9,7 @@ import CTASection from "@/components/CTASection";
 import FAQAccordion from "@/components/FAQAccordion";
 import SchemaOrg from "@/components/SchemaOrg";
 import HeroForm from "@/components/HeroForm";
+import PortfolioShowcase from "@/components/PortfolioShowcase";
 
 interface PracticeAreaServicePageProps {
   intersection: IntersectionData;
@@ -175,6 +176,11 @@ export default function PracticeAreaServicePage({
             </div>
           </div>
         </section>
+      )}
+
+      {/* ── Portfolio Showcase ──────────────────────────────────────────── */}
+      {service.portfolio && service.portfolio.length > 0 && (
+        <PortfolioShowcase items={service.portfolio} />
       )}
 
       {/* ── Why This Matters ─────────────────────────────────────────────── */}
