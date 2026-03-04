@@ -5,6 +5,7 @@ import { getServiceBySlug as getRelService } from "@/data/services";
 import { getPracticeAreaBySlug } from "@/data/practiceAreas";
 import { getIntersectionsForService } from "@/data/intersections";
 import CTASection from "@/components/CTASection";
+import LocalSeoScorecard from "@/components/LocalSeoScorecard";
 import ReviewRibbon from "@/components/ReviewRibbon";
 import FAQAccordion from "@/components/FAQAccordion";
 import SchemaOrg from "@/components/SchemaOrg";
@@ -232,6 +233,27 @@ export default function LocalSeoForLawFirmsPage() {
           </div>
         </section>
       )}
+
+      {/* 8.5 — Local SEO Scorecard */}
+      <section className="py-16 px-6 bg-[#FEF3EC]">
+        <div className="max-w-2xl mx-auto">
+          <div className="text-center mb-8">
+            <span
+              className="inline-block text-xs font-heading font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-4"
+              style={{ background: "#EE6C1322", color: "#EE6C13" }}
+            >
+              Free Self-Assessment
+            </span>
+            <h2 className="font-heading font-extrabold text-gray-900 text-3xl md:text-4xl mb-3">
+              How Does Your Firm Score on the 6 Local SEO Factors That Actually Matter?
+            </h2>
+            <p className="text-gray-600 text-lg max-w-xl mx-auto">
+              Answer 6 questions in under 2 minutes. Get an instant score, a letter grade, and the exact gaps you need to close.
+            </p>
+          </div>
+          <LocalSeoScorecard />
+        </div>
+      </section>
 
       {/* 9. Why JurisPage */}
       <section className="py-16 px-6 bg-white">
