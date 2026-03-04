@@ -207,7 +207,11 @@ export default function LocalSeoScorecard() {
       }),
     });
 
-    setSubmitStatus(res.ok ? "success" : "error");
+    if (res.ok) {
+      setPhase("success");
+    } else {
+      setSubmitStatus("error");
+    }
   };
 
   // ── Quiz Phase ──────────────────────────────────────────────────────────────
