@@ -1,5 +1,6 @@
 "use client";
 import { useState, useMemo } from "react";
+import { getHubSpotCookie } from "@/lib/hubspot-cookie";
 
 const BASE_PRICE = 2000;
 const PER_ATTORNEY = 500;
@@ -106,6 +107,9 @@ export default function LaunchpadCalculator() {
           monthlyTotal: monthly,
           oneTimeTotal: oneTime,
           isCustom,
+          hutk: getHubSpotCookie(),
+          pageUri: window.location.href,
+          pageName: document.title,
         }),
       });
       if (res.ok) setStatus("success");

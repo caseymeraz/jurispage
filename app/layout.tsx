@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Quicksand, Poppins } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
@@ -121,6 +122,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <main>{children}</main>
         <Footer />
         <StickyMobileCTA />
+        <Script id="hs-script-loader" strategy="afterInteractive" src="//js.hs-scripts.com/23597402.js" />
       </body>
     </html>
   );

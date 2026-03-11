@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { Resend } from "resend";
+import { submitToHubSpot } from "@/lib/hubspot";
 
 export async function POST(req: NextRequest) {
   try {
@@ -157,6 +158,31 @@ export async function POST(req: NextRequest) {
         : `Your JurisPage Launchpad Pricing — $${monthlyTotal?.toLocaleString()}/mo`,
       html: prospectHtml,
     });
+
+    // Fire-and-forget HubSpot submission
+    const formGuid = process.env.HUBSPOT_FORM_GUID;
+    if (formGuid) {
+      const [first, ...rest] = (name || "").trim().split(" ");
+      const last = rest.join(" ");
+      const addonSummary = [
+        addons?.chatbot && "AI Chatbot ($299/mo)",
+        addons?.logo && "Logo Design ($999 one-time)",
+      ].filter(Boolean).join(", ") || "None";
+      submitToHubSpot(
+        formGuid,
+        [
+          { name: "firstname", value: first },
+          { name: "lastname", value: last },
+          { name: "email", value: email },
+          { name: "number_of_attorneys", value: String(attorneys) },
+          { name: "practice_area", value: practiceArea || "" },
+          { name: "city_size", value: cityLabel },
+          { name: "monthly_budget", value: isCustom ? "Custom" : `$${monthlyTotal?.toLocaleString()}/mo` },
+          { name: "message", value: `Launchpad quote — Add-ons: ${addonSummary}` },
+        ],
+        { hutk: body.hutk, pageUri: body.pageUri, pageName: body.pageName }
+      ).catch((err) => console.error("HubSpot quote error:", err));
+    }
 
     return NextResponse.json({ success: true });
   } catch (error) {

@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { Resend } from "resend";
+import { submitToHubSpot } from "@/lib/hubspot";
 
 export async function POST(req: NextRequest) {
   try {
@@ -104,6 +105,30 @@ export async function POST(req: NextRequest) {
       subject: "Your Growth Strategy Session Application",
       html: prospectHtml,
     });
+
+    // Fire-and-forget HubSpot submission
+    const formGuid = process.env.HUBSPOT_FORM_GUID;
+    if (formGuid) {
+      const [first, ...rest] = (fullName || "").trim().split(" ");
+      const last = rest.join(" ");
+      submitToHubSpot(
+        formGuid,
+        [
+          { name: "firstname", value: first },
+          { name: "lastname", value: last },
+          { name: "email", value: email },
+          { name: "phone", value: phone || "" },
+          { name: "company", value: firmName || "" },
+          { name: "number_of_attorneys", value: attorneys || "" },
+          { name: "practice_area", value: practiceAreasDisplay },
+          { name: "target_markets", value: markets || "" },
+          { name: "budget", value: budget || "" },
+          { name: "growth_goal", value: growthGoal || "" },
+          { name: "message", value: notes || "" },
+        ],
+        { hutk: body.hutk, pageUri: body.pageUri, pageName: body.pageName }
+      ).catch((err) => console.error("HubSpot growth assessment error:", err));
+    }
 
     return NextResponse.json({ success: true });
   } catch (error) {

@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { Resend } from "resend";
+import { submitToHubSpot } from "@/lib/hubspot";
 
 export async function POST(req: NextRequest) {
   try {
@@ -34,6 +35,25 @@ export async function POST(req: NextRequest) {
       html: emailHtml,
       replyTo: email,
     });
+
+    // Fire-and-forget HubSpot submission
+    const formGuid = process.env.HUBSPOT_FORM_GUID;
+    if (formGuid) {
+      submitToHubSpot(
+        formGuid,
+        [
+          { name: "firstname", value: firstName },
+          { name: "lastname", value: lastName },
+          { name: "email", value: email },
+          { name: "phone", value: phone || "" },
+          { name: "practice_area", value: practiceArea || "" },
+          { name: "budget", value: budget || "" },
+          { name: "referral_source", value: referral || "" },
+          { name: "message", value: message || "" },
+        ],
+        { hutk: body.hutk, pageUri: body.pageUri, pageName: body.pageName }
+      ).catch((err) => console.error("HubSpot contact form error:", err));
+    }
 
     return NextResponse.json({ success: true });
   } catch (error) {

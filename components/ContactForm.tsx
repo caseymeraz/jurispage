@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import { getHubSpotCookie } from "@/lib/hubspot-cookie";
 
 const practiceAreas = [
   "Personal Injury",
@@ -49,7 +50,12 @@ export default function ContactForm() {
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({
+          ...formData,
+          hutk: getHubSpotCookie(),
+          pageUri: window.location.href,
+          pageName: document.title,
+        }),
       });
       if (res.ok) {
         setStatus("success");
