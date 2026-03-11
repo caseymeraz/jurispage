@@ -47,12 +47,15 @@ export default async function MarketGapReportPage({ params }: PageProps) {
     firmRating: report.firmRating,
     firmReviewCount: report.firmReviewCount,
     biggestGap: report.biggestGap ?? "Analysis pending",
-    keywordHighlights: report.keywords.map((k) => ({
-      keyword: k.keyword,
-      volume: k.searchVolume ?? 0,
-      localVolume: k.localSearchVolume ?? 0,
-      nationalVolume: k.searchVolume ?? 0,
-    })),
+    keywordHighlights: report.keywords
+      .filter((k) => (k.searchVolume ?? 0) > 0 || (k.localSearchVolume ?? 0) > 0)
+      .slice(0, 7)
+      .map((k) => ({
+        keyword: k.keyword,
+        volume: k.searchVolume ?? 0,
+        localVolume: k.localSearchVolume ?? 0,
+        nationalVolume: k.searchVolume ?? 0,
+      })),
     practiceArea: report.lead?.practiceArea ?? "Legal Services",
     city: report.lead?.city ?? "",
     state: report.lead?.state ?? "",
