@@ -706,7 +706,7 @@ export default function HomePage() {
             </h2>
             <p className="text-gray-600 text-lg leading-relaxed mb-6">
               In February 2026, JurisPage joined the Juris Digital family. Led
-              by CEO Casey Meraz, President Leann Pickard, and CSO Matt Green,
+              by CEO Casey Meraz, President &amp; COO Leann Pickard, and CSO Matt Green,
               we&apos;ve united two of the most effective teams in legal SEO to
               provide a level of transparency and performance that general
               agencies simply can&apos;t match.
@@ -729,7 +729,7 @@ export default function HomePage() {
               },
               {
                 name: "Leann Pickard",
-                title: "President",
+                title: "President & COO",
                 img: "https://jurisdigital.com/wp-content/uploads/leann_pickard_chief_operations_officer_juris_digital.png.webp",
               },
               {

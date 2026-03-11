@@ -43,12 +43,12 @@ const differences = [
 ];
 
 const teamMembers = [
-  { name: "Leann Pickard", image: "headshot-leann-pickard.webp", title: "President" },
-  { name: "Peter Kerlin", image: "headshot-peter-kerlin.webp", title: "COO" },
-  { name: "Shahla Cornelio", image: "headshot-shahla-cornelio.jpg", title: "" },
-  { name: "Serena Gross", image: "headshot-serena-gross.jpg", title: "" },
-  { name: "Justin Carson", image: "headshot-justin-carson.jpg", title: "" },
-  { name: "Jeremy Shankman", image: "headshot-jeremy-shankman.jpg", title: "" },
+  { name: "Leann Pickard", image: "headshot-leann-pickard.webp", title: "President & COO" },
+  { name: "Peter Kerlin", image: "headshot-peter-kerlin.webp", title: "Director of Operations" },
+  { name: "Shahla Cornelio", image: "headshot-shahla-cornelio.jpg", title: "PPC Manager" },
+  { name: "Serena Gross", image: "headshot-serena-gross.jpg", title: "Web Designer" },
+  { name: "Justin Carson", image: "headshot-justin-carson.jpg", title: "SEO Specialist" },
+  { name: "Jeremy Shankman", image: "headshot-jeremy-shankman.jpg", title: "Senior SEO Specialist" },
 ];
 
 const partners = [
