@@ -27,11 +27,11 @@ const cards = [
     ),
   },
   {
-    title: "Get My Instant Quote",
+    title: "See Our Pricing",
     description:
       "Transparent pricing for your firm's exact needs. No sales call required, no fine print.",
-    href: "/launchpad",
-    cta: "Get My Quote",
+    href: "/services/pricing",
+    cta: "See Pricing",
     icon: (
       <svg
         width="24"

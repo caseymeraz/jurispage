@@ -492,7 +492,7 @@ export default function MarketGapReport({
         </h3>
         <p className="text-orange-100 text-base mb-6 max-w-lg mx-auto">
           {isNewFirm
-            ? "Get a transparent, instant quote for your firm\u2019s exact needs."
+            ? "See transparent pricing for your firm\u2019s exact needs."
             : hasSlowResponse
               ? "See exactly what intake delays are costing your firm every month."
               : "Book a strategy session and we\u2019ll map out every priority together."}
@@ -505,7 +505,7 @@ export default function MarketGapReport({
         <Link
           href={
             isNewFirm
-              ? "/launchpad"
+              ? "/services/pricing"
               : hasSlowResponse
                 ? "/secret-shop"
                 : "/contact"
@@ -514,7 +514,7 @@ export default function MarketGapReport({
           style={{ color: "#982A0B" }}
         >
           {isNewFirm
-            ? "Get My Instant Quote"
+            ? "See Our Pricing"
             : hasSlowResponse
               ? "See What Intake Delays Cost Me"
               : "Book My Strategy Session"}

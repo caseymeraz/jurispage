@@ -115,14 +115,14 @@ export default function JurispageNowBackedPage() {
               See My Market Gap
             </Link>
             <Link
-              href="/launchpad"
+              href="/services/pricing"
               className="inline-block font-heading font-bold text-base px-8 py-4 rounded-[40px] no-underline border-2 transition-colors"
               style={{
                 borderColor: "#EE6C13",
                 color: "#EE6C13",
               }}
             >
-              Get My Instant Quote
+              See Our Pricing
             </Link>
           </div>
         </div>
@@ -259,8 +259,8 @@ export default function JurispageNowBackedPage() {
         subtext="Three free tools. No obligation. Built for law firms only."
         primaryLabel="See My Market Gap"
         primaryHref="/see-my-market-gap"
-        secondaryLabel="Get My Instant Quote"
-        secondaryHref="/launchpad"
+        secondaryLabel="See Our Pricing"
+        secondaryHref="/services/pricing"
       />
     </>
   );

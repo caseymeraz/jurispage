@@ -460,11 +460,11 @@ export default function HomePage() {
                   See My Market Gap
                 </Link>
                 <Link
-                  href="/launchpad"
+                  href="/services/pricing"
                   className="inline-block font-heading font-bold text-base px-8 py-4 rounded-full no-underline border-2 transition-colors hover:bg-[#FEF3EC]"
                   style={{ borderColor: "#EE6C13", color: "#EE6C13" }}
                 >
-                  Get My Instant Quote
+                  See Our Pricing
                 </Link>
               </div>
               <Link
