@@ -36,23 +36,29 @@ export async function POST(req: NextRequest) {
       replyTo: email,
     });
 
-    // Fire-and-forget HubSpot submission
+    // HubSpot submission (awaited so it completes before serverless function exits)
     const formGuid = process.env.HUBSPOT_FORM_GUID;
+    console.log("[Contact] HUBSPOT_FORM_GUID:", formGuid ? "set" : "MISSING");
     if (formGuid) {
-      submitToHubSpot(
-        formGuid,
-        [
-          { name: "firstname", value: firstName },
-          { name: "lastname", value: lastName },
-          { name: "email", value: email },
-          { name: "phone", value: phone || "" },
-          { name: "practice_area", value: practiceArea || "" },
-          { name: "monthly_budget", value: budget || "" },
-          { name: "how_did_you_hear_about_us_", value: referral || "" },
-          { name: "message", value: message || "" },
-        ],
-        { hutk: body.hutk, pageUri: body.pageUri, pageName: body.pageName }
-      ).catch((err) => console.error("HubSpot contact form error:", err));
+      try {
+        await submitToHubSpot(
+          formGuid,
+          [
+            { name: "firstname", value: firstName },
+            { name: "lastname", value: lastName },
+            { name: "email", value: email },
+            { name: "phone", value: phone || "" },
+            { name: "practice_area", value: practiceArea || "" },
+            { name: "monthly_budget", value: budget || "" },
+            { name: "how_did_you_hear_about_us_", value: referral || "" },
+            { name: "message", value: message || "" },
+          ],
+          { hutk: body.hutk, pageUri: body.pageUri, pageName: body.pageName }
+        );
+        console.log("[Contact] HubSpot submission succeeded");
+      } catch (err) {
+        console.error("[Contact] HubSpot submission failed:", err);
+      }
     }
 
     return NextResponse.json({ success: true });

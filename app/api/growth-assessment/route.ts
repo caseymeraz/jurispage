@@ -106,28 +106,34 @@ export async function POST(req: NextRequest) {
       html: prospectHtml,
     });
 
-    // Fire-and-forget HubSpot submission
+    // HubSpot submission (awaited so it completes before serverless function exits)
     const formGuid = process.env.HUBSPOT_FORM_GUID;
+    console.log("[GrowthAssessment] HUBSPOT_FORM_GUID:", formGuid ? "set" : "MISSING");
     if (formGuid) {
       const [first, ...rest] = (fullName || "").trim().split(" ");
       const last = rest.join(" ");
-      submitToHubSpot(
-        formGuid,
-        [
-          { name: "firstname", value: first },
-          { name: "lastname", value: last },
-          { name: "email", value: email },
-          { name: "phone", value: phone || "" },
-          { name: "company", value: firmName || "" },
-          { name: "number_of_attorneys", value: attorneys || "" },
-          { name: "practice_area", value: practiceAreasDisplay },
-          { name: "target_market", value: markets || "" },
-          { name: "monthly_budget", value: budget || "" },
-          { name: "growth_goal", value: growthGoal || "" },
-          { name: "message", value: notes || "" },
-        ],
-        { hutk: body.hutk, pageUri: body.pageUri, pageName: body.pageName }
-      ).catch((err) => console.error("HubSpot growth assessment error:", err));
+      try {
+        await submitToHubSpot(
+          formGuid,
+          [
+            { name: "firstname", value: first },
+            { name: "lastname", value: last },
+            { name: "email", value: email },
+            { name: "phone", value: phone || "" },
+            { name: "company", value: firmName || "" },
+            { name: "number_of_attorneys", value: attorneys || "" },
+            { name: "practice_area", value: practiceAreasDisplay },
+            { name: "target_market", value: markets || "" },
+            { name: "monthly_budget", value: budget || "" },
+            { name: "growth_goal", value: growthGoal || "" },
+            { name: "message", value: notes || "" },
+          ],
+          { hutk: body.hutk, pageUri: body.pageUri, pageName: body.pageName }
+        );
+        console.log("[GrowthAssessment] HubSpot submission succeeded");
+      } catch (err) {
+        console.error("[GrowthAssessment] HubSpot submission failed:", err);
+      }
     }
 
     return NextResponse.json({ success: true });

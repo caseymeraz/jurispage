@@ -159,24 +159,30 @@ export async function POST(req: NextRequest) {
       html: prospectHtml,
     });
 
-    // Fire-and-forget HubSpot submission
+    // HubSpot submission (awaited so it completes before serverless function exits)
     const formGuid = process.env.HUBSPOT_FORM_GUID;
+    console.log("[Quote] HUBSPOT_FORM_GUID:", formGuid ? "set" : "MISSING");
     if (formGuid) {
       const [first, ...rest] = (name || "").trim().split(" ");
       const last = rest.join(" ");
-      submitToHubSpot(
-        formGuid,
-        [
-          { name: "firstname", value: first },
-          { name: "lastname", value: last },
-          { name: "email", value: email },
-          { name: "practice_area", value: practiceArea || "" },
-          { name: "number_of_attorneys", value: String(attorneys) },
-          { name: "city_size", value: cityLabel },
-          { name: "monthly_budget", value: isCustom ? "Custom" : `$${monthlyTotal?.toLocaleString()}/mo` },
-        ],
-        { hutk: body.hutk, pageUri: body.pageUri, pageName: body.pageName }
-      ).catch((err) => console.error("HubSpot quote error:", err));
+      try {
+        await submitToHubSpot(
+          formGuid,
+          [
+            { name: "firstname", value: first },
+            { name: "lastname", value: last },
+            { name: "email", value: email },
+            { name: "practice_area", value: practiceArea || "" },
+            { name: "number_of_attorneys", value: String(attorneys) },
+            { name: "city_size", value: cityLabel },
+            { name: "monthly_budget", value: isCustom ? "Custom" : `$${monthlyTotal?.toLocaleString()}/mo` },
+          ],
+          { hutk: body.hutk, pageUri: body.pageUri, pageName: body.pageName }
+        );
+        console.log("[Quote] HubSpot submission succeeded");
+      } catch (err) {
+        console.error("[Quote] HubSpot submission failed:", err);
+      }
     }
 
     return NextResponse.json({ success: true });

@@ -34,19 +34,23 @@ export async function submitToHubSpot(
   if (context?.pageName) ctx.pageName = context.pageName;
   if (Object.keys(ctx).length > 0) payload.context = ctx;
 
-  const res = await fetch(
-    `https://api.hsforms.com/submissions/v3/integration/submit/${PORTAL_ID}/${formGuid}`,
-    {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(payload),
-    }
-  );
+  const url = `https://api.hsforms.com/submissions/v3/integration/submit/${PORTAL_ID}/${formGuid}`;
+  console.log("[HubSpot] Submitting to:", url);
+  console.log("[HubSpot] Payload:", JSON.stringify(payload, null, 2));
+
+  const res = await fetch(url, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(payload),
+  });
+
+  const text = await res.text();
+  console.log("[HubSpot] Response status:", res.status);
+  console.log("[HubSpot] Response body:", text);
 
   if (!res.ok) {
-    const text = await res.text();
     throw new Error(`HubSpot submission failed (${res.status}): ${text}`);
   }
 
-  return res.json();
+  return JSON.parse(text);
 }
