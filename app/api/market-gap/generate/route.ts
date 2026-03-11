@@ -397,11 +397,9 @@ export async function POST(req: NextRequest) {
       status: updatedReport?.status || "pending",
     });
   } catch (error) {
-    const errMsg = error instanceof Error ? error.message : String(error);
-    const errStack = error instanceof Error ? error.stack : "";
-    console.error("Market gap generate error:", errMsg, errStack);
+    console.error("Market gap generate error:", error);
     return NextResponse.json(
-      { error: "Internal server error", detail: errMsg },
+      { error: "Internal server error" },
       { status: 500 }
     );
   }
