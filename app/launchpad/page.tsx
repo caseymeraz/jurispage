@@ -21,6 +21,7 @@ const faqSchema = {
     { "@type": "Question", name: "How quickly can my campaign launch?", acceptedAnswer: { "@type": "Answer", text: "Full setup is completed within the first 45 days: website, GBP, local SEO, social profiles, and all initial content." } },
     { "@type": "Question", name: "Will I own my website and content?", acceptedAnswer: { "@type": "Answer", text: "Always. Your domain, your website, your content. All yours. If you ever leave JurisPage, everything transfers cleanly." } },
     { "@type": "Question", name: "How does the 90-day guarantee work?", acceptedAnswer: { "@type": "Answer", text: "If you don't see measurable progress in your rankings, traffic, or leads within 90 days, we work for free for the following month." } },
+    { "@type": "Question", name: "What if my firm has 5 or more attorneys?", acceptedAnswer: { "@type": "Answer", text: "Launchpad is designed for firms with 1–4 attorneys. If your firm has 5 or more, we recommend Juris Digital — our sister brand for established firms investing $5,000–$20,000+/month. Same parent company, same team, but a full-service strategy scaled to your goals. Visit jurisdigital.com to learn more." } },
   ],
 };
 
@@ -71,6 +72,7 @@ const faqs = [
   { question: "Will I own my website and content?", answer: "Always. Your domain, your website, your content. All yours. If you ever leave JurisPage, everything transfers cleanly. We don't hold websites hostage." },
   { question: "How does the 90-day guarantee work?", answer: "If you don't see measurable progress in your rankings, traffic, or leads within 90 days, we work free the following month. No fine print. No arguing. We either deliver or we earn it back." },
   { question: "Can I add services later?", answer: "Yes. Many Launchpad clients add Google Ads, content writing, or GEO optimization once their foundation is established. Upgrade anytime with 30 days notice." },
+  { question: "What if my firm has 5 or more attorneys?", answer: "Launchpad is designed for firms with 1–4 attorneys. If your firm has 5 or more, we recommend Juris Digital — our sister brand for established firms investing $5,000–$20,000+/month. Same parent company, same team, but a full-service strategy scaled to your goals. Visit jurisdigital.com to learn more." },
 ];
 
 export default function LaunchpadPage() {
@@ -385,6 +387,54 @@ export default function LaunchpadPage() {
           >
             Get My Instant Pricing ↑
           </a>
+        </div>
+      </section>
+
+      {/* ── Larger Firms — Juris Digital ── */}
+      <section className="bg-white py-16 px-6">
+        <div className="max-w-4xl mx-auto text-center">
+          <span
+            className="inline-block text-xs font-heading font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-5 text-white"
+            style={{ background: "#EE6C13" }}
+          >
+            Outgrown Launchpad?
+          </span>
+          <h2 className="font-heading font-extrabold text-gray-900 text-3xl md:text-4xl mb-5">
+            Your Firm Is Ready for More Than a Foundation.
+          </h2>
+          <p className="text-gray-600 text-lg leading-relaxed mb-10 max-w-2xl mx-auto">
+            If your firm has 5+ attorneys and you&apos;re already signing cases, you don&apos;t need a foundation — you need a full-service growth partner built for market domination.
+          </p>
+          <div className="bg-gray-50 rounded-xl p-6 border border-gray-100 text-left max-w-lg mx-auto mb-10">
+            <p className="text-xs font-bold uppercase tracking-widest text-gray-400 mb-3">Juris Digital Delivers</p>
+            <div className="space-y-2">
+              {[
+                "Full-service SEO & content strategy",
+                "Google Ads management",
+                "Custom website design & development",
+                "Dedicated account strategist",
+                "Market domination strategy",
+                "Comprehensive monthly reporting",
+              ].map((item) => (
+                <div key={item} className="flex items-center gap-2">
+                  <span className="flex-shrink-0 font-bold text-sm" style={{ color: "#EE6C13" }}>✓</span>
+                  <span className="text-gray-700 text-sm">{item}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+          <a
+            href="https://jurisdigital.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block font-heading font-bold text-white text-base px-8 py-4 rounded-[40px] no-underline transition-opacity hover:opacity-90"
+            style={{ background: "#EE6C13" }}
+          >
+            Explore Juris Digital →
+          </a>
+          <p className="text-gray-400 text-sm mt-4">
+            Or scroll up to get instant Launchpad pricing for firms with 1–4 attorneys.
+          </p>
         </div>
       </section>
 

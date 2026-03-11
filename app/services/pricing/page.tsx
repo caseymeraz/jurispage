@@ -18,7 +18,7 @@ const faqSchema = {
     { "@type": "Question", name: "Are there long-term contracts?", acceptedAnswer: { "@type": "Answer", text: "No. Launchpad is month-to-month. Give us 30 days notice and you're done. We don't lock you in. The results should speak for themselves." } },
     { "@type": "Question", name: "How quickly can my campaign launch?", acceptedAnswer: { "@type": "Answer", text: "Full setup is completed within the first 45 days. That includes your website, Google Business Profile, local SEO foundation, social profiles, and all initial content production." } },
     { "@type": "Question", name: "Will I own my website and content?", acceptedAnswer: { "@type": "Answer", text: "Always. Your domain, your website, your content. All yours. If you ever leave JurisPage, everything transfers cleanly. We don't hold websites hostage." } },
-    { "@type": "Question", name: "What's the difference between Launchpad and your other plans?", acceptedAnswer: { "@type": "Answer", text: "Launchpad is built for small and startup law firms that need to establish their online presence quickly and cost-effectively. Our Grow and Dominate plans are designed for established firms with larger budgets that want to actively compete for more competitive keywords and markets." } },
+    { "@type": "Question", name: "What's the difference between Launchpad and your other plans?", acceptedAnswer: { "@type": "Answer", text: "Launchpad is built for small and startup law firms with 1–4 attorneys that need to establish their online presence quickly and affordably. For established firms with 5 or more attorneys, we recommend Juris Digital — our sister brand built for firms investing $5,000–$20,000+/month in full-service SEO, Google Ads, content strategy, and market domination. Same parent company, same expertise. Learn more at jurisdigital.com." } },
     { "@type": "Question", name: "How does the 90-day guarantee work?", acceptedAnswer: { "@type": "Answer", text: "If you don't see measurable progress in your rankings, traffic, or leads within 90 days, we work for free for the following month. No fine print. No arguing. We either deliver or we earn it back." } },
     { "@type": "Question", name: "How much involvement is required from me?", acceptedAnswer: { "@type": "Answer", text: "Very little. We handle everything: strategy, content, technical setup, and ongoing management. We'll need a few hours from you upfront to gather firm info, review your website, and align on messaging. After that, we run the campaign and send you monthly reports." } },
     { "@type": "Question", name: "Can I add services later?", acceptedAnswer: { "@type": "Answer", text: "Yes. Many Launchpad clients add Google Ads management, content writing, or GEO optimization once their foundation is established. You can upgrade or add services at any time." } },
@@ -70,7 +70,7 @@ const faqs = [
   { question: "Are there long-term contracts?", answer: "No. Launchpad is month-to-month. Give us 30 days notice and you're done. We've never believed in locking clients in. The results should do that for us." },
   { question: "How quickly can my campaign launch?", answer: "Full setup is completed within the first 45 days. That includes your website, Google Business Profile, local SEO foundation, social profiles, and all initial content production." },
   { question: "Will I own my website and content?", answer: "Always. Your domain, your website, your content. All yours. If you ever leave JurisPage, everything transfers cleanly. We don't hold websites hostage the way some larger agencies do." },
-  { question: "What's the difference between Launchpad and your other plans?", answer: "Launchpad is built for small and startup law firms that need to establish their online presence quickly and cost-effectively. Our Grow and Dominate plans are designed for established firms with larger budgets who want to actively compete for more competitive keywords and larger markets." },
+  { question: "What's the difference between Launchpad and your other plans?", answer: "Launchpad is built for small and startup law firms with 1–4 attorneys that need to establish their online presence quickly and affordably. For established firms with 5 or more attorneys, we recommend Juris Digital — our sister brand built for firms investing $5,000–$20,000+/month in full-service SEO, Google Ads, content strategy, and market domination. Same parent company, same expertise. Learn more at jurisdigital.com." },
   { question: "How does the 90-day guarantee work?", answer: "If you don't see measurable progress in your rankings, traffic, or leads within 90 days, we work for free for the following month. No fine print. No arguing over definitions. We either deliver or we earn it back." },
   { question: "How much involvement is required from me?", answer: "Very little. We handle strategy, content, technical setup, and ongoing management. We'll need a few hours from you upfront to gather firm info and align on messaging. After that, we run the campaign and you get monthly reports." },
   { question: "Can I add services later?", answer: "Yes. Many Launchpad clients add Google Ads management, content writing, or GEO optimization once their foundation is established. You can upgrade or add services at any time with 30 days notice." },
@@ -304,6 +304,48 @@ export default function PricingPage() {
             days, we work the following month for free.
           </p>
           <p className="text-gray-400">No fine print. No arguing over definitions. We either perform or we earn it back.</p>
+        </div>
+      </section>
+
+      {/* ── Larger Firms — Juris Digital ── */}
+      <section className="bg-white py-16 px-6">
+        <div className="max-w-4xl mx-auto text-center">
+          <span
+            className="inline-block text-xs font-heading font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-5 text-white"
+            style={{ background: "#EE6C13" }}
+          >
+            Established Firms
+          </span>
+          <h2 className="font-heading font-extrabold text-gray-900 text-3xl md:text-4xl mb-5">
+            More Than 4 Attorneys? You Need Juris Digital.
+          </h2>
+          <p className="text-gray-600 text-lg leading-relaxed mb-10 max-w-2xl mx-auto">
+            If your firm is already signing cases and you want to dominate your market, sign more high-value clients, and build a lasting legacy — Juris Digital is built for you.
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+            {[
+              { title: "Full-Service Strategy", desc: "SEO, Google Ads, content, custom web design, and a dedicated strategist — all under one roof." },
+              { title: "$5K–$20K+/mo", desc: "Investment levels scaled to established firms that are serious about growth and market leadership." },
+              { title: "Market Domination", desc: "Built for firms that don't just want to compete — they want to own their market." },
+            ].map((card) => (
+              <div key={card.title} className="bg-gray-50 rounded-xl p-6 border border-gray-100 text-left">
+                <h3 className="font-heading font-bold text-gray-900 text-base mb-2">{card.title}</h3>
+                <p className="text-gray-600 text-sm leading-relaxed">{card.desc}</p>
+              </div>
+            ))}
+          </div>
+          <a
+            href="https://jurisdigital.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block font-heading font-bold text-white text-base px-8 py-4 rounded-[40px] no-underline transition-opacity hover:opacity-90"
+            style={{ background: "#EE6C13" }}
+          >
+            Explore Juris Digital →
+          </a>
+          <p className="text-gray-400 text-sm mt-4">
+            Or use the <a href="#get-quote" className="underline" style={{ color: "#EE6C13" }}>calculator above</a> for firms with 1–4 attorneys
+          </p>
         </div>
       </section>
 

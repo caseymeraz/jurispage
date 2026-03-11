@@ -76,7 +76,7 @@ export default function LaunchpadCalculator() {
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
 
-  const isCustom = attorneys > 10;
+  const isCustom = attorneys > 4;
 
   const monthly = useMemo(
     () => (isCustom ? null : computeMonthly(attorneys, practiceArea, citySize, chatbot)),
@@ -116,6 +116,72 @@ export default function LaunchpadCalculator() {
   };
 
   if (status === "success") {
+    if (isCustom) {
+      return (
+        <div className="bg-white rounded-2xl shadow-2xl overflow-hidden border-2" style={{ borderColor: "#EE6C13" }}>
+          <div className="px-8 py-6 text-center" style={{ background: "#1a1a1a" }}>
+            <div
+              className="w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-3 text-white font-bold text-2xl"
+              style={{ background: "#EE6C13" }}
+            >
+              ✓
+            </div>
+            <h3 className="font-heading font-extrabold text-white text-2xl">You&apos;re in good hands.</h3>
+            <p className="text-gray-400 text-sm mt-1">
+              We&apos;ve notified the Juris Digital team. Expect a personal outreach within one business day.
+            </p>
+          </div>
+
+          <div className="p-8">
+            <p className="text-gray-600 leading-relaxed mb-4">
+              With 5+ attorneys, your firm doesn&apos;t need a foundation — you need a full-service growth partner that can help you dominate your market, sign more cases, and build a lasting legacy.
+            </p>
+            <p className="text-gray-600 leading-relaxed mb-6">
+              That&apos;s exactly what Juris Digital does. Same ownership, same data-driven approach — but built for established firms investing $5K–$20K+/month in growth.
+            </p>
+
+            <div className="bg-gray-50 rounded-xl p-5 border border-gray-200 mb-6">
+              <p className="text-xs font-bold uppercase tracking-widest text-gray-400 mb-3">What Juris Digital Delivers</p>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                {[
+                  "Full-service SEO & content strategy",
+                  "Google Ads management",
+                  "Custom website design & development",
+                  "Dedicated account strategist",
+                  "Market domination strategy",
+                  "Comprehensive monthly reporting",
+                ].map((item) => (
+                  <div key={item} className="flex items-center gap-2">
+                    <span className="flex-shrink-0 font-bold text-sm" style={{ color: "#EE6C13" }}>✓</span>
+                    <span className="text-gray-700 text-sm">{item}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="flex flex-col sm:flex-row gap-3">
+              <a
+                href="https://jurisdigital.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex-1 text-center font-heading font-bold text-white py-3.5 px-6 rounded-[40px] no-underline"
+                style={{ background: "#EE6C13" }}
+              >
+                Explore Juris Digital →
+              </a>
+              <a
+                href="tel:+18555936935"
+                className="flex-1 text-center font-heading font-bold py-3.5 px-6 rounded-[40px] no-underline border-2"
+                style={{ borderColor: "#EE6C13", color: "#EE6C13" }}
+              >
+                (855) 593-6935
+              </a>
+            </div>
+          </div>
+        </div>
+      );
+    }
+
     return (
       <div className="bg-white rounded-2xl shadow-2xl overflow-hidden border-2" style={{ borderColor: "#EE6C13" }}>
         <div className="px-8 py-6 text-center" style={{ background: "#1a1a1a" }}>
@@ -126,59 +192,47 @@ export default function LaunchpadCalculator() {
             ✓
           </div>
           <h3 className="font-heading font-extrabold text-white text-2xl">Your pricing estimate is on its way.</h3>
-          <p className="text-gray-400 text-sm mt-1">
-            {isCustom ? "We'll put together a custom proposal and reach out within one business day." : `Sent to ${email}`}
-          </p>
+          <p className="text-gray-400 text-sm mt-1">Sent to {email}</p>
         </div>
 
         <div className="p-8">
-          {isCustom ? (
-            <div className="text-center">
-              <p className="text-gray-600 leading-relaxed mb-6">
-                With {attorneys}+ attorneys, your firm needs a strategy built around your specific market and goals, not a template. One of our legal marketing specialists will reach out within one business day with a tailored proposal.
-              </p>
+          <p className="text-xs font-bold uppercase tracking-widest text-gray-400 mb-4">Your Pricing Summary</p>
+          <div className="space-y-2 mb-4">
+            {breakdown.map((item) => (
+              <div key={item.label} className="flex justify-between items-center text-sm py-1.5 border-b border-gray-100">
+                <span className="text-gray-600">{item.label}</span>
+                <span className="font-semibold text-gray-900">
+                  ${item.amount.toLocaleString()}
+                  <span className="text-gray-400 font-normal">{item.recurring ? "/mo" : " one-time"}</span>
+                </span>
+              </div>
+            ))}
+          </div>
+          <div className="rounded-xl p-5 mt-4" style={{ background: "#1a1a1a" }}>
+            <div className="flex items-end justify-between">
+              <div>
+                <p className="text-xs font-bold uppercase tracking-widest text-gray-400 mb-1">Monthly Total</p>
+                <span className="font-heading font-extrabold text-4xl text-white">
+                  ${monthly?.toLocaleString()}
+                </span>
+                <span className="text-gray-400 ml-1">/month</span>
+              </div>
+              <div className="text-right">
+                <p className="text-xs text-gray-500">Month-to-month</p>
+                <p className="text-xs text-gray-500">No long-term contract</p>
+                <p className="text-xs text-gray-500">90-day guarantee</p>
+              </div>
             </div>
-          ) : (
-            <>
-              <p className="text-xs font-bold uppercase tracking-widest text-gray-400 mb-4">Your Pricing Summary</p>
-              <div className="space-y-2 mb-4">
-                {breakdown.map((item) => (
-                  <div key={item.label} className="flex justify-between items-center text-sm py-1.5 border-b border-gray-100">
-                    <span className="text-gray-600">{item.label}</span>
-                    <span className="font-semibold text-gray-900">
-                      ${item.amount.toLocaleString()}
-                      <span className="text-gray-400 font-normal">{item.recurring ? "/mo" : " one-time"}</span>
-                    </span>
-                  </div>
-                ))}
+            {oneTime > 0 && (
+              <div className="mt-3 pt-3 border-t border-gray-700 flex justify-between items-center">
+                <span className="text-gray-400 text-sm">One-time setup</span>
+                <span className="text-white font-semibold">${oneTime.toLocaleString()}</span>
               </div>
-              <div className="rounded-xl p-5 mt-4" style={{ background: "#1a1a1a" }}>
-                <div className="flex items-end justify-between">
-                  <div>
-                    <p className="text-xs font-bold uppercase tracking-widest text-gray-400 mb-1">Monthly Total</p>
-                    <span className="font-heading font-extrabold text-4xl text-white">
-                      ${monthly?.toLocaleString()}
-                    </span>
-                    <span className="text-gray-400 ml-1">/month</span>
-                  </div>
-                  <div className="text-right">
-                    <p className="text-xs text-gray-500">Month-to-month</p>
-                    <p className="text-xs text-gray-500">No long-term contract</p>
-                    <p className="text-xs text-gray-500">90-day guarantee</p>
-                  </div>
-                </div>
-                {oneTime > 0 && (
-                  <div className="mt-3 pt-3 border-t border-gray-700 flex justify-between items-center">
-                    <span className="text-gray-400 text-sm">One-time setup</span>
-                    <span className="text-white font-semibold">${oneTime.toLocaleString()}</span>
-                  </div>
-                )}
-              </div>
-              <p className="text-gray-500 text-xs mt-3 text-center">
-                This estimate is based on the info you provided. Book a brief strategy call to confirm this pricing aligns with your firm's growth goals.
-              </p>
-            </>
-          )}
+            )}
+          </div>
+          <p className="text-gray-500 text-xs mt-3 text-center">
+            This estimate is based on the info you provided. Book a brief strategy call to confirm this pricing aligns with your firm&apos;s growth goals.
+          </p>
 
           <div className="mt-6 flex flex-col sm:flex-row gap-3">
             <a
@@ -225,17 +279,11 @@ export default function LaunchpadCalculator() {
             <option value={2}>2 attorneys</option>
             <option value={3}>3 attorneys</option>
             <option value={4}>4 attorneys</option>
-            <option value={5}>5 attorneys</option>
-            <option value={6}>6 attorneys</option>
-            <option value={7}>7 attorneys</option>
-            <option value={8}>8 attorneys</option>
-            <option value={9}>9 attorneys</option>
-            <option value={10}>10 attorneys</option>
-            <option value={11}>11+ attorneys (custom pricing)</option>
+            <option value={5}>5+ attorneys</option>
           </select>
           {isCustom && (
             <p className="text-sm text-gray-500 mt-3 p-3 rounded-lg bg-gray-50">
-              Firms with 11+ attorneys receive a custom proposal. Fill in your details below and we&apos;ll reach out within one business day.
+              With 5 or more attorneys, your firm has outgrown a foundation package — you need a full-service growth partner. Fill in your details below and our Juris Digital team will reach out within one business day.
             </p>
           )}
         </div>
@@ -359,12 +407,14 @@ export default function LaunchpadCalculator() {
 
         {/* Locked price teaser */}
         <div className="rounded-xl p-5 border-2 border-dashed border-gray-200 text-center">
-          <div className="text-2xl mb-2">🔒</div>
+          <div className="text-2xl mb-2">{isCustom ? "🚀" : "🔒"}</div>
           <p className="font-heading font-bold text-gray-800 text-base mb-1">
-            Your pricing is ready.
+            {isCustom ? "You're ready for Juris Digital." : "Your pricing is ready."}
           </p>
           <p className="text-sm text-gray-500">
-            Enter your name and email below to reveal your price.
+            {isCustom
+              ? "Enter your name and email below and our Juris Digital team will reach out within one business day with a custom strategy."
+              : "Enter your name and email below to reveal your price."}
           </p>
         </div>
 
@@ -409,7 +459,7 @@ export default function LaunchpadCalculator() {
           {status === "loading"
             ? "Sending..."
             : isCustom
-            ? "Request Custom Pricing →"
+            ? "Connect with Juris Digital →"
             : "Get My Instant Pricing →"}
         </button>
 

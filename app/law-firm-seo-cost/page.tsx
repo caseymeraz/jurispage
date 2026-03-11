@@ -25,7 +25,7 @@ const faqs = [
   { question: "How much does law firm SEO cost per month?", answer: "Law firm SEO typically costs $1,500 to $10,000+ per month depending on market competitiveness, practice area, and scope. Most small and mid-market firms see solid results in the $1,500–$4,500/month range. Highly competitive markets like PI in Los Angeles or New York can require $7,000–$15,000+/month to compete seriously." },
   { question: "Why does law firm SEO cost more than regular SEO?", answer: "Legal is a YMYL (Your Money or Your Life) category. Google applies stricter quality standards to legal content, requiring higher E-E-A-T signals. The competitive landscape in legal is also more intense than most industries, and the content requirements (practice area pages, FAQ content, local pages) are more extensive." },
   { question: "What's included in a typical law firm SEO package?", answer: "A complete law firm SEO package typically includes: technical SEO audit and ongoing fixes, on-page optimization for all key pages, keyword research and competitive analysis, content creation (blog posts and practice area pages), link building from legal-relevant and local sources, Google Business Profile optimization, citation building, and monthly reporting tied to rankings and lead flow." },
-  { question: "Is there a setup fee for law firm SEO?", answer: "Some agencies charge a one-time setup fee (typically $500–$2,000) that covers the initial audit, keyword research, and onboarding. Others roll these into the monthly rate. At JurisPage, our Launchpad plan has a $497 one-time setup fee; Grow and Dominate have no setup fees." },
+  { question: "Is there a setup fee for law firm SEO?", answer: "Some agencies charge a one-time setup fee (typically $500–$2,000) that covers the initial audit, keyword research, and onboarding. Others roll these into the monthly rate. At JurisPage, our Launchpad plan starts at $2,000/month for firms with 1–4 attorneys. For established firms, Juris Digital (jurisdigital.com) provides full-service engagements starting at $5,000/month with no setup fees." },
   { question: "How do I know if I'm paying a fair price for law firm SEO?", answer: "Ask for a specific list of deliverables: what gets published each month, how many links are built, what technical work gets done, and exactly how results are measured. If an agency gives vague answers or only shows traffic graphs in reporting, you're likely not getting value for the cost." },
   { question: "Is law firm SEO worth the cost?", answer: "Yes, for most law firms. The cost per acquired client through SEO is significantly lower than paid advertising over time, and unlike PPC, rankings compound. A single PI case paying $50,000+ makes even several months of SEO investment trivially justified. The ROI question is really 'how long until I recoup the cost' - for most practices, the answer is 6-18 months." },
 ];
@@ -213,19 +213,18 @@ export default function LawFirmSEOCostPage() {
           <h2 className="font-heading font-extrabold text-gray-900 text-2xl mt-10 mb-4">JurisPage Pricing: What We Charge</h2>
           <p className="text-gray-700 mb-4">We publish our pricing because opacity in this industry is a problem. Here is what we charge:</p>
           <div className="space-y-3 mb-4">
-            {[
-              { plan: "Launchpad", price: "$1,497/month", note: "+ $497 one-time setup fee. Best for solo attorneys and new firms." },
-              { plan: "Grow", price: "$2,497/month", note: "No setup fee. Best for established small firms wanting content-driven growth." },
-              { plan: "Dominate", price: "$4,497/month", note: "No setup fee. Best for growth-stage firms in competitive markets." },
-            ].map((row) => (
-              <div key={row.plan} className="flex gap-4 items-center bg-gray-50 border border-gray-200 rounded-xl p-4">
-                <div className="flex-shrink-0 w-24 font-heading font-bold text-gray-900 text-sm">{row.plan}</div>
-                <div className="font-heading font-bold text-xl" style={{ color: "#EE6C13" }}>{row.price}</div>
-                <div className="text-gray-600 text-sm">{row.note}</div>
-              </div>
-            ))}
+            <div className="flex gap-4 items-center bg-gray-50 border border-gray-200 rounded-xl p-4">
+              <div className="flex-shrink-0 w-24 font-heading font-bold text-gray-900 text-sm">Launchpad</div>
+              <div className="font-heading font-bold text-xl" style={{ color: "#EE6C13" }}>$2,000+/mo</div>
+              <div className="text-gray-600 text-sm">For firms with 1–4 attorneys. Month-to-month, no long-term contracts.</div>
+            </div>
+            <div className="flex gap-4 items-center bg-gray-50 border border-gray-200 rounded-xl p-4">
+              <div className="flex-shrink-0 w-24 font-heading font-bold text-gray-900 text-sm">Juris Digital</div>
+              <div className="font-heading font-bold text-xl" style={{ color: "#EE6C13" }}>$5,000+/mo</div>
+              <div className="text-gray-600 text-sm">Full-service engagements for established firms with 5+ attorneys. <a href="https://jurisdigital.com" target="_blank" rel="noopener noreferrer" style={{ color: "#EE6C13" }}>jurisdigital.com</a></div>
+            </div>
           </div>
-          <p className="text-gray-600 text-sm">All plans are month-to-month. <Link href="/services/pricing/" style={{ color: "#EE6C13" }}>See full plan details and what&apos;s included →</Link></p>
+          <p className="text-gray-600 text-sm">Launchpad is month-to-month. <Link href="/services/pricing/" style={{ color: "#EE6C13" }}>See full Launchpad details and pricing →</Link></p>
         </div>
       </article>
 

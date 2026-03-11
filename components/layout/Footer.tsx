@@ -83,6 +83,12 @@ export default function Footer() {
               ].map(([label, href]) => (
                 <li key={href}><Link href={href} className="hover:text-white transition-colors no-underline">{label}</Link></li>
               ))}
+              <li className="pt-2 mt-2 border-t border-gray-700">
+                <a href="https://jurisdigital.com" target="_blank" rel="noopener noreferrer"
+                   className="hover:text-white transition-colors no-underline">
+                  Juris Digital (Established Firms) ↗
+                </a>
+              </li>
             </ul>
           </div>
         </div>
