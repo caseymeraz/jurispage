@@ -35,11 +35,22 @@ export interface KeywordVolume {
 export async function getSearchVolume(
   keywords: string[],
   locationCode: number = 2840, // US
-  languageCode: string = "en"
+  languageCode: string = "en",
+  locationName?: string
 ): Promise<KeywordVolume[]> {
+  const payload: Record<string, unknown> = {
+    keywords,
+    language_code: languageCode,
+  };
+  if (locationName) {
+    payload.location_name = locationName;
+  } else {
+    payload.location_code = locationCode;
+  }
+
   const data = await apiRequest<{ tasks: Array<{ result: Array<{ keyword: string; search_volume: number; monthly_searches: Array<{ year: number; month: number; search_volume: number }> }> }> }>(
     "/keywords_data/google_ads/search_volume/live",
-    [{ keywords, location_code: locationCode, language_code: languageCode }]
+    [payload]
   );
 
   const results = data.tasks?.[0]?.result || [];
@@ -167,6 +178,87 @@ export async function getAiVisibility(
   } catch {
     return { mentions: 0, impressions: 0 };
   }
+}
+
+// Google AI Overview SERP
+export interface AiOverviewReference {
+  domain: string;
+  url: string;
+  title: string;
+}
+
+export async function getAiModeSerp(
+  keyword: string,
+  locationCode: number = 2840,
+  languageCode: string = "en"
+): Promise<{ references: AiOverviewReference[] }> {
+  const data = await apiRequest<{
+    tasks: Array<{
+      result: Array<{
+        items?: Array<{
+          type?: string;
+          references?: Array<{
+            domain?: string;
+            url?: string;
+            title?: string;
+          }>;
+          items?: Array<{
+            type?: string;
+            references?: Array<{
+              domain?: string;
+              url?: string;
+              title?: string;
+            }>;
+          }>;
+        }>;
+      }>;
+    }>;
+  }>("/serp/google/ai_overview/live/advanced", [
+    { keyword, location_code: locationCode, language_code: languageCode },
+  ]);
+
+  const items = data.tasks?.[0]?.result?.[0]?.items || [];
+  const refs: AiOverviewReference[] = [];
+
+  for (const item of items) {
+    if (item.references) {
+      for (const ref of item.references) {
+        if (ref.domain) {
+          refs.push({
+            domain: ref.domain,
+            url: ref.url || "",
+            title: ref.title || "",
+          });
+        }
+      }
+    }
+    if (item.items) {
+      for (const sub of item.items) {
+        if (sub.references) {
+          for (const ref of sub.references) {
+            if (ref.domain) {
+              refs.push({
+                domain: ref.domain,
+                url: ref.url || "",
+                title: ref.title || "",
+              });
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // Deduplicate by domain
+  const seen = new Set<string>();
+  const unique = refs.filter((r) => {
+    const d = r.domain.toLowerCase();
+    if (seen.has(d)) return false;
+    seen.add(d);
+    return true;
+  });
+
+  return { references: unique };
 }
 
 // Keyword suggestions

@@ -65,6 +65,19 @@ export function generateFullKeywords(
   return [...teaser, ...expanded];
 }
 
+export function generateAiSearchQueries(
+  practiceArea: string,
+  city: string,
+  state: string
+): string[] {
+  const area = normalizeArea(practiceArea);
+  return [
+    `best ${area} lawyer in ${city} ${state}`,
+    `who is the top ${area} attorney in ${city}`,
+    `${area} lawyer recommendations ${city} ${state}`,
+  ];
+}
+
 export function getMapsQuery(practiceArea: string, city: string): string {
   const area = normalizeArea(practiceArea);
   return `${area} lawyer near ${city}`;

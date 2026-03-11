@@ -36,6 +36,7 @@ export default async function MarketGapReportPage({ params }: PageProps) {
   /* ── Build teaser props ── */
   const teaserProps = {
     totalSearchVolume: report.totalSearchVolume ?? 0,
+    localTotalSearchVolume: report.localSearchVolume ?? null,
     topCompetitors: report.competitors.map((c) => ({
       name: c.name,
       rating: c.rating,
@@ -49,10 +50,19 @@ export default async function MarketGapReportPage({ params }: PageProps) {
     keywordHighlights: report.keywords.map((k) => ({
       keyword: k.keyword,
       volume: k.searchVolume ?? 0,
+      localVolume: k.localSearchVolume ?? 0,
+      nationalVolume: k.searchVolume ?? 0,
     })),
     practiceArea: report.lead?.practiceArea ?? "Legal Services",
     city: report.lead?.city ?? "",
     state: report.lead?.state ?? "",
+    aiSearchResults: report.aiSearchData
+      ? (report.aiSearchData as { query: string; found: boolean; citedDomains: string[] }[])
+      : undefined,
+    reportId: report.id,
+    leadName: report.lead?.firmName ?? "",
+    leadEmail: report.lead?.email ?? "",
+    leadPhone: report.lead?.phone ?? "",
   };
 
   /* ── Teaser-only view ── */

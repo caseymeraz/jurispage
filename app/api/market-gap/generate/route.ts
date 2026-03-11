@@ -2,9 +2,11 @@ import { NextRequest, NextResponse } from "next/server";
 import { Resend } from "resend";
 import type { Prisma } from "@prisma/client";
 import { prisma } from "@/lib/db";
-import { generateTeaserKeywords, getMapsQuery } from "@/lib/market-gap/keywords";
+import { generateTeaserKeywords, getMapsQuery, generateAiSearchQueries } from "@/lib/market-gap/keywords";
 import { getSearchVolume, getMapsResults } from "@/lib/dataforseo";
 import { assembleTeaserData } from "@/lib/market-gap/teaser";
+import { checkAiSearchVisibility } from "@/lib/market-gap/ai-search";
+import { getStateFullName } from "@/lib/us-states";
 
 // Normalize domain: strip protocol, www, trailing slash
 function normalizeDomain(url: string | undefined): string | null {
@@ -225,39 +227,57 @@ export async function POST(req: NextRequest) {
     // Run teaser generation inline (keyword volume + maps)
     // -------------------------------------------------------
     try {
-      // Generate keywords and maps query
+      // Generate keywords, maps query, and AI search queries
       const teaserKeywords = generateTeaserKeywords(
         practiceArea,
         reportCity,
         reportState
       );
       const mapsQuery = getMapsQuery(practiceArea, reportCity);
+      const aiQueries = generateAiSearchQueries(practiceArea, reportCity, reportState);
+
+      // Build location name for local volume
+      const stateFullName = getStateFullName(reportState);
+      const locationName = `${reportCity},${stateFullName},United States`;
 
       // Default coordinates for maps (use lead's if available)
       const latitude = body.lat ?? lead.lat ?? 39.8283;
       const longitude = body.lng ?? lead.lng ?? -98.5795;
 
+      // Firm domain for AI search matching
+      const firmDomain = lead.normalizedDomain || null;
+
       // Run DataForSEO calls in parallel
-      const [keywordVolumes, mapsResults] = await Promise.all([
+      const [localKeywordVolumes, nationalKeywordVolumes, mapsResults, aiSearchResults] = await Promise.all([
+        getSearchVolume(teaserKeywords, 2840, "en", locationName),
         getSearchVolume(teaserKeywords),
         getMapsResults(mapsQuery, latitude, longitude),
+        checkAiSearchVisibility(aiQueries, firmDomain),
       ]);
 
       // Assemble teaser data
       const teaserData = assembleTeaserData(
-        keywordVolumes,
+        nationalKeywordVolumes,
+        localKeywordVolumes,
         mapsResults.competitors,
         lead.firmName,
-        lead.googlePlaceId
+        lead.googlePlaceId,
+        aiSearchResults
       );
 
-      // Save keyword records
-      if (keywordVolumes.length > 0) {
+      // Save keyword records with both local and national volumes
+      if (nationalKeywordVolumes.length > 0) {
+        const localVolumeMap = new Map<string, number>();
+        for (const kv of localKeywordVolumes) {
+          localVolumeMap.set(kv.keyword.toLowerCase(), kv.searchVolume);
+        }
+
         await prisma.marketGapKeyword.createMany({
-          data: keywordVolumes.map((kv) => ({
+          data: nationalKeywordVolumes.map((kv) => ({
             reportId: report.id,
             keyword: kv.keyword,
             searchVolume: kv.searchVolume,
+            localSearchVolume: localVolumeMap.get(kv.keyword.toLowerCase()) ?? 0,
             trend: kv.monthlySearches ? JSON.parse(JSON.stringify(kv.monthlySearches)) : undefined,
           })),
         });
@@ -286,12 +306,14 @@ export async function POST(req: NextRequest) {
         data: {
           status: "teaser_ready",
           totalSearchVolume: teaserData.totalSearchVolume,
+          localSearchVolume: teaserData.localTotalSearchVolume,
           mapPackCompetitors: teaserData.topCompetitors as unknown as Prisma.InputJsonValue,
           firmInMapPack: teaserData.firmInMapPack,
           firmRating: teaserData.firmRating,
           firmReviewCount: teaserData.firmReviewCount,
           biggestGap: teaserData.biggestGap,
           keywordData: teaserData.keywordHighlights as unknown as Prisma.InputJsonValue,
+          aiSearchData: teaserData.aiSearchResults as unknown as Prisma.InputJsonValue,
         },
       });
 
@@ -303,7 +325,7 @@ export async function POST(req: NextRequest) {
           metadata: {
             totalSearchVolume: teaserData.totalSearchVolume,
             competitorCount: mapsResults.competitors.length,
-            keywordCount: keywordVolumes.length,
+            keywordCount: nationalKeywordVolumes.length,
             firmInMapPack: teaserData.firmInMapPack,
           } as unknown as Prisma.InputJsonValue,
         },

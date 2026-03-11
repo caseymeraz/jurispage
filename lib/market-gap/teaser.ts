@@ -1,9 +1,12 @@
 // Teaser data assembly
 
 import type { MapCompetitor, KeywordVolume } from "@/lib/dataforseo";
+import type { AiSearchCheck } from "@/lib/market-gap/ai-search";
 
 export interface TeaserData {
   totalSearchVolume: number;
+  localTotalSearchVolume: number | null;
+  localDataAvailable: boolean;
   topCompetitors: {
     name: string;
     rating: number | null;
@@ -14,22 +17,44 @@ export interface TeaserData {
   firmRating: number | null;
   firmReviewCount: number | null;
   biggestGap: string;
-  keywordHighlights: { keyword: string; volume: number }[];
+  keywordHighlights: {
+    keyword: string;
+    localVolume: number;
+    nationalVolume: number;
+  }[];
+  aiSearchResults: AiSearchCheck[];
 }
 
 export function assembleTeaserData(
-  keywordVolumes: KeywordVolume[],
+  nationalKeywordVolumes: KeywordVolume[],
+  localKeywordVolumes: KeywordVolume[] | null,
   mapCompetitors: MapCompetitor[],
   firmName: string | null,
-  firmPlaceId: string | null
+  firmPlaceId: string | null,
+  aiSearchResults: AiSearchCheck[] = []
 ): TeaserData {
-  // Total search volume
-  const totalSearchVolume = keywordVolumes.reduce(
+  // National total search volume
+  const totalSearchVolume = nationalKeywordVolumes.reduce(
     (sum, kv) => sum + kv.searchVolume,
     0
   );
 
-  // Top 3 map competitors
+  // Local total search volume
+  const localTotal = localKeywordVolumes
+    ? localKeywordVolumes.reduce((sum, kv) => sum + kv.searchVolume, 0)
+    : null;
+  const localDataAvailable = localTotal !== null && localTotal > 0;
+  const localTotalSearchVolume = localDataAvailable ? localTotal : null;
+
+  // Build a map of local volumes by keyword for easy lookup
+  const localVolumeMap = new Map<string, number>();
+  if (localKeywordVolumes) {
+    for (const kv of localKeywordVolumes) {
+      localVolumeMap.set(kv.keyword.toLowerCase(), kv.searchVolume);
+    }
+  }
+
+  // Top 5 map competitors
   const topCompetitors = mapCompetitors
     .slice(0, 5)
     .map((c) => ({
@@ -63,20 +88,27 @@ export function assembleTeaserData(
     }
   }
 
-  // Top keyword highlights
-  const keywordHighlights = keywordVolumes
+  // Top keyword highlights — sort by national volume
+  const keywordHighlights = nationalKeywordVolumes
     .filter((kv) => kv.searchVolume > 0)
     .sort((a, b) => b.searchVolume - a.searchVolume)
     .slice(0, 5)
-    .map((kv) => ({ keyword: kv.keyword, volume: kv.searchVolume }));
+    .map((kv) => ({
+      keyword: kv.keyword,
+      localVolume: localVolumeMap.get(kv.keyword.toLowerCase()) ?? 0,
+      nationalVolume: kv.searchVolume,
+    }));
 
   return {
     totalSearchVolume,
+    localTotalSearchVolume,
+    localDataAvailable,
     topCompetitors,
     firmInMapPack,
     firmRating,
     firmReviewCount,
     biggestGap,
     keywordHighlights,
+    aiSearchResults,
   };
 }

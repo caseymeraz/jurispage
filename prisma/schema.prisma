@@ -58,12 +58,14 @@ model MarketGapReport {
 
   // Teaser data
   totalSearchVolume   Int?
+  localSearchVolume   Int?
   mapPackCompetitors  Json?
   firmInMapPack       Boolean?
   firmRating          Float?
   firmReviewCount     Int?
   biggestGap          String?
   keywordData         Json?
+  aiSearchData        Json?
 
   // Full report data
   organicSerpData     Json?
@@ -126,6 +128,7 @@ model MarketGapKeyword {
   report          MarketGapReport @relation(fields: [reportId], references: [id])
   keyword         String
   searchVolume    Int?
+  localSearchVolume Int?
   trend           Json?
   organicPosition Int?
   firmRanking     Boolean  @default(false)
