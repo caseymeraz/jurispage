@@ -19,10 +19,16 @@ function formatDate(date: Date) {
 }
 
 export default async function AdminPage() {
-  const reports = await prisma.marketGapReport.findMany({
-    orderBy: { createdAt: "desc" },
-    include: { lead: true },
-  });
+  const [reports, aiReports] = await Promise.all([
+    prisma.marketGapReport.findMany({
+      orderBy: { createdAt: "desc" },
+      include: { lead: true },
+    }),
+    prisma.aiSearchReport.findMany({
+      orderBy: { createdAt: "desc" },
+      include: { lead: true },
+    }),
+  ]);
 
   return (
     <div>
@@ -105,6 +111,88 @@ export default async function AdminPage() {
                       >
                         View →
                       </a>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      )}
+
+      <div className="mt-12 mb-6">
+        <h2 className="text-2xl font-bold text-gray-900 font-heading">
+          AI Search Reports
+        </h2>
+        <p className="text-sm text-gray-500 mt-1">
+          {aiReports.length} total submission{aiReports.length !== 1 ? "s" : ""}
+        </p>
+      </div>
+
+      {aiReports.length === 0 ? (
+        <div className="bg-white rounded-xl border border-gray-200 p-12 text-center">
+          <p className="text-gray-500">No AI search submissions yet.</p>
+        </div>
+      ) : (
+        <div className="bg-white rounded-xl border border-gray-200 overflow-hidden">
+          <div className="overflow-x-auto">
+            <table className="w-full text-sm">
+              <thead>
+                <tr className="bg-gray-50 border-b border-gray-200 text-left">
+                  <th className="px-4 py-3 font-semibold text-gray-600">
+                    Date
+                  </th>
+                  <th className="px-4 py-3 font-semibold text-gray-600">
+                    Email
+                  </th>
+                  <th className="px-4 py-3 font-semibold text-gray-600">
+                    Firm Name
+                  </th>
+                  <th className="px-4 py-3 font-semibold text-gray-600">
+                    Website
+                  </th>
+                  <th className="px-4 py-3 font-semibold text-gray-600">
+                    Practice Area
+                  </th>
+                  <th className="px-4 py-3 font-semibold text-gray-600">
+                    Market
+                  </th>
+                  <th className="px-4 py-3 font-semibold text-gray-600">
+                    AI Visibility
+                  </th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-gray-100">
+                {aiReports.map((report) => (
+                  <tr key={report.id} className="hover:bg-gray-50/50">
+                    <td className="px-4 py-3 text-gray-500 whitespace-nowrap">
+                      {formatDate(report.createdAt)}
+                    </td>
+                    <td className="px-4 py-3 text-gray-900 font-medium">
+                      {report.lead.email}
+                    </td>
+                    <td className="px-4 py-3 text-gray-700">
+                      {report.lead.firmName || "—"}
+                    </td>
+                    <td className="px-4 py-3 text-gray-700">
+                      {report.firmDomain || "—"}
+                    </td>
+                    <td className="px-4 py-3 text-gray-700">
+                      {report.practiceArea}
+                    </td>
+                    <td className="px-4 py-3 text-gray-700 whitespace-nowrap">
+                      {report.city}, {report.state}
+                    </td>
+                    <td className="px-4 py-3">
+                      <span
+                        className={`inline-block px-2.5 py-0.5 rounded-full text-xs font-medium ${
+                          report.queriesFound > 0
+                            ? "bg-green-100 text-green-800"
+                            : "bg-red-100 text-red-800"
+                        }`}
+                      >
+                        {report.queriesFound} / {report.queriesRun} queries
+                      </span>
                     </td>
                   </tr>
                 ))}

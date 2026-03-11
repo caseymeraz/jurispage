@@ -52,12 +52,21 @@ export async function POST(req: NextRequest) {
     const normalizedEmail = email.toLowerCase().trim();
 
     // Rate limit: 1 report per email per 24 hours
-    const recentReport = await prisma.aiSearchReport.findFirst({
-      where: {
-        lead: { email: normalizedEmail },
-        createdAt: { gte: new Date(Date.now() - 86400000) },
-      },
-    });
+    let recentReport;
+    try {
+      recentReport = await prisma.aiSearchReport.findFirst({
+        where: {
+          lead: { email: normalizedEmail },
+          createdAt: { gte: new Date(Date.now() - 86400000) },
+        },
+      });
+    } catch (dbError) {
+      console.error("DB error checking recent reports (ai_search_reports table may not exist):", dbError);
+      return NextResponse.json(
+        { error: "Service configuration error. Please contact support." },
+        { status: 503 }
+      );
+    }
 
     if (recentReport) {
       return NextResponse.json(
@@ -69,68 +78,95 @@ export async function POST(req: NextRequest) {
     // Upsert lead by email
     const normalizedDomain = normalizeDomain(website);
 
-    let lead = await prisma.lead.findFirst({
-      where: { email: normalizedEmail },
-    });
+    let lead;
+    try {
+      lead = await prisma.lead.findFirst({
+        where: { email: normalizedEmail },
+      });
 
-    if (lead) {
-      lead = await prisma.lead.update({
-        where: { id: lead.id },
-        data: {
-          firmName,
-          normalizedDomain: normalizedDomain,
-          website,
-          practiceArea,
-          city,
-          state,
-          utmSource: body.utmSource,
-          utmMedium: body.utmMedium,
-          utmCampaign: body.utmCampaign,
-          utmTerm: body.utmTerm,
-          utmContent: body.utmContent,
-          referrer: body.referrer,
-        },
-      });
-    } else {
-      lead = await prisma.lead.create({
-        data: {
-          email: normalizedEmail,
-          firmName,
-          normalizedDomain: normalizedDomain,
-          website,
-          practiceArea,
-          city,
-          state,
-          utmSource: body.utmSource,
-          utmMedium: body.utmMedium,
-          utmCampaign: body.utmCampaign,
-          utmTerm: body.utmTerm,
-          utmContent: body.utmContent,
-          referrer: body.referrer,
-        },
-      });
+      if (lead) {
+        lead = await prisma.lead.update({
+          where: { id: lead.id },
+          data: {
+            firmName,
+            normalizedDomain: normalizedDomain,
+            website,
+            practiceArea,
+            city,
+            state,
+            utmSource: body.utmSource,
+            utmMedium: body.utmMedium,
+            utmCampaign: body.utmCampaign,
+            utmTerm: body.utmTerm,
+            utmContent: body.utmContent,
+            referrer: body.referrer,
+          },
+        });
+      } else {
+        lead = await prisma.lead.create({
+          data: {
+            email: normalizedEmail,
+            firmName,
+            normalizedDomain: normalizedDomain,
+            website,
+            practiceArea,
+            city,
+            state,
+            utmSource: body.utmSource,
+            utmMedium: body.utmMedium,
+            utmCampaign: body.utmCampaign,
+            utmTerm: body.utmTerm,
+            utmContent: body.utmContent,
+            referrer: body.referrer,
+          },
+        });
+      }
+    } catch (leadError) {
+      console.error("DB error upserting lead (leads table may not exist):", leadError);
+      return NextResponse.json(
+        { error: "Service configuration error. Please contact support." },
+        { status: 503 }
+      );
     }
 
     // Generate queries and run AI search
     const queries = generateAiSearchQueries(practiceArea, city, state);
-    const aiResults = await checkAiSearchVisibility(queries, normalizedDomain);
+    let aiResults;
+    try {
+      aiResults = await checkAiSearchVisibility(queries, normalizedDomain);
+    } catch (aiError) {
+      console.error("DataForSEO AI search error:", aiError);
+      return NextResponse.json(
+        { error: "AI search analysis temporarily unavailable. Please try again later." },
+        { status: 502 }
+      );
+    }
 
     const queriesRun = aiResults.length;
     const queriesFound = aiResults.filter((r) => r.found).length;
 
     // Save report
-    const report = await prisma.aiSearchReport.create({
-      data: {
-        leadId: lead.id,
-        practiceArea,
-        city,
-        state,
-        firmDomain: normalizedDomain,
-        results: aiResults as unknown as import("@prisma/client").Prisma.InputJsonValue,
-        queriesRun,
-        queriesFound,
-      },
-    });
+    let report;
+    try {
+      report = await prisma.aiSearchReport.create({
+        data: {
+          leadId: lead.id,
+          practiceArea,
+          city,
+          state,
+          firmDomain: normalizedDomain,
+          results: aiResults as unknown as import("@prisma/client").Prisma.InputJsonValue,
+          queriesRun,
+          queriesFound,
+        },
+      });
+    } catch (saveError) {
+      console.error("DB error saving AI search report:", saveError);
+      return NextResponse.json(
+        { error: "Failed to save report. Please try again later." },
+        { status: 503 }
+      );
+    }
 
     // Send internal notification
     try {
