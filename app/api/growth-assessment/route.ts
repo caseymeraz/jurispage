@@ -127,6 +127,7 @@ export async function POST(req: NextRequest) {
             { name: "monthly_budget", value: budget || "" },
             { name: "growth_goal", value: growthGoal || "" },
             { name: "message", value: notes || "" },
+            { name: "form_source", value: "growth-assessment" },
           ],
           { hutk: body.hutk, pageUri: body.pageUri, pageName: body.pageName }
         );
