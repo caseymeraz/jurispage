@@ -146,16 +146,16 @@ export default function MarketGapForm() {
   /* ----- UTM capture ------------------------------------------------ */
 
   const getUtmParams = useCallback(() => {
-    const utmKeys = [
-      "utm_source",
-      "utm_medium",
-      "utm_campaign",
-      "utm_term",
-      "utm_content",
-    ];
+    const mapping: Record<string, string> = {
+      utm_source: "utmSource",
+      utm_medium: "utmMedium",
+      utm_campaign: "utmCampaign",
+      utm_term: "utmTerm",
+      utm_content: "utmContent",
+    };
     const utms: Record<string, string> = {};
-    for (const key of utmKeys) {
-      const val = searchParams.get(key);
+    for (const [param, key] of Object.entries(mapping)) {
+      const val = searchParams.get(param);
       if (val) utms[key] = val;
     }
     return utms;
@@ -264,7 +264,16 @@ export default function MarketGapForm() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           step: 1,
-          ...step1,
+          email: step1.email,
+          firmName: step1.firmName,
+          googlePlaceId: step1.placeId,
+          formattedAddress: step1.formattedAddress,
+          website: step1.website,
+          phone: step1.phone,
+          lat: step1.lat,
+          lng: step1.lng,
+          city: step2.targetCity,
+          state: step2.targetState,
           ...getUtmParams(),
         }),
       });
@@ -315,9 +324,30 @@ export default function MarketGapForm() {
       const payload = {
         step: 3,
         leadId,
-        ...step1,
-        ...step2,
-        ...(skipStep3 ? {} : step3),
+        // Step 1
+        email: step1.email,
+        firmName: step1.firmName,
+        googlePlaceId: step1.placeId,
+        formattedAddress: step1.formattedAddress,
+        website: step1.website,
+        phone: step1.phone,
+        lat: step1.lat,
+        lng: step1.lng,
+        // Step 2
+        practiceArea: step2.primaryPracticeArea,
+        secondaryPracticeArea: step2.secondaryPracticeArea,
+        targetCity: step2.targetCity,
+        targetState: step2.targetState,
+        country: step2.country === "Canada" ? "CA" : "US",
+        isNewFirm: step2.isNewFirm,
+        // Step 3
+        ...(skipStep3 ? {} : {
+          caseValue: step3.avgCaseValue,
+          leadVolume: step3.monthlyLeadVolume,
+          responseTime: step3.avgResponseTime,
+          afterHours: step3.afterHoursCoverage,
+          crmService: step3.crmService,
+        }),
         ...getUtmParams(),
       };
 
