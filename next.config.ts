@@ -21,6 +21,7 @@ const nextConfig: NextConfig = {
   },
   async redirects() {
     return [
+      // ── Existing redirects ──
       {
         source: "/seo-for-family-law-firms/:path*",
         destination: "/family-law-firm-marketing/",
@@ -64,6 +65,293 @@ const nextConfig: NextConfig = {
       {
         source: "/free-market-report",
         destination: "/see-my-market-gap",
+        permanent: true,
+      },
+
+      // ── High-priority backlink recovery (DR 50+) ──
+      {
+        source: "/law-firm-marketing/law-firm-marketing-strategy/:path*",
+        destination: "/",
+        permanent: true,
+      },
+      {
+        source: "/law-firm-marketing/:path*",
+        destination: "/",
+        permanent: true,
+      },
+      {
+        source: "/law-firm-marketing-strategy/:path*",
+        destination: "/",
+        permanent: true,
+      },
+      {
+        source: "/video-marketing-for-lawyers-goes-mainstream",
+        destination: "/",
+        permanent: true,
+      },
+      {
+        source: "/landing-page-portfolio/:path*",
+        destination: "/law-firm-websites/",
+        permanent: true,
+      },
+      {
+        source: "/design-portfolio/:path*",
+        destination: "/law-firm-websites/",
+        permanent: true,
+      },
+      {
+        source: "/seo-for-lawyers/:path*",
+        destination: "/law-firm-seo/",
+        permanent: true,
+      },
+      {
+        source: "/how-many-hours-do-lawyers-work/:path*",
+        destination: "/",
+        permanent: true,
+      },
+      {
+        source: "/how-to-start-a-law-firm/:path*",
+        destination: "/",
+        permanent: true,
+      },
+      {
+        source: "/law-firm-seo/:path*",
+        destination: "/law-firm-seo/",
+        permanent: true,
+      },
+
+      // ── Practice area remapping ──
+      {
+        source: "/marketing-for-criminal-defense-lawyers/:path*",
+        destination: "/criminal-defense-lawyer-marketing/",
+        permanent: true,
+      },
+      {
+        source: "/marketing-for-family-lawyers/:path*",
+        destination: "/family-law-firm-marketing/",
+        permanent: true,
+      },
+      {
+        source: "/marketing-for-bankruptcy-attorneys/:path*",
+        destination: "/bankruptcy-lawyer-marketing/",
+        permanent: true,
+      },
+      {
+        source: "/internet-marketing-for-personal-injury-lawyers/:path*",
+        destination: "/personal-injury-lawyer-marketing/",
+        permanent: true,
+      },
+      {
+        source: "/internet-marketing-for-estate-planning-lawyers/:path*",
+        destination: "/estate-planning-lawyer-marketing/",
+        permanent: true,
+      },
+
+      // ── Service page remapping ──
+      {
+        source: "/google-advertising-lawyers/:path*",
+        destination: "/google-ads-for-law-firms/",
+        permanent: true,
+      },
+      {
+        source: "/ppc-for-lawyers/:path*",
+        destination: "/google-ads-for-law-firms/",
+        permanent: true,
+      },
+      {
+        source: "/local-service-ads-lawyers/:path*",
+        destination: "/google-ads-for-law-firms/",
+        permanent: true,
+      },
+      {
+        source: "/facebook-advertising-for-lawyers/:path*",
+        destination: "/google-ads-for-law-firms/",
+        permanent: true,
+      },
+      {
+        source: "/best-law-firm-websites/:path*",
+        destination: "/law-firm-websites/",
+        permanent: true,
+      },
+      {
+        source: "/best-law-firm-landing-pages/:path*",
+        destination: "/law-firm-websites/",
+        permanent: true,
+      },
+      {
+        source: "/best-criminal-defense-lawyer-websites/:path*",
+        destination: "/criminal-defense-lawyer-marketing/",
+        permanent: true,
+      },
+      {
+        source: "/best-family-lawyer-websites/:path*",
+        destination: "/family-law-firm-marketing/",
+        permanent: true,
+      },
+      {
+        source: "/law-firm-branding/:path*",
+        destination: "/law-firm-websites/",
+        permanent: true,
+      },
+      {
+        source: "/best-law-firm-logo-designs/:path*",
+        destination: "/law-firm-websites/",
+        permanent: true,
+      },
+      {
+        source: "/law-firm-business-cards/:path*",
+        destination: "/law-firm-websites/",
+        permanent: true,
+      },
+      {
+        source: "/lawyer-law-domain-names/:path*",
+        destination: "/law-firm-websites/",
+        permanent: true,
+      },
+      {
+        source: "/legal-fonts/:path*",
+        destination: "/law-firm-websites/",
+        permanent: true,
+      },
+      {
+        source: "/content-marketing-law-firms/:path*",
+        destination: "/law-firm-content-writing/",
+        permanent: true,
+      },
+      {
+        source: "/law-firm-copywriting/:path*",
+        destination: "/law-firm-content-writing/",
+        permanent: true,
+      },
+      {
+        source: "/social-media-for-lawyers/:path*",
+        destination: "/law-firm-content-writing/",
+        permanent: true,
+      },
+      {
+        source: "/direct-mail-for-lawyers/:path*",
+        destination: "/law-firm-content-writing/",
+        permanent: true,
+      },
+      {
+        source: "/tiktok-for-lawyers/:path*",
+        destination: "/law-firm-content-writing/",
+        permanent: true,
+      },
+      {
+        source: "/email-marketing-for-law-firms/:path*",
+        destination: "/law-firm-email-marketing/",
+        permanent: true,
+      },
+      {
+        source: "/law-firm-marketing-services/:path*",
+        destination: "/services/pricing/",
+        permanent: true,
+      },
+
+      // ── Portfolio → Case studies (specific before catch-all) ──
+      {
+        source: "/portfolio/sands-law-group/:path*",
+        destination: "/case-studies/the-sands-law-group/",
+        permanent: true,
+      },
+      {
+        source: "/portfolio/jennings-family-law/:path*",
+        destination: "/case-studies/",
+        permanent: true,
+      },
+      {
+        source: "/portfolio/karen-a-schoenau/:path*",
+        destination: "/case-studies/",
+        permanent: true,
+      },
+      {
+        source: "/portfolio/:path*",
+        destination: "/case-studies/",
+        permanent: true,
+      },
+
+      // ── Misc informational content ──
+      {
+        source: "/best-crm-law-firms/:path*",
+        destination: "/",
+        permanent: true,
+      },
+      {
+        source: "/clio-grow-review/:path*",
+        destination: "/",
+        permanent: true,
+      },
+      {
+        source: "/advice-for-new-lawyers/:path*",
+        destination: "/",
+        permanent: true,
+      },
+      {
+        source: "/best-apps-for-lawyers/:path*",
+        destination: "/",
+        permanent: true,
+      },
+      {
+        source: "/best-books-for-lawyers/:path*",
+        destination: "/",
+        permanent: true,
+      },
+      {
+        source: "/lawyer-directories/:path*",
+        destination: "/law-firm-seo/",
+        permanent: true,
+      },
+      {
+        source: "/lawyer-advertising-rules/:path*",
+        destination: "/",
+        permanent: true,
+      },
+      {
+        source: "/law-firm-accounting-bookkeeping/:path*",
+        destination: "/",
+        permanent: true,
+      },
+      {
+        source: "/how-to-leave-findlaw/:path*",
+        destination: "/scorpion-legal-marketing-alternative/",
+        permanent: true,
+      },
+      {
+        source: "/keyboard-shortcuts-legal-symbols-section-symbol/:path*",
+        destination: "/",
+        permanent: true,
+      },
+      {
+        source: "/lawyer-statistics/:path*",
+        destination: "/",
+        permanent: true,
+      },
+      {
+        source: "/how-marketing-helps-law-firms-succeed/:path*",
+        destination: "/",
+        permanent: true,
+      },
+
+      // ── Old WordPress URL patterns (catch-alls, last) ──
+      {
+        source: "/2015/:path*",
+        destination: "/",
+        permanent: true,
+      },
+      {
+        source: "/2018/:path*",
+        destination: "/",
+        permanent: true,
+      },
+      {
+        source: "/2023/:path*",
+        destination: "/",
+        permanent: true,
+      },
+      {
+        source: "/category/:path*",
+        destination: "/",
         permanent: true,
       },
     ];

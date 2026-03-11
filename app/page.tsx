@@ -442,10 +442,11 @@ export default function HomePage() {
               </h1>
 
               <p className="text-gray-600 text-xl leading-relaxed mb-8">
-                Get a personalized market-gap analysis for your practice area
-                and city. See how many potential clients search for a lawyer
-                like you, who&apos;s winning those searches today, and the
-                specific gaps you can close to start winning.
+                Your law firm marketing strategy starts with knowing where
+                you&apos;re losing. Get a personalized market-gap analysis for
+                your practice area and city. See how many potential clients
+                search for a lawyer like you, who&apos;s winning those searches
+                today, and the specific gaps you can close to start winning.
               </p>
 
               {/* CTAs */}
