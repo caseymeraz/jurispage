@@ -43,14 +43,12 @@ const differences = [
 ];
 
 const teamMembers = [
-  { name: "Jessica Stowe", image: "team-jessica-stowe.jpg", title: "" },
-  { name: "Jeremy Shankman", image: "headshot-jeremy-shankman.jpg", title: "" },
-  { name: "Justin Carson", image: "headshot-justin-carson.jpg", title: "" },
+  { name: "Leann Pickard", image: "headshot-leann-pickard.webp", title: "President" },
+  { name: "Peter Kerlin", image: "headshot-peter-kerlin.webp", title: "COO" },
   { name: "Shahla Cornelio", image: "headshot-shahla-cornelio.jpg", title: "" },
-  { name: "Fernanda Oliveira", image: "headshot-fernanda.png", title: "" },
-  { name: "Corbin Maynard", image: "headshot-corbin-maynard.jpg", title: "" },
-  { name: "Jordan Hobbs", image: "Jordan-Hobbs.jpg", title: "" },
-  { name: "William Chan", image: "Linkedin-banner-will-1-3-1.jpg", title: "" },
+  { name: "Serena Gross", image: "headshot-serena-gross.jpg", title: "" },
+  { name: "Justin Carson", image: "headshot-justin-carson.jpg", title: "" },
+  { name: "Jeremy Shankman", image: "headshot-jeremy-shankman.jpg", title: "" },
 ];
 
 const partners = [
