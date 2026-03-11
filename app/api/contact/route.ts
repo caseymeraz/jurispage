@@ -47,8 +47,8 @@ export async function POST(req: NextRequest) {
           { name: "email", value: email },
           { name: "phone", value: phone || "" },
           { name: "practice_area", value: practiceArea || "" },
-          { name: "budget", value: budget || "" },
-          { name: "referral_source", value: referral || "" },
+          { name: "monthly_budget", value: budget || "" },
+          { name: "how_did_you_hear_about_us_", value: referral || "" },
           { name: "message", value: message || "" },
         ],
         { hutk: body.hutk, pageUri: body.pageUri, pageName: body.pageName }

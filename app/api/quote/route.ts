@@ -164,21 +164,16 @@ export async function POST(req: NextRequest) {
     if (formGuid) {
       const [first, ...rest] = (name || "").trim().split(" ");
       const last = rest.join(" ");
-      const addonSummary = [
-        addons?.chatbot && "AI Chatbot ($299/mo)",
-        addons?.logo && "Logo Design ($999 one-time)",
-      ].filter(Boolean).join(", ") || "None";
       submitToHubSpot(
         formGuid,
         [
           { name: "firstname", value: first },
           { name: "lastname", value: last },
           { name: "email", value: email },
-          { name: "number_of_attorneys", value: String(attorneys) },
           { name: "practice_area", value: practiceArea || "" },
+          { name: "number_of_attorneys", value: String(attorneys) },
           { name: "city_size", value: cityLabel },
           { name: "monthly_budget", value: isCustom ? "Custom" : `$${monthlyTotal?.toLocaleString()}/mo` },
-          { name: "message", value: `Launchpad quote — Add-ons: ${addonSummary}` },
         ],
         { hutk: body.hutk, pageUri: body.pageUri, pageName: body.pageName }
       ).catch((err) => console.error("HubSpot quote error:", err));
