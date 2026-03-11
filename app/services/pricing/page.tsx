@@ -6,7 +6,7 @@ import LaunchpadCalculator from "@/components/LaunchpadCalculator";
 
 export const metadata: Metadata = {
   title: "Launchpad: Affordable Law Firm Marketing for Small Firms | JurisPage",
-  description: "Get an instant quote for JurisPage Launchpad: the fastest, most affordable way to build your law firm's online presence. Website, SEO, GBP, and more. Starting at $2,000/month.",
+  description: "Get instant pricing for JurisPage Launchpad: the fastest, most affordable way to build your law firm's online presence. Website, SEO, GBP, and more. Starting at $2,000/month.",
   alternates: { canonical: "https://jurispage.com/services/pricing/" },
 };
 
@@ -14,7 +14,7 @@ const faqSchema = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
   mainEntity: [
-    { "@type": "Question", name: "How is Launchpad priced?", acceptedAnswer: { "@type": "Answer", text: "Launchpad is priced based on your firm size and market. It starts at $2,000/month for firms with 1–2 attorneys. Larger firms and more competitive markets (major metros, personal injury) are priced accordingly. Use our quote calculator to get your exact number in under a minute." } },
+    { "@type": "Question", name: "How is Launchpad priced?", acceptedAnswer: { "@type": "Answer", text: "Launchpad is priced based on your firm size and market. It starts at $2,000/month for firms with 1–2 attorneys. Larger firms and more competitive markets (major metros, personal injury) are priced accordingly. Use our pricing calculator to get your exact number in under a minute." } },
     { "@type": "Question", name: "Are there long-term contracts?", acceptedAnswer: { "@type": "Answer", text: "No. Launchpad is month-to-month. Give us 30 days notice and you're done. We don't lock you in. The results should speak for themselves." } },
     { "@type": "Question", name: "How quickly can my campaign launch?", acceptedAnswer: { "@type": "Answer", text: "Full setup is completed within the first 45 days. That includes your website, Google Business Profile, local SEO foundation, social profiles, and all initial content production." } },
     { "@type": "Question", name: "Will I own my website and content?", acceptedAnswer: { "@type": "Answer", text: "Always. Your domain, your website, your content. All yours. If you ever leave JurisPage, everything transfers cleanly. We don't hold websites hostage." } },
@@ -66,7 +66,7 @@ const monthlyServices = [
 ];
 
 const faqs = [
-  { question: "How is Launchpad priced?", answer: "Launchpad is priced based on your firm size and market. It starts at $2,000/month for firms with 1–2 attorneys. Larger firms and more competitive markets (major metros, personal injury) are priced accordingly. Use our quote calculator to see your exact number in under a minute." },
+  { question: "How is Launchpad priced?", answer: "Launchpad is priced based on your firm size and market. It starts at $2,000/month for firms with 1–2 attorneys. Larger firms and more competitive markets (major metros, personal injury) are priced accordingly. Use our pricing calculator to see your exact number in under a minute." },
   { question: "Are there long-term contracts?", answer: "No. Launchpad is month-to-month. Give us 30 days notice and you're done. We've never believed in locking clients in. The results should do that for us." },
   { question: "How quickly can my campaign launch?", answer: "Full setup is completed within the first 45 days. That includes your website, Google Business Profile, local SEO foundation, social profiles, and all initial content production." },
   { question: "Will I own my website and content?", answer: "Always. Your domain, your website, your content. All yours. If you ever leave JurisPage, everything transfers cleanly. We don't hold websites hostage the way some larger agencies do." },
@@ -92,11 +92,11 @@ export default function PricingPage() {
           </span>
           <h1 className="font-heading font-extrabold text-gray-900 text-5xl leading-tight mb-6">
             Build Your Firm&apos;s Online Foundation.<br />
-            Get an Instant Quote.
+            Get Instant Pricing.
           </h1>
           <p className="text-gray-600 text-xl leading-relaxed mb-8 max-w-2xl mx-auto">
             No sales call needed. No waiting. Tell us about your firm and get a
-            transparent, itemized quote in under a minute.
+            transparent, itemized pricing in under a minute.
           </p>
           <div className="flex flex-wrap gap-6 justify-center text-sm text-gray-500">
             {["Month-to-month contracts", "Full setup in 45 days", "90-day results guarantee", "You own everything"].map((item) => (
@@ -112,7 +112,7 @@ export default function PricingPage() {
               className="inline-block font-heading font-bold text-white text-base px-8 py-4 rounded-[40px] no-underline transition-opacity hover:opacity-90"
               style={{ background: "#EE6C13" }}
             >
-              Get My Instant Quote
+              Get My Instant Pricing
             </a>
           </div>
         </div>
@@ -144,7 +144,7 @@ export default function PricingPage() {
                 { problem: "Paid $5,000+/mo for minimal results", fix: "Transparent pricing scaled to your firm size" },
                 { problem: "Locked into 12-month contracts", fix: "Month-to-month: stay because it's working, not because you have to" },
                 { problem: "Lost website if you switched agencies", fix: "You own your site, content, and data. Always." },
-                { problem: "Waited months just to find out the price", fix: "Instant, transparent quote in under 60 seconds" },
+                { problem: "Waited months just to find out the price", fix: "Instant, transparent pricing in under 60 seconds" },
               ].map((item) => (
                 <div key={item.problem} className="bg-white rounded-xl p-4 border border-gray-200 flex gap-4 items-start">
                   <div className="flex-shrink-0 text-base">❌</div>
@@ -219,14 +219,14 @@ export default function PricingPage() {
               className="inline-block text-xs font-heading font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-4 text-white"
               style={{ background: "#EE6C13" }}
             >
-              Instant Quote
+              Instant Pricing
             </span>
             <h2 className="font-heading font-extrabold text-gray-900 text-4xl mb-4">
-              Get Your Instant Quote
+              Get Your Instant Pricing
             </h2>
             <p className="text-gray-600 text-lg">
               Answer a few quick questions about your firm, enter your contact
-              info, and we&apos;ll reveal your itemized quote immediately.
+              info, and we&apos;ll reveal your itemized pricing immediately.
             </p>
           </div>
           <LaunchpadCalculator />
@@ -319,7 +319,7 @@ export default function PricingPage() {
             Ready to stop guessing and start growing?
           </p>
           <p className="text-orange-100 mb-7">
-            Get your instant quote above, or talk to a specialist today.
+            Get your instant pricing above, or talk to a specialist today.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
             <a
@@ -327,7 +327,7 @@ export default function PricingPage() {
               className="inline-block bg-white font-heading font-bold py-4 px-8 rounded-[40px] no-underline"
               style={{ color: "#982A0B" }}
             >
-              Get My Instant Quote
+              Get My Instant Pricing
             </a>
             <a
               href="tel:+18555936935"

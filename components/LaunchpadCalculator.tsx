@@ -125,7 +125,7 @@ export default function LaunchpadCalculator() {
           >
             ✓
           </div>
-          <h3 className="font-heading font-extrabold text-white text-2xl">Your quote is on its way.</h3>
+          <h3 className="font-heading font-extrabold text-white text-2xl">Your pricing estimate is on its way.</h3>
           <p className="text-gray-400 text-sm mt-1">
             {isCustom ? "We'll put together a custom proposal and reach out within one business day." : `Sent to ${email}`}
           </p>
@@ -140,7 +140,7 @@ export default function LaunchpadCalculator() {
             </div>
           ) : (
             <>
-              <p className="text-xs font-bold uppercase tracking-widest text-gray-400 mb-4">Your Quote Summary</p>
+              <p className="text-xs font-bold uppercase tracking-widest text-gray-400 mb-4">Your Pricing Summary</p>
               <div className="space-y-2 mb-4">
                 {breakdown.map((item) => (
                   <div key={item.label} className="flex justify-between items-center text-sm py-1.5 border-b border-gray-100">
@@ -175,7 +175,7 @@ export default function LaunchpadCalculator() {
                 )}
               </div>
               <p className="text-gray-500 text-xs mt-3 text-center">
-                This estimate is based on the info you provided. Your exact quote may vary slightly after a brief strategy call.
+                This estimate is based on the info you provided. Book a brief strategy call to confirm this pricing aligns with your firm's growth goals.
               </p>
             </>
           )}
@@ -204,8 +204,8 @@ export default function LaunchpadCalculator() {
   return (
     <div className="bg-white rounded-2xl shadow-2xl overflow-hidden">
       <div className="px-8 py-6" style={{ background: "#1a1a1a" }}>
-        <h3 className="font-heading font-extrabold text-white text-xl mb-1">Get Your Instant Quote</h3>
-        <p className="text-gray-400 text-sm">Answer a few questions, then enter your details to reveal your quote.</p>
+        <h3 className="font-heading font-extrabold text-white text-xl mb-1">Get Your Instant Pricing</h3>
+        <p className="text-gray-400 text-sm">Answer a few questions, then enter your details to see your pricing.</p>
       </div>
 
       <form onSubmit={handleSubmit} className="p-8 space-y-8">
@@ -231,7 +231,7 @@ export default function LaunchpadCalculator() {
             <option value={8}>8 attorneys</option>
             <option value={9}>9 attorneys</option>
             <option value={10}>10 attorneys</option>
-            <option value={11}>11+ attorneys (custom quote)</option>
+            <option value={11}>11+ attorneys (custom pricing)</option>
           </select>
           {isCustom && (
             <p className="text-sm text-gray-500 mt-3 p-3 rounded-lg bg-gray-50">
@@ -361,7 +361,7 @@ export default function LaunchpadCalculator() {
         <div className="rounded-xl p-5 border-2 border-dashed border-gray-200 text-center">
           <div className="text-2xl mb-2">🔒</div>
           <p className="font-heading font-bold text-gray-800 text-base mb-1">
-            Your quote is calculated.
+            Your pricing is ready.
           </p>
           <p className="text-sm text-gray-500">
             Enter your name and email below to reveal your price.
@@ -371,7 +371,7 @@ export default function LaunchpadCalculator() {
         {/* Contact */}
         <div>
           <p className="text-sm font-bold text-gray-800 mb-3">
-            Where should we send your quote?
+            Where should we send your pricing?
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <input
@@ -409,12 +409,12 @@ export default function LaunchpadCalculator() {
           {status === "loading"
             ? "Sending..."
             : isCustom
-            ? "Request My Custom Quote →"
-            : "Send My Quote →"}
+            ? "Request Custom Pricing →"
+            : "Get My Instant Pricing →"}
         </button>
 
         <p className="text-center text-xs text-gray-400">
-          No commitment required. No spam. Just your quote.
+          No commitment required. No spam. Just your pricing.
         </p>
       </form>
     </div>

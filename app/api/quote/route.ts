@@ -34,8 +34,8 @@ export async function POST(req: NextRequest) {
     const internalHtml = `
       <div style="font-family: Arial, sans-serif; max-width: 600px;">
         <div style="background: #1a1a1a; padding: 20px 28px;">
-          <h2 style="color: #EE6C13; margin: 0; font-size: 20px;">New Launchpad Quote Request</h2>
-          ${isCustom ? '<p style="color: #fbbf24; margin: 8px 0 0; font-size: 14px;">⚠ Custom quote needed (11+ attorneys)</p>' : ""}
+          <h2 style="color: #EE6C13; margin: 0; font-size: 20px;">New Launchpad Pricing Request</h2>
+          ${isCustom ? '<p style="color: #fbbf24; margin: 8px 0 0; font-size: 14px;">⚠ Custom pricing needed (11+ attorneys)</p>' : ""}
         </div>
         <div style="padding: 24px 28px; background: #f9fafb;">
           <table style="border-collapse: collapse; width: 100%;">
@@ -48,7 +48,7 @@ export async function POST(req: NextRequest) {
             <tr><td style="padding: 8px 12px; border: 1px solid #e5e7eb; font-weight: bold; background: #fff;">Logo Design</td><td style="padding: 8px 12px; border: 1px solid #e5e7eb; background: #fff;">${addons?.logo ? "Yes (+$999 one-time)" : "No"}</td></tr>
             <tr style="background: #fef3ec;">
               <td style="padding: 10px 12px; border: 1px solid #e5e7eb; font-weight: bold;">Estimated Monthly</td>
-              <td style="padding: 10px 12px; border: 1px solid #e5e7eb; font-weight: bold; color: #EE6C13; font-size: 18px;">${isCustom ? "Custom Quote" : `$${monthlyTotal?.toLocaleString()}/mo`}</td>
+              <td style="padding: 10px 12px; border: 1px solid #e5e7eb; font-weight: bold; color: #EE6C13; font-size: 18px;">${isCustom ? "Custom Pricing" : `$${monthlyTotal?.toLocaleString()}/mo`}</td>
             </tr>
             ${oneTimeTotal > 0 ? `<tr><td style="padding: 8px 12px; border: 1px solid #e5e7eb; font-weight: bold; background: #f9fafb;">One-Time Setup</td><td style="padding: 8px 12px; border: 1px solid #e5e7eb; background: #f9fafb;">$${oneTimeTotal?.toLocaleString()}</td></tr>` : ""}
           </table>
@@ -58,9 +58,9 @@ export async function POST(req: NextRequest) {
     `;
 
     await resend.emails.send({
-      from: "JurisPage Quotes <leads@jurispage.com>",
+      from: "JurisPage Pricing <leads@jurispage.com>",
       to: ["cmeraz@jurisdigital.com", "ahatcher@jurisdigital.com", "jmeans@jurisdigital.com"],
-      subject: `New Quote: ${name} — ${isCustom ? "Custom (11+ attorneys)" : `$${monthlyTotal?.toLocaleString()}/mo`} | ${practiceArea}`,
+      subject: `New Pricing Request: ${name} — ${isCustom ? "Custom (11+ attorneys)" : `$${monthlyTotal?.toLocaleString()}/mo`} | ${practiceArea}`,
       html: internalHtml,
       replyTo: email,
     });
@@ -70,7 +70,7 @@ export async function POST(req: NextRequest) {
       ? `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
           <div style="background: #1a1a1a; padding: 24px 32px;">
-            <h1 style="color: #EE6C13; font-size: 22px; margin: 0;">We received your quote request.</h1>
+            <h1 style="color: #EE6C13; font-size: 22px; margin: 0;">We received your pricing request.</h1>
           </div>
           <div style="padding: 32px; background: #ffffff;">
             <p style="color: #374151;">Hi ${name},</p>
@@ -90,14 +90,14 @@ export async function POST(req: NextRequest) {
       : `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
           <div style="background: #1a1a1a; padding: 24px 32px;">
-            <h1 style="color: #EE6C13; font-size: 22px; margin: 0;">Your JurisPage Launchpad Quote</h1>
+            <h1 style="color: #EE6C13; font-size: 22px; margin: 0;">Your JurisPage Launchpad Pricing</h1>
           </div>
           <div style="padding: 32px; background: #ffffff;">
             <p style="color: #374151;">Hi ${name},</p>
-            <p style="color: #555; line-height: 1.7;">Here's your personalized Launchpad quote based on what you told us. This is your all-in monthly investment — no hidden fees, no long-term contract.</p>
+            <p style="color: #555; line-height: 1.7;">Here's your personalized Launchpad pricing based on what you told us. This is your all-in monthly investment — no hidden fees, no long-term contract.</p>
 
             <div style="background: #f9fafb; border-radius: 12px; padding: 24px; margin: 24px 0; border: 1px solid #e5e7eb;">
-              <p style="font-size: 11px; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; color: #9ca3af; margin: 0 0 16px;">Your Quote Details</p>
+              <p style="font-size: 11px; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; color: #9ca3af; margin: 0 0 16px;">Your Pricing Details</p>
               <p style="margin: 6px 0; color: #555; font-size: 14px;">Firm size: <strong>${attorneyDisplay} ${attorneys > 10 ? "" : "attorneys"}</strong></p>
               <p style="margin: 6px 0; color: #555; font-size: 14px;">Practice area: <strong>${practiceArea}</strong></p>
               <p style="margin: 6px 0; color: #555; font-size: 14px;">Target market: <strong>${cityLabel}</strong></p>
@@ -110,6 +110,7 @@ export async function POST(req: NextRequest) {
             </div>
 
             <p style="color: #555; font-size: 14px; line-height: 1.7;">This is a transparent, fixed price — no guesswork, no surprises. <strong>Month-to-month. Cancel anytime with 30 days notice.</strong> And if we don't show measurable results within 90 days, we work for free until we do.</p>
+            <p style="color: #555; font-size: 14px; line-height: 1.7;">Book a strategy call to confirm this pricing matches your firm's growth goals.</p>
 
             <div style="background: #f0fdf4; border-left: 4px solid #22c55e; padding: 16px 20px; border-radius: 0 8px 8px 0; margin: 24px 0;">
               <p style="color: #166534; font-size: 14px; font-weight: bold; margin: 0 0 4px;">What's included in Launchpad:</p>
@@ -140,8 +141,8 @@ export async function POST(req: NextRequest) {
       from: "JurisPage <hello@jurispage.com>",
       to: [email],
       subject: isCustom
-        ? "We received your JurisPage quote request"
-        : `Your JurisPage Launchpad Quote — $${monthlyTotal?.toLocaleString()}/mo`,
+        ? "We received your JurisPage pricing request"
+        : `Your JurisPage Launchpad Pricing — $${monthlyTotal?.toLocaleString()}/mo`,
       html: prospectHtml,
     });
 
