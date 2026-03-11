@@ -114,16 +114,16 @@ export default function Header() {
                     style={{ background: "linear-gradient(135deg, #EE6C13, #982A0B)" }}
                   >
                     <div>
-                      <p className="text-white font-bold text-base mb-2">Free Market Report</p>
+                      <p className="text-white font-bold text-base mb-2">See My Market Gap</p>
                       <p className="text-white/90 text-sm leading-relaxed">
-                        See who&apos;s winning your market and exactly what it takes to beat them. Delivered in 24 hours.
+                        See exactly where your firm is losing your market — and what it takes to win. Free and personalized.
                       </p>
                     </div>
                     <Link
-                      href="/free-market-report/"
+                      href="/see-my-market-gap/"
                       className="mt-4 inline-block border border-white text-white text-sm font-semibold px-4 py-2 rounded-lg no-underline hover:bg-white hover:text-[#982A0B] transition-colors"
                     >
-                      See Where I Stand →
+                      See My Market Gap →
                     </Link>
                   </div>
                 </div>
@@ -322,11 +322,11 @@ export default function Header() {
             Let&apos;s Talk Growth
           </Link>
           <Link
-            href="/free-market-report/"
+            href="/see-my-market-gap/"
             className="block text-center text-sm text-[#EE6C13] no-underline hover:underline"
             onClick={() => setMobileOpen(false)}
           >
-            Get Free Market Report →
+            See My Market Gap →
           </Link>
         </div>
       </div>

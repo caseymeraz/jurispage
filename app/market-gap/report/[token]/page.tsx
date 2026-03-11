@@ -19,8 +19,8 @@ export default async function MarketGapReportPage({ params }: PageProps) {
     where: { accessToken: token },
     include: {
       lead: true,
-      competitors: { orderBy: { position: "asc" } },
-      keywords: { orderBy: { volume: "desc" } },
+      competitors: { orderBy: { mapPackPosition: "asc" } },
+      keywords: { orderBy: { searchVolume: "desc" } },
     },
   });
 
@@ -36,23 +36,23 @@ export default async function MarketGapReportPage({ params }: PageProps) {
   /* ── Build teaser props ── */
   const teaserProps = {
     totalSearchVolume: report.totalSearchVolume ?? 0,
-    topCompetitors: report.competitors.map((c: { name: string; rating: number | null; reviewCount: number | null; position: number }) => ({
+    topCompetitors: report.competitors.map((c) => ({
       name: c.name,
       rating: c.rating,
       reviewCount: c.reviewCount,
-      position: c.position,
+      position: c.mapPackPosition ?? 0,
     })),
     firmInMapPack: report.firmInMapPack ?? false,
     firmRating: report.firmRating,
     firmReviewCount: report.firmReviewCount,
     biggestGap: report.biggestGap ?? "Analysis pending",
-    keywordHighlights: report.keywords.map((k: { keyword: string; volume: number }) => ({
+    keywordHighlights: report.keywords.map((k) => ({
       keyword: k.keyword,
-      volume: k.volume,
+      volume: k.searchVolume ?? 0,
     })),
-    practiceArea: report.lead?.primaryPracticeArea ?? "Legal Services",
-    city: report.lead?.targetCity ?? "",
-    state: report.lead?.targetState ?? "",
+    practiceArea: report.lead?.practiceArea ?? "Legal Services",
+    city: report.lead?.city ?? "",
+    state: report.lead?.state ?? "",
   };
 
   /* ── Teaser-only view ── */
@@ -94,18 +94,18 @@ export default async function MarketGapReportPage({ params }: PageProps) {
             }
             recommendedService={report.recommendedService}
             organicDominators={
-              report.organicDominators
-                ? (report.organicDominators as string[])
+              report.organicSerpData
+                ? ((report.organicSerpData as Record<string, unknown>).dominators as string[] ?? [])
                 : []
             }
             directoryObstacles={
-              report.directoryObstacles
-                ? (report.directoryObstacles as string[])
+              report.organicSerpData
+                ? ((report.organicSerpData as Record<string, unknown>).obstacles as string[] ?? [])
                 : []
             }
             intakeDrag={
-              report.intakeDrag
-                ? (report.intakeDrag as {
+              report.intakeDragEstimate
+                ? (report.intakeDragEstimate as {
                     multiplier: number;
                     recoverableRange: string;
                     estimatedDrag: string;
@@ -114,8 +114,8 @@ export default async function MarketGapReportPage({ params }: PageProps) {
                 : null
             }
             aiVisibility={
-              report.aiVisibility
-                ? (report.aiVisibility as {
+              report.aiVisibilityData
+                ? (report.aiVisibilityData as {
                     mentions: number;
                     impressions: number;
                   })
@@ -136,11 +136,12 @@ export default async function MarketGapReportPage({ params }: PageProps) {
                   })
                 : null
             }
-            isNewFirm={report.lead?.isNewFirm ?? false}
-            hasSlowResponse={
-              report.lead?.avgResponseTime === "1-3 hrs" ||
-              report.lead?.avgResponseTime === "3+ hrs"
-            }
+            isNewFirm={report.lead.isNewFirm}
+            hasSlowResponse={(() => {
+              const intake = report.lead.intakeAnswers as Record<string, unknown> | null;
+              const rt = intake?.responseTime as string | undefined;
+              return rt === "1-3 hrs" || rt === "3+ hrs";
+            })()}
           />
         </div>
       </div>

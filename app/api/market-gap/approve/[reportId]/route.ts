@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { Resend } from "resend";
+import type { Prisma } from "@prisma/client";
 import { prisma } from "@/lib/db";
 
 const BASE_URL =
@@ -67,7 +68,7 @@ export async function POST(
       data: {
         reportId,
         event: "report_approved",
-        metadata: { approvedBy, teamNotes },
+        metadata: { approvedBy, teamNotes } as unknown as Prisma.InputJsonValue,
       },
     });
 
@@ -212,7 +213,7 @@ export async function POST(
       data: {
         reportId,
         event: "report_email_sent",
-        metadata: { to: leadEmail, sentAt: new Date().toISOString() },
+        metadata: { to: leadEmail, sentAt: new Date().toISOString() } as unknown as Prisma.InputJsonValue,
       },
     });
 

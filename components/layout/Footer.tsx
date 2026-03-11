@@ -74,7 +74,7 @@ export default function Footer() {
               {[
                 ["About JurisPage", "/about-us/"],
                 ["Success Stories", "/case-studies/"],
-                ["Free Market Report", "/free-market-report/"],
+                ["See My Market Gap", "/see-my-market-gap/"],
                 ["Blog", "/blog/"],
                 ["Best Law Firm SEO Companies", "/best-law-firm-seo-companies/"],
                 ["Law Firm SEO Cost", "/law-firm-seo-cost/"],

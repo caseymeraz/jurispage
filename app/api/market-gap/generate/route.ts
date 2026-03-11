@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { Resend } from "resend";
+import type { Prisma } from "@prisma/client";
 import { prisma } from "@/lib/db";
 import { generateTeaserKeywords, getMapsQuery } from "@/lib/market-gap/keywords";
 import { getSearchVolume, getMapsResults } from "@/lib/dataforseo";
@@ -209,7 +210,7 @@ export async function POST(req: NextRequest) {
           practiceArea,
           city: reportCity,
           state: reportState,
-        },
+        } as unknown as Prisma.InputJsonValue,
       },
     });
 
@@ -250,7 +251,7 @@ export async function POST(req: NextRequest) {
             reportId: report.id,
             keyword: kv.keyword,
             searchVolume: kv.searchVolume,
-            trend: kv.monthlySearches as unknown as Record<string, unknown>[],
+            trend: kv.monthlySearches ? JSON.parse(JSON.stringify(kv.monthlySearches)) : undefined,
           })),
         });
       }
@@ -278,12 +279,12 @@ export async function POST(req: NextRequest) {
         data: {
           status: "teaser_ready",
           totalSearchVolume: teaserData.totalSearchVolume,
-          mapPackCompetitors: teaserData.topCompetitors as unknown as Record<string, unknown>[],
+          mapPackCompetitors: teaserData.topCompetitors as unknown as Prisma.InputJsonValue,
           firmInMapPack: teaserData.firmInMapPack,
           firmRating: teaserData.firmRating,
           firmReviewCount: teaserData.firmReviewCount,
           biggestGap: teaserData.biggestGap,
-          keywordData: teaserData.keywordHighlights as unknown as Record<string, unknown>[],
+          keywordData: teaserData.keywordHighlights as unknown as Prisma.InputJsonValue,
         },
       });
 
@@ -297,7 +298,7 @@ export async function POST(req: NextRequest) {
             competitorCount: mapsResults.competitors.length,
             keywordCount: keywordVolumes.length,
             firmInMapPack: teaserData.firmInMapPack,
-          },
+          } as unknown as Prisma.InputJsonValue,
         },
       });
     } catch (teaserError) {
@@ -313,7 +314,7 @@ export async function POST(req: NextRequest) {
               teaserError instanceof Error
                 ? teaserError.message
                 : "Unknown error",
-          },
+          } as unknown as Prisma.InputJsonValue,
         },
       });
 

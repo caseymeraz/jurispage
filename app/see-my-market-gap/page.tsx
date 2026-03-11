@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import SchemaOrg from "@/components/SchemaOrg";
 import MarketGapForm from "@/components/MarketGapForm";
 import CTASection from "@/components/CTASection";
@@ -151,7 +152,9 @@ export default function SeeMyMarketGapPage() {
       {/* ───────── Multi-step Form ───────── */}
       <section id="form" className="bg-gray-50 py-16 px-6">
         <div className="max-w-3xl mx-auto">
-          <MarketGapForm />
+          <Suspense fallback={<div className="bg-white rounded-2xl border border-gray-100 shadow-lg p-8 text-center text-gray-500">Loading form...</div>}>
+            <MarketGapForm />
+          </Suspense>
         </div>
       </section>
 

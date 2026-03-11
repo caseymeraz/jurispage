@@ -99,7 +99,7 @@ export default function ScorpionAlternativePage() {
         heading="See Where You Stand"
         subtext="Free competitive analysis delivered within 24 hours. Tell us about your firm and we&apos;ll show you exactly what it would take to outperform your current agency."
         primaryLabel="See Where You Stand"
-        primaryHref="/free-market-report/"
+        primaryHref="/see-my-market-gap/"
         secondaryLabel="See Pricing"
         secondaryHref="/services/pricing/"
       />

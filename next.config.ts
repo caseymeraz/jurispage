@@ -61,6 +61,11 @@ const nextConfig: NextConfig = {
         destination: "/criminal-defense-lawyer-marketing/",
         permanent: true,
       },
+      {
+        source: "/free-market-report",
+        destination: "/see-my-market-gap",
+        permanent: true,
+      },
     ];
   },
 };

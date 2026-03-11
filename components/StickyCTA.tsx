@@ -27,17 +27,17 @@ export default function StickyCTA() {
     >
       <div className="max-w-6xl mx-auto px-6 py-3 flex items-center justify-between gap-4">
         <p className="text-white text-sm font-heading font-semibold hidden sm:block">
-          Ready to dominate the map pack?
+          See exactly where your firm is losing your market
         </p>
         <div className="flex items-center gap-3 flex-1 justify-end">
           <Link
-            href="/contact/"
+            href="/see-my-market-gap/"
             className="font-heading font-bold text-sm text-white px-5 py-2.5 rounded-[40px] no-underline transition-colors whitespace-nowrap"
             style={{ background: "#EE6C13" }}
             onMouseOver={(e) => { (e.currentTarget as HTMLAnchorElement).style.background = "#d45e0a"; }}
             onMouseOut={(e) => { (e.currentTarget as HTMLAnchorElement).style.background = "#EE6C13"; }}
           >
-            Get My Free Strategy
+            See My Market Gap
           </Link>
           <button
             onClick={() => setDismissed(true)}

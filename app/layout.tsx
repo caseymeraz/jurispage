@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import SchemaOrg from "@/components/SchemaOrg";
+import StickyMobileCTA from "@/components/StickyMobileCTA";
 
 const quicksand = Quicksand({
   subsets: ["latin"],
@@ -119,6 +120,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Header />
         <main>{children}</main>
         <Footer />
+        <StickyMobileCTA />
       </body>
     </html>
   );
