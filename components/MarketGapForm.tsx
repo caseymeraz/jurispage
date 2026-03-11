@@ -270,7 +270,7 @@ export default function MarketGapForm() {
       });
       const data = await res.json();
       if (!res.ok) throw new Error(data.error ?? "Failed to save.");
-      if (data.id) setLeadId(data.id);
+      if (data.leadId) setLeadId(data.leadId);
 
       trackClientEvent("market_gap_step_1_complete", {
         firmName: step1.firmName,

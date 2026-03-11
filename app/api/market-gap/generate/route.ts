@@ -51,6 +51,13 @@ interface GenerateRequestBody {
 }
 
 export async function POST(req: NextRequest) {
+  if (!process.env.DATABASE_URL) {
+    return NextResponse.json(
+      { error: "Service temporarily unavailable. Please try again later." },
+      { status: 503 }
+    );
+  }
+
   try {
     const body: GenerateRequestBody = await req.json();
     const { step = 3 } = body;
