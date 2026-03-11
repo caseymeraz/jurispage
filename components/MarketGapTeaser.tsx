@@ -65,70 +65,50 @@ export default function MarketGapTeaser({
 
   return (
     <div>
-      {/* Header */}
-      <div className="mb-8">
-        <p className="text-gray-400 text-xs font-heading font-bold uppercase tracking-widest mb-2">
-          Market Gap Snapshot
-        </p>
-        <h2 className="font-heading font-extrabold text-2xl sm:text-3xl text-gray-900">
-          {practiceArea} in {city}, {state}
+      {/* Report header */}
+      <div className="mb-10 pb-8 border-b border-gray-200">
+        <div className="flex items-center gap-2 mb-3">
+          <div className="h-1.5 w-8 rounded-full" style={{ background: "#EE6C13" }} />
+          <p className="text-gray-400 text-xs font-heading font-bold uppercase tracking-widest">
+            Market Gap Snapshot
+          </p>
+        </div>
+        <h2 className="font-heading font-extrabold text-3xl sm:text-4xl text-gray-900 mb-2">
+          {practiceArea}
         </h2>
+        <p className="text-gray-500 text-lg font-heading">
+          {city}, {state}
+        </p>
       </div>
 
-      {/* Snapshot cards */}
-      <div className={`grid grid-cols-1 sm:grid-cols-2 ${hasAiResults ? "lg:grid-cols-3" : ""} gap-4 mb-8`}>
+      {/* Snapshot cards — 2x2 grid + full-width bottom row */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10">
         {/* Monthly Market Demand */}
-        <div className="rounded-xl border border-gray-100 bg-gray-50 p-6">
+        <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
           <div className="h-1 w-10 rounded-full mb-4" style={{ background: "#EE6C13" }} />
           <p className="text-gray-400 text-xs font-heading font-bold uppercase tracking-widest mb-2">
             {hasLocal ? "Monthly Local Demand" : "Monthly Market Demand"}
           </p>
           {hasLocal ? (
             <>
-              <p className="font-heading font-extrabold text-gray-900 text-2xl">
+              <p className="font-heading font-extrabold text-gray-900 text-3xl">
                 {formatNumber(localTotalSearchVolume!)}
-                <span className="text-gray-400 text-base font-bold">/mo in {city}</span>
+                <span className="text-gray-400 text-base font-bold">/mo</span>
               </p>
               <p className="text-gray-500 text-sm mt-1">
                 {formatNumber(totalSearchVolume)}/mo nationally
               </p>
             </>
           ) : (
-            <p className="font-heading font-extrabold text-gray-900 text-2xl">
+            <p className="font-heading font-extrabold text-gray-900 text-3xl">
               {formatNumber(totalSearchVolume)}
               <span className="text-gray-400 text-base font-bold">/mo</span>
             </p>
           )}
         </div>
 
-        {/* Firms Winning Now */}
-        <div className="rounded-xl border border-gray-100 bg-gray-50 p-6">
-          <div className="h-1 w-10 rounded-full mb-4" style={{ background: "#22c55e" }} />
-          <p className="text-gray-400 text-xs font-heading font-bold uppercase tracking-widest mb-3">
-            Firms Winning Now
-          </p>
-          <div className="space-y-2">
-            {top3.map((comp) => (
-              <div key={comp.name} className="flex items-center gap-2">
-                <span className="text-gray-900 text-sm font-semibold">{comp.name}</span>
-                {comp.rating != null && (
-                  <span className="text-gray-500 text-xs">
-                    {comp.rating.toFixed(1)}
-                    <span className="text-yellow-400">&#9733;</span>
-                  </span>
-                )}
-                {comp.reviewCount != null && (
-                  <span className="text-gray-400 text-xs">
-                    &middot; {comp.reviewCount} reviews
-                  </span>
-                )}
-              </div>
-            ))}
-          </div>
-        </div>
-
         {/* Your Visibility */}
-        <div className="rounded-xl border border-gray-100 bg-gray-50 p-6">
+        <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
           <div
             className="h-1 w-10 rounded-full mb-4"
             style={{ background: firmInMapPack ? "#22c55e" : "#f59e0b" }}
@@ -136,7 +116,7 @@ export default function MarketGapTeaser({
           <p className="text-gray-400 text-xs font-heading font-bold uppercase tracking-widest mb-2">
             Your Visibility
           </p>
-          <p className="font-heading font-extrabold text-gray-900 text-2xl mb-1">
+          <p className="font-heading font-extrabold text-gray-900 text-3xl mb-1">
             {firmInMapPack ? "In Map Pack" : "Not Found"}
           </p>
           <div className="flex items-center gap-3 text-sm text-gray-500">
@@ -156,7 +136,7 @@ export default function MarketGapTeaser({
         </div>
 
         {/* Biggest Gap */}
-        <div className="rounded-xl border border-gray-100 bg-gray-50 p-6">
+        <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
           <div className="h-1 w-10 rounded-full mb-4" style={{ background: "#ef4444" }} />
           <p className="text-gray-400 text-xs font-heading font-bold uppercase tracking-widest mb-2">
             Biggest Gap
@@ -167,8 +147,8 @@ export default function MarketGapTeaser({
         </div>
 
         {/* AI Search Visibility card */}
-        {hasAiResults && (
-          <div className="rounded-xl border border-gray-100 bg-gray-50 p-6">
+        {hasAiResults ? (
+          <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
             <div
               className="h-1 w-10 rounded-full mb-4"
               style={{ background: aiFoundCount > 0 ? "#22c55e" : "#ef4444" }}
@@ -176,23 +156,44 @@ export default function MarketGapTeaser({
             <p className="text-gray-400 text-xs font-heading font-bold uppercase tracking-widest mb-2">
               AI Search Visibility
             </p>
-            <p className="font-heading font-extrabold text-gray-900 text-2xl mb-1">
-              Found in {aiFoundCount} of {aiSearchResults!.length}
+            <p className="font-heading font-extrabold text-gray-900 text-3xl mb-1">
+              {aiFoundCount} of {aiSearchResults!.length}
             </p>
-            <p className="text-gray-500 text-sm">AI-generated search queries</p>
+            <p className="text-gray-500 text-sm">AI-generated queries</p>
+          </div>
+        ) : (
+          /* Firms Winning Now — only show as card if no AI results */
+          <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
+            <div className="h-1 w-10 rounded-full mb-4" style={{ background: "#22c55e" }} />
+            <p className="text-gray-400 text-xs font-heading font-bold uppercase tracking-widest mb-3">
+              Firms Winning Now
+            </p>
+            <div className="space-y-2">
+              {top3.map((comp) => (
+                <div key={comp.name} className="flex items-center gap-2">
+                  <span className="text-gray-900 text-sm font-semibold truncate">{comp.name}</span>
+                  {comp.rating != null && (
+                    <span className="text-gray-500 text-xs whitespace-nowrap">
+                      {comp.rating.toFixed(1)}
+                      <span className="text-yellow-400">&#9733;</span>
+                    </span>
+                  )}
+                </div>
+              ))}
+            </div>
           </div>
         )}
       </div>
 
       {/* Competitor Comparison Table */}
-      <div className="mb-8">
+      <div className="mb-10">
         <h3 className="font-heading font-bold text-gray-900 text-lg mb-4">
           Competitor Comparison
         </h3>
-        <div className="overflow-x-auto rounded-xl border border-gray-100">
+        <div className="overflow-x-auto rounded-xl border border-gray-200 bg-white shadow-sm">
           <table className="w-full text-sm">
             <thead>
-              <tr className="bg-gray-50">
+              <tr className="bg-gray-50 border-b border-gray-200">
                 <th className="text-left px-5 py-3 font-heading font-bold text-gray-500 text-xs uppercase tracking-widest">
                   Firm
                 </th>
@@ -244,14 +245,14 @@ export default function MarketGapTeaser({
 
       {/* Keyword Highlights */}
       {keywordHighlights.length > 0 && (
-        <div className="mb-8">
+        <div className="mb-10">
           <h3 className="font-heading font-bold text-gray-900 text-lg mb-4">
             Keyword Highlights
           </h3>
-          <div className="overflow-x-auto rounded-xl border border-gray-100">
+          <div className="overflow-x-auto rounded-xl border border-gray-200 bg-white shadow-sm">
             <table className="w-full text-sm">
               <thead>
-                <tr className="bg-gray-50">
+                <tr className="bg-gray-50 border-b border-gray-200">
                   <th className="text-left px-5 py-3 font-heading font-bold text-gray-500 text-xs uppercase tracking-widest">
                     Keyword
                   </th>
@@ -296,14 +297,14 @@ export default function MarketGapTeaser({
 
       {/* AI Search Visibility Table */}
       {hasAiResults && (
-        <div className="mb-8">
+        <div className="mb-10">
           <h3 className="font-heading font-bold text-gray-900 text-lg mb-4">
             AI Search Visibility
           </h3>
-          <div className="overflow-x-auto rounded-xl border border-gray-100">
+          <div className="overflow-x-auto rounded-xl border border-gray-200 bg-white shadow-sm">
             <table className="w-full text-sm">
               <thead>
-                <tr className="bg-gray-50">
+                <tr className="bg-gray-50 border-b border-gray-200">
                   <th className="text-left px-5 py-3 font-heading font-bold text-gray-500 text-xs uppercase tracking-widest">
                     AI Search Query
                   </th>

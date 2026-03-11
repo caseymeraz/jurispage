@@ -68,10 +68,8 @@ export default async function MarketGapReportPage({ params }: PageProps) {
   /* ── Teaser-only view ── */
   if (report.status === "teaser_ready") {
     return (
-      <div className="min-h-screen bg-white">
-        <div className="max-w-3xl mx-auto px-6 py-16">
-          <MarketGapTeaser {...teaserProps} />
-        </div>
+      <div className="max-w-4xl mx-auto px-6 py-12">
+        <MarketGapTeaser {...teaserProps} />
       </div>
     );
   }
@@ -79,9 +77,8 @@ export default async function MarketGapReportPage({ params }: PageProps) {
   /* ── Full report view ── */
   if (report.status === "full_report_ready") {
     return (
-      <div className="min-h-screen bg-white">
-        <div className="max-w-4xl mx-auto">
-          <MarketGapReport
+      <div className="max-w-4xl mx-auto px-6 py-12">
+        <MarketGapReport
             teaser={teaserProps}
             visibilityScore={report.visibilityScore ?? 0}
             gapScore={report.gapScore ?? 0}
@@ -153,14 +150,13 @@ export default async function MarketGapReportPage({ params }: PageProps) {
               return rt === "1-3 hrs" || rt === "3+ hrs";
             })()}
           />
-        </div>
       </div>
     );
   }
 
   /* ── Fallback for unknown statuses ── */
   return (
-    <div className="min-h-screen bg-white flex items-center justify-center px-6">
+    <div className="flex items-center justify-center px-6 py-24">
       <div className="text-center max-w-md">
         <h1 className="font-heading font-extrabold text-2xl text-gray-900 mb-3">
           Report Processing
