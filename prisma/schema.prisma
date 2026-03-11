@@ -35,7 +35,8 @@ model Lead {
   createdAt             DateTime @default(now())
   updatedAt             DateTime @updatedAt
 
-  marketGapReports MarketGapReport[]
+  marketGapReports  MarketGapReport[]
+  aiSearchReports   AiSearchReport[]
 
   @@index([email])
   @@index([googlePlaceId])
@@ -150,6 +151,25 @@ model MarketGapEvent {
   @@index([reportId])
   @@index([event])
   @@map("market_gap_events")
+}
+
+model AiSearchReport {
+  id           String   @id @default(cuid())
+  leadId       String
+  lead         Lead     @relation(fields: [leadId], references: [id])
+  practiceArea String
+  city         String
+  state        String
+  country      String   @default("US")
+  firmDomain   String?
+  results      Json?
+  queriesRun   Int      @default(0)
+  queriesFound Int      @default(0)
+  createdAt    DateTime @default(now())
+
+  @@index([leadId])
+  @@index([createdAt])
+  @@map("ai_search_reports")
 }
 
 model Territory {
