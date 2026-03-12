@@ -101,6 +101,9 @@ export async function POST(
           case "website_screenshot": {
             if (!websiteUrl) throw new Error("No website URL");
             const screenshots = await captureWebsiteScreenshots(websiteUrl);
+            if (screenshots.length === 0) {
+              throw new Error("Screenshot capture returned no images");
+            }
             // Save assets
             for (let i = 0; i < screenshots.length; i++) {
               await prisma.growthPathAsset.create({
@@ -215,9 +218,8 @@ export async function POST(
     // Auto-trigger scoring if all scans complete
     if (allDone && currentSessionStatus === "scanning") {
       // Fire scoring endpoint
-      const baseUrl = process.env.NEXT_PUBLIC_APP_URL || process.env.VERCEL_URL
-        ? `https://${process.env.VERCEL_URL}`
-        : "http://localhost:3000";
+      const baseUrl = process.env.NEXT_PUBLIC_APP_URL
+        || (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "https://jurispage.com");
 
       fetch(`${baseUrl}/api/growth-path/score/${sessionId}`, {
         method: "POST",

@@ -93,7 +93,8 @@ export default function GrowthPathReport({ data }: Props) {
     firmCount: number;
   } | undefined;
 
-  const visionData = scanResults.vision_analysis as VisionAnalysis | undefined;
+  const rawVision = scanResults.vision_analysis as VisionAnalysis | undefined;
+  const visionData = rawVision && Array.isArray(rawVision.top_findings) ? rawVision : undefined;
 
   // Get path definition
   const primaryPath = recommendation
@@ -154,6 +155,19 @@ export default function GrowthPathReport({ data }: Props) {
           <div className="bg-gray-900/50 rounded-xl border border-gray-800 p-6">
             <p className="text-gray-300 leading-relaxed">
               {recommendation.explanationLong}
+            </p>
+          </div>
+        </section>
+      )}
+
+      {/* Fallback: No scan data available */}
+      {!keywordData && !serpData && !mapsData && !competitorDensity && !visionData && assets.length === 0 && (
+        <section className="mb-12">
+          <div className="bg-gray-900/50 rounded-xl border border-gray-800 p-6">
+            <p className="text-gray-400 text-sm leading-relaxed">
+              Some market scans were unavailable at the time this report was generated.
+              Your recommended path is based on the information you provided during intake.
+              Book a call with our team for a deeper analysis.
             </p>
           </div>
         </section>

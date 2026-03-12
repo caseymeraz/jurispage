@@ -20,9 +20,18 @@ export async function captureWebsiteScreenshots(
   let browser;
 
   try {
+    // Check if chromium binary is available (may not be on Vercel serverless)
     browser = await chromium.launch({
       args: ["--no-sandbox", "--disable-setuid-sandbox"],
+    }).catch((launchErr) => {
+      console.error("Playwright chromium launch failed (likely not available in this environment):", launchErr);
+      return null;
     });
+
+    if (!browser) {
+      console.warn("Playwright browser unavailable - returning empty screenshots");
+      return screenshots;
+    }
 
     const context = await browser.newContext();
     const page = await context.newPage();

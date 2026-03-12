@@ -165,7 +165,8 @@ export async function POST(
     notifyInternalTeam(session, session.lead, recommendation.primaryPath);
 
     // Send report ready email
-    const baseUrl = process.env.NEXT_PUBLIC_APP_URL || `https://${process.env.VERCEL_URL}` || "https://jurispage.com";
+    const baseUrl = process.env.NEXT_PUBLIC_APP_URL
+      || (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "https://jurispage.com");
     sendReportReadyEmail(
       session.lead,
       `${baseUrl}/growth-path/report/${session.accessToken}`

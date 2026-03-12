@@ -8,11 +8,18 @@ import { ALL_SCAN_TYPES, SCANS_REQUIRING_WEBSITE } from "@/lib/growth-path/types
 
 function normalizeDomain(url: string | undefined): string | null {
   if (!url) return null;
-  return url
-    .replace(/^https?:\/\//, "")
-    .replace(/^www\./, "")
-    .replace(/\/+$/, "")
-    .toLowerCase();
+  try {
+    const u = new URL(url.startsWith("http") ? url : `https://${url}`);
+    return u.hostname.replace(/^www\./, "").toLowerCase();
+  } catch {
+    return url
+      .replace(/^https?:\/\//, "")
+      .replace(/^www\./, "")
+      .split("/")[0]
+      .split("?")[0]
+      .split("#")[0]
+      .toLowerCase();
+  }
 }
 
 interface CreateRequestBody {
