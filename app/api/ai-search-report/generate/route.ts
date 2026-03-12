@@ -3,6 +3,7 @@ import { Resend } from "resend";
 import { prisma } from "@/lib/db";
 import { generateAiSearchQueries } from "@/lib/market-gap/keywords";
 import { checkAiSearchVisibility } from "@/lib/market-gap/ai-search";
+import { notifySlack } from "@/lib/slack";
 
 function normalizeDomain(url: string | undefined): string | null {
   if (!url) return null;
@@ -222,6 +223,15 @@ export async function POST(req: NextRequest) {
     } catch (emailError) {
       console.error("Notification email error:", emailError);
     }
+
+    // Slack notification
+    notifySlack("New AI Search Report", {
+      Firm: firmName,
+      Email: normalizedEmail,
+      "Practice Area": practiceArea,
+      Market: `${city}, ${state}`,
+      Domain: normalizedDomain || "N/A",
+    });
 
     return NextResponse.json({
       reportId: report.id,

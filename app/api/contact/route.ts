@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { Resend } from "resend";
 import { submitToHubSpot } from "@/lib/hubspot";
+import { prisma } from "@/lib/db";
 
 export async function POST(req: NextRequest) {
   try {
@@ -10,6 +11,21 @@ export async function POST(req: NextRequest) {
 
     if (!firstName || !email || !phone) {
       return NextResponse.json({ error: "Missing required fields" }, { status: 400 });
+    }
+
+    // Save to DB
+    try {
+      await prisma.formSubmission.create({
+        data: {
+          type: "contact",
+          name: `${firstName} ${lastName || ""}`.trim(),
+          email,
+          phone,
+          data: { firstName, lastName, practiceArea, budget, referral, message },
+        },
+      });
+    } catch (dbError) {
+      console.error("FormSubmission save error:", dbError);
     }
 
     const isPremium = budget === "$5,000+/month";

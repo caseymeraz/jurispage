@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { Resend } from "resend";
 import { submitToHubSpot } from "@/lib/hubspot";
+import { prisma } from "@/lib/db";
 
 export async function POST(req: NextRequest) {
   try {
@@ -24,6 +25,22 @@ export async function POST(req: NextRequest) {
     }
 
     const practiceAreasDisplay = Array.isArray(practiceAreas) ? practiceAreas.join(", ") : practiceAreas;
+
+    // Save to DB
+    try {
+      await prisma.formSubmission.create({
+        data: {
+          type: "growth-assessment",
+          name: fullName,
+          email,
+          phone,
+          firmName,
+          data: { attorneys, practiceAreas, markets, budget, growthGoal, notes },
+        },
+      });
+    } catch (dbError) {
+      console.error("FormSubmission save error:", dbError);
+    }
 
     // ── Internal notification ──────────────────────────────────────────
     const internalHtml = `

@@ -1,5 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { Resend } from "resend";
+import { prisma } from "@/lib/db";
+import { notifySlack } from "@/lib/slack";
 
 export async function POST(req: NextRequest) {
   try {
@@ -10,6 +12,31 @@ export async function POST(req: NextRequest) {
     if (!firmName || !firstName || !email || !phone || !practiceArea || !targetMarket) {
       return NextResponse.json({ error: "Missing required fields" }, { status: 400 });
     }
+
+    // Save to DB
+    try {
+      await prisma.formSubmission.create({
+        data: {
+          type: "market-report",
+          name: `${firstName} ${lastName}`,
+          email,
+          phone,
+          firmName,
+          data: { practiceArea, targetMarket },
+        },
+      });
+    } catch (dbError) {
+      console.error("FormSubmission save error:", dbError);
+    }
+
+    // Slack notification
+    notifySlack("Free Market Report Request", {
+      Firm: firmName,
+      Contact: `${firstName} ${lastName}`,
+      Email: email,
+      "Practice Area": practiceArea,
+      "Target Market": targetMarket,
+    });
 
     const emailHtml = `
       <h2>FREE MARKET REPORT REQUEST</h2>

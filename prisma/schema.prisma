@@ -172,6 +172,21 @@ model AiSearchReport {
   @@map("ai_search_reports")
 }
 
+model FormSubmission {
+  id        String   @id @default(cuid())
+  type      String   // "contact", "growth-assessment", "market-report", "ghost-lead", "quote"
+  name      String
+  email     String
+  phone     String?
+  firmName  String?
+  data      Json
+  createdAt DateTime @default(now())
+
+  @@index([type])
+  @@index([createdAt])
+  @@map("form_submissions")
+}
+
 model Territory {
   id            String   @id @default(cuid())
   practiceArea  String

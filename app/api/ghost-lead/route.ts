@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { Resend } from "resend";
+import { prisma } from "@/lib/db";
 
 export async function POST(req: NextRequest) {
   try {
@@ -9,6 +10,21 @@ export async function POST(req: NextRequest) {
 
     if (!name || !email) {
       return NextResponse.json({ error: "Missing required fields" }, { status: 400 });
+    }
+
+    // Save to DB
+    try {
+      await prisma.formSubmission.create({
+        data: {
+          type: "ghost-lead",
+          name,
+          email,
+          firmName,
+          data: { monthlyBleed, annualBleed, avgCaseValue, monthlyLeads },
+        },
+      });
+    } catch (dbError) {
+      console.error("FormSubmission save error:", dbError);
     }
 
     const fmt = (n: number) =>

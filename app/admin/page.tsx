@@ -18,8 +18,36 @@ function formatDate(date: Date) {
   }).format(date);
 }
 
+const TYPE_BADGE_STYLES: Record<string, string> = {
+  contact: "bg-blue-100 text-blue-800",
+  "growth-assessment": "bg-purple-100 text-purple-800",
+  "market-report": "bg-orange-100 text-orange-800",
+  "ghost-lead": "bg-red-100 text-red-800",
+  quote: "bg-green-100 text-green-800",
+};
+
+function summarizeData(type: string, data: Record<string, unknown>): string {
+  switch (type) {
+    case "contact":
+      return [data.practiceArea, data.budget].filter(Boolean).join(" | ");
+    case "growth-assessment":
+      return [data.attorneys && `${data.attorneys} attorneys`, data.budget].filter(Boolean).join(" | ");
+    case "market-report":
+      return [data.practiceArea, data.targetMarket].filter(Boolean).join(" in ");
+    case "ghost-lead":
+      return data.monthlyBleed ? `$${Number(data.monthlyBleed).toLocaleString()}/mo bleed` : "";
+    case "quote":
+      return [
+        data.practiceArea,
+        data.isCustom ? "Custom" : data.monthlyTotal ? `$${Number(data.monthlyTotal).toLocaleString()}/mo` : "",
+      ].filter(Boolean).join(" | ");
+    default:
+      return "";
+  }
+}
+
 export default async function AdminPage() {
-  const [reports, aiReports] = await Promise.all([
+  const [reports, aiReports, formSubmissions] = await Promise.all([
     prisma.marketGapReport.findMany({
       orderBy: { createdAt: "desc" },
       include: { lead: true },
@@ -27,6 +55,9 @@ export default async function AdminPage() {
     prisma.aiSearchReport.findMany({
       orderBy: { createdAt: "desc" },
       include: { lead: true },
+    }),
+    prisma.formSubmission.findMany({
+      orderBy: { createdAt: "desc" },
     }),
   ]);
 
@@ -193,6 +224,64 @@ export default async function AdminPage() {
                       >
                         {report.queriesFound} / {report.queriesRun} queries
                       </span>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      )}
+
+      <div className="mt-12 mb-6">
+        <h2 className="text-2xl font-bold text-gray-900 font-heading">
+          All Form Submissions
+        </h2>
+        <p className="text-sm text-gray-500 mt-1">
+          {formSubmissions.length} total submission{formSubmissions.length !== 1 ? "s" : ""}
+        </p>
+      </div>
+
+      {formSubmissions.length === 0 ? (
+        <div className="bg-white rounded-xl border border-gray-200 p-12 text-center">
+          <p className="text-gray-500">No form submissions yet.</p>
+        </div>
+      ) : (
+        <div className="bg-white rounded-xl border border-gray-200 overflow-hidden">
+          <div className="overflow-x-auto">
+            <table className="w-full text-sm">
+              <thead>
+                <tr className="bg-gray-50 border-b border-gray-200 text-left">
+                  <th className="px-4 py-3 font-semibold text-gray-600">Date</th>
+                  <th className="px-4 py-3 font-semibold text-gray-600">Type</th>
+                  <th className="px-4 py-3 font-semibold text-gray-600">Name</th>
+                  <th className="px-4 py-3 font-semibold text-gray-600">Email</th>
+                  <th className="px-4 py-3 font-semibold text-gray-600">Phone</th>
+                  <th className="px-4 py-3 font-semibold text-gray-600">Firm</th>
+                  <th className="px-4 py-3 font-semibold text-gray-600">Details</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-gray-100">
+                {formSubmissions.map((sub) => (
+                  <tr key={sub.id} className="hover:bg-gray-50/50">
+                    <td className="px-4 py-3 text-gray-500 whitespace-nowrap">
+                      {formatDate(sub.createdAt)}
+                    </td>
+                    <td className="px-4 py-3">
+                      <span
+                        className={`inline-block px-2.5 py-0.5 rounded-full text-xs font-medium ${
+                          TYPE_BADGE_STYLES[sub.type] ?? "bg-gray-100 text-gray-700"
+                        }`}
+                      >
+                        {sub.type}
+                      </span>
+                    </td>
+                    <td className="px-4 py-3 text-gray-900 font-medium">{sub.name}</td>
+                    <td className="px-4 py-3 text-gray-700">{sub.email}</td>
+                    <td className="px-4 py-3 text-gray-700">{sub.phone || "—"}</td>
+                    <td className="px-4 py-3 text-gray-700">{sub.firmName || "—"}</td>
+                    <td className="px-4 py-3 text-gray-500 text-xs">
+                      {summarizeData(sub.type, sub.data as Record<string, unknown>)}
                     </td>
                   </tr>
                 ))}

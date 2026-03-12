@@ -7,6 +7,7 @@ import { getSearchVolume, getMapsResults } from "@/lib/dataforseo";
 import { assembleTeaserData } from "@/lib/market-gap/teaser";
 import { checkAiSearchVisibility } from "@/lib/market-gap/ai-search";
 import { getStateFullName } from "@/lib/us-states";
+import { notifySlack } from "@/lib/slack";
 
 // Normalize domain: strip protocol, www, trailing slash
 function normalizeDomain(url: string | undefined): string | null {
@@ -405,6 +406,14 @@ export async function POST(req: NextRequest) {
       // Log but don't fail the request over email notification
       console.error("Notification email error:", emailError);
     }
+
+    // Slack notification
+    notifySlack("New Market Gap Report", {
+      Firm: lead.firmName || "N/A",
+      Email: lead.email,
+      "Practice Area": practiceArea,
+      Market: `${reportCity}, ${reportState}`,
+    });
 
     // Fetch the updated report to get the accessToken and current status
     const updatedReport = await prisma.marketGapReport.findUnique({
