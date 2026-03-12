@@ -18,51 +18,47 @@ export const intersections: IntersectionData[] = [
     heading: "Law Firm SEO for Personal Injury Attorneys",
     metaTitle: "SEO for Personal Injury Lawyers | JurisPage",
     metaDescription:
-      "Rank higher for 'personal injury lawyer near me' and high-value case keywords. JurisPage builds SEO strategies that put personal injury firms in front of injured clients at the moment they search.",
+      "More signed personal injury cases from organic search — not more traffic reports. SEO strategy built for PI firms that need to lower cost per case and stop paying $200 per click.",
     whyMatters:
-      "Personal injury is one of the most competitive practice areas in legal search. Terms like 'car accident lawyer,' 'slip and fall attorney,' and 'personal injury lawyer near me' carry cost-per-click values of $50–$200 on paid search, which tells you exactly how much organic rankings are worth. When your firm earns a top-three position for these queries, you are capturing traffic that would otherwise cost thousands of dollars per click in Google Ads.\n\nBut ranking in personal injury SEO is not simply about publishing more content. Google evaluates your site's expertise, authoritativeness, and trustworthiness — what the industry calls E-E-A-T — with particular scrutiny in legal. That means your pages need attorney-authored or attorney-reviewed content, properly structured schema markup, and a strong backlink profile from credible legal and local sources.\n\nJurisPage builds SEO foundations that reflect how real injured clients search. They don't always start with 'personal injury attorney.' They search 'what to do after a car accident,' 'do I need a lawyer for a slip and fall,' and 'how long do I have to file a claim.' Capturing that informational intent and connecting it to your firm's practice pages is what turns organic traffic into signed cases.",
+      "You already know personal injury search is expensive. 'Car accident lawyer near me' runs $50–$200 per click on Google Ads. What that price tag actually tells you is what a top-three organic ranking is worth: the same traffic, without the per-click cost. For a PI firm spending $15,000–$30,000 a month on paid search, organic rankings represent the single largest opportunity to reduce your cost per signed case.\n\nThe challenge is that Google applies its highest level of scrutiny to legal content — particularly personal injury, which falls under its Your Money or Your Life guidelines. Your pages need to demonstrate real attorney expertise, not just keyword placement. That means content your attorneys actually reviewed, structured data that reflects your case results, and backlinks from credible legal and local sources. Anything less gets filtered out by the same algorithm updates that have buried firms relying on thin content and paid link schemes.",
     tactics: [
       {
         title: "Practice-Area Page Architecture",
-        body: "Most PI firms have a single 'Personal Injury' page that tries to cover everything. We build a silo structure: a top-level PI page linking to dedicated sub-pages for car accidents, truck accidents, slip and fall, wrongful death, and other case types you handle. Each sub-page targets its own keyword cluster, earns its own rankings, and funnels leads to a common intake form.",
+        body: "If your site has one 'Personal Injury' page covering everything from car accidents to wrongful death, you're leaving rankings on the table. Each case type — car accidents, truck accidents, slip and fall, wrongful death — has its own keyword cluster and its own search volume. Dedicated sub-pages for each type you handle capture that traffic individually, and a clear internal linking structure routes visitors to intake.",
       },
       {
         title: "Local Pack Optimization",
-        body: "The majority of personal injury clients hire a local attorney. That means Google's Map Pack — the three local results shown above organic listings — is often more valuable than page-one organic. We optimize your Google Business Profile, build consistent NAP citations, and earn locally relevant links that improve your Map Pack position for high-intent queries like 'personal injury lawyer [city].'",
+        body: "For most PI searches, the Map Pack — Google's three local results above organic listings — drives more calls than position one organic. Your Google Business Profile, citation consistency, and locally relevant backlinks determine whether you appear there. If you're not in the Map Pack for 'personal injury lawyer [your city],' your competitors are getting those calls.",
       },
       {
         title: "Settlement and Case-Result Schema",
-        body: "Personal injury clients are outcome-driven. Displaying verified settlement results and case outcomes with structured data markup helps Google understand your track record and can generate rich snippet displays in search results. We integrate results pages with Review schema and FAQ schema to occupy more SERP real estate.",
+        body: "Your case results are your strongest credibility signal, but most PI sites bury them. Structured data markup on your settlements and verdicts helps Google surface them as rich snippets — and helps prospective clients see your track record before they click. This is one of the few areas where bar-compliant content and SEO incentives align perfectly.",
       },
       {
         title: "Informational Content Funnel",
-        body: "Injured clients research before they call. We build a content library answering the questions your ideal clients type into Google the night after their accident — comparative fault explanations, statute of limitations guides, insurance adjuster tactics to avoid — then use internal linking to route that traffic to your practice and contact pages.",
-      },
-      {
-        title: "Core Web Vitals and Mobile Speed",
-        body: "Personal injury searches happen disproportionately on mobile, often immediately after an incident. A slow-loading site loses injured clients to competitors in under three seconds. We audit and optimize your Core Web Vitals scores so that organic rankings are not undermined by poor user experience signals.",
+        body: "Your next client is searching 'what to do after a car accident' or 'how long do I have to file a claim' — not 'personal injury attorney.' A content library that answers those questions accurately, with proper internal links to your practice pages, captures people at the research stage and moves them toward a consultation.",
       },
     ],
     faqs: [
       {
         question: "How long does SEO take for a personal injury law firm?",
         answer:
-          "For highly competitive terms like 'car accident lawyer [major city],' expect a 6–12 month runway before you see significant ranking movement. Less contested markets and longer-tail queries can produce results in 3–6 months. The key is building authority incrementally — technical fixes first, then content, then links — so each month's work compounds on the last.",
+          "Six to twelve months for competitive terms like 'car accident lawyer [major city].' Three to six months for less contested markets and longer-tail queries. There's no shortcut — authority builds incrementally through technical improvements, content, and links, with each month compounding on prior work.",
       },
       {
         question: "Should personal injury firms invest in SEO or Google Ads?",
         answer:
-          "Both serve different roles. Google Ads delivers immediate traffic but stops the moment you stop paying. SEO builds an asset that continues generating leads for years. Most mature PI firms run both: Ads to fill the pipeline now while SEO builds toward reducing their long-term cost per case. JurisPage can manage both channels or just SEO, depending on your goals.",
+          "They solve different problems. Ads deliver cases now but stop when you stop paying. SEO takes longer to produce but builds an asset that reduces your cost per case over time. Most established PI firms run both — Ads for immediate pipeline, SEO to lower long-term acquisition costs.",
       },
       {
         question: "What makes personal injury SEO different from other practice areas?",
         answer:
-          "The combination of extreme keyword competition, high Google scrutiny under YMYL (Your Money or Your Life) guidelines, and the geographic specificity of personal injury work makes this practice area uniquely demanding. You need attorney-credentialed content, strong local signals, and a site architecture built for multi-location or multi-case-type targeting — not a generic law firm SEO approach.",
+          "Three things compound: extreme keyword competition, Google's highest content scrutiny (YMYL guidelines), and geographic specificity. You need content that demonstrates real attorney expertise, strong local signals, and site architecture built for multiple case types and locations. Generic law firm SEO doesn't cut it.",
       },
       {
         question: "How does JurisPage measure SEO success for PI firms?",
         answer:
-          "We track keyword rankings, organic sessions, and — most importantly — qualified lead volume and cost per organic lead. Rankings are a leading indicator. Signed cases are the outcome. We tie our reporting to the metrics that connect to your revenue so you can evaluate return on investment, not just traffic numbers.",
+          "Qualified leads and cost per organic lead — not just rankings or traffic. Rankings are a leading indicator; signed cases are the outcome. Our reporting connects directly to the metrics that affect your revenue, so you can evaluate actual return on investment.",
       },
     ],
   },
@@ -279,47 +275,47 @@ export const intersections: IntersectionData[] = [
     heading: "Law Firm SEO for Criminal Defense Attorneys",
     metaTitle: "SEO for Criminal Defense Lawyers | JurisPage",
     metaDescription:
-      "Rank for 'criminal defense lawyer near me' and high-intent charge-specific queries. JurisPage builds SEO strategies for criminal defense firms that generate calls from people who need help now.",
+      "More retained criminal defense clients from organic search — not vanity rankings. SEO built for the urgency of criminal defense, where your ranking at the moment of arrest is what matters.",
     whyMatters:
-      "Criminal defense is a practice area where timing is everything. When someone is arrested or charged, they search Google immediately — often from a jail waiting room, a courthouse hallway, or their car outside the police station. They are not comparison shopping. They are calling the first credible attorney they find. That means your Google ranking at the moment of maximum urgency is your most valuable marketing asset.\n\nSEO for criminal defense firms requires a different architecture than most practice areas. Charge-specific pages — DUI, drug possession, assault, domestic violence, white collar crimes — each target distinct keyword clusters and attract clients with different urgency levels and case values. A firm that ranks only for the generic 'criminal defense lawyer' term is leaving enormous traffic on the table that charge-specific pages would capture.\n\nJurisPage builds criminal defense SEO strategies around this intent architecture: a strong top-level practice page, a comprehensive set of charge-specific sub-pages, and an informational content library answering the questions accused individuals search before they call. Combined with strong local signals, this structure puts criminal defense firms in front of the right clients at the right moment.",
+      "When someone gets arrested, they search for a lawyer immediately — from a jail waiting room, a courthouse hallway, or their car outside the police station. They're not comparing five firms. They're calling the first credible attorney they find. Your organic ranking at that moment is either producing a retained client or handing one to a competitor.\n\nThe firms that dominate criminal defense search don't rely on a single 'criminal defense lawyer' page. DUI, drug possession, assault, domestic violence, and white collar charges each have distinct keyword clusters with different search volumes and case values. A charge-specific page architecture captures two to three times the traffic of a generic approach — and attracts clients with a specific situation your content already addresses.",
     tactics: [
       {
         title: "Charge-Specific Page Development",
-        body: "Every charge type you defend should have its own page targeting the specific keywords that clients use when they or a family member is facing that charge. DUI, drug offenses, assault, theft, and white collar crimes each have distinct keyword profiles. We build and optimize these pages individually so your site captures the full breadth of criminal defense search traffic.",
+        body: "Someone searching 'drug possession attorney' has a different situation and different urgency than someone searching 'embezzlement lawyer.' Each charge type you defend needs its own page targeting the keywords defendants actually use. This isn't about more pages for the sake of it — it's about matching your content to the specific legal problem someone is facing right now.",
       },
       {
         title: "Urgency-Optimized Content Structure",
-        body: "Criminal defense searches often happen in high-stress, time-sensitive situations. Page structure matters: lead with a reassuring headline, display your phone number prominently, address the most pressing concern immediately, and keep the path to contact short. We optimize content structure for the emotional state of the searcher, not just keyword placement.",
+        body: "Your prospective client is stressed and making a fast decision. If your page buries the phone number, leads with firm history instead of their problem, or requires three clicks to reach a contact form, they're gone. Page structure for criminal defense has one job: get a frightened person to call you within 30 seconds of landing.",
       },
       {
         title: "Local Map Pack Dominance",
-        body: "The Map Pack captures a disproportionate share of local criminal defense searches. We optimize your Google Business Profile with the correct legal categories, complete service listings, and a review generation system that builds the review count and recency that Map Pack ranking requires.",
+        body: "Criminal defense clients almost always hire locally. The Map Pack — Google's three local results above organic listings — captures a disproportionate share of those searches. Your Google Business Profile categories, review volume and recency, and local citation consistency determine whether you appear there or your competitor does.",
       },
       {
         title: "Expungement and Record Sealing Content",
-        body: "Expungement searches are high volume, underserved by most criminal defense sites, and attract clients at a slightly different urgency level but with real commercial intent. We include expungement content in your SEO strategy to capture this segment and create a natural gateway to broader criminal defense services.",
+        body: "Expungement queries are high volume and underserved by most criminal defense sites. These searchers have real commercial intent — they're willing to pay to clean up their record. This content also builds topical authority that strengthens your rankings for higher-urgency charge-specific terms.",
       },
     ],
     faqs: [
       {
         question: "What keywords should criminal defense firms target with SEO?",
         answer:
-          "Start with geography plus practice type: 'criminal defense lawyer [city],' '[charge type] attorney [city],' and 'best criminal defense lawyer [city].' Then build charge-specific content targeting terms like 'DUI lawyer,' 'drug possession attorney,' 'assault charges lawyer,' and so on. We map the full keyword landscape in your market and prioritize by search volume, competition, and case value.",
+          "Geography plus charge type: 'DUI lawyer [city],' 'drug possession attorney [city],' 'assault charges lawyer [city].' The generic 'criminal defense lawyer [city]' term matters, but charge-specific pages capture two to three times more total traffic and attract clients with a defined legal problem — which means higher conversion rates.",
       },
       {
         question: "How does SEO for criminal defense firms differ from other practice areas?",
         answer:
-          "The urgency factor is the biggest difference. Criminal defense searchers often need help immediately and have a lower tolerance for friction. Content must be structured to convert fast, and local signals matter more than in some other practice areas because clients almost always hire locally. Charge-specific content depth is also more important than in areas like estate planning.",
+          "Urgency. Your prospective client needs help now, not next quarter. Content must convert fast — phone number visible, concerns addressed immediately, short path to contact. Local signals also matter more because criminal defense clients almost always hire in their jurisdiction. Charge-specific depth is non-negotiable.",
       },
       {
         question: "Can SEO help a criminal defense firm that mostly gets referrals?",
         answer:
-          "Absolutely. Referral networks plateau — SEO creates a parallel, scalable intake channel that works whether or not your referral sources are active. Many firms that invest in SEO find it diversifies and grows their caseload well beyond what referrals alone could generate, particularly for charge types where they had limited referral relationships.",
+          "Yes, and you probably need it to. Referral networks plateau, and they go quiet unpredictably. SEO builds a parallel intake channel that produces consultations regardless of whether your referral sources are active this month. Most firms that add SEO find it opens up charge types where they had no referral relationships at all.",
       },
       {
         question: "How does JurisPage handle sensitive criminal defense content?",
         answer:
-          "We write all criminal defense content with an understanding of your state bar's advertising rules and the sensitivity required in this practice area. Content is accurate, non-sensationalized, and structured to convey both competence and empathy — the qualities that convert criminal defense clients, who are often in a frightening situation and need to feel they are in capable hands.",
+          "Every piece of content is written with your state bar's advertising rules in mind — accurate, not sensationalized, and never making guarantees about outcomes. Criminal defense clients are in a frightening situation. Content that conveys competence and directness converts better than content that oversells. We write accordingly.",
       },
     ],
   },
@@ -536,47 +532,47 @@ export const intersections: IntersectionData[] = [
     heading: "Law Firm SEO for Family Law Attorneys",
     metaTitle: "SEO for Family Law Firms | JurisPage",
     metaDescription:
-      "Rank for 'divorce lawyer near me,' 'child custody attorney,' and other high-intent family law searches. JurisPage builds SEO strategies that connect family law firms with clients during life's most difficult moments.",
+      "More divorce and custody consultations from organic search — not more traffic dashboards. SEO for family law firms that reduces your cost per retained client.",
     whyMatters:
-      "Family law is one of the most emotionally charged and relationship-driven practice areas in law — and it is also one of the most competitive in search. 'Divorce lawyer near me,' 'child custody attorney,' and 'family law attorney [city]' are all highly contested keywords with significant commercial intent and, in many markets, relatively high cost-per-click values on paid platforms.\n\nSEO for family law has a unique dual challenge: you must rank for competitive practice-level keywords while also earning visibility for the hundreds of specific questions that family law clients ask before retaining an attorney. 'How long does a divorce take?' 'Who gets the house in a divorce?' 'Can I modify a custody order?' These informational searches generate enormous traffic and, with the right content structure, can be routed to practice area pages and consultation requests.\n\nJurisPage builds family law SEO strategies that address both layers. We develop a core keyword architecture for divorce, custody, asset division, child support, and related practice areas, then build a supporting content library that captures the informational traffic these topics generate and converts it into consultations.",
+      "Family law is one of the most competitive practice areas in search, and one of the most research-intensive for clients. Someone considering divorce doesn't start by searching 'divorce lawyer.' They search 'how long does a divorce take,' 'who gets the house,' and 'can I modify a custody order.' By the time they search for an attorney, they've already spent hours reading — and the firms whose content answered those questions have a significant trust advantage.\n\nThat research behavior is your opportunity. A family law SEO strategy that only targets 'divorce lawyer [city]' is competing on the most expensive, most contested keywords while ignoring the hundreds of informational queries that actually build the trust that leads to a consultation. The firms winning in family law search are capturing both layers — the high-intent practice keywords and the research-stage questions that precede them.",
     tactics: [
       {
         title: "Practice Sub-Type Page Architecture",
-        body: "Family law covers divorce, legal separation, child custody, child support, property division, alimony, adoption, and more. Each sub-type attracts distinct search queries and represents a distinct service. We build dedicated pages for each, creating a site architecture that captures the full breadth of family law search traffic rather than relying on a single generic page.",
+        body: "Divorce, custody, child support, property division, alimony, and adoption each attract different search queries and represent different client needs. A single 'Family Law' page can't rank for all of them. Dedicated pages for each sub-type capture the full breadth of family law search traffic and let you speak directly to each client's specific situation.",
       },
       {
         title: "Emotional Search Intent Optimization",
-        body: "Family law clients are often in pain. They search from places of fear, grief, and uncertainty. Content optimized for this emotional context — acknowledging the difficulty of the situation, providing clarity on what to expect, and communicating compassion alongside competence — converts at higher rates than purely transactional content.",
+        body: "Your prospective client is searching from a place of fear or grief. Content that acknowledges the difficulty of their situation and provides clear, direct answers converts at significantly higher rates than content that reads like a brochure. This isn't about manipulating emotion — it's about writing the way your best intake calls already sound.",
       },
       {
         title: "Local Family Court Content",
-        body: "Family law is almost exclusively local. Clients search for attorneys near their courthouse and familiar with their local judges and procedures. We develop content that specifically addresses your local family court processes, judge-specific procedural preferences, and county-specific rules — content that no out-of-market competitor can replicate.",
+        body: "Family law clients want an attorney who knows their courthouse. Content addressing your local family court processes, filing procedures, and county-specific rules builds the kind of local relevance that national legal content sites can't replicate — and signals to Google that your site is the authoritative local resource.",
       },
       {
         title: "Men's Divorce and Niche Audience SEO",
-        body: "Family law client demographics include niche segments with specific search behaviors — fathers' rights clients, high-net-worth individuals concerned about asset protection, military divorce clients, and others. We identify the highest-opportunity niche segments for your firm and build targeted content that converts these specific audiences.",
+        body: "Fathers' rights, high-net-worth divorce, military divorce — these niche segments have specific search patterns and real commercial intent. If your firm handles complex custody or high-asset cases, targeted content for those audiences attracts clients with higher case values and less keyword competition than broad family law terms.",
       },
     ],
     faqs: [
       {
         question: "How competitive is SEO for family law firms?",
         answer:
-          "Very competitive in major metros. 'Divorce attorney [large city]' is one of the more contested legal search terms. However, the landscape opens up considerably for more specific terms — 'child custody modification attorney [city],' 'military divorce lawyer [county]' — which are less contested but still represent real commercial intent. We target a mix of high-competition terms and high-opportunity long-tail queries.",
+          "Highly competitive for broad terms like 'divorce attorney [major city].' But more specific queries — 'child custody modification attorney [city],' 'military divorce lawyer [county]' — are significantly less contested and still represent real commercial intent. A practical strategy targets both: the competitive terms for long-term authority and the specific terms for near-term results.",
       },
       {
         question: "Should family law firms blog regularly for SEO?",
         answer:
-          "Yes, but strategically. Every blog post should target a specific keyword cluster and serve a real informational need for family law clients — not just fill a content quota. Topics like 'how is retirement divided in a divorce,' 'what is the standard custody schedule in [state],' and 'how to prepare for a custody evaluation' generate consistent organic traffic and convert well to consultation requests.",
+          "Only if every post targets a specific keyword and answers a real question your clients ask. 'How is retirement divided in a divorce' and 'how to prepare for a custody evaluation' generate consistent traffic and convert to consultations. Publishing for the sake of frequency is a waste of your budget.",
       },
       {
         question: "Can SEO help family law firms attract higher-value clients?",
         answer:
-          "Yes. Specific content targeting — high-asset divorce, business valuation in divorce, complex custody arrangements — attracts clients with more complex situations and higher case values. By developing content that speaks to these specific client profiles and their concerns, you can segment your organic traffic toward the case types that generate the most revenue.",
+          "Directly. Content targeting high-asset divorce, business valuation in divorce, and complex custody arrangements attracts clients with more complex situations and higher case values. You can effectively segment your organic traffic toward the work that generates the most revenue per matter.",
       },
       {
         question: "How does JurisPage handle the sensitive nature of family law content?",
         answer:
-          "Our content writers approach family law topics with the empathy the subject matter requires. We avoid sensationalized language, do not use adversarial framing that could alienate potential clients, and write from a perspective of guidance and support rather than litigation-first positioning. The tone reflects how the best family law attorneys actually present themselves to prospective clients.",
+          "Content is written the way the best family law attorneys actually speak to prospective clients — with clarity and empathy, not adversarial framing. We avoid sensationalized language and litigation-first positioning. This isn't just a tone preference; adversarial content creates bar compliance risk and alienates the clients who are most ready to retain.",
       },
     ],
   },
@@ -793,47 +789,47 @@ export const intersections: IntersectionData[] = [
     heading: "Law Firm SEO for DUI Attorneys",
     metaTitle: "SEO for DUI Lawyers | JurisPage",
     metaDescription:
-      "Rank for 'DUI lawyer near me' and charge-specific DUI searches in your market. JurisPage builds SEO strategies that put DUI attorneys in front of defendants at the moment they need help.",
+      "More retained DUI clients from organic search — where your ranking during the 10-day DMV deadline window is worth more than any ad. SEO built for DUI urgency.",
     whyMatters:
-      "DUI is one of the most consistently searched legal terms in the country. Thousands of people are charged with DUI every day, and nearly all of them search for an attorney immediately after the arrest or as soon as they receive their court date. This creates a high-volume, high-urgency keyword environment where organic search visibility translates directly into consultation requests.\n\nDUI SEO has a specific characteristic that separates it from other criminal defense work: the urgency window is short. Defendants typically need to retain an attorney quickly due to DMV hearing deadlines — often within 10 days of an arrest — and court appearance requirements. This means your SEO strategy needs to rank for the specific queries defendants search in those first critical days, with content and conversion paths designed for rapid decision-making.\n\nJurisPage builds DUI SEO strategies that capture this urgency window. We develop charge-specific pages for DUI, DWI, and related charges, build urgency-aware content that addresses the immediate questions of newly charged defendants, and optimize your local presence so you appear first when urgency is highest.",
+      "DUI defendants don't comparison shop. They get arrested, they search for a lawyer — often that same night or the next morning — and they call the first credible attorney they find. Thousands of DUI charges are filed daily, and nearly every defendant's first move is a Google search. Your organic ranking at that moment either produces a retained client or doesn't.\n\nWhat makes DUI search different from other criminal defense work is the deadline. Most states give defendants 10 days to request a DMV administrative hearing or lose their license automatically. That deadline creates a narrow, high-urgency window where organic visibility converts at rates you won't see in any other practice area. If your site ranks for the queries defendants search during those 10 days, the calls come in fast.",
     tactics: [
       {
         title: "DUI Charge Variation Page Coverage",
-        body: "DUI, DWI, OWI, DUII, and DUID are different terms used in different states for similar charges, and defendants search with their state's terminology. We build pages targeting the specific charge terms used in your jurisdiction, plus pages for aggravated DUI, DUI with injury, underage DUI, and commercial driver DUI — each a distinct keyword cluster with its own search volume.",
+        body: "Your defendants search using their state's terminology — DUI, DWI, OWI, DUII, DUID. If your pages don't use the exact term your jurisdiction uses, you're invisible for those searches. Beyond terminology, aggravated DUI, DUI with injury, underage DUI, and commercial driver DUI each represent separate keyword clusters with real search volume and distinct case values.",
       },
       {
         title: "DMV Hearing Deadline Content",
-        body: "Many defendants don't know about the DMV administrative hearing deadline until they research online. Content specifically addressing this deadline — 'What is the DMV hearing deadline after a DUI arrest?' — captures searchers in the most urgent phase of their situation and drives immediate contact. We build this content and link it prominently from your DUI practice pages.",
+        body: "Most defendants don't know about the DMV hearing deadline until they search for it. Content answering 'what is the DMV hearing deadline after a DUI arrest' captures people in the most urgent phase of their situation — they need to act within days, and they're ready to retain. This is your highest-converting content. It should be prominent, not buried.",
       },
       {
         title: "First-Time Offender vs. Repeat Offense Segmentation",
-        body: "First-time DUI defendants and repeat offenders have different concerns and search different terms. We build segmented content for each audience, addressing the specific penalties, defenses, and outcomes that apply to each situation. This segmentation improves relevance for both audiences and increases the likelihood of conversion from both traffic segments.",
+        body: "A first-time DUI defendant and a third-time offender have completely different concerns, different penalties, and different search behavior. Separate content for each audience means your page speaks directly to their situation instead of trying to cover everything generically. Higher relevance means higher conversion.",
       },
       {
         title: "Local DUI Law and Court Information",
-        body: "Defendants search for information specific to the court and county where their case will be heard. We develop locally specific DUI content — procedures at your county court, local judge tendencies, state-specific DUI laws — that no out-of-market competitor can replicate and that strongly signals local relevance to Google's algorithm.",
+        body: "Defendants want to know what happens at their courthouse — not a national overview of DUI law. Content covering your county's procedures, your state's specific DUI statutes, and local court processes builds the kind of local authority that out-of-market competitors and legal directory sites can't replicate.",
       },
     ],
     faqs: [
       {
         question: "How competitive is DUI SEO?",
         answer:
-          "Very competitive in urban markets, moderately competitive in suburban and rural areas. The high volume of DUI charges nationwide creates a large number of firms competing for the same keywords. However, charge-specific and locally specific terms have significantly lower competition than generic 'DUI lawyer [major city]' terms. We target a mix that captures volume while building toward the most competitive positions over time.",
+          "Very competitive in urban markets, moderate in suburban and rural areas. The generic 'DUI lawyer [major city]' term is crowded, but charge-specific terms (aggravated DUI, DUI with injury) and locally specific terms have significantly less competition with strong conversion rates. A practical strategy targets both layers.",
       },
       {
         question: "Should DUI firms invest in content or links for SEO?",
         answer:
-          "Both matter, but content is the foundation. Without charge-specific content targeting the right keywords, there is nothing for links to support. We build content first, then layer in a link-building strategy targeting legal and local sources to build the domain authority that competitive rankings require.",
+          "Content first. Without charge-specific pages targeting the right keywords, links have nothing to support. Build the content foundation — charge variations, DMV deadlines, first offense vs. repeat — then layer in links from credible legal and local sources to build the domain authority competitive rankings require.",
       },
       {
         question: "Can DUI SEO work for solo practitioners?",
         answer:
-          "Yes, often very effectively. Solo DUI practitioners can position their personal brand and focused expertise as advantages over large general practice firms. A site that communicates a sole attorney's deep experience in DUI specifically, with relevant credentials and genuine client results, can compete effectively with larger firms in most markets.",
+          "Often very effectively. A solo attorney focused exclusively on DUI can position that specialization as a genuine advantage over general practice firms. A site that communicates deep, specific DUI experience with real credentials and case results competes effectively against larger firms in most markets.",
       },
       {
         question: "How does JurisPage target the right DUI clients through SEO?",
         answer:
-          "Keyword targeting is the primary filter. Content optimized for specific charge types (aggravated DUI, DUI with injury) attracts clients facing those charges. Content addressing case complexity signals (prior offenses, high BAC readings, accident involvement) can further self-select for clients with more complex — and typically higher-value — cases.",
+          "Content targeting. Pages optimized for aggravated DUI, DUI with injury, or high-BAC cases attract defendants facing those specific charges — typically higher-complexity, higher-fee matters. The content itself acts as a filter, attracting the case types you actually want.",
       },
     ],
   },
@@ -1050,47 +1046,47 @@ export const intersections: IntersectionData[] = [
     heading: "Law Firm SEO for Workers' Compensation Attorneys",
     metaTitle: "SEO for Workers' Comp Lawyers | JurisPage",
     metaDescription:
-      "Rank for 'workers comp lawyer near me' and injury-specific workplace searches. JurisPage builds SEO strategies for workers' compensation firms that convert injured workers into clients.",
+      "More retained workers' comp clients from organic search — especially claim denials and workplace injuries where urgency drives fast retention. SEO built for workers' comp intake.",
     whyMatters:
-      "Workers' compensation is a practice area where the client's decision window opens quickly and closes fast. An injured worker who cannot work, who is dealing with an insurance carrier, or who has had a claim denied searches for an attorney with urgency. Organic search visibility for the right queries at the right moment is the primary intake driver for most workers' comp practices.\n\nSEO for workers' comp firms requires a layered content strategy. The practice-level keyword — 'workers compensation attorney [city]' — is highly competitive and represents a significant opportunity. But the more specific searches — 'denied workers comp claim attorney,' 'workers comp for construction injury,' 'can I sue my employer for workplace injury' — represent searchers at higher urgency and with a more specific situation that your content can address directly.\n\nJurisPage builds workers' comp SEO strategies that capture both layers. A strong top-level practice page anchors the authority, while injury-type and situation-specific sub-pages capture the more specific, higher-converting traffic that generic workers' comp content misses.",
+      "An injured worker who can't work, who's fighting an insurance carrier, or who just had a claim denied is searching for an attorney right now. That urgency is your intake engine. Organic search is the primary driver of new consultations for most workers' comp practices — and the firms that rank for the right queries at the right moment sign cases their competitors never see.\n\nThe real opportunity isn't just the broad 'workers compensation attorney [city]' keyword. It's the specific searches — 'denied workers comp claim attorney,' 'workers comp for construction injury,' 'can I sue my employer for workplace injury' — where the searcher has a defined problem and is ready to act. These queries convert at two to three times the rate of generic practice-area terms, and most workers' comp sites don't have dedicated content for them.",
     tactics: [
       {
         title: "Industry and Injury-Type Page Development",
-        body: "Construction, warehouse, healthcare, transportation, and manufacturing workers each have different injury patterns, different workers' comp claim processes, and different search behaviors. We build industry-specific and injury-specific pages — back injuries, repetitive stress, occupational disease, work-related death — that capture the precise searches of workers in those situations.",
+        body: "A construction worker with a back injury and a healthcare worker with a needlestick exposure search differently and face different claim processes. Industry-specific and injury-specific pages — construction, warehouse, healthcare, repetitive stress, occupational disease — match your content to the exact situation someone is searching from. That relevance is what converts a visitor into a call.",
       },
       {
         title: "Claim Denial and Appeal Content",
-        body: "Workers whose claims have been denied are actively searching for help and often ready to retain immediately. Content targeting 'workers comp claim denied what to do,' 'workers comp appeal attorney,' and related queries captures this high-urgency, high-intent segment. We prioritize this content because it attracts clients at the point of maximum motivation to act.",
+        body: "Workers whose claims have been denied are your highest-intent prospects. They're actively searching for help, they're frustrated, and they're ready to retain. Content targeting 'workers comp claim denied' and 'workers comp appeal attorney' should be among the first pages you build — this segment converts faster than any other in workers' comp search.",
       },
       {
         title: "Employer Retaliation and Discrimination Content",
-        body: "Workers who have faced retaliation for filing a comp claim, or who have been terminated after a workplace injury, represent a distinct and high-urgency client segment. Content addressing their specific situation — combined with your workers' comp services — captures this segment and often leads to cases with multiple legal claims and higher overall value.",
+        body: "Workers fired or retaliated against after filing a comp claim are searching with urgency and often have cases with multiple legal claims — comp plus employment law. Content that addresses their specific situation captures a high-value segment and opens up case values beyond standard workers' comp matters.",
       },
       {
         title: "State-Specific Workers' Comp Law Content",
-        body: "Workers' compensation is administered state by state, with different benefit structures, filing deadlines, appeals processes, and dispute resolution procedures. We build state-specific content that accurately reflects your state's workers' comp system, making your site the trusted local resource that national legal content publishers cannot replicate.",
+        body: "Workers' comp is administered state by state — different benefit structures, filing deadlines, and appeals processes. Content that accurately reflects your state's system builds the local authority that national legal directories can't replicate. This is also where bar compliance matters: your content needs to reflect current statutes, not outdated or generic information.",
       },
     ],
     faqs: [
       {
         question: "How competitive is workers' comp SEO compared to other practice areas?",
         answer:
-          "Workers' comp is competitive in large metro markets but relatively accessible in smaller markets. It is generally less expensive to rank for than personal injury or criminal defense in most markets, which makes it an attractive SEO target for firms that practice it. The key is building comprehensive content around the full range of workers' comp topics, not just the top-level keyword.",
+          "Less competitive than personal injury or criminal defense in most markets, which makes it one of the more cost-effective practice areas for SEO investment. Large metros are contested, but smaller markets are accessible. The key is building content depth across the full range of workers' comp topics — not just fighting over the top-level keyword.",
       },
       {
         question: "What is the most important content to create first for workers' comp SEO?",
         answer:
-          "Start with your main workers' compensation practice page — comprehensive, expert-level content covering the full scope of what you handle. Then build out claim denial content, since this segment converts at the highest rate. Industry-specific pages and informational FAQ content follow. We build a prioritized content calendar that sequences production in order of highest expected SEO and conversion impact.",
+          "Your main workers' comp practice page first — comprehensive, expert-level content covering the full scope of what you handle. Then claim denial content, because that segment converts at the highest rate. Industry-specific pages and informational content follow. We sequence production by expected impact on consultations, not by what's easiest to write.",
       },
       {
         question: "Can workers' comp SEO work for Spanish-speaking client markets?",
         answer:
-          "Yes. In many markets, a significant portion of injured workers are Spanish speakers who search for workers' comp help in Spanish. We can build Spanish-language workers' comp content for your site that captures this underserved search segment — often with much lower competition than English-language keywords and very high conversion rates.",
+          "Yes, and it's one of the biggest missed opportunities in workers' comp search. In many markets, a significant portion of injured workers search in Spanish with much lower keyword competition. Spanish-language workers' comp content typically converts at high rates because so few firms offer it.",
       },
       {
         question: "How does JurisPage measure workers' comp SEO success?",
         answer:
-          "We track keyword rankings for priority terms, organic session growth, and lead volume from organic search. For workers' comp specifically, we monitor the claim denial and industry-specific keyword clusters separately from the top-level practice keywords, since these different segments convert differently. Monthly reporting ties all activity to consultation volume and, where trackable, retained clients.",
+          "Consultation volume and cost per organic lead — not just rankings. We track claim denial and industry-specific keyword clusters separately from top-level practice terms because they convert differently. Monthly reporting ties activity directly to consultations and, where trackable, retained clients.",
       },
     ],
   },
