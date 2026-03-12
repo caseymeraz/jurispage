@@ -8,30 +8,30 @@ import PracticeAreaServicePage, {
 } from "@/components/PracticeAreaServicePage";
 
 interface PageProps {
-  params: Promise<{ practiceSlug: string; serviceSlug: string }>;
+  params: Promise<{ slug: string; serviceSlug: string }>;
 }
 
 export async function generateStaticParams() {
   return intersections.map((i) => ({
-    practiceSlug: i.practiceAreaSlug,
+    slug: i.practiceAreaSlug,
     serviceSlug: i.serviceSlug,
   }));
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
-  const { practiceSlug, serviceSlug } = await params;
-  const intersection = getIntersection(practiceSlug, serviceSlug);
+  const { slug, serviceSlug } = await params;
+  const intersection = getIntersection(slug, serviceSlug);
   if (!intersection) return {};
   return generateIntersectionMetadata(intersection);
 }
 
 export default async function Page({ params }: PageProps) {
-  const { practiceSlug, serviceSlug } = await params;
+  const { slug, serviceSlug } = await params;
 
-  const intersection = getIntersection(practiceSlug, serviceSlug);
+  const intersection = getIntersection(slug, serviceSlug);
   if (!intersection) notFound();
 
-  const practiceArea = getPracticeAreaBySlug(practiceSlug);
+  const practiceArea = getPracticeAreaBySlug(slug);
   if (!practiceArea) notFound();
 
   const service = getServiceBySlug(serviceSlug);
