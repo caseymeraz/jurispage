@@ -175,7 +175,7 @@ export async function POST(req: NextRequest) {
       await resend.emails.send({
         from: "JurisPage Leads <leads@jurispage.com>",
         to: ["cmeraz@jurisdigital.com"],
-        subject: `AI Search Report: ${firmName} — ${practiceArea} in ${city}, ${state}`,
+        subject: `AI Search Report: ${firmName} - ${practiceArea} in ${city}, ${state}`,
         html: `
           <h2>New AI Search Report</h2>
           <table style="border-collapse: collapse; width: 100%; font-family: sans-serif;">
@@ -213,7 +213,7 @@ export async function POST(req: NextRequest) {
             </tr>
             <tr>
               <td style="padding: 8px; border: 1px solid #ddd; font-weight: bold;">UTM Source</td>
-              <td style="padding: 8px; border: 1px solid #ddd;">${body.utmSource || "—"}</td>
+              <td style="padding: 8px; border: 1px solid #ddd;">${body.utmSource || "N/A"}</td>
             </tr>
           </table>
         `,

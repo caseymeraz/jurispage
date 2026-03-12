@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Admin Dashboard — JurisPage",
+  title: "Admin Dashboard | JurisPage",
   robots: "noindex, nofollow",
 };
 

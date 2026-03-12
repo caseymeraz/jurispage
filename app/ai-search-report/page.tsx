@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   title:
     "Is AI Search Recommending Your Law Firm? Free AI Visibility Check | JurisPage",
   description:
-    "Find out if Google AI Overviews and AI-powered search engines are citing your law firm. Enter your info, pick a practice area, and see which firms AI is recommending — instantly and free.",
+    "Find out if Google AI Overviews and AI-powered search engines are citing your law firm. Enter your info, pick a practice area, and see which firms AI is recommending, instantly and free.",
   alternates: { canonical: "https://jurispage.com/ai-search-report/" },
 };
 
@@ -25,7 +25,7 @@ const steps = [
   {
     title: "See your results instantly",
     description:
-      "Find out if AI is recommending your firm — and who's getting cited instead.",
+      "Find out if AI is recommending your firm, and who's getting cited instead.",
   },
 ];
 
@@ -48,7 +48,7 @@ export default function AiSearchReportPage() {
 
           <p className="text-gray-600 text-lg leading-relaxed max-w-2xl mx-auto mb-6">
             Google&apos;s AI Overviews are changing how potential clients find
-            lawyers. Find out if AI is citing your firm — or sending clients to
+            lawyers. Find out if AI is citing your firm, or sending clients to
             your competitors.
           </p>
 

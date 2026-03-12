@@ -149,7 +149,7 @@ export default function MarketGapTeaser({
         </p>
       </div>
 
-      {/* Snapshot cards — 2x2 grid */}
+      {/* Snapshot cards - 2x2 grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10">
         {/* Monthly Market Demand */}
         <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">

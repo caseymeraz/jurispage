@@ -348,7 +348,7 @@ export default function ServicePage({ service }: ServicePageProps) {
                 Is AI Search Recommending Your Law Firm?
               </h2>
               <p className="text-gray-600 text-lg max-w-xl mx-auto">
-                Find out instantly — enter your firm details and see which firms AI is citing in your market.
+                Find out instantly. Enter your firm details and see which firms AI is citing in your market.
               </p>
             </div>
             <Suspense fallback={<div className="bg-white rounded-2xl border border-gray-100 shadow-lg p-8 text-center text-gray-500">Loading form...</div>}>

@@ -365,7 +365,7 @@ export async function POST(req: NextRequest) {
           </tr>
           <tr>
             <td style="padding: 8px; border: 1px solid #ddd; font-weight: bold;">Firm</td>
-            <td style="padding: 8px; border: 1px solid #ddd;">${lead.firmName || "—"}</td>
+            <td style="padding: 8px; border: 1px solid #ddd;">${lead.firmName || "N/A"}</td>
           </tr>
           <tr>
             <td style="padding: 8px; border: 1px solid #ddd; font-weight: bold;">Practice Area</td>
@@ -377,11 +377,11 @@ export async function POST(req: NextRequest) {
           </tr>
           <tr>
             <td style="padding: 8px; border: 1px solid #ddd; font-weight: bold;">Website</td>
-            <td style="padding: 8px; border: 1px solid #ddd;">${lead.website || "—"}</td>
+            <td style="padding: 8px; border: 1px solid #ddd;">${lead.website || "N/A"}</td>
           </tr>
           <tr>
             <td style="padding: 8px; border: 1px solid #ddd; font-weight: bold;">Phone</td>
-            <td style="padding: 8px; border: 1px solid #ddd;">${lead.phone || "—"}</td>
+            <td style="padding: 8px; border: 1px solid #ddd;">${lead.phone || "N/A"}</td>
           </tr>
           <tr>
             <td style="padding: 8px; border: 1px solid #ddd; font-weight: bold;">Report ID</td>
@@ -389,7 +389,7 @@ export async function POST(req: NextRequest) {
           </tr>
           <tr>
             <td style="padding: 8px; border: 1px solid #ddd; font-weight: bold;">UTM Source</td>
-            <td style="padding: 8px; border: 1px solid #ddd;">${lead.utmSource || "—"}</td>
+            <td style="padding: 8px; border: 1px solid #ddd;">${lead.utmSource || "N/A"}</td>
           </tr>
         </table>
       `;
@@ -397,7 +397,7 @@ export async function POST(req: NextRequest) {
       await resend.emails.send({
         from: "JurisPage Leads <leads@jurispage.com>",
         to: ["cmeraz@jurisdigital.com"],
-        subject: `Market Gap Report: ${lead.firmName || lead.email} — ${practiceArea} in ${reportCity}, ${reportState}`,
+        subject: `Market Gap Report: ${lead.firmName || lead.email} - ${practiceArea} in ${reportCity}, ${reportState}`,
         html: notificationHtml,
         replyTo: lead.email,
       });

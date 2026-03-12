@@ -33,9 +33,9 @@ const QUESTIONS: Question[] = [
     question: "Is your Google Business Profile fully optimized?",
     subtext: "Primary + secondary categories set, services listed, 10+ photos uploaded, and a keyword-rich business description written.",
     answers: {
-      yes:     { label: "Yes — fully optimized",               points: 25, qualifier: "GBP needs full optimization (categories, services, photos, description)" },
-      partial: { label: "Partially — some gaps",               points: 12, qualifier: "GBP has gaps (missing categories, photos, or description)" },
-      no:      { label: "No — barely set up or incomplete",    points: 0,  qualifier: "GBP is incomplete and needs immediate attention" },
+      yes:     { label: "Yes, fully optimized",                  points: 25, qualifier: "GBP needs full optimization (categories, services, photos, description)" },
+      partial: { label: "Partially (some gaps)",                points: 12, qualifier: "GBP has gaps (missing categories, photos, or description)" },
+      no:      { label: "No, barely set up or incomplete",     points: 0,  qualifier: "GBP is incomplete and needs immediate attention" },
     },
   },
   {
@@ -45,9 +45,9 @@ const QUESTIONS: Question[] = [
     question: "Do you have 50+ Google reviews and get new ones each month?",
     subtext: "Volume and recency both matter to Google's local algorithm. A stale review profile drags rankings.",
     answers: {
-      yes:     { label: "Yes — 50+ reviews, growing monthly",  points: 25, qualifier: "Review volume needs to grow beyond 50 with a monthly generation system" },
-      partial: { label: "Some reviews, inconsistent flow",      points: 10, qualifier: "Reviews are inconsistent — need a systematic monthly generation process" },
-      no:      { label: "Under 25 reviews or nothing recent",  points: 0,  qualifier: "Review count is critically low — this is likely your biggest ranking gap" },
+      yes:     { label: "Yes, 50+ reviews, growing monthly",    points: 25, qualifier: "Review volume needs to grow beyond 50 with a monthly generation system" },
+      partial: { label: "Some reviews, inconsistent flow",      points: 10, qualifier: "Reviews are inconsistent and need a systematic monthly generation process" },
+      no:      { label: "Under 25 reviews or nothing recent",  points: 0,  qualifier: "Review count is critically low: this is likely your biggest ranking gap" },
     },
   },
   {
@@ -57,9 +57,9 @@ const QUESTIONS: Question[] = [
     question: "Is your firm's name, address, and phone number consistent everywhere?",
     subtext: "Check Avvo, Justia, Yelp, Bing Places, FindLaw, and Martindale. Even small discrepancies suppress local rankings.",
     answers: {
-      yes:     { label: "Yes — consistent across all directories", points: 20, qualifier: "Citation consistency needs audit across Avvo, Justia, Yelp, Bing, FindLaw" },
+      yes:     { label: "Yes, consistent across all directories",   points: 20, qualifier: "Citation consistency needs audit across Avvo, Justia, Yelp, Bing, FindLaw" },
       partial: { label: "Mostly consistent, a few issues",          points: 8,  qualifier: "Citation inconsistencies exist and need to be cleaned up" },
-      no:      { label: "Not sure / haven't checked",               points: 0,  qualifier: "Citations have never been audited — likely suppressing rankings" },
+      no:      { label: "Not sure / haven't checked",               points: 0,  qualifier: "Citations have never been audited, likely suppressing rankings" },
     },
   },
   {
@@ -69,9 +69,9 @@ const QUESTIONS: Question[] = [
     question: "Do you appear in the Google 3-Pack for your top practice area + city?",
     subtext: 'Search "[practice area] lawyer [city]" right now. Are you in the top 3 map results?',
     answers: {
-      yes:     { label: "Yes — we show in the 3-pack",         points: 15, qualifier: "Map pack position needs to be maintained and expanded to more queries" },
+      yes:     { label: "Yes, we show in the 3-pack",           points: 15, qualifier: "Map pack position needs to be maintained and expanded to more queries" },
       partial: { label: "Sometimes, depending on the search",  points: 6,  qualifier: "Map pack visibility is inconsistent across different searches" },
-      no:      { label: "No — we don't appear",                points: 0,  qualifier: "Not in the map pack at all — this is your most urgent priority" },
+      no:      { label: "No, we don't appear",                  points: 0,  qualifier: "Not in the map pack at all. This is your most urgent priority" },
     },
   },
   {
@@ -81,9 +81,9 @@ const QUESTIONS: Question[] = [
     question: "Do you have dedicated city-specific landing pages with localized content?",
     subtext: "Pages targeting '[practice area] lawyer in [city]' with unique local content (not just city name swapped in).",
     answers: {
-      yes:     { label: "Yes — real localized pages",           points: 10, qualifier: "Local landing pages could be expanded to more cities and practice areas" },
+      yes:     { label: "Yes, real localized pages",             points: 10, qualifier: "Local landing pages could be expanded to more cities and practice areas" },
       partial: { label: "Generic pages with city names added",  points: 4,  qualifier: "Thin city pages need real localized content to rank" },
-      no:      { label: "No dedicated local pages",             points: 0,  qualifier: "No local landing pages — leaving major keyword opportunities on the table" },
+      no:      { label: "No dedicated local pages",             points: 0,  qualifier: "No local landing pages, leaving major keyword opportunities on the table" },
     },
   },
   {
@@ -93,9 +93,9 @@ const QUESTIONS: Question[] = [
     question: "Does someone at your firm respond to every Google review within a week?",
     subtext: "Responding to reviews signals engagement to Google and builds trust with prospects reading your profile.",
     answers: {
-      yes:     { label: "Yes — we respond to every review",    points: 5, qualifier: "Review response process is working — keep it consistent" },
-      partial: { label: "Sometimes, but not consistently",     points: 2, qualifier: "Review responses are inconsistent — need a defined process" },
-      no:      { label: "No — reviews go unanswered",          points: 0, qualifier: "Reviews go unanswered — hurting trust signals" },
+      yes:     { label: "Yes, we respond to every review",      points: 5, qualifier: "Review response process is working. Keep it consistent" },
+      partial: { label: "Sometimes, but not consistently",     points: 2, qualifier: "Review responses are inconsistent and need a defined process" },
+      no:      { label: "No, reviews go unanswered",            points: 0, qualifier: "Reviews go unanswered, hurting trust signals" },
     },
   },
 ];
@@ -325,7 +325,7 @@ export default function LocalSeoScorecard() {
             <span className="text-gray-500 font-heading font-bold text-2xl mb-3">/100</span>
           </div>
 
-          {/* Grade badge — fades in after count-up */}
+          {/* Grade badge: fades in after count-up */}
           <div
             className={gradeVisible ? "animate-grade-pop" : "opacity-0"}
             style={{ display: "inline-block" }}
@@ -334,7 +334,7 @@ export default function LocalSeoScorecard() {
               className="inline-flex items-center gap-2 px-5 py-2 rounded-full font-heading font-extrabold text-white text-lg mb-6"
               style={{ background: grade.color }}
             >
-              {grade.letter} — {grade.label}
+              {grade.letter}: {grade.label}
             </span>
           </div>
 
@@ -390,7 +390,7 @@ export default function LocalSeoScorecard() {
               className="ml-2 px-3 py-1 rounded-full text-white text-sm font-heading font-bold"
               style={{ background: grade.color }}
             >
-              {grade.letter} — {grade.label}
+              {grade.letter}: {grade.label}
             </span>
           </div>
           <p className="text-gray-400 text-sm mt-2">
@@ -457,7 +457,7 @@ export default function LocalSeoScorecard() {
           ✓
         </div>
         <h3 className="font-heading font-extrabold text-gray-900 text-xl mb-2">
-          Check your inbox — action plan on its way.
+          Check your inbox. Your action plan is on its way.
         </h3>
         <p className="text-gray-500 text-sm mb-8 max-w-sm mx-auto">
           We&apos;ll walk through every gap we found and show you exactly what to fix first.

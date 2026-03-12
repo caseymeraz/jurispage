@@ -74,15 +74,15 @@ export async function POST(req: NextRequest) {
           </tr>
           <tr>
             <td style="padding: 8px; border: 1px solid #ddd; font-weight: bold;">Phone</td>
-            <td style="padding: 8px; border: 1px solid #ddd;">${body.phone || "—"}</td>
+            <td style="padding: 8px; border: 1px solid #ddd;">${body.phone || "N/A"}</td>
           </tr>
           <tr>
             <td style="padding: 8px; border: 1px solid #ddd; font-weight: bold;">Preferred Time</td>
-            <td style="padding: 8px; border: 1px solid #ddd;">${body.preferredTime || "—"}</td>
+            <td style="padding: 8px; border: 1px solid #ddd;">${body.preferredTime || "N/A"}</td>
           </tr>
           <tr>
             <td style="padding: 8px; border: 1px solid #ddd; font-weight: bold;">Firm</td>
-            <td style="padding: 8px; border: 1px solid #ddd;">${report.lead.firmName || "—"}</td>
+            <td style="padding: 8px; border: 1px solid #ddd;">${report.lead.firmName || "N/A"}</td>
           </tr>
           <tr>
             <td style="padding: 8px; border: 1px solid #ddd; font-weight: bold;">Practice Area</td>
@@ -102,7 +102,7 @@ export async function POST(req: NextRequest) {
       await resend.emails.send({
         from: "JurisPage Leads <leads@jurispage.com>",
         to: ["cmeraz@jurisdigital.com"],
-        subject: `Strategy Call Request: ${body.name} — ${report.practiceArea} in ${report.city}, ${report.state}`,
+        subject: `Strategy Call Request: ${body.name} - ${report.practiceArea} in ${report.city}, ${report.state}`,
         html: notificationHtml,
         replyTo: body.email,
       });
@@ -118,7 +118,7 @@ export async function POST(req: NextRequest) {
           { name: "firstname", value: body.name },
           { name: "email", value: body.email },
           { name: "phone", value: body.phone || "" },
-          { name: "message", value: `Strategy call request — ${report.practiceArea} in ${report.city}, ${report.state}. Preferred time: ${body.preferredTime || "Not specified"}` },
+          { name: "message", value: `Strategy call request: ${report.practiceArea} in ${report.city}, ${report.state}. Preferred time: ${body.preferredTime || "Not specified"}` },
         ]
       );
     } catch (hubspotError) {

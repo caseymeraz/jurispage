@@ -55,7 +55,7 @@ export default function MarketGapLoadingPage() {
           return;
         }
       } catch {
-        /* network hiccup — keep polling */
+        /* network hiccup - keep polling */
       }
 
       pollCount.current += 1;
@@ -106,7 +106,7 @@ export default function MarketGapLoadingPage() {
           </h1>
           <p className="text-gray-400 text-base leading-relaxed mb-8">
             Your analysis is taking a bit longer than usual. We&apos;ll email
-            your full report within 24 hours — no action needed on your end.
+            your full report within 24 hours. No action needed on your end.
           </p>
 
           <a

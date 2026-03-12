@@ -1,4 +1,4 @@
-// Server-side analytics — only import in server components / API routes
+// Server-side analytics: only import in server components / API routes
 import { prisma } from "@/lib/db";
 
 type MarketGapEventName =

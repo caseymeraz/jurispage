@@ -110,12 +110,12 @@ export default function LawFirmWebsitesPage() {
         </div>
       </section>
 
-      {/* Portfolio Showcase — moved right below hero */}
+      {/* Portfolio Showcase - moved right below hero */}
       {service.portfolio && service.portfolio.length > 0 && (
         <PortfolioShowcase items={service.portfolio} />
       )}
 
-      {/* Review Ribbon — directly after portfolio */}
+      {/* Review Ribbon - directly after portfolio */}
       <ReviewRibbon />
 
       {/* Stats bar */}

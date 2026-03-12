@@ -59,7 +59,7 @@ export async function POST(req: NextRequest) {
       <div style="font-family: sans-serif; max-width: 640px; margin: 0 auto;">
         <div style="background: #1a1a1a; padding: 24px 32px; border-radius: 12px 12px 0 0;">
           <h2 style="color: #fff; margin: 0; font-size: 20px;">
-            Scorecard Lead — ${firmName || name}
+            Scorecard Lead: ${firmName || name}
           </h2>
           <p style="color: #9ca3af; margin: 6px 0 0; font-size: 14px;">
             Submitted via jurispage.com/local-seo-for-law-firms/
@@ -74,7 +74,7 @@ export async function POST(req: NextRequest) {
             </div>
             <div>
               <span style="display: inline-block; background: ${gradeColor}; color: #fff; border-radius: 999px; padding: 6px 18px; font-weight: 700; font-size: 18px;">
-                ${grade} — ${gradeLabel}
+                ${grade}: ${gradeLabel}
               </span>
             </div>
           </div>
@@ -83,7 +83,7 @@ export async function POST(req: NextRequest) {
           <table style="border-collapse: collapse; width: 100%; margin-bottom: 24px;">
             <tr><td style="padding: 8px 12px; border: 1px solid #e5e7eb; font-weight: 600; width: 120px;">Name</td><td style="padding: 8px 12px; border: 1px solid #e5e7eb;">${name}</td></tr>
             <tr><td style="padding: 8px 12px; border: 1px solid #e5e7eb; font-weight: 600;">Email</td><td style="padding: 8px 12px; border: 1px solid #e5e7eb;"><a href="mailto:${email}">${email}</a></td></tr>
-            <tr><td style="padding: 8px 12px; border: 1px solid #e5e7eb; font-weight: 600;">Firm</td><td style="padding: 8px 12px; border: 1px solid #e5e7eb;">${firmName || "—"}</td></tr>
+            <tr><td style="padding: 8px 12px; border: 1px solid #e5e7eb; font-weight: 600;">Firm</td><td style="padding: 8px 12px; border: 1px solid #e5e7eb;">${firmName || "N/A"}</td></tr>
           </table>
 
           <!-- Answer breakdown -->
@@ -120,7 +120,7 @@ export async function POST(req: NextRequest) {
           <div style="font-size: 72px; font-weight: 900; color: #EE6C13; line-height: 1;">${score}</div>
           <div style="color: #6b7280; font-size: 16px; margin-bottom: 16px;">/100</div>
           <span style="display: inline-block; background: ${gradeColor}; color: #fff; border-radius: 999px; padding: 8px 24px; font-weight: 700; font-size: 18px;">
-            ${grade} — ${gradeLabel}
+            ${grade}: ${gradeLabel}
           </span>
         </div>
 
@@ -176,7 +176,7 @@ export async function POST(req: NextRequest) {
     await resend.emails.send({
       from: "JurisPage Leads <leads@jurispage.com>",
       to: ["cmeraz@jurisdigital.com", "ahatcher@jurisdigital.com", "jmeans@jurisdigital.com"],
-      subject: `Scorecard: ${firmName || name} — ${score}/100 (${grade}: ${gradeLabel})`,
+      subject: `Scorecard: ${firmName || name} - ${score}/100 (${grade}: ${gradeLabel})`,
       html: internalHtml,
       replyTo: email,
     });
@@ -184,7 +184,7 @@ export async function POST(req: NextRequest) {
     await resend.emails.send({
       from: "JurisPage <hello@jurispage.com>",
       to: [email],
-      subject: `Your Local SEO Score: ${score}/100 — ${grade}: ${gradeLabel}`,
+      subject: `Your Local SEO Score: ${score}/100 - ${grade}: ${gradeLabel}`,
       html: prospectHtml,
     });
 

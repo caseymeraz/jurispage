@@ -15,14 +15,14 @@ export async function POST(req: NextRequest) {
       n.toLocaleString("en-US", { style: "currency", currency: "USD", maximumFractionDigits: 0 });
 
     const internalHtml = `
-      <h2>Secret Shop Audit Request — ${firmName || name}</h2>
+      <h2>Secret Shop Audit Request: ${firmName || name}</h2>
       <p style="color: #EE6C13; font-weight: bold; font-size: 18px;">
         Monthly Bleed: ${fmt(monthlyBleed)}/mo
       </p>
       <table style="border-collapse: collapse; width: 100%; margin-top: 16px;">
         <tr><td style="padding: 8px; border: 1px solid #ddd; font-weight: bold;">Name</td><td style="padding: 8px; border: 1px solid #ddd;">${name}</td></tr>
         <tr><td style="padding: 8px; border: 1px solid #ddd; font-weight: bold;">Email</td><td style="padding: 8px; border: 1px solid #ddd;">${email}</td></tr>
-        <tr><td style="padding: 8px; border: 1px solid #ddd; font-weight: bold;">Firm Name</td><td style="padding: 8px; border: 1px solid #ddd;">${firmName || "—"}</td></tr>
+        <tr><td style="padding: 8px; border: 1px solid #ddd; font-weight: bold;">Firm Name</td><td style="padding: 8px; border: 1px solid #ddd;">${firmName || "N/A"}</td></tr>
         <tr><td style="padding: 8px; border: 1px solid #ddd; font-weight: bold;">Avg Case Value</td><td style="padding: 8px; border: 1px solid #ddd;">${fmt(avgCaseValue)}</td></tr>
         <tr><td style="padding: 8px; border: 1px solid #ddd; font-weight: bold;">Monthly Leads</td><td style="padding: 8px; border: 1px solid #ddd;">${monthlyLeads}</td></tr>
         <tr style="background: #fff3e0;"><td style="padding: 8px; border: 1px solid #ddd; font-weight: bold; color: #EE6C13;">Monthly Bleed</td><td style="padding: 8px; border: 1px solid #ddd; font-weight: bold; color: #EE6C13;">${fmt(monthlyBleed)}/mo</td></tr>
@@ -57,7 +57,7 @@ export async function POST(req: NextRequest) {
     await resend.emails.send({
       from: "JurisPage Leads <leads@jurispage.com>",
       to: ["cmeraz@jurisdigital.com", "ahatcher@jurisdigital.com", "jmeans@jurisdigital.com"],
-      subject: `Secret Shop Audit Request — ${firmName || name} (${fmt(monthlyBleed)}/mo bleed)`,
+      subject: `Secret Shop Audit Request: ${firmName || name} (${fmt(monthlyBleed)}/mo bleed)`,
       html: internalHtml,
       replyTo: email,
     });
@@ -66,7 +66,7 @@ export async function POST(req: NextRequest) {
     await resend.emails.send({
       from: "JurisPage <hello@jurispage.com>",
       to: [email],
-      subject: `Your JurisPage Intake Audit — ${fmt(monthlyBleed)}/mo estimated bleed`,
+      subject: `Your JurisPage Intake Audit: ${fmt(monthlyBleed)}/mo estimated bleed`,
       html: confirmationHtml,
     });
 

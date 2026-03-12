@@ -167,7 +167,7 @@ export default function MarketGapForm() {
     loadGoogleMapsScript()
       .then(() => setPlacesReady(true))
       .catch(() => {
-        /* API key missing or load failed — fall back to manual entry */
+        /* API key missing or load failed; fall back to manual entry */
         setManualEntry(true);
       });
   }, []);
@@ -446,7 +446,7 @@ export default function MarketGapForm() {
           {renderError("email")}
         </div>
 
-        {/* Firm name — autocomplete or manual */}
+        {/* Firm name: autocomplete or manual */}
         <div className="mb-4">
           <label htmlFor="mgf-firmName" className={LABEL_CLS}>
             Firm name <span className="text-red-500">*</span>

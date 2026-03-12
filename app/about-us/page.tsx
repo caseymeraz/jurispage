@@ -86,7 +86,7 @@ export default function AboutPage() {
       </section>
 
       {/* Three Alternating Image+Text Sections */}
-      {/* Section 1 — Image Left */}
+      {/* Section 1 - Image Left */}
       <section className="py-20 px-6">
         <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
           <div className="relative">
@@ -112,7 +112,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Section 2 — Image Right */}
+      {/* Section 2 - Image Right */}
       <section className="py-20 px-6 bg-gray-50">
         <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
           <div className="order-2 lg:order-1">
@@ -138,7 +138,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Section 3 — Image Left */}
+      {/* Section 3 - Image Left */}
       <section className="py-20 px-6">
         <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
           <div className="relative">

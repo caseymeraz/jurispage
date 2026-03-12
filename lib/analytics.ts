@@ -1,4 +1,4 @@
-// Client-side analytics helper — fires to window.dataLayer (GA4) or window.posthog
+// Client-side analytics helper: fires to window.dataLayer (GA4) or window.posthog
 // Safe to import in client components
 
 export function trackClientEvent(

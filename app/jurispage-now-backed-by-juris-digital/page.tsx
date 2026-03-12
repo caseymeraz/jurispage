@@ -5,12 +5,12 @@ import StartHereStrip from "@/components/StartHereStrip";
 import YouTubeFacade from "@/components/YouTubeFacade";
 
 export const metadata: Metadata = {
-  title: "JurisPage — Now Backed by Juris Digital",
+  title: "JurisPage | Now Backed by Juris Digital",
   description:
     "In February 2026, JurisPage joined the Juris Digital family. Same legal-only focus, deeper research, stronger execution, and more clarity on what's working.",
   alternates: { canonical: "https://jurispage.com/jurispage-now-backed-by-juris-digital/" },
   openGraph: {
-    title: "JurisPage — Now Backed by Juris Digital",
+    title: "JurisPage | Now Backed by Juris Digital",
     description:
       "Same legal-only focus. Deeper research. Stronger execution. More clarity on what's working and what's not.",
     type: "article",
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "JurisPage — Now Backed by Juris Digital",
+    title: "JurisPage | Now Backed by Juris Digital",
     description:
       "Same legal-only focus. Deeper research. Stronger execution. More clarity on what's working and what's not.",
   },

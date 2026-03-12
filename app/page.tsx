@@ -481,7 +481,7 @@ export default function HomePage() {
               </p>
             </div>
 
-            {/* Right: 2/5 — MarketGapPreview */}
+            {/* Right: 2/5 - MarketGapPreview */}
             <div className="lg:col-span-2">
               <MarketGapPreview />
             </div>
@@ -509,7 +509,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Review Ribbon — after trust strip */}
+      {/* Review Ribbon - after trust strip */}
       <ReviewRibbon />
 
       {/* ── 4. Start Here Strip ── */}
@@ -524,7 +524,7 @@ export default function HomePage() {
             </h2>
             <p className="text-gray-600 text-lg max-w-2xl mx-auto">
               Everything you need to understand your competitive position
-              &mdash; delivered in under 60 seconds.
+              , delivered in under 60 seconds.
             </p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">

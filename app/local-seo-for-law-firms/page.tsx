@@ -29,17 +29,17 @@ export const metadata: Metadata = {
 
 // Icon SVG paths for each How It Works step
 const stepIcons: string[] = [
-  // 1 — GBP Audit: Map pin
+  // 1 - GBP Audit: Map pin
   '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5z" fill="#EE6C13"/></svg>',
-  // 2 — Citation Building: Clipboard/list
+  // 2 - Citation Building: Clipboard/list
   '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" stroke="#EE6C13" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1" stroke="#EE6C13" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><line x1="8" y1="11" x2="16" y2="11" stroke="#EE6C13" stroke-width="2" stroke-linecap="round"/><line x1="8" y1="15" x2="14" y2="15" stroke="#EE6C13" stroke-width="2" stroke-linecap="round"/></svg>',
-  // 3 — Review Generation: Star
+  // 3 - Review Generation: Star
   '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" fill="#EE6C13"/></svg>',
-  // 4 — Keyword Research: Magnifying glass
+  // 4 - Keyword Research: Magnifying glass
   '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="11" cy="11" r="7" stroke="#EE6C13" stroke-width="2"/><path d="M21 21l-4.35-4.35" stroke="#EE6C13" stroke-width="2" stroke-linecap="round"/></svg>',
-  // 5 — Local Link Building: Chain link
+  // 5 - Local Link Building: Chain link
   '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" stroke="#EE6C13" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" stroke="#EE6C13" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>',
-  // 6 — Rank Tracking: Bar chart
+  // 6 - Rank Tracking: Bar chart
   '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="12" width="4" height="9" rx="1" fill="#EE6C13"/><rect x="10" y="7" width="4" height="14" rx="1" fill="#EE6C13"/><rect x="17" y="3" width="4" height="18" rx="1" fill="#EE6C13"/></svg>',
 ];
 
@@ -171,7 +171,7 @@ export default function LocalSeoForLawFirmsPage() {
         </section>
       )}
 
-      {/* 4. Review Ribbon — moved above intro for social proof above the fold content */}
+      {/* 4. Review Ribbon - moved above intro for social proof above the fold content */}
       <ReviewRibbon />
 
       {/* 5. Intro */}
@@ -193,7 +193,7 @@ export default function LocalSeoForLawFirmsPage() {
         </section>
       )}
 
-      {/* 7. Features — What's Included */}
+      {/* 7. Features - What's Included */}
       <section className="py-16 px-6 bg-white">
         <div className="max-w-3xl mx-auto">
           <h2 className="font-heading font-extrabold text-gray-900 text-3xl mb-8">What&apos;s Included</h2>
@@ -208,7 +208,7 @@ export default function LocalSeoForLawFirmsPage() {
         </div>
       </section>
 
-      {/* 8. How It Works — with icon badges */}
+      {/* 8. How It Works - with icon badges */}
       {service.process && service.process.length > 0 && (
         <section className="py-16 px-6 bg-[#1a1a1a]">
           <div className="max-w-3xl mx-auto">
@@ -234,7 +234,7 @@ export default function LocalSeoForLawFirmsPage() {
         </section>
       )}
 
-      {/* 8.5 — Local SEO Scorecard */}
+      {/* 8.5 - Local SEO Scorecard */}
       <section className="py-16 px-6 bg-[#FEF3EC]">
         <div className="max-w-2xl mx-auto">
           <div className="text-center mb-8">
@@ -275,7 +275,7 @@ export default function LocalSeoForLawFirmsPage() {
         </div>
       </section>
 
-      {/* 10. Signs Your Firm Needs This — full 6-item list */}
+      {/* 10. Signs Your Firm Needs This - full 6-item list */}
       {service.signs && service.signs.length > 0 && (
         <section className="py-16 px-6 bg-[#FEF3EC]">
           <div className="max-w-3xl mx-auto">

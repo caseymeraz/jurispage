@@ -171,7 +171,7 @@ export default function AiSearchReportForm() {
             AI search queries cited your firm
           </p>
           <p className="text-gray-500 text-sm mt-1">
-            {report.firmDomain} in {report.practiceArea} — {report.city}, {report.state}
+            {report.firmDomain} in {report.practiceArea}, {report.city}, {report.state}
           </p>
         </div>
 
@@ -280,7 +280,7 @@ export default function AiSearchReportForm() {
             Want to improve your AI visibility?
           </h3>
           <p className="text-gray-600 text-sm mb-6">
-            Get a full market gap analysis to see exactly where your firm stands — and what to fix first.
+            Get a full market gap analysis to see exactly where your firm stands, and what to fix first.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <a

@@ -76,13 +76,13 @@ export default function Header() {
               >
                 Services <span className="text-xs">▾</span>
               </button>
-              {/* Mega-menu panel — always in DOM for SEO crawlability */}
+              {/* Mega-menu panel (always in DOM for SEO crawlability) */}
               <div
                 className={`absolute top-full left-0 min-w-[740px] bg-white rounded-xl shadow-2xl border border-gray-100 pt-2 px-6 pb-6 z-50 transition-all duration-200 ease-out
                   ${servicesOpen ? "opacity-100 translate-y-0 pointer-events-auto" : "opacity-0 -translate-y-1 pointer-events-none"}`}
               >
                 <div className="grid grid-cols-3 gap-6">
-                  {/* Col 1 — first 5 services */}
+                  {/* Col 1: first 5 services */}
                   <div className="space-y-1">
                     {servicesCol1.map((s) => (
                       <Link
@@ -95,7 +95,7 @@ export default function Header() {
                       </Link>
                     ))}
                   </div>
-                  {/* Col 2 — last 5 services */}
+                  {/* Col 2: last 5 services */}
                   <div className="space-y-1">
                     {servicesCol2.map((s) => (
                       <Link
@@ -108,7 +108,7 @@ export default function Header() {
                       </Link>
                     ))}
                   </div>
-                  {/* Col 3 — Featured card */}
+                  {/* Col 3: Featured card */}
                   <div
                     className="rounded-xl p-5 flex flex-col justify-between"
                     style={{ background: "linear-gradient(135deg, #EE6C13, #982A0B)" }}
@@ -116,7 +116,7 @@ export default function Header() {
                     <div>
                       <p className="text-white font-bold text-base mb-2">See My Market Gap</p>
                       <p className="text-white/90 text-sm leading-relaxed">
-                        See exactly where your firm is losing your market — and what it takes to win. Free and personalized.
+                        See exactly where your firm is losing your market, and what it takes to win. Free and personalized.
                       </p>
                     </div>
                     <Link
@@ -142,7 +142,7 @@ export default function Header() {
               >
                 Practice Areas <span className="text-xs">▾</span>
               </button>
-              {/* Dropdown panel — always in DOM for SEO crawlability */}
+              {/* Dropdown panel (always in DOM for SEO crawlability) */}
               <div
                 className={`absolute top-full left-0 min-w-[340px] bg-white rounded-xl shadow-xl border border-gray-100 pt-2 px-5 pb-5 z-50 transition-all duration-200 ease-out
                   ${practiceOpen ? "opacity-100 translate-y-0 pointer-events-auto" : "opacity-0 -translate-y-1 pointer-events-none"}`}

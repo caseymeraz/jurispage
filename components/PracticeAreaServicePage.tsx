@@ -426,7 +426,7 @@ export default function PracticeAreaServicePage({
       {/* ── CTA ──────────────────────────────────────────────────────────── */}
       <CTASection
         heading={`Ready to Grow Your ${pa.heading.replace(" Marketing", "")} Practice?`}
-        subtext={`Get a custom ${service.heading.toLowerCase()} strategy built for your firm. No contracts, no fluff — just results.`}
+        subtext={`Get a custom ${service.heading.toLowerCase()} strategy built for your firm. No contracts, no fluff, just results.`}
         primaryLabel="Book a Free Strategy Session"
         primaryHref="/get-started/"
         secondaryLabel={`See All ${pa.heading} Services`}

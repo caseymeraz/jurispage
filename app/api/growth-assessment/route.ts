@@ -53,7 +53,7 @@ export async function POST(req: NextRequest) {
     await resend.emails.send({
       from: "JurisPage Leads <leads@jurispage.com>",
       to: ["cmeraz@jurisdigital.com", "ahatcher@jurisdigital.com", "jmeans@jurisdigital.com"],
-      subject: `Juris Digital Growth Assessment: ${fullName} — ${attorneys} Attorneys | ${practiceAreasDisplay}`,
+      subject: `Juris Digital Growth Assessment: ${fullName} - ${attorneys} Attorneys | ${practiceAreasDisplay}`,
       html: internalHtml,
       replyTo: email,
     });
@@ -73,7 +73,7 @@ export async function POST(req: NextRequest) {
               <li>A senior strategist will review your application and research your market</li>
               <li>We'll reach out within <strong>one business day</strong> to schedule your session</li>
               <li>You'll receive a 45-minute Growth Strategy Session tailored to your firm</li>
-              <li>You decide if it's the right fit — no pressure, no obligation</li>
+              <li>You decide if it's the right fit, no pressure, no obligation</li>
             </ol>
           </div>
           <div style="background: #f9fafb; border-radius: 12px; padding: 20px 24px; margin: 24px 0; border: 1px solid #e5e7eb;">
@@ -83,7 +83,7 @@ export async function POST(req: NextRequest) {
               <li>Google Ads and LSA management</li>
               <li>Custom website design and development</li>
               <li>Dedicated strategist embedded with your team</li>
-              <li>Market exclusivity — limited partnerships per market</li>
+              <li>Market exclusivity: limited partnerships per market</li>
               <li>Advanced intake consulting and optimization</li>
             </ul>
           </div>
@@ -91,7 +91,7 @@ export async function POST(req: NextRequest) {
             <a href="https://jurisdigital.com" style="display: inline-block; background: #EE6C13; color: white; font-weight: bold; padding: 14px 28px; border-radius: 100px; text-decoration: none; font-size: 15px;">Explore Juris Digital →</a>
           </div>
           <p style="color: #6b7280; font-size: 14px;">Questions? Call us at <a href="tel:+18555936935" style="color: #EE6C13;">(855) 593-6935</a></p>
-          <p style="color: #555; font-size: 14px; margin-top: 24px;">— The JurisPage + Juris Digital Team</p>
+          <p style="color: #555; font-size: 14px; margin-top: 24px;">- The JurisPage + Juris Digital Team</p>
         </div>
         <div style="background: #f5f5f5; padding: 16px 32px; text-align: center;">
           <p style="color: #9ca3af; font-size: 12px; margin: 0;">JurisPage + Juris Digital · Law Firm Marketing</p>

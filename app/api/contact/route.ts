@@ -21,10 +21,10 @@ export async function POST(req: NextRequest) {
         <tr><td style="padding: 8px; border: 1px solid #ddd; font-weight: bold;">Name</td><td style="padding: 8px; border: 1px solid #ddd;">${firstName} ${lastName}</td></tr>
         <tr><td style="padding: 8px; border: 1px solid #ddd; font-weight: bold;">Email</td><td style="padding: 8px; border: 1px solid #ddd;">${email}</td></tr>
         <tr><td style="padding: 8px; border: 1px solid #ddd; font-weight: bold;">Phone</td><td style="padding: 8px; border: 1px solid #ddd;">${phone}</td></tr>
-        <tr><td style="padding: 8px; border: 1px solid #ddd; font-weight: bold;">Practice Area</td><td style="padding: 8px; border: 1px solid #ddd;">${practiceArea || "—"}</td></tr>
+        <tr><td style="padding: 8px; border: 1px solid #ddd; font-weight: bold;">Practice Area</td><td style="padding: 8px; border: 1px solid #ddd;">${practiceArea || "N/A"}</td></tr>
         <tr><td style="padding: 8px; border: 1px solid #ddd; font-weight: bold;">Budget</td><td style="padding: 8px; border: 1px solid #ddd;">${budget}</td></tr>
-        <tr><td style="padding: 8px; border: 1px solid #ddd; font-weight: bold;">Referral Source</td><td style="padding: 8px; border: 1px solid #ddd;">${referral || "—"}</td></tr>
-        <tr><td style="padding: 8px; border: 1px solid #ddd; font-weight: bold;">Goals</td><td style="padding: 8px; border: 1px solid #ddd;">${message || "—"}</td></tr>
+        <tr><td style="padding: 8px; border: 1px solid #ddd; font-weight: bold;">Referral Source</td><td style="padding: 8px; border: 1px solid #ddd;">${referral || "N/A"}</td></tr>
+        <tr><td style="padding: 8px; border: 1px solid #ddd; font-weight: bold;">Goals</td><td style="padding: 8px; border: 1px solid #ddd;">${message || "N/A"}</td></tr>
       </table>
     `;
 

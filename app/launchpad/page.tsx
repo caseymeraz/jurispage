@@ -21,7 +21,7 @@ const faqSchema = {
     { "@type": "Question", name: "How quickly can my campaign launch?", acceptedAnswer: { "@type": "Answer", text: "Full setup is completed within the first 45 days: website, GBP, local SEO, social profiles, and all initial content." } },
     { "@type": "Question", name: "Will I own my website and content?", acceptedAnswer: { "@type": "Answer", text: "Always. Your domain, your website, your content. All yours. If you ever leave JurisPage, everything transfers cleanly." } },
     { "@type": "Question", name: "How does the 90-day guarantee work?", acceptedAnswer: { "@type": "Answer", text: "If you don't see measurable progress in your rankings, traffic, or leads within 90 days, we work for free for the following month." } },
-    { "@type": "Question", name: "What if my firm has 5 or more attorneys?", acceptedAnswer: { "@type": "Answer", text: "Launchpad is designed for firms with 1–4 attorneys. If your firm has 5 or more, we recommend Juris Digital — our sister brand for established firms investing $5,000–$20,000+/month. Same parent company, same team, but a full-service strategy scaled to your goals. Visit jurisdigital.com to learn more." } },
+    { "@type": "Question", name: "What if my firm has 5 or more attorneys?", acceptedAnswer: { "@type": "Answer", text: "Launchpad is designed for firms with 1–4 attorneys. If your firm has 5 or more, we recommend Juris Digital, our sister brand for established firms investing $5,000–$20,000+/month. Same parent company, same team, but a full-service strategy scaled to your goals. Visit jurisdigital.com to learn more." } },
   ],
 };
 
@@ -72,7 +72,7 @@ const faqs = [
   { question: "Will I own my website and content?", answer: "Always. Your domain, your website, your content. All yours. If you ever leave JurisPage, everything transfers cleanly. We don't hold websites hostage." },
   { question: "How does the 90-day guarantee work?", answer: "If you don't see measurable progress in your rankings, traffic, or leads within 90 days, we work free the following month. No fine print. No arguing. We either deliver or we earn it back." },
   { question: "Can I add services later?", answer: "Yes. Many Launchpad clients add Google Ads, content writing, or GEO optimization once their foundation is established. Upgrade anytime with 30 days notice." },
-  { question: "What if my firm has 5 or more attorneys?", answer: "Launchpad is designed for firms with 1–4 attorneys. If your firm has 5 or more, we recommend Juris Digital — our sister brand for established firms investing $5,000–$20,000+/month. Same parent company, same team, but a full-service strategy scaled to your goals. Visit jurisdigital.com to learn more." },
+  { question: "What if my firm has 5 or more attorneys?", answer: "Launchpad is designed for firms with 1–4 attorneys. If your firm has 5 or more, we recommend Juris Digital, our sister brand for established firms investing $5,000–$20,000+/month. Same parent company, same team, but a full-service strategy scaled to your goals. Visit jurisdigital.com to learn more." },
 ];
 
 export default function LaunchpadPage() {
@@ -80,7 +80,7 @@ export default function LaunchpadPage() {
     <>
       <SchemaOrg schema={faqSchema} />
 
-      {/* ── Hero — Calculator Above the Fold ── */}
+      {/* ── Hero - Calculator Above the Fold ── */}
       <section className="bg-white py-16 px-6 border-b border-gray-100">
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-start">
@@ -390,7 +390,7 @@ export default function LaunchpadPage() {
         </div>
       </section>
 
-      {/* ── Larger Firms — Juris Digital ── */}
+      {/* ── Larger Firms - Juris Digital ── */}
       <section className="bg-white py-16 px-6">
         <div className="max-w-4xl mx-auto text-center">
           <span
@@ -403,7 +403,7 @@ export default function LaunchpadPage() {
             Your Firm Is Ready for More Than a Foundation.
           </h2>
           <p className="text-gray-600 text-lg leading-relaxed mb-10 max-w-2xl mx-auto">
-            If your firm has 5+ attorneys and you&apos;re already signing cases, you don&apos;t need a foundation — you need a full-service growth partner built for market domination.
+            If your firm has 5+ attorneys and you&apos;re already signing cases, you don&apos;t need a foundation. You need a full-service growth partner built for market domination.
           </p>
           <div className="bg-gray-50 rounded-xl p-6 border border-gray-100 text-left max-w-lg mx-auto mb-10">
             <p className="text-xs font-bold uppercase tracking-widest text-gray-400 mb-3">Juris Digital Delivers</p>

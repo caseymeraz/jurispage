@@ -88,7 +88,7 @@ export function assembleTeaserData(
     }
   }
 
-  // Top keyword highlights — sort by national volume
+  // Top keyword highlights -- sort by national volume
   const keywordHighlights = nationalKeywordVolumes
     .filter((kv) => kv.searchVolume > 0)
     .sort((a, b) => b.searchVolume - a.searchVolume)

@@ -1,4 +1,4 @@
-// Ahrefs API client (optional enrichment — skips gracefully if not available)
+// Ahrefs API client (optional enrichment, skips gracefully if not available)
 
 const BASE_URL = "https://api.ahrefs.com/v3";
 

@@ -5,7 +5,7 @@ import MarketGapForm from "@/components/MarketGapForm";
 import CTASection from "@/components/CTASection";
 
 export const metadata: Metadata = {
-  title: "See My Market Gap — Free Law Firm Market Analysis | JurisPage",
+  title: "See My Market Gap | Free Law Firm Market Analysis | JurisPage",
   description:
     "Get a personalized market-gap analysis for your practice area and city. See how many potential clients are searching, who's winning, and how to close the gap.",
   alternates: { canonical: "https://jurispage.com/see-my-market-gap/" },
@@ -15,7 +15,7 @@ const whatYouGet = [
   {
     title: "Your total addressable market",
     description:
-      "Monthly search volume for your practice area and city — how many people are actively looking for a lawyer like you.",
+      "Monthly search volume for your practice area and city: how many people are actively looking for a lawyer like you.",
   },
   {
     title: "Who's currently winning",
@@ -30,12 +30,12 @@ const whatYouGet = [
   {
     title: "Your biggest gaps",
     description:
-      "Specific weaknesses competitors are exploiting — the exact places where you're losing potential clients.",
+      "Specific weaknesses competitors are exploiting, the exact places where you're losing potential clients.",
   },
   {
     title: "Your action plan",
     description:
-      "What to fix first, second, and third to start winning — prioritized by impact and effort.",
+      "What to fix first, second, and third to start winning, prioritized by impact and effort.",
   },
 ];
 
@@ -61,12 +61,12 @@ const faqs = [
   {
     question: "What exactly is a market gap analysis?",
     answer:
-      "A market gap analysis identifies the difference between the demand for legal services in your area and your firm's current visibility. We measure how many people search for a lawyer like you each month, who's capturing those searches today, and where your firm falls short — so you know exactly what to fix.",
+      "A market gap analysis identifies the difference between the demand for legal services in your area and your firm's current visibility. We measure how many people search for a lawyer like you each month, who's capturing those searches today, and where your firm falls short, so you know exactly what to fix.",
   },
   {
     question: "How long does it take?",
     answer:
-      "You'll see an instant teaser snapshot in about 60 seconds after submitting the form. Your full report — with detailed competitor analysis, keyword data, and a prioritized action plan — will be delivered to your inbox within 24 hours.",
+      "You'll see an instant teaser snapshot in about 60 seconds after submitting the form. Your full report (with detailed competitor analysis, keyword data, and a prioritized action plan) will be delivered to your inbox within 24 hours.",
   },
   {
     question: "Is this really free?",
@@ -76,12 +76,12 @@ const faqs = [
   {
     question: "What data sources do you use?",
     answer:
-      "We use Google search volume data, Google Maps rankings, Google Business Profile review data, organic SERP analysis, and domain authority metrics. Everything is pulled from live sources — not cached databases or estimates.",
+      "We use Google search volume data, Google Maps rankings, Google Business Profile review data, organic SERP analysis, and domain authority metrics. Everything is pulled from live sources, not cached databases or estimates.",
   },
   {
     question: "What happens after I get my report?",
     answer:
-      "You'll have a clear picture of where your firm stands and what to do about it. If you want help acting on the findings, we're here — but there's absolutely no pressure. Many firms use the report to guide their own marketing efforts, and that's perfectly fine with us.",
+      "You'll have a clear picture of where your firm stands and what to do about it. If you want help acting on the findings, we're here, but there's absolutely no pressure. Many firms use the report to guide their own marketing efforts, and that's perfectly fine with us.",
   },
 ];
 
@@ -166,7 +166,7 @@ export default function SeeMyMarketGapPage() {
               What You&apos;ll Get
             </h2>
             <p className="text-gray-600 text-lg max-w-xl mx-auto">
-              A complete picture of your market — not a vague overview.
+              A complete picture of your market, not a vague overview.
             </p>
           </div>
 

@@ -28,7 +28,7 @@ export default async function MarketGapReportPage({ params }: PageProps) {
     notFound();
   }
 
-  /* ── Still pending — send to loading page ── */
+  /* ── Still pending - send to loading page ── */
   if (report.status === "pending") {
     redirect(`/market-gap/loading/${report.id}`);
   }
@@ -165,7 +165,7 @@ export default async function MarketGapReportPage({ params }: PageProps) {
           Report Processing
         </h1>
         <p className="text-gray-600 text-base leading-relaxed mb-6">
-          Your report is still being generated. Check your email — we&apos;ll
+          Your report is still being generated. Check your email. We&apos;ll
           send a link as soon as it&apos;s ready.
         </p>
         <a

@@ -15,7 +15,7 @@ const faqSchema = {
   "@type": "FAQPage",
   mainEntity: [
     { "@type": "Question", name: "How is JurisPage Launchpad priced?", acceptedAnswer: { "@type": "Answer", text: "Launchpad is priced based on your firm size and market. It starts at $2,000/month for firms with 1–2 attorneys. Larger firms and more competitive markets are priced accordingly. Use our pricing calculator to get your exact number in under a minute." } },
-    { "@type": "Question", name: "Are there long-term contracts?", acceptedAnswer: { "@type": "Answer", text: "No. Launchpad is month-to-month. Give us 30 days notice and you're done. We don't lock you in — the results should speak for themselves." } },
+    { "@type": "Question", name: "Are there long-term contracts?", acceptedAnswer: { "@type": "Answer", text: "No. Launchpad is month-to-month. Give us 30 days notice and you're done. We don't lock you in. The results should speak for themselves." } },
     { "@type": "Question", name: "How quickly can my campaign launch?", acceptedAnswer: { "@type": "Answer", text: "Full setup is completed within the first 45 days. That includes your website, Google Business Profile, local SEO foundation, social profiles, and all initial content production." } },
     { "@type": "Question", name: "What's the difference between JurisPage and Juris Digital?", acceptedAnswer: { "@type": "Answer", text: "JurisPage Launchpad is built for solo attorneys and small firms (1–4 attorneys) that need to establish their online presence quickly and affordably. Juris Digital is our full-service brand for established firms with 5+ attorneys investing $5,000–$20,000+/month in SEO, Google Ads, content strategy, and market domination. Same parent company, same expertise, different scale." } },
     { "@type": "Question", name: "How much does Juris Digital cost?", acceptedAnswer: { "@type": "Answer", text: "Juris Digital partnerships are fully bespoke and start at $5,000/month. Investment is based on your firm size, practice areas, markets, and growth goals. Apply for a Growth Strategy Session to receive a custom proposal." } },
@@ -27,7 +27,7 @@ const faqSchema = {
 
 const faqs = [
   { question: "How is JurisPage Launchpad priced?", answer: "Launchpad is priced based on your firm size and market. It starts at $2,000/month for firms with 1–2 attorneys. Larger firms and more competitive markets are priced accordingly. Use our pricing calculator to get your exact number in under a minute." },
-  { question: "Are there long-term contracts?", answer: "No. Launchpad is month-to-month. Give us 30 days notice and you're done. We don't lock you in — the results should speak for themselves." },
+  { question: "Are there long-term contracts?", answer: "No. Launchpad is month-to-month. Give us 30 days notice and you're done. We don't lock you in. The results should speak for themselves." },
   { question: "How quickly can my campaign launch?", answer: "Full setup is completed within the first 45 days. That includes your website, Google Business Profile, local SEO foundation, social profiles, and all initial content production." },
   { question: "What's the difference between JurisPage and Juris Digital?", answer: "JurisPage Launchpad is built for solo attorneys and small firms (1–4 attorneys) that need to establish their online presence quickly and affordably. Juris Digital is our full-service brand for established firms with 5+ attorneys investing $5,000–$20,000+/month in SEO, Google Ads, content strategy, and market domination. Same parent company, same expertise, different scale." },
   { question: "How much does Juris Digital cost?", answer: "Juris Digital partnerships are fully bespoke and start at $5,000/month. Investment is based on your firm size, practice areas, markets, and growth goals. Apply for a Growth Strategy Session to receive a custom proposal." },
@@ -41,7 +41,7 @@ export default function PricingPage() {
     <>
       <SchemaOrg schema={faqSchema} />
 
-      {/* ── A. Hero — Fork in the Road ── */}
+      {/* ── A. Hero - Fork in the Road ── */}
       <section className="bg-white py-20 px-6 border-b border-gray-100">
         <div className="max-w-5xl mx-auto text-center">
           <h1 className="font-heading font-extrabold text-gray-900 text-5xl leading-tight mb-4">
@@ -67,7 +67,7 @@ export default function PricingPage() {
                 For solo attorneys and emerging firms (1–4 attorneys) that need a professional online presence, fast. Transparent pricing, month-to-month, no surprises.
               </p>
               <ul className="space-y-2 text-sm text-gray-600 mb-8 flex-1">
-                {["Instant transparent pricing", "Full setup in 45 days", "Month-to-month — no contracts", "90-day results guarantee"].map((item) => (
+                {["Instant transparent pricing", "Full setup in 45 days", "Month-to-month, no contracts", "90-day results guarantee"].map((item) => (
                   <li key={item} className="flex items-start gap-2">
                     <span className="flex-shrink-0 font-bold" style={{ color: "#EE6C13" }}>✓</span>
                     {item}
@@ -196,7 +196,7 @@ export default function PricingPage() {
               {
                 icon: "🌐",
                 title: "Omnichannel Market Capture",
-                desc: "GEO, LSA, organic SEO, Google Ads, and content moats — coordinated across every channel where your future clients are searching.",
+                desc: "GEO, LSA, organic SEO, Google Ads, and content moats, coordinated across every channel where your future clients are searching.",
               },
               {
                 icon: "🛡️",
@@ -206,7 +206,7 @@ export default function PricingPage() {
               {
                 icon: "📊",
                 title: "Advanced Intake Consulting",
-                desc: "We don't just send leads — we help optimize your intake process so more leads convert into signed cases and revenue.",
+                desc: "We don't just send leads. We help optimize your intake process so more leads convert into signed cases and revenue.",
               },
             ].map((card) => (
               <div key={card.title} className="bg-gray-50 rounded-xl p-6 border border-gray-100">
@@ -238,7 +238,7 @@ export default function PricingPage() {
         </div>
       </section>
 
-      {/* ── D. Shared Footer — The Juris Digital Family Advantage ── */}
+      {/* ── D. Shared Footer - The Juris Digital Family Advantage ── */}
       <section className="py-16 px-6" style={{ background: "#1a1a1a" }}>
         <div className="max-w-5xl mx-auto">
           <h2 className="font-heading font-extrabold text-white text-3xl text-center mb-12">
@@ -252,7 +252,7 @@ export default function PricingPage() {
               },
               {
                 title: "113+ Law Firms Trust Us",
-                desc: "From solo practitioners launching their first website to multi-state firms dominating regional markets — we've done it all.",
+                desc: "From solo practitioners launching their first website to multi-state firms dominating regional markets. We've done it all.",
               },
               {
                 title: "Only Law Firms. Always.",

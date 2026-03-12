@@ -76,7 +76,7 @@ const adTypeCards = [
     badge: "Search Text Ads",
     image: "/images/mid-page-organic-search.png",
     title: "Search Text Ads",
-    body: "Traditional keyword-triggered ads. Still the most flexible format for targeting specific case types across any geography. Full control over keywords, copy, landing pages, and bids — and the foundation of every legal PPC strategy we build.",
+    body: "Traditional keyword-triggered ads. Still the most flexible format for targeting specific case types across any geography. Full control over keywords, copy, landing pages, and bids, and the foundation of every legal PPC strategy we build.",
   },
 ];
 
@@ -163,7 +163,7 @@ export default function GoogleAdsForLawFirmsPage() {
             Where Your Ads Can Appear on Google
           </h2>
           <p className="text-gray-600 text-lg mb-10 max-w-2xl">
-            Most law firms only run basic text ads. We manage all four ad placements — and know when each one is right for your practice.
+            Most law firms only run basic text ads. We manage all four ad placements and know when each one is right for your practice.
           </p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {adTypeCards.map((card) => (
@@ -220,7 +220,7 @@ export default function GoogleAdsForLawFirmsPage() {
               {
                 icon: "📊",
                 title: "End-to-End Attribution",
-                body: "By combining CallRail data with Google Ads conversion data, we can show you cost per lead, cost per consultation, and — with your intake data — cost per signed case.",
+                body: "By combining CallRail data with Google Ads conversion data, we can show you cost per lead, cost per consultation, and (with your intake data) cost per signed case.",
               },
             ].map(({ icon, title, body }) => (
               <div key={title} className="bg-white/5 rounded-2xl p-6 border border-white/10">
@@ -313,7 +313,7 @@ export default function GoogleAdsForLawFirmsPage() {
               Local Services Ads (LSAs)
             </h3>
             <p className="text-gray-600 mb-4 leading-relaxed">
-              LSAs appear above everything else on the search results page — above traditional ads, above the map pack, above organic results. They display the Google Screened badge and charge per lead rather than per click, making them one of the most cost-efficient formats available for qualifying practice areas.
+              LSAs appear above everything else on the search results page: above traditional ads, above the map pack, above organic results. They display the Google Screened badge and charge per lead rather than per click, making them one of the most cost-efficient formats available for qualifying practice areas.
             </p>
             <p className="text-gray-600 mb-6 leading-relaxed">
               Setup requires Google background checks and license verification for each attorney. We handle the setup process and ongoing dispute management to ensure you only pay for qualified leads.
@@ -363,7 +363,7 @@ export default function GoogleAdsForLawFirmsPage() {
               97% of visitors who land on your site leave without contacting you. Retargeting puts your firm back in front of those prospects as they browse other websites, keeping you top-of-mind while they continue their research.
             </p>
             <p className="text-gray-600 leading-relaxed">
-              This works especially well for practice areas with longer decision cycles — personal injury (waiting on a police report), family law (considering options before filing), and mass tort (still deciding whether to pursue a claim). The cost per impression is a fraction of search clicks, making retargeting one of the highest-ROI additions to an existing search campaign.
+              This works especially well for practice areas with longer decision cycles: personal injury (waiting on a police report), family law (considering options before filing), and mass tort (still deciding whether to pursue a claim). The cost per impression is a fraction of search clicks, making retargeting one of the highest-ROI additions to an existing search campaign.
             </p>
           </div>
 
@@ -381,7 +381,7 @@ export default function GoogleAdsForLawFirmsPage() {
               YouTube &amp; Video Ads
             </h3>
             <p className="text-gray-600 mb-4 leading-relaxed">
-              Video ads build brand awareness before someone needs a lawyer — so when they do need one, your name comes to mind first. Skippable in-stream ads on YouTube let you target by demographics, search intent, and even competitor searches.
+              Video ads build brand awareness before someone needs a lawyer, so when they do need one, your name comes to mind first. Skippable in-stream ads on YouTube let you target by demographics, search intent, and even competitor searches.
             </p>
             <p className="text-gray-600 leading-relaxed">
               Best ROI for practice areas where brand trust matters most: personal injury (clients are choosing someone to trust with their recovery), criminal defense (clients want a recognizable name in a scary situation), and DUI defense (urgent and emotional decisions). Video production coordination available through our network.
@@ -435,7 +435,7 @@ export default function GoogleAdsForLawFirmsPage() {
                 &ldquo;I&apos;m Closing More Clients Than Ever&rdquo;
               </blockquote>
               <p className="text-gray-500 text-sm mt-3 leading-relaxed">
-                Immigration Desk went from inconsistent digital leads to over 100 monthly sales-qualified leads through Google Ads — people with real immigration needs who are ready to hire.
+                Immigration Desk went from inconsistent digital leads to over 100 monthly sales-qualified leads through Google Ads: people with real immigration needs who are ready to hire.
               </p>
             </div>
 
@@ -463,7 +463,7 @@ export default function GoogleAdsForLawFirmsPage() {
                 &ldquo;A Vital Part of Our Firm&apos;s Growth&rdquo;
               </blockquote>
               <p className="text-gray-500 text-sm mt-3 leading-relaxed">
-                The Sands Law Group now generates 200+ monthly sales-qualified leads from Google Ads with a 60% improvement in ROI — on top of doubling organic traffic.
+                The Sands Law Group now generates 200+ monthly sales-qualified leads from Google Ads with a 60% improvement in ROI, on top of doubling organic traffic.
               </p>
             </div>
           </div>
@@ -502,7 +502,7 @@ export default function GoogleAdsForLawFirmsPage() {
 
       {/* ── 13. FAQ ── */}
       <div id="faq" className="scroll-mt-16">
-        <FAQAccordion faqs={filteredFaqs} heading="Google Ads for Lawyers — Questions Answered" />
+        <FAQAccordion faqs={filteredFaqs} heading="Google Ads for Lawyers: Questions Answered" />
       </div>
 
       {/* ── 14. CTA ── */}
