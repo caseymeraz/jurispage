@@ -261,6 +261,72 @@ export async function getAiModeSerp(
   return { references: unique };
 }
 
+// SERP Screenshot
+export async function getSerpScreenshot(
+  keyword: string,
+  locationCode: number = 2840,
+  languageCode: string = "en"
+): Promise<{ screenshotUrl: string | null }> {
+  const data = await apiRequest<{
+    tasks: Array<{
+      result: Array<{
+        items?: Array<{
+          type?: string;
+          image?: { url?: string };
+        }>;
+      }>;
+    }>;
+  }>("/serp/google/organic/live/advanced", [
+    {
+      keyword,
+      location_code: locationCode,
+      language_code: languageCode,
+      calculate_rectangles: true,
+      screenshot: true,
+    },
+  ]);
+
+  // The screenshot URL is typically in the task-level result
+  const result = data.tasks?.[0]?.result?.[0];
+  // DataForSEO returns screenshot as a separate field
+  const screenshot = (result as Record<string, unknown>)?.screenshot as string | undefined;
+  return { screenshotUrl: screenshot ?? null };
+}
+
+// Business Listings Density
+export async function getBusinessListingsDensity(
+  category: string,
+  city: string,
+  lat: number,
+  lng: number
+): Promise<{ firmCount: number; category: string }> {
+  try {
+    const data = await apiRequest<{
+      tasks: Array<{
+        result: Array<{
+          total_count?: number;
+          items?: Array<unknown>;
+        }>;
+      }>;
+    }>("/business_data/business_listings/search/live", [
+      {
+        categories: [category],
+        location_coordinate: {
+          latitude: lat,
+          longitude: lng,
+          radius: 30000, // 30km radius
+        },
+        limit: 1,
+      },
+    ]);
+
+    const totalCount = data.tasks?.[0]?.result?.[0]?.total_count ?? 0;
+    return { firmCount: totalCount, category };
+  } catch {
+    return { firmCount: 0, category };
+  }
+}
+
 // Keyword suggestions
 export async function getKeywordSuggestions(
   seed: string[],

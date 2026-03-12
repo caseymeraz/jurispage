@@ -35,8 +35,9 @@ model Lead {
   createdAt             DateTime @default(now())
   updatedAt             DateTime @updatedAt
 
-  marketGapReports  MarketGapReport[]
-  aiSearchReports   AiSearchReport[]
+  marketGapReports      MarketGapReport[]
+  aiSearchReports       AiSearchReport[]
+  growthPathSessions    GrowthPathSession[]
 
   @@index([email])
   @@index([googlePlaceId])
@@ -185,6 +186,127 @@ model FormSubmission {
   @@index([type])
   @@index([createdAt])
   @@map("form_submissions")
+}
+
+// ─── Growth Path ──────────────────────────────────────────────
+
+model GrowthPathSession {
+  id              String   @id @default(cuid())
+  leadId          String
+  lead            Lead     @relation(fields: [leadId], references: [id])
+  accessToken     String   @unique @default(cuid())
+  status          String   @default("intake") // intake|scanning|scoring|report_ready|reviewed
+  flowType        String   // new_firm|existing_firm
+  intakeAnswers   Json?
+  practiceArea    String?
+  city            String?
+  state           String?
+  country         String   @default("US")
+  lat             Float?
+  lng             Float?
+  website         String?
+  firmDomain      String?
+  brandRoute      String   @default("jurispage") // jurispage|juris_digital
+  overriddenPath  String?
+  reviewedBy      String?
+  reviewedAt      DateTime?
+  teamNotes       String?
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  scans           GrowthPathScan[]
+  score           GrowthPathScore?
+  recommendation  GrowthPathRecommendation?
+  events          GrowthPathEvent[]
+  assets          GrowthPathAsset[]
+
+  @@index([leadId])
+  @@index([accessToken])
+  @@index([status])
+  @@map("growth_path_sessions")
+}
+
+model GrowthPathScan {
+  id          String    @id @default(cuid())
+  sessionId   String
+  session     GrowthPathSession @relation(fields: [sessionId], references: [id])
+  scanType    String    // keyword_volume|serp_analysis|serp_screenshot|maps_competition|website_screenshot|vision_analysis|pagespeed|competitor_density
+  status      String    @default("pending") // pending|running|complete|failed
+  result      Json?
+  error       String?
+  startedAt   DateTime?
+  completedAt DateTime?
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+
+  @@index([sessionId])
+  @@index([scanType])
+  @@map("growth_path_scans")
+}
+
+model GrowthPathScore {
+  id              String   @id @default(cuid())
+  sessionId       String   @unique
+  session         GrowthPathSession @relation(fields: [sessionId], references: [id])
+  urgency         Int      @default(0)
+  foundation      Int      @default(0)
+  visibilityGap   Int      @default(0)
+  websiteClarity  Int      @default(0)
+  leadQuality     Int      @default(0)
+  legacyFit       Int      @default(0)
+  committeeScore  Int      @default(0)
+  rawInputs       Json?
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  @@map("growth_path_scores")
+}
+
+model GrowthPathRecommendation {
+  id               String   @id @default(cuid())
+  sessionId        String   @unique
+  session          GrowthPathSession @relation(fields: [sessionId], references: [id])
+  primaryPath      String
+  secondaryPath    String?
+  notYetPath       String?
+  brandRoute       String   @default("jurispage")
+  explanationShort String?
+  explanationLong  String?
+  days1to30        Json?
+  days31to60       Json?
+  days61to90       Json?
+  internalScores   Json?
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+
+  @@map("growth_path_recommendations")
+}
+
+model GrowthPathEvent {
+  id        String   @id @default(cuid())
+  sessionId String
+  session   GrowthPathSession @relation(fields: [sessionId], references: [id])
+  event     String
+  metadata  Json?
+  createdAt DateTime @default(now())
+
+  @@index([sessionId])
+  @@index([event])
+  @@map("growth_path_events")
+}
+
+model GrowthPathAsset {
+  id        String   @id @default(cuid())
+  sessionId String
+  session   GrowthPathSession @relation(fields: [sessionId], references: [id])
+  assetType String
+  url       String
+  caption   String?
+  sortOrder Int      @default(0)
+  createdAt DateTime @default(now())
+
+  @@index([sessionId])
+  @@map("growth_path_assets")
 }
 
 model Territory {
