@@ -3,7 +3,7 @@ import { createHash } from "crypto";
 
 export async function POST(request: Request) {
   const { password } = await request.json();
-  const adminPassword = process.env.ADMIN_PASSWORD;
+  const adminPassword = process.env.ADMIN_PASSWORD?.trim();
 
   if (!adminPassword) {
     return NextResponse.json(
@@ -12,7 +12,7 @@ export async function POST(request: Request) {
     );
   }
 
-  if (password !== adminPassword) {
+  if (password.trim() !== adminPassword) {
     return NextResponse.json({ error: "Invalid password" }, { status: 401 });
   }
 
