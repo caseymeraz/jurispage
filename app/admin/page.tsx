@@ -47,24 +47,31 @@ function summarizeData(type: string, data: Record<string, unknown>): string {
 }
 
 export default async function AdminPage() {
-  const [reports, aiReports] = await Promise.all([
-    prisma.marketGapReport.findMany({
-      orderBy: { createdAt: "desc" },
-      include: { lead: true },
-    }),
-    prisma.aiSearchReport.findMany({
-      orderBy: { createdAt: "desc" },
-      include: { lead: true },
-    }),
-  ]);
-
+  let reports: Awaited<ReturnType<typeof prisma.marketGapReport.findMany<{ include: { lead: true } }>>> = [];
+  let aiReports: Awaited<ReturnType<typeof prisma.aiSearchReport.findMany<{ include: { lead: true } }>>> = [];
   let formSubmissions: Awaited<ReturnType<typeof prisma.formSubmission.findMany>> = [];
+
+  try {
+    [reports, aiReports] = await Promise.all([
+      prisma.marketGapReport.findMany({
+        orderBy: { createdAt: "desc" },
+        include: { lead: true },
+      }),
+      prisma.aiSearchReport.findMany({
+        orderBy: { createdAt: "desc" },
+        include: { lead: true },
+      }),
+    ]);
+  } catch {
+    // DB may be unreachable or tables may not exist yet
+  }
+
   try {
     formSubmissions = await prisma.formSubmission.findMany({
       orderBy: { createdAt: "desc" },
     });
   } catch {
-    // Table may not exist yet — will be created by prisma db push on next deploy
+    // Table may not exist yet
   }
 
   return (
