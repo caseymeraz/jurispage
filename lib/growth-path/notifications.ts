@@ -30,6 +30,7 @@ export async function notifyHighValueLead(
     "Legacy Fit": `${scores.legacyFit}/100`,
     Urgency: `${scores.urgency}/100`,
     Attorneys: attorneyCount,
+    Report: `https://www.jurispage.com/growth-path/report/${session.id}`,
     "Session ID": session.id,
   });
 }
@@ -89,6 +90,7 @@ export async function notifyInternalTeam(
     Market: `${session.city}, ${session.state}`,
     "Practice Area": session.practiceArea || "PI",
     "Recommended Path": primaryPath,
+    Report: `https://www.jurispage.com/growth-path/report/${session.id}`,
     "Session ID": session.id,
   });
 }
@@ -117,6 +119,7 @@ export async function notifySessionCreated(
     Website: lead.website || "N/A",
     Market: `${session.city}, ${session.state}`,
     "Flow Type": session.flowType,
+    Report: `https://www.jurispage.com/growth-path/report/${session.id}`,
   });
 
   // Internal email

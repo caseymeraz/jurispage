@@ -5,6 +5,7 @@ import TurnstileWidget from "@/components/TurnstileWidget";
 import MarketOpportunityCard from "@/components/growth-path/MarketOpportunityCard";
 import CompetitorDensityCard from "@/components/growth-path/CompetitorDensityCard";
 import SerpScreenshotCard from "@/components/growth-path/SerpScreenshotCard";
+import AiSearchVisibilityCard from "@/components/growth-path/AiSearchVisibilityCard";
 import WebsiteFirstImpressionCard from "@/components/growth-path/WebsiteFirstImpressionCard";
 import RecommendationHeroCard from "@/components/growth-path/RecommendationHeroCard";
 import PlanTimeline from "@/components/growth-path/PlanTimeline";
@@ -83,6 +84,7 @@ export default function GrowthPathReport({ data }: Props) {
 
   const serpScreenshot = scanResults.serp_screenshot as {
     screenshotUrl: string | null;
+    mobileScreenshotUrl?: string | null;
     keyword: string;
   } | undefined;
 
@@ -180,9 +182,12 @@ export default function GrowthPathReport({ data }: Props) {
       {/* Section 2: Market Opportunity */}
       {keywordData && (
         <section className="mb-12">
-          <h2 className="font-heading font-bold text-xl text-white mb-4">
+          <h2 className="font-heading font-bold text-xl text-white mb-2">
             What your market looks like
           </h2>
+          <p className="text-gray-400 text-sm mb-4">
+            Here&apos;s what potential clients in {city} are searching for — and where the opportunities are.
+          </p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <MarketOpportunityCard
               totalVolume={keywordData.totalVolume}
@@ -209,14 +214,31 @@ export default function GrowthPathReport({ data }: Props) {
         </section>
       )}
 
+      {/* Section 2.5: AI Search Visibility */}
+      {serpData && serpData.some((r) => r.hasAiOverview) && (
+        <section className="mb-12">
+          <h2 className="font-heading font-bold text-xl text-white mb-4">
+            Your visibility in AI-powered search
+          </h2>
+          <AiSearchVisibilityCard
+            serpResults={serpData}
+            firmDomain={data.website}
+          />
+        </section>
+      )}
+
       {/* Section 3: What People See When They Search */}
       {(serpScreenshot || serpData) && (
         <section className="mb-12">
-          <h2 className="font-heading font-bold text-xl text-white mb-4">
+          <h2 className="font-heading font-bold text-xl text-white mb-2">
             What people see when they search
           </h2>
+          <p className="text-gray-400 text-sm mb-4">
+            This is what potential clients see when they search — this is what you&apos;re competing against.
+          </p>
           <SerpScreenshotCard
             screenshotUrl={serpScreenshot?.screenshotUrl ?? null}
+            mobileScreenshotUrl={serpScreenshot?.mobileScreenshotUrl ?? null}
             keyword={serpScreenshot?.keyword ?? `personal injury lawyer ${city}`}
             serpResults={serpData ?? []}
           />
@@ -363,11 +385,12 @@ export default function GrowthPathReport({ data }: Props) {
           style={{ background: "linear-gradient(135deg, #1a1a2e, #16213e)" }}
         >
           <h2 className="font-heading font-extrabold text-2xl sm:text-3xl text-white mb-4">
-            Ready to get started?
+            Let&apos;s review these findings together
           </h2>
           <p className="text-gray-300 text-base max-w-xl mx-auto mb-8">
-            Book a call to walk through your report with our team, or request a
-            reviewed version with additional proof for your partners.
+            Book a call to walk through your report with our team and build a plan
+            tailored to {city}. Or request a reviewed version with additional detail
+            for your partners.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">

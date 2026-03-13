@@ -210,14 +210,22 @@ export async function runSerpScreenshotScan(
   locationCode: number
 ): Promise<{
   screenshotUrl: string | null;
+  mobileScreenshotUrl: string | null;
   keyword: string;
 }> {
   try {
-    const result = await getSerpScreenshot(keyword, locationCode);
-    return { screenshotUrl: result.screenshotUrl, keyword };
+    const [desktop, mobile] = await Promise.all([
+      getSerpScreenshot(keyword, locationCode, "en", "desktop"),
+      getSerpScreenshot(keyword, locationCode, "en", "mobile"),
+    ]);
+    return {
+      screenshotUrl: desktop.screenshotUrl,
+      mobileScreenshotUrl: mobile.screenshotUrl,
+      keyword,
+    };
   } catch (err) {
     console.error("SERP screenshot scan failed:", err);
-    return { screenshotUrl: null, keyword };
+    return { screenshotUrl: null, mobileScreenshotUrl: null, keyword };
   }
 }
 

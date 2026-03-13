@@ -60,10 +60,10 @@ export default function MarketOpportunityCard({
         {keywords.length > 0 && (
           <div>
             <p className="text-gray-500 text-xs font-heading font-bold uppercase tracking-widest mb-3">
-              Top keywords by volume
+              Sample keywords by volume
             </p>
             <div className="space-y-2">
-              {keywords.map((kw, i) => (
+              {keywords.slice(0, 10).map((kw, i) => (
                 <div
                   key={i}
                   className="flex items-center justify-between py-2 border-b border-gray-800 last:border-0"
@@ -79,6 +79,46 @@ export default function MarketOpportunityCard({
                   </div>
                 </div>
               ))}
+            </div>
+
+            {/* Long-tail opportunities */}
+            {keywords.length > 10 && (
+              <div className="mt-6">
+                <p className="text-gray-500 text-xs font-heading font-bold uppercase tracking-widest mb-3">
+                  Long-tail opportunities
+                </p>
+                <div className="space-y-2">
+                  {keywords.slice(10).map((kw, i) => (
+                    <div
+                      key={i}
+                      className="flex items-center justify-between py-2 border-b border-gray-800 last:border-0"
+                    >
+                      <span className="text-gray-300 text-sm">{kw.keyword}</span>
+                      <div className="flex items-center gap-4 text-sm">
+                        <span className="text-white font-medium tabular-nums">
+                          {kw.volume.toLocaleString()}
+                        </span>
+                        <span className="text-gray-500 tabular-nums">
+                          {kw.localVolume.toLocaleString()} local
+                        </span>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* Upsell note */}
+            <div
+              className="rounded-xl px-5 py-4 mt-6"
+              style={{ background: "rgba(238,108,19,0.08)" }}
+            >
+              <p className="text-gray-400 text-sm leading-relaxed">
+                This is a sample of high-value keywords. Working with JurisPage
+                unlocks a deeper keyword analysis covering{" "}
+                <span className="text-white font-medium">50+ keyword opportunities</span>{" "}
+                tailored to your practice and market.
+              </p>
             </div>
           </div>
         )}

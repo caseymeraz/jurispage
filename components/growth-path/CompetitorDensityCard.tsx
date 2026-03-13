@@ -40,7 +40,7 @@ export default function CompetitorDensityCard({
         {/* Header */}
         <div className="flex items-start justify-between flex-wrap gap-3 mb-6">
           <h3 className="font-heading font-extrabold text-white text-xl">
-            Competitor Density
+            Your Competitive Landscape
           </h3>
           <SourceConfidencePill label="Public market data" />
         </div>

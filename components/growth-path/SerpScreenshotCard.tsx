@@ -1,9 +1,11 @@
 "use client";
 
+import { useState } from "react";
 import SourceConfidencePill from "./SourceConfidencePill";
 
 interface SerpScreenshotCardProps {
   screenshotUrl: string | null;
+  mobileScreenshotUrl?: string | null;
   keyword: string;
   serpResults: {
     keyword: string;
@@ -43,10 +45,14 @@ function AnnotationBadge({
 
 export default function SerpScreenshotCard({
   screenshotUrl,
+  mobileScreenshotUrl,
   keyword,
   serpResults,
 }: SerpScreenshotCardProps) {
+  const [activeTab, setActiveTab] = useState<"desktop" | "mobile">("desktop");
   const primary = serpResults[0];
+  const hasMultipleTabs = screenshotUrl && mobileScreenshotUrl;
+  const activeUrl = activeTab === "mobile" ? mobileScreenshotUrl : screenshotUrl;
 
   return (
     <div className="rounded-2xl overflow-hidden" style={{ background: "#1a1a1a" }}>
@@ -58,7 +64,7 @@ export default function SerpScreenshotCard({
               Search Results
             </h3>
             <p className="text-gray-400 text-sm">
-              What Google shows for &ldquo;{keyword}&rdquo;
+              Here&apos;s exactly what potential clients see when they search for &ldquo;{keyword}&rdquo;
             </p>
           </div>
           <SourceConfidencePill label="Public market data" />
@@ -87,12 +93,44 @@ export default function SerpScreenshotCard({
           </div>
         )}
 
+        {/* Desktop / Mobile tabs */}
+        {hasMultipleTabs && (
+          <div className="flex gap-2 mb-4">
+            <button
+              onClick={() => setActiveTab("desktop")}
+              className={`text-xs font-medium px-4 py-2 rounded-full transition-colors ${
+                activeTab === "desktop"
+                  ? "text-white"
+                  : "text-gray-500 hover:text-gray-300"
+              }`}
+              style={activeTab === "desktop" ? { background: "rgba(238,108,19,0.2)", color: "#EE6C13" } : {}}
+            >
+              Desktop
+            </button>
+            <button
+              onClick={() => setActiveTab("mobile")}
+              className={`text-xs font-medium px-4 py-2 rounded-full transition-colors ${
+                activeTab === "mobile"
+                  ? "text-white"
+                  : "text-gray-500 hover:text-gray-300"
+              }`}
+              style={activeTab === "mobile" ? { background: "rgba(238,108,19,0.2)", color: "#EE6C13" } : {}}
+            >
+              Mobile
+            </button>
+          </div>
+        )}
+
         {/* Screenshot */}
-        {screenshotUrl ? (
-          <div className="rounded-xl overflow-hidden border border-gray-800">
+        {activeUrl ? (
+          <div
+            className={`rounded-xl overflow-hidden border border-gray-800 ${
+              activeTab === "mobile" && hasMultipleTabs ? "max-w-sm mx-auto" : ""
+            }`}
+          >
             <img
-              src={screenshotUrl}
-              alt={`Google search results for "${keyword}"`}
+              src={activeUrl}
+              alt={`Google search results for "${keyword}" (${activeTab})`}
               className="w-full h-auto"
               loading="lazy"
             />

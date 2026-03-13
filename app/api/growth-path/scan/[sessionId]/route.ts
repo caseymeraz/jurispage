@@ -12,6 +12,7 @@ import {
   captureWebsiteScreenshots,
   analyzeScreenshots,
 } from "@/lib/growth-path/scans";
+import { geocodeCityState } from "@/lib/dataforseo";
 import type { ScanType } from "@/lib/growth-path/types";
 
 // Scan waves: grouped by dependency
@@ -44,8 +45,11 @@ export async function POST(
 
     const city = session.city || "";
     const state = session.state || "";
-    const lat = session.lat ?? 39.8283;
-    const lng = session.lng ?? -98.5795;
+    // Geocode when session has no coordinates instead of defaulting to Kansas
+    const hasCoords = session.lat !== null && session.lng !== null;
+    const fallbackCoords = hasCoords ? null : geocodeCityState(city, state);
+    const lat = session.lat ?? fallbackCoords?.lat ?? 39.8283;
+    const lng = session.lng ?? fallbackCoords?.lng ?? -98.5795;
     const practiceArea = session.practiceArea || "Personal Injury";
     const firmDomain = session.firmDomain;
     const websiteUrl = session.website;

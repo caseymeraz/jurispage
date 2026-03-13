@@ -265,32 +265,102 @@ export async function getAiModeSerp(
 export async function getSerpScreenshot(
   keyword: string,
   locationCode: number = 2840,
-  languageCode: string = "en"
+  languageCode: string = "en",
+  device: "desktop" | "mobile" = "desktop"
 ): Promise<{ screenshotUrl: string | null }> {
+  const payload: Record<string, unknown> = {
+    keyword,
+    location_code: locationCode,
+    language_code: languageCode,
+    calculate_rectangles: true,
+  };
+  if (device === "mobile") {
+    payload.device = "mobile";
+    payload.os = "android";
+  }
+
   const data = await apiRequest<{
     tasks: Array<{
-      result: Array<{
-        items?: Array<{
-          type?: string;
-          image?: { url?: string };
-        }>;
-      }>;
+      result: Array<Record<string, unknown>>;
     }>;
-  }>("/serp/google/organic/live/advanced", [
-    {
-      keyword,
-      location_code: locationCode,
-      language_code: languageCode,
-      calculate_rectangles: true,
-      screenshot: true,
-    },
-  ]);
+  }>("/serp/google/organic/live/regular", [payload]);
 
-  // The screenshot URL is typically in the task-level result
+  // DataForSEO returns screenshot in the extra field at result level
   const result = data.tasks?.[0]?.result?.[0];
-  // DataForSEO returns screenshot as a separate field
-  const screenshot = (result as Record<string, unknown>)?.screenshot as string | undefined;
-  return { screenshotUrl: screenshot ?? null };
+  // Try multiple known response paths
+  const screenshot =
+    (result?.extra as Record<string, unknown>)?.screenshot as string | undefined
+    ?? result?.screenshot as string | undefined
+    ?? null;
+  return { screenshotUrl: screenshot };
+}
+
+// Practice area to DataForSEO business listing category mapping
+const PRACTICE_AREA_CATEGORIES: Record<string, string> = {
+  "personal injury": "Personal injury attorney",
+  "car accident": "Personal injury attorney",
+  "truck accident": "Personal injury attorney",
+  "wrongful death": "Personal injury attorney",
+  "slip and fall": "Personal injury attorney",
+  "criminal defense": "Criminal justice attorney",
+  "criminal law": "Criminal justice attorney",
+  "dui": "DUI attorney",
+  "family law": "Family law attorney",
+  "divorce": "Divorce lawyer",
+  "immigration": "Immigration attorney",
+  "estate planning": "Estate planning attorney",
+  "bankruptcy": "Bankruptcy attorney",
+  "employment law": "Employment attorney",
+  "real estate": "Real estate attorney",
+  "business law": "Corporate lawyer",
+  "medical malpractice": "Personal injury attorney",
+};
+
+function getBusinessListingCategory(practiceArea: string): string {
+  const normalized = practiceArea.toLowerCase().trim();
+  return PRACTICE_AREA_CATEGORIES[normalized] ?? `${practiceArea} attorney`;
+}
+
+// Major city coordinates for geocoding fallback
+const MAJOR_CITY_COORDS: Record<string, { lat: number; lng: number }> = {
+  "san jose, ca": { lat: 37.3382, lng: -121.8863 },
+  "los angeles, ca": { lat: 34.0522, lng: -118.2437 },
+  "san francisco, ca": { lat: 37.7749, lng: -122.4194 },
+  "san diego, ca": { lat: 32.7157, lng: -117.1611 },
+  "new york, ny": { lat: 40.7128, lng: -74.006 },
+  "chicago, il": { lat: 41.8781, lng: -87.6298 },
+  "houston, tx": { lat: 29.7604, lng: -95.3698 },
+  "phoenix, az": { lat: 33.4484, lng: -112.074 },
+  "philadelphia, pa": { lat: 39.9526, lng: -75.1652 },
+  "dallas, tx": { lat: 32.7767, lng: -96.797 },
+  "austin, tx": { lat: 30.2672, lng: -97.7431 },
+  "miami, fl": { lat: 25.7617, lng: -80.1918 },
+  "atlanta, ga": { lat: 33.749, lng: -84.388 },
+  "denver, co": { lat: 39.7392, lng: -104.9903 },
+  "seattle, wa": { lat: 47.6062, lng: -122.3321 },
+  "boston, ma": { lat: 42.3601, lng: -71.0589 },
+  "las vegas, nv": { lat: 36.1699, lng: -115.1398 },
+  "portland, or": { lat: 45.5152, lng: -122.6784 },
+  "nashville, tn": { lat: 36.1627, lng: -86.7816 },
+  "charlotte, nc": { lat: 35.2271, lng: -80.8431 },
+  "sacramento, ca": { lat: 38.5816, lng: -121.4944 },
+  "orlando, fl": { lat: 28.5383, lng: -81.3792 },
+  "tampa, fl": { lat: 27.9506, lng: -82.4572 },
+  "jacksonville, fl": { lat: 30.3322, lng: -81.6557 },
+  "fort worth, tx": { lat: 32.7555, lng: -97.3308 },
+  "san antonio, tx": { lat: 29.4241, lng: -98.4936 },
+  "indianapolis, in": { lat: 39.7684, lng: -86.1581 },
+  "columbus, oh": { lat: 39.9612, lng: -82.9988 },
+  "minneapolis, mn": { lat: 44.9778, lng: -93.265 },
+  "detroit, mi": { lat: 42.3314, lng: -83.0458 },
+};
+
+// US geographic center — used only as a last resort
+const US_CENTER = { lat: 39.8283, lng: -98.5795 };
+
+export function geocodeCityState(city: string, state: string): { lat: number; lng: number } {
+  const key = `${city.toLowerCase().trim()}, ${state.toLowerCase().trim()}`;
+  return MAJOR_CITY_COORDS[key] ?? US_CENTER;
 }
 
 // Business Listings Density
@@ -300,6 +370,9 @@ export async function getBusinessListingsDensity(
   lat: number,
   lng: number
 ): Promise<{ firmCount: number; category: string }> {
+  // Map practice area to valid DataForSEO category
+  const mappedCategory = getBusinessListingCategory(category);
+
   try {
     const data = await apiRequest<{
       tasks: Array<{
@@ -310,7 +383,7 @@ export async function getBusinessListingsDensity(
       }>;
     }>("/business_data/business_listings/search/live", [
       {
-        categories: [category],
+        categories: [mappedCategory],
         location_coordinate: {
           latitude: lat,
           longitude: lng,
@@ -321,9 +394,9 @@ export async function getBusinessListingsDensity(
     ]);
 
     const totalCount = data.tasks?.[0]?.result?.[0]?.total_count ?? 0;
-    return { firmCount: totalCount, category };
+    return { firmCount: totalCount, category: mappedCategory };
   } catch {
-    return { firmCount: 0, category };
+    return { firmCount: 0, category: mappedCategory };
   }
 }
 
