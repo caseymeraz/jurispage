@@ -115,7 +115,7 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
-        source: "/law-firm-seo/:path*",
+        source: "/law-firm-seo/:path+",
         destination: "/law-firm-seo/",
         permanent: true,
       },
