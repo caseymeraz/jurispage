@@ -23,18 +23,24 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "Missing required fields" }, { status: 400 });
     }
 
-    // Save to DB
+    // ── Persist to database ──────────────────────────────────────────
     try {
-      await prisma.formSubmission.create({
+      await prisma.launchpadQuote.create({
         data: {
-          type: "quote",
           name,
           email,
-          data: { attorneys, practiceArea, citySize, addons, monthlyTotal, oneTimeTotal, isCustom },
+          attorneys,
+          practiceArea: practiceArea || "Not specified",
+          citySize,
+          addonChatbot: addons?.chatbot ?? false,
+          addonLogo: addons?.logo ?? false,
+          monthlyTotal: isCustom ? null : monthlyTotal,
+          oneTimeTotal: oneTimeTotal ?? 0,
+          isCustom: isCustom ?? false,
         },
       });
     } catch (dbError) {
-      console.error("FormSubmission save error:", dbError);
+      console.error("[Quote] Database save failed:", dbError);
     }
 
     const cityLabel =

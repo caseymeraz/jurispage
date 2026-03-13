@@ -322,3 +322,22 @@ model Territory {
   @@unique([practiceArea, city, state, country])
   @@map("territories")
 }
+
+model LaunchpadQuote {
+  id            String   @id @default(cuid())
+  name          String
+  email         String
+  attorneys     Int
+  practiceArea  String
+  citySize      String
+  addonChatbot  Boolean  @default(false)
+  addonLogo     Boolean  @default(false)
+  monthlyTotal  Int?
+  oneTimeTotal  Int      @default(0)
+  isCustom      Boolean  @default(false)
+  createdAt     DateTime @default(now())
+
+  @@index([email])
+  @@index([createdAt])
+  @@map("launchpad_quotes")
+}

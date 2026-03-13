@@ -50,6 +50,7 @@ export default async function AdminPage() {
   let reports: Awaited<ReturnType<typeof prisma.marketGapReport.findMany<{ include: { lead: true } }>>> = [];
   let aiReports: Awaited<ReturnType<typeof prisma.aiSearchReport.findMany<{ include: { lead: true } }>>> = [];
   let formSubmissions: Awaited<ReturnType<typeof prisma.formSubmission.findMany>> = [];
+  let quotes: Awaited<ReturnType<typeof prisma.launchpadQuote.findMany>> = [];
 
   try {
     [reports, aiReports] = await Promise.all([
@@ -67,11 +68,16 @@ export default async function AdminPage() {
   }
 
   try {
-    formSubmissions = await prisma.formSubmission.findMany({
-      orderBy: { createdAt: "desc" },
-    });
+    [formSubmissions, quotes] = await Promise.all([
+      prisma.formSubmission.findMany({
+        orderBy: { createdAt: "desc" },
+      }),
+      prisma.launchpadQuote.findMany({
+        orderBy: { createdAt: "desc" },
+      }),
+    ]);
   } catch {
-    // Table may not exist yet
+    // Tables may not exist yet
   }
 
   return (
@@ -164,6 +170,78 @@ export default async function AdminPage() {
         </div>
       )}
 
+      {/* ── Launchpad Quotes ─────────────────────────────────────────── */}
+      <div className="mt-12 mb-6">
+        <h2 className="text-2xl font-bold text-gray-900 font-heading">
+          Launchpad Quotes
+        </h2>
+        <p className="text-sm text-gray-500 mt-1">
+          {quotes.length} total quote{quotes.length !== 1 ? "s" : ""}
+        </p>
+      </div>
+
+      {quotes.length === 0 ? (
+        <div className="bg-white rounded-xl border border-gray-200 p-12 text-center">
+          <p className="text-gray-500">No quotes yet.</p>
+        </div>
+      ) : (
+        <div className="bg-white rounded-xl border border-gray-200 overflow-hidden">
+          <div className="overflow-x-auto">
+            <table className="w-full text-sm">
+              <thead>
+                <tr className="bg-gray-50 border-b border-gray-200 text-left">
+                  <th className="px-4 py-3 font-semibold text-gray-600">Date</th>
+                  <th className="px-4 py-3 font-semibold text-gray-600">Name</th>
+                  <th className="px-4 py-3 font-semibold text-gray-600">Email</th>
+                  <th className="px-4 py-3 font-semibold text-gray-600">Practice Area</th>
+                  <th className="px-4 py-3 font-semibold text-gray-600">Attorneys</th>
+                  <th className="px-4 py-3 font-semibold text-gray-600">City Size</th>
+                  <th className="px-4 py-3 font-semibold text-gray-600">Monthly</th>
+                  <th className="px-4 py-3 font-semibold text-gray-600">Add-ons</th>
+                  <th className="px-4 py-3 font-semibold text-gray-600">Type</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-gray-100">
+                {quotes.map((q) => (
+                  <tr key={q.id} className="hover:bg-gray-50/50">
+                    <td className="px-4 py-3 text-gray-500 whitespace-nowrap">
+                      {formatDate(q.createdAt)}
+                    </td>
+                    <td className="px-4 py-3 text-gray-900 font-medium">{q.name}</td>
+                    <td className="px-4 py-3 text-gray-700">{q.email}</td>
+                    <td className="px-4 py-3 text-gray-700">{q.practiceArea}</td>
+                    <td className="px-4 py-3 text-gray-700">{q.attorneys}</td>
+                    <td className="px-4 py-3 text-gray-700 whitespace-nowrap">{q.citySize}</td>
+                    <td className="px-4 py-3 text-gray-700 whitespace-nowrap">
+                      {q.monthlyTotal != null
+                        ? `$${q.monthlyTotal.toLocaleString()}/mo`
+                        : "—"}
+                    </td>
+                    <td className="px-4 py-3 text-gray-700">
+                      {[q.addonChatbot && "Chatbot", q.addonLogo && "Logo"]
+                        .filter(Boolean)
+                        .join(", ") || "—"}
+                    </td>
+                    <td className="px-4 py-3">
+                      <span
+                        className={`inline-block px-2.5 py-0.5 rounded-full text-xs font-medium ${
+                          q.isCustom
+                            ? "bg-purple-100 text-purple-800"
+                            : "bg-green-100 text-green-800"
+                        }`}
+                      >
+                        {q.isCustom ? "custom" : "standard"}
+                      </span>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      )}
+
+      {/* ── AI Search Reports ────────────────────────────────────────── */}
       <div className="mt-12 mb-6">
         <h2 className="text-2xl font-bold text-gray-900 font-heading">
           AI Search Reports
@@ -246,6 +324,7 @@ export default async function AdminPage() {
         </div>
       )}
 
+      {/* ── All Form Submissions ─────────────────────────────────────── */}
       <div className="mt-12 mb-6">
         <h2 className="text-2xl font-bold text-gray-900 font-heading">
           All Form Submissions
