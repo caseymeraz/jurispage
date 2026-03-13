@@ -40,8 +40,11 @@ export default async function GrowthPathReportPage({ params }: Props) {
 
   if (!session) return notFound();
 
-  // If not yet ready, redirect to loading
+  // If not yet ready, show appropriate message
   if (session.status === "intake" || session.status === "scanning" || session.status === "scoring") {
+    const sessionAge = Date.now() - session.updatedAt.getTime();
+    const isStuck = sessionAge > 10 * 60 * 1000; // >10 minutes
+
     return (
       <div
         className="min-h-screen flex items-center justify-center px-6"
@@ -49,19 +52,39 @@ export default async function GrowthPathReportPage({ params }: Props) {
       >
         <div className="max-w-md text-center">
           <h1 className="font-heading font-extrabold text-white text-2xl mb-3">
-            Your report is still being built
+            {isStuck
+              ? "We\u2019re still working on your report"
+              : "Your report is still being built"}
           </h1>
-          <p className="text-gray-400 text-base leading-relaxed mb-8">
-            We&apos;re still scanning your market and building your
-            recommendations. This usually takes about 60-90 seconds.
+          <p className="text-gray-400 text-base leading-relaxed mb-4">
+            {isStuck
+              ? "Your analysis is taking longer than expected. Our system is retrying automatically."
+              : "We\u2019re still scanning your market and building your recommendations. This usually takes about 60\u201390 seconds."}
           </p>
-          <a
-            href={`/growth-path/loading/${session.id}`}
-            className="inline-block font-heading font-bold text-sm text-white px-8 py-3.5 rounded-[40px] no-underline transition-colors"
-            style={{ background: "#EE6C13" }}
-          >
-            View Progress
-          </a>
+          {isStuck && session.lead?.email && (
+            <p className="text-gray-500 text-sm mb-6">
+              We&apos;ll email your report to{" "}
+              <span className="text-white">{session.lead.email}</span> as
+              soon as it&apos;s ready.
+            </p>
+          )}
+          <div className="flex flex-col items-center gap-3">
+            <a
+              href={`/growth-path/loading/${session.id}`}
+              className="inline-block font-heading font-bold text-sm text-white px-8 py-3.5 rounded-[40px] no-underline transition-colors"
+              style={{ background: "#EE6C13" }}
+            >
+              {isStuck ? "Check Progress" : "View Progress"}
+            </a>
+            {isStuck && (
+              <a
+                href="/"
+                className="text-gray-500 text-sm hover:text-gray-400 transition-colors"
+              >
+                Back to Homepage
+              </a>
+            )}
+          </div>
         </div>
       </div>
     );

@@ -1,6 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/db";
 
+const STUCK_THRESHOLD_MS = 120_000; // 2 minutes
+
 export async function GET(
   _req: NextRequest,
   { params }: { params: Promise<{ sessionId: string }> }
@@ -17,10 +19,44 @@ export async function GET(
       return NextResponse.json({ error: "Session not found" }, { status: 404 });
     }
 
+    const now = Date.now();
+
+    // --- Self-healing: reset stuck "running" scans back to pending ---
+    for (const scan of session.scans) {
+      if (
+        scan.status === "running" &&
+        scan.startedAt &&
+        now - scan.startedAt.getTime() > STUCK_THRESHOLD_MS
+      ) {
+        await prisma.growthPathScan.update({
+          where: { id: scan.id },
+          data: { status: "pending", startedAt: null },
+        });
+        scan.status = "pending"; // reflect in-memory too
+      }
+    }
+
+    // --- Self-healing: retry failed scans once ---
+    for (const scan of session.scans) {
+      if (scan.status === "failed" && scan.error && !scan.error.startsWith("RETRIED: ")) {
+        await prisma.growthPathScan.update({
+          where: { id: scan.id },
+          data: {
+            status: "pending",
+            error: `RETRIED: ${scan.error}`,
+            startedAt: null,
+            completedAt: null,
+          },
+        });
+        scan.status = "pending"; // reflect in-memory
+      }
+    }
+
     const completedScans = session.scans.filter(
       (s) => s.status === "complete" || s.status === "failed"
     ).length;
     const totalScans = session.scans.length;
+    const allDone = completedScans === totalScans && totalScans > 0;
 
     // Build partial results from completed scans
     const partialResults: Record<string, unknown> = {};
@@ -47,14 +83,32 @@ export async function GET(
       }
     }
 
+    const baseUrl = process.env.NEXT_PUBLIC_APP_URL
+      || (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "https://jurispage.com");
+
+    // --- Self-healing: trigger scoring if all scans done but session stuck in "scanning" ---
+    if (allDone && session.status === "scanning") {
+      fetch(`${baseUrl}/api/growth-path/score/${sessionId}`, {
+        method: "POST",
+      }).catch((err) => console.error("Status: auto-score trigger failed:", err));
+    }
+
+    // --- Self-healing: re-trigger scoring if stuck in "scoring" too long ---
+    if (
+      session.status === "scoring" &&
+      session.updatedAt &&
+      now - session.updatedAt.getTime() > STUCK_THRESHOLD_MS
+    ) {
+      fetch(`${baseUrl}/api/growth-path/score/${sessionId}`, {
+        method: "POST",
+      }).catch((err) => console.error("Status: re-score trigger failed:", err));
+    }
+
     // If scanning and pending scans exist, fire-and-forget to advance work
     if (
       session.status === "scanning" &&
-      completedScans < totalScans
+      !allDone
     ) {
-      const baseUrl = process.env.NEXT_PUBLIC_APP_URL
-        || (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "https://jurispage.com");
-
       fetch(`${baseUrl}/api/growth-path/scan/${sessionId}`, {
         method: "POST",
       }).catch(() => {});

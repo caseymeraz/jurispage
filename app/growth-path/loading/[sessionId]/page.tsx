@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef, useCallback } from "react";
 import { useParams, useRouter } from "next/navigation";
 
 const STAGES = [
@@ -11,15 +11,32 @@ const STAGES = [
   "Building your recommended path...",
 ] as const;
 
+const DID_YOU_KNOW = [
+  "96% of people seeking legal advice use a search engine.",
+  "The average personal injury case value from organic search is 3x higher than from paid ads.",
+  "Google Maps results drive 42% of clicks for local law firm searches.",
+  "Firms that respond to web leads within 5 minutes are 8x more likely to convert.",
+  "Over 70% of potential clients visit a law firm's website before making contact.",
+  "The top 3 organic search results capture 68% of all clicks.",
+  "Your Growth Path report analyzes keyword demand, competitor density, and online visibility.",
+  "Mobile searches for 'lawyer near me' have grown over 150% in the last two years.",
+  "Consistent NAP (Name, Address, Phone) data across directories boosts local rankings.",
+  "Law firms with 50+ Google reviews get 266% more leads than those with fewer than 10.",
+  "We're checking real Google search results and Maps data for your specific market.",
+  "Your report will include a 90-day action plan tailored to your firm's situation.",
+] as const;
+
 const POLL_INTERVAL = 4_000;
-const MAX_POLLS = 45; // 3 minutes
+const MAX_POLLS = 75; // 5 minutes
 
 export default function GrowthPathLoadingPage() {
   const params = useParams<{ sessionId: string }>();
   const router = useRouter();
 
   const [stageIndex, setStageIndex] = useState(0);
+  const [factIndex, setFactIndex] = useState(0);
   const [timedOut, setTimedOut] = useState(false);
+  const [checking, setChecking] = useState(false);
   const [partialResults, setPartialResults] = useState<{
     keywordDemand?: number;
     competitorCount?: number;
@@ -37,44 +54,56 @@ export default function GrowthPathLoadingPage() {
     return () => clearInterval(stageTimer);
   }, []);
 
+  /* Cycle through facts */
+  useEffect(() => {
+    const factTimer = setInterval(() => {
+      setFactIndex((prev) => (prev + 1) % DID_YOU_KNOW.length);
+    }, 8_000);
+    return () => clearInterval(factTimer);
+  }, []);
+
+  const poll = useCallback(async () => {
+    try {
+      const res = await fetch(
+        `/api/growth-path/status/${params.sessionId}`
+      );
+      if (!res.ok) return false;
+
+      const data = await res.json();
+
+      if (data.partialResults) {
+        setPartialResults(data.partialResults);
+      }
+
+      if (data.totalScans) {
+        setProgress({
+          completed: data.completedScans,
+          total: data.totalScans,
+        });
+      }
+
+      // Report ready
+      if (
+        (data.status === "report_ready" || data.status === "reviewed") &&
+        data.accessToken
+      ) {
+        if (intervalRef.current) clearInterval(intervalRef.current);
+        router.push(`/growth-path/report/${data.accessToken}`);
+        return true;
+      }
+    } catch {
+      /* network hiccup */
+    }
+    return false;
+  }, [params.sessionId, router]);
+
   /* Poll for status */
   useEffect(() => {
     if (!params.sessionId) return;
 
-    async function poll() {
-      try {
-        const res = await fetch(
-          `/api/growth-path/status/${params.sessionId}`
-        );
-        if (!res.ok) return;
-
-        const data = await res.json();
-
-        // Update partial results
-        if (data.partialResults) {
-          setPartialResults(data.partialResults);
-        }
-
-        // Update progress
-        if (data.totalScans) {
-          setProgress({
-            completed: data.completedScans,
-            total: data.totalScans,
-          });
-        }
-
-        // Report ready
-        if (
-          (data.status === "report_ready" || data.status === "reviewed") &&
-          data.accessToken
-        ) {
-          if (intervalRef.current) clearInterval(intervalRef.current);
-          router.push(`/growth-path/report/${data.accessToken}`);
-          return;
-        }
-      } catch {
-        /* network hiccup */
-      }
+    async function doPoll() {
+      const done = await poll();
+      if (done) return;
 
       pollCount.current += 1;
       if (pollCount.current >= MAX_POLLS) {
@@ -83,13 +112,34 @@ export default function GrowthPathLoadingPage() {
       }
     }
 
-    poll();
-    intervalRef.current = setInterval(poll, POLL_INTERVAL);
+    doPoll();
+    intervalRef.current = setInterval(doPoll, POLL_INTERVAL);
 
     return () => {
       if (intervalRef.current) clearInterval(intervalRef.current);
     };
-  }, [params.sessionId, router]);
+  }, [params.sessionId, poll]);
+
+  /* "Check again" handler for timed-out state */
+  async function handleCheckAgain() {
+    setChecking(true);
+    const done = await poll();
+    if (!done) {
+      // Restart polling for another round
+      pollCount.current = 0;
+      setTimedOut(false);
+      intervalRef.current = setInterval(async () => {
+        const ready = await poll();
+        if (ready) return;
+        pollCount.current += 1;
+        if (pollCount.current >= MAX_POLLS) {
+          if (intervalRef.current) clearInterval(intervalRef.current);
+          setTimedOut(true);
+        }
+      }, POLL_INTERVAL);
+    }
+    setChecking(false);
+  }
 
   /* Timed-out fallback */
   if (timedOut) {
@@ -120,21 +170,36 @@ export default function GrowthPathLoadingPage() {
           </div>
 
           <h1 className="font-heading font-extrabold text-white text-2xl mb-3">
-            We&apos;re building your report
+            Your report is almost ready
           </h1>
-          <p className="text-gray-400 text-base leading-relaxed mb-8">
-            Your analysis is taking a bit longer than usual. We&apos;ll email
-            your full report as soon as it&apos;s ready. No action needed on
-            your end.
+          <p className="text-gray-400 text-base leading-relaxed mb-4">
+            Your analysis is taking a bit longer than usual.
+            We&apos;ll email your full report as soon as it&apos;s ready &mdash;
+            no action needed on your end.
           </p>
 
-          <a
-            href="/"
-            className="inline-block font-heading font-bold text-sm text-white px-8 py-3.5 rounded-[40px] no-underline transition-colors"
-            style={{ background: "#EE6C13" }}
-          >
-            Back to Homepage
-          </a>
+          {progress.completed > 0 && (
+            <p className="text-gray-500 text-sm mb-6">
+              {progress.completed} of {progress.total} scans completed so far.
+            </p>
+          )}
+
+          <div className="flex flex-col items-center gap-3">
+            <button
+              onClick={handleCheckAgain}
+              disabled={checking}
+              className="inline-block font-heading font-bold text-sm text-white px-8 py-3.5 rounded-[40px] no-underline transition-colors disabled:opacity-50"
+              style={{ background: "#EE6C13" }}
+            >
+              {checking ? "Checking..." : "Check Again"}
+            </button>
+            <a
+              href="/"
+              className="text-gray-500 text-sm hover:text-gray-400 transition-colors"
+            >
+              Back to Homepage
+            </a>
+          </div>
         </div>
       </div>
     );
@@ -144,6 +209,14 @@ export default function GrowthPathLoadingPage() {
   const progressPct = Math.round(
     (progress.completed / Math.max(progress.total, 1)) * 100
   );
+
+  // Map scan progress to meaningful stage message
+  const dynamicStage =
+    progress.completed === 0
+      ? STAGES[stageIndex]
+      : progress.completed < progress.total
+        ? `${progress.completed} of ${progress.total} scans complete — ${STAGES[stageIndex]}`
+        : "Finalizing your recommendations...";
 
   return (
     <div
@@ -188,11 +261,11 @@ export default function GrowthPathLoadingPage() {
 
         <div className="h-8 flex items-center justify-center mb-6">
           <p
-            key={stageIndex}
+            key={`stage-${stageIndex}-${progress.completed}`}
             className="text-base font-medium animate-fade-in"
             style={{ color: "#EE6C13" }}
           >
-            {STAGES[stageIndex]}
+            {dynamicStage}
           </p>
         </div>
 
@@ -234,8 +307,19 @@ export default function GrowthPathLoadingPage() {
           </div>
         )}
 
-        <p className="text-gray-500 text-sm">
-          This usually takes 60-90 seconds.
+        {/* Did you know? */}
+        <div className="mt-6 px-4 py-3 rounded-lg" style={{ background: "rgba(238,108,19,0.08)" }}>
+          <p className="text-gray-500 text-xs uppercase tracking-wider mb-1">Did you know?</p>
+          <p
+            key={factIndex}
+            className="text-gray-300 text-sm leading-relaxed animate-fade-in"
+          >
+            {DID_YOU_KNOW[factIndex]}
+          </p>
+        </div>
+
+        <p className="text-gray-500 text-sm mt-6">
+          This usually takes 60&ndash;90 seconds.
         </p>
       </div>
 
