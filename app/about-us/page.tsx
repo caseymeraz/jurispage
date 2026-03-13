@@ -49,6 +49,7 @@ const teamMembers = [
   { name: "Serena Gross", image: "headshot-serena-gross.jpg", title: "Web Designer" },
   { name: "Justin Carson", image: "headshot-justin-carson.jpg", title: "SEO Specialist" },
   { name: "Jeremy Shankman", image: "headshot-jeremy-shankman.jpg", title: "Senior SEO Specialist" },
+  { name: "Corbin Maynard", image: "headshot-corbin-maynard.webp", title: "Developer" },
 ];
 
 const partners = [
