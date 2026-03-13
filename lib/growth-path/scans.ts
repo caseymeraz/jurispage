@@ -7,6 +7,7 @@ import {
   getAiModeSerp,
 } from "@/lib/dataforseo";
 import { getBusinessListingsDensity, getSerpScreenshot } from "@/lib/dataforseo";
+import { put } from "@vercel/blob";
 import type { SerpAnalysisResult } from "./types";
 
 // ─── Keyword Volume Scan ──────────────────────────────────────
@@ -205,27 +206,73 @@ export async function runPageSpeedScan(
 
 // ─── SERP Screenshot Scan ─────────────────────────────────────
 
-export async function runSerpScreenshotScan(
-  keyword: string,
-  locationCode: number
-): Promise<{
+export interface SerpScreenshotItem {
+  keyword: string;
   screenshotUrl: string | null;
   mobileScreenshotUrl: string | null;
-  keyword: string;
-}> {
+}
+
+/**
+ * Capture SERP screenshots for one or more keywords, persisting to Vercel Blob.
+ * DataForSEO screenshot URLs expire in ~24-48 hours, so we re-upload for permanence.
+ */
+export async function runSerpScreenshotScan(
+  keywords: string[],
+  locationCode: number
+): Promise<SerpScreenshotItem[]> {
+  const results: SerpScreenshotItem[] = [];
+
+  for (const keyword of keywords) {
+    try {
+      const [desktop, mobile] = await Promise.all([
+        getSerpScreenshot(keyword, locationCode, "en", "desktop").catch(() => ({ screenshotUrl: null })),
+        getSerpScreenshot(keyword, locationCode, "en", "mobile").catch(() => ({ screenshotUrl: null })),
+      ]);
+
+      // Persist to Vercel Blob so URLs don't expire
+      const slug = keyword.replace(/\s+/g, "-").slice(0, 60);
+      const [desktopBlobUrl, mobileBlobUrl] = await Promise.all([
+        desktop.screenshotUrl
+          ? persistToBlob(desktop.screenshotUrl, `growth-path/serp/${Date.now()}-${slug}-desktop.png`)
+          : Promise.resolve(null),
+        mobile.screenshotUrl
+          ? persistToBlob(mobile.screenshotUrl, `growth-path/serp/${Date.now()}-${slug}-mobile.png`)
+          : Promise.resolve(null),
+      ]);
+
+      results.push({
+        keyword,
+        screenshotUrl: desktopBlobUrl ?? desktop.screenshotUrl,
+        mobileScreenshotUrl: mobileBlobUrl ?? mobile.screenshotUrl,
+      });
+    } catch (err) {
+      console.error(`SERP screenshot scan failed for "${keyword}":`, err);
+      results.push({ keyword, screenshotUrl: null, mobileScreenshotUrl: null });
+    }
+  }
+
+  return results;
+}
+
+/**
+ * Download an image URL and re-upload to Vercel Blob for persistence.
+ */
+async function persistToBlob(
+  sourceUrl: string,
+  blobPath: string
+): Promise<string | null> {
   try {
-    const [desktop, mobile] = await Promise.all([
-      getSerpScreenshot(keyword, locationCode, "en", "desktop"),
-      getSerpScreenshot(keyword, locationCode, "en", "mobile"),
-    ]);
-    return {
-      screenshotUrl: desktop.screenshotUrl,
-      mobileScreenshotUrl: mobile.screenshotUrl,
-      keyword,
-    };
+    const response = await fetch(sourceUrl);
+    if (!response.ok) return null;
+    const buffer = Buffer.from(await response.arrayBuffer());
+    const blob = await put(blobPath, buffer, {
+      access: "public",
+      contentType: "image/png",
+    });
+    return blob.url;
   } catch (err) {
-    console.error("SERP screenshot scan failed:", err);
-    return { screenshotUrl: null, mobileScreenshotUrl: null, keyword };
+    console.error("Failed to persist SERP screenshot to Blob:", err);
+    return null;
   }
 }
 

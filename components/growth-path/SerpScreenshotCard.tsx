@@ -3,10 +3,19 @@
 import { useState } from "react";
 import SourceConfidencePill from "./SourceConfidencePill";
 
-interface SerpScreenshotCardProps {
+interface ScreenshotItem {
+  keyword: string;
   screenshotUrl: string | null;
   mobileScreenshotUrl?: string | null;
-  keyword: string;
+}
+
+interface SerpScreenshotCardProps {
+  /** New array format — one entry per keyword */
+  screenshots?: ScreenshotItem[];
+  /** Legacy single-screenshot props (backward compat) */
+  screenshotUrl?: string | null;
+  mobileScreenshotUrl?: string | null;
+  keyword?: string;
   serpResults: {
     keyword: string;
     hasAds: boolean;
@@ -43,16 +52,86 @@ function AnnotationBadge({
   );
 }
 
+function ScreenshotPanel({
+  item,
+  caption,
+}: {
+  item: ScreenshotItem;
+  caption?: string;
+}) {
+  const [activeTab, setActiveTab] = useState<"desktop" | "mobile">("desktop");
+  const hasMultipleTabs = item.screenshotUrl && item.mobileScreenshotUrl;
+  const activeUrl =
+    activeTab === "mobile" ? item.mobileScreenshotUrl : item.screenshotUrl;
+
+  return (
+    <div>
+      {caption && (
+        <p className="text-gray-400 text-xs font-heading font-bold uppercase tracking-widest mb-3">
+          {caption}
+        </p>
+      )}
+
+      {hasMultipleTabs && (
+        <div className="flex gap-2 mb-3">
+          {(["desktop", "mobile"] as const).map((tab) => (
+            <button
+              key={tab}
+              onClick={() => setActiveTab(tab)}
+              className={`text-xs font-medium px-4 py-2 rounded-full transition-colors ${
+                activeTab === tab
+                  ? "text-white"
+                  : "text-gray-500 hover:text-gray-300"
+              }`}
+              style={
+                activeTab === tab
+                  ? { background: "rgba(238,108,19,0.2)", color: "#EE6C13" }
+                  : {}
+              }
+            >
+              {tab.charAt(0).toUpperCase() + tab.slice(1)}
+            </button>
+          ))}
+        </div>
+      )}
+
+      {activeUrl ? (
+        <div
+          className={`rounded-xl overflow-hidden border border-gray-800 ${
+            activeTab === "mobile" && hasMultipleTabs ? "max-w-sm mx-auto" : ""
+          }`}
+        >
+          <img
+            src={activeUrl}
+            alt={`Google search results for "${item.keyword}" (${activeTab})`}
+            className="w-full h-auto"
+            loading="lazy"
+          />
+        </div>
+      ) : (
+        <div className="rounded-xl border border-gray-800 bg-gray-900 flex items-center justify-center py-16">
+          <p className="text-gray-600 text-sm">Screenshot not available</p>
+        </div>
+      )}
+    </div>
+  );
+}
+
 export default function SerpScreenshotCard({
+  screenshots,
   screenshotUrl,
   mobileScreenshotUrl,
   keyword,
   serpResults,
 }: SerpScreenshotCardProps) {
-  const [activeTab, setActiveTab] = useState<"desktop" | "mobile">("desktop");
+  // Normalize to array format (backward compat with legacy single-screenshot)
+  const items: ScreenshotItem[] = screenshots && screenshots.length > 0
+    ? screenshots
+    : keyword
+      ? [{ keyword, screenshotUrl: screenshotUrl ?? null, mobileScreenshotUrl }]
+      : [];
+
   const primary = serpResults[0];
-  const hasMultipleTabs = screenshotUrl && mobileScreenshotUrl;
-  const activeUrl = activeTab === "mobile" ? mobileScreenshotUrl : screenshotUrl;
 
   return (
     <div className="rounded-2xl overflow-hidden" style={{ background: "#1a1a1a" }}>
@@ -64,7 +143,7 @@ export default function SerpScreenshotCard({
               Search Results
             </h3>
             <p className="text-gray-400 text-sm">
-              Here&apos;s exactly what potential clients see when they search for &ldquo;{keyword}&rdquo;
+              Here&apos;s exactly what potential clients see when they search
             </p>
           </div>
           <SourceConfidencePill label="Public market data" />
@@ -93,48 +172,20 @@ export default function SerpScreenshotCard({
           </div>
         )}
 
-        {/* Desktop / Mobile tabs */}
-        {hasMultipleTabs && (
-          <div className="flex gap-2 mb-4">
-            <button
-              onClick={() => setActiveTab("desktop")}
-              className={`text-xs font-medium px-4 py-2 rounded-full transition-colors ${
-                activeTab === "desktop"
-                  ? "text-white"
-                  : "text-gray-500 hover:text-gray-300"
-              }`}
-              style={activeTab === "desktop" ? { background: "rgba(238,108,19,0.2)", color: "#EE6C13" } : {}}
-            >
-              Desktop
-            </button>
-            <button
-              onClick={() => setActiveTab("mobile")}
-              className={`text-xs font-medium px-4 py-2 rounded-full transition-colors ${
-                activeTab === "mobile"
-                  ? "text-white"
-                  : "text-gray-500 hover:text-gray-300"
-              }`}
-              style={activeTab === "mobile" ? { background: "rgba(238,108,19,0.2)", color: "#EE6C13" } : {}}
-            >
-              Mobile
-            </button>
-          </div>
-        )}
-
-        {/* Screenshot */}
-        {activeUrl ? (
-          <div
-            className={`rounded-xl overflow-hidden border border-gray-800 ${
-              activeTab === "mobile" && hasMultipleTabs ? "max-w-sm mx-auto" : ""
-            }`}
-          >
-            <img
-              src={activeUrl}
-              alt={`Google search results for "${keyword}" (${activeTab})`}
-              className="w-full h-auto"
-              loading="lazy"
+        {/* Screenshots — dual layout when 2, single otherwise */}
+        {items.length >= 2 ? (
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <ScreenshotPanel
+              item={items[0]}
+              caption={`"${items[0].keyword}"`}
+            />
+            <ScreenshotPanel
+              item={items[1]}
+              caption={`"${items[1].keyword}" (localized)`}
             />
           </div>
+        ) : items.length === 1 ? (
+          <ScreenshotPanel item={items[0]} />
         ) : (
           <div className="rounded-xl border border-gray-800 bg-gray-900 flex items-center justify-center py-16">
             <p className="text-gray-600 text-sm">Screenshot not available</p>

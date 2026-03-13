@@ -11,6 +11,8 @@ import RecommendationHeroCard from "@/components/growth-path/RecommendationHeroC
 import PlanTimeline from "@/components/growth-path/PlanTimeline";
 import SourceConfidencePill from "@/components/growth-path/SourceConfidencePill";
 import MarketAvailabilityNote from "@/components/growth-path/MarketAvailabilityNote";
+import CaseCalculator from "@/components/CaseCalculator";
+import PageSpeedCard from "@/components/PageSpeedCard";
 import { getPathById } from "@/lib/growth-path/paths";
 import type { VisionAnalysis, SerpAnalysisResult } from "@/lib/growth-path/types";
 
@@ -82,11 +84,13 @@ export default function GrowthPathReport({ data }: Props) {
 
   const serpData = scanResults.serp_analysis as SerpAnalysisResult[] | undefined;
 
-  const serpScreenshot = scanResults.serp_screenshot as {
-    screenshotUrl: string | null;
-    mobileScreenshotUrl?: string | null;
-    keyword: string;
-  } | undefined;
+  // serp_screenshot: support both new array format and legacy single object
+  const rawSerpScreenshot = scanResults.serp_screenshot;
+  const serpScreenshots = Array.isArray(rawSerpScreenshot)
+    ? (rawSerpScreenshot as { keyword: string; screenshotUrl: string | null; mobileScreenshotUrl?: string | null }[])
+    : rawSerpScreenshot
+      ? [rawSerpScreenshot as { keyword: string; screenshotUrl: string | null; mobileScreenshotUrl?: string | null }]
+      : undefined;
 
   const mapsData = scanResults.maps_competition as {
     competitors: { name: string; rating: number | null; reviewCount: number | null; position: number; domain: string | null }[];
@@ -97,8 +101,21 @@ export default function GrowthPathReport({ data }: Props) {
     firmCount: number;
   } | undefined;
 
+  const pagespeedData = scanResults.pagespeed as {
+    mobile: { score: number; fcp: number; lcp: number; cls: number; tbt: number };
+    desktop: { score: number; fcp: number; lcp: number; cls: number; tbt: number };
+  } | undefined;
+
   const rawVision = scanResults.vision_analysis as VisionAnalysis | undefined;
   const visionData = rawVision && Array.isArray(rawVision.top_findings) ? rawVision : undefined;
+
+  // Determine display volume: prefer local, estimate if zero
+  const displayVolume = keywordData
+    ? keywordData.totalLocalVolume > 0
+      ? keywordData.totalLocalVolume
+      : Math.round(keywordData.totalVolume * 0.01)
+    : 0;
+  const isEstimatedVolume = keywordData ? keywordData.totalLocalVolume === 0 : false;
 
   // Get path definition
   const primaryPath = recommendation
@@ -150,6 +167,18 @@ export default function GrowthPathReport({ data }: Props) {
         <div className="flex gap-2 mt-4">
           <SourceConfidencePill label="Public market data" />
         </div>
+      </div>
+
+      {/* Disclaimer banner */}
+      <div
+        className="rounded-xl border px-5 py-4 mb-12"
+        style={{ borderColor: "rgba(238,108,19,0.3)", background: "rgba(238,108,19,0.06)" }}
+      >
+        <p className="text-gray-400 text-sm leading-relaxed">
+          This is an automated analysis based on publicly available data. It is not a replacement
+          for a comprehensive human audit. The average client we work with gains{" "}
+          <span className="text-white font-medium">5,000+ ranking keywords</span> in the first 60 days.
+        </p>
       </div>
 
       {/* Section 1: Situation Summary */}
@@ -208,8 +237,26 @@ export default function GrowthPathReport({ data }: Props) {
                   })) ?? []
                 }
                 city={city}
+                practiceArea={practiceArea}
               />
             )}
+          </div>
+        </section>
+      )}
+
+      {/* Case Calculator */}
+      {keywordData && (
+        <section className="mb-12">
+          <h2 className="font-heading font-bold text-xl text-white mb-4">
+            How search traffic converts to cases
+          </h2>
+          <div className="rounded-2xl overflow-hidden p-6 sm:p-8" style={{ background: "#1a1a1a" }}>
+            <CaseCalculator
+              monthlySearchVolume={displayVolume}
+              practiceArea={practiceArea}
+              city={city}
+              dark
+            />
           </div>
         </section>
       )}
@@ -228,7 +275,7 @@ export default function GrowthPathReport({ data }: Props) {
       )}
 
       {/* Section 3: What People See When They Search */}
-      {(serpScreenshot || serpData) && (
+      {(serpScreenshots || serpData) && (
         <section className="mb-12">
           <h2 className="font-heading font-bold text-xl text-white mb-2">
             What people see when they search
@@ -237,9 +284,7 @@ export default function GrowthPathReport({ data }: Props) {
             This is what potential clients see when they search — this is what you&apos;re competing against.
           </p>
           <SerpScreenshotCard
-            screenshotUrl={serpScreenshot?.screenshotUrl ?? null}
-            mobileScreenshotUrl={serpScreenshot?.mobileScreenshotUrl ?? null}
-            keyword={serpScreenshot?.keyword ?? `personal injury lawyer ${city}`}
+            screenshots={serpScreenshots}
             serpResults={serpData ?? []}
           />
         </section>
@@ -259,6 +304,18 @@ export default function GrowthPathReport({ data }: Props) {
             }))}
             findings={visionData?.top_findings ?? []}
           />
+        </section>
+      )}
+
+      {/* PageSpeed Analysis */}
+      {pagespeedData && (
+        <section className="mb-12">
+          <h2 className="font-heading font-bold text-xl text-white mb-4">
+            How fast your site loads
+          </h2>
+          <div className="rounded-2xl overflow-hidden p-6 sm:p-8" style={{ background: "#1a1a1a" }}>
+            <PageSpeedCard mobile={pagespeedData.mobile} desktop={pagespeedData.desktop} dark />
+          </div>
         </section>
       )}
 

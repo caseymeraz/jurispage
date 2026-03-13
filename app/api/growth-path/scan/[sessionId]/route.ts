@@ -94,8 +94,12 @@ export async function POST(
             break;
           }
           case "serp_screenshot": {
-            const keyword = getPIMapsQuery(city);
-            result = await runSerpScreenshotScan(keyword, 2840);
+            const keywordWithCity = getPIMapsQuery(city);
+            const keywordWithout = "personal injury lawyer";
+            result = await runSerpScreenshotScan(
+              [keywordWithCity, keywordWithout],
+              2840
+            );
             break;
           }
           case "maps_competition": {
