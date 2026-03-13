@@ -11,6 +11,7 @@
   "dependencies": {
     "@prisma/adapter-pg": "^7.4.2",
     "@prisma/client": "^7.4.2",
+    "@sparticuz/chromium": "^143.0.4",
     "@tailwindcss/typography": "^0.5.19",
     "@vercel/blob": "^2.3.1",
     "gray-matter": "^4.0.3",
@@ -18,7 +19,7 @@
     "next-mdx-remote": "^6.0.0",
     "openai": "^6.27.0",
     "pg": "^8.20.0",
-    "playwright-core": "^1.58.2",
+    "puppeteer-core": "^24.39.1",
     "react": "19.2.3",
     "react-dom": "19.2.3",
     "resend": "^6.9.2",

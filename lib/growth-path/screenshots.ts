@@ -1,7 +1,9 @@
-// Playwright-based website screenshot capture for Growth Path
-// Runs as Vercel fluid compute function (longer timeout)
+// Puppeteer-based website screenshot capture for Growth Path
+// Uses @sparticuz/chromium for Vercel serverless compatibility
 
 import { put } from "@vercel/blob";
+import puppeteer from "puppeteer-core";
+import chromium from "@sparticuz/chromium";
 
 export interface Screenshot {
   url: string;
@@ -13,38 +15,28 @@ export interface Screenshot {
 export async function captureWebsiteScreenshots(
   url: string
 ): Promise<Screenshot[]> {
-  // Dynamic import of playwright-core for Vercel serverless
-  const { chromium } = await import("playwright-core");
-
   const screenshots: Screenshot[] = [];
   let browser;
 
   try {
-    // Check if chromium binary is available (may not be on Vercel serverless)
-    browser = await chromium.launch({
-      args: ["--no-sandbox", "--disable-setuid-sandbox"],
-    }).catch((launchErr) => {
-      console.error("Playwright chromium launch failed (likely not available in this environment):", launchErr);
-      return null;
+    browser = await puppeteer.launch({
+      args: chromium.args,
+      defaultViewport: null,
+      executablePath: await chromium.executablePath(),
+      headless: true,
     });
 
-    if (!browser) {
-      console.warn("Playwright browser unavailable - returning empty screenshots");
-      return screenshots;
-    }
-
-    const context = await browser.newContext();
-    const page = await context.newPage();
+    const page = await browser.newPage();
 
     // Normalize URL
     const normalizedUrl = url.startsWith("http") ? url : `https://${url}`;
 
     // ── Homepage Desktop (1440px) ──
-    await page.setViewportSize({ width: 1440, height: 900 });
-    await page.goto(normalizedUrl, { waitUntil: "networkidle", timeout: 30000 });
-    await page.waitForTimeout(2000);
+    await page.setViewport({ width: 1440, height: 900 });
+    await page.goto(normalizedUrl, { waitUntil: "networkidle0", timeout: 30000 });
+    await new Promise((r) => setTimeout(r, 2000));
 
-    const desktopBuffer = await page.screenshot({ fullPage: false });
+    const desktopBuffer = await page.screenshot({ fullPage: false }) as Buffer;
     const desktopBlob = await put(
       `growth-path/screenshots/${Date.now()}-desktop.png`,
       desktopBuffer,
@@ -58,10 +50,10 @@ export async function captureWebsiteScreenshots(
     });
 
     // ── Homepage Mobile (390px) ──
-    await page.setViewportSize({ width: 390, height: 844 });
-    await page.waitForTimeout(1000);
+    await page.setViewport({ width: 390, height: 844 });
+    await new Promise((r) => setTimeout(r, 1000));
 
-    const mobileBuffer = await page.screenshot({ fullPage: false });
+    const mobileBuffer = await page.screenshot({ fullPage: false }) as Buffer;
     const mobileBlob = await put(
       `growth-path/screenshots/${Date.now()}-mobile.png`,
       mobileBuffer,
@@ -75,7 +67,7 @@ export async function captureWebsiteScreenshots(
     });
 
     // ── Discover practice area page ──
-    await page.setViewportSize({ width: 1440, height: 900 });
+    await page.setViewport({ width: 1440, height: 900 });
 
     // Look for common practice area link patterns
     const practiceLinks = await page.$$eval(
@@ -93,12 +85,12 @@ export async function captureWebsiteScreenshots(
     if (practiceLinks.length > 0) {
       try {
         await page.goto(practiceLinks[0].href, {
-          waitUntil: "networkidle",
+          waitUntil: "networkidle0",
           timeout: 20000,
         });
-        await page.waitForTimeout(2000);
+        await new Promise((r) => setTimeout(r, 2000));
 
-        const practiceBuffer = await page.screenshot({ fullPage: false });
+        const practiceBuffer = await page.screenshot({ fullPage: false }) as Buffer;
         const practiceBlob = await put(
           `growth-path/screenshots/${Date.now()}-practice.png`,
           practiceBuffer,
@@ -114,8 +106,6 @@ export async function captureWebsiteScreenshots(
         // Practice area page navigation failed; skip it
       }
     }
-
-    await context.close();
   } catch (err) {
     console.error("Website screenshot capture failed:", err);
   } finally {
