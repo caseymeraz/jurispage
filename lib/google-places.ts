@@ -74,31 +74,3 @@ export function extractPlaceDetails(
     country,
   };
 }
-
-export function extractPlaceDetailsFromPlace(
-  place: google.maps.places.Place
-): PlaceResult {
-  const addressComponents = place.addressComponents || [];
-  let city = "";
-  let state = "";
-  let country = "";
-
-  for (const comp of addressComponents) {
-    if (comp.types.includes("locality")) city = comp.longText || "";
-    if (comp.types.includes("administrative_area_level_1")) state = comp.shortText || "";
-    if (comp.types.includes("country")) country = comp.shortText || "";
-  }
-
-  return {
-    name: place.displayName || "",
-    placeId: place.id,
-    formattedAddress: place.formattedAddress || "",
-    website: place.websiteURI || undefined,
-    phone: place.nationalPhoneNumber || undefined,
-    lat: place.location?.lat(),
-    lng: place.location?.lng(),
-    city,
-    state,
-    country,
-  };
-}

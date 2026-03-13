@@ -4,7 +4,7 @@ import { useState, useEffect, useRef, useCallback } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import {
   loadGoogleMapsScript,
-  extractPlaceDetailsFromPlace,
+  extractPlaceDetails,
   type PlaceResult,
 } from "@/lib/google-places";
 import { trackClientEvent } from "@/lib/analytics";
@@ -143,8 +143,7 @@ export default function MarketGapForm() {
   const [leadId, setLeadId] = useState<string | null>(null);
 
   const firmInputRef = useRef<HTMLInputElement>(null);
-  const acContainerRef = useRef<HTMLDivElement>(null);
-  const autocompleteRef = useRef<google.maps.places.PlaceAutocompleteElement | null>(null);
+  const autocompleteRef = useRef<google.maps.places.Autocomplete | null>(null);
 
   /* ----- UTM capture ------------------------------------------------ */
 
@@ -176,30 +175,27 @@ export default function MarketGapForm() {
   }, []);
 
   useEffect(() => {
-    if (!placesReady || !acContainerRef.current || autocompleteRef.current) return;
+    if (!placesReady || !firmInputRef.current || autocompleteRef.current) return;
 
-    const ac = new google.maps.places.PlaceAutocompleteElement({
+    const ac = new google.maps.places.Autocomplete(firmInputRef.current, {
       types: ["establishment"],
       componentRestrictions: { country: "us" },
+      fields: [
+        "name",
+        "place_id",
+        "formatted_address",
+        "website",
+        "formatted_phone_number",
+        "geometry",
+        "address_components",
+      ],
     });
 
-    ac.addEventListener("gmp-placeselect", async (e) => {
-      const evt = e as google.maps.places.PlaceAutocompletePlaceSelectEvent;
-      const place = evt.place;
+    ac.addListener("place_changed", () => {
+      const place = ac.getPlace();
+      if (!place.place_id) return;
 
-      await place.fetchFields({
-        fields: [
-          "displayName",
-          "id",
-          "formattedAddress",
-          "websiteURI",
-          "nationalPhoneNumber",
-          "location",
-          "addressComponents",
-        ],
-      });
-
-      const details: PlaceResult = extractPlaceDetailsFromPlace(place);
+      const details: PlaceResult = extractPlaceDetails(place);
 
       setStep1((prev) => ({
         ...prev,
@@ -227,7 +223,6 @@ export default function MarketGapForm() {
       });
     });
 
-    acContainerRef.current.appendChild(ac);
     autocompleteRef.current = ac;
   }, [placesReady]);
 
@@ -460,23 +455,19 @@ export default function MarketGapForm() {
           <label htmlFor="mgf-firmName" className={LABEL_CLS}>
             Firm name <span className="text-red-500">*</span>
           </label>
-          {placesReady && !manualEntry ? (
-            <div ref={acContainerRef} className="gmp-autocomplete-container" />
-          ) : (
-            <input
-              id="mgf-firmName"
-              ref={firmInputRef}
-              type="text"
-              required
-              placeholder="Enter your firm name"
-              value={step1.firmName}
-              onChange={(e) =>
-                setStep1((p) => ({ ...p, firmName: e.target.value }))
-              }
-              className={INPUT_CLS}
-              style={RING_STYLE}
-            />
-          )}
+          <input
+            id="mgf-firmName"
+            ref={firmInputRef}
+            type="text"
+            required
+            placeholder="Enter your firm name"
+            value={step1.firmName}
+            onChange={(e) =>
+              setStep1((p) => ({ ...p, firmName: e.target.value }))
+            }
+            className={INPUT_CLS}
+            style={RING_STYLE}
+          />
           {renderError("firmName")}
 
           {/* Toggle manual entry */}

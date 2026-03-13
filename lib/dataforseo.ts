@@ -358,9 +358,42 @@ const MAJOR_CITY_COORDS: Record<string, { lat: number; lng: number }> = {
 // US geographic center — used only as a last resort
 const US_CENTER = { lat: 39.8283, lng: -98.5795 };
 
-export function geocodeCityState(city: string, state: string): { lat: number; lng: number } {
+export async function geocodeCityState(city: string, state: string): Promise<{ lat: number; lng: number }> {
   const key = `${city.toLowerCase().trim()}, ${state.toLowerCase().trim()}`;
-  return MAJOR_CITY_COORDS[key] ?? US_CENTER;
+
+  // Fast path: check hardcoded cache first
+  const cached = MAJOR_CITY_COORDS[key];
+  if (cached) return cached;
+
+  // Use Google Maps Geocoding API for unknown cities
+  const apiKey = process.env.NEXT_PUBLIC_GOOGLE_PLACES_API_KEY || process.env.GOOGLE_MAPS_API_KEY;
+  if (apiKey) {
+    try {
+      const address = encodeURIComponent(`${city}, ${state}, US`);
+      const res = await fetch(
+        `https://maps.googleapis.com/maps/api/geocode/json?address=${address}&key=${apiKey}`
+      );
+      if (res.ok) {
+        const data = await res.json() as {
+          status: string;
+          results: Array<{ geometry: { location: { lat: number; lng: number } } }>;
+        };
+        if (data.status === "OK" && data.results?.[0]) {
+          const loc = data.results[0].geometry.location;
+          console.log(`Geocoded "${city}, ${state}" to ${loc.lat}, ${loc.lng}`);
+          return { lat: loc.lat, lng: loc.lng };
+        }
+        console.warn(`Google Geocoding returned status "${data.status}" for "${city}, ${state}"`);
+      }
+    } catch (err) {
+      console.warn(`Google Geocoding API failed for "${city}, ${state}":`, err);
+    }
+  } else {
+    console.warn("No Google Maps API key available for geocoding");
+  }
+
+  console.error(`geocodeCityState: falling back to US_CENTER for "${city}, ${state}"`);
+  return US_CENTER;
 }
 
 // Business Listings Density

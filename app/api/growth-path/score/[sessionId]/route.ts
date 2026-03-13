@@ -2,6 +2,8 @@ import { NextRequest, NextResponse } from "next/server";
 import type { Prisma } from "@prisma/client";
 import { prisma } from "@/lib/db";
 import { computeAllScores } from "@/lib/growth-path/scoring";
+
+export const maxDuration = 300;
 import { buildRecommendation } from "@/lib/growth-path/recommendation-engine";
 import { generateNarrative } from "@/lib/growth-path/narrative";
 import {

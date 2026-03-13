@@ -15,6 +15,8 @@ import {
 import { geocodeCityState } from "@/lib/dataforseo";
 import type { ScanType } from "@/lib/growth-path/types";
 
+export const maxDuration = 300;
+
 // Scan waves: grouped by dependency
 const WAVE_1: ScanType[] = [
   "keyword_volume",
@@ -47,9 +49,17 @@ export async function POST(
     const state = session.state || "";
     // Geocode when session has no coordinates instead of defaulting to Kansas
     const hasCoords = session.lat !== null && session.lng !== null;
-    const fallbackCoords = hasCoords ? null : geocodeCityState(city, state);
+    const fallbackCoords = hasCoords ? null : await geocodeCityState(city, state);
     const lat = session.lat ?? fallbackCoords?.lat ?? 39.8283;
     const lng = session.lng ?? fallbackCoords?.lng ?? -98.5795;
+
+    // Save geocoded coords back to session so we don't re-geocode on subsequent requests
+    if (!hasCoords && fallbackCoords) {
+      await prisma.growthPathSession.update({
+        where: { id: sessionId },
+        data: { lat: fallbackCoords.lat, lng: fallbackCoords.lng },
+      });
+    }
     const practiceArea = session.practiceArea || "Personal Injury";
     const firmDomain = session.firmDomain;
     const websiteUrl = session.website;
