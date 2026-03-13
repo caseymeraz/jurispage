@@ -29,12 +29,16 @@ export default function TurnstileWidget({ onVerify }: TurnstileWidgetProps) {
     if (!containerRef.current || !window.turnstile || widgetIdRef.current)
       return;
 
-    widgetIdRef.current = window.turnstile.render(containerRef.current, {
-      sitekey: process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY,
-      callback: (token: string) => onVerifyRef.current(token),
-      "refresh-expired": "auto",
-      appearance: "interaction-only",
-    });
+    try {
+      widgetIdRef.current = window.turnstile.render(containerRef.current, {
+        sitekey: process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY?.trim(),
+        callback: (token: string) => onVerifyRef.current(token),
+        "refresh-expired": "auto",
+        appearance: "interaction-only",
+      });
+    } catch (err) {
+      console.error("Turnstile render failed:", err);
+    }
   }, []);
 
   useEffect(() => {
