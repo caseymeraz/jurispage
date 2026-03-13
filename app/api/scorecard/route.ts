@@ -1,5 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { Resend } from "resend";
+import { prisma } from "@/lib/db";
+import type { Prisma } from "@prisma/client";
 
 interface AnswerDetail {
   category: string;
@@ -26,6 +28,21 @@ export async function POST(req: NextRequest) {
 
     if (!name || !email || typeof score !== "number") {
       return NextResponse.json({ error: "Missing required fields" }, { status: 400 });
+    }
+
+    // ── Persist to database ──────────────────────────────────────────
+    try {
+      await prisma.formSubmission.create({
+        data: {
+          type: "scorecard",
+          name,
+          email,
+          firmName: firmName || null,
+          data: { score, grade, gradeLabel, weakAreas, answers } as unknown as Prisma.InputJsonValue,
+        },
+      });
+    } catch (dbError) {
+      console.error("[Scorecard] Database save failed:", dbError);
     }
 
     const gradeColor =

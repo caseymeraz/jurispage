@@ -24,6 +24,7 @@ const TYPE_BADGE_STYLES: Record<string, string> = {
   "market-report": "bg-orange-100 text-orange-800",
   "ghost-lead": "bg-red-100 text-red-800",
   quote: "bg-green-100 text-green-800",
+  scorecard: "bg-teal-100 text-teal-800",
 };
 
 function summarizeData(type: string, data: Record<string, unknown>): string {
@@ -41,6 +42,8 @@ function summarizeData(type: string, data: Record<string, unknown>): string {
         data.practiceArea,
         data.isCustom ? "Custom" : data.monthlyTotal ? `$${Number(data.monthlyTotal).toLocaleString()}/mo` : "",
       ].filter(Boolean).join(" | ");
+    case "scorecard":
+      return data.score ? `${data.score}/100 (${data.grade})` : "";
     default:
       return "";
   }
