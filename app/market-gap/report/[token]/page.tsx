@@ -34,14 +34,33 @@ export default async function MarketGapReportPage({ params }: PageProps) {
   }
 
   /* ── Build teaser props ── */
+  const methodology = report.searchVolumeMethodology as {
+    keywords?: string[];
+    localAvailable?: boolean;
+    estimated?: boolean;
+    estimationMethod?: string | null;
+  } | null;
+  const isEstimated = methodology?.estimated ?? false;
+  const nationalTotal = report.totalSearchVolume ?? 0;
+  const localTotal2 = report.localSearchVolume ?? null;
+  // Compute display volume: local if available, estimated if not, fallback to national
+  const displayVol = localTotal2 && localTotal2 > 0
+    ? localTotal2
+    : isEstimated
+      ? Math.round(nationalTotal * 0.01)
+      : nationalTotal;
+
   const teaserProps = {
-    totalSearchVolume: report.totalSearchVolume ?? 0,
-    localTotalSearchVolume: report.localSearchVolume ?? null,
+    totalSearchVolume: nationalTotal,
+    localTotalSearchVolume: localTotal2,
+    localVolumeEstimated: isEstimated,
+    displaySearchVolume: displayVol,
     topCompetitors: report.competitors.map((c) => ({
       name: c.name,
       rating: c.rating,
       reviewCount: c.reviewCount,
       position: c.mapPackPosition ?? 0,
+      domain: c.domain ?? undefined,
     })),
     firmInMapPack: report.firmInMapPack ?? false,
     firmRating: report.firmRating,
@@ -50,17 +69,33 @@ export default async function MarketGapReportPage({ params }: PageProps) {
     keywordHighlights: report.keywords
       .filter((k) => (k.searchVolume ?? 0) > 0 || (k.localSearchVolume ?? 0) > 0)
       .slice(0, 7)
-      .map((k) => ({
-        keyword: k.keyword,
-        volume: k.searchVolume ?? 0,
-        localVolume: k.localSearchVolume ?? 0,
-        nationalVolume: k.searchVolume ?? 0,
-      })),
+      .map((k) => {
+        const natVol = k.searchVolume ?? 0;
+        const locVol = k.localSearchVolume ?? 0;
+        const kwEstimated = locVol === 0 && natVol > 0 && isEstimated;
+        return {
+          keyword: k.keyword,
+          volume: natVol,
+          localVolume: locVol > 0 ? locVol : (kwEstimated ? Math.round(natVol * 0.01) : 0),
+          nationalVolume: natVol,
+          localEstimated: kwEstimated,
+        };
+      }),
     practiceArea: report.lead?.practiceArea ?? "Legal Services",
     city: report.lead?.city ?? "",
     state: report.lead?.state ?? "",
     aiSearchResults: report.aiSearchData
       ? (report.aiSearchData as { query: string; found: boolean; citedDomains: string[] }[])
+      : undefined,
+    searchVolumeMethodology: methodology ?? undefined,
+    serpScreenshots: report.serpScreenshots
+      ? (report.serpScreenshots as { keyword: string; desktopUrl: string; mobileUrl?: string }[])
+      : undefined,
+    pageSpeedData: report.pageSpeedData
+      ? (report.pageSpeedData as {
+          mobile: { score: number; fcp: number; lcp: number; cls: number; tbt: number };
+          desktop: { score: number; fcp: number; lcp: number; cls: number; tbt: number };
+        })
       : undefined,
     reportId: report.id,
     leadName: report.lead?.firmName ?? "",

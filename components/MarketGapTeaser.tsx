@@ -1,15 +1,21 @@
 "use client";
 
+import { useState } from "react";
 import TeaserContactForm from "@/components/TeaserContactForm";
+import CaseCalculator from "@/components/CaseCalculator";
+import PageSpeedCard from "@/components/PageSpeedCard";
 
 export interface MarketGapTeaserProps {
   totalSearchVolume: number;
   localTotalSearchVolume?: number | null;
+  localVolumeEstimated?: boolean;
+  displaySearchVolume?: number;
   topCompetitors: {
     name: string;
     rating: number | null;
     reviewCount: number | null;
     position: number;
+    domain?: string;
   }[];
   firmInMapPack: boolean;
   firmRating: number | null;
@@ -20,11 +26,23 @@ export interface MarketGapTeaserProps {
     volume?: number;
     localVolume?: number;
     nationalVolume?: number;
+    localEstimated?: boolean;
   }[];
   practiceArea: string;
   city: string;
   state: string;
   aiSearchResults?: { query: string; found: boolean; citedDomains: string[] }[];
+  searchVolumeMethodology?: {
+    keywords?: string[];
+    localAvailable?: boolean;
+    estimated?: boolean;
+    estimationMethod?: string | null;
+  };
+  serpScreenshots?: { keyword: string; desktopUrl: string; mobileUrl?: string }[];
+  pageSpeedData?: {
+    mobile: { score: number; fcp: number; lcp: number; cls: number; tbt: number };
+    desktop: { score: number; fcp: number; lcp: number; cls: number; tbt: number };
+  };
   reportId?: string;
   leadName?: string;
   leadEmail?: string;
@@ -60,9 +78,22 @@ function getBiggestGapExplanation(gap: string, topCompetitors: MarketGapTeaserPr
   return "Addressing this gap could significantly improve your visibility.";
 }
 
+/** Check if a competitor name contains practice area keywords */
+function hasKeywordInName(name: string, practiceArea: string): boolean {
+  const normalizedName = name.toLowerCase();
+  const paTerms = practiceArea.toLowerCase().split(/\s+/);
+  // Check if name contains the full practice area phrase or key terms
+  if (normalizedName.includes(practiceArea.toLowerCase())) return true;
+  // Check for common patterns like "injury lawyer", "injury attorneys"
+  const keyTerms = paTerms.filter((t) => t.length > 3 && !["and", "the", "for"].includes(t));
+  return keyTerms.length > 0 && keyTerms.every((term) => normalizedName.includes(term));
+}
+
 export default function MarketGapTeaser({
   totalSearchVolume,
   localTotalSearchVolume,
+  localVolumeEstimated,
+  displaySearchVolume,
   topCompetitors,
   firmInMapPack,
   firmRating,
@@ -73,16 +104,23 @@ export default function MarketGapTeaser({
   city,
   state,
   aiSearchResults,
+  searchVolumeMethodology,
+  serpScreenshots,
+  pageSpeedData,
   reportId,
   leadName,
   leadEmail,
   leadPhone,
 }: MarketGapTeaserProps) {
+  const [methodologyOpen, setMethodologyOpen] = useState(false);
+
   const top3 = topCompetitors.slice(0, 3);
   const hasLocal = localTotalSearchVolume != null && localTotalSearchVolume > 0;
+  const isEstimated = localVolumeEstimated ?? false;
   const hasAiResults = aiSearchResults && aiSearchResults.length > 0;
   const aiFoundCount = aiSearchResults?.filter((r) => r.found).length ?? 0;
-  const localVolume = hasLocal ? localTotalSearchVolume! : totalSearchVolume;
+  // Use displaySearchVolume if provided; fall back to local or national
+  const localVolume = displaySearchVolume ?? (hasLocal ? localTotalSearchVolume! : totalSearchVolume);
 
   const hasDualVolumes = keywordHighlights.some(
     (kw) => kw.nationalVolume !== undefined
@@ -90,8 +128,27 @@ export default function MarketGapTeaser({
 
   const firmDisplayName = leadName && leadName.trim() ? leadName.trim() : null;
 
+  // Competitor analysis: review insights + keyword-in-name detection
+  const topReviewCount = topCompetitors.reduce(
+    (max, c) => Math.max(max, c.reviewCount ?? 0),
+    0
+  );
+  const competitorsWithKeyword = topCompetitors.filter((c) =>
+    hasKeywordInName(c.name, practiceArea)
+  );
+
   return (
     <div>
+      {/* Disclaimer banner */}
+      <div className="rounded-lg bg-blue-50 border border-blue-100 px-4 py-3 mb-8">
+        <p className="text-xs text-blue-700 leading-relaxed">
+          This is an automated analysis powered by Google Ads and DataForSEO data.
+          It sets the stage for how we can help your firm improve but is not a replacement for
+          a comprehensive human audit. The average client we work with gains 5,000+ ranking
+          keywords in the first 60 days.
+        </p>
+      </div>
+
       {/* Report header */}
       <div className="mb-8 pb-8 border-b border-gray-200">
         <div className="flex items-center gap-2 mb-3">
@@ -129,8 +186,12 @@ export default function MarketGapTeaser({
         <p className="text-gray-800 text-base leading-relaxed">
           We analyzed the <strong>{practiceArea.toLowerCase()}</strong> market in{" "}
           <strong>{city}</strong> and found{" "}
-          <strong>{formatNumber(localVolume)} searches per month</strong>
-          {hasLocal ? " locally" : ""},{" "}
+          <strong>
+            {isEstimated ? "~" : ""}
+            {formatNumber(localVolume)} searches per month
+          </strong>
+          {hasLocal && !isEstimated ? " locally" : ""}
+          {isEstimated ? " (estimated for your metro area)" : ""},{" "}
           <strong>{topCompetitors.length} competing firms</strong> in Google Maps
           {hasAiResults && (
             <>
@@ -155,22 +216,21 @@ export default function MarketGapTeaser({
         <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
           <div className="h-1 w-10 rounded-full mb-4" style={{ background: "#EE6C13" }} />
           <p className="text-gray-400 text-xs font-heading font-bold uppercase tracking-widest mb-2">
-            {hasLocal ? "Monthly Local Demand" : "Monthly Market Demand"}
+            {hasLocal && !isEstimated ? "Monthly Local Demand" : "Monthly Market Demand"}
           </p>
-          {hasLocal ? (
-            <>
-              <p className="font-heading font-extrabold text-gray-900 text-3xl">
-                {formatNumber(localTotalSearchVolume!)}
-                <span className="text-gray-400 text-base font-bold">/mo</span>
-              </p>
-              <p className="text-gray-500 text-sm mt-1">
-                {formatNumber(totalSearchVolume)}/mo nationally
-              </p>
-            </>
-          ) : (
-            <p className="font-heading font-extrabold text-gray-900 text-3xl">
-              {formatNumber(totalSearchVolume)}
-              <span className="text-gray-400 text-base font-bold">/mo</span>
+          <p className="font-heading font-extrabold text-gray-900 text-3xl">
+            {isEstimated ? "~" : ""}
+            {formatNumber(localVolume)}
+            <span className="text-gray-400 text-base font-bold">/mo</span>
+          </p>
+          {isEstimated && (
+            <span className="inline-block mt-1 text-xs font-medium text-amber-600 bg-amber-50 px-2 py-0.5 rounded-full">
+              Estimated
+            </span>
+          )}
+          {(hasLocal || isEstimated) && (
+            <p className="text-gray-500 text-sm mt-1">
+              {formatNumber(totalSearchVolume)}/mo nationally
             </p>
           )}
           <p className="text-gray-400 text-xs mt-2">
@@ -266,6 +326,47 @@ export default function MarketGapTeaser({
         )}
       </div>
 
+      {/* SERP Screenshots */}
+      {serpScreenshots && serpScreenshots.length > 0 && (
+        <div className="mb-10">
+          <h3 className="font-heading font-bold text-gray-900 text-lg mb-2">
+            What People See When They Search
+          </h3>
+          <p className="text-gray-500 text-sm mb-4 leading-relaxed">
+            These are actual Google search results for your market. This is what potential
+            clients see when they look for a {practiceArea.toLowerCase()} lawyer.
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {serpScreenshots.map((ss, i) => (
+              <div
+                key={ss.keyword}
+                className="rounded-xl border border-gray-200 bg-white shadow-sm overflow-hidden"
+              >
+                <div className="aspect-[4/3] relative bg-gray-100">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={ss.desktopUrl}
+                    alt={`Google search results for "${ss.keyword}"`}
+                    className="w-full h-full object-cover object-top"
+                    loading="lazy"
+                  />
+                </div>
+                <div className="px-4 py-3">
+                  <p className="text-sm font-medium text-gray-900 mb-0.5">
+                    &ldquo;{ss.keyword}&rdquo;
+                  </p>
+                  <p className="text-xs text-gray-500">
+                    {i === 0
+                      ? "This is what shows up when someone searches with your city name."
+                      : "Google still shows local results based on where the searcher is located \u2014 this is what they see."}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
       {/* Competitor Comparison Table */}
       <div className="mb-10">
         <h3 className="font-heading font-bold text-gray-900 text-lg mb-2">
@@ -295,40 +396,55 @@ export default function MarketGapTeaser({
               </tr>
             </thead>
             <tbody>
-              {topCompetitors.map((comp, i) => (
-                <tr
-                  key={comp.name}
-                  className={i % 2 === 0 ? "bg-white" : "bg-gray-50"}
-                >
-                  <td className="px-5 py-3 font-semibold text-gray-900">{comp.name}</td>
-                  <td className="px-5 py-3 text-gray-600">
-                    {comp.rating != null ? (
-                      <>
-                        {comp.rating.toFixed(1)}
-                        <span className="text-yellow-400 ml-0.5">&#9733;</span>
-                      </>
-                    ) : (
-                      <span className="text-gray-400">--</span>
-                    )}
-                  </td>
-                  <td className="px-5 py-3 text-gray-600">
-                    {comp.reviewCount != null ? comp.reviewCount : <span className="text-gray-400">--</span>}
-                  </td>
-                  <td className="px-5 py-3">
-                    <span
-                      className="inline-flex items-center justify-center w-7 h-7 rounded-full text-white text-xs font-bold"
-                      style={{ background: comp.position <= 3 ? "#22c55e" : "#6b7280" }}
-                    >
-                      {comp.position}
-                    </span>
-                  </td>
-                </tr>
-              ))}
+              {topCompetitors.map((comp, i) => {
+                const kwInName = hasKeywordInName(comp.name, practiceArea);
+                return (
+                  <tr
+                    key={comp.name}
+                    className={i % 2 === 0 ? "bg-white" : "bg-gray-50"}
+                  >
+                    <td className="px-5 py-3 font-semibold text-gray-900">
+                      {comp.name}
+                      {kwInName && (
+                        <span
+                          className="ml-2 inline-flex items-center text-xs font-medium px-1.5 py-0.5 rounded-full"
+                          style={{ background: "#fef3c7", color: "#92400e" }}
+                          title="This firm uses practice area keywords in their business name"
+                        >
+                          KW
+                        </span>
+                      )}
+                    </td>
+                    <td className="px-5 py-3 text-gray-600">
+                      {comp.rating != null ? (
+                        <>
+                          {comp.rating.toFixed(1)}
+                          <span className="text-yellow-400 ml-0.5">&#9733;</span>
+                        </>
+                      ) : (
+                        <span className="text-gray-400">--</span>
+                      )}
+                    </td>
+                    <td className="px-5 py-3 text-gray-600">
+                      {comp.reviewCount != null ? comp.reviewCount : <span className="text-gray-400">--</span>}
+                    </td>
+                    <td className="px-5 py-3">
+                      <span
+                        className="inline-flex items-center justify-center w-7 h-7 rounded-full text-white text-xs font-bold"
+                        style={{ background: comp.position <= 3 ? "#22c55e" : "#6b7280" }}
+                      >
+                        {comp.position}
+                      </span>
+                    </td>
+                  </tr>
+                );
+              })}
             </tbody>
           </table>
         </div>
-        {/* Takeaway */}
-        <div className="mt-3 px-1">
+
+        {/* Competitor insights below table */}
+        <div className="mt-3 px-1 space-y-2">
           {!firmInMapPack ? (
             <p className="text-gray-500 text-sm italic">
               Your firm didn&apos;t appear in this analysis. Getting into the map pack should be priority #1.
@@ -337,6 +453,27 @@ export default function MarketGapTeaser({
             <p className="text-gray-500 text-sm italic">
               You&apos;re in the pack, but positions 1&ndash;3 get significantly more visibility.
             </p>
+          )}
+
+          {/* Review count context */}
+          {topReviewCount > 0 && (
+            <p className="text-gray-500 text-sm">
+              The top-ranking firm has <strong>{topReviewCount} reviews</strong> &mdash; reviews
+              are one of the top local ranking factors. A strong review generation strategy is
+              essential for competing in this market.
+            </p>
+          )}
+
+          {/* Keyword-in-name note */}
+          {competitorsWithKeyword.length > 0 && (
+            <div className="rounded-lg bg-amber-50 border border-amber-100 px-4 py-3 mt-2">
+              <p className="text-xs text-amber-800 leading-relaxed">
+                <strong>Note:</strong> Some firms use practice area keywords in their Google Business
+                Profile name (e.g., &ldquo;City + {practiceArea} + Lawyers&rdquo;). This can boost
+                local rankings but may violate Google&apos;s naming guidelines. Worth discussing
+                with your SEO expert.
+              </p>
+            </div>
           )}
         </div>
       </div>
@@ -372,6 +509,7 @@ export default function MarketGapTeaser({
                 {keywordHighlights.map((kw, i) => {
                   const national = kw.nationalVolume ?? kw.volume ?? 0;
                   const local = kw.localVolume ?? 0;
+                  const kwEstimated = kw.localEstimated ?? false;
                   return (
                     <tr
                       key={kw.keyword}
@@ -382,7 +520,17 @@ export default function MarketGapTeaser({
                       </td>
                       {hasDualVolumes && (
                         <td className="px-5 py-3 font-heading font-bold" style={{ color: "#EE6C13" }}>
-                          {local > 0 ? `${formatNumber(local)}/mo` : <span className="text-gray-400 font-normal">--</span>}
+                          {local > 0 ? (
+                            <>
+                              {kwEstimated ? "~" : ""}
+                              {formatNumber(local)}/mo
+                              {kwEstimated && (
+                                <span className="ml-1 text-xs font-normal text-amber-500">est.</span>
+                              )}
+                            </>
+                          ) : (
+                            <span className="text-gray-400 font-normal">--</span>
+                          )}
                         </td>
                       )}
                       <td className="px-5 py-3 font-heading font-bold text-gray-600">
@@ -394,8 +542,75 @@ export default function MarketGapTeaser({
               </tbody>
             </table>
           </div>
+
+          {/* How We Calculated This - collapsible */}
+          <div className="mt-3">
+            <button
+              onClick={() => setMethodologyOpen(!methodologyOpen)}
+              className="flex items-center gap-1.5 text-xs text-gray-400 hover:text-gray-600 transition-colors"
+            >
+              <svg
+                width="12"
+                height="12"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className={`transition-transform ${methodologyOpen ? "rotate-90" : ""}`}
+                aria-hidden="true"
+              >
+                <polyline points="9 18 15 12 9 6" />
+              </svg>
+              How We Calculated This
+            </button>
+            {methodologyOpen && (
+              <div className="mt-2 rounded-lg bg-gray-50 border border-gray-100 px-4 py-3">
+                <p className="text-xs text-gray-600 leading-relaxed mb-2">
+                  We queried Google Ads data for{" "}
+                  <strong>{searchVolumeMethodology?.keywords?.length ?? keywordHighlights.length}</strong>{" "}
+                  keyword variations related to {practiceArea.toLowerCase()} in {city}.
+                  {hasLocal && !isEstimated
+                    ? ` Local volume reflects searches from people in or near ${city}.`
+                    : ""}
+                </p>
+                {isEstimated && (
+                  <p className="text-xs text-amber-600 leading-relaxed mb-2">
+                    Local data was limited for this market. These estimates are based on
+                    national search patterns (approximately 1% of national volume as a
+                    metro-level estimate).
+                  </p>
+                )}
+                {searchVolumeMethodology?.keywords && searchVolumeMethodology.keywords.length > 0 && (
+                  <div className="mt-2">
+                    <p className="text-xs text-gray-500 font-medium mb-1">Keywords analyzed:</p>
+                    <div className="flex flex-wrap gap-1">
+                      {searchVolumeMethodology.keywords.slice(0, 10).map((kw) => (
+                        <span
+                          key={kw}
+                          className="text-xs bg-white border border-gray-200 rounded px-1.5 py-0.5 text-gray-600"
+                        >
+                          {kw}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
+            )}
+          </div>
         </div>
       )}
+
+      {/* Case Calculator */}
+      <div className="mb-10">
+        <CaseCalculator
+          monthlySearchVolume={localVolume}
+          practiceArea={practiceArea}
+          city={city}
+        />
+      </div>
 
       {/* AI Search Visibility Table */}
       {hasAiResults && (
@@ -475,6 +690,13 @@ export default function MarketGapTeaser({
               </p>
             )}
           </div>
+        </div>
+      )}
+
+      {/* Page Speed Card */}
+      {pageSpeedData && (
+        <div className="mb-10">
+          <PageSpeedCard mobile={pageSpeedData.mobile} desktop={pageSpeedData.desktop} />
         </div>
       )}
 

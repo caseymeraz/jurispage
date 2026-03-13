@@ -68,6 +68,9 @@ model MarketGapReport {
   biggestGap          String?
   keywordData         Json?
   aiSearchData        Json?
+  searchVolumeMethodology Json?
+  serpScreenshots      Json?
+  pageSpeedData       Json?
 
   // Full report data
   organicSerpData     Json?

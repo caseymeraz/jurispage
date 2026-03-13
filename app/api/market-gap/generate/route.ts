@@ -6,6 +6,8 @@ import { generateTeaserKeywords, getMapsQuery, generateAiSearchQueries } from "@
 import { getSearchVolume, getMapsResults } from "@/lib/dataforseo";
 import { assembleTeaserData } from "@/lib/market-gap/teaser";
 import { checkAiSearchVisibility } from "@/lib/market-gap/ai-search";
+import { captureSerpScreenshots } from "@/lib/market-gap/screenshots";
+import { runMarketGapPageSpeed } from "@/lib/market-gap/pagespeed";
 import { getStateFullName } from "@/lib/us-states";
 import { notifySlack } from "@/lib/slack";
 import { verifyTurnstile } from "@/lib/turnstile";
@@ -254,12 +256,22 @@ export async function POST(req: NextRequest) {
       // Firm domain for AI search matching
       const firmDomain = lead.normalizedDomain || null;
 
-      // Run DataForSEO calls in parallel
-      const [localKeywordVolumes, nationalKeywordVolumes, mapsResults, aiSearchResults] = await Promise.all([
+      // Run DataForSEO calls + screenshots + PageSpeed in parallel
+      const [localKeywordVolumes, nationalKeywordVolumes, mapsResults, aiSearchResults, serpScreenshots, pageSpeedData] = await Promise.all([
         getSearchVolume(teaserKeywords, 2840, "en", locationName),
         getSearchVolume(teaserKeywords),
         getMapsResults(mapsQuery, latitude, longitude),
         checkAiSearchVisibility(aiQueries, firmDomain),
+        captureSerpScreenshots(practiceArea, reportCity).catch((err) => {
+          console.error("SERP screenshot error:", err);
+          return [];
+        }),
+        lead.website
+          ? runMarketGapPageSpeed(lead.website).catch((err) => {
+              console.error("PageSpeed error:", err);
+              return null;
+            })
+          : Promise.resolve(null),
       ]);
 
       // Assemble teaser data
@@ -321,6 +333,13 @@ export async function POST(req: NextRequest) {
           biggestGap: teaserData.biggestGap,
           keywordData: teaserData.keywordHighlights as unknown as Prisma.InputJsonValue,
           aiSearchData: teaserData.aiSearchResults as unknown as Prisma.InputJsonValue,
+          searchVolumeMethodology: teaserData.searchVolumeMethodology as unknown as Prisma.InputJsonValue,
+          serpScreenshots: serpScreenshots.length > 0
+            ? (serpScreenshots as unknown as Prisma.InputJsonValue)
+            : undefined,
+          pageSpeedData: pageSpeedData
+            ? (pageSpeedData as unknown as Prisma.InputJsonValue)
+            : undefined,
         },
       });
 

@@ -7,6 +7,8 @@ export interface TeaserData {
   totalSearchVolume: number;
   localTotalSearchVolume: number | null;
   localDataAvailable: boolean;
+  localVolumeEstimated: boolean;
+  displaySearchVolume: number;
   topCompetitors: {
     name: string;
     rating: number | null;
@@ -21,8 +23,15 @@ export interface TeaserData {
     keyword: string;
     localVolume: number;
     nationalVolume: number;
+    localEstimated: boolean;
   }[];
   aiSearchResults: AiSearchCheck[];
+  searchVolumeMethodology: {
+    keywords: string[];
+    localAvailable: boolean;
+    estimated: boolean;
+    estimationMethod: string | null;
+  };
 }
 
 export function assembleTeaserData(
@@ -44,7 +53,17 @@ export function assembleTeaserData(
     ? localKeywordVolumes.reduce((sum, kv) => sum + kv.searchVolume, 0)
     : null;
   const localDataAvailable = localTotal !== null && localTotal > 0;
-  const localTotalSearchVolume = localDataAvailable ? localTotal : null;
+
+  // When local data is unavailable or zero, estimate from national (1% heuristic)
+  const localVolumeEstimated = !localDataAvailable && totalSearchVolume > 0;
+  const estimatedLocal = localVolumeEstimated
+    ? Math.round(totalSearchVolume * 0.01)
+    : null;
+  const localTotalSearchVolume = localDataAvailable
+    ? localTotal
+    : estimatedLocal;
+  // Display volume: prefer local (real or estimated), fall back to national
+  const displaySearchVolume = localTotalSearchVolume ?? totalSearchVolume;
 
   // Build a map of local volumes by keyword for easy lookup
   const localVolumeMap = new Map<string, number>();
@@ -93,16 +112,32 @@ export function assembleTeaserData(
     .filter((kv) => kv.searchVolume > 0)
     .sort((a, b) => b.searchVolume - a.searchVolume)
     .slice(0, 5)
-    .map((kv) => ({
-      keyword: kv.keyword,
-      localVolume: localVolumeMap.get(kv.keyword.toLowerCase()) ?? 0,
-      nationalVolume: kv.searchVolume,
-    }));
+    .map((kv) => {
+      const realLocal = localVolumeMap.get(kv.keyword.toLowerCase()) ?? 0;
+      const kwLocalEstimated = realLocal === 0 && kv.searchVolume > 0;
+      return {
+        keyword: kv.keyword,
+        localVolume: realLocal > 0 ? realLocal : Math.round(kv.searchVolume * 0.01),
+        nationalVolume: kv.searchVolume,
+        localEstimated: kwLocalEstimated,
+      };
+    });
+
+  const searchVolumeMethodology = {
+    keywords: nationalKeywordVolumes.map((kv) => kv.keyword),
+    localAvailable: localDataAvailable,
+    estimated: localVolumeEstimated,
+    estimationMethod: localVolumeEstimated
+      ? "National volume × 1% (metro-level estimate)"
+      : null,
+  };
 
   return {
     totalSearchVolume,
     localTotalSearchVolume,
     localDataAvailable,
+    localVolumeEstimated,
+    displaySearchVolume,
     topCompetitors,
     firmInMapPack,
     firmRating,
@@ -110,5 +145,6 @@ export function assembleTeaserData(
     biggestGap,
     keywordHighlights,
     aiSearchResults,
+    searchVolumeMethodology,
   };
 }
