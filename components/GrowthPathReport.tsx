@@ -198,7 +198,7 @@ export default function GrowthPathReport({ data }: Props) {
             />
             {(competitorDensity || mapsData) && (
               <CompetitorDensityCard
-                firmCount={competitorDensity?.firmCount ?? mapsData?.totalFound ?? 0}
+                firmCount={competitorDensity?.firmCount || mapsData?.totalFound || 0}
                 mapsCompetitors={
                   mapsData?.competitors?.slice(0, 5).map((c) => ({
                     name: c.name,

@@ -272,7 +272,7 @@ export async function getSerpScreenshot(
     keyword,
     location_code: locationCode,
     language_code: languageCode,
-    calculate_rectangles: true,
+    load_serp_screenshot: true,
   };
   if (device === "mobile") {
     payload.device = "mobile";
@@ -285,11 +285,11 @@ export async function getSerpScreenshot(
     }>;
   }>("/serp/google/organic/live/regular", [payload]);
 
-  // DataForSEO returns screenshot in the extra field at result level
   const result = data.tasks?.[0]?.result?.[0];
-  // Try multiple known response paths
+  // DataForSEO returns screenshot URL at result.extra.screenshot when load_serp_screenshot is true
+  const extra = result?.extra as Record<string, unknown> | undefined;
   const screenshot =
-    (result?.extra as Record<string, unknown>)?.screenshot as string | undefined
+    extra?.screenshot as string | undefined
     ?? result?.screenshot as string | undefined
     ?? null;
   return { screenshotUrl: screenshot };
