@@ -25,7 +25,7 @@ export function loadGoogleMapsScript(): Promise<void> {
 
     const script = document.createElement("script");
     script.id = GOOGLE_MAPS_SCRIPT_ID;
-    script.src = `https://maps.googleapis.com/maps/api/js?key=${apiKey}&libraries=places`;
+    script.src = `https://maps.googleapis.com/maps/api/js?key=${apiKey}&libraries=places&loading=async`;
     script.async = true;
     script.defer = true;
     script.onload = () => resolve();
@@ -69,6 +69,34 @@ export function extractPlaceDetails(
     phone: place.formatted_phone_number || undefined,
     lat: place.geometry?.location?.lat(),
     lng: place.geometry?.location?.lng(),
+    city,
+    state,
+    country,
+  };
+}
+
+export function extractPlaceDetailsFromPlace(
+  place: google.maps.places.Place
+): PlaceResult {
+  const addressComponents = place.addressComponents || [];
+  let city = "";
+  let state = "";
+  let country = "";
+
+  for (const comp of addressComponents) {
+    if (comp.types.includes("locality")) city = comp.longText || "";
+    if (comp.types.includes("administrative_area_level_1")) state = comp.shortText || "";
+    if (comp.types.includes("country")) country = comp.shortText || "";
+  }
+
+  return {
+    name: place.displayName || "",
+    placeId: place.id,
+    formattedAddress: place.formattedAddress || "",
+    website: place.websiteURI || undefined,
+    phone: place.nationalPhoneNumber || undefined,
+    lat: place.location?.lat(),
+    lng: place.location?.lng(),
     city,
     state,
     country,

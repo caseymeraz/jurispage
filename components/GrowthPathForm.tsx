@@ -4,7 +4,7 @@ import { useState, useEffect, useRef, useCallback } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import {
   loadGoogleMapsScript,
-  extractPlaceDetails,
+  extractPlaceDetailsFromPlace,
   type PlaceResult,
 } from "@/lib/google-places";
 import { trackClientEvent } from "@/lib/analytics";
@@ -168,7 +168,8 @@ export default function GrowthPathForm() {
   });
 
   const firmInputRef = useRef<HTMLInputElement>(null);
-  const autocompleteRef = useRef<google.maps.places.Autocomplete | null>(null);
+  const acContainerRef = useRef<HTMLDivElement>(null);
+  const autocompleteRef = useRef<google.maps.places.PlaceAutocompleteElement | null>(null);
 
   /* ----- UTM capture ------------------------------------------------ */
 
@@ -197,28 +198,31 @@ export default function GrowthPathForm() {
   }, []);
 
   useEffect(() => {
-    if (!placesReady || !firmInputRef.current || autocompleteRef.current) return;
+    if (!placesReady || !acContainerRef.current || autocompleteRef.current) return;
     if (flowType !== "existing_firm" || step !== 1) return;
 
-    const ac = new google.maps.places.Autocomplete(firmInputRef.current, {
+    const ac = new google.maps.places.PlaceAutocompleteElement({
       types: ["establishment"],
-      componentRestrictions: { country: ["us", "ca"] },
-      fields: [
-        "name",
-        "place_id",
-        "formatted_address",
-        "website",
-        "formatted_phone_number",
-        "geometry",
-        "address_components",
-      ],
+      componentRestrictions: { country: "us" },
     });
 
-    ac.addListener("place_changed", () => {
-      const place = ac.getPlace();
-      if (!place || !place.place_id) return;
+    ac.addEventListener("gmp-placeselect", async (e) => {
+      const evt = e as google.maps.places.PlaceAutocompletePlaceSelectEvent;
+      const place = evt.place;
 
-      const details: PlaceResult = extractPlaceDetails(place);
+      await place.fetchFields({
+        fields: [
+          "displayName",
+          "id",
+          "formattedAddress",
+          "websiteURI",
+          "nationalPhoneNumber",
+          "location",
+          "addressComponents",
+        ],
+      });
+
+      const details: PlaceResult = extractPlaceDetailsFromPlace(place);
 
       setFirmData((prev) => ({
         ...prev,
@@ -239,6 +243,7 @@ export default function GrowthPathForm() {
       });
     });
 
+    acContainerRef.current.appendChild(ac);
     autocompleteRef.current = ac;
   }, [placesReady, flowType, step]);
 
@@ -542,21 +547,21 @@ export default function GrowthPathForm() {
           <label htmlFor="gp-firmName" className={LABEL_CLS}>
             Firm name <span className="text-red-500">*</span>
           </label>
-          <input
-            id="gp-firmName"
-            ref={firmInputRef}
-            type="text"
-            required
-            placeholder={
-              placesReady && !manualEntry
-                ? "Start typing your firm name..."
-                : "Enter your firm name"
-            }
-            value={firmData.firmName}
-            onChange={(e) => setFirmData((p) => ({ ...p, firmName: e.target.value }))}
-            className={INPUT_CLS}
-            style={RING_STYLE}
-          />
+          {placesReady && !manualEntry ? (
+            <div ref={acContainerRef} className="gmp-autocomplete-container" />
+          ) : (
+            <input
+              id="gp-firmName"
+              ref={firmInputRef}
+              type="text"
+              required
+              placeholder="Enter your firm name"
+              value={firmData.firmName}
+              onChange={(e) => setFirmData((p) => ({ ...p, firmName: e.target.value }))}
+              className={INPUT_CLS}
+              style={RING_STYLE}
+            />
+          )}
           {renderError("firmName")}
           {placesReady && !manualEntry && (
             <button
@@ -565,7 +570,7 @@ export default function GrowthPathForm() {
               className="mt-1.5 text-xs underline transition-colors"
               style={{ color: "#EE6C13" }}
             >
-              Can&apos;t find your firm?
+              Can&apos;t find your firm? Enter manually
             </button>
           )}
         </div>

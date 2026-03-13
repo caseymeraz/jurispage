@@ -4,7 +4,7 @@ import { useState, useEffect, useRef, useCallback } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import {
   loadGoogleMapsScript,
-  extractPlaceDetails,
+  extractPlaceDetailsFromPlace,
   type PlaceResult,
 } from "@/lib/google-places";
 import { trackClientEvent } from "@/lib/analytics";
@@ -143,7 +143,8 @@ export default function MarketGapForm() {
   const [leadId, setLeadId] = useState<string | null>(null);
 
   const firmInputRef = useRef<HTMLInputElement>(null);
-  const autocompleteRef = useRef<google.maps.places.Autocomplete | null>(null);
+  const acContainerRef = useRef<HTMLDivElement>(null);
+  const autocompleteRef = useRef<google.maps.places.PlaceAutocompleteElement | null>(null);
 
   /* ----- UTM capture ------------------------------------------------ */
 
@@ -175,27 +176,30 @@ export default function MarketGapForm() {
   }, []);
 
   useEffect(() => {
-    if (!placesReady || !firmInputRef.current || autocompleteRef.current) return;
+    if (!placesReady || !acContainerRef.current || autocompleteRef.current) return;
 
-    const ac = new google.maps.places.Autocomplete(firmInputRef.current, {
+    const ac = new google.maps.places.PlaceAutocompleteElement({
       types: ["establishment"],
-      componentRestrictions: { country: ["us", "ca"] },
-      fields: [
-        "name",
-        "place_id",
-        "formatted_address",
-        "website",
-        "formatted_phone_number",
-        "geometry",
-        "address_components",
-      ],
+      componentRestrictions: { country: "us" },
     });
 
-    ac.addListener("place_changed", () => {
-      const place = ac.getPlace();
-      if (!place || !place.place_id) return;
+    ac.addEventListener("gmp-placeselect", async (e) => {
+      const evt = e as google.maps.places.PlaceAutocompletePlaceSelectEvent;
+      const place = evt.place;
 
-      const details: PlaceResult = extractPlaceDetails(place);
+      await place.fetchFields({
+        fields: [
+          "displayName",
+          "id",
+          "formattedAddress",
+          "websiteURI",
+          "nationalPhoneNumber",
+          "location",
+          "addressComponents",
+        ],
+      });
+
+      const details: PlaceResult = extractPlaceDetailsFromPlace(place);
 
       setStep1((prev) => ({
         ...prev,
@@ -223,6 +227,7 @@ export default function MarketGapForm() {
       });
     });
 
+    acContainerRef.current.appendChild(ac);
     autocompleteRef.current = ac;
   }, [placesReady]);
 
@@ -455,23 +460,23 @@ export default function MarketGapForm() {
           <label htmlFor="mgf-firmName" className={LABEL_CLS}>
             Firm name <span className="text-red-500">*</span>
           </label>
-          <input
-            id="mgf-firmName"
-            ref={firmInputRef}
-            type="text"
-            required
-            placeholder={
-              placesReady && !manualEntry
-                ? "Start typing your firm name..."
-                : "Enter your firm name"
-            }
-            value={step1.firmName}
-            onChange={(e) =>
-              setStep1((p) => ({ ...p, firmName: e.target.value }))
-            }
-            className={INPUT_CLS}
-            style={RING_STYLE}
-          />
+          {placesReady && !manualEntry ? (
+            <div ref={acContainerRef} className="gmp-autocomplete-container" />
+          ) : (
+            <input
+              id="mgf-firmName"
+              ref={firmInputRef}
+              type="text"
+              required
+              placeholder="Enter your firm name"
+              value={step1.firmName}
+              onChange={(e) =>
+                setStep1((p) => ({ ...p, firmName: e.target.value }))
+              }
+              className={INPUT_CLS}
+              style={RING_STYLE}
+            />
+          )}
           {renderError("firmName")}
 
           {/* Toggle manual entry */}
@@ -482,7 +487,7 @@ export default function MarketGapForm() {
               className="mt-1.5 text-xs underline transition-colors"
               style={{ color: "#EE6C13" }}
             >
-              Can&apos;t find your firm?
+              Can&apos;t find your firm? Enter manually
             </button>
           )}
         </div>
