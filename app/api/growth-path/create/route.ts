@@ -5,6 +5,7 @@ import { notifySessionCreated } from "@/lib/growth-path/notifications";
 import { submitToHubSpot } from "@/lib/hubspot";
 import type { FlowType, ScanType } from "@/lib/growth-path/types";
 import { ALL_SCAN_TYPES, SCANS_REQUIRING_WEBSITE } from "@/lib/growth-path/types";
+import { verifyTurnstile } from "@/lib/turnstile";
 
 function normalizeDomain(url: string | undefined): string | null {
   if (!url) return null;
@@ -45,6 +46,7 @@ interface CreateRequestBody {
   referrer?: string;
   clickId?: string;
   gclid?: string;
+  turnstileToken?: string;
 }
 
 export async function POST(req: NextRequest) {
@@ -63,6 +65,10 @@ export async function POST(req: NextRequest) {
         { error: "Email is required" },
         { status: 400 }
       );
+    }
+
+    if (!body.turnstileToken || !(await verifyTurnstile(body.turnstileToken))) {
+      return NextResponse.json({ error: "Spam verification failed" }, { status: 403 });
     }
 
     if (!body.flowType) {

@@ -4,6 +4,7 @@ import { prisma } from "@/lib/db";
 import { generateAiSearchQueries } from "@/lib/market-gap/keywords";
 import { checkAiSearchVisibility } from "@/lib/market-gap/ai-search";
 import { notifySlack } from "@/lib/slack";
+import { verifyTurnstile } from "@/lib/turnstile";
 
 function normalizeDomain(url: string | undefined): string | null {
   if (!url) return null;
@@ -28,6 +29,7 @@ interface RequestBody {
   utmTerm?: string;
   utmContent?: string;
   referrer?: string;
+  turnstileToken?: string;
 }
 
 export async function POST(req: NextRequest) {
@@ -48,6 +50,10 @@ export async function POST(req: NextRequest) {
         { error: "All fields are required." },
         { status: 400 }
       );
+    }
+
+    if (!body.turnstileToken || !(await verifyTurnstile(body.turnstileToken))) {
+      return NextResponse.json({ error: "Spam verification failed" }, { status: 403 });
     }
 
     const normalizedEmail = email.toLowerCase().trim();

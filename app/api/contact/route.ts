@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { Resend } from "resend";
 import { submitToHubSpot } from "@/lib/hubspot";
 import { prisma } from "@/lib/db";
+import { verifyTurnstile } from "@/lib/turnstile";
 
 export async function POST(req: NextRequest) {
   try {
@@ -11,6 +12,10 @@ export async function POST(req: NextRequest) {
 
     if (!firstName || !email || !phone) {
       return NextResponse.json({ error: "Missing required fields" }, { status: 400 });
+    }
+
+    if (!body.turnstileToken || !(await verifyTurnstile(body.turnstileToken))) {
+      return NextResponse.json({ error: "Spam verification failed" }, { status: 403 });
     }
 
     // Save to DB

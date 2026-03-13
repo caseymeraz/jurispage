@@ -10,6 +10,7 @@ import {
 import { trackClientEvent } from "@/lib/analytics";
 import type { FlowType } from "@/lib/growth-path/types";
 import { MARKET_AVAILABILITY_NOTE } from "@/lib/growth-path/types";
+import TurnstileWidget from "@/components/TurnstileWidget";
 
 /* ------------------------------------------------------------------ */
 /*  Shared styles (matches MarketGapForm)                              */
@@ -120,6 +121,7 @@ export default function GrowthPathForm() {
   const [flowType, setFlowType] = useState<FlowType | null>(null);
   const [loading, setLoading] = useState(false);
   const [errors, setErrors] = useState<FieldErrors>({});
+  const [turnstileToken, setTurnstileToken] = useState("");
   const [placesReady, setPlacesReady] = useState(false);
   const [manualEntry, setManualEntry] = useState(false);
 
@@ -278,6 +280,7 @@ export default function GrowthPathForm() {
 
     try {
       const payload = {
+        turnstileToken,
         email: isExisting ? firmData.email : newIntake.email,
         firmName: isExisting ? firmData.firmName : newIntake.firmName,
         googlePlaceId: isExisting ? firmData.placeId : undefined,
@@ -989,6 +992,7 @@ export default function GrowthPathForm() {
       <div className="bg-white rounded-2xl border border-gray-100 shadow-lg p-6 sm:p-8">
         {renderProgressBar()}
         {renderCurrentStep()}
+        <TurnstileWidget onVerify={setTurnstileToken} />
       </div>
     </div>
   );

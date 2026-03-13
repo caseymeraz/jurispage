@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import TurnstileWidget from "@/components/TurnstileWidget";
 import MarketOpportunityCard from "@/components/growth-path/MarketOpportunityCard";
 import CompetitorDensityCard from "@/components/growth-path/CompetitorDensityCard";
 import SerpScreenshotCard from "@/components/growth-path/SerpScreenshotCard";
@@ -57,6 +58,7 @@ interface Props {
 export default function GrowthPathReport({ data }: Props) {
   const [strategySubmitted, setStrategySubmitted] = useState(false);
   const [strategyLoading, setStrategyLoading] = useState(false);
+  const [turnstileToken, setTurnstileToken] = useState("");
 
   const {
     scanResults,
@@ -121,6 +123,7 @@ export default function GrowthPathReport({ data }: Props) {
           sessionId: data.sessionId,
           name: firmName,
           email: data.email,
+          turnstileToken,
         }),
       });
       if (res.ok) setStrategySubmitted(true);
@@ -133,6 +136,7 @@ export default function GrowthPathReport({ data }: Props) {
 
   return (
     <div className="max-w-5xl mx-auto px-6 py-12">
+      <TurnstileWidget onVerify={setTurnstileToken} />
       {/* Title */}
       <div className="mb-12">
         <h1 className="font-heading font-extrabold text-3xl sm:text-4xl text-white mb-3">

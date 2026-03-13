@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import { getHubSpotCookie } from "@/lib/hubspot-cookie";
+import TurnstileWidget from "@/components/TurnstileWidget";
 
 const PRACTICE_AREAS = [
   "Personal Injury",
@@ -38,6 +39,7 @@ const GROWTH_GOALS = [
 
 export default function GrowthAssessmentForm() {
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [turnstileToken, setTurnstileToken] = useState("");
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
@@ -74,6 +76,7 @@ export default function GrowthAssessmentForm() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           ...formData,
+          turnstileToken,
           hutk: getHubSpotCookie(),
           pageUri: window.location.href,
           pageName: document.title,
@@ -265,6 +268,7 @@ export default function GrowthAssessmentForm() {
         {status === "loading" ? "Submitting..." : "Apply for a Growth Strategy Session"}
       </button>
 
+      <TurnstileWidget onVerify={setTurnstileToken} />
       <p className="text-xs text-gray-500 text-center">No spam. A senior strategist will reach out within one business day.</p>
     </form>
   );

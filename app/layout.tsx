@@ -130,6 +130,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           gtag('config', 'G-FQJLT879FN');
         `}</Script>
         <Script id="hs-script-loader" strategy="afterInteractive" src="//js.hs-scripts.com/23597402.js" />
+        <Script src="https://challenges.cloudflare.com/turnstile/v0/api.js" strategy="afterInteractive" />
       </body>
     </html>
   );

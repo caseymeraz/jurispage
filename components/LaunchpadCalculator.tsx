@@ -1,6 +1,7 @@
 "use client";
 import { useState, useMemo } from "react";
 import { getHubSpotCookie } from "@/lib/hubspot-cookie";
+import TurnstileWidget from "@/components/TurnstileWidget";
 
 const BASE_PRICE = 2000;
 const PER_ATTORNEY = 500;
@@ -75,6 +76,7 @@ export default function LaunchpadCalculator() {
   const [logo, setLogo] = useState(false);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const [turnstileToken, setTurnstileToken] = useState("");
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
 
   const isCustom = attorneys > 4;
@@ -107,6 +109,7 @@ export default function LaunchpadCalculator() {
           monthlyTotal: monthly,
           oneTimeTotal: oneTime,
           isCustom,
+          turnstileToken,
           hutk: getHubSpotCookie(),
           pageUri: window.location.href,
           pageName: document.title,
@@ -467,6 +470,7 @@ export default function LaunchpadCalculator() {
             : "Get My Instant Pricing →"}
         </button>
 
+        <TurnstileWidget onVerify={setTurnstileToken} />
         <p className="text-center text-xs text-gray-400">
           No commitment required. No spam. Just your pricing.
         </p>

@@ -3,6 +3,7 @@ import { Resend } from "resend";
 import type { Prisma } from "@prisma/client";
 import { prisma } from "@/lib/db";
 import { submitToHubSpot } from "@/lib/hubspot";
+import { verifyTurnstile } from "@/lib/turnstile";
 
 interface StrategyRequestBody {
   reportId: string;
@@ -10,6 +11,7 @@ interface StrategyRequestBody {
   email: string;
   phone?: string;
   preferredTime?: string;
+  turnstileToken?: string;
 }
 
 export async function POST(req: NextRequest) {
@@ -28,6 +30,10 @@ export async function POST(req: NextRequest) {
         { error: "reportId, name, and email are required" },
         { status: 400 }
       );
+    }
+
+    if (!body.turnstileToken || !(await verifyTurnstile(body.turnstileToken))) {
+      return NextResponse.json({ error: "Spam verification failed" }, { status: 403 });
     }
 
     // Look up report for context

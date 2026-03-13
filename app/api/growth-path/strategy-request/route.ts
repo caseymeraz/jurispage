@@ -4,12 +4,14 @@ import type { Prisma } from "@prisma/client";
 import { prisma } from "@/lib/db";
 import { submitToHubSpot } from "@/lib/hubspot";
 import { notifySlack } from "@/lib/slack";
+import { verifyTurnstile } from "@/lib/turnstile";
 
 interface StrategyRequestBody {
   sessionId: string;
   name: string;
   email: string;
   phone?: string;
+  turnstileToken?: string;
 }
 
 export async function POST(req: NextRequest) {
@@ -28,6 +30,10 @@ export async function POST(req: NextRequest) {
         { error: "sessionId, name, and email are required" },
         { status: 400 }
       );
+    }
+
+    if (!body.turnstileToken || !(await verifyTurnstile(body.turnstileToken))) {
+      return NextResponse.json({ error: "Spam verification failed" }, { status: 403 });
     }
 
     const session = await prisma.growthPathSession.findUnique({

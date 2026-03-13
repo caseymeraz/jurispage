@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import { getHubSpotCookie } from "@/lib/hubspot-cookie";
+import TurnstileWidget from "@/components/TurnstileWidget";
 
 const practiceAreas = [
   "Personal Injury",
@@ -28,6 +29,7 @@ const budgets = [
 
 export default function ContactForm() {
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [turnstileToken, setTurnstileToken] = useState("");
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -52,6 +54,7 @@ export default function ContactForm() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           ...formData,
+          turnstileToken,
           hutk: getHubSpotCookie(),
           pageUri: window.location.href,
           pageName: document.title,
@@ -205,6 +208,7 @@ export default function ContactForm() {
         <span className="text-gray-600 font-semibold">4.9</span>
         <span>· 27 Google reviews</span>
       </a>
+      <TurnstileWidget onVerify={setTurnstileToken} />
       <p className="text-xs text-gray-500 text-center">No spam. No long-term commitment required to chat.</p>
     </form>
   );

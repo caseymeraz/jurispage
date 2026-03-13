@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import TurnstileWidget from "@/components/TurnstileWidget";
 
 const practiceAreaOptions = [
   "Personal Injury",
@@ -32,6 +33,7 @@ export default function HeroForm({
   formType = "standard",
 }: HeroFormProps) {
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [turnstileToken, setTurnstileToken] = useState("");
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -54,7 +56,7 @@ export default function HeroForm({
       const endpoint = formType === "competitive" ? "/api/market-report" : "/api/contact";
       const payload =
         formType === "competitive"
-          ? formData
+          ? { ...formData, turnstileToken }
           : {
               firstName: formData.firstName,
               lastName: formData.lastName,
@@ -62,6 +64,7 @@ export default function HeroForm({
               phone: formData.phone,
               practiceArea: formData.practiceArea,
               budget: "Not Specified",
+              turnstileToken,
             };
 
       const res = await fetch(endpoint, {
@@ -217,6 +220,8 @@ export default function HeroForm({
           <span className="text-gray-600 font-semibold">4.9</span>
           <span>· 27 Google reviews</span>
         </a>
+
+        <TurnstileWidget onVerify={setTurnstileToken} />
 
         {subtext && (
           <p className="text-center text-xs text-gray-400">{subtext}</p>

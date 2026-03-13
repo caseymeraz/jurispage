@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useSearchParams } from "next/navigation";
+import TurnstileWidget from "@/components/TurnstileWidget";
 
 const PRACTICE_AREAS = [
   "Personal Injury",
@@ -59,6 +60,7 @@ export default function AiSearchReportForm() {
 
   const [formState, setFormState] = useState<FormState>("idle");
   const [errorMessage, setErrorMessage] = useState("");
+  const [turnstileToken, setTurnstileToken] = useState("");
   const [report, setReport] = useState<ReportResponse | null>(null);
 
   // Form fields
@@ -87,6 +89,7 @@ export default function AiSearchReportForm() {
           practiceArea,
           city,
           state,
+          turnstileToken,
           utmSource: searchParams.get("utm_source") || undefined,
           utmMedium: searchParams.get("utm_medium") || undefined,
           utmCampaign: searchParams.get("utm_campaign") || undefined,
@@ -470,6 +473,7 @@ export default function AiSearchReportForm() {
         )}
       </button>
 
+      <TurnstileWidget onVerify={setTurnstileToken} />
       <p className="text-xs text-gray-400 text-center mt-3">
         One free report per email per day. No spam, ever.
       </p>

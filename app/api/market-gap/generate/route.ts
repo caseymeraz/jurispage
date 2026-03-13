@@ -8,6 +8,7 @@ import { assembleTeaserData } from "@/lib/market-gap/teaser";
 import { checkAiSearchVisibility } from "@/lib/market-gap/ai-search";
 import { getStateFullName } from "@/lib/us-states";
 import { notifySlack } from "@/lib/slack";
+import { verifyTurnstile } from "@/lib/turnstile";
 
 // Normalize domain: strip protocol, www, trailing slash
 function normalizeDomain(url: string | undefined): string | null {
@@ -51,6 +52,7 @@ interface GenerateRequestBody {
   gclid?: string;
   step?: 1 | 2 | 3;
   leadId?: string;
+  turnstileToken?: string;
 }
 
 export async function POST(req: NextRequest) {
@@ -70,6 +72,10 @@ export async function POST(req: NextRequest) {
         { error: "Email is required" },
         { status: 400 }
       );
+    }
+
+    if (!body.turnstileToken || !(await verifyTurnstile(body.turnstileToken))) {
+      return NextResponse.json({ error: "Spam verification failed" }, { status: 403 });
     }
 
     // -------------------------------------------------------

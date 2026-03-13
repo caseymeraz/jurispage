@@ -8,6 +8,7 @@ import {
   type PlaceResult,
 } from "@/lib/google-places";
 import { trackClientEvent } from "@/lib/analytics";
+import TurnstileWidget from "@/components/TurnstileWidget";
 
 /* ------------------------------------------------------------------ */
 /*  Types                                                              */
@@ -108,6 +109,7 @@ export default function MarketGapForm() {
   const [step, setStep] = useState<1 | 2 | 3>(1);
   const [loading, setLoading] = useState(false);
   const [errors, setErrors] = useState<FieldErrors>({});
+  const [turnstileToken, setTurnstileToken] = useState("");
   const [placesReady, setPlacesReady] = useState(false);
   const [manualEntry, setManualEntry] = useState(false);
 
@@ -274,6 +276,7 @@ export default function MarketGapForm() {
           lng: step1.lng,
           city: step2.targetCity,
           state: step2.targetState,
+          turnstileToken,
           ...getUtmParams(),
         }),
       });
@@ -324,6 +327,7 @@ export default function MarketGapForm() {
       const payload = {
         step: 3,
         leadId,
+        turnstileToken,
         // Step 1
         email: step1.email,
         firmName: step1.firmName,
@@ -995,6 +999,7 @@ export default function MarketGapForm() {
         {step === 1 && renderStep1()}
         {step === 2 && renderStep2()}
         {step === 3 && renderStep3()}
+        <TurnstileWidget onVerify={setTurnstileToken} />
       </div>
     </div>
   );

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import TurnstileWidget from "@/components/TurnstileWidget";
 
 interface TeaserContactFormProps {
   reportId: string;
@@ -24,6 +25,7 @@ export default function TeaserContactForm({
   defaultPhone = "",
 }: TeaserContactFormProps) {
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [turnstileToken, setTurnstileToken] = useState("");
   const [formData, setFormData] = useState({
     name: defaultName,
     email: defaultEmail,
@@ -44,7 +46,7 @@ export default function TeaserContactForm({
       const res = await fetch("/api/market-gap/strategy-request", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ reportId, ...formData }),
+        body: JSON.stringify({ reportId, ...formData, turnstileToken }),
       });
       if (res.ok) {
         setStatus("success");
@@ -153,6 +155,7 @@ export default function TeaserContactForm({
             Something went wrong. Please try again.
           </p>
         )}
+        <TurnstileWidget onVerify={setTurnstileToken} />
         <button
           type="submit"
           disabled={status === "loading"}
