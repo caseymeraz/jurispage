@@ -27,6 +27,16 @@ const budgets = [
   "$5,000+/month",
 ];
 
+const growthGoals = [
+  "Sign more cases",
+  "Dominate my market",
+  "Expand to new locations",
+  "Build a lasting brand",
+  "All of the above",
+];
+
+const casesWantedOptions = ["1-5", "5-10", "10-20", "20+"];
+
 export default function ContactForm() {
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   const [turnstileToken, setTurnstileToken] = useState("");
@@ -35,8 +45,11 @@ export default function ContactForm() {
     lastName: "",
     email: "",
     phone: "",
+    website: "",
     practiceArea: "",
     budget: "",
+    growthGoal: "",
+    casesWanted: "",
     referral: "",
     message: "",
   });
@@ -131,6 +144,17 @@ export default function ContactForm() {
         </div>
       </div>
       <div>
+        <label className="block text-sm font-semibold text-gray-700 mb-1.5">Website</label>
+        <input
+          type="url"
+          name="website"
+          value={formData.website}
+          onChange={handleChange}
+          placeholder="https://yourfirm.com"
+          className="w-full border border-gray-300 rounded-lg px-4 py-3 text-gray-900 focus:outline-none focus:ring-2 focus:ring-orange-400"
+        />
+      </div>
+      <div>
         <label className="block text-sm font-semibold text-gray-700 mb-1.5">Primary Practice Area *</label>
         <select
           name="practiceArea"
@@ -157,6 +181,36 @@ export default function ContactForm() {
           <option value="">Select your budget range</option>
           {budgets.map((b) => (
             <option key={b} value={b}>{b}</option>
+          ))}
+        </select>
+      </div>
+      <div>
+        <label className="block text-sm font-semibold text-gray-700 mb-1.5">Primary Growth Goal *</label>
+        <select
+          name="growthGoal"
+          required
+          value={formData.growthGoal}
+          onChange={handleChange}
+          className="w-full border border-gray-300 rounded-lg px-4 py-3 text-gray-900 focus:outline-none focus:ring-2 focus:ring-orange-400 bg-white"
+        >
+          <option value="">Select your primary goal</option>
+          {growthGoals.map((g) => (
+            <option key={g} value={g}>{g}</option>
+          ))}
+        </select>
+      </div>
+      <div>
+        <label className="block text-sm font-semibold text-gray-700 mb-1.5">How many cases per month? *</label>
+        <select
+          name="casesWanted"
+          required
+          value={formData.casesWanted}
+          onChange={handleChange}
+          className="w-full border border-gray-300 rounded-lg px-4 py-3 text-gray-900 focus:outline-none focus:ring-2 focus:ring-orange-400 bg-white"
+        >
+          <option value="">Select range</option>
+          {casesWantedOptions.map((c) => (
+            <option key={c} value={c}>{c}</option>
           ))}
         </select>
       </div>

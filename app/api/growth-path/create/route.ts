@@ -23,6 +23,19 @@ function normalizeDomain(url: string | undefined): string | null {
   }
 }
 
+const GOAL_LABELS: Record<string, string> = {
+  get_more_cases: "Get more cases",
+  better_cases: "Get better quality cases",
+  dominate: "Dominate my market",
+  expand: "Expand to new markets",
+  not_sure: "Not sure yet",
+};
+
+function resolveGoalLabel(value: unknown): string {
+  if (typeof value !== "string" || !value) return "";
+  return GOAL_LABELS[value] || value;
+}
+
 interface CreateRequestBody {
   email: string;
   firmName?: string;
@@ -182,6 +195,10 @@ export async function POST(req: NextRequest) {
         { name: "website", value: body.website || "" },
         { name: "city", value: body.city || "" },
         { name: "state", value: body.state || "" },
+        { name: "practice_area", value: body.practiceArea || "Personal Injury" },
+        { name: "growth_goal", value: resolveGoalLabel(body.intakeAnswers?.mainGoal) },
+        { name: "number_of_attorneys", value: String(body.intakeAnswers?.attorneyCount || "") },
+        { name: "form_source", value: "growth-path" },
         {
           name: "message",
           value: `Growth Path: ${body.flowType} - ${body.practiceArea || "PI"} in ${body.city}, ${body.state}`,

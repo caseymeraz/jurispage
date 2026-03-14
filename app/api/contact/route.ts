@@ -8,7 +8,7 @@ export async function POST(req: NextRequest) {
   try {
     const resend = new Resend(process.env.RESEND_API_KEY);
     const body = await req.json();
-    const { firstName, lastName, email, phone, practiceArea, budget, referral, message } = body;
+    const { firstName, lastName, email, phone, website, practiceArea, budget, growthGoal, casesWanted, referral, message } = body;
 
     if (!firstName || !email || !phone) {
       return NextResponse.json({ error: "Missing required fields" }, { status: 400 });
@@ -26,7 +26,7 @@ export async function POST(req: NextRequest) {
           name: `${firstName} ${lastName || ""}`.trim(),
           email,
           phone,
-          data: { firstName, lastName, practiceArea, budget, referral, message },
+          data: { firstName, lastName, website, practiceArea, budget, growthGoal, casesWanted, referral, message },
         },
       });
     } catch (dbError) {
@@ -43,7 +43,10 @@ export async function POST(req: NextRequest) {
         <tr><td style="padding: 8px; border: 1px solid #ddd; font-weight: bold;">Email</td><td style="padding: 8px; border: 1px solid #ddd;">${email}</td></tr>
         <tr><td style="padding: 8px; border: 1px solid #ddd; font-weight: bold;">Phone</td><td style="padding: 8px; border: 1px solid #ddd;">${phone}</td></tr>
         <tr><td style="padding: 8px; border: 1px solid #ddd; font-weight: bold;">Practice Area</td><td style="padding: 8px; border: 1px solid #ddd;">${practiceArea || "N/A"}</td></tr>
+        <tr><td style="padding: 8px; border: 1px solid #ddd; font-weight: bold;">Website</td><td style="padding: 8px; border: 1px solid #ddd;">${website || "N/A"}</td></tr>
         <tr><td style="padding: 8px; border: 1px solid #ddd; font-weight: bold;">Budget</td><td style="padding: 8px; border: 1px solid #ddd;">${budget}</td></tr>
+        <tr><td style="padding: 8px; border: 1px solid #ddd; font-weight: bold;">Growth Goal</td><td style="padding: 8px; border: 1px solid #ddd;">${growthGoal || "N/A"}</td></tr>
+        <tr><td style="padding: 8px; border: 1px solid #ddd; font-weight: bold;">Cases Wanted</td><td style="padding: 8px; border: 1px solid #ddd;">${casesWanted || "N/A"}</td></tr>
         <tr><td style="padding: 8px; border: 1px solid #ddd; font-weight: bold;">Referral Source</td><td style="padding: 8px; border: 1px solid #ddd;">${referral || "N/A"}</td></tr>
         <tr><td style="padding: 8px; border: 1px solid #ddd; font-weight: bold;">Goals</td><td style="padding: 8px; border: 1px solid #ddd;">${message || "N/A"}</td></tr>
       </table>
@@ -71,6 +74,9 @@ export async function POST(req: NextRequest) {
             { name: "phone", value: phone || "" },
             { name: "practice_area", value: practiceArea || "" },
             { name: "monthly_budget", value: budget || "" },
+            { name: "website", value: website || "" },
+            { name: "growth_goal", value: growthGoal || "" },
+            { name: "how_many_cases_wanted_", value: casesWanted || "" },
             { name: "how_did_you_hear_about_us_", value: referral || "" },
             { name: "message", value: message || "" },
             { name: "form_source", value: "contact-page" },

@@ -143,6 +143,7 @@ export async function POST(req: NextRequest) {
             { name: "email", value: email },
             { name: "phone", value: phone || "" },
             { name: "company", value: firmName || "" },
+            { name: "website", value: body.website || "" },
             { name: "number_of_attorneys", value: attorneys || "" },
             { name: "practice_area", value: practiceAreasDisplay },
             { name: "target_market", value: markets || "" },

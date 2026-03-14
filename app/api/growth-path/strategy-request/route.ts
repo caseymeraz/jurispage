@@ -103,6 +103,7 @@ export async function POST(req: NextRequest) {
           { name: "firstname", value: body.name },
           { name: "email", value: body.email },
           { name: "phone", value: body.phone || "" },
+          { name: "form_source", value: "growth-path-strategy-request" },
           {
             name: "message",
             value: `Growth Path reviewed version request. ${session.practiceArea} in ${session.city}, ${session.state}. Recommended: ${session.recommendation?.primaryPath || "N/A"}`,

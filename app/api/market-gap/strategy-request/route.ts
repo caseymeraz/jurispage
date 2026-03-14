@@ -124,6 +124,7 @@ export async function POST(req: NextRequest) {
           { name: "firstname", value: body.name },
           { name: "email", value: body.email },
           { name: "phone", value: body.phone || "" },
+          { name: "form_source", value: "market-gap-strategy-request" },
           { name: "message", value: `Strategy call request: ${report.practiceArea} in ${report.city}, ${report.state}. Preferred time: ${body.preferredTime || "Not specified"}` },
         ]
       );

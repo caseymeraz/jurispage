@@ -47,6 +47,7 @@ export default function GrowthAssessmentForm() {
     firmName: "",
     attorneys: "",
     practiceAreas: [] as string[],
+    website: "",
     markets: "",
     budget: "",
     growthGoal: "",
@@ -212,6 +213,18 @@ export default function GrowthAssessmentForm() {
         {formData.practiceAreas.length === 0 && status === "error" && (
           <p className="text-red-500 text-xs mt-1">Please select at least one practice area.</p>
         )}
+      </div>
+
+      <div>
+        <label className="block text-sm font-semibold text-gray-700 mb-1.5">Website</label>
+        <input
+          type="url"
+          name="website"
+          placeholder="https://yourfirm.com"
+          value={formData.website}
+          onChange={handleChange}
+          className="w-full border border-gray-300 rounded-xl px-4 py-3 text-gray-900 focus:outline-none focus:ring-2 focus:ring-orange-400"
+        />
       </div>
 
       <div>

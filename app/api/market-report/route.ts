@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { Resend } from "resend";
 import { prisma } from "@/lib/db";
+import { submitToHubSpot } from "@/lib/hubspot";
 import { notifySlack } from "@/lib/slack";
 import { verifyTurnstile } from "@/lib/turnstile";
 
@@ -63,6 +64,26 @@ export async function POST(req: NextRequest) {
       html: emailHtml,
       replyTo: email,
     });
+
+    // HubSpot submission
+    const formGuid = process.env.HUBSPOT_FORM_GUID;
+    if (formGuid) {
+      try {
+        await submitToHubSpot(formGuid, [
+          { name: "firstname", value: firstName },
+          { name: "lastname", value: lastName },
+          { name: "email", value: email },
+          { name: "phone", value: phone || "" },
+          { name: "company", value: firmName },
+          { name: "practice_area", value: practiceArea },
+          { name: "target_market", value: targetMarket },
+          { name: "form_source", value: "free-market-report" },
+        ]);
+        console.log("[MarketReport] HubSpot submission succeeded");
+      } catch (err) {
+        console.error("[MarketReport] HubSpot submission failed:", err);
+      }
+    }
 
     return NextResponse.json({ success: true });
   } catch (error) {
