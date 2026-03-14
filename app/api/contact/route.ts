@@ -76,7 +76,7 @@ export async function POST(req: NextRequest) {
             { name: "monthly_budget", value: budget || "" },
             { name: "website", value: website || "" },
             { name: "growth_goal", value: growthGoal || "" },
-            { name: "how_many_cases_wanted_", value: casesWanted || "" },
+            { name: "how_many_cases_", value: casesWanted || "" },
             { name: "how_did_you_hear_about_us_", value: referral || "" },
             { name: "message", value: message || "" },
             { name: "form_source", value: "contact-page" },

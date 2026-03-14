@@ -216,13 +216,20 @@ export default function ContactForm() {
       </div>
       <div>
         <label className="block text-sm font-semibold text-gray-700 mb-1.5">How did you hear about us?</label>
-        <input
-          type="text"
+        <select
           name="referral"
           value={formData.referral}
           onChange={handleChange}
-          className="w-full border border-gray-300 rounded-lg px-4 py-3 text-gray-900 focus:outline-none focus:ring-2 focus:ring-orange-400"
-        />
+          className="w-full border border-gray-300 rounded-lg px-4 py-3 text-gray-900 focus:outline-none focus:ring-2 focus:ring-orange-400 bg-white"
+        >
+          <option value="">Select one</option>
+          <option value="Google">Google</option>
+          <option value="Bing">Bing</option>
+          <option value="LinkedIn">LinkedIn</option>
+          <option value="Review Site">Review Site</option>
+          <option value="Referred">Referred</option>
+          <option value="Other">Other</option>
+        </select>
       </div>
       <div>
         <label className="block text-sm font-semibold text-gray-700 mb-1.5">Tell us about your goals</label>
