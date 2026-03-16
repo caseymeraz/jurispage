@@ -45,7 +45,7 @@ export default function ContactForm() {
     lastName: "",
     email: "",
     phone: "",
-    website: "",
+    website: "https://",
     practiceArea: "",
     budget: "",
     growthGoal: "",

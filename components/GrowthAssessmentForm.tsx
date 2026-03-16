@@ -47,7 +47,7 @@ export default function GrowthAssessmentForm() {
     firmName: "",
     attorneys: "",
     practiceAreas: [] as string[],
-    website: "",
+    website: "https://",
     markets: "",
     budget: "",
     growthGoal: "",

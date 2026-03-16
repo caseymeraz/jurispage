@@ -67,7 +67,7 @@ export default function AiSearchReportForm() {
   const [contactName, setContactName] = useState("");
   const [email, setEmail] = useState("");
   const [firmName, setFirmName] = useState("");
-  const [website, setWebsite] = useState("");
+  const [website, setWebsite] = useState("https://");
   const [practiceArea, setPracticeArea] = useState("");
   const [city, setCity] = useState("");
   const [state, setState] = useState("");

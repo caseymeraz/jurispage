@@ -118,7 +118,7 @@ export default function MarketGapForm() {
     firmName: "",
     placeId: "",
     formattedAddress: "",
-    website: "",
+    website: "https://",
     phone: "",
   });
 
