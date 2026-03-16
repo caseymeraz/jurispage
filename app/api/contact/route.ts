@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { Resend } from "resend";
 import { submitToHubSpot } from "@/lib/hubspot";
+import { notifySlack } from "@/lib/slack";
 import { prisma } from "@/lib/db";
 import { verifyTurnstile } from "@/lib/turnstile";
 
@@ -60,6 +61,23 @@ export async function POST(req: NextRequest) {
       replyTo: email,
     });
 
+    // Slack notification
+    notifySlack(isPremium ? "⭐ Premium Contact Form Lead" : "New Contact Form Lead", {
+      "Law Firm": website || "N/A",
+      "First Name": firstName || "N/A",
+      "Last Name": lastName || "N/A",
+      "Email": email,
+      "Phone Number": phone || "N/A",
+      "Website": website || "N/A",
+      "Primary Practice Area": practiceArea || "N/A",
+      "Monthly Budget": budget || "N/A",
+      "Growth Goal": growthGoal || "N/A",
+      "How many cases wanted?": casesWanted || "N/A",
+      "Referral Source": referral || "N/A",
+      "Message": message || "N/A",
+      "Form Source": "contact-page",
+    });
+
     // HubSpot submission (awaited so it completes before serverless function exits)
     const formGuid = process.env.HUBSPOT_FORM_GUID;
     console.log("[Contact] HUBSPOT_FORM_GUID:", formGuid ? "set" : "MISSING");
@@ -76,7 +94,7 @@ export async function POST(req: NextRequest) {
             { name: "monthly_budget", value: budget || "" },
             { name: "website", value: website || "" },
             { name: "growth_goal", value: growthGoal || "" },
-            { name: "how_many_cases_", value: casesWanted || "" },
+            { name: "how_many_cases_do_you_want_to_generate_from_marketing_per_month", value: casesWanted || "" },
             { name: "how_did_you_hear_about_us_", value: referral || "" },
             { name: "message", value: message || "" },
             { name: "form_source", value: "contact-page" },
