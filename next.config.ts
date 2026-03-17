@@ -436,6 +436,18 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
 
+      // ── Author & misc page redirects ──
+      {
+        source: "/author/will-chan",
+        destination: "/about-us/",
+        permanent: true,
+      },
+      {
+        source: "/success-stories",
+        destination: "/case-studies/",
+        permanent: true,
+      },
+
       // ── Old WordPress URL patterns (catch-alls, last) ──
       {
         source: "/2013/:path*",

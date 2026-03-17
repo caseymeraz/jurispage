@@ -107,6 +107,13 @@ export default function Header() {
                         <span className="text-xs text-gray-500 block mt-0.5">{s.desc}</span>
                       </Link>
                     ))}
+                    <Link
+                      href="/services/"
+                      className="block px-3 pt-2 text-sm font-semibold no-underline hover:underline transition-colors"
+                      style={{ color: "#EE6C13" }}
+                    >
+                      View All Services →
+                    </Link>
                   </div>
                   {/* Col 3: Featured card */}
                   <div
