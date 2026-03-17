@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Quicksand, Poppins } from "next/font/google";
 import Script from "next/script";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
@@ -131,6 +132,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         `}</Script>
         <Script id="hs-script-loader" strategy="afterInteractive" src="//js.hs-scripts.com/23597402.js" />
         <Script src="https://challenges.cloudflare.com/turnstile/v0/api.js" strategy="afterInteractive" />
+        <Analytics />
       </body>
     </html>
   );
