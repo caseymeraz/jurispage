@@ -103,7 +103,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           gtag('js', new Date());
           gtag('config', 'G-FQJLT879FN');
         `}</Script>
-        <Script id="hs-script-loader" strategy="afterInteractive" src="//js.hs-scripts.com/23597402.js" />
+        <Script id="hs-script-loader" strategy="afterInteractive" src="//js.hs-scripts.com/50142530.js" />
         <Script src="https://challenges.cloudflare.com/turnstile/v0/api.js" strategy="afterInteractive" />
         <Analytics />
       </body>
