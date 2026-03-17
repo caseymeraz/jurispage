@@ -11,6 +11,7 @@ import CaseStudyPreview from "@/components/CaseStudyPreview";
 import HeroForm from "@/components/HeroForm";
 import PpcRoiCalculator from "@/components/PpcRoiCalculator";
 import { caseStudies } from "@/data/caseStudies";
+import { renderLinkedText, stripMarkdownLinks } from "@/lib/renderLinkedText";
 
 // Cross-practice-area related content map
 const RELATED_PRACTICE_AREAS: Record<string, string[]> = {
@@ -64,6 +65,7 @@ export default function PracticeAreaPage({ practiceArea: pa }: PracticeAreaPageP
     "@id": `https://jurispage.com/${pa.slug}/`,
     name: pa.heading,
     description: pa.description,
+    ...(pa.serviceType ? { serviceType: pa.serviceType } : {}),
     provider: { "@type": "Organization", name: "JurisPage", url: "https://jurispage.com" },
     url: `https://jurispage.com/${pa.slug}/`,
     areaServed: { "@type": "Country", name: "United States" },
@@ -75,7 +77,7 @@ export default function PracticeAreaPage({ practiceArea: pa }: PracticeAreaPageP
     mainEntity: allFaqs.map((faq) => ({
       "@type": "Question",
       name: faq.question,
-      acceptedAnswer: { "@type": "Answer", text: faq.answer },
+      acceptedAnswer: { "@type": "Answer", text: stripMarkdownLinks(faq.answer) },
     })),
   } : null;
 
@@ -107,7 +109,11 @@ export default function PracticeAreaPage({ practiceArea: pa }: PracticeAreaPageP
                 {pa.primaryKeyword}
               </span>
               <h1 className="font-heading font-extrabold text-gray-900 text-4xl md:text-5xl leading-tight mb-6">{pa.heading}</h1>
-              <p className="text-gray-500 text-sm">Speak directly with a legal marketing expert today.</p>
+              {pa.heroSubheadline ? (
+                <p className="text-lg text-gray-600">{pa.heroSubheadline}</p>
+              ) : (
+                <p className="text-gray-500 text-sm">Speak directly with a legal marketing expert today.</p>
+              )}
             </div>
             <HeroForm
               ctaLabel="Book Your Strategy Session"
@@ -115,6 +121,18 @@ export default function PracticeAreaPage({ practiceArea: pa }: PracticeAreaPageP
               defaultPracticeArea={pa.primaryKeyword.split(" ")[0]}
             />
           </div>
+          {pa.socialProofStats && pa.socialProofStats.length > 0 && (
+            <div className="mt-10 pt-8 border-t border-gray-200">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 text-center">
+                {pa.socialProofStats.map((stat) => (
+                  <div key={stat.label}>
+                    <div className="font-heading font-extrabold text-2xl" style={{ color: "#EE6C13" }}>{stat.value}</div>
+                    <div className="text-gray-600 text-sm mt-1">{stat.label}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
         </div>
       </section>
 
@@ -137,13 +155,13 @@ export default function PracticeAreaPage({ practiceArea: pa }: PracticeAreaPageP
       {/* Intro */}
       <section className="py-16 px-6 bg-white">
         <div className="max-w-3xl mx-auto">
-          <p className="text-gray-700 text-lg leading-relaxed">{pa.intro}</p>
+          <p className="text-gray-700 text-lg leading-relaxed">{renderLinkedText(pa.intro)}</p>
           {pa.introBullets && pa.introBullets.length > 0 && (
             <ul className="mt-6 space-y-3">
               {pa.introBullets.map((bullet) => (
                 <li key={bullet} className="flex items-start gap-3">
                   <span className="flex-shrink-0 w-2 h-2 rounded-full mt-2" style={{ background: "#EE6C13" }} />
-                  <span className="text-gray-700 text-base leading-relaxed">{bullet}</span>
+                  <span className="text-gray-700 text-base leading-relaxed">{renderLinkedText(bullet)}</span>
                 </li>
               ))}
             </ul>
@@ -159,10 +177,10 @@ export default function PracticeAreaPage({ practiceArea: pa }: PracticeAreaPageP
           </h2>
           {pa.whyDifferent.includes("\n") ? (
             pa.whyDifferent.split("\n").filter(Boolean).map((paragraph, i) => (
-              <p key={i} className="text-gray-700 text-base leading-relaxed mb-4 last:mb-0">{paragraph}</p>
+              <p key={i} className="text-gray-700 text-base leading-relaxed mb-4 last:mb-0">{renderLinkedText(paragraph)}</p>
             ))
           ) : (
-            <p className="text-gray-700 text-base leading-relaxed">{pa.whyDifferent}</p>
+            <p className="text-gray-700 text-base leading-relaxed">{renderLinkedText(pa.whyDifferent)}</p>
           )}
         </div>
       </section>
@@ -262,6 +280,23 @@ export default function PracticeAreaPage({ practiceArea: pa }: PracticeAreaPageP
         </section>
       )}
 
+      {/* LSA & Intake Optimization */}
+      {pa.lsaIntakeSection && (
+        <section className="py-16 px-6 bg-white">
+          <div className="max-w-3xl mx-auto">
+            <h2 className="font-heading font-extrabold text-gray-900 text-3xl mb-10">{pa.lsaIntakeSection.heading}</h2>
+            <div className="space-y-10">
+              {pa.lsaIntakeSection.subsections.map((sub) => (
+                <div key={sub.subheading}>
+                  <h3 className="font-heading font-bold text-gray-900 text-xl mb-3">{sub.subheading}</h3>
+                  <p className="text-gray-700 text-base leading-relaxed">{renderLinkedText(sub.body)}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* ROI Calculator */}
       {pa.showCalculator && (
         <section className="py-16 px-6 bg-[#111]">
@@ -280,6 +315,67 @@ export default function PracticeAreaPage({ practiceArea: pa }: PracticeAreaPageP
           caseStudies={caseStudies.filter((cs) => pa.relatedCaseStudies!.includes(cs.slug))}
           heading="Real Results from Law Firms Like Yours"
         />
+      )}
+
+      {/* Comparison Table */}
+      {pa.comparisonSection && (
+        <section className="py-16 px-6 bg-gray-50">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="font-heading font-extrabold text-gray-900 text-3xl mb-3">{pa.comparisonSection.heading}</h2>
+            <p className="text-gray-600 text-base mb-8">{pa.comparisonSection.intro}</p>
+            {/* Desktop table */}
+            <div className="hidden md:block overflow-hidden rounded-xl border border-gray-200">
+              <table className="w-full text-sm">
+                <thead>
+                  <tr>
+                    <th className="text-left px-5 py-3 bg-gray-100 font-heading font-bold text-gray-700">Feature</th>
+                    <th className="text-left px-5 py-3 font-heading font-bold text-white" style={{ background: "#EE6C13" }}>JurisPage</th>
+                    <th className="text-left px-5 py-3 bg-gray-100 font-heading font-bold text-gray-700">Big Agencies</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {pa.comparisonSection.rows.map((row, i) => (
+                    <tr key={row.feature} className={i % 2 === 0 ? "bg-white" : "bg-gray-50"}>
+                      <td className="px-5 py-3 font-medium text-gray-900">{row.feature}</td>
+                      <td className="px-5 py-3 text-gray-700">{row.jurispage}</td>
+                      <td className="px-5 py-3 text-gray-500">{row.bigAgency}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+            {/* Mobile cards */}
+            <div className="md:hidden space-y-4">
+              {pa.comparisonSection.rows.map((row) => (
+                <div key={row.feature} className="rounded-xl border border-gray-200 bg-white p-4">
+                  <div className="font-heading font-bold text-gray-900 text-sm mb-2">{row.feature}</div>
+                  <div className="flex flex-col gap-2 text-sm">
+                    <div><span className="font-semibold" style={{ color: "#EE6C13" }}>JurisPage:</span> {row.jurispage}</div>
+                    <div><span className="font-semibold text-gray-500">Big Agencies:</span> {row.bigAgency}</div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Results Highlights */}
+      {pa.resultsHighlights && pa.resultsHighlights.length > 0 && (
+        <section className="py-16 px-6 bg-white">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="font-heading font-extrabold text-gray-900 text-3xl mb-8 text-center">Results That Matter</h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              {pa.resultsHighlights.map((item) => (
+                <div key={item.label} className="rounded-xl border border-gray-200 p-5 text-center">
+                  <div className="font-heading font-extrabold text-3xl mb-1" style={{ color: "#EE6C13" }}>{item.value}</div>
+                  <div className="font-heading font-bold text-gray-900 text-sm mb-1">{item.label}</div>
+                  <div className="text-gray-500 text-xs">{item.context}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
       )}
 
       {pa.relatedServices && pa.relatedServices.length > 0 && (
@@ -371,11 +467,11 @@ export default function PracticeAreaPage({ practiceArea: pa }: PracticeAreaPageP
       {allFaqs.length > 0 && <FAQAccordion faqs={allFaqs} heading="Frequently Asked Questions" />}
 
       <CTASection
-        heading="Book Your Strategy Session"
-        subtext={`No long-term contracts. Transparent pricing. We've helped 113+ law firms grow - including ${displayKw.toLowerCase()} practices.`}
-        primaryLabel="Book Your Strategy Session"
+        heading={pa.ctaOverride?.heading ?? "Book Your Strategy Session"}
+        subtext={pa.ctaOverride?.subtext ?? `No long-term contracts. Transparent pricing. We've helped 113+ law firms grow - including ${displayKw.toLowerCase()} practices.`}
+        primaryLabel={pa.ctaOverride?.primaryLabel ?? "Book Your Strategy Session"}
         primaryHref="/contact/"
-        secondaryLabel="See Pricing"
+        secondaryLabel={pa.ctaOverride?.secondaryLabel ?? "See Pricing"}
         secondaryHref="/services/pricing/"
       />
     </>

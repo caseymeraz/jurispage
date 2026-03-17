@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import { renderLinkedText } from "@/lib/renderLinkedText";
 
 interface FAQ {
   question: string;
@@ -31,7 +32,7 @@ export default function FAQAccordion({ faqs, heading = "Frequently Asked Questio
               </button>
               {open === i && (
                 <div className="px-6 pb-5 text-gray-600 leading-relaxed text-base">
-                  {faq.answer}
+                  {renderLinkedText(faq.answer)}
                 </div>
               )}
             </div>
