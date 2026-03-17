@@ -102,7 +102,7 @@ export default function ServicePage({ service }: ServicePageProps) {
               <p className="text-gray-600 text-xl leading-relaxed mb-6">{service.tagline}</p>
               <p className="text-sm text-gray-500">Your competitors are stealing your cases online. We fix that.</p>
             </div>
-            {service.slug === "law-firm-seo" || service.slug === "generative-engine-optimization-for-law-firms" ? (
+            {service.slug === "law-firm-seo" || service.slug === "generative-engine-optimization-legal-marketing" ? (
               <div className="bg-gray-50 rounded-2xl p-6">
                 <Suspense fallback={<div className="bg-white rounded-2xl border border-gray-100 shadow-lg p-8 text-center text-gray-500">Loading form...</div>}>
                   <AiSearchReportForm />
@@ -338,7 +338,7 @@ export default function ServicePage({ service }: ServicePageProps) {
 
       {allFaqs.length > 0 && <FAQAccordion faqs={allFaqs} heading={`${service.primaryKeyword} Questions Answered`} />}
 
-      {service.slug === "law-firm-seo" || service.slug === "generative-engine-optimization-for-law-firms" ? (
+      {service.slug === "law-firm-seo" || service.slug === "generative-engine-optimization-legal-marketing" ? (
         <section className="py-16 px-6 bg-gray-50">
           <div className="max-w-2xl mx-auto">
             <div className="text-center mb-8">

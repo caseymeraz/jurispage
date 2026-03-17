@@ -69,6 +69,13 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
 
+      // ── GEO slug change ──
+      {
+        source: "/generative-engine-optimization-for-law-firms/:path*",
+        destination: "/generative-engine-optimization-legal-marketing/",
+        permanent: true,
+      },
+
       // ── High-priority backlink recovery (DR 50+) ──
       {
         source: "/law-firm-marketing/law-firm-marketing-strategy/:path*",

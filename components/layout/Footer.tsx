@@ -35,7 +35,7 @@ export default function Footer() {
                 ["Law Firm Websites", "/law-firm-websites/"],
                 ["Local SEO", "/local-seo-for-law-firms/"],
                 ["Launchpad for New Firms", "/launchpad/"],
-                ["GEO / AI Search", "/generative-engine-optimization-for-law-firms/"],
+                ["GEO / AI Search", "/generative-engine-optimization-legal-marketing/"],
                 ["AI Chatbot", "/ai-chatbot-for-law-firm-website/"],
                 ["Email Marketing", "/law-firm-email-marketing/"],
                 ["Content Writing", "/law-firm-content-writing/"],

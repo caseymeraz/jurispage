@@ -557,7 +557,7 @@ export const services: ServiceData[] = [
   },
   {
     relatedCaseStudies: ["the-sands-law-group"],
-    slug: "generative-engine-optimization-for-law-firms",
+    slug: "generative-engine-optimization-legal-marketing",
     title: "Generative Engine Optimization for Law Firms",
     heading: "GEO for Law Firms: Get Cited in ChatGPT, Perplexity, and AI Overviews",
     tagline: "The next search battle is in AI. Win it first.",
@@ -1018,7 +1018,7 @@ export const services: ServiceData[] = [
         answer: "At 90 and 180 days post-publication, we pull ranking and impression data from Google Search Console and Ahrefs and review underperforming pages. For content in positions 11-30 (page two or early page three), we do a targeted update: additional word count to address questions the current draft missed, stronger internal linking from more authoritative pages on your site, title tag refinement to better match the query pattern Google is already serving the page for, and FAQ schema additions where applicable. For content with zero or near-zero impressions after 180 days, we review whether the target keyword has real search volume, whether the content is being indexed (crawl errors can prevent indexing entirely), or whether the topic requires a different approach. We do not let underperforming content sit without investigation.",
       },
     ],
-    relatedServices: ["law-firm-seo", "local-seo-for-law-firms", "generative-engine-optimization-for-law-firms"],
+    relatedServices: ["law-firm-seo", "local-seo-for-law-firms", "generative-engine-optimization-legal-marketing"],
     relatedPracticeAreas: ["personal-injury-lawyer-marketing", "family-law-firm-marketing", "bankruptcy-lawyer-marketing", "social-security-disability-lawyer-marketing"],
   },
 ];

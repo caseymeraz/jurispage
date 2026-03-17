@@ -102,7 +102,7 @@ const services = [
     title: "GEO / AI Search",
     description:
       "Get your firm cited inside ChatGPT, Perplexity, and AI Overviews. First-mover advantage before your competitors figure it out.",
-    href: "/generative-engine-optimization-for-law-firms/",
+    href: "/generative-engine-optimization-legal-marketing/",
   },
   {
     icon: "launchpad",

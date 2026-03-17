@@ -9,7 +9,7 @@ const services = [
   { label: "Law Firm Websites", href: "/law-firm-websites/", desc: "WordPress sites you own, built to convert" },
   { label: "Local SEO for Law Firms", href: "/local-seo-for-law-firms/", desc: "Dominate the Google Maps 3-Pack in your market" },
   { label: "Launchpad (New Firms)", href: "/launchpad/", desc: "Full digital presence launched in 30 days" },
-  { label: "GEO / AI Search", href: "/generative-engine-optimization-for-law-firms/", desc: "Get cited by ChatGPT, Perplexity, and Gemini" },
+  { label: "GEO / AI Search", href: "/generative-engine-optimization-legal-marketing/", desc: "Get cited by ChatGPT, Perplexity, and Gemini" },
   { label: "AI Chatbot", href: "/ai-chatbot-for-law-firm-website/", desc: "Convert after-hours visitors into consultations" },
   { label: "Email Marketing", href: "/law-firm-email-marketing/", desc: "Stay top-of-mind with your referral network" },
   { label: "Bing Ads for Lawyers", href: "/bing-ads-for-lawyers/", desc: "Capture leads your competitors ignore" },
