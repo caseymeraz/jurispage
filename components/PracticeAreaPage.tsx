@@ -9,6 +9,7 @@ import FAQAccordion from "@/components/FAQAccordion";
 import SchemaOrg from "@/components/SchemaOrg";
 import CaseStudyPreview from "@/components/CaseStudyPreview";
 import HeroForm from "@/components/HeroForm";
+import PpcRoiCalculator from "@/components/PpcRoiCalculator";
 import { caseStudies } from "@/data/caseStudies";
 
 // Cross-practice-area related content map
@@ -55,6 +56,8 @@ export default function PracticeAreaPage({ practiceArea: pa }: PracticeAreaPageP
     ...(pa.extendedFaqs ?? []),
   ];
 
+  const displayKw = pa.displayKeyword ?? pa.primaryKeyword;
+
   const serviceSchema = {
     "@context": "https://schema.org",
     "@type": "Service",
@@ -81,8 +84,7 @@ export default function PracticeAreaPage({ practiceArea: pa }: PracticeAreaPageP
     "@type": "BreadcrumbList",
     itemListElement: [
       { "@type": "ListItem", position: 1, name: "Home", item: "https://jurispage.com/" },
-      { "@type": "ListItem", position: 2, name: "Practice Areas", item: "https://jurispage.com/personal-injury-lawyer-marketing/" },
-      { "@type": "ListItem", position: 3, name: pa.heading, item: `https://jurispage.com/${pa.slug}/` },
+      { "@type": "ListItem", position: 2, name: pa.heading, item: `https://jurispage.com/${pa.slug}/` },
     ],
   };
 
@@ -99,7 +101,7 @@ export default function PracticeAreaPage({ practiceArea: pa }: PracticeAreaPageP
             <div className="pt-2">
               <nav className="text-sm text-gray-500 mb-5">
                 <Link href="/" className="hover:text-gray-900 no-underline">Home</Link> /{" "}
-                <span className="text-gray-700">Practice Areas</span>
+                <span className="text-gray-700">{displayKw}</span>
               </nav>
               <span className="inline-block text-xs font-heading font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-4" style={{ background: "#EE6C1322", color: "#EE6C13" }}>
                 {pa.primaryKeyword}
@@ -136,36 +138,73 @@ export default function PracticeAreaPage({ practiceArea: pa }: PracticeAreaPageP
       <section className="py-16 px-6 bg-white">
         <div className="max-w-3xl mx-auto">
           <p className="text-gray-700 text-lg leading-relaxed">{pa.intro}</p>
+          {pa.introBullets && pa.introBullets.length > 0 && (
+            <ul className="mt-6 space-y-3">
+              {pa.introBullets.map((bullet) => (
+                <li key={bullet} className="flex items-start gap-3">
+                  <span className="flex-shrink-0 w-2 h-2 rounded-full mt-2" style={{ background: "#EE6C13" }} />
+                  <span className="text-gray-700 text-base leading-relaxed">{bullet}</span>
+                </li>
+              ))}
+            </ul>
+          )}
         </div>
       </section>
 
       {/* Why Different */}
       <section className="py-16 px-6 bg-gray-50">
         <div className="max-w-3xl mx-auto">
-          <h2 className="font-heading font-extrabold text-gray-900 text-3xl mb-6">Why {pa.primaryKeyword} is Different</h2>
-          <p className="text-gray-700 text-base leading-relaxed">{pa.whyDifferent}</p>
+          <h2 className="font-heading font-extrabold text-gray-900 text-3xl mb-6">
+            {pa.sectionHeadings?.whyDifferent ?? `Why ${displayKw} is Different`}
+          </h2>
+          {pa.whyDifferent.includes("\n") ? (
+            pa.whyDifferent.split("\n").filter(Boolean).map((paragraph, i) => (
+              <p key={i} className="text-gray-700 text-base leading-relaxed mb-4 last:mb-0">{paragraph}</p>
+            ))
+          ) : (
+            <p className="text-gray-700 text-base leading-relaxed">{pa.whyDifferent}</p>
+          )}
         </div>
       </section>
 
       {/* Mistakes */}
       <section className="py-16 px-6 bg-white">
         <div className="max-w-3xl mx-auto">
-          <h2 className="font-heading font-extrabold text-gray-900 text-3xl mb-8">The 3 Biggest Marketing Mistakes in {pa.primaryKeyword}</h2>
-          <div className="space-y-4">
-            {pa.mistakes.map((mistake, i) => (
-              <div key={i} className="flex gap-4 bg-red-50 border border-red-100 rounded-xl p-5">
-                <span className="flex-shrink-0 w-8 h-8 rounded-full bg-red-100 text-red-600 flex items-center justify-center font-bold text-sm">{i + 1}</span>
-                <p className="text-gray-700 leading-relaxed">{mistake}</p>
-              </div>
-            ))}
-          </div>
+          <h2 className="font-heading font-extrabold text-gray-900 text-3xl mb-8">
+            {pa.sectionHeadings?.mistakes ?? `The 3 Biggest Marketing Mistakes in ${displayKw}`}
+          </h2>
+          {pa.mistakeCards ? (
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {pa.mistakeCards.map((card, i) => (
+                <div key={i} className="bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm">
+                  <div className="h-1 bg-red-500" />
+                  <div className="p-5">
+                    <span className="inline-flex items-center justify-center w-7 h-7 rounded-full bg-red-100 text-red-600 font-bold text-xs mb-3">{i + 1}</span>
+                    <h3 className="font-heading font-bold text-gray-900 text-base mb-2">{card.title}</h3>
+                    <p className="text-gray-600 text-sm leading-relaxed">{card.description}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          ) : (
+            <div className="space-y-4">
+              {pa.mistakes.map((mistake, i) => (
+                <div key={i} className="flex gap-4 bg-red-50 border border-red-100 rounded-xl p-5">
+                  <span className="flex-shrink-0 w-8 h-8 rounded-full bg-red-100 text-red-600 flex items-center justify-center font-bold text-sm">{i + 1}</span>
+                  <p className="text-gray-700 leading-relaxed">{mistake}</p>
+                </div>
+              ))}
+            </div>
+          )}
         </div>
       </section>
 
       {/* Services */}
       <section className="py-16 px-6 bg-[#1a1a1a]">
         <div className="max-w-3xl mx-auto">
-          <h2 className="font-heading font-extrabold text-white text-3xl mb-8">Services That Work for {pa.primaryKeyword}</h2>
+          <h2 className="font-heading font-extrabold text-white text-3xl mb-8">
+            {pa.sectionHeadings?.services ?? `Services That Work for ${displayKw}`}
+          </h2>
           <div className="flex flex-wrap gap-3">
             {(pa.relatedServices ?? []).map((slug) => {
               const svc = getServiceBySlug(slug);
@@ -201,26 +240,37 @@ export default function PracticeAreaPage({ practiceArea: pa }: PracticeAreaPageP
       {/* How We Market This Practice Area */}
       {pa.process && pa.process.length > 0 && (
         <section className="py-16 px-6 bg-[#1a1a1a]">
-          <div className="max-w-3xl mx-auto">
+          <div className="max-w-4xl mx-auto">
             <h2 className="font-heading font-extrabold text-white text-3xl mb-10">
-              How We Market {pa.primaryKeyword.split(" ").slice(0, 2).join(" ")} Firms
+              {pa.sectionHeadings?.process ?? `How We Market ${pa.primaryKeyword.split(" ").slice(0, 2).join(" ")} Firms`}
             </h2>
-            <ol className="space-y-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {pa.process.map((item, index) => (
-                <li key={item.step} className="flex gap-5 items-start">
+                <div key={item.step} className="bg-gray-800 rounded-xl p-6">
                   <span
-                    className="flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center font-heading font-extrabold text-white text-sm"
+                    className="inline-flex items-center justify-center w-10 h-10 rounded-full font-heading font-extrabold text-white text-sm mb-4"
                     style={{ background: "#EE6C13" }}
                   >
                     {index + 1}
                   </span>
-                  <div>
-                    <h3 className="font-heading font-bold text-white text-lg mb-2">{item.step}</h3>
-                    <p className="text-gray-400 leading-relaxed">{item.detail}</p>
-                  </div>
-                </li>
+                  <h3 className="font-heading font-bold text-white text-lg mb-2">{item.step}</h3>
+                  <p className="text-gray-400 leading-relaxed text-sm">{item.detail}</p>
+                </div>
               ))}
-            </ol>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* ROI Calculator */}
+      {pa.showCalculator && (
+        <section className="py-16 px-6 bg-[#111]">
+          <div className="max-w-3xl mx-auto">
+            <h2 className="font-heading font-extrabold text-white text-3xl mb-2 text-center">
+              See What Your PI Marketing Budget Could Generate
+            </h2>
+            <p className="text-gray-400 text-center mb-8">Adjust the inputs below to estimate your return on ad spend.</p>
+            <PpcRoiCalculator />
           </div>
         </section>
       )}
@@ -236,7 +286,7 @@ export default function PracticeAreaPage({ practiceArea: pa }: PracticeAreaPageP
         <section className="py-16 px-6 bg-white">
           <div className="max-w-3xl mx-auto">
             <h2 className="font-heading font-extrabold text-gray-900 text-2xl mb-6">
-              Services We Use to Grow {pa.primaryKeyword.split(" ").slice(0, 2).join(" ")} Practices
+              Services We Use to Grow {displayKw.split(" ").slice(0, 2).join(" ")} Practices
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
               {pa.relatedServices.map((slug) => {
@@ -322,7 +372,7 @@ export default function PracticeAreaPage({ practiceArea: pa }: PracticeAreaPageP
 
       <CTASection
         heading="Book Your Strategy Session"
-        subtext={`No long-term contracts. Transparent pricing. We've helped 113+ law firms grow - including ${pa.primaryKeyword.toLowerCase()} practices.`}
+        subtext={`No long-term contracts. Transparent pricing. We've helped 113+ law firms grow - including ${displayKw.toLowerCase()} practices.`}
         primaryLabel="Book Your Strategy Session"
         primaryHref="/contact/"
         secondaryLabel="See Pricing"
