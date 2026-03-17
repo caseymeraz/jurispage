@@ -334,7 +334,119 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
 
+      // ── GSC crawl-error redirects ──
+      {
+        source: "/law-firm-seo-dallas/:path*",
+        destination: "/law-firm-seo/",
+        permanent: true,
+      },
+      {
+        source: "/law-firm-seo-las-vegas/:path*",
+        destination: "/law-firm-seo/",
+        permanent: true,
+      },
+      {
+        source: "/law-firm-seo-minneapolis/:path*",
+        destination: "/law-firm-seo/",
+        permanent: true,
+      },
+      {
+        source: "/avvo-lawyer-marketing-guide/:path*",
+        destination: "/law-firm-seo/",
+        permanent: true,
+      },
+      {
+        source: "/feature-client-reviews-on-your-law-firms-website/:path*",
+        destination: "/law-firm-seo/",
+        permanent: true,
+      },
+      {
+        source: "/google-ads-lawyers-chicago/:path*",
+        destination: "/google-ads-for-law-firms/",
+        permanent: true,
+      },
+      {
+        source: "/website-design-for-lawyers/:path*",
+        destination: "/law-firm-websites/",
+        permanent: true,
+      },
+      {
+        source: "/services/law-firm-web-design-overview/:path*",
+        destination: "/law-firm-websites/",
+        permanent: true,
+      },
+      {
+        source: "/12-must-have-pages-on-your-law-firm-website/:path*",
+        destination: "/law-firm-websites/",
+        permanent: true,
+      },
+      {
+        source: "/how-to-build-criminal-law-practice/:path*",
+        destination: "/criminal-defense-lawyer-marketing/",
+        permanent: true,
+      },
+      {
+        source: "/how-to-use-reddit-for-law-firm-marketing-without-getting-burned/:path*",
+        destination: "/law-firm-content-writing/",
+        permanent: true,
+      },
+      {
+        source: "/get-started/:path*",
+        destination: "/contact/",
+        permanent: true,
+      },
+      {
+        source: "/resources/:path*",
+        destination: "/blog/",
+        permanent: true,
+      },
+      {
+        source: "/library/:path*",
+        destination: "/blog/",
+        permanent: true,
+      },
+      {
+        source: "/law-firm-marketing-phoenix/:path*",
+        destination: "/",
+        permanent: true,
+      },
+      {
+        source: "/law-firm-marketing-washington-dc/:path*",
+        destination: "/",
+        permanent: true,
+      },
+      {
+        source: "/online-marketing-for-lawyers/:path*",
+        destination: "/",
+        permanent: true,
+      },
+      {
+        source: "/how-to-grow-a-law-firm/:path*",
+        destination: "/",
+        permanent: true,
+      },
+      {
+        source: "/marketing-agency-for-law-firm/:path*",
+        destination: "/",
+        permanent: true,
+      },
+      {
+        source: "/20-bizarre-law-firm-ads/:path*",
+        destination: "/",
+        permanent: true,
+      },
+
       // ── Old WordPress URL patterns (catch-alls, last) ──
+      {
+        source: "/2013/:path*",
+        destination: "/",
+        permanent: true,
+      },
+      {
+        source: "/2014/:path*",
+        destination: "/",
+        permanent: true,
+      },
       {
         source: "/2015/:path*",
         destination: "/",
