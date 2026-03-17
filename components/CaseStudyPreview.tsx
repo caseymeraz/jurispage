@@ -57,7 +57,7 @@ export default function CaseStudyPreview({ caseStudies, heading = "Real Results 
                     className="font-heading font-bold text-sm px-5 py-2.5 rounded-[40px] text-white no-underline flex-shrink-0 text-center"
                     style={{ background: "#EE6C13" }}
                   >
-                    Read Story
+                    Read {cs.client}&apos;s Story
                   </Link>
                 </div>
               </div>

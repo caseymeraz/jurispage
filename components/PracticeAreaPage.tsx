@@ -295,7 +295,7 @@ export default function PracticeAreaPage({ practiceArea: pa }: PracticeAreaPageP
                 return (
                   <Link key={slug} href={`/${slug}/`} className="block p-4 rounded-xl border border-gray-200 hover:border-orange-300 hover:shadow-sm transition-all no-underline">
                     <div className="font-heading font-bold text-gray-900 text-sm mb-1">{svc.heading}</div>
-                    <div className="text-xs font-semibold" style={{ color: "#EE6C13" }}>Learn more →</div>
+                    <div className="text-xs font-semibold" style={{ color: "#EE6C13" }}>Learn more about {svc.heading} →</div>
                   </Link>
                 );
               })}

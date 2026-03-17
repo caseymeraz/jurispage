@@ -187,8 +187,7 @@ export default function PracticeAreaServicePage({
       <section className="py-20 px-6 bg-white">
         <div className="max-w-4xl mx-auto">
           <h2 className="font-heading font-extrabold text-gray-900 text-3xl md:text-4xl mb-6">
-            Why {service.heading} Matters for{" "}
-            {pa.heading.replace(" Marketing", " Firms")}
+            Why {service.heading} Matters for {pa.practiceNoun ?? pa.primaryKeyword} Law Firms
           </h2>
           {intersection.whyMatters.split("\n\n").map((para, i) => (
             <p key={i} className="text-gray-600 text-lg leading-relaxed mb-5">
@@ -202,7 +201,7 @@ export default function PracticeAreaServicePage({
       <section className="py-16 px-6 bg-gray-50 border-y border-gray-100">
         <div className="max-w-4xl mx-auto">
           <h2 className="font-heading font-extrabold text-gray-900 text-3xl mb-4">
-            How {pa.heading.replace(" Marketing", " Clients")} Find Attorneys
+            How {pa.practiceNoun ?? pa.primaryKeyword} Clients Find Attorneys
             Online
           </h2>
           <p className="text-gray-600 text-lg leading-relaxed mb-8">
@@ -230,8 +229,7 @@ export default function PracticeAreaServicePage({
       <section className="py-20 px-6 bg-white">
         <div className="max-w-4xl mx-auto">
           <h2 className="font-heading font-extrabold text-gray-900 text-3xl md:text-4xl mb-3">
-            Our Approach to {service.heading} for{" "}
-            {pa.heading.replace(" Marketing", " Attorneys")}
+            Our Approach to {service.heading} for {pa.practiceNoun ?? pa.primaryKeyword} Attorneys
           </h2>
           <p className="text-gray-500 text-lg mb-10">
             Tactics built specifically for this practice area, not recycled from
@@ -298,9 +296,7 @@ export default function PracticeAreaServicePage({
         <section className="py-20 px-6 bg-white">
           <div className="max-w-4xl mx-auto">
             <h2 className="font-heading font-extrabold text-gray-900 text-3xl md:text-4xl mb-4">
-              Common{" "}
-              {pa.heading.replace("Marketing", "").replace("Lawyer", "Law Firm").trim()}{" "}
-              Marketing Mistakes We Fix
+              Common {pa.practiceNoun ?? pa.primaryKeyword} Marketing Mistakes We Fix
             </h2>
             <p className="text-gray-500 text-lg mb-8">
               Before firms come to JurisPage, these are the mistakes we see
@@ -324,7 +320,7 @@ export default function PracticeAreaServicePage({
       <section className="py-20 px-6 bg-gray-50 border-y border-gray-100">
         <div className="max-w-4xl mx-auto">
           <h2 className="font-heading font-extrabold text-gray-900 text-3xl md:text-4xl mb-6">
-            Why {pa.heading.replace("Marketing", "").trim()} Attorneys Choose
+            Why {pa.practiceNoun ?? pa.primaryKeyword} Attorneys Choose
             JurisPage
           </h2>
           <p className="text-gray-600 text-lg leading-relaxed mb-8">
@@ -360,11 +356,11 @@ export default function PracticeAreaServicePage({
         <section className="py-16 px-6 bg-white">
           <div className="max-w-4xl mx-auto">
             <h2 className="font-heading font-extrabold text-gray-900 text-2xl mb-2">
-              More {pa.heading} Strategies
+              More {pa.practiceNoun ?? pa.primaryKeyword} Marketing Strategies
             </h2>
             <p className="text-gray-500 mb-6">
               Explore the full range of marketing services built for{" "}
-              {pa.heading.replace(" Marketing", " firms").toLowerCase()}.
+              {(pa.practiceNoun ?? pa.primaryKeyword).toLowerCase()} law firms.
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {siblingServices.map((sib) => {
@@ -425,11 +421,11 @@ export default function PracticeAreaServicePage({
 
       {/* ── CTA ──────────────────────────────────────────────────────────── */}
       <CTASection
-        heading={`Ready to Grow Your ${pa.heading.replace(" Marketing", "")} Practice?`}
+        heading={`Ready to Grow Your ${pa.practiceNoun ?? pa.primaryKeyword} Practice?`}
         subtext={`Get a custom ${service.heading.toLowerCase()} strategy built for your firm. No contracts, no fluff, just results.`}
         primaryLabel="Book a Free Strategy Session"
         primaryHref="/get-started/"
-        secondaryLabel={`See All ${pa.heading} Services`}
+        secondaryLabel={`See All ${pa.practiceNoun ?? pa.primaryKeyword} Marketing Services`}
         secondaryHref={`/${pa.slug}/`}
       />
     </>

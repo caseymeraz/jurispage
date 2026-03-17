@@ -63,8 +63,7 @@ export default function ServicePage({ service }: ServicePageProps) {
     "@type": "BreadcrumbList",
     itemListElement: [
       { "@type": "ListItem", position: 1, name: "Home", item: "https://jurispage.com/" },
-      { "@type": "ListItem", position: 2, name: "Services", item: "https://jurispage.com/law-firm-seo/" },
-      { "@type": "ListItem", position: 3, name: service.heading, item: `https://jurispage.com/${service.slug}/` },
+      { "@type": "ListItem", position: 2, name: service.heading, item: `https://jurispage.com/${service.slug}/` },
     ],
   };
 
@@ -94,7 +93,6 @@ export default function ServicePage({ service }: ServicePageProps) {
             <div className="pt-2">
               <nav className="text-sm text-gray-500 mb-5">
                 <Link href="/" className="hover:text-gray-900 no-underline">Home</Link> /{" "}
-                <Link href="/law-firm-seo/" className="hover:text-gray-900 no-underline">Services</Link> /{" "}
                 <span className="text-gray-700">{service.heading}</span>
               </nav>
               <span className="inline-block text-xs font-heading font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-4" style={{ background: "#EE6C1322", color: "#EE6C13" }}>
@@ -259,7 +257,7 @@ export default function ServicePage({ service }: ServicePageProps) {
                     className="block p-4 rounded-xl border border-gray-200 hover:border-orange-300 hover:shadow-sm transition-all no-underline"
                   >
                     <div className="font-heading font-bold text-gray-900 text-sm mb-1">{relService.heading}</div>
-                    <div className="text-xs font-semibold" style={{ color: "#EE6C13" }}>Learn more →</div>
+                    <div className="text-xs font-semibold" style={{ color: "#EE6C13" }}>Learn more about {relService.heading} →</div>
                   </Link>
                 );
               })}

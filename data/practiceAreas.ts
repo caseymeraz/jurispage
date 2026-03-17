@@ -24,13 +24,15 @@ export interface PracticeAreaData {
     process?: string;
   };
   showCalculator?: boolean;
+  practiceNoun?: string;
 }
 
 export const practiceAreas: PracticeAreaData[] = [
   {
     relatedCaseStudies: ["gjel-accident-attorneys"],
     slug: "personal-injury-lawyer-marketing",
-    title: "Personal Injury Lawyer Marketing | JurisPage",
+    practiceNoun: "Personal Injury",
+    title: "Personal Injury Lawyer Marketing",
     heading: "Personal Injury Lawyer Marketing That Fills Your Pipeline",
     primaryKeyword: "personal injury lawyer marketing",
     displayKeyword: "Personal Injury Lawyer Marketing",
@@ -94,7 +96,8 @@ export const practiceAreas: PracticeAreaData[] = [
   {
     relatedCaseStudies: ["wilson-criminal-defence"],
     slug: "criminal-defense-lawyer-marketing",
-    title: "Criminal Defense Lawyer Marketing | JurisPage",
+    practiceNoun: "Criminal Defense",
+    title: "Criminal Defense Lawyer Marketing",
     heading: "Criminal Defense Lawyer Marketing & Advertising: Get Found When Clients Need You Most",
     primaryKeyword: "criminal defense lawyer marketing",
     displayKeyword: "Criminal Defense Lawyer Marketing",
@@ -141,7 +144,8 @@ export const practiceAreas: PracticeAreaData[] = [
   {
     relatedCaseStudies: ["the-sands-law-group"],
     slug: "family-law-firm-marketing",
-    title: "Family Law Firm Marketing | JurisPage",
+    practiceNoun: "Family Law",
+    title: "Family Law Firm Marketing",
     heading: "Family Law Firm Marketing: More Consultations From Clients Ready to Hire",
     primaryKeyword: "family law firm marketing",
     displayKeyword: "Family Law Firm Marketing",
@@ -187,7 +191,8 @@ export const practiceAreas: PracticeAreaData[] = [
   {
     relatedCaseStudies: ["immigration-desk"],
     slug: "immigration-lawyer-marketing",
-    title: "Immigration Lawyer Marketing | JurisPage",
+    practiceNoun: "Immigration",
+    title: "Immigration Lawyer Marketing",
     heading: "Immigration Lawyer Marketing: Reach Clients Across Visa Types and Languages",
     primaryKeyword: "immigration lawyer marketing",
     displayKeyword: "Immigration Lawyer Marketing",
@@ -230,9 +235,9 @@ export const practiceAreas: PracticeAreaData[] = [
     relatedServices: ["google-ads-for-law-firms", "law-firm-seo", "local-seo-for-law-firms", "law-firm-content-writing"],
   },
   {
-    relatedCaseStudies: ["the-sands-law-group"],
     slug: "bankruptcy-lawyer-marketing",
-    title: "Bankruptcy Lawyer Marketing | JurisPage",
+    practiceNoun: "Bankruptcy",
+    title: "Bankruptcy Lawyer Marketing",
     heading: "Bankruptcy Lawyer Marketing: Reach Clients When They Need Help Most",
     primaryKeyword: "bankruptcy lawyer marketing",
     displayKeyword: "Bankruptcy Lawyer Marketing",
@@ -274,9 +279,9 @@ export const practiceAreas: PracticeAreaData[] = [
     relatedServices: ["law-firm-seo", "local-seo-for-law-firms", "law-firm-content-writing"],
   },
   {
-    relatedCaseStudies: ["the-sands-law-group"],
     slug: "estate-planning-lawyer-marketing",
-    title: "Estate Planning Lawyer Marketing | JurisPage",
+    practiceNoun: "Estate Planning",
+    title: "Estate Planning Lawyer Marketing",
     heading: "Estate Planning Attorney Marketing: Build a Steady Stream of Referrals and Organic Leads",
     primaryKeyword: "estate planning attorney marketing",
     displayKeyword: "Estate Planning Attorney Marketing",
@@ -319,9 +324,9 @@ export const practiceAreas: PracticeAreaData[] = [
     relatedServices: ["law-firm-seo", "law-firm-content-writing", "law-firm-email-marketing"],
   },
   {
-    relatedCaseStudies: ["the-sands-law-group"],
     slug: "employment-lawyer-marketing",
-    title: "Employment Lawyer Marketing | JurisPage",
+    practiceNoun: "Employment",
+    title: "Employment Lawyer Marketing",
     heading: "Employment Lawyer Marketing: Reach Clients Facing Workplace Legal Issues",
     primaryKeyword: "employment lawyer marketing",
     displayKeyword: "Employment Lawyer Marketing",
@@ -363,9 +368,9 @@ export const practiceAreas: PracticeAreaData[] = [
     relatedServices: ["law-firm-seo", "google-ads-for-law-firms", "law-firm-content-writing"],
   },
   {
-    relatedCaseStudies: ["the-sands-law-group"],
     slug: "real-estate-lawyer-marketing",
-    title: "Real Estate Lawyer Marketing | JurisPage",
+    practiceNoun: "Real Estate",
+    title: "Real Estate Lawyer Marketing",
     heading: "Real Estate Attorney Marketing: Get More Closings and Dispute Cases",
     primaryKeyword: "real estate attorney marketing",
     displayKeyword: "Real Estate Attorney Marketing",
@@ -407,9 +412,9 @@ export const practiceAreas: PracticeAreaData[] = [
     relatedServices: ["law-firm-seo", "local-seo-for-law-firms", "law-firm-email-marketing"],
   },
   {
-    relatedCaseStudies: ["the-sands-law-group"],
     slug: "solo-attorney-marketing",
-    title: "Solo Attorney Marketing | JurisPage",
+    practiceNoun: "Solo Attorney",
+    title: "Solo Attorney Marketing",
     heading: "Solo Attorney Marketing: Compete on Equal Ground With Larger Firms",
     primaryKeyword: "solo attorney marketing",
     displayKeyword: "Solo Attorney Marketing",
@@ -451,9 +456,9 @@ export const practiceAreas: PracticeAreaData[] = [
     relatedServices: ["launchpad", "law-firm-seo", "local-seo-for-law-firms"],
   },
   {
-    relatedCaseStudies: ["the-sands-law-group"],
     slug: "small-law-firm-marketing",
-    title: "Small Law Firm Marketing | JurisPage",
+    practiceNoun: "Small Law Firm",
+    title: "Small Law Firm Marketing",
     heading: "Small Law Firm Marketing: Get More Cases Without the Big Agency Price Tag",
     primaryKeyword: "small law firm marketing",
     displayKeyword: "Small Law Firm Marketing",
@@ -496,7 +501,8 @@ export const practiceAreas: PracticeAreaData[] = [
   {
     relatedCaseStudies: ["the-sands-law-group"],
     slug: "divorce-lawyer-marketing",
-    title: "Divorce Lawyer Marketing | JurisPage",
+    practiceNoun: "Divorce",
+    title: "Divorce Lawyer Marketing",
     heading: "Divorce Lawyer Marketing: Get More Consultations From People Ready to Hire",
     primaryKeyword: "divorce attorney marketing",
     displayKeyword: "Divorce Attorney Marketing",
@@ -540,7 +546,8 @@ export const practiceAreas: PracticeAreaData[] = [
   {
     relatedCaseStudies: ["wilson-criminal-defence"],
     slug: "dui-lawyer-marketing",
-    title: "DUI Lawyer Marketing | JurisPage",
+    practiceNoun: "DUI",
+    title: "DUI Lawyer Marketing",
     heading: "DUI Lawyer Marketing: Be There When Someone Needs You Right Now",
     primaryKeyword: "DUI lawyer marketing",
     displayKeyword: "DUI Lawyer Marketing",
@@ -583,9 +590,9 @@ export const practiceAreas: PracticeAreaData[] = [
     relatedServices: ["google-ads-for-law-firms", "law-firm-seo", "ai-chatbot-for-law-firm-website", "local-seo-for-law-firms"],
   },
   {
-    relatedCaseStudies: ["the-sands-law-group"],
     slug: "workers-comp-lawyer-marketing",
-    title: "Workers' Compensation Lawyer Marketing | JurisPage",
+    practiceNoun: "Workers' Compensation",
+    title: "Workers' Compensation Lawyer Marketing",
     heading: "Workers' Comp Lawyer Marketing: Reach Injured Workers Before the Insurance Companies Do",
     primaryKeyword: "workers compensation attorney marketing",
     displayKeyword: "Workers Compensation Attorney Marketing",
@@ -627,9 +634,9 @@ export const practiceAreas: PracticeAreaData[] = [
     relatedServices: ["law-firm-seo", "local-seo-for-law-firms", "law-firm-content-writing"],
   },
   {
-    relatedCaseStudies: ["the-sands-law-group"],
     slug: "social-security-disability-lawyer-marketing",
-    title: "Social Security Disability Lawyer Marketing | JurisPage",
+    practiceNoun: "Social Security Disability",
+    title: "Social Security Disability Lawyer Marketing",
     heading: "SSDI Attorney Marketing: Reach Applicants Who Have Been Denied",
     primaryKeyword: "SSDI attorney marketing",
     displayKeyword: "SSDI Attorney Marketing",
@@ -671,9 +678,9 @@ export const practiceAreas: PracticeAreaData[] = [
     relatedServices: ["law-firm-seo", "law-firm-content-writing", "local-seo-for-law-firms"],
   },
   {
-    relatedCaseStudies: ["the-sands-law-group"],
     slug: "medical-malpractice-lawyer-marketing",
-    title: "Medical Malpractice Lawyer Marketing | JurisPage",
+    practiceNoun: "Medical Malpractice",
+    title: "Medical Malpractice Lawyer Marketing",
     heading: "Medical Malpractice Lawyer Marketing: Get Quality Cases From Qualified Clients",
     primaryKeyword: "medical malpractice lawyer marketing",
     displayKeyword: "Medical Malpractice Lawyer Marketing",
@@ -715,9 +722,9 @@ export const practiceAreas: PracticeAreaData[] = [
     relatedServices: ["law-firm-seo", "google-ads-for-law-firms", "law-firm-content-writing"],
   },
   {
-    relatedCaseStudies: ["the-sands-law-group"],
     slug: "mass-tort-law-firm-marketing",
-    title: "Mass Tort Law Firm Marketing | JurisPage",
+    practiceNoun: "Mass Tort",
+    title: "Mass Tort Law Firm Marketing",
     heading: "Mass Tort Law Firm Marketing: Scale Case Acquisition for Active Litigation",
     primaryKeyword: "mass tort law firm marketing",
     displayKeyword: "Mass Tort Law Firm Marketing",
@@ -759,9 +766,9 @@ export const practiceAreas: PracticeAreaData[] = [
     relatedServices: ["google-ads-for-law-firms", "law-firm-seo", "law-firm-content-writing", "law-firm-websites"],
   },
   {
-    relatedCaseStudies: ["the-sands-law-group"],
     slug: "startup-law-firm-marketing",
-    title: "Startup Law Firm Marketing | JurisPage",
+    practiceNoun: "Startup Law Firm",
+    title: "Startup Law Firm Marketing",
     heading: "Startup Law Firm Marketing: Build Your Online Presence Before Day One",
     primaryKeyword: "startup law firm marketing",
     displayKeyword: "Startup Law Firm Marketing",

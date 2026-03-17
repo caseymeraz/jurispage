@@ -64,6 +64,11 @@ export default function Footer() {
               ].map(([label, href]) => (
                 <li key={href}><Link href={href} className="hover:text-white transition-colors no-underline">{label}</Link></li>
               ))}
+              <li className="pt-2 mt-2 border-t border-gray-700">
+                <Link href="/practice-areas/" className="hover:text-white transition-colors no-underline" style={{ color: "#EE6C13" }}>
+                  View All Practice Areas →
+                </Link>
+              </li>
             </ul>
           </div>
 

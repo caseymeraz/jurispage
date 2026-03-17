@@ -16,7 +16,7 @@ export const intersections: IntersectionData[] = [
     practiceAreaSlug: "personal-injury-lawyer-marketing",
     serviceSlug: "law-firm-seo",
     heading: "Law Firm SEO for Personal Injury Attorneys",
-    metaTitle: "SEO for Personal Injury Lawyers | JurisPage",
+    metaTitle: "SEO for Personal Injury Lawyers",
     metaDescription:
       "More signed personal injury cases from organic search, not more traffic reports. SEO strategy built for PI firms that need to lower cost per case and stop paying $200 per click.",
     whyMatters:
@@ -67,7 +67,7 @@ export const intersections: IntersectionData[] = [
     practiceAreaSlug: "personal-injury-lawyer-marketing",
     serviceSlug: "google-ads-for-law-firms",
     heading: "Google Ads for Personal Injury Lawyers",
-    metaTitle: "Google Ads for Personal Injury Lawyers | JurisPage",
+    metaTitle: "Google Ads for Personal Injury Lawyers",
     metaDescription:
       "Run profitable Google Ads campaigns for your personal injury firm. JurisPage manages bidding, ad copy, and landing pages built to convert injured clients into signed cases.",
     whyMatters:
@@ -118,7 +118,7 @@ export const intersections: IntersectionData[] = [
     practiceAreaSlug: "personal-injury-lawyer-marketing",
     serviceSlug: "local-seo-for-law-firms",
     heading: "Local SEO for Personal Injury Law Firms",
-    metaTitle: "Local SEO for Personal Injury Lawyers | JurisPage",
+    metaTitle: "Local SEO for Personal Injury Lawyers",
     metaDescription:
       "Dominate Google Maps and local search for personal injury queries in your city. JurisPage builds the local SEO presence that puts your firm in front of injured clients nearby.",
     whyMatters:
@@ -169,7 +169,7 @@ export const intersections: IntersectionData[] = [
     practiceAreaSlug: "personal-injury-lawyer-marketing",
     serviceSlug: "law-firm-websites",
     heading: "Personal Injury Law Firm Website Design",
-    metaTitle: "Personal Injury Law Firm Website Design | JurisPage",
+    metaTitle: "Personal Injury Law Firm Website Design",
     metaDescription:
       "High-converting websites for personal injury attorneys. JurisPage designs sites built to turn injured visitors into consultation requests: fast, credible, and CRO-optimized.",
     whyMatters:
@@ -220,7 +220,7 @@ export const intersections: IntersectionData[] = [
     practiceAreaSlug: "personal-injury-lawyer-marketing",
     serviceSlug: "law-firm-content-writing",
     heading: "Content Writing for Personal Injury Law Firms",
-    metaTitle: "Content Writing for Personal Injury Law Firms | JurisPage",
+    metaTitle: "Content Writing for Personal Injury Law Firms",
     metaDescription:
       "SEO-optimized legal content for personal injury attorneys. JurisPage produces attorney-reviewed articles, practice area pages, and FAQs that rank and convert.",
     whyMatters:
@@ -273,7 +273,7 @@ export const intersections: IntersectionData[] = [
     practiceAreaSlug: "criminal-defense-lawyer-marketing",
     serviceSlug: "law-firm-seo",
     heading: "Law Firm SEO for Criminal Defense Attorneys",
-    metaTitle: "SEO for Criminal Defense Lawyers | JurisPage",
+    metaTitle: "SEO for Criminal Defense Lawyers",
     metaDescription:
       "More retained criminal defense clients from organic search, not vanity rankings. SEO built for the urgency of criminal defense, where your ranking at the moment of arrest is what matters.",
     whyMatters:
@@ -324,7 +324,7 @@ export const intersections: IntersectionData[] = [
     practiceAreaSlug: "criminal-defense-lawyer-marketing",
     serviceSlug: "google-ads-for-law-firms",
     heading: "Google Ads for Criminal Defense Lawyers",
-    metaTitle: "Google Ads for Criminal Defense Attorneys | JurisPage",
+    metaTitle: "Google Ads for Criminal Defense Attorneys",
     metaDescription:
       "Drive immediate calls from defendants and families with Google Ads campaigns built for criminal defense. JurisPage manages bidding, ads, and landing pages that convert urgent searchers.",
     whyMatters:
@@ -375,7 +375,7 @@ export const intersections: IntersectionData[] = [
     practiceAreaSlug: "criminal-defense-lawyer-marketing",
     serviceSlug: "local-seo-for-law-firms",
     heading: "Local SEO for Criminal Defense Law Firms",
-    metaTitle: "Local SEO for Criminal Defense Lawyers | JurisPage",
+    metaTitle: "Local SEO for Criminal Defense Lawyers",
     metaDescription:
       "Get your criminal defense firm into the Google Map Pack for urgent local searches. JurisPage builds the local signals that put you in front of defendants and families in your area.",
     whyMatters:
@@ -426,7 +426,7 @@ export const intersections: IntersectionData[] = [
     practiceAreaSlug: "criminal-defense-lawyer-marketing",
     serviceSlug: "law-firm-websites",
     heading: "Criminal Defense Law Firm Website Design",
-    metaTitle: "Criminal Defense Law Firm Website Design | JurisPage",
+    metaTitle: "Criminal Defense Law Firm Website Design",
     metaDescription:
       "Websites built to convert defendants and families into consultation requests. JurisPage designs criminal defense firm sites that are fast, credible, and built for urgent conversions.",
     whyMatters:
@@ -477,7 +477,7 @@ export const intersections: IntersectionData[] = [
     practiceAreaSlug: "criminal-defense-lawyer-marketing",
     serviceSlug: "law-firm-content-writing",
     heading: "Content Writing for Criminal Defense Law Firms",
-    metaTitle: "Content Writing for Criminal Defense Lawyers | JurisPage",
+    metaTitle: "Content Writing for Criminal Defense Lawyers",
     metaDescription:
       "SEO-optimized criminal defense content that ranks and converts. JurisPage produces charge-specific pages, defense strategy guides, and FAQ articles that put your firm in front of urgent searchers.",
     whyMatters:
@@ -530,7 +530,7 @@ export const intersections: IntersectionData[] = [
     practiceAreaSlug: "family-law-firm-marketing",
     serviceSlug: "law-firm-seo",
     heading: "Law Firm SEO for Family Law Attorneys",
-    metaTitle: "SEO for Family Law Firms | JurisPage",
+    metaTitle: "SEO for Family Law Firms",
     metaDescription:
       "More divorce and custody consultations from organic search, not more traffic dashboards. SEO for family law firms that reduces your cost per retained client.",
     whyMatters:
@@ -581,7 +581,7 @@ export const intersections: IntersectionData[] = [
     practiceAreaSlug: "family-law-firm-marketing",
     serviceSlug: "google-ads-for-law-firms",
     heading: "Google Ads for Family Law Firms",
-    metaTitle: "Google Ads for Family Law Attorneys | JurisPage",
+    metaTitle: "Google Ads for Family Law Attorneys",
     metaDescription:
       "Drive consultation requests from divorcing spouses, custody disputes, and other family law clients with Google Ads campaigns built to convert. JurisPage manages your campaigns end-to-end.",
     whyMatters:
@@ -632,7 +632,7 @@ export const intersections: IntersectionData[] = [
     practiceAreaSlug: "family-law-firm-marketing",
     serviceSlug: "local-seo-for-law-firms",
     heading: "Local SEO for Family Law Firms",
-    metaTitle: "Local SEO for Family Law Attorneys | JurisPage",
+    metaTitle: "Local SEO for Family Law Attorneys",
     metaDescription:
       "Get your family law firm into the Google Map Pack for divorce, custody, and family law searches in your area. JurisPage builds local SEO presence that generates consultation requests.",
     whyMatters:
@@ -683,7 +683,7 @@ export const intersections: IntersectionData[] = [
     practiceAreaSlug: "family-law-firm-marketing",
     serviceSlug: "law-firm-websites",
     heading: "Family Law Firm Website Design",
-    metaTitle: "Family Law Firm Website Design | JurisPage",
+    metaTitle: "Family Law Firm Website Design",
     metaDescription:
       "Websites for family law attorneys that convert consultation requests. JurisPage designs family law firm sites that balance warmth and professionalism to connect with clients in difficult situations.",
     whyMatters:
@@ -734,7 +734,7 @@ export const intersections: IntersectionData[] = [
     practiceAreaSlug: "family-law-firm-marketing",
     serviceSlug: "law-firm-content-writing",
     heading: "Content Writing for Family Law Firms",
-    metaTitle: "Content Writing for Family Law Attorneys | JurisPage",
+    metaTitle: "Content Writing for Family Law Attorneys",
     metaDescription:
       "SEO content for family law firms that ranks and builds trust. JurisPage produces divorce guides, custody articles, and practice area pages that attract clients and earn Google visibility.",
     whyMatters:
@@ -787,7 +787,7 @@ export const intersections: IntersectionData[] = [
     practiceAreaSlug: "dui-lawyer-marketing",
     serviceSlug: "law-firm-seo",
     heading: "Law Firm SEO for DUI Attorneys",
-    metaTitle: "SEO for DUI Lawyers | JurisPage",
+    metaTitle: "SEO for DUI Lawyers",
     metaDescription:
       "More retained DUI clients from organic search, where your ranking during the 10-day DMV deadline window is worth more than any ad. SEO built for DUI urgency.",
     whyMatters:
@@ -838,7 +838,7 @@ export const intersections: IntersectionData[] = [
     practiceAreaSlug: "dui-lawyer-marketing",
     serviceSlug: "google-ads-for-law-firms",
     heading: "Google Ads for DUI Lawyers",
-    metaTitle: "Google Ads for DUI Attorneys | JurisPage",
+    metaTitle: "Google Ads for DUI Attorneys",
     metaDescription:
       "Capture DUI defendants searching for help in your market with Google Ads built for urgency and conversion. JurisPage manages DUI ad campaigns that deliver qualified consultations.",
     whyMatters:
@@ -889,7 +889,7 @@ export const intersections: IntersectionData[] = [
     practiceAreaSlug: "dui-lawyer-marketing",
     serviceSlug: "local-seo-for-law-firms",
     heading: "Local SEO for DUI Law Firms",
-    metaTitle: "Local SEO for DUI Lawyers | JurisPage",
+    metaTitle: "Local SEO for DUI Lawyers",
     metaDescription:
       "Get your DUI firm into the Google Map Pack for local DUI searches. JurisPage builds the local signals that put your firm in front of defendants in your county and city.",
     whyMatters:
@@ -940,7 +940,7 @@ export const intersections: IntersectionData[] = [
     practiceAreaSlug: "dui-lawyer-marketing",
     serviceSlug: "law-firm-websites",
     heading: "DUI Law Firm Website Design",
-    metaTitle: "DUI Law Firm Website Design | JurisPage",
+    metaTitle: "DUI Law Firm Website Design",
     metaDescription:
       "High-converting websites for DUI attorneys. JurisPage designs DUI firm sites built for urgent conversions: fast, credible, and structured for defendants who need help now.",
     whyMatters:
@@ -991,7 +991,7 @@ export const intersections: IntersectionData[] = [
     practiceAreaSlug: "dui-lawyer-marketing",
     serviceSlug: "law-firm-content-writing",
     heading: "Content Writing for DUI Law Firms",
-    metaTitle: "Content Writing for DUI Attorneys | JurisPage",
+    metaTitle: "Content Writing for DUI Attorneys",
     metaDescription:
       "SEO-optimized DUI content that ranks and converts. JurisPage writes charge-specific pages, DMV guides, state law articles, and FAQ content that attracts DUI defendants searching for help.",
     whyMatters:
@@ -1044,7 +1044,7 @@ export const intersections: IntersectionData[] = [
     practiceAreaSlug: "workers-comp-lawyer-marketing",
     serviceSlug: "law-firm-seo",
     heading: "Law Firm SEO for Workers' Compensation Attorneys",
-    metaTitle: "SEO for Workers' Comp Lawyers | JurisPage",
+    metaTitle: "SEO for Workers' Comp Lawyers",
     metaDescription:
       "More retained workers' comp clients from organic search, especially claim denials and workplace injuries where urgency drives fast retention. SEO built for workers' comp intake.",
     whyMatters:
@@ -1095,7 +1095,7 @@ export const intersections: IntersectionData[] = [
     practiceAreaSlug: "workers-comp-lawyer-marketing",
     serviceSlug: "google-ads-for-law-firms",
     heading: "Google Ads for Workers' Compensation Lawyers",
-    metaTitle: "Google Ads for Workers' Comp Attorneys | JurisPage",
+    metaTitle: "Google Ads for Workers' Comp Attorneys",
     metaDescription:
       "Drive injured workers to your practice with Google Ads built for workers' comp. JurisPage manages campaigns that convert denied claims, workplace injuries, and comp disputes into signed cases.",
     whyMatters:
@@ -1146,7 +1146,7 @@ export const intersections: IntersectionData[] = [
     practiceAreaSlug: "workers-comp-lawyer-marketing",
     serviceSlug: "local-seo-for-law-firms",
     heading: "Local SEO for Workers' Compensation Law Firms",
-    metaTitle: "Local SEO for Workers' Comp Attorneys | JurisPage",
+    metaTitle: "Local SEO for Workers' Comp Attorneys",
     metaDescription:
       "Get your workers' comp firm into the Google Map Pack for local injury and compensation searches. JurisPage builds the local presence that turns injured workers into consultations.",
     whyMatters:
@@ -1197,7 +1197,7 @@ export const intersections: IntersectionData[] = [
     practiceAreaSlug: "workers-comp-lawyer-marketing",
     serviceSlug: "law-firm-websites",
     heading: "Workers' Compensation Law Firm Website Design",
-    metaTitle: "Workers' Comp Law Firm Website Design | JurisPage",
+    metaTitle: "Workers' Comp Law Firm Website Design",
     metaDescription:
       "Websites for workers' comp attorneys that convert injured workers into consultations. JurisPage designs sites that build trust and generate contact from clients dealing with workplace injuries and denied claims.",
     whyMatters:
@@ -1248,7 +1248,7 @@ export const intersections: IntersectionData[] = [
     practiceAreaSlug: "workers-comp-lawyer-marketing",
     serviceSlug: "law-firm-content-writing",
     heading: "Content Writing for Workers' Compensation Law Firms",
-    metaTitle: "Content Writing for Workers' Comp Attorneys | JurisPage",
+    metaTitle: "Content Writing for Workers' Comp Attorneys",
     metaDescription:
       "SEO content for workers' comp attorneys that ranks and converts. JurisPage writes injury-specific guides, claim process articles, and practice pages that attract injured workers searching for help.",
     whyMatters:

@@ -157,6 +157,13 @@ export default function Header() {
                       {p.label}
                     </Link>
                   ))}
+                  <Link
+                    href="/practice-areas/"
+                    className="col-span-2 text-sm font-semibold py-2 block no-underline transition-colors mt-1"
+                    style={{ color: "#EE6C13" }}
+                  >
+                    View All Practice Areas →
+                  </Link>
                 </div>
               </div>
             </div>
@@ -299,6 +306,14 @@ export default function Header() {
                   {p.label}
                 </Link>
               ))}
+              <Link
+                href="/practice-areas/"
+                className="block px-3 py-2 text-sm font-semibold no-underline transition-colors"
+                style={{ color: "#EE6C13" }}
+                onClick={() => setMobileOpen(false)}
+              >
+                View All Practice Areas →
+              </Link>
             </div>
           </div>
         </div>

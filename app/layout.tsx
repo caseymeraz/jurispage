@@ -24,7 +24,7 @@ const poppins = Poppins({
 
 const orgSchema = {
   "@context": "https://schema.org",
-  "@type": "LegalService",
+  "@type": "MarketingAgency",
   "@id": "https://jurispage.com/#organization",
   name: "JurisPage",
   alternateName: "Ethical SEO Consulting LLC",
@@ -33,15 +33,14 @@ const orgSchema = {
   description: "Law firm marketing agency providing SEO, Google Ads, website design, and digital strategy for small and mid-market law firms.",
   telephone: "+1-855-593-6935",
   email: "hello@jurispage.com",
-  foundingDate: "2026",
-  address: [
-    { "@type": "PostalAddress", addressLocality: "Minneapolis", addressRegion: "MN", addressCountry: "US" },
-    { "@type": "PostalAddress", addressLocality: "Austin", addressRegion: "TX", addressCountry: "US" },
-    { "@type": "PostalAddress", addressLocality: "Toronto", addressRegion: "ON", addressCountry: "CA" },
-  ],
   areaServed: { "@type": "Country", name: "United States" },
   serviceType: "Law Firm Digital Marketing",
   priceRange: "$$$",
+  sameAs: [
+    "https://www.linkedin.com/company/jurispage",
+    "https://www.facebook.com/p/JurisPage-61567289636310/",
+    "https://x.com/JurisPage",
+  ],
   aggregateRating: {
     "@type": "AggregateRating",
     ratingValue: "4.9",
@@ -61,32 +60,6 @@ const websiteSchema = {
   },
 };
 
-const localBusinessSchema = {
-  "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  name: "JurisPage",
-  url: "https://jurispage.com",
-  telephone: "+1-855-593-6935",
-  email: "hello@jurispage.com",
-  priceRange: "$$$",
-  address: {
-    "@type": "PostalAddress",
-    addressLocality: "Minneapolis",
-    addressRegion: "MN",
-    addressCountry: "US",
-  },
-  geo: {
-    "@type": "GeoCoordinates",
-    latitude: "44.9778",
-    longitude: "-93.2650",
-  },
-  openingHoursSpecification: {
-    "@type": "OpeningHoursSpecification",
-    dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-    opens: "09:00",
-    closes: "17:00",
-  },
-};
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://jurispage.com"),
@@ -116,7 +89,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={`${quicksand.variable} ${poppins.variable}`}>
       <head>
-        <SchemaOrg schema={[orgSchema, websiteSchema, localBusinessSchema]} />
+        <SchemaOrg schema={[orgSchema, websiteSchema]} />
       </head>
       <body className="bg-white text-gray-900 font-body antialiased">
         <Header />

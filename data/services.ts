@@ -146,7 +146,7 @@ export const services: ServiceData[] = [
   {
     relatedCaseStudies: ["immigration-desk", "the-sands-law-group"],
     slug: "google-ads-for-law-firms",
-    title: "Google Ads for Law Firms | JurisPage",
+    title: "Google Ads for Law Firms",
     heading: "Google Ads for Law Firms That Actually Convert",
     tagline: "Pay for clients, not just clicks.",
     primaryKeyword: "Google Ads for lawyers",
@@ -251,7 +251,7 @@ export const services: ServiceData[] = [
   {
     relatedCaseStudies: ["the-sands-law-group"],
     slug: "law-firm-websites",
-    title: "Law Firm Website Design | JurisPage",
+    title: "Law Firm Website Design",
     heading: "Law Firm Websites Built to Convert Visitors Into Clients",
     tagline: "Your website is your best salesperson.",
     primaryKeyword: "law firm website design",
@@ -360,7 +360,7 @@ export const services: ServiceData[] = [
   {
     relatedCaseStudies: ["the-sands-law-group"],
     slug: "local-seo-for-law-firms",
-    title: "Local SEO for Law Firms | JurisPage",
+    title: "Local SEO for Law Firms",
     heading: "Local SEO for Law Firms: Dominate the Map Pack",
     tagline: "Get found by clients searching near you.",
     primaryKeyword: "local SEO for law firms",
@@ -459,7 +459,7 @@ export const services: ServiceData[] = [
   {
     relatedCaseStudies: ["the-sands-law-group"],
     slug: "launchpad",
-    title: "Launchpad - Law Firm Marketing for New Attorneys | JurisPage",
+    title: "Launchpad - Law Firm Marketing for New Attorneys",
     heading: "JurisPage Launchpad: Marketing for New Law Firms",
     tagline: "Everything you need to open your doors online. Fast.",
     primaryKeyword: "startup law firm marketing",
@@ -558,7 +558,7 @@ export const services: ServiceData[] = [
   {
     relatedCaseStudies: ["the-sands-law-group"],
     slug: "generative-engine-optimization-for-law-firms",
-    title: "Generative Engine Optimization for Law Firms | JurisPage",
+    title: "Generative Engine Optimization for Law Firms",
     heading: "GEO for Law Firms: Get Cited in ChatGPT, Perplexity, and AI Overviews",
     tagline: "The next search battle is in AI. Win it first.",
     primaryKeyword: "generative engine optimization for law firms",
@@ -657,7 +657,7 @@ export const services: ServiceData[] = [
   {
     relatedCaseStudies: ["the-sands-law-group"],
     slug: "ai-chatbot-for-law-firm-website",
-    title: "AI Chatbot for Law Firm Websites | JurisPage",
+    title: "AI Chatbot for Law Firm Websites",
     heading: "AI Chatbot for Law Firms: Capture Leads at 2am",
     tagline: "Your firm is open 24/7. Your intake shouldn't stop when you do.",
     primaryKeyword: "AI chatbot for law firm website",
@@ -743,7 +743,7 @@ export const services: ServiceData[] = [
   {
     relatedCaseStudies: ["the-sands-law-group"],
     slug: "law-firm-email-marketing",
-    title: "Law Firm Email Marketing | JurisPage",
+    title: "Law Firm Email Marketing",
     heading: "Law Firm Email Marketing That Keeps Clients and Referral Sources Warm",
     tagline: "The cheapest lead you'll ever get is a referral from a past client.",
     primaryKeyword: "law firm email marketing",
@@ -828,7 +828,7 @@ export const services: ServiceData[] = [
   {
     relatedCaseStudies: ["immigration-desk"],
     slug: "bing-ads-for-lawyers",
-    title: "Bing Ads for Lawyers | JurisPage",
+    title: "Bing Ads for Lawyers",
     heading: "Bing Ads for Lawyers: The Overlooked 35%",
     tagline: "Your competitors aren't on Bing. That's your advantage.",
     primaryKeyword: "Bing ads for lawyers",
@@ -926,7 +926,7 @@ export const services: ServiceData[] = [
   {
     relatedCaseStudies: ["wilson-criminal-defence"],
     slug: "law-firm-content-writing",
-    title: "Law Firm Content Writing Services | JurisPage",
+    title: "Law Firm Content Writing Services",
     heading: "Law Firm Content Writing: SEO Blog Posts and Practice Area Pages",
     tagline: "Content that ranks. Copy that converts.",
     primaryKeyword: "law firm content writing services",

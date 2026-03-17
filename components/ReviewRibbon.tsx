@@ -1,6 +1,6 @@
 const reviews = [
   {
-    quote: "Uptime JurisPage is a clear winner for law firms looking to build a fresh, clean, professional website. What sold me was their professionalism and command of web design.",
+    quote: "JurisPage is a clear winner for law firms looking to build a fresh, clean, professional website. What sold me was their professionalism and command of web design.",
     author: "Yasin A.",
   },
   {
