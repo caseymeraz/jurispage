@@ -35,7 +35,7 @@ const growthGoals = [
   "All of the above",
 ];
 
-const casesWantedOptions = ["1-5", "5-10", "10-20", "20+"];
+const casesWantedOptions = ["1-2 Cases", "3-10 Cases", "10-20 Cases", "20+ Cases"];
 
 export default function ContactForm() {
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
