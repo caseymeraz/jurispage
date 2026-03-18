@@ -343,21 +343,6 @@ const nextConfig: NextConfig = {
 
       // ── GSC crawl-error redirects ──
       {
-        source: "/law-firm-seo-dallas/:path*",
-        destination: "/law-firm-seo/",
-        permanent: true,
-      },
-      {
-        source: "/law-firm-seo-las-vegas/:path*",
-        destination: "/law-firm-seo/",
-        permanent: true,
-      },
-      {
-        source: "/law-firm-seo-minneapolis/:path*",
-        destination: "/law-firm-seo/",
-        permanent: true,
-      },
-      {
         source: "/avvo-lawyer-marketing-guide/:path*",
         destination: "/law-firm-seo/",
         permanent: true,
@@ -365,11 +350,6 @@ const nextConfig: NextConfig = {
       {
         source: "/feature-client-reviews-on-your-law-firms-website/:path*",
         destination: "/law-firm-seo/",
-        permanent: true,
-      },
-      {
-        source: "/google-ads-lawyers-chicago/:path*",
-        destination: "/google-ads-for-law-firms/",
         permanent: true,
       },
       {
@@ -410,16 +390,6 @@ const nextConfig: NextConfig = {
       {
         source: "/library/:path*",
         destination: "/blog/",
-        permanent: true,
-      },
-      {
-        source: "/law-firm-marketing-phoenix/:path*",
-        destination: "/",
-        permanent: true,
-      },
-      {
-        source: "/law-firm-marketing-washington-dc/:path*",
-        destination: "/",
         permanent: true,
       },
       {
