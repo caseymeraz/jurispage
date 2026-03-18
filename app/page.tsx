@@ -438,7 +438,7 @@ export default function HomePage() {
               </div>
 
               <h1 className="font-heading font-extrabold text-gray-900 text-4xl md:text-5xl leading-tight mb-5">
-                See exactly where your firm is losing your market
+                Law Firm Marketing That Shows You Exactly Where You&apos;re Losing Cases
               </h1>
 
               <p className="text-gray-600 text-xl leading-relaxed mb-8">

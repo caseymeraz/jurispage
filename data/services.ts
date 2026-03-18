@@ -150,7 +150,7 @@ export const services: ServiceData[] = [
     heading: "Google Ads for Law Firms That Actually Convert",
     tagline: "Pay for clients, not just clicks.",
     primaryKeyword: "Google Ads for lawyers",
-    description: "JurisPage manages Google Ads campaigns for law firms with a focus on qualified leads, not vanity metrics. No wasted spend.",
+    description: "Google Ads management for law firms that turns clicks into signed cases. Practice-area targeting, negative keyword lists, landing page optimization. No long-term contracts. Get a free campaign audit.",
     intro: "Google Ads for law firms - formerly Google AdWords - is one of the fastest ways to put your practice in front of someone actively searching for a lawyer right now, not weeks from now. Legal is one of the most expensive paid search categories on the planet, with cost-per-click ranging from $50 to over $200 for competitive practice areas like personal injury and criminal defense. That price reflects the value of the cases, but it also means there is very little margin for a sloppy account. Specialized management for law firm PPC matters because the keyword targeting, ad copy rules, negative keyword structure, and landing page requirements in legal are different from any other industry. Whether you are running traditional PPC for lawyers, Google Local Service Ads for lawyers, or both, a well-built campaign can produce qualified consultation requests within 24-48 hours of launch; a poorly managed one burns through your budget without generating a single signed client.",
     features: [
       "Campaign setup and full account audit",
@@ -255,7 +255,7 @@ export const services: ServiceData[] = [
     heading: "Law Firm Websites Built to Convert Visitors Into Clients",
     tagline: "Your website is your best salesperson.",
     primaryKeyword: "law firm website design",
-    description: "JurisPage designs law firm websites that load fast, rank in Google, and convert visitors into consultation requests.",
+    description: "Law firm websites that load fast, rank in Google, and convert visitors into consultation requests. Mobile-first, SEO-ready, live in 30 days. No long-term contracts. See our portfolio.",
     intro: "The best law firm websites do not just look professional - they convert visitors into signed clients. A law firm website operates under rules that generic business websites do not. Google classifies legal content as Your Money or Your Life (YMYL), which means its quality raters scrutinize your site for E-E-A-T signals - Experience, Expertise, Authoritativeness, and Trustworthiness. That means your attorney bio pages need real credentials, bar numbers, and verifiable case history, not a paragraph of marketing copy. Bar compliance also adds constraints most web designers have never encountered: rules around case result claims, testimonial disclaimers, and jurisdiction-specific advertising disclosures that vary state by state. On top of that, 75% of people judge a company\'s credibility by its website design - and for law firms, that judgment happens in seconds. When someone clicks your site from a Google search and sees a slow-loading, outdated page with a stock photo attorney and no visible phone number, they hit the back button and call your competitor.",
     features: [
       "Custom WordPress design built for law firms",
@@ -364,7 +364,7 @@ export const services: ServiceData[] = [
     heading: "Local SEO for Law Firms: Dominate the Map Pack",
     tagline: "Get found by clients searching near you.",
     primaryKeyword: "local SEO for law firms",
-    description: "JurisPage specializes in local SEO for law firms - Google Business Profile, map pack rankings, and local citation building that drives case inquiries.",
+    description: "Get into the Google map pack and dominate local search in your market. GBP optimization, citation building, review generation for law firms. 44% of local clicks go to the map pack. Are you in it?",
     intro: "Local SEO for law firms is the practice of optimizing your Google Business Profile, building consistent citations across legal directories, generating Google reviews, and creating location-specific content so your firm appears in the map pack when someone nearby searches 'personal injury lawyer near me' or 'divorce attorney [city].' Google reports that 46% of all searches carry local intent - meaning nearly half of every search typed into Google is someone looking for a business, service, or professional in a specific location. For legal searches, that number is even higher. The map pack - those three results shown with a map pin at the top of the page - captures 44% of all clicks for local queries. If your firm is not in that pack for your primary practice area and city, you are losing nearly half of the available organic traffic before a single visitor even reaches your website.",
     features: [
       "Google Business Profile setup and ongoing optimization",
@@ -661,7 +661,7 @@ export const services: ServiceData[] = [
     heading: "AI Chatbot for Law Firms: Capture Leads at 2am",
     tagline: "Your firm is open 24/7. Your intake shouldn't stop when you do.",
     primaryKeyword: "AI chatbot for law firm website",
-    description: "JurisPage deploys AI chatbots for law firm websites that capture leads after hours, qualify prospects, and reduce response time.",
+    description: "Capture the 40% of case inquiries that come after hours. AI chatbots for law firm websites that qualify prospects, collect intake info, and notify your team instantly. Custom-trained for your practice area.",
     intro: "40% of legal case inquiries come outside business hours. If your website has no way to respond, you lose those potential clients to whoever answers first. An AI chatbot captures them, qualifies them, and gets their information into your intake system before morning.",
     features: [
       "Custom-trained chatbot for your practice area",
@@ -747,7 +747,7 @@ export const services: ServiceData[] = [
     heading: "Law Firm Email Marketing That Keeps Clients and Referral Sources Warm",
     tagline: "The cheapest lead you'll ever get is a referral from a past client.",
     primaryKeyword: "law firm email marketing",
-    description: "JurisPage builds and manages email marketing programs for law firms that generate referrals, nurture prospects, and re-engage past clients.",
+    description: "Turn your contact list into a case pipeline. Email marketing for law firms that generates referrals from past clients, nurtures prospects, and keeps referral sources warm. Bar-compliant campaigns that drive revenue.",
     intro: "Most law firms collect email addresses and do nothing with them. Past clients, referral partners, newsletter subscribers - all sitting in a list that generates zero revenue. Email marketing changes that with a disciplined, compliance-aware approach to staying top of mind.",
     features: [
       "Email campaign strategy and content calendar",
