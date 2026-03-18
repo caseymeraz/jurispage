@@ -36,6 +36,13 @@ yarn-error.log*
 # vercel
 .vercel
 
+# seo audit generated output (goals.json is committed, everything else is generated)
+scripts/output/keyword-map.json
+scripts/output/seo-audit-report.json
+scripts/output/seo-audit-report.md
+scripts/output/seo-audit-report-BEFORE.json
+scripts/output/audit-history/
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts

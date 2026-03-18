@@ -1,0 +1,111 @@
+{
+  "domain": "jurispage.com",
+  "audience": "Law firm owners and managing partners who want to grow their practice",
+  "audienceContext": "Attorneys are skeptical of marketing agencies, value transparency, hate long contracts, and make decisions based on ROI evidence",
+  "brand": "JurisPage",
+  "goals": {
+    "ranking": "Rank for each page's target topic in Google and AI search",
+    "usability": "Clear structure, fast comprehension, obvious next step on every page",
+    "audienceDelight": "Speak to attorney pain points, demonstrate legal marketing expertise, differentiate from generic agencies"
+  },
+  "siteType": "Next.js SSR",
+  "projectRoot": "/Users/casey/projects/jurispage",
+  "audienceProfiles": {
+    "service-evaluator": {
+      "pageTypes": ["service"],
+      "intent": "commercial investigation",
+      "description": "Attorney actively comparing marketing agencies. Wants to see pricing, proof of results, and a clear process. Skeptical of hype, responds to specifics.",
+      "keyQuestions": [
+        "What does this cost and what do I get?",
+        "Can you prove this works for firms like mine?",
+        "How is this different from the last agency I hired?"
+      ]
+    },
+    "local-searcher": {
+      "pageTypes": ["metro"],
+      "intent": "local commercial",
+      "description": "Attorney searching for marketing help in their specific city. Wants confirmation that the agency serves their market and understands local competition.",
+      "keyQuestions": [
+        "Do you work with firms in my city?",
+        "Do you understand my local legal market?",
+        "What results have you gotten in my area?"
+      ]
+    },
+    "practice-specific": {
+      "pageTypes": ["practice-area", "intersection"],
+      "intent": "niche evaluation",
+      "description": "Attorney in a specific practice area evaluating whether this agency understands their niche. Skeptical of generalist agencies that claim to serve everyone.",
+      "keyQuestions": [
+        "Do you actually understand my practice area?",
+        "What specific strategies work for my type of law?",
+        "Have you worked with other firms in my niche?"
+      ]
+    },
+    "explorer": {
+      "pageTypes": ["homepage", "about", "contact", "pricing"],
+      "intent": "awareness",
+      "description": "Attorney early in their search, browsing and forming first impressions. Wants to quickly understand what JurisPage does and whether it is worth further investigation.",
+      "keyQuestions": [
+        "What does this company do?",
+        "Are they legitimate?",
+        "Is this worth my time to explore further?"
+      ]
+    },
+    "researcher": {
+      "pageTypes": ["blog-post", "blog-index", "resource", "news"],
+      "intent": "informational",
+      "description": "Attorney looking for actionable information about legal marketing. Wants practical advice, not a sales pitch. May or may not be evaluating agencies.",
+      "keyQuestions": [
+        "What should I know about this topic?",
+        "Is this advice trustworthy and specific?",
+        "Can I use this information to evaluate my current agency?"
+      ]
+    },
+    "proof-seeker": {
+      "pageTypes": ["case-study", "case-studies-index"],
+      "intent": "trust building",
+      "description": "Attorney looking for evidence that this agency delivers results. Wants to see specific numbers, client situations similar to theirs, and verifiable outcomes.",
+      "keyQuestions": [
+        "Have you worked with a firm like mine?",
+        "What specific results did you deliver?",
+        "Can I verify these claims?"
+      ]
+    }
+  },
+  "requiredSchema": {
+    "homepage": ["WebPage", "Organization", "AggregateRating"],
+    "service": ["Service", "BreadcrumbList", "FAQPage", "HowTo"],
+    "practice-area": ["Service", "BreadcrumbList", "FAQPage"],
+    "metro": ["Service", "LocalBusiness", "BreadcrumbList", "FAQPage"],
+    "intersection": ["Service", "BreadcrumbList", "FAQPage"],
+    "blog-post": ["Article", "BreadcrumbList", "Person"],
+    "blog-index": ["WebPage", "BreadcrumbList"],
+    "case-study": ["CreativeWork", "BreadcrumbList", "Review"],
+    "case-studies-index": ["WebPage", "BreadcrumbList"],
+    "about": ["AboutPage", "Organization"],
+    "contact": ["ContactPage", "Organization"],
+    "pricing": ["WebPage", "BreadcrumbList"],
+    "resource": ["Article", "BreadcrumbList"],
+    "news": ["Article", "BreadcrumbList"]
+  },
+  "acronymGlossary": {
+    "SEO": "Search Engine Optimization",
+    "PPC": "Pay-Per-Click",
+    "GBP": "Google Business Profile",
+    "CTA": "Call to Action",
+    "YMYL": "Your Money or Your Life",
+    "E-E-A-T": "Experience, Expertise, Authoritativeness, and Trustworthiness",
+    "LSA": "Local Service Ads",
+    "GEO": "Generative Engine Optimization",
+    "ROI": "Return on Investment",
+    "CPC": "Cost Per Click",
+    "NAP": "Name, Address, Phone number",
+    "CPA": "Cost Per Acquisition",
+    "DR": "Domain Rating",
+    "SERP": "Search Engine Results Page",
+    "CTR": "Click-Through Rate",
+    "PI": "Personal Injury",
+    "IP": "Intellectual Property",
+    "SQL": "Sales-Qualified Lead"
+  }
+}
