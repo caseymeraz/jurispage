@@ -67,7 +67,7 @@ export const practiceAreas: PracticeAreaData[] = [
     mistakeCards: [
       { title: "Broad-Match Budget Burn", description: "Running Google Ads on broad match 'accident lawyer' and paying $200/click for workers' comp calls, medical malpractice inquiries, and out-of-state searchers. Tightly segmented campaigns by injury type with hundreds of negative keywords cut wasted spend dramatically." },
       { title: "One Page for Everything", description: "A single PI page listing every case type you handle in one undifferentiated block of text. The competing firm has 12 separate pages, each dedicated to a specific injury type and city combination, each ranking for its own keyword cluster your page will never touch." },
-      { title: "Invisible in the Map Pack", description: "No GBP optimization, fewer than 50 reviews, and missing from the 44% of clicks that go to local results. PI firms that don't appear in the map pack are invisible to nearly half the people searching for an attorney in their city right now." },
+      { title: "Invisible in the Map Pack", description: "No GBP optimization, fewer than 50 reviews, and missing from the 44% of clicks that go to local results. Personal injury firms that don't appear in the map pack are invisible to nearly half the people searching for an attorney in their city right now." },
     ],
     sectionHeadings: {
       whyDifferent: "Why Marketing for Personal Injury Firms Demands a Different Strategy",
