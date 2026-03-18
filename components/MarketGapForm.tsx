@@ -177,6 +177,19 @@ export default function MarketGapForm() {
   useEffect(() => {
     if (!placesReady || !firmInputRef.current || autocompleteRef.current) return;
 
+    // Places library may still be loading (async), wait for it
+    if (!google.maps.places?.Autocomplete) {
+      const poll = setInterval(() => {
+        if (google.maps.places?.Autocomplete) {
+          clearInterval(poll);
+          setPlacesReady(false); // trigger re-run of this effect
+          setTimeout(() => setPlacesReady(true), 0);
+        }
+      }, 100);
+      const timeout = setTimeout(() => { clearInterval(poll); setManualEntry(true); }, 5000);
+      return () => { clearInterval(poll); clearTimeout(timeout); };
+    }
+
     const ac = new google.maps.places.Autocomplete(firmInputRef.current, {
       types: ["establishment"],
       componentRestrictions: { country: "us" },
