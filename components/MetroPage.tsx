@@ -147,12 +147,36 @@ export default function MetroPage({ metro, service }: MetroPageProps) {
         </div>
       </section>
 
+      {/* Social Proof Stats */}
+      <section className="py-10 px-6 bg-[#EE6C13]">
+        <div className="max-w-4xl mx-auto">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            {[
+              { value: "113+", label: "Law firms served nationwide" },
+              { value: "68%", label: "Average increase in signed cases within 12 months" },
+              { value: "$0", label: "Long-term contracts required" },
+              { value: "4.9★", label: "Average client satisfaction rating" },
+            ].map((stat) => (
+              <div key={stat.label} className="text-center">
+                <div className="font-heading font-extrabold text-white text-3xl md:text-4xl leading-none mb-1">{stat.value}</div>
+                <div className="text-orange-100 text-sm leading-snug">{stat.label}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Market Context */}
       <section className="py-16 px-6 bg-white">
         <div className="max-w-3xl mx-auto">
           <h2 className="font-heading font-extrabold text-gray-900 text-3xl mb-4">The {metro.city} Legal Market</h2>
           <p className="text-gray-700 text-base leading-relaxed mb-6">{metro.legalMarketNote}</p>
-          <p className="text-gray-700 text-base leading-relaxed">{description}</p>
+          <p className="text-gray-700 text-base leading-relaxed mb-6">{description}</p>
+          <p className="text-gray-700 text-base leading-relaxed">
+            See how we help law firms grow: read our{" "}
+            <Link href="/case-studies/" className="text-[#EE6C13] hover:underline">client case studies</Link> or{" "}
+            <Link href="/services/pricing/" className="text-[#EE6C13] hover:underline">view our transparent pricing</Link>.
+          </p>
         </div>
       </section>
 
@@ -201,7 +225,7 @@ export default function MetroPage({ metro, service }: MetroPageProps) {
       {nearbySlugs.length > 0 && (
         <section className="py-12 px-6 bg-gray-50">
           <div className="max-w-3xl mx-auto">
-            <h2 className="font-heading font-bold text-gray-700 text-lg mb-4">Also Serving Nearby Areas</h2>
+            <h2 className="font-heading font-bold text-gray-700 text-lg mb-4">{serviceLabel} Near {metro.city}</h2>
             <div className="flex flex-wrap gap-2">
               {nearbySlugs.map((city) => (
                 <Link key={city.href} href={city.href} className="px-3 py-1.5 bg-gray-200 rounded text-sm text-gray-600 hover:bg-[#1a1a1a] hover:text-white transition-colors no-underline">
