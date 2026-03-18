@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 80">
+  <defs>
+    <style>
+      .firm-name { fill: #fff; font-family: Georgia, 'Times New Roman', serif; font-size: 42px; font-weight: bold; letter-spacing: 6px; }
+      .firm-sub { fill: #fff; font-family: Georgia, 'Times New Roman', serif; font-size: 14px; letter-spacing: 3px; text-transform: uppercase; }
+      .divider { fill: none; stroke: #fff; stroke-width: 1; }
+    </style>
+  </defs>
+  <text class="firm-name" x="200" y="40" text-anchor="middle">GJEL</text>
+  <line class="divider" x1="100" y1="50" x2="300" y2="50"/>
+  <text class="firm-sub" x="200" y="68" text-anchor="middle">Accident Attorneys</text>
+</svg>

@@ -455,6 +455,28 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
 
+      // ── Screaming Frog crawl fixes (March 2026) ──
+      {
+        source: "/google-algorithm-updates-impact-on-law-firm-websites",
+        destination: "/blog/",
+        permanent: true,
+      },
+      {
+        source: "/feed",
+        destination: "/blog/",
+        permanent: true,
+      },
+      {
+        source: "/law-firm-marketing-clearwater",
+        destination: "/law-firm-seo-tampa/",
+        permanent: true,
+      },
+      {
+        source: "/law-firm-marketing-brandon",
+        destination: "/law-firm-seo-tampa/",
+        permanent: true,
+      },
+
       // ── Old WordPress URL patterns (catch-alls, last) ──
       {
         source: "/2013/:path*",
