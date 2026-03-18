@@ -12,10 +12,10 @@ interface MetroPageProps {
 }
 
 const metroMetaDescriptions: Record<MetroService, (city: string, state: string) => string> = {
-  "law-firm-seo": (city, state) => `Rank higher on Google and sign more cases with law firm SEO in ${city}, ${state}. Month-to-month contracts, transparent pricing, 113+ firms served. Get a free ${city} market audit.`,
+  "law-firm-seo": (city, state) => `Rank higher on Google and sign more cases with law firm search engine optimization (SEO) in ${city}, ${state}. Month-to-month, transparent pricing, 113+ firms served. Free ${city} market audit.`,
   "google-ads-lawyers": (city, state) => `Stop wasting ad spend. Google Ads management for ${city}, ${state} law firms that turns clicks into signed cases. No long-term contracts. Get a free campaign audit.`,
   "law-firm-website-design": (city, state) => `Convert more visitors into clients with a law firm website built for ${city}, ${state} attorneys. Fast, mobile-first, conversion-optimized. Live in 30 days.`,
-  "law-firm-marketing": (city, state) => `Full-service law firm marketing in ${city}, ${state}. SEO, Google Ads, local search, and AI visibility. Month-to-month. See where your firm is losing market share.`,
+  "law-firm-marketing": (city, state) => `Full-service law firm marketing in ${city}, ${state}. Search engine optimization, Google Ads, local search, and AI visibility. Month-to-month. See your market gaps.`,
 };
 
 export function generateMetroMetadata(metro: MetroData, service: MetroService): Metadata {
@@ -32,10 +32,10 @@ export function generateMetroMetadata(metro: MetroData, service: MetroService): 
 }
 
 const serviceDescriptions: Record<MetroService, (city: string) => string> = {
-  "law-firm-seo": (city) => `Ranking on Google in ${city} is competitive, but with the right technical foundation and content strategy, your firm can reach the top positions for searches that drive qualified case inquiries. JurisPage works with attorneys across practice areas to build lasting organic visibility in the ${city} market.`,
+  "law-firm-seo": (city) => `Ranking on Google in ${city} is competitive, but with the right technical foundation and content strategy, your firm can reach the top positions for searches that drive qualified case inquiries. Search engine optimization (SEO) for law firms in the ${city} market requires a combination of local signals, authoritative content, and technical excellence. JurisPage works with attorneys across practice areas to build lasting organic visibility.`,
   "google-ads-lawyers": (city) => `Paid search can generate case inquiries within 24-48 hours of launch. But without the right keyword targeting, negative keyword lists, and landing page strategy, most ${city} law firm campaigns waste 40-60% of their budget. We fix that.`,
   "law-firm-website-design": (city) => `Your website is often the first impression a potential client has of your firm. In a competitive market like ${city}, it needs to do more than look professional. We design fast, credible, mobile-first law firm websites that convert visitors into consultation requests and position your firm as the obvious choice.`,
-  "law-firm-marketing": (city) => `Growing a law practice in ${city} requires a coordinated strategy spanning SEO, paid ads, local search, and increasingly, AI search visibility. JurisPage builds integrated campaigns that generate consistent case flow for ${city} attorneys across all major search channels.`,
+  "law-firm-marketing": (city) => `Growing a law practice in ${city} requires a coordinated strategy spanning search engine optimization (SEO), paid ads, local search, and increasingly, AI search visibility. JurisPage builds integrated campaigns that generate consistent case flow for ${city} attorneys across all major search channels.`,
 };
 
 const metroHeadings: Record<MetroService, (city: string, stateAbbr: string) => string> = {
@@ -101,11 +101,11 @@ export default function MetroPage({ metro, service }: MetroPageProps) {
     ],
     "law-firm-website-design": [
       { question: `How long does it take to build a law firm website for a ${metro.city} practice?`, answer: `Our standard timeline is 30 days from kickoff to launch with our Launchpad package. Custom builds for larger firms take 6-8 weeks. Every site is mobile-first, fast-loading, and built to convert visitors into consultation requests from day one.` },
-      { question: `Will my new website help me rank in ${metro.city}?`, answer: `Yes. Every website we build includes on-page SEO foundations: optimized title tags, proper heading structure, schema markup, fast load times, and mobile responsiveness. These are the technical signals Google needs to consider ranking your site. For ongoing ranking improvements, we recommend pairing your new site with our SEO services.` },
+      { question: `Will my new website help me rank in ${metro.city}?`, answer: `Yes. Every website we build includes on-page search engine optimization (SEO) foundations: optimized title tags, proper heading structure, schema markup, fast load times, and mobile responsiveness. These are the technical signals Google needs to consider ranking your site. For ongoing ranking improvements, we recommend pairing your new site with our SEO services.` },
     ],
     "law-firm-marketing": [
       { question: `What marketing channels work best for ${metro.city} law firms?`, answer: `The best mix depends on your practice area and goals. ${metro.legalMarketNote} Most ${metro.city} firms see the best results from a combination of SEO for long-term organic visibility, Google Ads for immediate case flow, and local SEO for map pack presence. We'll recommend the right channel mix after auditing your current position.` },
-      { question: `How do you measure marketing ROI for ${metro.city} law firms?`, answer: `We track three numbers: qualified leads generated, cost per lead, and cases signed. Every monthly report connects specific channels (organic, paid, local) to intake volume so you know exactly where your cases are coming from and where additional investment generates the most return.` },
+      { question: `How do you measure marketing return on investment (ROI) for ${metro.city} law firms?`, answer: `We track three numbers: qualified leads generated, cost per lead, and cases signed. Every monthly report connects specific channels (organic, paid, local) to intake volume so you know exactly where your cases are coming from and where additional investment generates the most return.` },
     ],
   };
 
@@ -162,7 +162,7 @@ export default function MetroPage({ metro, service }: MetroPageProps) {
           <h2 className="font-heading font-extrabold text-gray-900 text-3xl mb-8">How JurisPage Works for {metro.city} Law Firms</h2>
           <div className="space-y-6">
             {[
-              { step: "1", title: "We audit your current presence", body: "Before recommending a strategy, we analyze your website, Google Business Profile, current rankings, and competitive landscape in the " + metro.city + " market." },
+              { step: "1", title: "We audit your current presence", body: "Before recommending a strategy, we analyze your website, Google Business Profile (GBP), current rankings, and competitive landscape in the " + metro.city + " market." },
               { step: "2", title: "We build a plan for your market", body: "Based on your practice area, budget, and competitive context in " + metro.city + ", we recommend the plan tier and tactics most likely to drive results for you specifically." },
               { step: "3", title: "We execute with full transparency", body: "Monthly reporting shows exactly what was done, what changed, and what we're doing next. You own every asset we build." },
               { step: "4", title: "You stay because the results are there", body: "Month-to-month contracts. If we're not delivering, you can leave with 30 days notice. We earn your business every month." },

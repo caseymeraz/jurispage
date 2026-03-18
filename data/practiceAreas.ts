@@ -43,7 +43,7 @@ export const practiceAreas: PracticeAreaData[] = [
     heading: "Personal Injury Lawyer Marketing That Delivers Signed Cases, Not Junk Leads",
     primaryKeyword: "personal injury lawyer marketing",
     displayKeyword: "Personal Injury Lawyer Marketing",
-    description: "JurisPage provides marketing services for personal injury law firms - SEO, Google Ads, LSAs, and GBP optimization designed to generate qualified, signed cases, not just clicks.",
+    description: "JurisPage provides marketing services for personal injury law firms - SEO, Google Ads, Local Service Ads (LSAs), and Google Business Profile (GBP) optimization designed to generate qualified, signed cases, not just clicks.",
     heroSubheadline: "Most PI marketing agencies sell you traffic. We build systems that produce signed cases you can track back to a specific channel, keyword, and dollar spent. If your current agency reports on impressions instead of intake calls, you are overpaying.",
     socialProofStats: [
       { value: "+312%", label: "organic traffic growth for GJEL Accident Attorneys" },
@@ -53,7 +53,7 @@ export const practiceAreas: PracticeAreaData[] = [
     serviceType: "Personal Injury Law Firm Marketing",
     intro: "Personal injury is the most competitive practice area in legal marketing. Firms in major metros pay $150-$300 per click just to stay visible, but the math works because a single signed case can generate $50,000 to $1 million or more in fees. The firms winning new cases run coordinated campaigns across our [law firm SEO](/law-firm-seo/) program, [Google Ads management](/google-ads-for-law-firms/), Local Service Ads, and [local SEO](/local-seo-for-law-firms/) map pack strategy instead of betting on a single channel.",
     introBullets: [
-      "$150-$300 average cost-per-click in major metro PI markets",
+      "$150-$300 average cost-per-click in major metro personal injury (PI) markets",
       "78% of injury searches carry local intent - map pack visibility is non-negotiable",
       "A single $200K settlement at 33% covers months of marketing spend",
       "96% of PI clients search online before contacting a firm",
@@ -76,7 +76,7 @@ export const practiceAreas: PracticeAreaData[] = [
       process: "How We Market Personal Injury Practices",
     },
     showCalculator: true,
-    services: ["Law Firm SEO", "Google Ads Management", "Local SEO & Map Pack", "Law Firm Website Design", "GEO Optimization"],
+    services: ["Law Firm SEO", "Google Ads Management", "Local SEO & Map Pack", "Law Firm Website Design", "Generative Engine Optimization (GEO)"],
     stats: [
       { value: "96%", label: "of PI clients search online before contacting an attorney (Google Consumer Survey)" },
       { value: "$150-$300", label: "average cost-per-click for PI keywords in major markets" },

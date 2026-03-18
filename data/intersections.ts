@@ -53,7 +53,7 @@ export const intersections: IntersectionData[] = [
       {
         question: "What makes personal injury SEO different from other practice areas?",
         answer:
-          "Three things compound: extreme keyword competition, Google's highest content scrutiny (YMYL guidelines), and geographic specificity. You need content that demonstrates real attorney expertise, strong local signals, and site architecture built for multiple case types and locations. Generic law firm SEO doesn't cut it.",
+          "Three things compound: extreme keyword competition, Google's highest content scrutiny (Your Money or Your Life, or YMYL, guidelines), and geographic specificity. You need content that demonstrates real attorney expertise, strong local signals, and site architecture built for multiple case types and locations. Generic law firm SEO doesn't cut it.",
       },
       {
         question: "How does JurisPage measure SEO success for PI firms?",
