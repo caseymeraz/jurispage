@@ -228,6 +228,17 @@ export default function LawFirmSEOCostPage() {
         </div>
       </article>
 
+      <section className="py-12 px-6 bg-gray-50">
+        <div className="max-w-3xl mx-auto">
+          <h2 className="font-heading font-bold text-gray-900 text-xl mb-4">Related Resources</h2>
+          <div className="flex flex-wrap gap-3">
+            <Link href="/law-firm-seo/" className="px-4 py-2 rounded-lg border border-gray-200 text-sm font-medium text-gray-700 hover:bg-gray-900 hover:text-white hover:border-gray-900 transition-all no-underline">Law Firm SEO Services</Link>
+            <Link href="/local-seo-for-law-firms/" className="px-4 py-2 rounded-lg border border-gray-200 text-sm font-medium text-gray-700 hover:bg-gray-900 hover:text-white hover:border-gray-900 transition-all no-underline">Local SEO for Law Firms</Link>
+            <Link href="/case-studies/" className="px-4 py-2 rounded-lg border border-gray-200 text-sm font-medium text-gray-700 hover:bg-gray-900 hover:text-white hover:border-gray-900 transition-all no-underline">Client Case Studies</Link>
+          </div>
+        </div>
+      </section>
+
       <FAQAccordion faqs={faqs} heading="Law Firm SEO Cost: FAQs" />
 
       <CTASection

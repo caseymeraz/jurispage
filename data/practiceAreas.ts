@@ -698,7 +698,7 @@ export const practiceAreas: PracticeAreaData[] = [
   {
     slug: "social-security-disability-lawyer-marketing",
     practiceNoun: "Social Security Disability",
-    title: "Social Security Disability Lawyer Marketing",
+    title: "SSDI & Social Security Disability Lawyer Marketing",
     heading: "SSDI Attorney Marketing: Reach Applicants Who Have Been Denied",
     primaryKeyword: "SSDI attorney marketing",
     displayKeyword: "SSDI Attorney Marketing",

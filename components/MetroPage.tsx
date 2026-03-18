@@ -20,7 +20,7 @@ const metroMetaDescriptions: Record<MetroService, (city: string, state: string) 
 
 export function generateMetroMetadata(metro: MetroData, service: MetroService): Metadata {
   const serviceLabel = metroServiceLabels[service];
-  const title = `${serviceLabel} in ${metro.city}, ${metro.stateAbbr} | JurisPage`;
+  const title = `${serviceLabel} in ${metro.city}, ${metro.stateAbbr}`;
   const description = metroMetaDescriptions[service](metro.city, metro.state);
   const slug = `${service}-${metro.slug}`;
   return {
@@ -45,11 +45,20 @@ const metroHeadings: Record<MetroService, (city: string, stateAbbr: string) => s
   "law-firm-marketing": (city, st) => `Grow Your ${city}, ${st} Law Firm with Integrated Marketing`,
 };
 
+// Maps each metro service to its main service page for contextual internal linking
+const servicePageLinks: Record<MetroService, { href: string; label: string }> = {
+  "law-firm-seo": { href: "/law-firm-seo/", label: "law firm SEO services" },
+  "google-ads-lawyers": { href: "/google-ads-for-law-firms/", label: "Google Ads management for law firms" },
+  "law-firm-website-design": { href: "/law-firm-websites/", label: "law firm website design" },
+  "law-firm-marketing": { href: "/law-firm-seo/", label: "law firm marketing services" },
+};
+
 export default function MetroPage({ metro, service }: MetroPageProps) {
   const serviceLabel = metroServiceLabels[service];
   const slug = `${service}-${metro.slug}`;
   const heading = metroHeadings[service](metro.city, metro.stateAbbr);
   const description = serviceDescriptions[service](metro.city);
+  const serviceLink = servicePageLinks[service];
 
   const nearbySlugs = metro.nearbyCities.slice(0, 3).map((city) => ({
     label: city,
@@ -173,9 +182,11 @@ export default function MetroPage({ metro, service }: MetroPageProps) {
           <p className="text-gray-700 text-base leading-relaxed mb-6">{metro.legalMarketNote}</p>
           <p className="text-gray-700 text-base leading-relaxed mb-6">{description}</p>
           <p className="text-gray-700 text-base leading-relaxed">
-            See how we help law firms grow: read our{" "}
-            <Link href="/case-studies/" className="text-[#EE6C13] hover:underline">client case studies</Link> or{" "}
-            <Link href="/services/pricing/" className="text-[#EE6C13] hover:underline">view our transparent pricing</Link>.
+            Learn more about our{" "}
+            <Link href={serviceLink.href} className="text-[#EE6C13] hover:underline">{serviceLink.label}</Link>,{" "}
+            read our{" "}
+            <Link href="/case-studies/" className="text-[#EE6C13] hover:underline">client case studies</Link>, or{" "}
+            <Link href="/services/pricing/" className="text-[#EE6C13] hover:underline">view transparent pricing</Link>.
           </p>
         </div>
       </section>

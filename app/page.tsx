@@ -13,13 +13,13 @@ import { caseStudies } from "@/data/caseStudies";
 
 export const metadata: Metadata = {
   title:
-    "See Where Your Law Firm Is Losing Market Share | JurisPage",
+    "Law Firm Marketing Agency | See Where You're Losing Market Share",
   description:
     "Get a free, personalized market-gap analysis for your practice area and city. See search demand, who's winning, your visibility score, and the gaps you can close. Built for law firms only.",
   alternates: { canonical: "https://jurispage.com/" },
   openGraph: {
     title:
-      "See Where Your Law Firm Is Losing Market Share | JurisPage",
+      "Law Firm Marketing Agency | See Where You're Losing Market Share",
     description:
       "Free market-gap analysis for law firms. See search demand, top competitors, your visibility score, and the specific gaps costing you cases.",
     url: "https://jurispage.com/",

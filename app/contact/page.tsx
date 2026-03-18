@@ -3,7 +3,7 @@ import ContactForm from "@/components/ContactForm";
 import SchemaOrg from "@/components/SchemaOrg";
 
 export const metadata: Metadata = {
-  title: "Get a Free Law Firm Marketing Consultation | JurisPage",
+  title: "Contact JurisPage | Free Law Firm Marketing Consultation",
   description: "Book a free, no-obligation law firm marketing consultation with JurisPage. We'll audit your online presence, identify growth opportunities, and recommend a plan tailored to your practice area and budget.",
   alternates: { canonical: "https://jurispage.com/contact/" },
 };
