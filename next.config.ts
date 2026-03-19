@@ -478,6 +478,83 @@ const nextConfig: NextConfig = {
         destination: "/",
         permanent: true,
       },
+
+      // ── Common 404 slug mismatches ──
+      {
+        source: "/google-ads-for-lawyers",
+        destination: "/google-ads-for-law-firms/",
+        permanent: true,
+      },
+      {
+        source: "/google-ads-for-lawyers-:city",
+        destination: "/google-ads-lawyers-:city/",
+        permanent: true,
+      },
+      {
+        source: "/law-firm-website-design",
+        destination: "/law-firm-websites/",
+        permanent: true,
+      },
+      {
+        source: "/lawyer-web-design/:path*",
+        destination: "/law-firm-websites/",
+        permanent: true,
+      },
+      {
+        source: "/lawyer-seo/:path*",
+        destination: "/law-firm-seo/",
+        permanent: true,
+      },
+      {
+        source: "/legal-content-writing/:path*",
+        destination: "/law-firm-content-writing/",
+        permanent: true,
+      },
+      {
+        source: "/law-firm-ppc/:path*",
+        destination: "/google-ads-for-law-firms/",
+        permanent: true,
+      },
+      {
+        source: "/law-firm-social-media-marketing/:path*",
+        destination: "/law-firm-content-writing/",
+        permanent: true,
+      },
+      {
+        source: "/family-law-marketing/:path*",
+        destination: "/family-law-firm-marketing/",
+        permanent: true,
+      },
+      {
+        source: "/tax-lawyer-marketing/:path*",
+        destination: "/",
+        permanent: true,
+      },
+      {
+        source: "/about",
+        destination: "/about-us/",
+        permanent: true,
+      },
+      {
+        source: "/pricing",
+        destination: "/services/pricing/",
+        permanent: true,
+      },
+      {
+        source: "/news",
+        destination: "/blog/",
+        permanent: true,
+      },
+      {
+        source: "/privacy-policy",
+        destination: "/",
+        permanent: true,
+      },
+      {
+        source: "/terms-of-service",
+        destination: "/",
+        permanent: true,
+      },
     ];
   },
 };
