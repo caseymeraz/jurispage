@@ -96,6 +96,7 @@ export default function AiSearchReportForm() {
           utmTerm: searchParams.get("utm_term") || undefined,
           utmContent: searchParams.get("utm_content") || undefined,
           referrer: document.referrer || undefined,
+          pageUri: window.location.href,
         }),
       });
 

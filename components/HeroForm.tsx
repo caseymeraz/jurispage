@@ -56,7 +56,7 @@ export default function HeroForm({
       const endpoint = formType === "competitive" ? "/api/market-report" : "/api/contact";
       const payload =
         formType === "competitive"
-          ? { ...formData, turnstileToken }
+          ? { ...formData, turnstileToken, pageUri: window.location.href }
           : {
               firstName: formData.firstName,
               lastName: formData.lastName,
@@ -65,6 +65,7 @@ export default function HeroForm({
               practiceArea: formData.practiceArea,
               budget: "Not Specified",
               turnstileToken,
+              pageUri: window.location.href,
             };
 
       const res = await fetch(endpoint, {

@@ -50,6 +50,7 @@ interface GenerateRequestBody {
   utmTerm?: string;
   utmContent?: string;
   referrer?: string;
+  pageUri?: string;
   clickId?: string;
   gclid?: string;
   step?: 1 | 2 | 3;
@@ -438,6 +439,7 @@ export async function POST(req: NextRequest) {
       Email: lead.email,
       "Practice Area": practiceArea,
       Market: `${reportCity}, ${reportState}`,
+      "Page URL": body.pageUri || "N/A",
     });
 
     // Fetch the updated report to get the accessToken and current status

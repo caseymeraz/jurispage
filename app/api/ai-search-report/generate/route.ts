@@ -29,6 +29,7 @@ interface RequestBody {
   utmTerm?: string;
   utmContent?: string;
   referrer?: string;
+  pageUri?: string;
   turnstileToken?: string;
 }
 
@@ -237,6 +238,7 @@ export async function POST(req: NextRequest) {
       "Practice Area": practiceArea,
       Market: `${city}, ${state}`,
       Domain: normalizedDomain || "N/A",
+      "Page URL": body.pageUri || "N/A",
     });
 
     return NextResponse.json({

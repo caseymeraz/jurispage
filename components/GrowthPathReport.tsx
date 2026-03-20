@@ -143,6 +143,7 @@ export default function GrowthPathReport({ data }: Props) {
           name: firmName,
           email: data.email,
           turnstileToken,
+          pageUri: window.location.href,
         }),
       });
       if (res.ok) setStrategySubmitted(true);

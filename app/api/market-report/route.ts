@@ -42,6 +42,7 @@ export async function POST(req: NextRequest) {
       Email: email,
       "Practice Area": practiceArea,
       "Target Market": targetMarket,
+      "Page URL": body.pageUri || "N/A",
     });
 
     const emailHtml = `

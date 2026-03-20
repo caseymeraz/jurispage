@@ -11,6 +11,7 @@ interface StrategyRequestBody {
   name: string;
   email: string;
   phone?: string;
+  pageUri?: string;
   turnstileToken?: string;
 }
 
@@ -67,6 +68,7 @@ export async function POST(req: NextRequest) {
       Market: `${session.city}, ${session.state}`,
       Path: session.recommendation?.primaryPath || "N/A",
       "Session ID": session.id,
+      "Page URL": body.pageUri || "N/A",
     });
 
     // Internal email

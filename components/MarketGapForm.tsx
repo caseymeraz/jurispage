@@ -366,6 +366,7 @@ export default function MarketGapForm() {
           crmService: step3.crmService,
         }),
         ...getUtmParams(),
+        pageUri: window.location.href,
       };
 
       const res = await fetch("/api/market-gap/generate", {

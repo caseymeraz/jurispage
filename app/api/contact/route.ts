@@ -76,6 +76,7 @@ export async function POST(req: NextRequest) {
       "Referral Source": referral || "N/A",
       "Message": message || "N/A",
       "Form Source": "contact-page",
+      "Page URL": body.pageUri || "N/A",
     });
 
     // HubSpot submission (awaited so it completes before serverless function exits)
