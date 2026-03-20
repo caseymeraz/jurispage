@@ -92,7 +92,7 @@ export async function POST(req: NextRequest) {
       Markets: markets || "N/A",
       Budget: budget || "N/A",
       "Page URL": body.pageUri || "N/A",
-    }, "leadmagnets");
+    }, "lead-magnets");
 
     // ── Prospect email ─────────────────────────────────────────────────
     const prospectHtml = `

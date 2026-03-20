@@ -102,7 +102,7 @@ export async function POST(req: NextRequest) {
       "Target City": cityLabel,
       "Estimated Monthly": isCustom ? "Custom Pricing" : `$${monthlyTotal?.toLocaleString()}/mo`,
       "Page URL": body.pageUri || "N/A",
-    }, "newleads");
+    }, "new-leads");
 
     // ── Prospect email ─────────────────────────────────────────────────
     const prospectHtml = isCustom
