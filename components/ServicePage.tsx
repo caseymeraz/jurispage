@@ -99,9 +99,11 @@ export default function ServicePage({ service }: ServicePageProps) {
                 <span className="text-gray-700">{service.heading}</span>
               </nav>
               <span className="inline-block text-xs font-heading font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-4" style={{ background: "#EE6C1322", color: "#EE6C13" }}>
-                {service.primaryKeyword}
+                {service.slug === "law-firm-seo" ? "Predictable Case Generation" : service.primaryKeyword}
               </span>
-              <h1 className="font-heading font-extrabold text-gray-900 text-4xl md:text-5xl leading-tight mb-4">{service.heading}</h1>
+              <h1 className="font-heading font-extrabold text-gray-900 text-4xl md:text-5xl leading-tight mb-4">
+                {service.slug === "law-firm-seo" ? "Law Firm SEO Built for Trackable Revenue, Not Just Traffic." : service.heading}
+              </h1>
               <p className="text-gray-600 text-xl leading-relaxed mb-6">{service.tagline}</p>
               {service.slug === "law-firm-seo" && (
                 <div className="flex items-center gap-2 mb-4">
