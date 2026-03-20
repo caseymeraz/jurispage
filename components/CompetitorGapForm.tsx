@@ -251,11 +251,12 @@ export default function CompetitorGapForm() {
       className="bg-white rounded-2xl border border-gray-100 shadow-lg p-8"
     >
       <h2 className="font-heading font-bold text-xl text-gray-900 mb-2 text-center">
-        Are your competitors outranking you for the most lucrative cases?
+        See Who Is Stealing Your Local Search Traffic
       </h2>
       <p className="text-gray-600 text-sm text-center mb-6">
-        Enter your firm&apos;s website, city, and practice area to see which local
-        firms are capturing the Google search traffic that should be yours.
+        Enter your firm&apos;s website, city, and practice area to run a live
+        SERP scan and see exactly which local firms are capturing the Google
+        search traffic that should be yours.
       </p>
 
       <div className="space-y-3 mb-4">
@@ -264,7 +265,7 @@ export default function CompetitorGapForm() {
           required
           value={targetUrl}
           onChange={(e) => setTargetUrl(e.target.value)}
-          placeholder="yourfirm.com"
+          placeholder="www.yourfirm.com"
           className={inputClass}
           style={ringStyle}
         />
@@ -302,7 +303,7 @@ export default function CompetitorGapForm() {
         onMouseEnter={(e) => (e.currentTarget.style.background = "#982A0B")}
         onMouseLeave={(e) => (e.currentTarget.style.background = "#EE6C13")}
       >
-        Run Scan
+        Run Live SERP Scan
       </button>
 
       <TurnstileWidget onVerify={setTurnstileToken} />

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { Suspense } from "react";
 import type { PracticeAreaData } from "@/data/practiceAreas";
 import { getPracticeAreaBySlug } from "@/data/practiceAreas";
 import { getServiceBySlug } from "@/data/services";
@@ -9,6 +10,7 @@ import FAQAccordion from "@/components/FAQAccordion";
 import SchemaOrg from "@/components/SchemaOrg";
 import CaseStudyPreview from "@/components/CaseStudyPreview";
 import HeroForm from "@/components/HeroForm";
+import CompetitorGapForm from "@/components/CompetitorGapForm";
 import PpcRoiCalculator from "@/components/PpcRoiCalculator";
 import { caseStudies } from "@/data/caseStudies";
 import { renderLinkedText, stripMarkdownLinks } from "@/lib/renderLinkedText";
@@ -115,11 +117,19 @@ export default function PracticeAreaPage({ practiceArea: pa }: PracticeAreaPageP
                 <p className="text-gray-500 text-sm">Speak directly with a legal marketing expert today.</p>
               )}
             </div>
-            <HeroForm
-              ctaLabel="Book Your Strategy Session"
-              subtext="No contracts. No commitment. We'll respond within one business day."
-              defaultPracticeArea={pa.primaryKeyword.split(" ")[0]}
-            />
+            {pa.slug === "personal-injury-lawyer-marketing" ? (
+              <div className="bg-gray-50 rounded-2xl p-6">
+                <Suspense fallback={<div className="bg-white rounded-2xl border border-gray-100 shadow-lg p-8 text-center text-gray-500">Loading form...</div>}>
+                  <CompetitorGapForm />
+                </Suspense>
+              </div>
+            ) : (
+              <HeroForm
+                ctaLabel="Book Your Strategy Session"
+                subtext="No contracts. No commitment. We'll respond within one business day."
+                defaultPracticeArea={pa.primaryKeyword.split(" ")[0]}
+              />
+            )}
           </div>
           {pa.socialProofStats && pa.socialProofStats.length > 0 && (
             <div className="mt-10 pt-8 border-t border-gray-200">
@@ -466,14 +476,24 @@ export default function PracticeAreaPage({ practiceArea: pa }: PracticeAreaPageP
 
       {allFaqs.length > 0 && <FAQAccordion faqs={allFaqs} heading="Frequently Asked Questions" />}
 
-      <CTASection
-        heading={pa.ctaOverride?.heading ?? "Book Your Strategy Session"}
-        subtext={pa.ctaOverride?.subtext ?? `No long-term contracts. Transparent pricing. We've helped 113+ law firms grow - including ${displayKw.toLowerCase()} practices.`}
-        primaryLabel={pa.ctaOverride?.primaryLabel ?? "Book Your Strategy Session"}
-        primaryHref="/contact/"
-        secondaryLabel={pa.ctaOverride?.secondaryLabel ?? "See Pricing"}
-        secondaryHref="/services/pricing/"
-      />
+      {pa.slug === "personal-injury-lawyer-marketing" ? (
+        <section className="py-16 px-6 bg-gray-50">
+          <div className="max-w-2xl mx-auto">
+            <Suspense fallback={<div className="bg-white rounded-2xl border border-gray-100 shadow-lg p-8 text-center text-gray-500">Loading form...</div>}>
+              <CompetitorGapForm />
+            </Suspense>
+          </div>
+        </section>
+      ) : (
+        <CTASection
+          heading={pa.ctaOverride?.heading ?? "Book Your Strategy Session"}
+          subtext={pa.ctaOverride?.subtext ?? `No long-term contracts. Transparent pricing. We've helped 113+ law firms grow - including ${displayKw.toLowerCase()} practices.`}
+          primaryLabel={pa.ctaOverride?.primaryLabel ?? "Book Your Strategy Session"}
+          primaryHref="/contact/"
+          secondaryLabel={pa.ctaOverride?.secondaryLabel ?? "See Pricing"}
+          secondaryHref="/services/pricing/"
+        />
+      )}
     </>
   );
 }
