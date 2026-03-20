@@ -61,7 +61,7 @@ export default function CaseStudyShowcase({
                       alt={cs.client}
                       width={60}
                       height={32}
-                      className="object-contain h-8 w-auto opacity-50 group-hover:opacity-80 transition-opacity"
+                      className="object-contain h-8 w-auto"
                     />
                   ) : (
                     <Image
@@ -69,7 +69,7 @@ export default function CaseStudyShowcase({
                       alt={cs.client}
                       width={80}
                       height={32}
-                      className="object-contain h-6 w-auto opacity-50 group-hover:opacity-80 transition-opacity"
+                      className="object-contain h-6 w-auto brightness-0 opacity-70 group-hover:opacity-100 transition-opacity"
                     />
                   )}
                 </div>

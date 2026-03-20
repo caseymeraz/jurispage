@@ -164,6 +164,16 @@ export default function ServicePage({ service }: ServicePageProps) {
         )
       )}
 
+      {/* Case Studies — right after stats bar on law-firm-seo */}
+      {service.slug === "law-firm-seo" && (
+        <CaseStudyShowcase
+          caseStudies={caseStudies}
+          heading="Real Results from Law Firms Like Yours"
+        />
+      )}
+
+      {service.slug === "law-firm-seo" && <ThemVsUs />}
+
       {/* Intro */}
       <section className="py-16 px-6 bg-white">
         <div className="max-w-3xl mx-auto space-y-4">
@@ -327,19 +337,12 @@ export default function ServicePage({ service }: ServicePageProps) {
         </section>
       )}
 
-      {service.slug === "law-firm-seo" ? (
-        <CaseStudyShowcase
-          caseStudies={caseStudies}
-          heading="Real Results from Law Firms Like Yours"
-        />
-      ) : service.relatedCaseStudies && service.relatedCaseStudies.length > 0 ? (
+      {service.slug !== "law-firm-seo" && service.relatedCaseStudies && service.relatedCaseStudies.length > 0 && (
         <CaseStudyPreview
           caseStudies={caseStudies.filter((cs) => service.relatedCaseStudies!.includes(cs.slug))}
           heading="Real Results from Law Firms Like Yours"
         />
-      ) : null}
-
-      {service.slug === "law-firm-seo" && <ThemVsUs />}
+      )}
 
       {/* This Service by Practice Area */}
       {(() => {
