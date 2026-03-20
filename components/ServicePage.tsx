@@ -15,6 +15,7 @@ import ThemVsUs from "@/components/ThemVsUs";
 import CountUpStats from "@/components/CountUpStats";
 import ThreeStepProcess from "@/components/ThreeStepProcess";
 import RedPenVideo from "@/components/RedPenVideo";
+import LocalPackExplainer from "@/components/LocalPackExplainer";
 import HeroForm from "@/components/HeroForm";
 import AiSearchReportForm from "@/components/AiSearchReportForm";
 import CompetitorGapForm from "@/components/CompetitorGapForm";
@@ -148,7 +149,7 @@ export default function ServicePage({ service }: ServicePageProps) {
 
       {/* Stats bar */}
       {service.stats && service.stats.length > 0 && (
-        service.slug === "law-firm-seo" ? (
+        service.slug === "law-firm-seo" || service.slug === "local-seo-for-law-firms" ? (
           <CountUpStats stats={service.stats} />
         ) : (
           <section className="py-10 px-6 bg-[#EE6C13]">
@@ -166,11 +167,14 @@ export default function ServicePage({ service }: ServicePageProps) {
         )
       )}
 
+      {/* Local Pack Explainer — visual explanation for local SEO page */}
+      {service.slug === "local-seo-for-law-firms" && <LocalPackExplainer />}
+
       {/* 3-Step Process — the plan (StoryBrand) */}
       {service.slug === "law-firm-seo" && <ThreeStepProcess />}
 
       {/* Case Studies — proof the plan works */}
-      {service.slug === "law-firm-seo" && (
+      {(service.slug === "law-firm-seo" || service.slug === "local-seo-for-law-firms") && (
         <CaseStudyShowcase
           caseStudies={caseStudies}
           heading="Real Results from Law Firms Like Yours"
