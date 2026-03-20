@@ -8,7 +8,7 @@ import {
   type PlaceResult,
 } from "@/lib/google-places";
 import { trackClientEvent } from "@/lib/analytics";
-import TurnstileWidget from "@/components/TurnstileWidget";
+import TurnstileWidget, { type TurnstileWidgetHandle } from "@/components/TurnstileWidget";
 
 /* ------------------------------------------------------------------ */
 /*  Types                                                              */
@@ -144,6 +144,7 @@ export default function MarketGapForm() {
 
   const firmInputRef = useRef<HTMLInputElement>(null);
   const autocompleteRef = useRef<google.maps.places.Autocomplete | null>(null);
+  const turnstileRef = useRef<TurnstileWidgetHandle>(null);
 
   /* ----- UTM capture ------------------------------------------------ */
 
@@ -296,6 +297,9 @@ export default function MarketGapForm() {
       const data = await res.json();
       if (!res.ok) throw new Error(data.error ?? "Failed to save.");
       if (data.leadId) setLeadId(data.leadId);
+
+      // Reset Turnstile so a fresh token is available for future requests
+      turnstileRef.current?.reset();
 
       trackClientEvent("market_gap_step_1_complete", {
         firmName: step1.firmName,
@@ -1009,7 +1013,7 @@ export default function MarketGapForm() {
         {step === 1 && renderStep1()}
         {step === 2 && renderStep2()}
         {step === 3 && renderStep3()}
-        <TurnstileWidget onVerify={setTurnstileToken} />
+        <TurnstileWidget ref={turnstileRef} onVerify={setTurnstileToken} />
       </div>
     </div>
   );

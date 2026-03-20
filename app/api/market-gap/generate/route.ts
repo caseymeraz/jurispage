@@ -77,8 +77,13 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    if (!body.turnstileToken || !(await verifyTurnstile(body.turnstileToken))) {
-      return NextResponse.json({ error: "Spam verification failed" }, { status: 403 });
+    // Only verify Turnstile on step 1 — tokens are single-use and cannot be
+    // reused for step 3.  Step 3 requires a valid leadId created by step 1,
+    // so it is already gated behind the initial verification.
+    if (step === 1) {
+      if (!body.turnstileToken || !(await verifyTurnstile(body.turnstileToken))) {
+        return NextResponse.json({ error: "Spam verification failed" }, { status: 403 });
+      }
     }
 
     // -------------------------------------------------------
