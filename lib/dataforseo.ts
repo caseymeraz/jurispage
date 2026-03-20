@@ -437,14 +437,21 @@ export async function getBusinessListingsDensity(
 export interface SerpFullItem {
   type: string;
   rank_absolute: number;
+  rank_group?: number;
   domain?: string;
   title?: string;
   url?: string;
+  description?: string;
   items?: Array<{
+    type?: string;
     title?: string;
     domain?: string;
     rank_absolute?: number;
+    rank_group?: number;
     url?: string;
+    rating?: { value?: number; votes_count?: number };
+    phone?: string;
+    address?: string;
   }>;
 }
 
@@ -471,15 +478,53 @@ function normalizeDomain(input: string): string {
   d = d.replace(/^https?:\/\//, "");
   d = d.replace(/^www\./, "");
   d = d.replace(/\/+$/, "");
+  // Strip path/query/fragment — keep only the hostname
+  d = d.split("/")[0].split("?")[0].split("#")[0];
   return d;
 }
 
+/** Extract root domain (e.g. "blog.smithlaw.com" → "smithlaw.com") */
+function getRootDomain(domain: string): string {
+  const parts = domain.split(".");
+  if (parts.length <= 2) return domain;
+  return parts.slice(-2).join(".");
+}
+
+/** Check if two domains match (handles subdomains) */
+function domainsMatch(a: string, b: string): boolean {
+  if (!a || !b) return false;
+  const na = normalizeDomain(a);
+  const nb = normalizeDomain(b);
+  if (na === nb) return true;
+  // Check root domain match (e.g. "blog.firm.com" matches "firm.com")
+  return getRootDomain(na) === getRootDomain(nb);
+}
+
+/** Try to extract a domain from a URL string */
+function extractDomainFromUrl(url?: string): string {
+  if (!url) return "";
+  try {
+    // Add protocol if missing so URL constructor works
+    const withProto = url.startsWith("http") ? url : `https://${url}`;
+    const parsed = new URL(withProto);
+    return normalizeDomain(parsed.hostname);
+  } catch {
+    return normalizeDomain(url);
+  }
+}
+
 export interface CompetitorGapResult {
-  localPackItems: Array<{ name: string; domain: string; position: number }>;
-  organicItems: Array<{ domain: string; title: string; url: string; position: number }>;
+  localPackItems: Array<{ name: string; domain: string; position: number; rating?: number; reviewCount?: number; address?: string }>;
+  organicItems: Array<{ domain: string; title: string; url: string; position: number; isDirectory: boolean }>;
   targetRank: number | null;
   targetInLocalPack: boolean;
 }
+
+const DIRECTORY_DOMAINS = [
+  "avvo.com", "findlaw.com", "justia.com", "lawyers.com", "martindale.com",
+  "nolo.com", "yelp.com", "superlawyers.com", "lawinfo.com", "hg.org",
+  "usnews.com", "expertise.com", "thumbtack.com", "bark.com",
+];
 
 export function parseSerpForCompetitorGap(
   items: SerpFullItem[],
@@ -492,16 +537,29 @@ export function parseSerpForCompetitorGap(
   let targetRank: number | null = null;
   let targetInLocalPack = false;
 
+  // Log all item types for debugging
+  const typeCounts: Record<string, number> = {};
   for (const item of items) {
-    if (item.type === "local_pack" && item.items) {
+    typeCounts[item.type] = (typeCounts[item.type] || 0) + 1;
+  }
+  console.log("[CompetitorGap] SERP item types:", JSON.stringify(typeCounts));
+
+  for (const item of items) {
+    // Local pack: DataForSEO uses "local_pack" and sometimes "maps_local_pack"
+    if ((item.type === "local_pack" || item.type === "maps_local_pack" || item.type === "maps") && item.items) {
+      console.log("[CompetitorGap] Found local pack with", item.items.length, "items");
       for (const lp of item.items) {
-        const lpDomain = lp.domain ? normalizeDomain(lp.domain) : "";
+        // Domain might be in lp.domain or extractable from lp.url
+        const lpDomain = lp.domain ? normalizeDomain(lp.domain) : extractDomainFromUrl(lp.url);
         localPackItems.push({
           name: lp.title || "",
           domain: lpDomain,
-          position: lp.rank_absolute ?? localPackItems.length + 1,
+          position: lp.rank_absolute ?? lp.rank_group ?? localPackItems.length + 1,
+          rating: lp.rating?.value,
+          reviewCount: lp.rating?.votes_count,
+          address: lp.address,
         });
-        if (lpDomain && lpDomain === normalizedTarget) {
+        if (lpDomain && domainsMatch(lpDomain, normalizedTarget)) {
           targetInLocalPack = true;
         }
       }
@@ -509,17 +567,27 @@ export function parseSerpForCompetitorGap(
 
     if (item.type === "organic" && item.domain) {
       const orgDomain = normalizeDomain(item.domain);
+      const isDirectory = DIRECTORY_DOMAINS.some((d) => getRootDomain(orgDomain) === d || orgDomain.endsWith(`.${d}`));
       organicItems.push({
         domain: orgDomain,
         title: item.title || "",
         url: item.url || "",
         position: item.rank_absolute ?? 0,
+        isDirectory,
       });
-      if (orgDomain === normalizedTarget && targetRank === null) {
+      if (domainsMatch(orgDomain, normalizedTarget) && targetRank === null) {
         targetRank = item.rank_absolute ?? null;
       }
     }
   }
+
+  console.log("[CompetitorGap] Parsed:", {
+    localPackCount: localPackItems.length,
+    organicCount: organicItems.length,
+    targetRank,
+    targetInLocalPack,
+    organicDomains: organicItems.slice(0, 5).map(o => o.domain),
+  });
 
   return { localPackItems, organicItems, targetRank, targetInLocalPack };
 }

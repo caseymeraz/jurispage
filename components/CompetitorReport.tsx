@@ -6,6 +6,9 @@ interface LocalPackItem {
   name: string;
   domain: string;
   position: number;
+  rating?: number;
+  reviewCount?: number;
+  address?: string;
 }
 
 interface OrganicItem {
@@ -13,6 +16,7 @@ interface OrganicItem {
   title: string;
   url: string;
   position: number;
+  isDirectory?: boolean;
 }
 
 interface CompetitorReportProps {
@@ -31,6 +35,27 @@ const MEETINGS_URL =
   process.env.NEXT_PUBLIC_HUBSPOT_MEETINGS_URL ||
   "https://meetings.hubspot.com/armon-hatcher/proposal-review";
 
+function normalizeDomain(input: string): string {
+  let d = input.toLowerCase().trim();
+  d = d.replace(/^https?:\/\//, "").replace(/^www\./, "").replace(/\/+$/, "");
+  d = d.split("/")[0].split("?")[0].split("#")[0];
+  return d;
+}
+
+function getRootDomain(domain: string): string {
+  const parts = domain.split(".");
+  if (parts.length <= 2) return domain;
+  return parts.slice(-2).join(".");
+}
+
+function domainsMatch(a: string, b: string): boolean {
+  if (!a || !b) return false;
+  const na = normalizeDomain(a);
+  const nb = normalizeDomain(b);
+  if (na === nb) return true;
+  return getRootDomain(na) === getRootDomain(nb);
+}
+
 export default function CompetitorReport({
   targetDomain,
   city,
@@ -44,8 +69,9 @@ export default function CompetitorReport({
   const [copied, setCopied] = useState(false);
 
   const topLocalPack = (localPackItems || []).slice(0, 3);
-  const topOrganic = (organicItems || []).slice(0, 3);
-  const topCompetitorDomain = topOrganic[0]?.domain;
+  const topOrganic = (organicItems || []).slice(0, 10);
+  // First non-directory competitor for the CTA
+  const topCompetitorDomain = topOrganic.find((o) => !o.isDirectory)?.domain || topOrganic[0]?.domain;
 
   function handleShare() {
     navigator.clipboard.writeText(window.location.href).then(() => {
@@ -114,24 +140,40 @@ export default function CompetitorReport({
             {topLocalPack.length > 0 ? (
               <>
                 <div className="space-y-3 mb-4">
-                  {topLocalPack.map((item) => (
+                  {topLocalPack.map((item, idx) => (
                     <div
-                      key={item.position}
-                      className="flex items-center gap-4 p-3 rounded-xl bg-gray-50 border border-gray-100"
+                      key={item.position ?? idx}
+                      className={`flex items-center gap-4 p-3 rounded-xl border ${
+                        domainsMatch(item.domain, targetDomain)
+                          ? "bg-green-50 border-green-200"
+                          : "bg-gray-50 border-gray-100"
+                      }`}
                     >
                       <span
                         className="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center font-heading font-bold text-white text-sm"
-                        style={{ background: "#EE6C13" }}
+                        style={{ background: domainsMatch(item.domain, targetDomain) ? "#16a34a" : "#EE6C13" }}
                       >
-                        {item.position}
+                        {idx + 1}
                       </span>
                       <div className="min-w-0 flex-1">
-                        <p className="font-heading font-bold text-gray-900 text-sm truncate">
-                          {item.name || item.domain}
-                        </p>
-                        {item.domain && (
-                          <p className="text-gray-500 text-xs truncate">{item.domain}</p>
-                        )}
+                        <div className="flex items-center gap-2">
+                          <p className="font-heading font-bold text-gray-900 text-sm truncate">
+                            {item.name || item.domain}
+                          </p>
+                          {domainsMatch(item.domain, targetDomain) && (
+                            <span className="flex-shrink-0 text-[10px] font-bold uppercase tracking-wide px-1.5 py-0.5 rounded bg-green-100 text-green-700">
+                              You
+                            </span>
+                          )}
+                        </div>
+                        <div className="flex items-center gap-2 text-xs text-gray-500">
+                          {item.domain && <span className="truncate">{item.domain}</span>}
+                          {item.rating != null && (
+                            <span className="flex-shrink-0">
+                              &#9733; {item.rating}{item.reviewCount != null ? ` (${item.reviewCount})` : ""}
+                            </span>
+                          )}
+                        </div>
                       </div>
                     </div>
                   ))}
@@ -172,18 +214,36 @@ export default function CompetitorReport({
                 {topOrganic.map((item) => (
                   <div
                     key={item.position}
-                    className="flex items-center gap-4 p-3 rounded-xl bg-gray-50 border border-gray-100"
+                    className={`flex items-center gap-4 p-3 rounded-xl border ${
+                      item.isDirectory
+                        ? "bg-gray-50/50 border-gray-100"
+                        : domainsMatch(item.domain, targetDomain)
+                          ? "bg-green-50 border-green-200"
+                          : "bg-gray-50 border-gray-100"
+                    }`}
                   >
                     <span
                       className="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center font-heading font-bold text-white text-sm"
-                      style={{ background: "#1a1a1a" }}
+                      style={{ background: domainsMatch(item.domain, targetDomain) ? "#16a34a" : item.isDirectory ? "#9ca3af" : "#1a1a1a" }}
                     >
                       {item.position}
                     </span>
                     <div className="min-w-0 flex-1">
-                      <p className="font-heading font-bold text-gray-900 text-sm truncate">
-                        {item.domain}
-                      </p>
+                      <div className="flex items-center gap-2">
+                        <p className="font-heading font-bold text-gray-900 text-sm truncate">
+                          {item.domain}
+                        </p>
+                        {item.isDirectory && (
+                          <span className="flex-shrink-0 text-[10px] font-bold uppercase tracking-wide px-1.5 py-0.5 rounded bg-gray-200 text-gray-500">
+                            Directory
+                          </span>
+                        )}
+                        {domainsMatch(item.domain, targetDomain) && (
+                          <span className="flex-shrink-0 text-[10px] font-bold uppercase tracking-wide px-1.5 py-0.5 rounded bg-green-100 text-green-700">
+                            You
+                          </span>
+                        )}
+                      </div>
                       <p className="text-gray-500 text-xs truncate">{item.title}</p>
                     </div>
                   </div>

@@ -102,7 +102,7 @@ export async function POST(req: NextRequest) {
       console.error("[CompetitorGap] FAILED to create Lead:", dbErr instanceof Error ? dbErr.message : dbErr);
       console.error("[CompetitorGap] Lead creation stack:", dbErr instanceof Error ? dbErr.stack : "N/A");
       return NextResponse.json(
-        { error: `Failed to save lead: ${dbErr instanceof Error ? dbErr.message : String(dbErr)}` },
+        { error: "Failed to save lead. Please try again." },
         { status: 500 }
       );
     }
@@ -146,7 +146,7 @@ export async function POST(req: NextRequest) {
         rawResponseNull: rawResponse === null,
       }));
       return NextResponse.json(
-        { error: `Failed to generate report: ${errMsg}` },
+        { error: "Failed to generate report. Please try again." },
         { status: 500 }
       );
     }

@@ -30,8 +30,8 @@ export default async function CompetitorReportPage({ params }: Props) {
       city={report.city}
       practiceArea={report.practiceArea}
       searchQuery={report.searchQuery}
-      localPackItems={report.localPackItems as Array<{ name: string; domain: string; position: number }> | null}
-      organicItems={report.organicItems as Array<{ domain: string; title: string; url: string; position: number }> | null}
+      localPackItems={report.localPackItems as Array<{ name: string; domain: string; position: number; rating?: number; reviewCount?: number; address?: string }> | null}
+      organicItems={report.organicItems as Array<{ domain: string; title: string; url: string; position: number; isDirectory?: boolean }> | null}
       targetRank={report.targetRank}
       targetInLocalPack={report.targetInLocalPack}
     />
