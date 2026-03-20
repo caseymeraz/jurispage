@@ -25,13 +25,13 @@ export default function CaseStudyShowcase({
   if (!caseStudies.length) return null;
 
   return (
-    <section className="py-16 px-6 bg-[#1a1a1a]">
+    <section className="py-16 px-6 bg-white border-t border-gray-100">
       <div className="max-w-5xl mx-auto">
         <div className="text-center mb-10">
-          <h2 className="font-heading font-extrabold text-white text-3xl mb-3">
+          <h2 className="font-heading font-extrabold text-gray-900 text-3xl mb-3">
             {heading}
           </h2>
-          <p className="text-gray-400 text-sm max-w-xl mx-auto">
+          <p className="text-gray-500 text-sm max-w-xl mx-auto">
             These are real law firms generating real cases through organic search
             and paid campaigns. Click any card to see the full story.
           </p>
@@ -49,8 +49,8 @@ export default function CaseStudyShowcase({
                 onClick={() => setActiveIndex(i)}
                 className={`relative text-left rounded-xl p-5 transition-all duration-300 border-2 cursor-pointer group ${
                   isActive
-                    ? "bg-white/10 border-[#EE6C13] shadow-lg shadow-orange-500/10"
-                    : "bg-white/5 border-transparent hover:bg-white/[0.08] hover:border-white/20"
+                    ? "bg-[#FEF3EC] border-[#EE6C13] shadow-lg shadow-orange-500/10"
+                    : "bg-gray-50 border-gray-100 hover:bg-gray-100 hover:border-gray-200"
                 }`}
               >
                 {/* Logo */}
@@ -61,7 +61,7 @@ export default function CaseStudyShowcase({
                       alt={cs.client}
                       width={60}
                       height={32}
-                      className="object-contain h-8 w-auto brightness-0 invert opacity-60 group-hover:opacity-100 transition-opacity"
+                      className="object-contain h-8 w-auto opacity-50 group-hover:opacity-80 transition-opacity"
                     />
                   ) : (
                     <Image
@@ -69,7 +69,7 @@ export default function CaseStudyShowcase({
                       alt={cs.client}
                       width={80}
                       height={32}
-                      className="object-contain h-6 w-auto brightness-0 invert opacity-60 group-hover:opacity-100 transition-opacity"
+                      className="object-contain h-6 w-auto opacity-50 group-hover:opacity-80 transition-opacity"
                     />
                   )}
                 </div>
@@ -81,16 +81,16 @@ export default function CaseStudyShowcase({
                 >
                   {cs.stats[0].value}
                 </p>
-                <p className="text-gray-400 text-xs leading-snug mb-3">
+                <p className="text-gray-500 text-xs leading-snug mb-3">
                   {cs.stats[0].label}
                 </p>
 
                 {/* Practice area + location */}
                 <div className="flex items-center gap-1.5">
-                  <span className="text-[10px] font-bold uppercase tracking-wide px-1.5 py-0.5 rounded bg-white/10 text-gray-300">
+                  <span className="text-[10px] font-bold uppercase tracking-wide px-1.5 py-0.5 rounded bg-gray-200 text-gray-600">
                     {typeLabels[cs.type]}
                   </span>
-                  <span className="text-[10px] text-gray-500">
+                  <span className="text-[10px] text-gray-400">
                     {cs.location}
                   </span>
                 </div>
@@ -99,7 +99,7 @@ export default function CaseStudyShowcase({
                 {isActive && (
                   <div
                     className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 w-3 h-3 rotate-45 rounded-sm"
-                    style={{ background: "#EE6C13" }}
+                    style={{ background: "#1a1a1a" }}
                   />
                 )}
               </button>
@@ -107,8 +107,8 @@ export default function CaseStudyShowcase({
           })}
         </div>
 
-        {/* Expanded detail panel */}
-        <div className="bg-white/[0.07] rounded-2xl border border-white/10 overflow-hidden">
+        {/* Expanded detail panel — dark for contrast */}
+        <div className="bg-[#1a1a1a] rounded-2xl overflow-hidden">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-0">
             {/* Left: metrics */}
             <div className="p-8 lg:p-10">
