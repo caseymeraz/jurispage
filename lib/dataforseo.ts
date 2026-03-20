@@ -433,6 +433,97 @@ export async function getBusinessListingsDensity(
   }
 }
 
+// Full SERP (all item types including local_pack) for competitor gap scan
+export interface SerpFullItem {
+  type: string;
+  rank_absolute: number;
+  domain?: string;
+  title?: string;
+  url?: string;
+  items?: Array<{
+    title?: string;
+    domain?: string;
+    rank_absolute?: number;
+    url?: string;
+  }>;
+}
+
+export async function getLiveSerpFull(
+  keyword: string,
+  locationCode: number = 2840,
+  languageCode: string = "en"
+): Promise<SerpFullItem[]> {
+  const data = await apiRequest<{
+    tasks: Array<{
+      result: Array<{
+        items?: SerpFullItem[];
+      }>;
+    }>;
+  }>("/serp/google/organic/live/advanced", [
+    { keyword, location_code: locationCode, language_code: languageCode, depth: 100 },
+  ]);
+
+  return data.tasks?.[0]?.result?.[0]?.items || [];
+}
+
+function normalizeDomain(input: string): string {
+  let d = input.toLowerCase().trim();
+  d = d.replace(/^https?:\/\//, "");
+  d = d.replace(/^www\./, "");
+  d = d.replace(/\/+$/, "");
+  return d;
+}
+
+export interface CompetitorGapResult {
+  localPackItems: Array<{ name: string; domain: string; position: number }>;
+  organicItems: Array<{ domain: string; title: string; url: string; position: number }>;
+  targetRank: number | null;
+  targetInLocalPack: boolean;
+}
+
+export function parseSerpForCompetitorGap(
+  items: SerpFullItem[],
+  targetDomain: string
+): CompetitorGapResult {
+  const normalizedTarget = normalizeDomain(targetDomain);
+
+  const localPackItems: CompetitorGapResult["localPackItems"] = [];
+  const organicItems: CompetitorGapResult["organicItems"] = [];
+  let targetRank: number | null = null;
+  let targetInLocalPack = false;
+
+  for (const item of items) {
+    if (item.type === "local_pack" && item.items) {
+      for (const lp of item.items) {
+        const lpDomain = lp.domain ? normalizeDomain(lp.domain) : "";
+        localPackItems.push({
+          name: lp.title || "",
+          domain: lpDomain,
+          position: lp.rank_absolute ?? localPackItems.length + 1,
+        });
+        if (lpDomain && lpDomain === normalizedTarget) {
+          targetInLocalPack = true;
+        }
+      }
+    }
+
+    if (item.type === "organic" && item.domain) {
+      const orgDomain = normalizeDomain(item.domain);
+      organicItems.push({
+        domain: orgDomain,
+        title: item.title || "",
+        url: item.url || "",
+        position: item.rank_absolute ?? 0,
+      });
+      if (orgDomain === normalizedTarget && targetRank === null) {
+        targetRank = item.rank_absolute ?? null;
+      }
+    }
+  }
+
+  return { localPackItems, organicItems, targetRank, targetInLocalPack };
+}
+
 // Keyword suggestions
 export async function getKeywordSuggestions(
   seed: string[],

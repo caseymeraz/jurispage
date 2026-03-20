@@ -35,9 +35,10 @@ model Lead {
   createdAt             DateTime @default(now())
   updatedAt             DateTime @updatedAt
 
-  marketGapReports      MarketGapReport[]
-  aiSearchReports       AiSearchReport[]
-  growthPathSessions    GrowthPathSession[]
+  marketGapReports          MarketGapReport[]
+  aiSearchReports           AiSearchReport[]
+  growthPathSessions        GrowthPathSession[]
+  competitorScanReports     CompetitorScanReport[]
 
   @@index([email])
   @@index([googlePlaceId])
@@ -310,6 +311,26 @@ model GrowthPathAsset {
 
   @@index([sessionId])
   @@map("growth_path_assets")
+}
+
+model CompetitorScanReport {
+  id              String   @id @default(cuid())
+  leadId          String
+  lead            Lead     @relation(fields: [leadId], references: [id])
+  targetUrl       String
+  targetDomain    String
+  city            String
+  practiceArea    String
+  searchQuery     String
+  localPackItems  Json?
+  organicItems    Json?
+  targetRank      Int?
+  targetInLocalPack Boolean @default(false)
+  rawResponse     Json?
+  createdAt       DateTime @default(now())
+
+  @@index([leadId])
+  @@map("competitor_scan_reports")
 }
 
 model Territory {
