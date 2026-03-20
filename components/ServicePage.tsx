@@ -12,6 +12,7 @@ import SchemaOrg from "@/components/SchemaOrg";
 import CaseStudyPreview from "@/components/CaseStudyPreview";
 import CaseStudyShowcase from "@/components/CaseStudyShowcase";
 import ThemVsUs from "@/components/ThemVsUs";
+import CountUpStats from "@/components/CountUpStats";
 import HeroForm from "@/components/HeroForm";
 import AiSearchReportForm from "@/components/AiSearchReportForm";
 import CompetitorGapForm from "@/components/CompetitorGapForm";
@@ -145,18 +146,22 @@ export default function ServicePage({ service }: ServicePageProps) {
 
       {/* Stats bar */}
       {service.stats && service.stats.length > 0 && (
-        <section className="py-10 px-6 bg-[#EE6C13]">
-          <div className="max-w-4xl mx-auto">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-              {service.stats.map((stat) => (
-                <div key={stat.label} className="text-center">
-                  <div className="font-heading font-extrabold text-white text-3xl md:text-4xl leading-none mb-1">{stat.value}</div>
-                  <div className="text-orange-100 text-sm leading-snug">{stat.label}</div>
-                </div>
-              ))}
+        service.slug === "law-firm-seo" ? (
+          <CountUpStats stats={service.stats} />
+        ) : (
+          <section className="py-10 px-6 bg-[#EE6C13]">
+            <div className="max-w-4xl mx-auto">
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+                {service.stats.map((stat) => (
+                  <div key={stat.label} className="text-center">
+                    <div className="font-heading font-extrabold text-white text-3xl md:text-4xl leading-none mb-1">{stat.value}</div>
+                    <div className="text-orange-100 text-sm leading-snug">{stat.label}</div>
+                  </div>
+                ))}
+              </div>
             </div>
-          </div>
-        </section>
+          </section>
+        )
       )}
 
       {/* Intro */}

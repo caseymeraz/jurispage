@@ -86,7 +86,7 @@ export const services: ServiceData[] = [
     stats: [
       { value: "113+", label: "Law firms generating cases through organic search" },
       { value: "68%", label: "Average increase in signed cases from organic within 12 months" },
-      { value: "$412", label: "Average cost per organic case inquiry at month 12" },
+      { value: "$453", label: "Lower cost per case after 12 months" },
       { value: "0", label: "Long-term contracts required" },
     ],
     signs: [
