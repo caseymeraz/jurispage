@@ -14,6 +14,7 @@ import CaseStudyShowcase from "@/components/CaseStudyShowcase";
 import ThemVsUs from "@/components/ThemVsUs";
 import CountUpStats from "@/components/CountUpStats";
 import ThreeStepProcess from "@/components/ThreeStepProcess";
+import RedPenVideo from "@/components/RedPenVideo";
 import HeroForm from "@/components/HeroForm";
 import AiSearchReportForm from "@/components/AiSearchReportForm";
 import CompetitorGapForm from "@/components/CompetitorGapForm";
@@ -177,6 +178,9 @@ export default function ServicePage({ service }: ServicePageProps) {
       )}
 
       {service.slug === "law-firm-seo" && <ThemVsUs />}
+
+      {/* Red Pen Video CTA */}
+      {service.slug === "law-firm-seo" && <RedPenVideo />}
 
       {/* Intro */}
       <section className="py-16 px-6 bg-white">
