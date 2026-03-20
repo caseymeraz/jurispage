@@ -11,6 +11,7 @@ import FAQAccordion from "@/components/FAQAccordion";
 import SchemaOrg from "@/components/SchemaOrg";
 import CaseStudyPreview from "@/components/CaseStudyPreview";
 import CaseStudyShowcase from "@/components/CaseStudyShowcase";
+import ThemVsUs from "@/components/ThemVsUs";
 import HeroForm from "@/components/HeroForm";
 import AiSearchReportForm from "@/components/AiSearchReportForm";
 import CompetitorGapForm from "@/components/CompetitorGapForm";
@@ -330,6 +331,8 @@ export default function ServicePage({ service }: ServicePageProps) {
           heading="Real Results from Law Firms Like Yours"
         />
       ) : null}
+
+      {service.slug === "law-firm-seo" && <ThemVsUs />}
 
       {/* This Service by Practice Area */}
       {(() => {
