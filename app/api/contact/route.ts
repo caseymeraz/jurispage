@@ -77,7 +77,7 @@ export async function POST(req: NextRequest) {
       "Message": message || "N/A",
       "Form Source": "contact-page",
       "Page URL": body.pageUri || "N/A",
-    });
+    }, "new-leads");
 
     // HubSpot submission (awaited so it completes before serverless function exits)
     const formGuid = process.env.HUBSPOT_FORM_GUID;
