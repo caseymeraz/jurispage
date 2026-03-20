@@ -252,9 +252,9 @@ export default function CompetitorGapForm() {
             See Who Is Stealing Your Local Search Traffic
           </h2>
           <p className="text-gray-600 text-sm text-center mb-6">
-            Enter your firm&apos;s website, city, and practice area to run a live
-            SERP scan and see exactly which local firms are capturing the Google
-            search traffic that should be yours.
+            Enter your firm&apos;s website, city, and practice area to scan
+            Google and see exactly which local firms are outranking you
+            for the searches that generate cases.
           </p>
 
           <div className="space-y-3 mb-4">
@@ -301,7 +301,7 @@ export default function CompetitorGapForm() {
             onMouseEnter={(e) => (e.currentTarget.style.background = "#982A0B")}
             onMouseLeave={(e) => (e.currentTarget.style.background = "#EE6C13")}
           >
-            Run Live SERP Scan
+            Run Free Competitor Scan
           </button>
 
           <p className="text-xs text-gray-400 text-center mt-3">
