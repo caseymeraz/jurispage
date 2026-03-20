@@ -1,8 +1,14 @@
 export async function notifySlack(
   title: string,
-  fields: Record<string, string>
+  fields: Record<string, string>,
+  channel?: "newleads" | "leadmagnets"
 ) {
-  const webhookUrl = process.env.SLACK_WEBHOOK_URL;
+  const webhookUrl =
+    channel === "newleads"
+      ? process.env.SLACK_WEBHOOK_URL_NEWLEADS
+      : channel === "leadmagnets"
+        ? process.env.SLACK_WEBHOOK_URL_LEADMAGNETS
+        : process.env.SLACK_WEBHOOK_URL;
   if (!webhookUrl) return;
 
   const fieldBlocks = Object.entries(fields).map(([key, value]) => ({

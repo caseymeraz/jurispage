@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { Resend } from "resend";
 import { submitToHubSpot } from "@/lib/hubspot";
+import { notifySlack } from "@/lib/slack";
 import { prisma } from "@/lib/db";
 import { verifyTurnstile } from "@/lib/turnstile";
 
@@ -79,6 +80,19 @@ export async function POST(req: NextRequest) {
       html: internalHtml,
       replyTo: email,
     });
+
+    // Slack notification
+    notifySlack("Growth Assessment Lead", {
+      Name: fullName,
+      Firm: firmName,
+      Email: email,
+      Phone: phone || "N/A",
+      Attorneys: attorneys,
+      "Practice Areas": practiceAreasDisplay,
+      Markets: markets || "N/A",
+      Budget: budget || "N/A",
+      "Page URL": body.pageUri || "N/A",
+    }, "leadmagnets");
 
     // ── Prospect email ─────────────────────────────────────────────────
     const prospectHtml = `

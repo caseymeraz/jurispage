@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { Resend } from "resend";
 import { submitToHubSpot } from "@/lib/hubspot";
+import { notifySlack } from "@/lib/slack";
 import { prisma } from "@/lib/db";
 import { verifyTurnstile } from "@/lib/turnstile";
 
@@ -91,6 +92,17 @@ export async function POST(req: NextRequest) {
       html: internalHtml,
       replyTo: email,
     });
+
+    // Slack notification
+    notifySlack(isCustom ? "Juris Digital Lead (5+ Attorneys)" : "New Launchpad Quote", {
+      Name: name,
+      Email: email,
+      Attorneys: String(attorneyDisplay),
+      "Practice Area": practiceArea || "N/A",
+      "Target City": cityLabel,
+      "Estimated Monthly": isCustom ? "Custom Pricing" : `$${monthlyTotal?.toLocaleString()}/mo`,
+      "Page URL": body.pageUri || "N/A",
+    }, "newleads");
 
     // ── Prospect email ─────────────────────────────────────────────────
     const prospectHtml = isCustom
