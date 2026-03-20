@@ -10,6 +10,7 @@ import PortfolioShowcase from "@/components/PortfolioShowcase";
 import FAQAccordion from "@/components/FAQAccordion";
 import SchemaOrg from "@/components/SchemaOrg";
 import CaseStudyPreview from "@/components/CaseStudyPreview";
+import CaseStudyShowcase from "@/components/CaseStudyShowcase";
 import HeroForm from "@/components/HeroForm";
 import AiSearchReportForm from "@/components/AiSearchReportForm";
 import CompetitorGapForm from "@/components/CompetitorGapForm";
@@ -318,12 +319,17 @@ export default function ServicePage({ service }: ServicePageProps) {
         </section>
       )}
 
-      {service.relatedCaseStudies && service.relatedCaseStudies.length > 0 && (
+      {service.slug === "law-firm-seo" ? (
+        <CaseStudyShowcase
+          caseStudies={caseStudies}
+          heading="Real Results from Law Firms Like Yours"
+        />
+      ) : service.relatedCaseStudies && service.relatedCaseStudies.length > 0 ? (
         <CaseStudyPreview
           caseStudies={caseStudies.filter((cs) => service.relatedCaseStudies!.includes(cs.slug))}
           heading="Real Results from Law Firms Like Yours"
         />
-      )}
+      ) : null}
 
       {/* This Service by Practice Area */}
       {(() => {
