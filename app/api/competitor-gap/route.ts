@@ -102,7 +102,7 @@ export async function POST(req: NextRequest) {
       console.error("[CompetitorGap] FAILED to create Lead:", dbErr instanceof Error ? dbErr.message : dbErr);
       console.error("[CompetitorGap] Lead creation stack:", dbErr instanceof Error ? dbErr.stack : "N/A");
       return NextResponse.json(
-        { error: "Failed to save lead. Please try again." },
+        { error: `Failed to save lead: ${dbErr instanceof Error ? dbErr.message : String(dbErr)}` },
         { status: 500 }
       );
     }
@@ -128,10 +128,25 @@ export async function POST(req: NextRequest) {
       });
       console.log("[CompetitorGap] Report created:", report.id);
     } catch (dbErr) {
-      console.error("[CompetitorGap] FAILED to create CompetitorScanReport:", dbErr instanceof Error ? dbErr.message : dbErr);
+      const errMsg = dbErr instanceof Error ? dbErr.message : String(dbErr);
+      console.error("[CompetitorGap] FAILED to create CompetitorScanReport:", errMsg);
       console.error("[CompetitorGap] Report creation stack:", dbErr instanceof Error ? dbErr.stack : "N/A");
+      console.error("[CompetitorGap] Report creation data:", JSON.stringify({
+        leadId: lead.id,
+        targetUrl,
+        targetDomain,
+        city,
+        practiceArea,
+        searchQuery,
+        localPackCount: parsed.localPackItems.length,
+        organicCount: parsed.organicItems.length,
+        targetRank: parsed.targetRank,
+        targetInLocalPack: parsed.targetInLocalPack,
+        rawResponseType: typeof rawResponse,
+        rawResponseNull: rawResponse === null,
+      }));
       return NextResponse.json(
-        { error: "Failed to generate report. Please try again." },
+        { error: `Failed to generate report: ${errMsg}` },
         { status: 500 }
       );
     }
