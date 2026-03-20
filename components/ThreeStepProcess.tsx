@@ -132,14 +132,7 @@ export default function ThreeStepProcess() {
         <div className="text-center mt-12">
           <a
             href="/contact/"
-            className="inline-block text-white font-bold py-3.5 px-8 rounded-xl text-sm no-underline transition-colors"
-            style={{ background: "#EE6C13" }}
-            onMouseEnter={(e: React.MouseEvent<HTMLAnchorElement>) =>
-              (e.currentTarget.style.background = "#982A0B")
-            }
-            onMouseLeave={(e: React.MouseEvent<HTMLAnchorElement>) =>
-              (e.currentTarget.style.background = "#EE6C13")
-            }
+            className="inline-block text-white font-bold py-3.5 px-8 rounded-xl text-sm no-underline transition-colors bg-[#EE6C13] hover:bg-[#982A0B]"
           >
             Book Your Free Strategy Call
           </a>
