@@ -5,9 +5,9 @@ export async function notifySlack(
 ) {
   const webhookUrl =
     channel === "new-leads"
-      ? process.env.SLACK_WEBHOOK_URL_NEW_LEADS
+      ? (process.env.SLACK_WEBHOOK_URL_NEW_LEADS || process.env.SLACK_WEBHOOK_URL)
       : channel === "lead-magnets"
-        ? process.env.SLACK_WEBHOOK_URL_LEAD_MAGNETS
+        ? (process.env.SLACK_WEBHOOK_URL_LEAD_MAGNETS || process.env.SLACK_WEBHOOK_URL)
         : process.env.SLACK_WEBHOOK_URL;
   if (!webhookUrl) return;
 

@@ -168,6 +168,7 @@ export async function POST(req: NextRequest) {
         "Target Rank": parsed.targetRank ? `#${parsed.targetRank}` : "Not in Top 100",
         "In Local Pack": parsed.targetInLocalPack ? "Yes" : "No",
         "Top Competitor": topCompetitor,
+        "Submitted From": pageUri || "Unknown",
         "Report URL": `${process.env.NEXT_PUBLIC_SITE_URL || "https://jurispage.com"}/competitor-report/${report.id}`,
       },
       "lead-magnets"
