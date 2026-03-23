@@ -2,6 +2,7 @@ import { MetadataRoute } from "next";
 import { services } from "@/data/services";
 import { practiceAreas } from "@/data/practiceAreas";
 import { metroServiceCombos } from "@/data/metros";
+import { intersections } from "@/data/intersections";
 import { getAllPosts } from "@/lib/blog";
 import fs from "fs";
 import path from "path";
@@ -24,6 +25,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: BASE_URL + "/blog/", lastModified: new Date(), changeFrequency: "weekly", priority: 0.7 },
     { url: BASE_URL + "/law-firm-seo-cost/", lastModified: new Date(), changeFrequency: "monthly", priority: 0.8 },
     { url: BASE_URL + "/scorpion-legal-marketing-alternative/", lastModified: new Date(), changeFrequency: "monthly", priority: 0.7 },
+    { url: BASE_URL + "/practice-areas/", lastModified: new Date(), changeFrequency: "monthly", priority: 0.8 },
+    { url: BASE_URL + "/services/", lastModified: new Date(), changeFrequency: "monthly", priority: 0.8 },
+    { url: BASE_URL + "/jurispage-now-backed-by-juris-digital/", lastModified: new Date(), changeFrequency: "yearly", priority: 0.6 },
   ];
 
   const servicePages: MetadataRoute.Sitemap = services.map((s) => ({
@@ -45,6 +49,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: new Date(),
     changeFrequency: "monthly",
     priority: 0.6,
+  }));
+
+  const intersectionPages: MetadataRoute.Sitemap = intersections.map((i) => ({
+    url: BASE_URL + "/" + i.practiceAreaSlug + "/" + i.serviceSlug + "/",
+    lastModified: new Date(),
+    changeFrequency: "monthly",
+    priority: 0.7,
   }));
 
   const blogPosts: MetadataRoute.Sitemap = getAllPosts().map((post) => ({
@@ -71,5 +82,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     })),
   ];
 
-  return [...staticPages, ...servicePages, ...practiceAreaPages, ...metroPages, ...blogPosts, ...newsPages, ...caseStudyPages];
+  return [...staticPages, ...servicePages, ...practiceAreaPages, ...metroPages, ...intersectionPages, ...blogPosts, ...newsPages, ...caseStudyPages];
 }
