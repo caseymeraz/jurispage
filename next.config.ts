@@ -177,6 +177,11 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
+        source: "/best-law-firm-websites-that-nail-design-trust-and-conversion/:path*",
+        destination: "/law-firm-websites/",
+        permanent: true,
+      },
+      {
         source: "/best-law-firm-websites/:path*",
         destination: "/law-firm-websites/",
         permanent: true,
