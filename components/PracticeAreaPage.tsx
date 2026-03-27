@@ -10,6 +10,7 @@ import FAQAccordion from "@/components/FAQAccordion";
 import SchemaOrg from "@/components/SchemaOrg";
 import CaseStudyPreview from "@/components/CaseStudyPreview";
 import JumpLinks from "@/components/JumpLinks";
+import PracticeToggle from "@/components/PracticeToggle";
 import HeroForm from "@/components/HeroForm";
 import CompetitorGapForm from "@/components/CompetitorGapForm";
 import PpcRoiCalculator from "@/components/PpcRoiCalculator";
@@ -193,6 +194,92 @@ function UniqueSection({ section }: { section: NonNullable<PracticeAreaData["uni
           </div>
         )}
 
+        {section.type === "ad-comparison" && (
+          <div className="space-y-8">
+            {/* Bad vs Good Ads */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              {/* Bad Ad */}
+              <div className="rounded-xl border-2 border-red-200 bg-red-50 p-5 relative">
+                <span className="absolute -top-3 left-4 bg-red-500 text-white text-xs font-bold px-3 py-1 rounded-full">Bad: Generic</span>
+                <div className="mt-2">
+                  <div className="text-xs text-gray-500 mb-1">Ad</div>
+                  <div className="font-heading font-bold text-blue-800 text-base mb-1">Employment Lawyer - Call Today</div>
+                  <div className="text-sm text-green-700 mb-2">www.example.com/employment</div>
+                  <div className="text-sm text-gray-600">We handle all types of employment cases. Contact us for a free consultation.</div>
+                </div>
+                <div className="mt-4 pt-3 border-t border-red-200">
+                  <div className="text-xs text-red-600 font-semibold">Problems:</div>
+                  <ul className="text-xs text-red-600 mt-1 space-y-1">
+                    <li>- No specific violation type</li>
+                    <li>- No urgency or deadline</li>
+                    <li>- Same ad for everyone</li>
+                  </ul>
+                </div>
+              </div>
+
+              {/* Good Ad - Wrongful Termination */}
+              <div className="rounded-xl border-2 border-green-200 bg-green-50 p-5 relative">
+                <span className="absolute -top-3 left-4 bg-green-600 text-white text-xs font-bold px-3 py-1 rounded-full">Good: Targeted</span>
+                <div className="mt-2">
+                  <div className="text-xs text-gray-500 mb-1">Ad</div>
+                  <div className="font-heading font-bold text-blue-800 text-base mb-1">Fired Without Cause? Free Case Review</div>
+                  <div className="text-sm text-green-700 mb-2">www.example.com/wrongful-termination</div>
+                  <div className="text-sm text-gray-600">EEOC deadline may be approaching. Wrongful termination attorneys in Dallas. No fees unless we win.</div>
+                </div>
+                <div className="mt-4 pt-3 border-t border-green-200">
+                  <div className="text-xs text-green-700 font-semibold">Why it works:</div>
+                  <ul className="text-xs text-green-700 mt-1 space-y-1">
+                    <li>+ Specific to wrongful termination</li>
+                    <li>+ EEOC deadline creates urgency</li>
+                    <li>+ "No fees unless we win" removes risk</li>
+                  </ul>
+                </div>
+              </div>
+
+              {/* Good Ad - Sexual Harassment */}
+              <div className="rounded-xl border-2 border-green-200 bg-green-50 p-5 relative">
+                <span className="absolute -top-3 left-4 bg-green-600 text-white text-xs font-bold px-3 py-1 rounded-full">Good: Targeted</span>
+                <div className="mt-2">
+                  <div className="text-xs text-gray-500 mb-1">Ad</div>
+                  <div className="font-heading font-bold text-blue-800 text-base mb-1">Workplace Harassment? You Have Rights.</div>
+                  <div className="text-sm text-green-700 mb-2">www.example.com/sexual-harassment</div>
+                  <div className="text-sm text-gray-600">Confidential consultation. Sexual harassment attorneys with 15+ years of experience. No upfront costs.</div>
+                </div>
+                <div className="mt-4 pt-3 border-t border-green-200">
+                  <div className="text-xs text-green-700 font-semibold">Why it works:</div>
+                  <ul className="text-xs text-green-700 mt-1 space-y-1">
+                    <li>+ "Confidential" addresses fear</li>
+                    <li>+ Specific to harassment cases</li>
+                    <li>+ Experience signal builds trust</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            {/* Urgency Banner Mockup */}
+            <div>
+              <p className="text-xs font-bold uppercase tracking-widest text-gray-400 mb-3">Example: Deadline Urgency Banner for Landing Pages</p>
+              <div className="rounded-xl overflow-hidden border border-gray-200 shadow-sm">
+                <div className="bg-red-600 px-6 py-4 flex items-center gap-4">
+                  <div className="flex-shrink-0 w-10 h-10 rounded-full bg-white/20 flex items-center justify-center">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="8" stroke="white" strokeWidth="2"/><path d="M10 6v4.5l3 1.5" stroke="white" strokeWidth="2" strokeLinecap="round"/></svg>
+                  </div>
+                  <div>
+                    <div className="text-white font-heading font-bold text-sm">EEOC Filing Deadline: You May Have as Few as 180 Days</div>
+                    <div className="text-red-100 text-xs mt-0.5">Don't wait. Your right to file expires. Get a free case evaluation today.</div>
+                  </div>
+                  <div className="ml-auto flex-shrink-0">
+                    <span className="px-4 py-2 rounded-full bg-white text-red-600 text-xs font-bold">Check My Deadline</span>
+                  </div>
+                </div>
+                <div className="bg-gray-50 px-6 py-3 text-xs text-gray-500">
+                  This banner sits at the top of your wrongful termination and discrimination landing pages. It creates real urgency because the deadline is real.
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+
         {section.type === "prose" && null}
       </div>
     </section>
@@ -356,6 +443,7 @@ export default function PracticeAreaPage({ practiceArea: pa }: PracticeAreaPageP
       {/* Jump Links */}
       <JumpLinks links={[
         { id: "overview", label: "Overview" },
+        ...(pa.slug === "employment-lawyer-marketing" ? [{ id: "practice-toggle", label: "Practice Focus" }] : []),
         ...(pa.uniqueSections?.filter(s => s.placement === "after-intro").map(s => ({ id: s.id, label: s.heading.split(":")[0] })) ?? []),
         { id: "why-different", label: "Why Different" },
         { id: "mistakes", label: "Common Mistakes" },
@@ -388,6 +476,9 @@ export default function PracticeAreaPage({ practiceArea: pa }: PracticeAreaPageP
           )}
         </div>
       </section>
+
+      {/* Plaintiff/Defendant Toggle - employment page only */}
+      {pa.slug === "employment-lawyer-marketing" && <PracticeToggle />}
 
       {renderUniqueSections(pa.uniqueSections, "after-intro")}
 

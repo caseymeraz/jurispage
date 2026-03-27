@@ -5,6 +5,7 @@ import { renderLinkedText } from "@/lib/renderLinkedText";
 interface FAQ {
   question: string;
   answer: string;
+  preview?: string;
 }
 
 interface FAQAccordionProps {
@@ -23,12 +24,17 @@ export default function FAQAccordion({ faqs, heading = "Frequently Asked Questio
           {faqs.map((faq, i) => (
             <div key={i} className="border border-gray-200 rounded-lg overflow-hidden">
               <button
-                className={`w-full text-left px-6 py-5 font-heading font-semibold text-gray-900 text-base flex justify-between items-center hover:bg-orange-50 transition-colors ${open === i ? "border-l-4 border-l-[#EE6C13]" : ""}`}
+                className={`w-full text-left px-6 py-5 font-heading font-semibold text-gray-900 text-base flex justify-between items-start hover:bg-orange-50 transition-colors ${open === i ? "border-l-4 border-l-[#EE6C13]" : ""}`}
                 onClick={() => setOpen(open === i ? null : i)}
                 aria-expanded={open === i}
               >
-                <span>{faq.question}</span>
-                <span className="text-xl ml-4 flex-shrink-0" style={{ color: open === i ? "#EE6C13" : "#9ca3af" }}>{open === i ? "−" : "+"}</span>
+                <div className="flex-1 pr-4">
+                  <span>{faq.question}</span>
+                  {faq.preview && open !== i && (
+                    <p className="text-sm text-gray-500 font-normal mt-1 leading-relaxed">{faq.preview}</p>
+                  )}
+                </div>
+                <span className="text-xl flex-shrink-0 mt-1" style={{ color: open === i ? "#EE6C13" : "#9ca3af" }}>{open === i ? "−" : "+"}</span>
               </button>
               {open === i && (
                 <div className="px-6 pb-5 text-gray-600 leading-relaxed text-base">
