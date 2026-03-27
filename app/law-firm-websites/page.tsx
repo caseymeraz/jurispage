@@ -81,139 +81,122 @@ export default function LawFirmWebsitesPage() {
           1. HERO - StoryBrand: Character + Problem
       ═══════════════════════════════════════════════════════ */}
       <section className="bg-white py-20 px-6 border-b border-gray-100">
-        <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-            <div className="pt-2">
-              <nav className="text-sm text-gray-500 mb-5">
-                <Link href="/" className="hover:text-gray-900 no-underline">Home</Link> /{" "}
-                <span className="text-gray-700">Law Firm Website Design</span>
-              </nav>
+        <div className="max-w-3xl mx-auto text-center">
+          <nav className="text-sm text-gray-500 mb-5">
+            <Link href="/" className="hover:text-gray-900 no-underline">Home</Link> /{" "}
+            <span className="text-gray-700">Law Firm Website Design</span>
+          </nav>
 
-              {/* Trust signals in hero */}
-              <div className="flex flex-wrap gap-3 mb-6">
-                <span className="text-xs font-bold px-3 py-1 rounded-full" style={{ background: O + "15", color: O }}>Zero Long-Term Contracts</span>
-                <span className="text-xs font-bold px-3 py-1 rounded-full" style={{ background: "#27ae6015", color: "#27ae60" }}>Transparent Pricing</span>
-                <span className="text-xs font-bold px-3 py-1 rounded-full bg-gray-100 text-gray-600">100% Legal Focus</span>
-              </div>
-
-              <h1 className="font-heading font-extrabold text-gray-900 text-4xl md:text-5xl leading-tight mb-6">
-                Great Lawyers Shouldn't Lose Cases to Firms With Better <span style={{ color: O }}>Websites</span>
-              </h1>
-              <p className="text-gray-600 text-lg leading-relaxed mb-4">
-                You went to law school to practice law, not to decipher search algorithms. But right now, potential clients are Googling your firm, seeing an outdated website, and quietly hiring your competitor instead.
-              </p>
-              <p className="text-gray-600 text-lg leading-relaxed">
-                We build law firm websites that make that stop happening.
-              </p>
-            </div>
-            <div className="bg-gray-50 rounded-2xl p-6 lg:p-8 text-center">
-              <h2 className="font-heading font-extrabold text-gray-900 text-xl mb-2">Grade Your Website in 60 Seconds</h2>
-              <p className="text-gray-500 text-sm mb-6">Answer 7 quick questions. Get an instant grade and a list of what to fix.</p>
-              <a href="#website-grader" className="inline-block px-8 py-4 rounded-full text-white font-bold text-sm no-underline transition-opacity hover:opacity-90" style={{ background: O }}>
-                Start the Free Website Grader
-              </a>
-              <p className="text-xs text-gray-400 mt-4">No email required. Instant results.</p>
-            </div>
+          <div className="flex flex-wrap gap-3 justify-center mb-6">
+            <span className="text-xs font-bold px-3 py-1 rounded-full" style={{ background: O + "15", color: O }}>Zero Long-Term Contracts</span>
+            <span className="text-xs font-bold px-3 py-1 rounded-full" style={{ background: "#27ae6015", color: "#27ae60" }}>Transparent Pricing</span>
+            <span className="text-xs font-bold px-3 py-1 rounded-full bg-gray-100 text-gray-600">100% Legal Focus</span>
           </div>
+
+          <h1 className="font-heading font-extrabold text-gray-900 text-4xl md:text-5xl leading-tight mb-6">
+            Great Lawyers Shouldn't Lose Cases to Firms With Better <span style={{ color: O }}>Websites</span>
+          </h1>
+          <p className="text-gray-600 text-lg leading-relaxed mb-4">
+            You went to law school to practice law, not to decipher search algorithms. But right now, potential clients are Googling your firm, seeing an outdated website, and quietly hiring your competitor instead.
+          </p>
+          <p className="text-gray-600 text-lg leading-relaxed mb-8">
+            We build law firm websites that make that stop happening.
+          </p>
+
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="#website-grader" className="px-8 py-4 rounded-full text-white font-bold text-sm no-underline transition-opacity hover:opacity-90" style={{ background: O }}>
+              Grade Your Website in 60 Seconds
+            </a>
+            <Link href="/services/pricing/" className="px-8 py-4 rounded-full font-bold text-sm no-underline border-2 transition-all hover:bg-gray-50" style={{ borderColor: D, color: D }}>
+              See Transparent Pricing
+            </Link>
+          </div>
+          <p className="text-xs text-gray-400 mt-4">No email required. Instant results.</p>
         </div>
       </section>
 
       {/* ═══════════════════════════════════════════════════════
-          2. THE INVISIBLE LEAK - Animated Funnel SVG
+          2. THE INVISIBLE LEAK - HTML Funnel
       ═══════════════════════════════════════════════════════ */}
       <section className="py-16 px-6 bg-gray-50">
-        <div className="max-w-5xl mx-auto">
+        <div className="max-w-4xl mx-auto">
           <h2 className="font-heading font-extrabold text-gray-900 text-3xl mb-3 text-center">The Invisible Leak in Your Practice</h2>
           <p className="text-gray-500 text-center mb-10 max-w-2xl mx-auto">Your website is losing you cases right now. Here is exactly where they go.</p>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* Leaky funnel */}
-            <div className="rounded-xl border border-red-200 bg-white p-6 overflow-hidden">
-              <div className="text-center mb-4">
-                <span className="text-xs font-bold uppercase tracking-widest text-red-500">Your Current Website</span>
-              </div>
-              <svg viewBox="0 0 300 320" xmlns="http://www.w3.org/2000/svg" style={{ width: "100%", height: "auto" }}>
-                {/* Funnel shape */}
-                <polygon points="30,20 270,20 220,130 80,130" fill="#fee2e2" stroke="#fca5a5" strokeWidth="1.5" />
-                <polygon points="80,135 220,135 200,210 100,210" fill="#fee2e2" stroke="#fca5a5" strokeWidth="1.5" />
-                <rect x="120" y="215" width="60" height="50" rx="4" fill="#fee2e2" stroke="#fca5a5" strokeWidth="1.5" />
-
-                {/* Labels */}
-                <text x="150" y="50" textAnchor="middle" fontFamily="system-ui" fontSize="11" fontWeight="700" fill="#1a1a2e">100 people search</text>
-                <text x="150" y="65" textAnchor="middle" fontFamily="system-ui" fontSize="10" fill="#666">for a lawyer in your city</text>
-
-                <text x="150" y="105" textAnchor="middle" fontFamily="system-ui" fontSize="11" fontWeight="700" fill="#1a1a2e">42 click your listing</text>
-
-                {/* Leak drops */}
-                <circle cx="225" cy="155" r="4" fill="#ef4444" opacity="0.7">
-                  <animate attributeName="cy" values="155;185;210" dur="1.5s" repeatCount="indefinite" />
-                  <animate attributeName="opacity" values="0.7;0.4;0" dur="1.5s" repeatCount="indefinite" />
-                </circle>
-                <circle cx="235" cy="160" r="3" fill="#ef4444" opacity="0.5">
-                  <animate attributeName="cy" values="160;195;225" dur="2s" repeatCount="indefinite" />
-                  <animate attributeName="opacity" values="0.5;0.3;0" dur="2s" repeatCount="indefinite" />
-                </circle>
-                <circle cx="75" cy="150" r="3.5" fill="#ef4444" opacity="0.6">
-                  <animate attributeName="cy" values="150;180;215" dur="1.8s" repeatCount="indefinite" />
-                  <animate attributeName="opacity" values="0.6;0.3;0" dur="1.8s" repeatCount="indefinite" />
-                </circle>
-
-                {/* Leak label */}
-                <text x="255" y="175" fontFamily="system-ui" fontSize="9" fontWeight="700" fill="#ef4444">31 leave</text>
-                <text x="255" y="187" fontFamily="system-ui" fontSize="8" fill="#ef4444">slow load, no CTA,</text>
-                <text x="255" y="197" fontFamily="system-ui" fontSize="8" fill="#ef4444">outdated design</text>
-
+            <div className="rounded-xl border border-red-200 bg-white overflow-hidden">
+              <div className="bg-red-500 text-white text-center py-2 text-xs font-bold uppercase tracking-widest">Your Current Website</div>
+              <div className="p-5 space-y-0">
+                {/* Step 1 - wide */}
+                <div className="bg-gray-100 rounded-lg px-4 py-3 text-center">
+                  <div className="font-heading font-extrabold text-gray-900 text-lg">100</div>
+                  <div className="text-gray-500 text-xs">people search for a lawyer in your city</div>
+                </div>
+                <div className="flex justify-center py-1"><div className="w-0.5 h-4 bg-gray-300" /></div>
+                {/* Step 2 */}
+                <div className="bg-gray-100 rounded-lg px-4 py-3 text-center mx-4">
+                  <div className="font-heading font-extrabold text-gray-900 text-lg">42</div>
+                  <div className="text-gray-500 text-xs">click your Google listing</div>
+                </div>
+                <div className="flex justify-center py-1"><div className="w-0.5 h-4 bg-gray-300" /></div>
+                {/* Leak */}
+                <div className="bg-red-50 border border-red-200 rounded-lg px-4 py-3 text-center mx-2">
+                  <div className="font-heading font-extrabold text-red-500 text-lg">31 leave</div>
+                  <div className="text-red-400 text-xs">Slow load. No phone number. Outdated design. No trust signals.</div>
+                </div>
+                <div className="flex justify-center py-1"><div className="w-0.5 h-4 bg-red-300" /></div>
                 {/* Bottom */}
-                <text x="150" y="245" textAnchor="middle" fontFamily="system-ui" fontSize="14" fontWeight="800" fill="#ef4444">11 call</text>
-                <text x="150" y="260" textAnchor="middle" fontFamily="system-ui" fontSize="9" fill="#999">2% conversion rate</text>
-
-                {/* Arrow */}
-                <text x="150" y="300" textAnchor="middle" fontFamily="system-ui" fontSize="10" fontWeight="600" fill="#c0392b">You lost 31 potential clients.</text>
-                <text x="150" y="314" textAnchor="middle" fontFamily="system-ui" fontSize="9" fill="#c0392b">You never even knew they visited.</text>
-              </svg>
+                <div className="bg-red-100 rounded-lg px-4 py-4 text-center mx-10">
+                  <div className="font-heading font-extrabold text-red-600 text-2xl">11 call</div>
+                  <div className="text-red-400 text-xs font-bold">2% conversion rate</div>
+                </div>
+              </div>
+              <div className="bg-red-50 px-5 py-3 text-center">
+                <p className="text-red-600 text-xs font-bold">You lost 31 potential clients. You never knew they visited.</p>
+              </div>
             </div>
 
             {/* Fixed funnel */}
-            <div className="rounded-xl border-2 p-6 overflow-hidden" style={{ borderColor: O + "44", background: O + "08" }}>
-              <div className="text-center mb-4">
-                <span className="text-xs font-bold uppercase tracking-widest" style={{ color: O }}>With JurisPage</span>
+            <div className="rounded-xl border-2 overflow-hidden" style={{ borderColor: O }}>
+              <div className="text-white text-center py-2 text-xs font-bold uppercase tracking-widest" style={{ background: O }}>With JurisPage</div>
+              <div className="p-5 space-y-0" style={{ background: O + "06" }}>
+                {/* Step 1 - wide */}
+                <div className="bg-white rounded-lg px-4 py-3 text-center border border-gray-100">
+                  <div className="font-heading font-extrabold text-gray-900 text-lg">100</div>
+                  <div className="text-gray-500 text-xs">people search for a lawyer in your city</div>
+                </div>
+                <div className="flex justify-center py-1"><div className="w-0.5 h-4" style={{ background: O + "40" }} /></div>
+                {/* Step 2 */}
+                <div className="bg-white rounded-lg px-4 py-3 text-center mx-4 border border-gray-100">
+                  <div className="font-heading font-extrabold text-gray-900 text-lg">42</div>
+                  <div className="text-gray-500 text-xs">click your Google listing</div>
+                </div>
+                <div className="flex justify-center py-1"><div className="w-0.5 h-4" style={{ background: O + "40" }} /></div>
+                {/* Retained */}
+                <div className="rounded-lg px-4 py-3 text-center mx-2 border" style={{ background: "#27ae6010", borderColor: "#27ae6030" }}>
+                  <div className="font-heading font-extrabold text-lg" style={{ color: "#27ae60" }}>35 stay</div>
+                  <div className="text-xs" style={{ color: "#27ae60" }}>Fast load. Clear CTA. Attorney photos. Trust signals above the fold.</div>
+                </div>
+                <div className="flex justify-center py-1"><div className="w-0.5 h-4" style={{ background: O + "40" }} /></div>
+                {/* Bottom */}
+                <div className="rounded-lg px-4 py-4 text-center mx-6" style={{ background: O + "15" }}>
+                  <div className="font-heading font-extrabold text-2xl" style={{ color: O }}>35 call</div>
+                  <div className="text-xs font-bold" style={{ color: O }}>6-8% conversion rate</div>
+                </div>
               </div>
-              <svg viewBox="0 0 300 320" xmlns="http://www.w3.org/2000/svg" style={{ width: "100%", height: "auto" }}>
-                {/* Funnel shape - solid, no leaks */}
-                <polygon points="30,20 270,20 220,130 80,130" fill="#FEF3EC" stroke={O} strokeWidth="1.5" opacity="0.6" />
-                <polygon points="80,135 220,135 200,210 100,210" fill="#FEF3EC" stroke={O} strokeWidth="1.5" opacity="0.6" />
-                <rect x="100" y="215" width="100" height="50" rx="4" fill="#FEF3EC" stroke={O} strokeWidth="1.5" />
-
-                {/* Labels */}
-                <text x="150" y="50" textAnchor="middle" fontFamily="system-ui" fontSize="11" fontWeight="700" fill="#1a1a2e">100 people search</text>
-                <text x="150" y="65" textAnchor="middle" fontFamily="system-ui" fontSize="10" fill="#666">for a lawyer in your city</text>
-
-                <text x="150" y="105" textAnchor="middle" fontFamily="system-ui" fontSize="11" fontWeight="700" fill="#1a1a2e">42 click your listing</text>
-
-                {/* Sealed label */}
-                <text x="245" y="175" fontFamily="system-ui" fontSize="9" fontWeight="700" fill="#27ae60">Fast load</text>
-                <text x="245" y="187" fontFamily="system-ui" fontSize="8" fill="#27ae60">Clear CTA</text>
-                <text x="245" y="197" fontFamily="system-ui" fontSize="8" fill="#27ae60">Trust signals</text>
-
-                <text x="150" y="170" textAnchor="middle" fontFamily="system-ui" fontSize="11" fontWeight="700" fill="#1a1a2e">35 stay engaged</text>
-
-                {/* Bottom - bigger */}
-                <text x="150" y="243" textAnchor="middle" fontFamily="system-ui" fontSize="16" fontWeight="800" fill={O}>35 call</text>
-                <text x="150" y="258" textAnchor="middle" fontFamily="system-ui" fontSize="9" fill="#666">6-8% conversion rate</text>
-
-                {/* Arrow */}
-                <text x="150" y="298" textAnchor="middle" fontFamily="system-ui" fontSize="11" fontWeight="700" style={{ fill: O }}>3x more consultations.</text>
-                <text x="150" y="314" textAnchor="middle" fontFamily="system-ui" fontSize="9" fill="#666">Same traffic. Better website. More cases.</text>
-              </svg>
+              <div className="px-5 py-3 text-center" style={{ background: O + "10" }}>
+                <p className="text-xs font-bold" style={{ color: O }}>3x more consultations. Same traffic. Better website.</p>
+              </div>
             </div>
           </div>
 
-          {/* Problem cards below */}
+          {/* Problem cards */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-10">
             {[
-              { title: "The referral you never knew you lost", body: "A colleague refers a client. They Google your firm. Your site looks outdated. They call the next name on the list. You never hear about it.", color: "#c0392b" },
-              { title: "The agency that locked you in", body: "12-month contract, no results, and you can't even take your website with you when you leave. You're paying for a site you don't own.", color: "#e67e22" },
-              { title: "The better lawyer who loses on Google", body: "You have 20 years of experience. The firm ranking above you has 3. Their website just converts better. That shouldn't determine who gets the case.", color: O },
+              { title: "The referral you never knew you lost", body: "A colleague refers a client. They Google your firm. Your site looks outdated. They call the next name on the list.", color: "#c0392b" },
+              { title: "The agency that locked you in", body: "12-month contract, no results, and you can't take your website with you when you leave.", color: "#e67e22" },
+              { title: "The better lawyer who loses on Google", body: "You have 20 years of experience. The firm ranking above you has 3. Their website just converts better.", color: O },
             ].map((card) => (
               <div key={card.title} className="bg-white rounded-xl border border-gray-200 p-5">
                 <div className="w-8 h-1 rounded mb-3" style={{ background: card.color }} />
