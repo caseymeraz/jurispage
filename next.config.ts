@@ -561,6 +561,87 @@ const nextConfig: NextConfig = {
         destination: "/",
         permanent: true,
       },
+      // GSC Coverage 404 fixes (2026-03-27)
+      {
+        source: "/small-law-firms-can-use-digital-marketing-to-compete/:path*",
+        destination: "/small-law-firm-marketing/",
+        permanent: true,
+      },
+      {
+        source: "/google-local-services-ads-update-lawyers-october-2024/:path*",
+        destination: "/google-ads-for-law-firms/",
+        permanent: true,
+      },
+      {
+        source: "/why-some-google-ads-campaigns-fail-before-they-begin/:path*",
+        destination: "/google-ads-for-law-firms/",
+        permanent: true,
+      },
+      {
+        source: "/why-most-law-firm-websites-fail/:path*",
+        destination: "/law-firm-websites/",
+        permanent: true,
+      },
+      {
+        source: "/how-to-reduce-friction-on-your-law-firms-website/:path*",
+        destination: "/law-firm-websites/",
+        permanent: true,
+      },
+      {
+        source: "/how-to-build-criminal-law-practice/:path*",
+        destination: "/criminal-defense-lawyer-marketing/",
+        permanent: true,
+      },
+      {
+        source: "/prove-law-firm-marketing-roi/:path*",
+        destination: "/law-firm-seo/",
+        permanent: true,
+      },
+      {
+        source: "/chatgpt-for-law-firm-marketing-a-blueprint/:path*",
+        destination: "/blog/ai-content-without-seo-strategy/",
+        permanent: true,
+      },
+      {
+        source: "/law-firm-seo-fremont/:path*",
+        destination: "/law-firm-seo/",
+        permanent: true,
+      },
+      {
+        source: "/law-firm-marketing-hillsboro/:path*",
+        destination: "/",
+        permanent: true,
+      },
+      {
+        source: "/law-firm-marketing-gresham/:path*",
+        destination: "/",
+        permanent: true,
+      },
+      {
+        source: "/law-firm-seo-santa-clara/:path*",
+        destination: "/law-firm-seo/",
+        permanent: true,
+      },
+      {
+        source: "/google-ads-lawyers-anaheim/:path*",
+        destination: "/google-ads-for-law-firms/",
+        permanent: true,
+      },
+      {
+        source: "/law-firm-seo-plano/:path*",
+        destination: "/law-firm-seo/",
+        permanent: true,
+      },
+      {
+        source: "/author/ryan-dahlen/:path*",
+        destination: "/about-us/",
+        permanent: true,
+      },
+      {
+        source: "/local-marketing-package/:path*",
+        destination: "/services/pricing/",
+        permanent: true,
+      },
     ];
   },
 };
