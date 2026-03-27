@@ -453,6 +453,12 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
 
+      // ── B page redirect ──
+      {
+        source: "/law-firm-content-writing-b/:path*",
+        destination: "/law-firm-content-writing/",
+        permanent: true,
+      },
       // ── Old WordPress URL patterns (catch-alls, last) ──
       {
         source: "/2013/:path*",

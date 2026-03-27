@@ -5,7 +5,7 @@ import SchemaOrg from "@/components/SchemaOrg";
 export const metadata: Metadata = {
   title: "Law Firm Content Writing That Converts Visitors Into Cases",
   description: "Legal content that ranks in Google and makes your phone ring. Attorney-reviewed, jurisdiction-specific, bar-compliant. No contracts.",
-  robots: { index: false, follow: false },
+  alternates: { canonical: "https://jurispage.com/law-firm-content-writing/" },
 };
 
 /* ── Brand tokens ─────────────────────────────────────────── */
