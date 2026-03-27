@@ -17,7 +17,7 @@ import { renderLinkedText, stripMarkdownLinks } from "@/lib/renderLinkedText";
 
 function UniqueSection({ section }: { section: NonNullable<PracticeAreaData["uniqueSections"]>[number] }) {
   return (
-    <section className="py-16 px-6 bg-white border-t border-gray-100">
+    <section id={section.id} className="py-16 px-6 bg-white border-t border-gray-100 scroll-mt-16">
       <div className="max-w-4xl mx-auto">
         <h2 className="font-heading font-extrabold text-gray-900 text-3xl mb-4">{section.heading}</h2>
         <p className="text-gray-700 text-base leading-relaxed mb-8">{section.content}</p>
@@ -67,53 +67,54 @@ function UniqueSection({ section }: { section: NonNullable<PracticeAreaData["uni
 
         {section.type === "svg-diagram" && (
           <div style={{ margin: "1.5rem 0", maxWidth: "100%" }}>
-            <svg viewBox="0 0 800 520" xmlns="http://www.w3.org/2000/svg" style={{ width: "100%", height: "auto", borderRadius: "12px", background: "#f8f9fb", border: "1px solid #e2e8f0" }}>
+            <svg viewBox="0 0 800 560" xmlns="http://www.w3.org/2000/svg" style={{ width: "100%", height: "auto", borderRadius: "12px", background: "#f8f9fb", border: "1px solid #e2e8f0" }}>
               {/* Homepage */}
               <rect x="300" y="15" width="200" height="40" rx="6" fill="#1a1a2e" />
               <text x="400" y="40" textAnchor="middle" fontFamily="system-ui, sans-serif" fontSize="13" fontWeight="700" fill="white">Homepage</text>
               <line x1="400" y1="55" x2="200" y2="90" stroke="#ccc" strokeWidth="1.5" />
               <line x1="400" y1="55" x2="600" y2="90" stroke="#ccc" strokeWidth="1.5" />
-              <line x1="400" y1="55" x2="400" y2="400" stroke="#ccc" strokeWidth="1.5" strokeDasharray="4,4" />
+              <line x1="400" y1="55" x2="400" y2="410" stroke="#ccc" strokeWidth="1.5" strokeDasharray="4,4" />
 
               {/* Plaintiff Branch */}
-              <rect x="50" y="90" width="280" height="34" rx="6" fill="#EE6C13" />
-              <text x="190" y="112" textAnchor="middle" fontFamily="system-ui, sans-serif" fontSize="12" fontWeight="700" fill="white">Employee Rights (Plaintiff)</text>
+              <rect x="30" y="90" width="310" height="34" rx="6" fill="#EE6C13" />
+              <text x="185" y="112" textAnchor="middle" fontFamily="system-ui, sans-serif" fontSize="12" fontWeight="700" fill="white">Employee Rights (Plaintiff)</text>
               {[
                 "Wrongful Termination", "Sexual Harassment", "Wage & Hour Violations",
                 "FMLA Violations", "Workplace Discrimination", "Retaliation",
                 "Whistleblower Protection"
               ].map((label, i) => (
                 <g key={label}>
-                  <line x1="120" y1="124" x2="120" y2={145 + i * 34} stroke="#EE6C13" strokeWidth="1" opacity="0.4" />
-                  <rect x="70" y={138 + i * 34} width="220" height="28" rx="4" fill="white" stroke="#e2e8f0" strokeWidth="1" />
-                  <text x="180" y={156 + i * 34} textAnchor="middle" fontFamily="system-ui, sans-serif" fontSize="11" fill="#333">{label}</text>
+                  <line x1="100" y1="124" x2="100" y2={145 + i * 34} stroke="#EE6C13" strokeWidth="1" opacity="0.4" />
+                  <rect x="50" y={138 + i * 34} width="270" height="28" rx="4" fill="white" stroke="#e2e8f0" strokeWidth="1" />
+                  <text x="185" y={156 + i * 34} textAnchor="middle" fontFamily="system-ui, sans-serif" fontSize="11" fill="#333">{label}</text>
                 </g>
               ))}
 
               {/* Defendant Branch */}
-              <rect x="470" y="90" width="280" height="34" rx="6" fill="#0f4c81" />
-              <text x="610" y="112" textAnchor="middle" fontFamily="system-ui, sans-serif" fontSize="12" fontWeight="700" fill="white">Employer Services (Defendant)</text>
+              <rect x="460" y="90" width="310" height="34" rx="6" fill="#0f4c81" />
+              <text x="615" y="112" textAnchor="middle" fontFamily="system-ui, sans-serif" fontSize="12" fontWeight="700" fill="white">Employer Services (Defendant)</text>
               {[
                 "EEOC Defense", "Employment Agreements", "HR Compliance",
                 "Non-Compete Drafting"
               ].map((label, i) => (
                 <g key={label}>
                   <line x1="580" y1="124" x2="580" y2={145 + i * 34} stroke="#0f4c81" strokeWidth="1" opacity="0.4" />
-                  <rect x="500" y={138 + i * 34} width="220" height="28" rx="4" fill="white" stroke="#e2e8f0" strokeWidth="1" />
-                  <text x="610" y={156 + i * 34} textAnchor="middle" fontFamily="system-ui, sans-serif" fontSize="11" fill="#333">{label}</text>
+                  <rect x="490" y={138 + i * 34} width="250" height="28" rx="4" fill="white" stroke="#e2e8f0" strokeWidth="1" />
+                  <text x="615" y={156 + i * 34} textAnchor="middle" fontFamily="system-ui, sans-serif" fontSize="11" fill="#333">{label}</text>
                 </g>
               ))}
 
               {/* Blog Branch */}
-              <rect x="260" y="410" width="280" height="34" rx="6" fill="#27ae60" />
-              <text x="400" y="432" textAnchor="middle" fontFamily="system-ui, sans-serif" fontSize="12" fontWeight="700" fill="white">Blog: Pre-Attorney Questions</text>
+              <rect x="220" y="420" width="360" height="34" rx="6" fill="#27ae60" />
+              <text x="400" y="442" textAnchor="middle" fontFamily="system-ui, sans-serif" fontSize="12" fontWeight="700" fill="white">Blog: Pre-Attorney Research Questions</text>
               {[
-                '"Can I sue my employer for..."', '"What counts as hostile work..."',
-                '"Is my non-compete enforceable..."'
+                "Can I sue my employer for firing me?",
+                "What counts as a hostile work environment?",
+                "Is my non-compete enforceable in [state]?",
               ].map((label, i) => (
                 <g key={label}>
-                  <rect x="280" y={454 + i * 28} width="240" height="22" rx="3" fill="white" stroke="#e2e8f0" strokeWidth="1" />
-                  <text x="400" y={469 + i * 28} textAnchor="middle" fontFamily="system-ui, sans-serif" fontSize="10" fill="#555">{label}</text>
+                  <rect x="230" y={464 + i * 28} width="340" height="24" rx="4" fill="white" stroke="#e2e8f0" strokeWidth="1" />
+                  <text x="400" y={480 + i * 28} textAnchor="middle" fontFamily="system-ui, sans-serif" fontSize="10" fill="#555">{label}</text>
                 </g>
               ))}
             </svg>
@@ -351,10 +352,46 @@ export default function PracticeAreaPage({ practiceArea: pa }: PracticeAreaPageP
         </section>
       )}
 
+      {/* Jump Links */}
+      <nav className="sticky top-0 z-40 bg-white/95 backdrop-blur-sm border-b border-gray-200 shadow-sm">
+        <div className="max-w-4xl mx-auto px-4 py-3 overflow-x-auto scrollbar-hide">
+          <div className="flex gap-2 min-w-max">
+            {[
+              { id: "overview", label: "Overview" },
+              ...(pa.uniqueSections?.filter(s => s.placement === "after-intro").map(s => ({ id: s.id, label: s.heading.split(":")[0] })) ?? []),
+              { id: "why-different", label: "Why Different" },
+              { id: "mistakes", label: "Common Mistakes" },
+              ...(pa.uniqueSections?.filter(s => s.placement === "after-mistakes").map(s => ({ id: s.id, label: s.heading.split(":")[0] })) ?? []),
+              { id: "process", label: "Our Process" },
+              ...(pa.uniqueSections?.filter(s => s.placement === "after-process").map(s => ({ id: s.id, label: s.heading.split(":")[0] })) ?? []),
+              ...(pa.uniqueSections?.filter(s => s.placement === "before-faq").map(s => ({ id: s.id, label: s.heading.split(":")[0] })) ?? []),
+              { id: "faq", label: "FAQ" },
+            ].map((link) => (
+              <a
+                key={link.id}
+                href={`#${link.id}`}
+                className="flex-shrink-0 px-4 py-2 rounded-full text-xs font-semibold no-underline transition-colors border border-gray-200 text-gray-600 hover:text-white hover:border-transparent"
+                style={{ ["--tw-hover-bg" as string]: "#EE6C13" }}
+                onMouseOver={(e) => { e.currentTarget.style.background = "#EE6C13"; e.currentTarget.style.color = "white"; e.currentTarget.style.borderColor = "#EE6C13"; }}
+                onMouseOut={(e) => { e.currentTarget.style.background = ""; e.currentTarget.style.color = "#4b5563"; e.currentTarget.style.borderColor = "#e5e7eb"; }}
+              >
+                {link.label}
+              </a>
+            ))}
+          </div>
+        </div>
+      </nav>
+
       {/* Intro */}
-      <section className="py-16 px-6 bg-white">
+      <section id="overview" className="py-16 px-6 bg-white scroll-mt-16">
         <div className="max-w-3xl mx-auto">
-          <p className="text-gray-700 text-lg leading-relaxed">{renderLinkedText(pa.intro)}</p>
+          {pa.intro.includes("\n") ? (
+            pa.intro.split("\n").filter(Boolean).map((paragraph, i) => (
+              <p key={i} className="text-gray-700 text-lg leading-relaxed mb-4 last:mb-0">{renderLinkedText(paragraph)}</p>
+            ))
+          ) : (
+            <p className="text-gray-700 text-lg leading-relaxed">{renderLinkedText(pa.intro)}</p>
+          )}
           {pa.introBullets && pa.introBullets.length > 0 && (
             <ul className="mt-6 space-y-3">
               {pa.introBullets.map((bullet) => (
@@ -371,7 +408,7 @@ export default function PracticeAreaPage({ practiceArea: pa }: PracticeAreaPageP
       {renderUniqueSections(pa.uniqueSections, "after-intro")}
 
       {/* Why Different */}
-      <section className="py-16 px-6 bg-gray-50">
+      <section id="why-different" className="py-16 px-6 bg-gray-50 scroll-mt-16">
         <div className="max-w-3xl mx-auto">
           <h2 className="font-heading font-extrabold text-gray-900 text-3xl mb-6">
             {pa.sectionHeadings?.whyDifferent ?? `Why ${displayKw} is Different`}
@@ -387,7 +424,7 @@ export default function PracticeAreaPage({ practiceArea: pa }: PracticeAreaPageP
       </section>
 
       {/* Mistakes */}
-      <section className="py-16 px-6 bg-white">
+      <section id="mistakes" className="py-16 px-6 bg-white scroll-mt-16">
         <div className="max-w-3xl mx-auto">
           <h2 className="font-heading font-extrabold text-gray-900 text-3xl mb-8">
             {pa.sectionHeadings?.mistakes ?? `The 3 Biggest Marketing Mistakes in ${displayKw}`}
@@ -460,7 +497,7 @@ export default function PracticeAreaPage({ practiceArea: pa }: PracticeAreaPageP
 
       {/* How We Market This Practice Area */}
       {pa.process && pa.process.length > 0 && (
-        <section className="py-16 px-6 bg-[#1a1a1a]">
+        <section id="process" className="py-16 px-6 bg-[#1a1a1a] scroll-mt-16">
           <div className="max-w-4xl mx-auto">
             <h2 className="font-heading font-extrabold text-white text-3xl mb-10">
               {pa.sectionHeadings?.process ?? `How We Market ${pa.primaryKeyword.split(" ").slice(0, 2).join(" ")} Firms`}
@@ -671,7 +708,9 @@ export default function PracticeAreaPage({ practiceArea: pa }: PracticeAreaPageP
 
       {renderUniqueSections(pa.uniqueSections, "before-faq")}
 
-      {allFaqs.length > 0 && <FAQAccordion faqs={allFaqs} heading="Frequently Asked Questions" />}
+      <div id="faq" className="scroll-mt-16">
+        {allFaqs.length > 0 && <FAQAccordion faqs={allFaqs} heading="Frequently Asked Questions" />}
+      </div>
 
       {pa.slug === "personal-injury-lawyer-marketing" ? (
         <section className="py-16 px-6 bg-gray-50">
