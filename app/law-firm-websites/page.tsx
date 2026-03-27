@@ -10,6 +10,7 @@ import FAQAccordion from "@/components/FAQAccordion";
 import SchemaOrg from "@/components/SchemaOrg";
 import CaseStudyPreview from "@/components/CaseStudyPreview";
 import HeroForm from "@/components/HeroForm";
+import WebsiteGrader from "@/components/WebsiteGrader";
 import { caseStudies } from "@/data/caseStudies";
 
 const service = getServiceBySlug("law-firm-websites")!;
@@ -105,49 +106,119 @@ export default function LawFirmWebsitesPage() {
                 We build law firm websites that make that stop happening.
               </p>
             </div>
-            <HeroForm
-              ctaLabel="Get Your Free Market-Gap Analysis"
-              subtext="See exactly where you're losing cases online. No contracts. No commitment."
-              defaultPracticeArea=""
-            />
+            <div className="bg-gray-50 rounded-2xl p-6 lg:p-8 text-center">
+              <h2 className="font-heading font-extrabold text-gray-900 text-xl mb-2">Grade Your Website in 60 Seconds</h2>
+              <p className="text-gray-500 text-sm mb-6">Answer 7 quick questions. Get an instant grade and a list of what to fix.</p>
+              <a href="#website-grader" className="inline-block px-8 py-4 rounded-full text-white font-bold text-sm no-underline transition-opacity hover:opacity-90" style={{ background: O }}>
+                Start the Free Website Grader
+              </a>
+              <p className="text-xs text-gray-400 mt-4">No email required. Instant results.</p>
+            </div>
           </div>
         </div>
       </section>
 
       {/* ═══════════════════════════════════════════════════════
-          2. THE INVISIBLE LEAK (StoryBrand: Problem)
+          2. THE INVISIBLE LEAK - Animated Funnel SVG
       ═══════════════════════════════════════════════════════ */}
       <section className="py-16 px-6 bg-gray-50">
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-5xl mx-auto">
           <h2 className="font-heading font-extrabold text-gray-900 text-3xl mb-3 text-center">The Invisible Leak in Your Practice</h2>
-          <p className="text-gray-500 text-center mb-10 max-w-2xl mx-auto">Your website is losing you cases right now. You just can't see it happening.</p>
+          <p className="text-gray-500 text-center mb-10 max-w-2xl mx-auto">Your website is losing you cases right now. Here is exactly where they go.</p>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+            {/* Leaky funnel */}
+            <div className="rounded-xl border border-red-200 bg-white p-6 overflow-hidden">
+              <div className="text-center mb-4">
+                <span className="text-xs font-bold uppercase tracking-widest text-red-500">Your Current Website</span>
+              </div>
+              <svg viewBox="0 0 300 320" xmlns="http://www.w3.org/2000/svg" style={{ width: "100%", height: "auto" }}>
+                {/* Funnel shape */}
+                <polygon points="30,20 270,20 220,130 80,130" fill="#fee2e2" stroke="#fca5a5" strokeWidth="1.5" />
+                <polygon points="80,135 220,135 200,210 100,210" fill="#fee2e2" stroke="#fca5a5" strokeWidth="1.5" />
+                <rect x="120" y="215" width="60" height="50" rx="4" fill="#fee2e2" stroke="#fca5a5" strokeWidth="1.5" />
+
+                {/* Labels */}
+                <text x="150" y="50" textAnchor="middle" fontFamily="system-ui" fontSize="11" fontWeight="700" fill="#1a1a2e">100 people search</text>
+                <text x="150" y="65" textAnchor="middle" fontFamily="system-ui" fontSize="10" fill="#666">for a lawyer in your city</text>
+
+                <text x="150" y="105" textAnchor="middle" fontFamily="system-ui" fontSize="11" fontWeight="700" fill="#1a1a2e">42 click your listing</text>
+
+                {/* Leak drops */}
+                <circle cx="225" cy="155" r="4" fill="#ef4444" opacity="0.7">
+                  <animate attributeName="cy" values="155;185;210" dur="1.5s" repeatCount="indefinite" />
+                  <animate attributeName="opacity" values="0.7;0.4;0" dur="1.5s" repeatCount="indefinite" />
+                </circle>
+                <circle cx="235" cy="160" r="3" fill="#ef4444" opacity="0.5">
+                  <animate attributeName="cy" values="160;195;225" dur="2s" repeatCount="indefinite" />
+                  <animate attributeName="opacity" values="0.5;0.3;0" dur="2s" repeatCount="indefinite" />
+                </circle>
+                <circle cx="75" cy="150" r="3.5" fill="#ef4444" opacity="0.6">
+                  <animate attributeName="cy" values="150;180;215" dur="1.8s" repeatCount="indefinite" />
+                  <animate attributeName="opacity" values="0.6;0.3;0" dur="1.8s" repeatCount="indefinite" />
+                </circle>
+
+                {/* Leak label */}
+                <text x="255" y="175" fontFamily="system-ui" fontSize="9" fontWeight="700" fill="#ef4444">31 leave</text>
+                <text x="255" y="187" fontFamily="system-ui" fontSize="8" fill="#ef4444">slow load, no CTA,</text>
+                <text x="255" y="197" fontFamily="system-ui" fontSize="8" fill="#ef4444">outdated design</text>
+
+                {/* Bottom */}
+                <text x="150" y="245" textAnchor="middle" fontFamily="system-ui" fontSize="14" fontWeight="800" fill="#ef4444">11 call</text>
+                <text x="150" y="260" textAnchor="middle" fontFamily="system-ui" fontSize="9" fill="#999">2% conversion rate</text>
+
+                {/* Arrow */}
+                <text x="150" y="300" textAnchor="middle" fontFamily="system-ui" fontSize="10" fontWeight="600" fill="#c0392b">You lost 31 potential clients.</text>
+                <text x="150" y="314" textAnchor="middle" fontFamily="system-ui" fontSize="9" fill="#c0392b">You never even knew they visited.</text>
+              </svg>
+            </div>
+
+            {/* Fixed funnel */}
+            <div className="rounded-xl border-2 p-6 overflow-hidden" style={{ borderColor: O + "44", background: O + "08" }}>
+              <div className="text-center mb-4">
+                <span className="text-xs font-bold uppercase tracking-widest" style={{ color: O }}>With JurisPage</span>
+              </div>
+              <svg viewBox="0 0 300 320" xmlns="http://www.w3.org/2000/svg" style={{ width: "100%", height: "auto" }}>
+                {/* Funnel shape - solid, no leaks */}
+                <polygon points="30,20 270,20 220,130 80,130" fill="#FEF3EC" stroke={O} strokeWidth="1.5" opacity="0.6" />
+                <polygon points="80,135 220,135 200,210 100,210" fill="#FEF3EC" stroke={O} strokeWidth="1.5" opacity="0.6" />
+                <rect x="100" y="215" width="100" height="50" rx="4" fill="#FEF3EC" stroke={O} strokeWidth="1.5" />
+
+                {/* Labels */}
+                <text x="150" y="50" textAnchor="middle" fontFamily="system-ui" fontSize="11" fontWeight="700" fill="#1a1a2e">100 people search</text>
+                <text x="150" y="65" textAnchor="middle" fontFamily="system-ui" fontSize="10" fill="#666">for a lawyer in your city</text>
+
+                <text x="150" y="105" textAnchor="middle" fontFamily="system-ui" fontSize="11" fontWeight="700" fill="#1a1a2e">42 click your listing</text>
+
+                {/* Sealed label */}
+                <text x="245" y="175" fontFamily="system-ui" fontSize="9" fontWeight="700" fill="#27ae60">Fast load</text>
+                <text x="245" y="187" fontFamily="system-ui" fontSize="8" fill="#27ae60">Clear CTA</text>
+                <text x="245" y="197" fontFamily="system-ui" fontSize="8" fill="#27ae60">Trust signals</text>
+
+                <text x="150" y="170" textAnchor="middle" fontFamily="system-ui" fontSize="11" fontWeight="700" fill="#1a1a2e">35 stay engaged</text>
+
+                {/* Bottom - bigger */}
+                <text x="150" y="243" textAnchor="middle" fontFamily="system-ui" fontSize="16" fontWeight="800" fill={O}>35 call</text>
+                <text x="150" y="258" textAnchor="middle" fontFamily="system-ui" fontSize="9" fill="#666">6-8% conversion rate</text>
+
+                {/* Arrow */}
+                <text x="150" y="298" textAnchor="middle" fontFamily="system-ui" fontSize="11" fontWeight="700" style={{ fill: O }}>3x more consultations.</text>
+                <text x="150" y="314" textAnchor="middle" fontFamily="system-ui" fontSize="9" fill="#666">Same traffic. Better website. More cases.</text>
+              </svg>
+            </div>
+          </div>
+
+          {/* Problem cards below */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-10">
             {[
-              {
-                label: "The External Problem",
-                title: "Your website looks dated or loads slowly",
-                body: "75% of people judge a firm's credibility by its website. When a referral Googles your name and sees an outdated page with stock photos and no visible phone number, they hit the back button. You never even know you lost them.",
-                color: "#c0392b",
-              },
-              {
-                label: "The Internal Problem",
-                title: "You're frustrated by marketing that doesn't work",
-                body: "You've been burned by agencies with 12-month contracts and no results. You're overwhelmed by jargon (Core Web Vitals, schema markup, E-E-A-T) and can't tell if anyone is actually doing anything useful.",
-                color: "#e67e22",
-              },
-              {
-                label: "The Philosophical Problem",
-                title: "Better lawyers shouldn't lose to better marketers",
-                body: "You have more experience, better case results, and stronger client relationships than the firm ranking above you. The only difference is their website converts and yours doesn't. That shouldn't determine who gets the case.",
-                color: O,
-              },
+              { title: "The referral you never knew you lost", body: "A colleague refers a client. They Google your firm. Your site looks outdated. They call the next name on the list. You never hear about it.", color: "#c0392b" },
+              { title: "The agency that locked you in", body: "12-month contract, no results, and you can't even take your website with you when you leave. You're paying for a site you don't own.", color: "#e67e22" },
+              { title: "The better lawyer who loses on Google", body: "You have 20 years of experience. The firm ranking above you has 3. Their website just converts better. That shouldn't determine who gets the case.", color: O },
             ].map((card) => (
-              <div key={card.title} className="bg-white rounded-xl border border-gray-200 p-6 relative overflow-hidden">
-                <div className="absolute top-0 left-0 w-full h-1" style={{ background: card.color }} />
-                <span className="text-[10px] font-bold uppercase tracking-widest" style={{ color: card.color }}>{card.label}</span>
-                <h3 className="font-heading font-bold text-gray-900 text-lg mt-2 mb-3">{card.title}</h3>
-                <p className="text-gray-600 text-sm leading-relaxed">{card.body}</p>
+              <div key={card.title} className="bg-white rounded-xl border border-gray-200 p-5">
+                <div className="w-8 h-1 rounded mb-3" style={{ background: card.color }} />
+                <h3 className="font-heading font-bold text-gray-900 text-sm mb-2">{card.title}</h3>
+                <p className="text-gray-600 text-xs leading-relaxed">{card.body}</p>
               </div>
             ))}
           </div>
@@ -432,6 +503,20 @@ export default function LawFirmWebsitesPage() {
         </section>
       )}
 
+      {/* ═══════════════════════════════════════════════════════
+          WEBSITE GRADER - Interactive Scorecard
+      ═══════════════════════════════════════════════════════ */}
+      <section id="website-grader" className="py-16 px-6 bg-white scroll-mt-16 border-t border-gray-100">
+        <div className="max-w-3xl mx-auto text-center mb-10">
+          <span className="inline-block text-xs font-heading font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-4" style={{ background: O + "15", color: O }}>
+            Free Interactive Tool
+          </span>
+          <h2 className="font-heading font-extrabold text-gray-900 text-3xl mb-3">Grade Your Law Firm Website in 60 Seconds</h2>
+          <p className="text-gray-500 max-w-xl mx-auto">Answer 7 quick questions about your current site. Get an instant letter grade and a prioritized list of what to fix.</p>
+        </div>
+        <WebsiteGrader />
+      </section>
+
       {/* FAQ */}
       <FAQAccordion faqs={allFaqs} heading="Law Firm Website Design Questions Answered" />
 
@@ -439,8 +524,8 @@ export default function LawFirmWebsitesPage() {
       <CTASection
         heading="Ready to Build a Website That Wins Cases?"
         subtext="Custom law firm website in 30 days. 100% ownership. No long-term contracts. 113+ law firms served."
-        primaryLabel="Get Your Free Market-Gap Analysis"
-        primaryHref="/see-my-market-gap/"
+        primaryLabel="Book a Free Website Review"
+        primaryHref="/contact/"
         secondaryLabel="See Transparent Pricing"
         secondaryHref="/services/pricing/"
       />
