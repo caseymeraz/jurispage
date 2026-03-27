@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { getAllPosts } from "@/lib/blog";
 import SchemaOrg from "@/components/SchemaOrg";
 import CTASection from "@/components/CTASection";
@@ -53,9 +54,22 @@ export default function BlogIndex() {
                     <Link href={`/blog/${post.slug}/`} className="no-underline hover:underline">{post.title}</Link>
                   </h2>
                   <p className="text-gray-600 text-sm leading-relaxed mb-4">{post.description}</p>
-                  <Link href={`/blog/${post.slug}/`} className="text-sm font-semibold no-underline" style={{ color: "#EE6C13" }}>
-                    Read more →
-                  </Link>
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-2">
+                      <Image
+                        src="/images/about/headshot-casey-meraz.jpg"
+                        alt="Casey Meraz, CEO of Juris Digital - article author"
+                        width={28}
+                        height={28}
+                        className="rounded-full object-cover"
+                        style={{ width: 28, height: 28 }}
+                      />
+                      <span className="text-xs text-gray-500">Casey Meraz</span>
+                    </div>
+                    <Link href={`/blog/${post.slug}/`} className="text-sm font-semibold no-underline" style={{ color: "#EE6C13" }}>
+                      Read more →
+                    </Link>
+                  </div>
                 </article>
               ))}
             </div>
