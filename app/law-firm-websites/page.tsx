@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { getServiceBySlug } from "@/data/services";
-import { getServiceBySlug as getRelService } from "@/data/services";
 import { getPracticeAreaBySlug } from "@/data/practiceAreas";
 import { getIntersectionsForService } from "@/data/intersections";
 import CTASection from "@/components/CTASection";
@@ -14,27 +13,39 @@ import HeroForm from "@/components/HeroForm";
 import { caseStudies } from "@/data/caseStudies";
 
 const service = getServiceBySlug("law-firm-websites")!;
+const O = "#EE6C13";
+const D = "#1a1a2e";
 
 export const metadata: Metadata = {
-  title: service.title,
-  description: service.description,
+  title: "Law Firm Website Design That Wins Cases, Not Just Compliments",
+  description: "Custom law firm websites that rank in Google, convert visitors into consultations, and make your phone ring. Live in 30 days. No contracts. You own everything.",
   alternates: { canonical: "https://jurispage.com/law-firm-websites/" },
   openGraph: {
-    title: service.title,
-    description: service.description,
+    title: "Law Firm Website Design That Wins Cases, Not Just Compliments",
+    description: "Custom law firm websites that rank in Google, convert visitors into consultations, and make your phone ring. Live in 30 days. No contracts. You own everything.",
     url: "https://jurispage.com/law-firm-websites/",
   },
 };
 
 export default function LawFirmWebsitesPage() {
-  const allFaqs = [...service.faqs, ...(service.extendedFaqs ?? [])];
+  const allFaqs = [
+    { question: "How much does a custom law firm website cost?", preview: "Launchpad starts at $2,000/mo. Includes website, content, SEO, and GBP setup.", answer: "JurisPage Launchpad starts at $2,000 per month and includes a custom WordPress website, practice area content, Google Business Profile setup, and ongoing SEO. For established firms with 5+ attorneys, Juris Digital partnerships start at $5,000 per month with a fully bespoke design and content strategy. All pricing is published on our website. No discovery calls required." },
+    { question: "How long does it take to design and launch a law firm website?", preview: "30 days for Launchpad. 45-60 days for custom redesigns.", answer: "Launchpad websites are live within 30 days of kickoff. That includes discovery, wireframes, design, content writing, development, and launch. Custom redesigns for established firms working with Juris Digital typically take 45 to 60 days depending on content readiness and revision cycles. We build attorney review time into the timeline so publication dates don't slip." },
+    { question: "Do I own the website once it's built?", preview: "Yes. 100%. Your domain, your WordPress site, your content. Take it anywhere.", answer: "Always. Your domain, your WordPress installation, your content. All 100% yours. Unlike agencies that host on proprietary platforms (Scorpion, FindLaw, Martindale), you can take your website to any hosting provider or any developer at any time. We don't hold websites hostage. If you leave, everything transfers cleanly." },
+    { question: "Why WordPress instead of a proprietary platform?", preview: "Full ownership, massive developer ecosystem, and SEO control you can't get elsewhere.", answer: "WordPress powers over 40% of the web and gives you three things proprietary platforms can't: full ownership (you control the code, hosting, and content), a massive developer ecosystem (any developer can work on your site if you ever change agencies), and complete SEO control (custom schema, server-side caching, Core Web Vitals optimization). Proprietary platforms lock you into their ecosystem and limit what you can do with your own site." },
+    { question: "What makes a law firm website different from a regular business website?", preview: "YMYL classification, bar advertising rules, and E-E-A-T requirements that most designers have never heard of.", answer: "Three things. First, Google classifies legal content as YMYL (Your Money or Your Life) and applies stricter quality standards. Your content needs verifiable attorney credentials and real legal expertise, not marketing copy. Second, bar advertising rules vary by state and restrict what you can say about case results, qualifications, and testimonials. Violations trigger disciplinary action. Third, E-E-A-T signals (Experience, Expertise, Authoritativeness, Trustworthiness) must be woven into every page. Attorney bio pages, case result formatting, and practice area depth all factor into how Google evaluates your site." },
+    { question: "Will my new website be optimized for mobile?", preview: "Yes. We design mobile-first because 76% of legal searches happen on phones.", answer: "Every page is wireframed on a mobile viewport first, because that is where 76% of your potential clients will see it. Google uses mobile-first indexing, meaning it evaluates your mobile site to determine rankings for everyone, including desktop users. We target Largest Contentful Paint under 2.5 seconds on mobile, which is Google's threshold for a 'good' Core Web Vitals score." },
+    { question: "Can you redesign my existing law firm website?", preview: "Yes. We audit your current site, preserve your SEO equity, and rebuild for conversion.", answer: "Yes. We start with a technical audit of your existing site to identify what's working (pages with rankings and backlinks that need to be preserved) and what's not (thin content, slow load times, poor mobile experience). We map 301 redirects for every old URL so you don't lose the SEO equity you've built. The redesign process typically takes 45 to 60 days and includes new content for every practice area page." },
+    ...service.faqs,
+    ...(service.extendedFaqs ?? []),
+  ];
 
   const serviceSchema = {
     "@context": "https://schema.org",
     "@type": "Service",
     "@id": "https://jurispage.com/law-firm-websites/",
-    name: service.heading,
-    description: service.description,
+    name: "Law Firm Website Design",
+    description: "Custom law firm websites that rank in Google, convert visitors into consultations, and make your phone ring.",
     provider: { "@type": "Organization", name: "JurisPage", url: "https://jurispage.com" },
     url: "https://jurispage.com/law-firm-websites/",
     areaServed: { "@type": "Country", name: "United States" },
@@ -55,237 +66,259 @@ export default function LawFirmWebsitesPage() {
     "@type": "BreadcrumbList",
     itemListElement: [
       { "@type": "ListItem", position: 1, name: "Home", item: "https://jurispage.com/" },
-      { "@type": "ListItem", position: 2, name: "Services", item: "https://jurispage.com/law-firm-seo/" },
-      { "@type": "ListItem", position: 3, name: service.heading, item: "https://jurispage.com/law-firm-websites/" },
+      { "@type": "ListItem", position: 2, name: "Law Firm Website Design", item: "https://jurispage.com/law-firm-websites/" },
     ],
   };
 
-  const howToSchema = service.process && service.process.length > 0 ? {
-    "@context": "https://schema.org",
-    "@type": "HowTo",
-    name: `How ${service.primaryKeyword} works at JurisPage`,
-    description: service.intro,
-    step: service.process.map((item, i) => ({
-      "@type": "HowToStep",
-      position: i + 1,
-      name: item.step,
-      text: item.detail,
-    })),
-  } : null;
-
-  const schemas = [
-    serviceSchema,
-    breadcrumbSchema,
-    ...(faqSchema ? [faqSchema] : []),
-    ...(howToSchema ? [howToSchema] : []),
-  ];
+  const schemas = [serviceSchema, breadcrumbSchema, ...(faqSchema ? [faqSchema] : [])];
 
   return (
     <>
       <SchemaOrg schema={schemas} />
 
-      {/* Hero */}
-      <section className="bg-white py-16 px-6 border-b border-gray-100">
+      {/* ═══════════════════════════════════════════════════════
+          1. HERO - StoryBrand: Character + Problem
+      ═══════════════════════════════════════════════════════ */}
+      <section className="bg-white py-20 px-6 border-b border-gray-100">
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
             <div className="pt-2">
               <nav className="text-sm text-gray-500 mb-5">
                 <Link href="/" className="hover:text-gray-900 no-underline">Home</Link> /{" "}
-                <Link href="/law-firm-seo/" className="hover:text-gray-900 no-underline">Services</Link> /{" "}
-                <span className="text-gray-700">{service.heading}</span>
+                <span className="text-gray-700">Law Firm Website Design</span>
               </nav>
-              <span className="inline-block text-xs font-heading font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-4" style={{ background: "#EE6C1322", color: "#EE6C13" }}>
-                {service.primaryKeyword}
-              </span>
-              <h1 className="font-heading font-extrabold text-gray-900 text-4xl md:text-5xl leading-tight mb-4">{service.heading}</h1>
-              <p className="text-gray-600 text-xl leading-relaxed mb-6">{service.tagline}</p>
-              <p className="text-sm text-gray-500">Your competitors are stealing your cases online. We fix that.</p>
+
+              {/* Trust signals in hero */}
+              <div className="flex flex-wrap gap-3 mb-6">
+                <span className="text-xs font-bold px-3 py-1 rounded-full" style={{ background: O + "15", color: O }}>Zero Long-Term Contracts</span>
+                <span className="text-xs font-bold px-3 py-1 rounded-full" style={{ background: "#27ae6015", color: "#27ae60" }}>Transparent Pricing</span>
+                <span className="text-xs font-bold px-3 py-1 rounded-full bg-gray-100 text-gray-600">100% Legal Focus</span>
+              </div>
+
+              <h1 className="font-heading font-extrabold text-gray-900 text-4xl md:text-5xl leading-tight mb-6">
+                Great Lawyers Shouldn't Lose Cases to Firms With Better <span style={{ color: O }}>Websites</span>
+              </h1>
+              <p className="text-gray-600 text-lg leading-relaxed mb-4">
+                You went to law school to practice law, not to decipher search algorithms. But right now, potential clients are Googling your firm, seeing an outdated website, and quietly hiring your competitor instead.
+              </p>
+              <p className="text-gray-600 text-lg leading-relaxed">
+                We build law firm websites that make that stop happening.
+              </p>
             </div>
             <HeroForm
-              ctaLabel="Outrank Your Competitors"
-              subtext="No contracts. No commitment. We'll respond within one business day."
+              ctaLabel="Get Your Free Market-Gap Analysis"
+              subtext="See exactly where you're losing cases online. No contracts. No commitment."
               defaultPracticeArea=""
             />
           </div>
         </div>
       </section>
 
-      {/* Portfolio Showcase - moved right below hero */}
-      {service.portfolio && service.portfolio.length > 0 && (
-        <PortfolioShowcase items={service.portfolio} />
-      )}
+      {/* ═══════════════════════════════════════════════════════
+          2. THE INVISIBLE LEAK (StoryBrand: Problem)
+      ═══════════════════════════════════════════════════════ */}
+      <section className="py-16 px-6 bg-gray-50">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="font-heading font-extrabold text-gray-900 text-3xl mb-3 text-center">The Invisible Leak in Your Practice</h2>
+          <p className="text-gray-500 text-center mb-10 max-w-2xl mx-auto">Your website is losing you cases right now. You just can't see it happening.</p>
 
-      {/* Review Ribbon - directly after portfolio */}
-      <ReviewRibbon />
-
-      {/* Stats bar */}
-      {service.stats && service.stats.length > 0 && (
-        <section className="py-10 px-6 bg-[#EE6C13]">
-          <div className="max-w-4xl mx-auto">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-              {service.stats.map((stat) => (
-                <div key={stat.label} className="text-center">
-                  <div className="font-heading font-extrabold text-white text-3xl md:text-4xl leading-none mb-1">{stat.value}</div>
-                  <div className="text-orange-100 text-sm leading-snug">{stat.label}</div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
-
-      {/* Intro */}
-      <section className="py-16 px-6 bg-white">
-        <div className="max-w-3xl mx-auto">
-          <p className="text-gray-700 text-lg leading-relaxed">{service.intro}</p>
-        </div>
-      </section>
-
-      {/* Why This Service Matters */}
-      {service.whyMatters && (
-        <section className="py-16 px-6 bg-[#FEF3EC]">
-          <div className="max-w-3xl mx-auto">
-            <h2 className="font-heading font-extrabold text-gray-900 text-3xl mb-6">
-              Why {service.primaryKeyword} Matters
-            </h2>
-            <p className="text-gray-700 text-lg leading-relaxed">{service.whyMatters}</p>
-          </div>
-        </section>
-      )}
-
-      {/* Features */}
-      <section className="py-16 px-6 bg-white">
-        <div className="max-w-3xl mx-auto">
-          <h2 className="font-heading font-extrabold text-gray-900 text-3xl mb-8">What&apos;s Included</h2>
-          <ul className="space-y-4">
-            {service.features.map((feature) => (
-              <li key={feature} className="flex gap-3 items-start bg-[#FEF3EC] p-5 rounded-xl border border-orange-100 shadow-sm">
-                <span className="flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold mt-0.5 text-white" style={{ background: "#EE6C13" }}>&#10003;</span>
-                <span className="text-gray-700 leading-relaxed">{feature}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
-
-      {/* How It Works */}
-      {service.process && service.process.length > 0 && (
-        <section className="py-16 px-6 bg-[#1a1a1a]">
-          <div className="max-w-3xl mx-auto">
-            <h2 className="font-heading font-extrabold text-white text-3xl mb-10">
-              How {service.primaryKeyword} Works at JurisPage
-            </h2>
-            <ol className="space-y-8">
-              {service.process.map((item, index) => (
-                <li key={item.step} className="flex gap-5 items-start">
-                  <span
-                    className="flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center font-heading font-extrabold text-white text-sm"
-                    style={{ background: "#EE6C13" }}
-                  >
-                    {index + 1}
-                  </span>
-                  <div>
-                    <h3 className="font-heading font-bold text-white text-lg mb-2">{item.step}</h3>
-                    <p className="text-gray-400 leading-relaxed">{item.detail}</p>
-                  </div>
-                </li>
-              ))}
-            </ol>
-          </div>
-        </section>
-      )}
-
-      {/* Why JurisPage */}
-      <section className="py-16 px-6 bg-white">
-        <div className="max-w-3xl mx-auto">
-          <h2 className="font-heading font-extrabold text-gray-900 text-3xl mb-8">Why JurisPage for {service.primaryKeyword}?</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
-              { color: "#EE6C13", title: "100% Legal Focus", body: "We work exclusively with law firms. Every tactic is built for the legal market specifically." },
-              { color: "#982A0B", title: "Transparent Pricing", body: "Our pricing is on the website. No discovery calls required to learn what anything costs." },
-              { color: "#EE6C13", title: "Month-to-Month", body: "No long-term contracts. We earn your business every single month." },
-            ].map((item) => (
-              <div key={item.title} className="bg-gray-50 rounded-xl p-6 border border-gray-100">
-                <div className="w-8 h-1 rounded mb-4" style={{ background: item.color }}></div>
-                <h3 className="font-heading font-bold text-gray-900 text-base mb-2">{item.title}</h3>
-                <p className="text-gray-600 text-sm leading-relaxed">{item.body}</p>
+              {
+                label: "The External Problem",
+                title: "Your website looks dated or loads slowly",
+                body: "75% of people judge a firm's credibility by its website. When a referral Googles your name and sees an outdated page with stock photos and no visible phone number, they hit the back button. You never even know you lost them.",
+                color: "#c0392b",
+              },
+              {
+                label: "The Internal Problem",
+                title: "You're frustrated by marketing that doesn't work",
+                body: "You've been burned by agencies with 12-month contracts and no results. You're overwhelmed by jargon (Core Web Vitals, schema markup, E-E-A-T) and can't tell if anyone is actually doing anything useful.",
+                color: "#e67e22",
+              },
+              {
+                label: "The Philosophical Problem",
+                title: "Better lawyers shouldn't lose to better marketers",
+                body: "You have more experience, better case results, and stronger client relationships than the firm ranking above you. The only difference is their website converts and yours doesn't. That shouldn't determine who gets the case.",
+                color: O,
+              },
+            ].map((card) => (
+              <div key={card.title} className="bg-white rounded-xl border border-gray-200 p-6 relative overflow-hidden">
+                <div className="absolute top-0 left-0 w-full h-1" style={{ background: card.color }} />
+                <span className="text-[10px] font-bold uppercase tracking-widest" style={{ color: card.color }}>{card.label}</span>
+                <h3 className="font-heading font-bold text-gray-900 text-lg mt-2 mb-3">{card.title}</h3>
+                <p className="text-gray-600 text-sm leading-relaxed">{card.body}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Signs Your Firm Needs This */}
-      {service.signs && service.signs.length > 0 && (
-        <section className="py-16 px-6 bg-[#FEF3EC]">
-          <div className="max-w-3xl mx-auto">
-            <h2 className="font-heading font-extrabold text-gray-900 text-3xl mb-8">
-              Signs Your Firm Needs {service.primaryKeyword}
-            </h2>
-            <ul className="space-y-4">
-              {service.signs.map((sign) => (
-                <li key={sign} className="flex gap-3 items-start bg-white p-5 rounded-xl border border-orange-100 shadow-sm">
-                  <span className="flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold mt-0.5 text-white" style={{ background: "#982A0B" }}>!</span>
-                  <span className="text-gray-700 leading-relaxed">{sign}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </section>
+      {/* Portfolio */}
+      {service.portfolio && service.portfolio.length > 0 && (
+        <PortfolioShowcase items={service.portfolio} />
       )}
 
-      {service.relatedServices && service.relatedServices.length > 0 && (
-        <section className="py-16 px-6 bg-white">
-          <div className="max-w-3xl mx-auto">
-            <h2 className="font-heading font-extrabold text-gray-900 text-2xl mb-6">
-              Related Law Firm Marketing Services
-            </h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-              {service.relatedServices.map((slug) => {
-                const relService = getRelService(slug);
-                if (!relService) return null;
-                return (
-                  <Link
-                    key={slug}
-                    href={`/${slug}/`}
-                    className="block p-4 rounded-xl border border-gray-200 hover:border-orange-300 hover:shadow-sm transition-all no-underline"
-                  >
-                    <div className="font-heading font-bold text-gray-900 text-sm mb-1">{relService.heading}</div>
-                    <div className="text-xs font-semibold" style={{ color: "#EE6C13" }}>Learn more →</div>
-                  </Link>
-                );
-              })}
+      <ReviewRibbon />
+
+      {/* ═══════════════════════════════════════════════════════
+          3. STATS BAR
+      ═══════════════════════════════════════════════════════ */}
+      <section className="py-10 px-6" style={{ background: O }}>
+        <div className="max-w-4xl mx-auto">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            {[
+              { value: "30 days", label: "From kickoff to live website" },
+              { value: "100%", label: "You own your domain, site, and content" },
+              { value: "3x", label: "Average increase in contact form submissions" },
+              { value: "113+", label: "Law firms we've built websites for" },
+            ].map((stat) => (
+              <div key={stat.label} className="text-center">
+                <div className="font-heading font-extrabold text-white text-3xl md:text-4xl leading-none mb-1">{stat.value}</div>
+                <div className="text-orange-100 text-sm leading-snug">{stat.label}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ═══════════════════════════════════════════════════════
+          4. THE 3-STEP PLAN (StoryBrand: Plan)
+      ═══════════════════════════════════════════════════════ */}
+      <section className="py-16 px-6 bg-white">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="font-heading font-extrabold text-gray-900 text-3xl mb-3">How It Works: 3 Steps to a Website That Wins Cases</h2>
+          <p className="text-gray-500 mb-12 max-w-2xl mx-auto">We handle the technical complexity. You approve the strategy and review the content. That's it.</p>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {[
+              {
+                num: "1",
+                title: "Get a Market-Gap Analysis",
+                desc: "We audit your current site, your competitors, and the search landscape in your market. You see exactly where you're losing cases online.",
+                cta: "Free. No commitment required.",
+              },
+              {
+                num: "2",
+                title: "We Build Your Conversion Engine",
+                desc: "Custom WordPress site designed mobile-first with attorney-reviewed content, E-E-A-T signals, and bar-compliant messaging. Live in 30 days.",
+                cta: "You review. We build.",
+              },
+              {
+                num: "3",
+                title: "Dominate Your Market",
+                desc: "Your site launches with SEO architecture, Google Search Console, and conversion tracking. Every page is built to rank and built to convert visitors into consultations.",
+                cta: "Cases start coming in.",
+              },
+            ].map((step) => (
+              <div key={step.num} className="text-left rounded-xl border border-gray-200 p-6 hover:border-orange-200 hover:shadow-sm transition-all">
+                <span className="inline-flex items-center justify-center w-12 h-12 rounded-full font-heading font-extrabold text-white text-lg mb-4" style={{ background: O }}>
+                  {step.num}
+                </span>
+                <h3 className="font-heading font-bold text-gray-900 text-lg mb-2">{step.title}</h3>
+                <p className="text-gray-600 text-sm leading-relaxed mb-3">{step.desc}</p>
+                <span className="text-xs font-bold" style={{ color: O }}>{step.cta}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ═══════════════════════════════════════════════════════
+          5. WHAT MAKES A TOP-TIER LAW FIRM WEBSITE
+      ═══════════════════════════════════════════════════════ */}
+      <section className="py-16 px-6 bg-gray-50">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="font-heading font-extrabold text-gray-900 text-3xl mb-3 text-center">What Makes a Top-Tier Law Firm Website Design?</h2>
+          <p className="text-gray-500 text-center mb-10 max-w-2xl mx-auto">Not graphics. Not animations. These are the elements that make phones ring.</p>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            {[
+              { title: "Click-to-Call Above the Fold", desc: "A visible phone number on every page. Mobile visitors in immediate need call when they see it. Buried contact pages lose them." },
+              { title: "Practice Area Architecture", desc: "Dedicated pages for every case type you handle. Not a single page listing everything. Each page targets specific searches and converts specific clients." },
+              { title: "Attorney Bios with E-E-A-T", desc: "Bar admissions, case experience, court admissions, speaking credits. Google's quality raters look for these signals on YMYL legal content." },
+              { title: "Mobile-First Design", desc: "76% of legal searches happen on phones. We design for mobile first, then scale up. Google indexes your mobile site to determine everyone's rankings." },
+              { title: "Sub-2.5 Second Load Times", desc: "Google's threshold for a 'good' Core Web Vitals score. Slower sites rank lower and lose 57% of visitors who won't wait more than 3 seconds." },
+              { title: "Bar-Compliant Content", desc: "Case result formatting, testimonial disclaimers, and advertising disclosures that comply with your state's bar rules. Not an afterthought. Built in from day one." },
+            ].map((item) => (
+              <div key={item.title} className="bg-white rounded-xl border border-gray-200 p-5">
+                <h3 className="font-heading font-bold text-gray-900 text-base mb-2">{item.title}</h3>
+                <p className="text-gray-600 text-sm leading-relaxed">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ═══════════════════════════════════════════════════════
+          6. WHY CHOOSE A SPECIALIZED AGENCY (Us vs Industry)
+      ═══════════════════════════════════════════════════════ */}
+      <section className="py-16 px-6 bg-white">
+        <div className="max-w-3xl mx-auto">
+          <h2 className="font-heading font-extrabold text-gray-900 text-3xl mb-3 text-center">Why Choose a Specialized Law Firm Web Design Agency?</h2>
+          <p className="text-gray-500 text-center mb-10">A fast scan of what you get vs. what generalist agencies deliver.</p>
+
+          <div className="rounded-xl border border-gray-200 overflow-hidden bg-white">
+            <div className="grid grid-cols-3 text-xs font-bold uppercase tracking-widest">
+              <div className="px-5 py-3 bg-gray-50 text-gray-500">Feature</div>
+              <div className="px-5 py-3 text-center text-white" style={{ background: O }}>JurisPage</div>
+              <div className="px-5 py-3 bg-gray-100 text-center text-gray-500">Generic Agencies</div>
+            </div>
+            {[
+              "100% law firm focus",
+              "YMYL and E-E-A-T expertise",
+              "Bar advertising compliance built in",
+              "You own the WordPress site",
+              "Month-to-month contracts",
+              "Published pricing on website",
+              "Attorney-reviewed content",
+              "Practice area page architecture",
+              "Schema markup (Attorney, FAQ, LawFirm)",
+              "30-day launch timeline",
+            ].map((feature, i) => (
+              <div key={feature} className={`grid grid-cols-3 text-sm ${i % 2 === 0 ? "bg-white" : "bg-gray-50/50"}`}>
+                <div className="px-5 py-3 text-gray-700 font-medium">{feature}</div>
+                <div className="px-5 py-3 text-center"><span className="text-lg" style={{ color: "#27ae60" }}>&#x2713;</span></div>
+                <div className="px-5 py-3 text-center"><span className="text-lg text-red-400">&#x2717;</span></div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ═══════════════════════════════════════════════════════
+          7. SUCCESS vs FAILURE (StoryBrand)
+      ═══════════════════════════════════════════════════════ */}
+      <section className="py-16 px-6" style={{ background: D }}>
+        <div className="max-w-4xl mx-auto">
+          <h2 className="font-heading font-extrabold text-white text-3xl mb-10 text-center">Two Paths Forward</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {/* Failure */}
+            <div className="rounded-xl border border-gray-700 bg-gray-800 p-6">
+              <div className="text-red-400 text-xs font-bold uppercase tracking-widest mb-4">If you do nothing</div>
+              <ul className="space-y-3 text-sm text-gray-400">
+                <li className="flex gap-2"><span className="text-red-400 flex-shrink-0">&#x2717;</span> Referrals Google your firm, see an outdated site, and call someone else</li>
+                <li className="flex gap-2"><span className="text-red-400 flex-shrink-0">&#x2717;</span> Competitors publish strategic content every month while your site sits unchanged</li>
+                <li className="flex gap-2"><span className="text-red-400 flex-shrink-0">&#x2717;</span> You keep paying for ads to a website that converts at 2% instead of 6%</li>
+                <li className="flex gap-2"><span className="text-red-400 flex-shrink-0">&#x2717;</span> Every month the authority gap grows wider and more expensive to close</li>
+              </ul>
+            </div>
+
+            {/* Success */}
+            <div className="rounded-xl p-6" style={{ background: O + "15", border: `1px solid ${O}44` }}>
+              <div className="text-xs font-bold uppercase tracking-widest mb-4" style={{ color: O }}>With JurisPage</div>
+              <ul className="space-y-3 text-sm text-gray-200">
+                <li className="flex gap-2"><span style={{ color: O }} className="flex-shrink-0">&#x2713;</span> Your site proves your legal expertise before the client picks up the phone</li>
+                <li className="flex gap-2"><span style={{ color: O }} className="flex-shrink-0">&#x2713;</span> Organic traffic compounds month over month without additional ad spend</li>
+                <li className="flex gap-2"><span style={{ color: O }} className="flex-shrink-0">&#x2713;</span> Every practice area page targets the exact searches your ideal clients type</li>
+                <li className="flex gap-2"><span style={{ color: O }} className="flex-shrink-0">&#x2713;</span> Premium clients sign because your website convinced them before the consultation</li>
+              </ul>
             </div>
           </div>
-        </section>
-      )}
+        </div>
+      </section>
 
-      {service.relatedPracticeAreas && service.relatedPracticeAreas.length > 0 && (
-        <section className="py-16 px-6 bg-[#FEF3EC]">
-          <div className="max-w-3xl mx-auto">
-            <h2 className="font-heading font-extrabold text-gray-900 text-2xl mb-6">
-              {service.primaryKeyword} for These Practice Areas
-            </h2>
-            <div className="flex flex-wrap gap-3">
-              {service.relatedPracticeAreas.map((slug) => {
-                const pa = getPracticeAreaBySlug(slug);
-                if (!pa) return null;
-                return (
-                  <Link
-                    key={slug}
-                    href={`/${slug}/`}
-                    className="px-4 py-2 rounded-[40px] border text-sm font-medium no-underline transition-all hover:bg-[#EE6C13] hover:text-white hover:border-[#EE6C13]"
-                    style={{ borderColor: "#EE6C13", color: "#EE6C13" }}
-                  >
-                    {pa.primaryKeyword}
-                  </Link>
-                );
-              })}
-            </div>
-          </div>
-        </section>
-      )}
-
+      {/* Case Studies */}
       {service.relatedCaseStudies && service.relatedCaseStudies.length > 0 && (
         <CaseStudyPreview
           caseStudies={caseStudies.filter((cs) => service.relatedCaseStudies!.includes(cs.slug))}
@@ -293,18 +326,69 @@ export default function LawFirmWebsitesPage() {
         />
       )}
 
-      {/* This Service by Practice Area */}
+      {/* ═══════════════════════════════════════════════════════
+          8. PRICING
+      ═══════════════════════════════════════════════════════ */}
+      <section className="py-16 px-6 bg-gray-50">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="font-heading font-extrabold text-gray-900 text-3xl mb-3 text-center">Transparent Pricing. On the Website. Like We Promised.</h2>
+          <p className="text-gray-500 text-center mb-10">No discovery calls required to see what you'll pay.</p>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="rounded-xl bg-white border border-gray-200 overflow-hidden">
+              <div className="px-6 py-5 border-b border-gray-100">
+                <div className="text-xs font-bold uppercase tracking-widest mb-1" style={{ color: O }}>JurisPage Launchpad</div>
+                <div className="font-heading font-extrabold text-gray-900 text-2xl">Starting at $2,000<span className="text-base font-normal text-gray-400">/mo</span></div>
+                <div className="text-xs text-gray-500 mt-1">Solo attorneys and small firms (1-4 attorneys)</div>
+              </div>
+              <div className="px-6 py-5 space-y-3 text-sm">
+                {["Custom WordPress website", "Practice area content", "Google Business Profile", "Local SEO foundation", "Attorney-reviewed content", "Live in 30 days", "Month-to-month. No contracts."].map((f) => (
+                  <div key={f} className="flex items-start gap-2"><span style={{ color: "#27ae60" }}>&#x2713;</span> {f}</div>
+                ))}
+              </div>
+              <div className="px-6 pb-6">
+                <Link href="/launchpad/" className="block text-center px-6 py-3 rounded-full text-white font-bold text-sm no-underline" style={{ background: O }}>
+                  See Launchpad Pricing
+                </Link>
+              </div>
+            </div>
+
+            <div className="rounded-xl overflow-hidden" style={{ background: D }}>
+              <div className="px-6 py-5 border-b border-gray-700">
+                <div className="text-xs font-bold uppercase tracking-widest mb-1" style={{ color: O }}>Juris Digital</div>
+                <div className="font-heading font-extrabold text-white text-2xl">Starting at $5,000<span className="text-base font-normal text-gray-400">/mo</span></div>
+                <div className="text-xs text-gray-400 mt-1">Established firms (5+ attorneys) ready to dominate</div>
+              </div>
+              <div className="px-6 py-5 space-y-3 text-sm text-gray-300">
+                {["Everything in Launchpad, plus:", "Fully bespoke design", "Full content strategy with topic mapping", "Google Ads management", "Link building and authority development", "Dedicated account strategist"].map((f) => (
+                  <div key={f} className="flex items-start gap-2"><span style={{ color: O }}>&#x2713;</span> {f}</div>
+                ))}
+              </div>
+              <div className="px-6 pb-6">
+                <Link href="/growth-assessment/" className="block text-center px-6 py-3 rounded-full font-bold text-sm no-underline border-2 border-white text-white hover:bg-white hover:text-gray-900 transition-colors">
+                  Apply for a Strategy Session
+                </Link>
+              </div>
+            </div>
+          </div>
+          <p className="text-center text-xs text-gray-400 mt-6">
+            <Link href="/services/pricing/" className="no-underline hover:underline" style={{ color: O }}>See full pricing breakdown</Link> | 90-day results guarantee | You own everything we build
+          </p>
+        </div>
+      </section>
+
+      {/* Practice Area Intersections */}
       {(() => {
         const guides = getIntersectionsForService(service.slug);
         if (guides.length === 0) return null;
         return (
-          <section className="py-16 px-6 bg-gray-50 border-t border-gray-100">
+          <section className="py-16 px-6 bg-white border-t border-gray-100">
             <div className="max-w-3xl mx-auto">
               <h2 className="font-heading font-extrabold text-gray-900 text-2xl mb-2">
-                {service.heading} by Practice Area
+                Law Firm Website Design by Practice Area
               </h2>
               <p className="text-gray-500 text-sm mb-6">
-                Specialized guides combining {service.primaryKeyword.toLowerCase()} with specific legal practice areas.
+                Specialized guides combining website design with specific legal practice areas.
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {guides.map((guide) => {
@@ -318,9 +402,7 @@ export default function LawFirmWebsitesPage() {
                       <span className="font-heading font-bold text-gray-900 text-base group-hover:text-[#EE6C13] transition-colors">
                         {guide.heading}
                       </span>
-                      {pa && (
-                        <span className="text-gray-500 text-sm">{pa.primaryKeyword}</span>
-                      )}
+                      {pa && <span className="text-gray-500 text-sm">{pa.primaryKeyword}</span>}
                     </Link>
                   );
                 })}
@@ -330,14 +412,36 @@ export default function LawFirmWebsitesPage() {
         );
       })()}
 
-      {allFaqs.length > 0 && <FAQAccordion faqs={allFaqs} heading={`${service.primaryKeyword} Questions Answered`} />}
+      {/* Related Services */}
+      {service.relatedPracticeAreas && service.relatedPracticeAreas.length > 0 && (
+        <section className="py-12 px-6 bg-gray-50 border-t border-gray-100">
+          <div className="max-w-3xl mx-auto">
+            <p className="text-xs font-bold uppercase tracking-widest text-gray-400 mb-4">Website design for these practice areas</p>
+            <div className="flex flex-wrap gap-3">
+              {service.relatedPracticeAreas.map((slug) => {
+                const pa = getPracticeAreaBySlug(slug);
+                if (!pa) return null;
+                return (
+                  <Link key={slug} href={`/${slug}/`} className="px-4 py-2 rounded-[40px] border text-sm font-medium no-underline transition-all hover:bg-[#EE6C13] hover:text-white hover:border-[#EE6C13]" style={{ borderColor: O, color: O }}>
+                    {pa.primaryKeyword}
+                  </Link>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+      )}
 
+      {/* FAQ */}
+      <FAQAccordion faqs={allFaqs} heading="Law Firm Website Design Questions Answered" />
+
+      {/* CTA */}
       <CTASection
         heading="Ready to Build a Website That Wins Cases?"
         subtext="Custom law firm website in 30 days. 100% ownership. No long-term contracts. 113+ law firms served."
-        primaryLabel="Get My New Website Design"
-        primaryHref="/contact/"
-        secondaryLabel="See Pricing"
+        primaryLabel="Get Your Free Market-Gap Analysis"
+        primaryHref="/see-my-market-gap/"
+        secondaryLabel="See Transparent Pricing"
         secondaryHref="/services/pricing/"
       />
     </>
