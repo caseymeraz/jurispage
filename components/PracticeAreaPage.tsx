@@ -15,6 +15,195 @@ import PpcRoiCalculator from "@/components/PpcRoiCalculator";
 import { caseStudies } from "@/data/caseStudies";
 import { renderLinkedText, stripMarkdownLinks } from "@/lib/renderLinkedText";
 
+function UniqueSection({ section }: { section: NonNullable<PracticeAreaData["uniqueSections"]>[number] }) {
+  return (
+    <section className="py-16 px-6 bg-white border-t border-gray-100">
+      <div className="max-w-4xl mx-auto">
+        <h2 className="font-heading font-extrabold text-gray-900 text-3xl mb-4">{section.heading}</h2>
+        <p className="text-gray-700 text-base leading-relaxed mb-8">{section.content}</p>
+
+        {section.type === "keyword-table" && section.tableData && (
+          <>
+            <div className="hidden md:block overflow-hidden rounded-xl border border-gray-200">
+              <table className="w-full text-sm">
+                <thead>
+                  <tr className="bg-gray-900">
+                    <th className="text-left px-4 py-3 font-heading font-bold text-white">Keyword</th>
+                    <th className="text-right px-4 py-3 font-heading font-bold text-white">Volume/mo</th>
+                    <th className="text-right px-4 py-3 font-heading font-bold text-white">Difficulty</th>
+                    <th className="text-right px-4 py-3 font-heading font-bold text-white">CPC</th>
+                    <th className="text-left px-4 py-3 font-heading font-bold text-white">Intent</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {section.tableData.map((row, i) => (
+                    <tr key={row.keyword} className={i % 2 === 0 ? "bg-white" : "bg-gray-50"}>
+                      <td className="px-4 py-3 font-medium text-gray-900">{row.keyword}</td>
+                      <td className="px-4 py-3 text-right font-semibold" style={{ color: "#EE6C13" }}>{row.volume}</td>
+                      <td className="px-4 py-3 text-right text-gray-600">{row.difficulty}</td>
+                      <td className="px-4 py-3 text-right text-gray-600">{row.cpc}</td>
+                      <td className="px-4 py-3 text-gray-500 text-xs">{row.intent}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+            <div className="md:hidden space-y-3">
+              {section.tableData.map((row) => (
+                <div key={row.keyword} className="rounded-lg border border-gray-200 p-4">
+                  <div className="font-heading font-bold text-gray-900 text-sm mb-2">{row.keyword}</div>
+                  <div className="grid grid-cols-3 gap-2 text-xs">
+                    <div><span className="text-gray-500">Vol:</span> <span className="font-semibold" style={{ color: "#EE6C13" }}>{row.volume}</span></div>
+                    <div><span className="text-gray-500">KD:</span> <span className="font-semibold">{row.difficulty}</span></div>
+                    <div><span className="text-gray-500">CPC:</span> <span className="font-semibold">{row.cpc}</span></div>
+                  </div>
+                  <div className="text-xs text-gray-500 mt-1">{row.intent}</div>
+                </div>
+              ))}
+            </div>
+            <p className="text-xs text-gray-400 mt-4">Source: Ahrefs Keywords Explorer, US data, March 2026. CPC values in USD.</p>
+          </>
+        )}
+
+        {section.type === "svg-diagram" && (
+          <div style={{ margin: "1.5rem 0", maxWidth: "100%" }}>
+            <svg viewBox="0 0 800 520" xmlns="http://www.w3.org/2000/svg" style={{ width: "100%", height: "auto", borderRadius: "12px", background: "#f8f9fb", border: "1px solid #e2e8f0" }}>
+              {/* Homepage */}
+              <rect x="300" y="15" width="200" height="40" rx="6" fill="#1a1a2e" />
+              <text x="400" y="40" textAnchor="middle" fontFamily="system-ui, sans-serif" fontSize="13" fontWeight="700" fill="white">Homepage</text>
+              <line x1="400" y1="55" x2="200" y2="90" stroke="#ccc" strokeWidth="1.5" />
+              <line x1="400" y1="55" x2="600" y2="90" stroke="#ccc" strokeWidth="1.5" />
+              <line x1="400" y1="55" x2="400" y2="400" stroke="#ccc" strokeWidth="1.5" strokeDasharray="4,4" />
+
+              {/* Plaintiff Branch */}
+              <rect x="50" y="90" width="280" height="34" rx="6" fill="#EE6C13" />
+              <text x="190" y="112" textAnchor="middle" fontFamily="system-ui, sans-serif" fontSize="12" fontWeight="700" fill="white">Employee Rights (Plaintiff)</text>
+              {[
+                "Wrongful Termination", "Sexual Harassment", "Wage & Hour Violations",
+                "FMLA Violations", "Workplace Discrimination", "Retaliation",
+                "Whistleblower Protection"
+              ].map((label, i) => (
+                <g key={label}>
+                  <line x1="120" y1="124" x2="120" y2={145 + i * 34} stroke="#EE6C13" strokeWidth="1" opacity="0.4" />
+                  <rect x="70" y={138 + i * 34} width="220" height="28" rx="4" fill="white" stroke="#e2e8f0" strokeWidth="1" />
+                  <text x="180" y={156 + i * 34} textAnchor="middle" fontFamily="system-ui, sans-serif" fontSize="11" fill="#333">{label}</text>
+                </g>
+              ))}
+
+              {/* Defendant Branch */}
+              <rect x="470" y="90" width="280" height="34" rx="6" fill="#0f4c81" />
+              <text x="610" y="112" textAnchor="middle" fontFamily="system-ui, sans-serif" fontSize="12" fontWeight="700" fill="white">Employer Services (Defendant)</text>
+              {[
+                "EEOC Defense", "Employment Agreements", "HR Compliance",
+                "Non-Compete Drafting"
+              ].map((label, i) => (
+                <g key={label}>
+                  <line x1="580" y1="124" x2="580" y2={145 + i * 34} stroke="#0f4c81" strokeWidth="1" opacity="0.4" />
+                  <rect x="500" y={138 + i * 34} width="220" height="28" rx="4" fill="white" stroke="#e2e8f0" strokeWidth="1" />
+                  <text x="610" y={156 + i * 34} textAnchor="middle" fontFamily="system-ui, sans-serif" fontSize="11" fill="#333">{label}</text>
+                </g>
+              ))}
+
+              {/* Blog Branch */}
+              <rect x="260" y="410" width="280" height="34" rx="6" fill="#27ae60" />
+              <text x="400" y="432" textAnchor="middle" fontFamily="system-ui, sans-serif" fontSize="12" fontWeight="700" fill="white">Blog: Pre-Attorney Questions</text>
+              {[
+                '"Can I sue my employer for..."', '"What counts as hostile work..."',
+                '"Is my non-compete enforceable..."'
+              ].map((label, i) => (
+                <g key={label}>
+                  <rect x="280" y={454 + i * 28} width="240" height="22" rx="3" fill="white" stroke="#e2e8f0" strokeWidth="1" />
+                  <text x="400" y={469 + i * 28} textAnchor="middle" fontFamily="system-ui, sans-serif" fontSize="10" fill="#555">{label}</text>
+                </g>
+              ))}
+            </svg>
+          </div>
+        )}
+
+        {section.type === "deadline-table" && section.deadlineData && (
+          <>
+            <div className="hidden md:block overflow-hidden rounded-xl border border-gray-200">
+              <table className="w-full text-sm">
+                <thead>
+                  <tr className="bg-gray-900">
+                    <th className="text-left px-4 py-3 font-heading font-bold text-white">State</th>
+                    <th className="text-center px-4 py-3 font-heading font-bold text-white">EEOC Deadline</th>
+                    <th className="text-left px-4 py-3 font-heading font-bold text-white">State Agency</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {section.deadlineData.map((row, i) => (
+                    <tr key={row.state} className={i % 2 === 0 ? "bg-white" : "bg-gray-50"}>
+                      <td className="px-4 py-2 font-medium text-gray-900">{row.state}</td>
+                      <td className="px-4 py-2 text-center">
+                        <span className={`inline-block px-3 py-1 rounded-full text-xs font-bold ${row.deadline === "300 days" ? "bg-green-100 text-green-700" : "bg-red-100 text-red-700"}`}>
+                          {row.deadline}
+                        </span>
+                      </td>
+                      <td className="px-4 py-2 text-gray-600 text-xs">{row.agency}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+            <div className="md:hidden space-y-2">
+              {section.deadlineData.map((row) => (
+                <div key={row.state} className="flex items-center justify-between rounded-lg border border-gray-200 px-4 py-3">
+                  <span className="font-medium text-gray-900 text-sm">{row.state}</span>
+                  <span className={`px-3 py-1 rounded-full text-xs font-bold ${row.deadline === "300 days" ? "bg-green-100 text-green-700" : "bg-red-100 text-red-700"}`}>
+                    {row.deadline}
+                  </span>
+                </div>
+              ))}
+            </div>
+            <p className="text-xs text-gray-400 mt-4">States with a parallel fair employment agency get 300 days. States without get 180 days. Some states have separate state-level claims with different deadlines. Always verify current deadlines with your state agency.</p>
+          </>
+        )}
+
+        {section.type === "roi-math" && (
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+            <div className="rounded-xl border-2 p-6" style={{ borderColor: "#EE6C13", background: "#FFF8F5" }}>
+              <div className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: "#EE6C13" }}>Plaintiff Side (Contingency)</div>
+              <div className="space-y-3 text-sm text-gray-700">
+                <div className="flex justify-between"><span>Settlement amount</span><span className="font-bold">$200,000</span></div>
+                <div className="flex justify-between"><span>Contingency fee (33%)</span><span className="font-bold">$66,000</span></div>
+                <div className="flex justify-between"><span>Monthly marketing cost</span><span className="font-bold">$5,000</span></div>
+                <div className="flex justify-between"><span>Annual marketing cost</span><span className="font-bold">$60,000</span></div>
+                <div className="border-t border-orange-200 pt-3 flex justify-between">
+                  <span className="font-bold">ROI from one case</span>
+                  <span className="font-extrabold text-lg" style={{ color: "#EE6C13" }}>13:1</span>
+                </div>
+              </div>
+            </div>
+            <div className="rounded-xl border-2 p-6" style={{ borderColor: "#0f4c81", background: "#F5F8FC" }}>
+              <div className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: "#0f4c81" }}>Defendant Side (Retainer)</div>
+              <div className="space-y-3 text-sm text-gray-700">
+                <div className="flex justify-between"><span>Monthly retainer</span><span className="font-bold">$8,000</span></div>
+                <div className="flex justify-between"><span>Annual client value</span><span className="font-bold">$96,000</span></div>
+                <div className="flex justify-between"><span>Monthly marketing cost</span><span className="font-bold">$5,000</span></div>
+                <div className="flex justify-between"><span>Annual marketing cost</span><span className="font-bold">$60,000</span></div>
+                <div className="border-t pt-3 flex justify-between" style={{ borderColor: "#c0d4e8" }}>
+                  <span className="font-bold">ROI from one client</span>
+                  <span className="font-extrabold text-lg" style={{ color: "#0f4c81" }}>1.6:1</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {section.type === "prose" && null}
+      </div>
+    </section>
+  );
+}
+
+function renderUniqueSections(sections: PracticeAreaData["uniqueSections"], placement: string) {
+  if (!sections) return null;
+  return sections
+    .filter((s) => s.placement === placement)
+    .map((s) => <UniqueSection key={s.id} section={s} />);
+}
+
 // Cross-practice-area related content map
 const RELATED_PRACTICE_AREAS: Record<string, string[]> = {
   "personal-injury-lawyer-marketing": ["criminal-defense-lawyer-marketing", "workers-comp-lawyer-marketing", "medical-malpractice-lawyer-marketing", "mass-tort-law-firm-marketing"],
@@ -179,6 +368,8 @@ export default function PracticeAreaPage({ practiceArea: pa }: PracticeAreaPageP
         </div>
       </section>
 
+      {renderUniqueSections(pa.uniqueSections, "after-intro")}
+
       {/* Why Different */}
       <section className="py-16 px-6 bg-gray-50">
         <div className="max-w-3xl mx-auto">
@@ -226,6 +417,8 @@ export default function PracticeAreaPage({ practiceArea: pa }: PracticeAreaPageP
           )}
         </div>
       </section>
+
+      {renderUniqueSections(pa.uniqueSections, "after-mistakes")}
 
       {/* Services */}
       <section className="py-16 px-6 bg-[#1a1a1a]">
@@ -319,6 +512,8 @@ export default function PracticeAreaPage({ practiceArea: pa }: PracticeAreaPageP
           </div>
         </section>
       )}
+
+      {renderUniqueSections(pa.uniqueSections, "after-process")}
 
       {pa.relatedCaseStudies && pa.relatedCaseStudies.length > 0 && (
         <CaseStudyPreview
@@ -473,6 +668,8 @@ export default function PracticeAreaPage({ practiceArea: pa }: PracticeAreaPageP
           </section>
         );
       })()}
+
+      {renderUniqueSections(pa.uniqueSections, "before-faq")}
 
       {allFaqs.length > 0 && <FAQAccordion faqs={allFaqs} heading="Frequently Asked Questions" />}
 

@@ -32,6 +32,15 @@ export interface PracticeAreaData {
   comparisonSection?: { heading: string; intro: string; rows: { feature: string; jurispage: string; bigAgency: string }[] };
   resultsHighlights?: { value: string; label: string; context: string }[];
   ctaOverride?: { heading: string; subtext: string; primaryLabel: string; secondaryLabel?: string };
+  uniqueSections?: {
+    id: string;
+    heading: string;
+    placement: "after-intro" | "after-mistakes" | "after-process" | "before-faq";
+    type: "keyword-table" | "svg-diagram" | "prose" | "deadline-table" | "roi-math";
+    content: string;
+    tableData?: { keyword: string; volume: string; difficulty: string; cpc: string; intent: string }[];
+    deadlineData?: { state: string; deadline: string; agency: string }[];
+  }[];
 }
 
 export const practiceAreas: PracticeAreaData[] = [
@@ -428,6 +437,70 @@ export const practiceAreas: PracticeAreaData[] = [
       { question: "What is a realistic marketing budget for an employment law firm?", answer: "For a plaintiff-side firm on contingency, the marketing investment math is similar to personal injury: one strong case settlement can cover months of ad spend. A $200,000 wrongful termination settlement at a 33 percent contingency generates $66,000 in attorney fees. A monthly budget of $3,000 to $8,000 across SEO and Google Ads is a reasonable starting point for most employment firms in mid-size markets, with increases as the channel performance data builds. For defendant-side practices billing hourly, the math is different - a single retained employer client generating $5,000 to $15,000 per month in fees justifies real investment in the business-facing digital channels that reach HR professionals and general counsel." },
     ],
     relatedServices: ["law-firm-seo", "google-ads-for-law-firms", "law-firm-content-writing"],
+    uniqueSections: [
+      {
+        id: "keyword-data",
+        heading: "Employment Law Keyword Data: What Your Clients Are Actually Searching",
+        placement: "after-intro",
+        type: "keyword-table",
+        content: "Most employment law marketing agencies pick keywords based on intuition. We use data. Below are the actual monthly search volumes, competition levels, and cost-per-click figures for the employment law keywords that matter most. The takeaway: violation-specific terms like 'wrongful termination lawyer' and 'employment discrimination lawyer' have massive volume with low competition, while broad terms like 'labor law attorney' are harder to rank for. Your content strategy should start with the high-volume, low-difficulty keywords and work upward.",
+        tableData: [
+          { keyword: "wrongful termination lawyer", volume: "23,000", difficulty: "0", cpc: "$2.50", intent: "High - ready to hire" },
+          { keyword: "whistleblower attorney", volume: "7,400", difficulty: "43", cpc: "$2.00", intent: "High - ready to hire" },
+          { keyword: "wrongful termination attorney", volume: "4,000", difficulty: "1", cpc: "$1.70", intent: "High - ready to hire" },
+          { keyword: "employment lawyer near me", volume: "3,300", difficulty: "11", cpc: "$2.00", intent: "High - ready to hire" },
+          { keyword: "employment discrimination lawyer", volume: "3,200", difficulty: "4", cpc: "$1.90", intent: "High - ready to hire" },
+          { keyword: "retaliation lawyer", volume: "2,600", difficulty: "22", cpc: "$3.00", intent: "High - ready to hire" },
+          { keyword: "sexual harassment attorney", volume: "2,300", difficulty: "12", cpc: "$2.50", intent: "High - ready to hire" },
+          { keyword: "labor law attorney", volume: "1,800", difficulty: "49", cpc: "$3.00", intent: "Mixed" },
+          { keyword: "hostile work environment lawyer", volume: "1,200", difficulty: "0", cpc: "$1.70", intent: "Research to hire" },
+          { keyword: "can I sue my employer", volume: "1,000", difficulty: "34", cpc: "$1.90", intent: "Research - early stage" },
+          { keyword: "wage theft lawyer", volume: "600", difficulty: "7", cpc: "$3.00", intent: "High - ready to hire" },
+          { keyword: "EEOC attorney", volume: "500", difficulty: "3", cpc: "$2.50", intent: "High - ready to hire" },
+          { keyword: "non-compete lawyer", volume: "350", difficulty: "0", cpc: "$1.60", intent: "High - ready to hire" },
+          { keyword: "employment lawyer for employees", volume: "150", difficulty: "0", cpc: "$1.70", intent: "High - plaintiff side" },
+          { keyword: "FMLA violation attorney", volume: "100", difficulty: "0", cpc: "N/A", intent: "High - niche" },
+        ],
+      },
+      {
+        id: "site-architecture",
+        heading: "What a Competitive Employment Law Website Structure Looks Like",
+        placement: "after-mistakes",
+        type: "svg-diagram",
+        content: "Most employment law firms have one page. The firms winning clients from Google have ten or more. Below is the exact page architecture we build for employment law practices. Each page targets a distinct keyword cluster, serves a distinct client need, and links internally to build topical authority. The plaintiff and defendant sections are completely separate - different messaging, different CTAs, different intake flows.",
+      },
+      {
+        id: "eeoc-deadlines",
+        heading: "EEOC Filing Deadlines by State: The Urgency Your Content Should Communicate",
+        placement: "after-process",
+        type: "deadline-table",
+        content: "Employment law has built-in urgency that most practice areas lack. EEOC charges must be filed within 180 days of the discriminatory act in states without a parallel agency, or 300 days in states that have one. This deadline is the single most powerful conversion driver in employment law marketing. Every page on your site should reference it. Every ad should mention it. Every intake form should surface it. Below is a reference table your content team can use.",
+        deadlineData: [
+          { state: "California", deadline: "300 days", agency: "DFEH (CRD)" },
+          { state: "Texas", deadline: "300 days", agency: "TWC Civil Rights Division" },
+          { state: "New York", deadline: "300 days", agency: "NY Division of Human Rights" },
+          { state: "Florida", deadline: "300 days", agency: "FCHR" },
+          { state: "Illinois", deadline: "300 days", agency: "IDHR" },
+          { state: "Pennsylvania", deadline: "300 days", agency: "PHRC" },
+          { state: "Ohio", deadline: "300 days", agency: "OCRC" },
+          { state: "Georgia", deadline: "180 days", agency: "No parallel state agency" },
+          { state: "North Carolina", deadline: "180 days", agency: "No parallel state agency" },
+          { state: "Alabama", deadline: "180 days", agency: "No parallel state agency" },
+          { state: "Mississippi", deadline: "180 days", agency: "No parallel state agency" },
+          { state: "Arkansas", deadline: "180 days", agency: "No parallel state agency" },
+          { state: "Virginia", deadline: "300 days", agency: "Office of Civil Rights" },
+          { state: "Massachusetts", deadline: "300 days", agency: "MCAD" },
+          { state: "New Jersey", deadline: "300 days", agency: "NJ DCR" },
+        ],
+      },
+      {
+        id: "roi-math",
+        heading: "The ROI Math: Why Employment Law Marketing Pays for Itself",
+        placement: "before-faq",
+        type: "roi-math",
+        content: "Employment law has some of the most favorable marketing economics in legal. The math works on both sides of the practice. Plaintiff side: a wrongful termination case that settles for $200,000 at a standard 33% contingency generates $66,000 in attorney fees. If your monthly marketing investment is $5,000 across SEO and Google Ads, one case covers over a year of spend - a 13:1 return. Defendant side: a single retained employer client generating $8,000 per month in compliance and defense work produces $96,000 annually. Your $5,000 monthly marketing budget pays for itself with a single retained client. The key metric to track is cost-per-retained-client, not cost-per-lead. At $25-$65 per click for employment law keywords and a 5-8% conversion rate on well-built landing pages, you are looking at $300-$1,300 per consultation request. With a 25-30% consultation-to-retention rate, your cost per retained client lands at $1,000-$5,000. Compare that to the lifetime value of an employment law client and the investment math is clear.",
+      },
+    ],
   },
   {
     slug: "real-estate-lawyer-marketing",
