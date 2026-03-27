@@ -9,6 +9,7 @@ import CTASection from "@/components/CTASection";
 import FAQAccordion from "@/components/FAQAccordion";
 import SchemaOrg from "@/components/SchemaOrg";
 import CaseStudyPreview from "@/components/CaseStudyPreview";
+import JumpLinks from "@/components/JumpLinks";
 import HeroForm from "@/components/HeroForm";
 import CompetitorGapForm from "@/components/CompetitorGapForm";
 import PpcRoiCalculator from "@/components/PpcRoiCalculator";
@@ -353,34 +354,17 @@ export default function PracticeAreaPage({ practiceArea: pa }: PracticeAreaPageP
       )}
 
       {/* Jump Links */}
-      <nav className="sticky top-0 z-40 bg-white/95 backdrop-blur-sm border-b border-gray-200 shadow-sm">
-        <div className="max-w-4xl mx-auto px-4 py-3 overflow-x-auto scrollbar-hide">
-          <div className="flex gap-2 min-w-max">
-            {[
-              { id: "overview", label: "Overview" },
-              ...(pa.uniqueSections?.filter(s => s.placement === "after-intro").map(s => ({ id: s.id, label: s.heading.split(":")[0] })) ?? []),
-              { id: "why-different", label: "Why Different" },
-              { id: "mistakes", label: "Common Mistakes" },
-              ...(pa.uniqueSections?.filter(s => s.placement === "after-mistakes").map(s => ({ id: s.id, label: s.heading.split(":")[0] })) ?? []),
-              { id: "process", label: "Our Process" },
-              ...(pa.uniqueSections?.filter(s => s.placement === "after-process").map(s => ({ id: s.id, label: s.heading.split(":")[0] })) ?? []),
-              ...(pa.uniqueSections?.filter(s => s.placement === "before-faq").map(s => ({ id: s.id, label: s.heading.split(":")[0] })) ?? []),
-              { id: "faq", label: "FAQ" },
-            ].map((link) => (
-              <a
-                key={link.id}
-                href={`#${link.id}`}
-                className="flex-shrink-0 px-4 py-2 rounded-full text-xs font-semibold no-underline transition-colors border border-gray-200 text-gray-600 hover:text-white hover:border-transparent"
-                style={{ ["--tw-hover-bg" as string]: "#EE6C13" }}
-                onMouseOver={(e) => { e.currentTarget.style.background = "#EE6C13"; e.currentTarget.style.color = "white"; e.currentTarget.style.borderColor = "#EE6C13"; }}
-                onMouseOut={(e) => { e.currentTarget.style.background = ""; e.currentTarget.style.color = "#4b5563"; e.currentTarget.style.borderColor = "#e5e7eb"; }}
-              >
-                {link.label}
-              </a>
-            ))}
-          </div>
-        </div>
-      </nav>
+      <JumpLinks links={[
+        { id: "overview", label: "Overview" },
+        ...(pa.uniqueSections?.filter(s => s.placement === "after-intro").map(s => ({ id: s.id, label: s.heading.split(":")[0] })) ?? []),
+        { id: "why-different", label: "Why Different" },
+        { id: "mistakes", label: "Common Mistakes" },
+        ...(pa.uniqueSections?.filter(s => s.placement === "after-mistakes").map(s => ({ id: s.id, label: s.heading.split(":")[0] })) ?? []),
+        { id: "process", label: "Our Process" },
+        ...(pa.uniqueSections?.filter(s => s.placement === "after-process").map(s => ({ id: s.id, label: s.heading.split(":")[0] })) ?? []),
+        ...(pa.uniqueSections?.filter(s => s.placement === "before-faq").map(s => ({ id: s.id, label: s.heading.split(":")[0] })) ?? []),
+        { id: "faq", label: "FAQ" },
+      ]} />
 
       {/* Intro */}
       <section id="overview" className="py-16 px-6 bg-white scroll-mt-16">
