@@ -424,7 +424,7 @@ export default function PracticeAreaServicePage({
         heading={`Ready to Grow Your ${pa.practiceNoun ?? pa.primaryKeyword} Practice?`}
         subtext={`Get a custom ${service.heading.toLowerCase()} strategy built for your firm. No contracts, no fluff, just results.`}
         primaryLabel="Book a Free Strategy Session"
-        primaryHref="/get-started/"
+        primaryHref="/contact/"
         secondaryLabel={`See All ${pa.practiceNoun ?? pa.primaryKeyword} Marketing Services`}
         secondaryHref={`/${pa.slug}/`}
       />

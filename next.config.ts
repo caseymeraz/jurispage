@@ -2,6 +2,7 @@ import type { NextConfig } from "next";
 import path from "path";
 
 const nextConfig: NextConfig = {
+  trailingSlash: true,
   serverExternalPackages: ["@sparticuz/chromium"],
   turbopack: {
     root: path.resolve(__dirname),
