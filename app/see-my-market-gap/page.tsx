@@ -5,7 +5,7 @@ import MarketGapForm from "@/components/MarketGapForm";
 import CTASection from "@/components/CTASection";
 
 export const metadata: Metadata = {
-  title: "See My Market Gap | Free Law Firm Market Analysis | JurisPage",
+  title: "See My Market Gap | Free Law Firm Market Analysis",
   description:
     "Get a personalized market-gap analysis for your practice area and city. See how many potential clients are searching, who's winning, and how to close the gap.",
   alternates: { canonical: "https://jurispage.com/see-my-market-gap/" },

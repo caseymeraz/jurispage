@@ -15,7 +15,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const cs = caseStudies.find((c) => c.slug === slug);
   if (!cs) return {};
   return {
-    title: `${cs.client} Case Study: ${cs.heroStat} | JurisPage`,
+    title: `${cs.client} Case Study: ${cs.heroStat}`,
     description: `How JurisPage helped ${cs.client} achieve ${cs.heroStat} through ${cs.type === "seo" ? "law firm SEO" : cs.type === "ppc" ? "Google Ads for lawyers" : "SEO and Google Ads"}.`,
     alternates: { canonical: `https://jurispage.com/case-studies/${cs.slug}/` },
   };

@@ -5,7 +5,7 @@ import FAQAccordion from "@/components/FAQAccordion";
 import LaunchpadCalculator from "@/components/LaunchpadCalculator";
 
 export const metadata: Metadata = {
-  title: "Pricing: Law Firm Marketing Plans for Every Stage | JurisPage",
+  title: "Pricing: Law Firm Marketing Plans for Every Stage",
   description: "Transparent pricing for every stage of growth. JurisPage Launchpad starts at $2,000/month for small firms. Juris Digital starts at $5,000/month for established firms ready to dominate.",
   alternates: { canonical: "https://jurispage.com/services/pricing/" },
 };

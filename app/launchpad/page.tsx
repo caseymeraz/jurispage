@@ -7,7 +7,7 @@ import YouTubeFacade from "@/components/YouTubeFacade";
 import ReviewRibbon from "@/components/ReviewRibbon";
 
 export const metadata: Metadata = {
-  title: "Launchpad: Law Firm Marketing Foundation Starting at $2,000/mo | JurisPage",
+  title: "Launchpad: Law Firm Marketing Foundation Starting at $2,000/mo",
   description: "Get instant pricing for JurisPage Launchpad: website, SEO, GBP, and ongoing management built for small law firms. Transparent pricing, no contracts. See your exact number now.",
   alternates: { canonical: "https://jurispage.com/launchpad/" },
 };

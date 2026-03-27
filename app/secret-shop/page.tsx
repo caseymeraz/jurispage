@@ -5,12 +5,12 @@ import SchemaOrg from "@/components/SchemaOrg";
 import SecretShopAudit from "@/components/SecretShopAudit";
 
 export const metadata: Metadata = {
-  title: "Law Firm Intake Audit: The Secret Shop | JurisPage",
+  title: "Law Firm Intake Audit: The Secret Shop",
   description:
     "Find out how much revenue your law firm is losing from slow intake. The Secret Shop calculator shows the real cost of being second to respond.",
   alternates: { canonical: "https://jurispage.com/secret-shop/" },
   openGraph: {
-    title: "Law Firm Intake Audit: The Secret Shop | JurisPage",
+    title: "Law Firm Intake Audit: The Secret Shop",
     description:
       "Find out how much revenue your law firm is losing from slow intake. The Secret Shop calculator shows the real cost of being second to respond.",
     url: "https://jurispage.com/secret-shop/",

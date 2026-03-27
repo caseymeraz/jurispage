@@ -5,7 +5,7 @@ import CTASection from "@/components/CTASection";
 import SchemaOrg from "@/components/SchemaOrg";
 
 export const metadata: Metadata = {
-  title: "Law Firm Marketing Success Stories | JurisPage Case Studies",
+  title: "Law Firm Marketing Success Stories | Case Studies",
   description: "See how JurisPage helped law firms achieve +1,851% more traffic, +200 monthly leads, and 10x business growth. Real results from real law firm marketing campaigns.",
   alternates: { canonical: "https://jurispage.com/case-studies/" },
 };

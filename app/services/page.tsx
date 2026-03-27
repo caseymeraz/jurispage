@@ -5,7 +5,7 @@ import CTASection from "@/components/CTASection";
 import SchemaOrg from "@/components/SchemaOrg";
 
 export const metadata: Metadata = {
-  title: "Law Firm Marketing Services | JurisPage",
+  title: "Law Firm Marketing Services",
   description: "SEO, Google Ads, web design, content writing, and more. Explore JurisPage's full suite of digital marketing services built exclusively for law firms.",
   alternates: { canonical: "https://jurispage.com/services/" },
 };

@@ -3,7 +3,7 @@ import GrowthAssessmentForm from "@/components/GrowthAssessmentForm";
 import SchemaOrg from "@/components/SchemaOrg";
 
 export const metadata: Metadata = {
-  title: "Growth Strategy Session for Established Law Firms | Juris Digital + JurisPage",
+  title: "Growth Strategy Session for Established Law Firms",
   description: "Apply for a complimentary Growth Strategy Session. Built for law firms with 5+ attorneys and $5K+ monthly marketing budgets ready to dominate their market.",
   alternates: { canonical: "https://jurispage.com/growth-assessment/" },
 };
