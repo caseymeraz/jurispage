@@ -13,7 +13,7 @@ interface Props {
 
 const AUTHOR = {
   name: "Casey Meraz",
-  role: "CEO, Juris Digital",
+  role: "Founder, JurisPage",
   image: "/images/about/headshot-casey-meraz.jpg",
   url: "https://jurispage.com/about-us/",
   bio: "Casey Meraz has spent 15 years helping law firms get found online and turn that traffic into signed clients. He has personally managed SEO campaigns for 100+ law firms and built one of the most-read blogs on legal marketing online.",
@@ -74,10 +74,10 @@ export default async function BlogPostPage({ params }: Props) {
       name: AUTHOR.name,
       url: AUTHOR.url,
       image: `https://jurispage.com${AUTHOR.image}`,
-      jobTitle: "CEO",
+      jobTitle: "Founder",
       worksFor: {
         "@type": "Organization",
-        name: "Juris Digital",
+        name: "JurisPage",
         url: "https://jurispage.com",
       },
     },
@@ -172,7 +172,7 @@ export default async function BlogPostPage({ params }: Props) {
           >
             <Image
               src={AUTHOR.image}
-              alt={`${AUTHOR.name}, CEO of Juris Digital - legal marketing expert with 15 years of experience helping law firms grow through SEO`}
+              alt={`${AUTHOR.name}, Founder of JurisPage - legal marketing expert with 15 years of experience helping law firms grow through SEO`}
               width={80}
               height={80}
               className="rounded-full object-cover flex-shrink-0"

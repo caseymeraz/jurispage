@@ -58,7 +58,7 @@ export default function BlogIndex() {
                     <div className="flex items-center gap-2">
                       <Image
                         src="/images/about/headshot-casey-meraz.jpg"
-                        alt="Casey Meraz, CEO of Juris Digital - article author"
+                        alt="Casey Meraz, Founder of JurisPage - article author"
                         width={28}
                         height={28}
                         className="rounded-full object-cover"
