@@ -6,6 +6,8 @@ import FAQAccordion from "@/components/FAQAccordion";
 import SchemaOrg from "@/components/SchemaOrg";
 import CTASection from "@/components/CTASection";
 import AiVisibilitySimulator from "@/components/AiVisibilitySimulator";
+import AiSearchReportForm from "@/components/AiSearchReportForm";
+import { Suspense } from "react";
 
 const service = getServiceBySlug("generative-engine-optimization-legal-marketing")!;
 const O = "#EE6C13";
@@ -78,7 +80,7 @@ export default function GeoPage() {
             The firms being cited are not necessarily the best. They are the ones whose content AI systems can identify, attribute, and trust. That is what GEO fixes.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/contact/" className="px-8 py-4 rounded-full text-white font-bold text-sm no-underline transition-opacity hover:opacity-90" style={{ background: O }}>Get Your AI Visibility Audit</Link>
+            <a href="#ai-audit" className="px-8 py-4 rounded-full text-white font-bold text-sm no-underline transition-opacity hover:opacity-90" style={{ background: O }}>Get Your Free AI Visibility Audit</a>
             <Link href="/services/pricing/" className="px-8 py-4 rounded-full font-bold text-sm no-underline border-2 transition-all hover:bg-gray-50" style={{ borderColor: D, color: D }}>See Transparent Pricing</Link>
           </div>
         </div>
@@ -313,6 +315,18 @@ export default function GeoPage() {
         </div>
       </section>
 
+      {/* AI VISIBILITY AUDIT FORM */}
+      <section id="ai-audit" className="py-16 px-6 bg-white scroll-mt-16 border-t border-gray-100">
+        <div className="max-w-3xl mx-auto text-center mb-10">
+          <span className="inline-block text-xs font-heading font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-4" style={{ background: O + "15", color: O }}>Free Tool</span>
+          <h2 className="font-heading font-extrabold text-gray-900 text-3xl mb-3">Get Your AI Visibility Audit</h2>
+          <p className="text-gray-500 max-w-xl mx-auto">Enter your practice area and location. We will query ChatGPT, Perplexity, and Google AI Overviews and show you exactly where you stand.</p>
+        </div>
+        <Suspense fallback={<div className="max-w-2xl mx-auto bg-gray-50 rounded-2xl p-8 text-center text-gray-500">Loading audit tool...</div>}>
+          <AiSearchReportForm />
+        </Suspense>
+      </section>
+
       {/* 9. PRICING */}
       <section className="py-16 px-6 bg-gray-50">
         <div className="max-w-4xl mx-auto">
@@ -392,7 +406,7 @@ export default function GeoPage() {
           <h2 className="font-heading font-extrabold text-white text-3xl mb-4">Get Your AI Visibility Audit</h2>
           <p className="text-gray-400 mb-8">We will query ChatGPT, Perplexity, and Google AI Overviews for your practice area and city. You will see exactly where you stand. Free. No obligation.</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/contact/" className="px-8 py-4 rounded-full text-white font-bold text-sm no-underline transition-opacity hover:opacity-90" style={{ background: O }}>Get Your AI Visibility Audit</Link>
+            <a href="#ai-audit" className="px-8 py-4 rounded-full text-white font-bold text-sm no-underline transition-opacity hover:opacity-90" style={{ background: O }}>Get Your Free AI Visibility Audit</a>
             <Link href="/services/pricing/" className="px-8 py-4 rounded-full font-bold text-sm no-underline border-2 border-gray-600 text-gray-300 hover:border-white hover:text-white transition-colors">See Transparent Pricing</Link>
           </div>
           <p className="text-gray-500 text-xs mt-6">Month-to-month. 90-day guarantee. You own everything.</p>
