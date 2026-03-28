@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { getServiceBySlug } from "@/data/services";
 import FAQAccordion from "@/components/FAQAccordion";
 import SchemaOrg from "@/components/SchemaOrg";
@@ -124,6 +125,24 @@ export default function BingAdsPage() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* BING SERP SCREENSHOT */}
+      <section className="py-12 px-6 bg-white">
+        <div className="max-w-3xl mx-auto">
+          <p className="text-xs font-bold uppercase tracking-widest text-gray-400 mb-4 text-center">What a Bing search for "Personal Injury Lawyer" looks like</p>
+          <div className="rounded-xl border border-gray-200 overflow-hidden shadow-sm">
+            <Image
+              src="/images/bing-serp-personal-injury-lawyer-search-result.webp"
+              alt="Bing search engine results page showing a personal injury lawyer search with knowledge panel, practice area filters, and sponsored law firm listings - demonstrating the advertising opportunity on Microsoft Bing for law firms"
+              width={2072}
+              height={828}
+              className="w-full h-auto"
+              quality={90}
+            />
+          </div>
+          <p className="text-xs text-gray-400 text-center mt-3">Bing displays knowledge panels, practice area filters, and sponsored results. Most law firms have zero presence here.</p>
         </div>
       </section>
 
