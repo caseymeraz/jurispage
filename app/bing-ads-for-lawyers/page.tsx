@@ -71,7 +71,7 @@ export default function BingAdsPage() {
             <span className="text-xs font-bold px-3 py-1 rounded-full" style={{ background: G + "15", color: G }}>34% Higher Household Income</span>
           </div>
           <h1 className="font-heading font-extrabold text-gray-900 text-4xl md:text-5xl leading-tight mb-6">
-            Smaller Than Google. Still Too Valuable to <span style={{ color: O }}>Sleep</span> On.
+            Bing Ads for Lawyers: Smaller Than Google. Still Too Valuable to <span style={{ color: O }}>Sleep</span> On.
           </h1>
           <p className="text-gray-600 text-lg leading-relaxed mb-4">
             Bing has fewer searches than Google. That is true. But the searches it does have skew older, wealthier, and more likely to need an estate planning attorney, business litigator, or high-asset divorce lawyer. And almost nobody is advertising to them.
