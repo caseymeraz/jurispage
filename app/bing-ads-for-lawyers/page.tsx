@@ -71,13 +71,13 @@ export default function BingAdsPage() {
             <span className="text-xs font-bold px-3 py-1 rounded-full" style={{ background: G + "15", color: G }}>34% Higher Household Income</span>
           </div>
           <h1 className="font-heading font-extrabold text-gray-900 text-4xl md:text-5xl leading-tight mb-6">
-            High-Asset Cases at 40% Lower Cost.<br />Your Competitors Haven't Found This <span style={{ color: O }}>Channel</span> Yet.
+            Smaller Than Google. Still Too Valuable to <span style={{ color: O }}>Sleep</span> On.
           </h1>
           <p className="text-gray-600 text-lg leading-relaxed mb-4">
-            The highest-value legal clients are often hidden on the second most popular search engine. Bing users skew older, wealthier, and more likely to need an estate planning attorney, business litigator, or high-asset divorce lawyer.
+            Bing has fewer searches than Google. That is true. But the searches it does have skew older, wealthier, and more likely to need an estate planning attorney, business litigator, or high-asset divorce lawyer. And almost nobody is advertising to them.
           </p>
           <p className="text-gray-600 text-lg leading-relaxed mb-8">
-            In most markets, your competitors are not running Bing campaigns at all. That means you can capture 20-30% of the paid search traffic at a fraction of the Google price.
+            Not enough law firms take advantage of this. The volume is smaller, but the CPCs are 30-50% lower, the competition is nearly zero, and you get LinkedIn audience targeting that Google cannot offer. It is not a replacement for Google. It is the extra 15-25% of cases most firms leave on the table.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/contact/" className="px-8 py-4 rounded-full text-white font-bold text-sm no-underline transition-opacity hover:opacity-90" style={{ background: O }}>Get Your Free Bing Opportunity Report</Link>
@@ -354,8 +354,8 @@ export default function BingAdsPage() {
       <FAQAccordion faqs={allFaqs} heading="Bing Ads for Lawyers: Questions Answered" />
 
       <CTASection
-        heading="Your Competitors Aren't on Bing. That's Your Advantage."
-        subtext="We'll tell you exactly how many people in your city searched for your practice area on Bing last month. Free. No obligation."
+        heading="Not Enough Firms Take Advantage of Bing. Yours Should."
+        subtext="We will tell you exactly how many people in your city searched for your practice area on Bing last month. Free. No obligation."
         primaryLabel="Get Your Free Bing Opportunity Report"
         primaryHref="/contact/"
         secondaryLabel="See Transparent Pricing"
