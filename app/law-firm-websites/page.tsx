@@ -384,42 +384,69 @@ export default function LawFirmWebsitesPage() {
           8. PRICING
       ═══════════════════════════════════════════════════════ */}
       <section className="py-16 px-6 bg-gray-50">
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-5xl mx-auto">
           <h2 className="font-heading font-extrabold text-gray-900 text-3xl mb-3 text-center">Transparent Pricing. On the Website. Like We Promised.</h2>
           <p className="text-gray-500 text-center mb-10">No discovery calls required to see what you'll pay.</p>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="rounded-xl bg-white border border-gray-200 overflow-hidden">
-              <div className="px-6 py-5 border-b border-gray-100">
-                <div className="text-xs font-bold uppercase tracking-widest mb-1" style={{ color: O }}>JurisPage Launchpad</div>
-                <div className="font-heading font-extrabold text-gray-900 text-2xl">Starting at $2,000<span className="text-base font-normal text-gray-400">/mo</span></div>
-                <div className="text-xs text-gray-500 mt-1">Solo attorneys and small firms (1-4 attorneys)</div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+            {/* Launchpad */}
+            <div className="rounded-xl bg-white border border-gray-200 overflow-hidden flex flex-col">
+              <div className="px-5 py-4 border-b border-gray-100">
+                <div className="text-[10px] font-bold uppercase tracking-widest mb-1" style={{ color: O }}>Launchpad</div>
+                <div className="font-heading font-extrabold text-gray-900 text-xl">$2,000<span className="text-sm font-normal text-gray-400">/mo</span></div>
+                <div className="text-xs text-gray-500 mt-1">Website included. Monthly service.</div>
               </div>
-              <div className="px-6 py-5 space-y-3 text-sm">
-                {["Custom WordPress website", "Practice area content", "Google Business Profile", "Local SEO foundation", "Attorney-reviewed content", "Live in 30 days", "Month-to-month. No contracts."].map((f) => (
-                  <div key={f} className="flex items-start gap-2"><span style={{ color: "#27ae60" }}>&#x2713;</span> {f}</div>
+              <div className="px-5 py-4 space-y-2.5 text-sm flex-1">
+                <p className="text-gray-600 text-xs leading-relaxed mb-3">Best for solo attorneys and small firms (1-4 attorneys) who need a professional online presence fast.</p>
+                {["Custom WordPress website", "Practice area pages with SEO content", "Google Business Profile setup", "Local SEO foundation", "Attorney-reviewed content", "Live in 30 days", "Month-to-month. Cancel anytime."].map((f) => (
+                  <div key={f} className="flex items-start gap-2 text-xs"><span style={{ color: "#27ae60" }}>&#x2713;</span> {f}</div>
                 ))}
               </div>
-              <div className="px-6 pb-6">
-                <Link href="/launchpad/" className="block text-center px-6 py-3 rounded-full text-white font-bold text-sm no-underline" style={{ background: O }}>
+              <div className="px-5 pb-5">
+                <Link href="/launchpad/" className="block text-center px-5 py-2.5 rounded-full text-white font-bold text-xs no-underline" style={{ background: O }}>
                   See Launchpad Pricing
                 </Link>
               </div>
             </div>
 
-            <div className="rounded-xl overflow-hidden" style={{ background: D }}>
-              <div className="px-6 py-5 border-b border-gray-700">
-                <div className="text-xs font-bold uppercase tracking-widest mb-1" style={{ color: O }}>Juris Digital</div>
-                <div className="font-heading font-extrabold text-white text-2xl">Starting at $5,000<span className="text-base font-normal text-gray-400">/mo</span></div>
-                <div className="text-xs text-gray-400 mt-1">Established firms (5+ attorneys) ready to dominate</div>
+            {/* Custom One-Time Build */}
+            <div className="rounded-xl overflow-hidden flex flex-col relative border-2" style={{ borderColor: O }}>
+              <div className="absolute top-0 left-0 right-0 text-center py-1 text-[10px] font-bold uppercase tracking-widest text-white" style={{ background: O }}>
+                Most Popular
               </div>
-              <div className="px-6 py-5 space-y-3 text-sm text-gray-300">
-                {["Everything in Launchpad, plus:", "Fully bespoke design", "Full content strategy with topic mapping", "Google Ads management", "Link building and authority development", "Dedicated account strategist"].map((f) => (
-                  <div key={f} className="flex items-start gap-2"><span style={{ color: O }}>&#x2713;</span> {f}</div>
+              <div className="px-5 py-4 border-b border-gray-100 mt-6">
+                <div className="text-[10px] font-bold uppercase tracking-widest mb-1" style={{ color: O }}>Custom Website Build</div>
+                <div className="font-heading font-extrabold text-gray-900 text-xl">$5,000 - $100,000</div>
+                <div className="text-xs text-gray-500 mt-1">One-time build. You own everything.</div>
+              </div>
+              <div className="px-5 py-4 space-y-2.5 text-sm flex-1">
+                <p className="text-gray-600 text-xs leading-relaxed mb-3">For firms that want a custom StoryBrand-driven website or a highly interactive build tailored to their brand.</p>
+                {["Fully custom design and UX", "StoryBrand messaging framework", "Interactive elements and tools", "Attorney bios with full E-E-A-T", "Bar-compliant content throughout", "SEO architecture from day one", "Price depends on size and complexity"].map((f) => (
+                  <div key={f} className="flex items-start gap-2 text-xs"><span style={{ color: "#27ae60" }}>&#x2713;</span> {f}</div>
                 ))}
               </div>
-              <div className="px-6 pb-6">
-                <Link href="/growth-assessment/" className="block text-center px-6 py-3 rounded-full font-bold text-sm no-underline border-2 border-white text-white hover:bg-white hover:text-gray-900 transition-colors">
+              <div className="px-5 pb-5">
+                <Link href="/contact/" className="block text-center px-5 py-2.5 rounded-full text-white font-bold text-xs no-underline" style={{ background: O }}>
+                  Get a Custom Quote
+                </Link>
+              </div>
+            </div>
+
+            {/* Juris Digital Ongoing */}
+            <div className="rounded-xl overflow-hidden flex flex-col" style={{ background: D }}>
+              <div className="px-5 py-4 border-b border-gray-700">
+                <div className="text-[10px] font-bold uppercase tracking-widest mb-1" style={{ color: O }}>Juris Digital</div>
+                <div className="font-heading font-extrabold text-white text-xl">$5,000+<span className="text-sm font-normal text-gray-400">/mo</span></div>
+                <div className="text-xs text-gray-400 mt-1">Full-service marketing with website.</div>
+              </div>
+              <div className="px-5 py-4 space-y-2.5 text-sm text-gray-300 flex-1">
+                <p className="text-gray-400 text-xs leading-relaxed mb-3">For established firms (5+ attorneys) who want a custom website plus ongoing SEO, ads, and content strategy.</p>
+                {["Everything in Launchpad, plus:", "Fully bespoke website design", "Full content strategy with topic mapping", "Google Ads management", "Link building and authority development", "Dedicated account strategist"].map((f) => (
+                  <div key={f} className="flex items-start gap-2 text-xs"><span style={{ color: O }}>&#x2713;</span> {f}</div>
+                ))}
+              </div>
+              <div className="px-5 pb-5">
+                <Link href="/growth-assessment/" className="block text-center px-5 py-2.5 rounded-full font-bold text-xs no-underline border-2 border-white text-white hover:bg-white hover:text-gray-900 transition-colors">
                   Apply for a Strategy Session
                 </Link>
               </div>
