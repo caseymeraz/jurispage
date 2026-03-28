@@ -281,7 +281,7 @@ export default function BingAdsPage() {
             <div className="rounded-xl bg-white border border-gray-200 overflow-hidden">
               <div className="px-6 py-5 border-b border-gray-100">
                 <div className="text-xs font-bold uppercase tracking-widest mb-1" style={{ color: O }}>Bing Ads Add-On</div>
-                <div className="font-heading font-extrabold text-gray-900 text-2xl">Included in Juris Digital</div>
+                <div className="font-heading font-extrabold text-gray-900 text-2xl">Included in JurisPage Pro</div>
                 <div className="text-xs text-gray-500 mt-1">Starting at $5,000/mo (total marketing investment)</div>
               </div>
               <div className="px-6 py-5 space-y-3 text-sm">
