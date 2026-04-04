@@ -1,0 +1,499 @@
+---
+title: "Technical SEO for Law Firms: The Complete Guide"
+description: "A practical guide to technical SEO for law firms covering site speed, crawlability, schema markup, Core Web Vitals, and AI bot management for attorney websites."
+datePublished: "2026-04-04"
+author: "Casey Meraz"
+category: "Law Firm SEO"
+excerpt: "Technical SEO is the invisible foundation that determines whether Google can find, crawl, and rank your law firm's website. Here's how to get it right."
+---
+
+Your law firm can have the best content on the internet, but if Google can't crawl it, index it, or render it properly, none of that content matters. That's what technical SEO addresses: the infrastructure layer that determines whether search engines can actually find and understand your website.
+
+Most law firm SEO conversations focus on keywords, content, and links. Those are important. But they're built on top of a technical foundation, and if that foundation has cracks, everything above it underperforms. A slow site loses visitors before they ever read your practice area page. A misconfigured robots.txt can hide entire sections of your site from Google. Missing schema markup means you're leaving rich result opportunities on the table.
+
+This guide covers the technical SEO fundamentals that matter most for law firm websites, with specific examples and code you can actually use.
+
+## What Is Technical SEO for Law Firms?
+
+Technical SEO is the practice of optimizing the infrastructure of your website so that search engines can efficiently crawl, index, and render your pages. It's distinct from on-page SEO (content, keywords, title tags) and off-page SEO (backlinks, citations, reviews).
+
+For law firms specifically, technical SEO covers:
+
+- **Site speed and Core Web Vitals** so pages load fast on any device
+- **Crawlability** so Google can discover all your practice area and location pages
+- **Schema markup** so search engines understand your firm's attorneys, services, and locations
+- **Mobile optimization** since the majority of legal searches happen on phones
+- **Security (HTTPS)** which is both a ranking signal and a trust signal for potential clients
+- **Site architecture** so your content is logically organized and internally linked
+- **AI bot management** so you control how large language models access and cite your content
+
+If your firm has more than a handful of pages, or if you serve multiple practice areas across multiple locations, technical SEO isn't optional. It's what keeps the whole operation running.
+
+## Why Technical SEO Matters for Legal Websites
+
+Law firm websites operate under stricter scrutiny than most. Google classifies legal content as YMYL (Your Money or Your Life), meaning it applies higher quality standards to pages that could impact someone's legal rights, finances, or safety.
+
+That heightened scrutiny extends to technical signals. A legal website with slow load times, security warnings, or indexation issues sends the wrong message to both Google's algorithms and potential clients.
+
+**Three reasons technical SEO is especially important for law firms:**
+
+1. **Crawl budget matters when you scale.** A personal injury firm with location pages for 15 cities, practice area pages for 8 case types, and attorney bio pages is looking at 100+ URLs before blog content even enters the picture. If your site has crawl inefficiencies, Google may not discover or refresh all of those pages regularly.
+
+2. **E-E-A-T starts with trust signals.** Google's quality raters evaluate Experience, Expertise, Authoritativeness, and Trustworthiness. A site that loads slowly, serves mixed HTTP/HTTPS content, or has broken internal links undermines the "trust" component before the content even gets evaluated.
+
+3. **Local search demands clean data.** If your firm relies on the Google Map Pack (and most do), technical SEO issues like inconsistent NAP data in structured markup, missing location schema, or duplicate location pages can directly hurt your local rankings.
+
+## Site Speed and Core Web Vitals
+
+Google uses three Core Web Vitals as ranking signals. Here's what they measure and what law firms should target:
+
+| Metric | What It Measures | Good | Needs Work | Poor |
+|--------|-----------------|------|------------|------|
+| **LCP** (Largest Contentful Paint) | How fast the main content loads | Under 2.5s | 2.5-4.0s | Over 4.0s |
+| **CLS** (Cumulative Layout Shift) | How much the page layout shifts during load | Under 0.1 | 0.1-0.25 | Over 0.25 |
+| **INP** (Interaction to Next Paint) | How quickly the page responds to user input | Under 200ms | 200-500ms | Over 500ms |
+
+**The most common speed killers on law firm websites:**
+
+- **Unoptimized hero images.** That full-width photo of your office or city skyline is often 2-5MB. Compress it, serve it in WebP or AVIF format, and add explicit width/height attributes to prevent layout shift.
+- **Live chat widgets.** Most chat tools load 300-500KB of JavaScript on every page, whether the visitor uses it or not. Delay chat script loading until after the page is interactive, or load it on scroll/click.
+- **Tracking and analytics scripts.** Google Tag Manager, Facebook Pixel, CallRail, chat tracking, heatmaps. Each one adds load time. Audit which scripts are actually providing value and remove the rest.
+- **Render-blocking CSS and JavaScript.** If your site uses a heavy WordPress theme with 15 plugins, you're likely loading CSS and JS files that aren't needed on most pages. Critical CSS inlining and deferred script loading make a measurable difference.
+- **No CDN.** If your hosting serves from a single server location, visitors in other regions wait longer. A CDN (Cloudflare, Fastly, or your host's built-in CDN) distributes your content across edge servers globally.
+
+**How to check:** Run your homepage and a practice area page through [Google PageSpeed Insights](https://pagespeed.web.dev). Focus on the field data (real user metrics), not just the lab data. If you don't have enough field data, the lab scores give you a starting point.
+
+## Mobile Optimization for Law Firm Sites
+
+Google uses mobile-first indexing, meaning it primarily uses the mobile version of your site for ranking and indexing. If your site looks great on desktop but has issues on mobile, those issues affect your rankings everywhere.
+
+**Why this matters for law firms:** Legal searches skew heavily toward mobile. Someone searching "car accident lawyer near me" at 11pm is almost certainly on their phone. If your site is hard to use on that device, they're hitting the back button.
+
+**Common mobile issues on law firm sites:**
+
+- **Tap targets too close together.** Phone numbers, navigation links, and CTA buttons need adequate spacing. Google flags elements smaller than 48x48 pixels or closer than 8 pixels apart.
+- **Text too small to read.** Body text should be at least 16px on mobile. Many law firm sites drop to 12-14px, forcing users to pinch and zoom.
+- **Horizontal scrolling.** Often caused by fixed-width tables, oversized images without max-width constraints, or desktop-only layouts that don't collapse properly.
+- **Intrusive interstitials.** Full-screen popups that cover the content on mobile can trigger a ranking penalty. If you use popups for lead capture, make sure they're easily dismissible and don't cover the primary content on mobile devices.
+- **Slow mobile load times.** Mobile connections are slower than desktop. Everything in the site speed section above applies double for mobile users.
+
+**How to check:** Use Google Search Console's Mobile Usability report. It flags specific pages with mobile issues. You can also use Chrome DevTools' device emulation to manually test your site on various screen sizes.
+
+## Crawlability and Indexing
+
+If Google can't crawl a page, it can't rank it. This sounds obvious, but crawlability issues are surprisingly common on law firm websites, especially after site redesigns or CMS migrations.
+
+### Robots.txt Configuration
+
+Your robots.txt file tells search engines which parts of your site they can and can't crawl. It lives at `yoursite.com/robots.txt`.
+
+A basic robots.txt for a law firm site:
+
+```
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /api/
+Disallow: /thank-you/
+
+Sitemap: https://www.yourfirm.com/sitemap.xml
+```
+
+**Common mistakes:**
+
+- Accidentally blocking entire directories (like `/blog/` or `/practice-areas/`) after a site migration
+- Leaving `Disallow: /` from a staging environment, which blocks the entire site
+- Not referencing your XML sitemap in robots.txt
+
+### XML Sitemaps for Multi-Location Firms
+
+Your XML sitemap is a roadmap for search engines. For law firms with multiple locations or practice areas, a well-structured sitemap helps Google discover and prioritize your most important pages.
+
+**Best practices:**
+
+- Include all indexable pages (practice areas, locations, attorney bios, blog posts)
+- Exclude pages you don't want indexed (thank-you pages, internal tools, duplicate content)
+- Use `lastmod` dates and keep them accurate. Don't set every page to today's date.
+- For large sites (200+ pages), consider splitting into multiple sitemaps: one for practice areas, one for locations, one for blog content
+- Submit your sitemap in Google Search Console
+
+### Crawl Budget Management
+
+Crawl budget is the number of pages Google will crawl on your site within a given time period. For most small to mid-size law firm sites (under 500 pages), crawl budget isn't a concern. But if your site generates dynamic URLs, has a large blog archive, or creates paginated results, you might be wasting crawl budget on low-value pages.
+
+**Signs of crawl budget issues:**
+
+- New pages take weeks to get indexed
+- Google Search Console shows a large gap between "discovered" and "indexed" pages
+- Server logs show Googlebot repeatedly crawling low-value pages (tag archives, parameter URLs)
+
+**How to check indexation:** In Google Search Console, go to Pages > Indexed pages. Compare the number of indexed pages to the number you expect. If there's a large gap, investigate which pages are being excluded and why.
+
+## Schema Markup for Attorneys
+
+Schema markup (structured data) helps search engines understand the entities on your page: your firm, your attorneys, your services, your locations. It can also unlock rich results like FAQ dropdowns, review stars, and enhanced business listings.
+
+Most law firm SEO guides say "add schema markup" but never show you the actual code. Here are the JSON-LD examples you can adapt for your site.
+
+### Attorney Schema
+
+Place this on each attorney's bio page:
+
+```json
+{
+  "@context": "https://schema.org",
+  "@type": "Attorney",
+  "name": "Jane Smith",
+  "jobTitle": "Senior Partner",
+  "url": "https://www.yourfirm.com/attorneys/jane-smith/",
+  "image": "https://www.yourfirm.com/images/jane-smith.jpg",
+  "telephone": "+1-555-123-4567",
+  "email": "jane@yourfirm.com",
+  "worksFor": {
+    "@type": "LegalService",
+    "name": "Smith & Associates",
+    "url": "https://www.yourfirm.com"
+  },
+  "knowsAbout": ["Personal Injury Law", "Car Accident Claims", "Wrongful Death"],
+  "hasCredential": [
+    {
+      "@type": "EducationalOccupationalCredential",
+      "credentialCategory": "Bar Admission",
+      "recognizedBy": {
+        "@type": "Organization",
+        "name": "California State Bar"
+      }
+    }
+  ],
+  "areaServed": {
+    "@type": "City",
+    "name": "Los Angeles",
+    "containedInPlace": {
+      "@type": "State",
+      "name": "California"
+    }
+  }
+}
+```
+
+### LegalService Schema
+
+Place this on your homepage or main service page:
+
+```json
+{
+  "@context": "https://schema.org",
+  "@type": "LegalService",
+  "name": "Smith & Associates",
+  "url": "https://www.yourfirm.com",
+  "logo": "https://www.yourfirm.com/images/logo.png",
+  "telephone": "+1-555-123-4567",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "123 Main Street, Suite 500",
+    "addressLocality": "Los Angeles",
+    "addressRegion": "CA",
+    "postalCode": "90001",
+    "addressCountry": "US"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": "34.0522",
+    "longitude": "-118.2437"
+  },
+  "openingHoursSpecification": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+    "opens": "08:00",
+    "closes": "18:00"
+  },
+  "priceRange": "Free Consultation",
+  "areaServed": ["Los Angeles", "Orange County", "Ventura County"],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Legal Services",
+    "itemListElement": [
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Personal Injury" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Car Accident Claims" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Workers' Compensation" } }
+    ]
+  }
+}
+```
+
+### FAQPage Schema
+
+Place this on any page with a frequently asked questions section:
+
+```json
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How much does a personal injury lawyer cost?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Most personal injury lawyers work on a contingency fee basis, meaning you pay nothing upfront. The attorney's fee is typically 33-40% of the settlement or verdict amount."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long does a personal injury case take?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Most personal injury cases settle within 12-18 months. Cases that go to trial can take 2-3 years or longer depending on the complexity and court schedule."
+      }
+    }
+  ]
+}
+```
+
+**Important:** Only use FAQPage schema for genuine FAQ content that's visible on the page. Google penalizes sites that add FAQ schema for content that doesn't actually appear on the page.
+
+### Schema for Multi-Location Firms
+
+If your firm has multiple offices, each location page should have its own `LocalBusiness` or `LegalService` schema with unique address, phone number, and geo coordinates. Link them together using the `parentOrganization` property pointing to your main firm entity.
+
+**How to validate:** Use [Google's Rich Results Test](https://search.google.com/test/rich-results) to check any page for valid structured data. Fix errors before deploying.
+
+## HTTPS and Security
+
+HTTPS has been a confirmed Google ranking signal since 2014. In 2026, there's no excuse for a law firm website not running HTTPS on every page.
+
+Beyond rankings, HTTPS is a trust signal. A "Not Secure" warning in the browser bar is devastating for a law firm. Potential clients are about to share sensitive information about their legal situation. If your site can't even secure a basic web connection, why would they trust you with their case?
+
+**Common HTTPS issues on law firm sites:**
+
+- **Mixed content warnings.** Your site is HTTPS, but some images, scripts, or stylesheets load over HTTP. This triggers browser warnings and can prevent resources from loading entirely. Audit your site for mixed content and update all internal references to use HTTPS or protocol-relative URLs.
+- **Expired or misconfigured SSL certificates.** If your certificate expires, the entire site shows a security warning. Set up auto-renewal through your hosting provider or use Let's Encrypt for free certificates with automatic renewal.
+- **HTTP to HTTPS redirect gaps.** Every HTTP URL should 301 redirect to its HTTPS equivalent. Check that `http://yoursite.com`, `http://www.yoursite.com`, and the HTTPS non-www variant all redirect to a single canonical HTTPS URL.
+
+## Site Architecture and Internal Linking
+
+Good site architecture helps both users and search engines understand the relationship between your pages. For law firms, this typically follows a hub-and-spoke model.
+
+**Example law firm site hierarchy:**
+
+```
+Homepage
+├── Practice Areas (hub)
+│   ├── Personal Injury (hub)
+│   │   ├── Car Accidents
+│   │   ├── Truck Accidents
+│   │   ├── Motorcycle Accidents
+│   │   └── Slip and Fall
+│   ├── Criminal Defense (hub)
+│   │   ├── DUI
+│   │   ├── Drug Charges
+│   │   └── Assault
+│   └── Family Law (hub)
+│       ├── Divorce
+│       ├── Child Custody
+│       └── Child Support
+├── Locations
+│   ├── Los Angeles
+│   ├── Orange County
+│   └── San Diego
+├── Attorneys
+│   ├── Jane Smith
+│   └── John Doe
+├── Blog
+└── Contact
+```
+
+**Internal linking best practices for law firms:**
+
+- Every practice area sub-page should link back to its parent hub page
+- Location pages should link to relevant practice area pages (and vice versa)
+- Blog posts should link to the practice area pages they're related to
+- Attorney bio pages should link to the practice areas they handle
+- No page should be more than 3 clicks from the homepage
+
+**Orphan pages** (pages with no internal links pointing to them) are a common problem after site redesigns. If Google can only find a page through the sitemap but no other page links to it, that's a signal the page isn't very important. Run a crawl with Screaming Frog or Sitebulb to identify orphan pages and add appropriate internal links.
+
+## Managing AI Bots and LLM Visibility
+
+This is the section most law firm SEO guides won't cover because it's new territory. But with AI Overviews appearing on roughly 20% of legal search queries, and tools like ChatGPT and Perplexity answering millions of legal questions, how your site interacts with AI crawlers matters.
+
+### AI Crawlers You Should Know About
+
+Several AI companies use web crawlers to train their models or power their search features:
+
+| Bot | Company | Purpose |
+|-----|---------|---------|
+| **GPTBot** | OpenAI | Training data for GPT models |
+| **OAI-SearchBot** | OpenAI | Powers ChatGPT search results |
+| **PerplexityBot** | Perplexity | Powers Perplexity search answers |
+| **Google-Extended** | Google | Training data for Gemini (separate from Googlebot) |
+| **ClaudeBot** | Anthropic | Training data for Claude models |
+| **Bytespider** | ByteDance | Training data for TikTok's AI features |
+
+### The Strategic Decision: Block or Allow?
+
+This is where law firms need to make a conscious choice rather than just accepting defaults.
+
+**Arguments for allowing AI crawlers:**
+- Your content can be cited in AI-generated answers, driving brand visibility
+- ChatGPT and Perplexity are becoming major research tools for people with legal questions
+- Being cited as a source in AI responses builds authority
+
+**Arguments for blocking certain crawlers:**
+- You don't want your content used to train models without compensation
+- Some AI crawlers consume significant server resources
+- You may not want your legal content paraphrased without proper attribution
+
+**A balanced approach in robots.txt:**
+
+```
+# Allow AI search crawlers (they cite sources)
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+# Block AI training crawlers (they don't cite sources)
+User-agent: GPTBot
+Disallow: /
+
+User-agent: Google-Extended
+Disallow: /
+
+User-agent: ClaudeBot
+Disallow: /
+
+User-agent: Bytespider
+Disallow: /
+```
+
+This approach lets your content appear in AI search results (where you get attribution and traffic) while blocking crawlers that only use your content for model training (where you get nothing).
+
+### Optimizing for AI Overview Citations
+
+If you want Google's AI Overviews to cite your content, structure it for extraction:
+
+- Use clear, concise definitions with bullet points at the top of sections
+- Answer specific questions directly (don't bury the answer three paragraphs in)
+- Use structured data (FAQPage schema helps AI systems identify Q&A content)
+- Maintain strong topical authority across related pages (a single blog post is less likely to be cited than a site with comprehensive coverage of a topic)
+
+For more on this topic, read our guide on [generative engine optimization for legal marketing](/generative-engine-optimization-legal-marketing/).
+
+## Technical SEO Audit Checklist for Law Firms
+
+Use this checklist to audit your law firm's technical SEO. Work through it systematically. The items are grouped by category and ordered by impact.
+
+### Site Speed
+
+- [ ] Homepage LCP under 2.5 seconds (test with PageSpeed Insights)
+- [ ] All practice area pages LCP under 2.5 seconds
+- [ ] CLS under 0.1 across all templates
+- [ ] INP under 200ms on interactive pages (contact forms, chat)
+- [ ] Images compressed and served in modern formats (WebP/AVIF)
+- [ ] All images have explicit width and height attributes
+- [ ] JavaScript deferred or async where possible
+- [ ] Third-party scripts audited and non-essential ones removed
+- [ ] CDN configured and serving static assets
+
+### Crawlability and Indexing
+
+- [ ] Robots.txt reviewed and not blocking important content
+- [ ] XML sitemap exists, is accurate, and submitted to Search Console
+- [ ] No important pages returning 404 or 5xx errors
+- [ ] Redirect chains resolved (no redirect pointing to another redirect)
+- [ ] Canonical tags present and correct on all pages
+- [ ] No accidental noindex tags on pages that should be indexed
+- [ ] Search Console coverage report reviewed for errors
+
+### Schema Markup
+
+- [ ] LegalService or LocalBusiness schema on homepage
+- [ ] Attorney schema on each attorney bio page
+- [ ] FAQPage schema on pages with FAQ sections
+- [ ] BreadcrumbList schema matching visible breadcrumbs
+- [ ] All schema validated with Google's Rich Results Test
+- [ ] Multi-location firms have unique schema per location page
+
+### Security
+
+- [ ] HTTPS active on all pages
+- [ ] No mixed content warnings
+- [ ] SSL certificate valid and auto-renewing
+- [ ] All HTTP URLs 301 redirect to HTTPS
+- [ ] Single canonical domain (www vs. non-www resolved)
+
+### Mobile
+
+- [ ] No mobile usability issues in Search Console
+- [ ] Tap targets adequately sized and spaced
+- [ ] Body text at least 16px on mobile
+- [ ] No horizontal scrolling on any page
+- [ ] Forms usable on mobile (proper input types, adequate field sizes)
+- [ ] No intrusive interstitials blocking content on mobile
+
+### Architecture and Internal Links
+
+- [ ] No orphan pages (every page has at least one internal link pointing to it)
+- [ ] Practice area sub-pages link to parent hub pages
+- [ ] Location pages cross-link to relevant practice areas
+- [ ] No broken internal links
+- [ ] Breadcrumb navigation present and accurate
+- [ ] No page more than 3 clicks from homepage
+
+## Common Technical SEO Mistakes Law Firms Make
+
+### JavaScript-Rendered Content Not Being Indexed
+
+**Symptoms:** Pages look complete when you view them in a browser, but Google Search Console shows thin or empty content. Rankings are poor despite having detailed content.
+
+**Cause:** Some law firm websites (especially those built on certain website builders or heavy JavaScript frameworks) render content client-side. Google can render JavaScript, but it's slower and less reliable than server-rendered HTML. Critical content like practice area descriptions, attorney bios, or FAQ sections may not be indexed if they depend entirely on JavaScript to appear.
+
+**Fix:** Verify your pages render correctly using Google's URL Inspection tool (click "Test Live URL" and view the rendered HTML). If content is missing, work with your developer to implement server-side rendering or static site generation for important pages.
+
+### Duplicate Location Pages
+
+**Symptoms:** Multiple location pages targeting the same geographic areas with nearly identical content. Rankings spread thin across duplicate pages instead of consolidating authority.
+
+**Cause:** Generating a page for every city in your service area with only the city name changed. Google recognizes this as thin, duplicated content.
+
+**Fix:** Create unique location pages only for areas where you have a genuine presence or significant case history. Each page needs unique content: local court information, jurisdiction-specific legal nuances, local case results, and community involvement. If you can't make a location page genuinely unique, don't create it.
+
+### Broken Internal Links After Site Redesigns
+
+**Symptoms:** 404 errors in Google Search Console spike after launching a new website. Organic traffic drops sharply.
+
+**Cause:** URL structures change during a redesign (for example, `/practice-areas/personal-injury/` becomes `/services/personal-injury/`), but 301 redirects aren't set up for every old URL.
+
+**Fix:** Before launching a redesign, crawl the existing site and create a complete URL map. Set up 301 redirects from every old URL to its new equivalent. After launch, monitor Google Search Console for 404 errors and fix redirects for any URLs you missed. Also update all internal links to point to the new URLs directly rather than relying on redirect chains.
+
+### Missing or Duplicate Title Tags
+
+**Symptoms:** Multiple pages competing for the same keywords. Google rewrites your title tags in search results.
+
+**Cause:** CMS templates that auto-generate identical title tags, or no title tag strategy at all.
+
+**Fix:** Every page needs a unique title tag that includes the primary keyword for that page, the geographic modifier if relevant, and your firm name. Format: `[Primary Keyword] | [City] [State] | [Firm Name]`. Keep it under 60 characters.
+
+## FAQs
+
+### How much does technical SEO cost?
+
+For a small to mid-size law firm site, a one-time technical audit and fix typically costs between $2,000 and $5,000 depending on the size and complexity of the site. Ongoing technical monitoring is usually bundled into a monthly SEO retainer. If your SEO provider isn't including technical audits as part of their service, ask why.
+
+### How long does technical SEO take to show results?
+
+Technical fixes can show impact within days to weeks, which is faster than content or link building. If you fix a crawlability issue that was preventing pages from being indexed, those pages can start ranking within a few days of being discovered. Site speed improvements typically show gradual ranking improvements over 4-8 weeks as Google recollects Core Web Vitals data.
+
+### Can I do technical SEO myself or do I need an agency?
+
+Many of the items in the audit checklist above are things a reasonably technical person can handle: compressing images, checking robots.txt, validating schema markup. But some issues require developer involvement (server-side rendering, CDN configuration, complex redirect mapping). If your firm doesn't have a technical resource on staff, a focused technical audit from an experienced SEO is a good investment.
+
+### How often should I audit my site's technical SEO?
+
+Run a comprehensive technical audit quarterly. Between audits, monitor Google Search Console weekly for new crawl errors, indexation drops, or Core Web Vitals regressions. Any time you make significant changes to your site (redesign, CMS migration, adding a new section), run a focused audit immediately after.
+
+---
+
+*JurisPage provides [technical SEO audits and ongoing optimization](/law-firm-seo/) for law firm websites. If your site hasn't had a technical audit recently, [get in touch](/contact/) and we'll identify what's holding your rankings back.*
