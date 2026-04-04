@@ -28,6 +28,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: BASE_URL + "/practice-areas/", lastModified: new Date(), changeFrequency: "monthly", priority: 0.8 },
     { url: BASE_URL + "/services/", lastModified: new Date(), changeFrequency: "monthly", priority: 0.8 },
     { url: BASE_URL + "/jurispage-now-backed-by-juris-digital/", lastModified: new Date(), changeFrequency: "yearly", priority: 0.6 },
+    { url: BASE_URL + "/growth-report/", lastModified: new Date(), changeFrequency: "monthly", priority: 0.9 },
   ];
 
   const servicePages: MetadataRoute.Sitemap = services.map((s) => ({

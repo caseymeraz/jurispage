@@ -180,7 +180,7 @@ export default function HomePage() {
 
               <div className="flex flex-wrap items-center gap-4 mb-4">
                 <Link
-                  href="/contact/"
+                  href="/growth-report/"
                   className="inline-block font-heading font-bold text-white text-lg px-10 py-5 rounded-full no-underline hover:opacity-90 transition-opacity shadow-lg shadow-orange-200"
                   style={{ background: "linear-gradient(135deg, #EE6C13, #982A0B)" }}
                 >
@@ -334,7 +334,7 @@ export default function HomePage() {
           </div>
           <div className="text-center mt-12">
             <Link
-              href="/contact/"
+              href="/growth-report/"
               className="inline-block font-heading font-bold text-white text-base px-8 py-4 rounded-full no-underline hover:opacity-90 transition-opacity shadow-lg shadow-orange-200"
               style={{ background: "linear-gradient(135deg, #EE6C13, #982A0B)" }}
             >
@@ -499,7 +499,7 @@ export default function HomePage() {
         heading="Ready to start getting the cases you deserve?"
         subtext="No contracts. No jargon. Just a clear path to more cases."
         primaryLabel="Get My Growth Plan"
-        primaryHref="/contact/"
+        primaryHref="/growth-report/"
         secondaryLabel="See Pricing"
         secondaryHref="/services/pricing/"
       />
