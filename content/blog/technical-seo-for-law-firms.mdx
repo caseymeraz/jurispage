@@ -13,6 +13,18 @@ Most law firm SEO conversations focus on keywords, content, and links. Those are
 
 This guide covers the technical SEO fundamentals that matter most for law firm websites, with specific examples and code you can actually use.
 
+<div style={{ background: "linear-gradient(135deg, #FFF7ED 0%, #FEF3C7 100%)", border: "1px solid #FDBA74", borderRadius: "12px", padding: "24px 28px", margin: "32px 0" }}>
+  <p style={{ fontWeight: 700, fontSize: "15px", color: "#9A3412", margin: "0 0 8px", display: "flex", alignItems: "center", gap: "8px" }}>
+    <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 2L12.09 7.26L18 8.27L14 12.14L14.18 18.02L10 15.77L5.82 18.02L6 12.14L2 8.27L7.91 7.26L10 2Z" fill="#F59E0B" stroke="#D97706" strokeWidth="1"/></svg>
+    Key Takeaway
+  </p>
+  <p style={{ margin: 0, color: "#92400E", fontSize: "15px", lineHeight: 1.7 }}>
+    Technical SEO isn't a one-time project. It's an ongoing practice that requires quarterly audits and continuous monitoring. This guide includes an interactive checklist you can use to audit your own site, actual JSON-LD code you can copy, and a section on AI bot management that almost no other guide covers.
+  </p>
+</div>
+
+<div style={{ height: 1, background: "linear-gradient(to right, #EE6C13, transparent)", margin: "48px 0 40px", borderRadius: 1 }} />
+
 ## What Is Technical SEO for Law Firms?
 
 Technical SEO is the practice of optimizing the infrastructure of your website so that search engines can efficiently crawl, index, and render your pages. It's distinct from on-page SEO (content, keywords, title tags) and off-page SEO (backlinks, citations, reviews).
@@ -29,6 +41,8 @@ For law firms specifically, technical SEO covers:
 
 If your firm has more than a handful of pages, or if you serve multiple practice areas across multiple locations, technical SEO isn't optional. It's what keeps the whole operation running.
 
+<div style={{ height: 1, background: "linear-gradient(to right, #EE6C13, transparent)", margin: "48px 0 40px", borderRadius: 1 }} />
+
 ## Why Technical SEO Matters for Legal Websites
 
 Law firm websites operate under stricter scrutiny than most. Google classifies legal content as YMYL (Your Money or Your Life), meaning it applies higher quality standards to pages that could impact someone's legal rights, finances, or safety.
@@ -42,6 +56,8 @@ That heightened scrutiny extends to technical signals. A legal website with slow
 2. **E-E-A-T starts with trust signals.** Google's quality raters evaluate Experience, Expertise, Authoritativeness, and Trustworthiness. A site that loads slowly, serves mixed HTTP/HTTPS content, or has broken internal links undermines the "trust" component before the content even gets evaluated.
 
 3. **Local search demands clean data.** If your firm relies on the Google Map Pack (and most do), technical SEO issues like inconsistent NAP data in structured markup, missing location schema, or duplicate location pages can directly hurt your local rankings.
+
+<div style={{ height: 1, background: "linear-gradient(to right, #EE6C13, transparent)", margin: "48px 0 40px", borderRadius: 1 }} />
 
 ## Site Speed and Core Web Vitals
 
@@ -63,6 +79,8 @@ Google uses three Core Web Vitals as ranking signals. Here's what they measure a
 
 **How to check:** Run your homepage and a practice area page through [Google PageSpeed Insights](https://pagespeed.web.dev). Focus on the field data (real user metrics), not just the lab data. If you don't have enough field data, the lab scores give you a starting point.
 
+<div style={{ height: 1, background: "linear-gradient(to right, #EE6C13, transparent)", margin: "48px 0 40px", borderRadius: 1 }} />
+
 ## Mobile Optimization for Law Firm Sites
 
 Google uses mobile-first indexing, meaning it primarily uses the mobile version of your site for ranking and indexing. If your site looks great on desktop but has issues on mobile, those issues affect your rankings everywhere.
@@ -78,6 +96,8 @@ Google uses mobile-first indexing, meaning it primarily uses the mobile version 
 - **Slow mobile load times.** Mobile connections are slower than desktop. Everything in the site speed section above applies double for mobile users.
 
 **How to check:** Use Google Search Console's Mobile Usability report. It flags specific pages with mobile issues. You can also use Chrome DevTools' device emulation to manually test your site on various screen sizes.
+
+<div style={{ height: 1, background: "linear-gradient(to right, #EE6C13, transparent)", margin: "48px 0 40px", borderRadius: 1 }} />
 
 ## Crawlability and Indexing
 
@@ -128,6 +148,8 @@ Crawl budget is the number of pages Google will crawl on your site within a give
 - Server logs show Googlebot repeatedly crawling low-value pages (tag archives, parameter URLs)
 
 **How to check indexation:** In Google Search Console, go to Pages > Indexed pages. Compare the number of indexed pages to the number you expect. If there's a large gap, investigate which pages are being excluded and why.
+
+<div style={{ height: 1, background: "linear-gradient(to right, #EE6C13, transparent)", margin: "48px 0 40px", borderRadius: 1 }} />
 
 ## Schema Markup for Attorneys
 
@@ -258,6 +280,8 @@ If your firm has multiple offices, each location page should have its own `Local
 
 **How to validate:** Use [Google's Rich Results Test](https://search.google.com/test/rich-results) to check any page for valid structured data. Fix errors before deploying.
 
+<div style={{ height: 1, background: "linear-gradient(to right, #EE6C13, transparent)", margin: "48px 0 40px", borderRadius: 1 }} />
+
 ## HTTPS and Security
 
 HTTPS has been a confirmed Google ranking signal since 2014. In 2026, there's no excuse for a law firm website not running HTTPS on every page.
@@ -269,6 +293,8 @@ Beyond rankings, HTTPS is a trust signal. A "Not Secure" warning in the browser 
 - **Mixed content warnings.** Your site is HTTPS, but some images, scripts, or stylesheets load over HTTP. This triggers browser warnings and can prevent resources from loading entirely. Audit your site for mixed content and update all internal references to use HTTPS or protocol-relative URLs.
 - **Expired or misconfigured SSL certificates.** If your certificate expires, the entire site shows a security warning. Set up auto-renewal through your hosting provider or use Let's Encrypt for free certificates with automatic renewal.
 - **HTTP to HTTPS redirect gaps.** Every HTTP URL should 301 redirect to its HTTPS equivalent. Check that `http://yoursite.com`, `http://www.yoursite.com`, and the HTTPS non-www variant all redirect to a single canonical HTTPS URL.
+
+<div style={{ height: 1, background: "linear-gradient(to right, #EE6C13, transparent)", margin: "48px 0 40px", borderRadius: 1 }} />
 
 ## Site Architecture and Internal Linking
 
@@ -312,6 +338,8 @@ Homepage
 - No page should be more than 3 clicks from the homepage
 
 **Orphan pages** (pages with no internal links pointing to them) are a common problem after site redesigns. If Google can only find a page through the sitemap but no other page links to it, that's a signal the page isn't very important. Run a crawl with Screaming Frog or Sitebulb to identify orphan pages and add appropriate internal links.
+
+<div style={{ height: 1, background: "linear-gradient(to right, #EE6C13, transparent)", margin: "48px 0 40px", borderRadius: 1 }} />
 
 ## Managing AI Bots and LLM Visibility
 
@@ -381,7 +409,16 @@ If you want Google's AI Overviews to cite your content, structure it for extract
 
 For more on this topic, read our guide on [generative engine optimization for legal marketing](/generative-engine-optimization-legal-marketing/).
 
+<div style={{ height: 1, background: "linear-gradient(to right, #EE6C13, transparent)", margin: "48px 0 40px", borderRadius: 1 }} />
+
 ## Technical SEO Audit Checklist for Law Firms
+
+<div style={{ background: "#F0FDF4", border: "1px solid #86EFAC", borderRadius: "12px", padding: "16px 20px", marginBottom: "24px", display: "flex", alignItems: "center", gap: "12px" }}>
+  <svg width="22" height="22" viewBox="0 0 22 22" fill="none" style={{ flexShrink: 0 }}><rect x="1" y="1" width="20" height="20" rx="4" stroke="#16A34A" strokeWidth="1.5"/><path d="M6.5 11L9.5 14L15.5 8" stroke="#16A34A" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
+  <p style={{ margin: 0, fontSize: "14px", color: "#166534" }}>
+    <strong>Interactive checklist:</strong> Click each checkbox to track your progress as you audit your site. Your selections are stored locally in this browser session.
+  </p>
+</div>
 
 Use this checklist to audit your law firm's technical SEO. Work through it systematically. The items are grouped by category and ordered by impact.
 
@@ -442,6 +479,8 @@ Use this checklist to audit your law firm's technical SEO. Work through it syste
 - [ ] Breadcrumb navigation present and accurate
 - [ ] No page more than 3 clicks from homepage
 
+<div style={{ height: 1, background: "linear-gradient(to right, #EE6C13, transparent)", margin: "48px 0 40px", borderRadius: 1 }} />
+
 ## Common Technical SEO Mistakes Law Firms Make
 
 ### JavaScript-Rendered Content Not Being Indexed
@@ -476,23 +515,50 @@ Use this checklist to audit your law firm's technical SEO. Work through it syste
 
 **Fix:** Every page needs a unique title tag that includes the primary keyword for that page, the geographic modifier if relevant, and your firm name. Format: `[Primary Keyword] | [City] [State] | [Firm Name]`. Keep it under 60 characters.
 
+<div style={{ height: 1, background: "linear-gradient(to right, #EE6C13, transparent)", margin: "48px 0 40px", borderRadius: 1 }} />
+
 ## FAQs
 
-### How much does technical SEO cost?
-
-For a small to mid-size law firm site, a one-time technical audit and fix typically costs between $2,000 and $5,000 depending on the size and complexity of the site. Ongoing technical monitoring is usually bundled into a monthly SEO retainer. If your SEO provider isn't including technical audits as part of their service, ask why.
-
-### How long does technical SEO take to show results?
-
-Technical fixes can show impact within days to weeks, which is faster than content or link building. If you fix a crawlability issue that was preventing pages from being indexed, those pages can start ranking within a few days of being discovered. Site speed improvements typically show gradual ranking improvements over 4-8 weeks as Google recollects Core Web Vitals data.
-
-### Can I do technical SEO myself or do I need an agency?
-
-Many of the items in the audit checklist above are things a reasonably technical person can handle: compressing images, checking robots.txt, validating schema markup. But some issues require developer involvement (server-side rendering, CDN configuration, complex redirect mapping). If your firm doesn't have a technical resource on staff, a focused technical audit from an experienced SEO is a good investment.
-
-### How often should I audit my site's technical SEO?
-
-Run a comprehensive technical audit quarterly. Between audits, monitor Google Search Console weekly for new crawl errors, indexation drops, or Core Web Vitals regressions. Any time you make significant changes to your site (redesign, CMS migration, adding a new section), run a focused audit immediately after.
+<div className="not-prose">
+  <div style={{ border: "1px solid #E5E7EB", borderRadius: "12px", overflow: "hidden" }}>
+    <details style={{ borderBottom: "1px solid #E5E7EB" }}>
+      <summary style={{ cursor: "pointer", padding: "20px 24px", fontWeight: 600, fontSize: "16px", color: "#111827", listStyle: "none", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+        How much does technical SEO cost?
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" style={{ flexShrink: 0 }}><path d="M4 6L8 10L12 6" stroke="#9CA3AF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
+      </summary>
+      <div style={{ padding: "0 24px 20px", color: "#4B5563", lineHeight: 1.7 }}>
+        For a small to mid-size law firm site, a one-time technical audit and fix typically costs between $2,000 and $5,000 depending on the size and complexity of the site. Ongoing technical monitoring is usually bundled into a monthly SEO retainer. If your SEO provider isn't including technical audits as part of their service, ask why.
+      </div>
+    </details>
+    <details style={{ borderBottom: "1px solid #E5E7EB" }}>
+      <summary style={{ cursor: "pointer", padding: "20px 24px", fontWeight: 600, fontSize: "16px", color: "#111827", listStyle: "none", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+        How long does technical SEO take to show results?
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" style={{ flexShrink: 0 }}><path d="M4 6L8 10L12 6" stroke="#9CA3AF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
+      </summary>
+      <div style={{ padding: "0 24px 20px", color: "#4B5563", lineHeight: 1.7 }}>
+        Technical fixes can show impact within days to weeks, which is faster than content or link building. If you fix a crawlability issue that was preventing pages from being indexed, those pages can start ranking within a few days of being discovered. Site speed improvements typically show gradual ranking improvements over 4-8 weeks as Google recollects Core Web Vitals data.
+      </div>
+    </details>
+    <details style={{ borderBottom: "1px solid #E5E7EB" }}>
+      <summary style={{ cursor: "pointer", padding: "20px 24px", fontWeight: 600, fontSize: "16px", color: "#111827", listStyle: "none", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+        Can I do technical SEO myself or do I need an agency?
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" style={{ flexShrink: 0 }}><path d="M4 6L8 10L12 6" stroke="#9CA3AF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
+      </summary>
+      <div style={{ padding: "0 24px 20px", color: "#4B5563", lineHeight: 1.7 }}>
+        Many of the items in the audit checklist above are things a reasonably technical person can handle: compressing images, checking robots.txt, validating schema markup. But some issues require developer involvement (server-side rendering, CDN configuration, complex redirect mapping). If your firm doesn't have a technical resource on staff, a focused technical audit from an experienced SEO is a good investment.
+      </div>
+    </details>
+    <details>
+      <summary style={{ cursor: "pointer", padding: "20px 24px", fontWeight: 600, fontSize: "16px", color: "#111827", listStyle: "none", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+        How often should I audit my site's technical SEO?
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" style={{ flexShrink: 0 }}><path d="M4 6L8 10L12 6" stroke="#9CA3AF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
+      </summary>
+      <div style={{ padding: "0 24px 20px", color: "#4B5563", lineHeight: 1.7 }}>
+        Run a comprehensive technical audit quarterly. Between audits, monitor Google Search Console weekly for new crawl errors, indexation drops, or Core Web Vitals regressions. Any time you make significant changes to your site (redesign, CMS migration, adding a new section), run a focused audit immediately after.
+      </div>
+    </details>
+  </div>
+</div>
 
 ---
 

@@ -4,8 +4,11 @@ import Link from "next/link";
 import Image from "next/image";
 import { getAllPosts, getPostBySlug } from "@/lib/blog";
 import { MDXRemote } from "next-mdx-remote/rsc";
+import remarkGfm from "remark-gfm";
 import SchemaOrg from "@/components/SchemaOrg";
 import CTASection from "@/components/CTASection";
+import { mdxComponents } from "@/components/blog/MDXComponents";
+import TableOfContents from "@/components/blog/TableOfContents";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -18,6 +21,33 @@ const AUTHOR = {
   url: "https://jurispage.com/about-us/",
   bio: "Casey Meraz has spent 15 years helping law firms get found online and turn that traffic into signed clients. He has personally managed SEO campaigns for 100+ law firms and built one of the most-read blogs on legal marketing online.",
 };
+
+/** Extract H2/H3 headings from raw MDX content for the TOC */
+function extractHeadings(content: string) {
+  const lines = content.split("\n");
+  const headings: { id: string; text: string; level: number }[] = [];
+  let inCodeBlock = false;
+
+  for (const line of lines) {
+    if (line.trim().startsWith("```")) {
+      inCodeBlock = !inCodeBlock;
+      continue;
+    }
+    if (inCodeBlock) continue;
+
+    const match = line.match(/^(#{2,3})\s+(.+)$/);
+    if (match) {
+      const level = match[1].length;
+      const text = match[2].replace(/\*\*/g, "").replace(/`/g, "").trim();
+      const id = text
+        .toLowerCase()
+        .replace(/[^a-z0-9]+/g, "-")
+        .replace(/(^-|-$)/g, "");
+      headings.push({ id, text, level });
+    }
+  }
+  return headings;
+}
 
 export async function generateStaticParams() {
   const posts = getAllPosts();
@@ -47,6 +77,8 @@ export default async function BlogPostPage({ params }: Props) {
   const { slug } = await params;
   const post = getPostBySlug(slug);
   if (!post) notFound();
+
+  const headings = extractHeadings(post.content);
 
   const formattedDate = new Date(post.datePublished).toLocaleDateString(
     "en-US",
@@ -102,7 +134,7 @@ export default async function BlogPostPage({ params }: Props) {
       <SchemaOrg schema={articleSchema} />
 
       <section className="bg-white py-12 px-6 border-b border-gray-100">
-        <div className="max-w-3xl mx-auto">
+        <div className="max-w-3xl mx-auto lg:max-w-5xl">
           <nav className="text-sm text-gray-500 mb-4">
             <Link href="/" className="hover:text-gray-900 no-underline">
               Home
@@ -125,12 +157,12 @@ export default async function BlogPostPage({ params }: Props) {
               {formattedDate}
             </time>
           </div>
-          <h1 className="font-heading font-extrabold text-gray-900 text-4xl leading-tight mb-6">
+          <h1 className="font-heading font-extrabold text-gray-900 text-4xl leading-tight mb-6 max-w-3xl">
             {post.title}
           </h1>
 
           {/* Author byline */}
-          <div className="flex items-center gap-3 pt-4 border-t border-gray-100">
+          <div className="flex items-center gap-3 pt-4 border-t border-gray-100 max-w-3xl">
             <Image
               src={AUTHOR.image}
               alt={`${AUTHOR.name}, ${AUTHOR.role} - Author`}
@@ -157,11 +189,28 @@ export default async function BlogPostPage({ params }: Props) {
         </div>
       </section>
 
-      <article className="py-12 px-6">
-        <div className="max-w-3xl mx-auto prose prose-lg prose-gray">
-          <MDXRemote source={post.content} />
+      {/* Mobile TOC */}
+      <div className="lg:hidden px-6">
+        <div className="max-w-3xl mx-auto">
+          {headings.length > 3 && <TableOfContents items={headings} />}
         </div>
-      </article>
+      </div>
+
+      {/* Main content with desktop sidebar TOC */}
+      <div className="py-12 px-6">
+        <div className="max-w-5xl mx-auto flex gap-12">
+          <article className="flex-1 min-w-0 max-w-3xl prose prose-lg prose-gray">
+            <MDXRemote
+              source={post.content}
+              options={{ mdxOptions: { remarkPlugins: [remarkGfm] } }}
+              components={mdxComponents as Record<string, React.ComponentType>}
+            />
+          </article>
+
+          {/* Desktop TOC sidebar */}
+          {headings.length > 3 && <TableOfContents items={headings} />}
+        </div>
+      </div>
 
       {/* Author bio */}
       <section className="px-6 pb-12">
