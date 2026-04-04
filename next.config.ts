@@ -62,8 +62,14 @@ function generateSuburbRedirects(): Redirect[] {
   const redirects: Redirect[] = [];
   for (const [suburb, metro] of Object.entries(suburbToMetro)) {
     for (const service of metroServices) {
+      // Both with and without trailing slash to avoid chain via trailingSlash: true
       redirects.push({
         source: `/${service}-${suburb}`,
+        destination: `/${service}-${metro}/`,
+        permanent: true,
+      });
+      redirects.push({
+        source: `/${service}-${suburb}/`,
         destination: `/${service}-${metro}/`,
         permanent: true,
       });
@@ -137,7 +143,12 @@ const nextConfig: NextConfig = {
       },
       {
         source: "/free-market-report",
-        destination: "/see-my-market-gap",
+        destination: "/see-my-market-gap/",
+        permanent: true,
+      },
+      {
+        source: "/free-market-report/",
+        destination: "/see-my-market-gap/",
         permanent: true,
       },
 
@@ -501,6 +512,11 @@ const nextConfig: NextConfig = {
         destination: "/case-studies/",
         permanent: true,
       },
+      {
+        source: "/success-stories/",
+        destination: "/case-studies/",
+        permanent: true,
+      },
 
       // ── Screaming Frog crawl fixes (March 2026) ──
       {
@@ -519,7 +535,17 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
+        source: "/law-firm-marketing-clearwater/",
+        destination: "/law-firm-seo-tampa/",
+        permanent: true,
+      },
+      {
         source: "/law-firm-marketing-brandon",
+        destination: "/law-firm-seo-tampa/",
+        permanent: true,
+      },
+      {
+        source: "/law-firm-marketing-brandon/",
         destination: "/law-firm-seo-tampa/",
         permanent: true,
       },
@@ -569,12 +595,22 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
+        source: "/google-ads-for-lawyers/",
+        destination: "/google-ads-for-law-firms/",
+        permanent: true,
+      },
+      {
         source: "/google-ads-for-lawyers-:city",
         destination: "/google-ads-lawyers-:city/",
         permanent: true,
       },
       {
         source: "/law-firm-website-design",
+        destination: "/law-firm-websites/",
+        permanent: true,
+      },
+      {
+        source: "/law-firm-website-design/",
         destination: "/law-firm-websites/",
         permanent: true,
       },
@@ -619,7 +655,17 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
+        source: "/about/",
+        destination: "/about-us/",
+        permanent: true,
+      },
+      {
         source: "/pricing",
+        destination: "/services/pricing/",
+        permanent: true,
+      },
+      {
+        source: "/pricing/",
         destination: "/services/pricing/",
         permanent: true,
       },
@@ -629,12 +675,27 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
+        source: "/news/",
+        destination: "/blog/",
+        permanent: true,
+      },
+      {
         source: "/privacy-policy",
         destination: "/",
         permanent: true,
       },
       {
+        source: "/privacy-policy/",
+        destination: "/",
+        permanent: true,
+      },
+      {
         source: "/terms-of-service",
+        destination: "/",
+        permanent: true,
+      },
+      {
+        source: "/terms-of-service/",
         destination: "/",
         permanent: true,
       },
