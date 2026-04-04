@@ -162,43 +162,25 @@ export default function GrowthReportForm() {
     );
   }
 
-  /* ─── Shared UI helpers ─── */
+  /* ─── Render helpers (inline, not components) ─── */
 
-  const RadioGroup = ({ name, options, value }: { name: keyof FormData; options: string[]; value: string }) => (
+  const radioGroup = (name: keyof FormData, options: string[], value: string) => (
     <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
       {options.map((opt) => (
-        <button
-          key={opt}
-          type="button"
-          onClick={() => set(name, opt)}
-          className={`px-4 py-3 rounded-lg text-sm font-medium border-2 transition-all text-left ${
-            value === opt
-              ? "border-[#EE6C13] bg-orange-50 text-[#982A0B]"
-              : "border-gray-200 bg-white text-gray-700 hover:border-gray-300"
-          }`}
-        >
-          {opt}
-        </button>
+        <button key={opt} type="button" onClick={() => set(name, opt)}
+          className={`px-4 py-3 rounded-lg text-sm font-medium border-2 transition-all text-left ${value === opt ? "border-[#EE6C13] bg-orange-50 text-[#982A0B]" : "border-gray-200 bg-white text-gray-700 hover:border-gray-300"}`}
+        >{opt}</button>
       ))}
     </div>
   );
 
-  const CheckboxGroup = ({ name, options, values }: { name: "practiceAreas" | "caseSources" | "twoYearVision"; options: string[]; values: string[] }) => (
+  const checkboxGroup = (name: "practiceAreas" | "caseSources" | "twoYearVision", options: string[], values: string[]) => (
     <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
       {options.map((opt) => (
-        <button
-          key={opt}
-          type="button"
-          onClick={() => toggleArray(name, opt)}
-          className={`px-4 py-3 rounded-lg text-sm font-medium border-2 transition-all text-left flex items-center gap-2 ${
-            values.includes(opt)
-              ? "border-[#EE6C13] bg-orange-50 text-[#982A0B]"
-              : "border-gray-200 bg-white text-gray-700 hover:border-gray-300"
-          }`}
+        <button key={opt} type="button" onClick={() => toggleArray(name, opt)}
+          className={`px-4 py-3 rounded-lg text-sm font-medium border-2 transition-all text-left flex items-center gap-2 ${values.includes(opt) ? "border-[#EE6C13] bg-orange-50 text-[#982A0B]" : "border-gray-200 bg-white text-gray-700 hover:border-gray-300"}`}
         >
-          <span className={`w-4 h-4 rounded flex-shrink-0 border-2 flex items-center justify-center ${
-            values.includes(opt) ? "border-[#EE6C13] bg-[#EE6C13]" : "border-gray-300"
-          }`}>
+          <span className={`w-4 h-4 rounded flex-shrink-0 border-2 flex items-center justify-center ${values.includes(opt) ? "border-[#EE6C13] bg-[#EE6C13]" : "border-gray-300"}`}>
             {values.includes(opt) && <svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2.5 6L5 8.5L9.5 3.5" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>}
           </span>
           {opt}
@@ -207,22 +189,13 @@ export default function GrowthReportForm() {
     </div>
   );
 
-  const SingleSelect = ({ name, options, value }: { name: keyof FormData; options: string[]; value: string }) => (
+  const singleSelect = (name: keyof FormData, options: string[], value: string) => (
     <div className="space-y-2">
       {options.map((opt) => (
-        <button
-          key={opt}
-          type="button"
-          onClick={() => set(name, opt)}
-          className={`w-full px-5 py-4 rounded-lg text-sm font-medium border-2 transition-all text-left flex items-center gap-3 ${
-            value === opt
-              ? "border-[#EE6C13] bg-orange-50 text-[#982A0B]"
-              : "border-gray-200 bg-white text-gray-700 hover:border-gray-300"
-          }`}
+        <button key={opt} type="button" onClick={() => set(name, opt)}
+          className={`w-full px-5 py-4 rounded-lg text-sm font-medium border-2 transition-all text-left flex items-center gap-3 ${value === opt ? "border-[#EE6C13] bg-orange-50 text-[#982A0B]" : "border-gray-200 bg-white text-gray-700 hover:border-gray-300"}`}
         >
-          <span className={`w-5 h-5 rounded-full flex-shrink-0 border-2 flex items-center justify-center ${
-            value === opt ? "border-[#EE6C13]" : "border-gray-300"
-          }`}>
+          <span className={`w-5 h-5 rounded-full flex-shrink-0 border-2 flex items-center justify-center ${value === opt ? "border-[#EE6C13]" : "border-gray-300"}`}>
             {value === opt && <span className="w-2.5 h-2.5 rounded-full bg-[#EE6C13]" />}
           </span>
           {opt}
@@ -231,21 +204,8 @@ export default function GrowthReportForm() {
     </div>
   );
 
-  const Label = ({ children }: { children: React.ReactNode }) => (
-    <label className="block text-sm font-semibold text-gray-800 mb-2">{children}</label>
-  );
-
-  const Input = ({ name, type = "text", placeholder, required }: { name: keyof FormData; type?: string; placeholder?: string; required?: boolean }) => (
-    <input
-      type={type}
-      name={name}
-      value={data[name] as string}
-      onChange={(e) => set(name, e.target.value)}
-      placeholder={placeholder}
-      required={required}
-      className="w-full px-4 py-3 rounded-lg border-2 border-gray-200 text-gray-900 text-sm focus:border-[#EE6C13] focus:ring-0 focus:outline-none transition-colors"
-    />
-  );
+  const inputClass = "w-full px-4 py-3 rounded-lg border-2 border-gray-200 text-gray-900 text-sm focus:border-[#EE6C13] focus:ring-0 focus:outline-none transition-colors";
+  const labelClass = "block text-sm font-semibold text-gray-800 mb-2";
 
   return (
     <div className="max-w-2xl mx-auto">
@@ -292,15 +252,15 @@ export default function GrowthReportForm() {
             <p className="text-gray-500 text-sm mb-6">We use this to research your market and build a report specific to your practice.</p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div><Label>Full Name *</Label><Input name="fullName" placeholder="Jane Smith" required /></div>
-              <div><Label>Email *</Label><Input name="email" type="email" placeholder="jane@yourfirm.com" required /></div>
+              <div><label className={labelClass}>Full Name *</label><input name="fullName" value={data.fullName} onChange={(e) => set("fullName", e.target.value)} placeholder="Jane Smith" required className={inputClass} /></div>
+              <div><label className={labelClass}>Email *</label><input name="email" type="email" value={data.email} onChange={(e) => set("email", e.target.value)} placeholder="jane@yourfirm.com" required className={inputClass} /></div>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div><Label>Phone</Label><Input name="phone" type="tel" placeholder="(555) 123-4567" /></div>
-              <div><Label>Firm Name *</Label><Input name="firmName" placeholder="Smith & Associates" required /></div>
+              <div><label className={labelClass}>Phone</label><input name="phone" type="tel" value={data.phone} onChange={(e) => set("phone", e.target.value)} placeholder="(555) 123-4567" className={inputClass} /></div>
+              <div><label className={labelClass}>Firm Name *</label><input name="firmName" value={data.firmName} onChange={(e) => set("firmName", e.target.value)} placeholder="Smith & Associates" required className={inputClass} /></div>
             </div>
             <div>
-              <Label>Website</Label>
+              <label className={labelClass}>Website</label>
               {data.noWebsite ? (
                 <div className="flex items-center gap-3">
                   <span className="text-sm text-gray-500 italic">No website yet</span>
@@ -308,22 +268,22 @@ export default function GrowthReportForm() {
                 </div>
               ) : (
                 <div className="flex items-center gap-3">
-                  <Input name="website" placeholder="https://www.yourfirm.com" />
+                  <input name="website" value={data.website} onChange={(e) => set("website", e.target.value)} placeholder="https://www.yourfirm.com" className={inputClass} />
                   <button type="button" onClick={() => { set("noWebsite", true); set("website", ""); }} className="text-xs text-gray-500 whitespace-nowrap underline">No website</button>
                 </div>
               )}
             </div>
             <div className="grid grid-cols-2 gap-4">
-              <div><Label>City *</Label><Input name="city" placeholder="Los Angeles" required /></div>
-              <div><Label>State *</Label><Input name="state" placeholder="California" required /></div>
+              <div><label className={labelClass}>City *</label><input name="city" value={data.city} onChange={(e) => set("city", e.target.value)} placeholder="Los Angeles" required className={inputClass} /></div>
+              <div><label className={labelClass}>State *</label><input name="state" value={data.state} onChange={(e) => set("state", e.target.value)} placeholder="California" required className={inputClass} /></div>
             </div>
             <div>
-              <Label>How many attorneys at your firm? *</Label>
-              <RadioGroup name="attorneys" options={["1 (solo)", "2-4", "5-9", "10+"]} value={data.attorneys} />
+              <label className={labelClass}>How many attorneys at your firm? *</label>
+              {radioGroup("attorneys", ["1 (solo)", "2-4", "5-9", "10+"], data.attorneys)}
             </div>
             <div>
-              <Label>Primary practice areas *</Label>
-              <CheckboxGroup name="practiceAreas" options={PRACTICE_AREAS} values={data.practiceAreas} />
+              <label className={labelClass}>Primary practice areas *</label>
+              {checkboxGroup("practiceAreas", PRACTICE_AREAS, data.practiceAreas)}
             </div>
           </div>
         )}
@@ -335,24 +295,24 @@ export default function GrowthReportForm() {
             <p className="text-gray-500 text-sm mb-6">This helps us understand your starting point so the report is realistic, not generic.</p>
 
             <div>
-              <Label>How many new cases are you signing per month? *</Label>
-              <RadioGroup name="casesPerMonth" options={["0-2", "3-5", "6-10", "11-20", "21-50", "50+"]} value={data.casesPerMonth} />
+              <label className={labelClass}>How many new cases are you signing per month? *</label>
+              {radioGroup("casesPerMonth", ["0-2", "3-5", "6-10", "11-20", "21-50", "50+"], data.casesPerMonth)}
             </div>
             <div>
-              <Label>Where are most of your cases coming from today? *</Label>
-              <CheckboxGroup name="caseSources" options={CASE_SOURCES} values={data.caseSources} />
+              <label className={labelClass}>Where are most of your cases coming from today? *</label>
+              {checkboxGroup("caseSources", CASE_SOURCES, data.caseSources)}
             </div>
             <div>
-              <Label>What's your average case value? *</Label>
-              <RadioGroup name="avgCaseValue" options={["$1K-$5K", "$5K-$15K", "$15K-$50K", "$50K-$100K", "$100K+"]} value={data.avgCaseValue} />
+              <label className={labelClass}>What's your average case value? *</label>
+              {radioGroup("avgCaseValue", ["$1K-$5K", "$5K-$15K", "$15K-$50K", "$50K-$100K", "$100K+"], data.avgCaseValue)}
             </div>
             <div>
-              <Label>Are you currently working with a marketing agency?</Label>
-              <RadioGroup name="hasAgency" options={["Yes", "No", "I was, but it didn't work out"]} value={data.hasAgency} />
+              <label className={labelClass}>Are you currently working with a marketing agency?</label>
+              {radioGroup("hasAgency", ["Yes", "No", "I was, but it didn't work out"], data.hasAgency)}
             </div>
             <div>
-              <Label>Are you running Google Ads right now?</Label>
-              <RadioGroup name="hasGoogleAds" options={["Yes", "No", "I tried but stopped"]} value={data.hasGoogleAds} />
+              <label className={labelClass}>Are you running Google Ads right now?</label>
+              {radioGroup("hasGoogleAds", ["Yes", "No", "I tried but stopped"], data.hasGoogleAds)}
             </div>
           </div>
         )}
@@ -364,20 +324,20 @@ export default function GrowthReportForm() {
             <p className="text-gray-500 text-sm mb-6">This shapes the recommendations in your growth report.</p>
 
             <div>
-              <Label>What&apos;s the #1 thing you want from your marketing? *</Label>
-              <SingleSelect name="primaryGoal" options={PRIMARY_GOALS} value={data.primaryGoal} />
+              <label className={labelClass}>What&apos;s the #1 thing you want from your marketing? *</label>
+              {singleSelect("primaryGoal", PRIMARY_GOALS, data.primaryGoal)}
             </div>
             <div>
-              <Label>How many new cases per month would make a real difference?</Label>
-              <Input name="targetCases" type="number" placeholder="e.g., 10" />
+              <label className={labelClass}>How many new cases per month would make a real difference?</label>
+              <input name="targetCases" type="number" value={data.targetCases} onChange={(e) => set("targetCases", e.target.value)} placeholder="e.g., 10" className={inputClass} />
             </div>
             <div>
-              <Label>What does your firm look like 2 years from now?</Label>
-              <CheckboxGroup name="twoYearVision" options={TWO_YEAR_VISIONS} values={data.twoYearVision} />
+              <label className={labelClass}>What does your firm look like 2 years from now?</label>
+              {checkboxGroup("twoYearVision", TWO_YEAR_VISIONS, data.twoYearVision)}
             </div>
             <div>
-              <Label>Do you have a monthly marketing budget in mind? *</Label>
-              <RadioGroup name="budget" options={["Under $2K", "$2K-$5K", "$5K-$10K", "$10K-$20K", "$20K+", "Not sure yet"]} value={data.budget} />
+              <label className={labelClass}>Do you have a monthly marketing budget in mind? *</label>
+              {radioGroup("budget", ["Under $2K", "$2K-$5K", "$5K-$10K", "$10K-$20K", "$20K+", "Not sure yet"], data.budget)}
             </div>
           </div>
         )}
@@ -389,11 +349,11 @@ export default function GrowthReportForm() {
             <p className="text-gray-500 text-sm mb-6">This helps us personalize your report and focus on what matters most.</p>
 
             <div>
-              <Label>What&apos;s your biggest frustration right now? *</Label>
-              <SingleSelect name="biggestFrustration" options={FRUSTRATIONS} value={data.biggestFrustration} />
+              <label className={labelClass}>What&apos;s your biggest frustration right now? *</label>
+              {singleSelect("biggestFrustration", FRUSTRATIONS, data.biggestFrustration)}
             </div>
             <div>
-              <Label>Anything else you want us to know?</Label>
+              <label className={labelClass}>Anything else you want us to know?</label>
               <textarea
                 name="notes"
                 value={data.notes}
