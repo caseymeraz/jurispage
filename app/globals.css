@@ -68,7 +68,65 @@
   animation: scorecard-grade-pop 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
 }
 
-/* Blog FAQ details/summary styling */
+/* Blog FAQ accordion */
+.blog-faq {
+  border: 1px solid #E5E7EB;
+  border-radius: 12px;
+  overflow: hidden;
+}
+.blog-faq details {
+  border-bottom: 1px solid #E5E7EB;
+}
+.blog-faq details:last-child {
+  border-bottom: none;
+}
+.blog-faq summary {
+  cursor: pointer;
+  padding: 20px 24px;
+  font-weight: 600;
+  font-size: 16px;
+  color: #111827;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  transition: background 0.15s;
+}
+.blog-faq summary:hover {
+  background: #FFF7ED;
+}
+.blog-faq summary::-webkit-details-marker {
+  display: none;
+}
+.blog-faq summary::marker {
+  display: none;
+  content: "";
+}
+.blog-faq summary p {
+  margin: 0;
+  flex: 1;
+}
+.blog-faq summary svg {
+  flex-shrink: 0;
+  transition: transform 0.2s;
+}
+.blog-faq details[open] summary svg {
+  transform: rotate(180deg);
+}
+.blog-faq details[open] summary {
+  border-bottom: 1px solid #F3F4F6;
+}
+.blog-faq .faq-answer {
+  padding: 0 24px 20px;
+  color: #4B5563;
+  line-height: 1.7;
+}
+.blog-faq .faq-answer p {
+  margin: 0;
+}
+
+/* Generic details/summary reset (non-FAQ) */
 details > summary {
   list-style: none;
 }
@@ -78,9 +136,6 @@ details > summary::-webkit-details-marker {
 details > summary::marker {
   display: none;
   content: "";
-}
-details[open] > summary svg {
-  transform: rotate(180deg);
 }
 
 /* Hide public chrome on standalone report pages */
