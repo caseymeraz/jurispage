@@ -60,10 +60,6 @@ export default function MetroPage({ metro, service }: MetroPageProps) {
   const description = serviceDescriptions[service](metro.city);
   const serviceLink = servicePageLinks[service];
 
-  const nearbySlugs = metro.nearbyCities.slice(0, 3).map((city) => ({
-    label: city,
-    href: `/${service}-${city.toLowerCase().replace(/[\s.]/g, "-")}/`,
-  }));
 
   const relatedServices = (["law-firm-seo", "google-ads-lawyers", "law-firm-website-design", "law-firm-marketing"] as MetroService[])
     .filter((s) => s !== service)
@@ -232,21 +228,6 @@ export default function MetroPage({ metro, service }: MetroPageProps) {
         </section>
       )}
 
-      {/* Nearby Cities */}
-      {nearbySlugs.length > 0 && (
-        <section className="py-12 px-6 bg-gray-50">
-          <div className="max-w-3xl mx-auto">
-            <h2 className="font-heading font-bold text-gray-700 text-lg mb-4">{serviceLabel} Near {metro.city}</h2>
-            <div className="flex flex-wrap gap-2">
-              {nearbySlugs.map((city) => (
-                <Link key={city.href} href={city.href} className="px-3 py-1.5 bg-gray-200 rounded text-sm text-gray-600 hover:bg-[#1a1a1a] hover:text-white transition-colors no-underline">
-                  {serviceLabel} in {city.label}
-                </Link>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
 
       <FAQAccordion faqs={faqs} heading={`${serviceLabel} in ${metro.city} - FAQ`} />
 
