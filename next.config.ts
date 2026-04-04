@@ -1,5 +1,76 @@
 import type { NextConfig } from "next";
+import type { Redirect } from "next/dist/lib/load-custom-routes";
 import path from "path";
+
+/* ── Suburb → metro redirect generator ── */
+const suburbToMetro: Record<string, string> = {
+  // New York suburbs
+  "jersey-city": "new-york", "newark": "new-york", "yonkers": "new-york",
+  // Los Angeles suburbs
+  "long-beach": "los-angeles", "santa-ana": "los-angeles", "anaheim": "los-angeles",
+  // Chicago suburbs
+  "naperville": "chicago", "aurora": "chicago", "joliet": "chicago",
+  // Houston suburbs
+  "the-woodlands": "houston", "sugar-land": "houston", "pasadena": "houston",
+  // Phoenix suburbs
+  "mesa": "phoenix", "scottsdale": "phoenix", "tempe": "phoenix",
+  // Philadelphia suburbs
+  "camden": "philadelphia", "chester": "philadelphia", "wilmington": "philadelphia",
+  // San Antonio suburbs
+  "new-braunfels": "san-antonio", "boerne": "san-antonio", "seguin": "san-antonio",
+  // San Diego suburbs
+  "chula-vista": "san-diego", "escondido": "san-diego", "oceanside": "san-diego",
+  // Dallas suburbs
+  "fort-worth": "dallas", "arlington": "dallas", "plano": "dallas",
+  // San Jose suburbs
+  "santa-clara": "san-jose", "sunnyvale": "san-jose", "fremont": "san-jose",
+  // Austin suburbs
+  "round-rock": "austin", "cedar-park": "austin", "georgetown": "austin",
+  // Charlotte suburbs
+  "concord": "charlotte", "gastonia": "charlotte", "rock-hill": "charlotte",
+  // Indianapolis suburbs
+  "carmel": "indianapolis", "fishers": "indianapolis", "noblesville": "indianapolis",
+  // San Francisco suburbs
+  "oakland": "san-francisco", "berkeley": "san-francisco", "san-mateo": "san-francisco",
+  // Seattle suburbs
+  "bellevue": "seattle", "tacoma": "seattle", "redmond": "seattle",
+  // Denver suburbs (aurora shared with Chicago — redirects to Chicago as larger market)
+  "lakewood": "denver", "thornton": "denver",
+  // Nashville suburbs
+  "brentwood": "nashville", "murfreesboro": "nashville", "franklin": "nashville",
+  // Las Vegas suburbs
+  "henderson": "las-vegas", "north-las-vegas": "las-vegas", "boulder-city": "las-vegas",
+  // Atlanta suburbs
+  "marietta": "atlanta", "sandy-springs": "atlanta", "roswell": "atlanta",
+  // Portland suburbs
+  "beaverton": "portland", "gresham": "portland", "hillsboro": "portland",
+  // Minneapolis suburbs
+  "st--paul": "minneapolis", "bloomington": "minneapolis", "plymouth": "minneapolis",
+  // Tampa suburbs
+  "st--petersburg": "tampa", "clearwater": "tampa", "brandon": "tampa",
+  // Miami suburbs
+  "fort-lauderdale": "miami", "boca-raton": "miami", "hialeah": "miami",
+  // Washington DC suburbs (arlington shared with Dallas — redirects to Dallas as larger market)
+  "alexandria": "washington-dc", "bethesda": "washington-dc",
+  // Boston suburbs
+  "cambridge": "boston", "somerville": "boston", "newton": "boston",
+};
+
+const metroServices = ["law-firm-seo", "law-firm-marketing", "law-firm-website-design", "google-ads-lawyers"];
+
+function generateSuburbRedirects(): Redirect[] {
+  const redirects: Redirect[] = [];
+  for (const [suburb, metro] of Object.entries(suburbToMetro)) {
+    for (const service of metroServices) {
+      redirects.push({
+        source: `/${service}-${suburb}`,
+        destination: `/${service}-${metro}/`,
+        permanent: true,
+      });
+    }
+  }
+  return redirects;
+}
 
 const nextConfig: NextConfig = {
   trailingSlash: true,
@@ -648,6 +719,11 @@ const nextConfig: NextConfig = {
         destination: "/services/pricing/",
         permanent: true,
       },
+
+      // ── Suburb → parent metro redirects (auto-generated) ──
+      // These suburb pages were linked from metro pages but never created.
+      // Redirect each suburb to its parent metro's equivalent service page.
+      ...generateSuburbRedirects(),
     ];
   },
 };
