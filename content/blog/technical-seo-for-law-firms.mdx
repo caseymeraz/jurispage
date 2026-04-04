@@ -2,6 +2,7 @@
 title: "Technical SEO for Law Firms: The Complete Guide"
 description: "A practical guide to technical SEO for law firms covering site speed, crawlability, schema markup, Core Web Vitals, and AI bot management for attorney websites."
 datePublished: "2026-04-04"
+dateModified: "2026-04-04"
 author: "Casey Meraz"
 category: "Law Firm SEO"
 excerpt: "Technical SEO is the invisible foundation that determines whether Google can find, crawl, and rank your law firm's website. Here's how to get it right."
@@ -67,14 +68,47 @@ Google uses three Core Web Vitals as ranking signals. Here's what they measure a
 |--------|-----------------|------|------------|------|
 | **LCP** (Largest Contentful Paint) | How fast the main content loads | Under 2.5s | 2.5-4.0s | Over 4.0s |
 | **CLS** (Cumulative Layout Shift) | How much the page layout shifts during load | Under 0.1 | 0.1-0.25 | Over 0.25 |
-| **INP** (Interaction to Next Paint) | How quickly the page responds to user input | Under 200ms | 200-500ms | Over 500ms |
+| **INP** (Interaction to Next Paint) | How quickly the page responds to every user interaction | Under 200ms | 200-500ms | Over 500ms |
 
-**The most common speed killers on law firm websites:**
+### INP Replaced FID in 2024
+
+FID (First Input Delay) is dead. Google replaced it with INP (Interaction to Next Paint) as an official Core Web Vital. The difference matters: FID only measured the delay of the *first* interaction. INP measures *every* interaction throughout the entire page session and reports the worst one.
+
+**Why this hits law firms hard:** Many firms use interactive tools like settlement calculators, lead qualification forms, or complex intake wizards. If any of those tools take more than 200ms to respond to a click, your INP score drops to "Poor" and your rankings suffer.
+
+**The fix: yield to the main thread.** Break up long-running JavaScript tasks into smaller chunks so the browser can remain responsive to user clicks between them. If you're using a settlement calculator or multi-step form, ensure each step transition completes in under 200ms. Test with Chrome DevTools' Performance panel to identify long tasks.
+
+### Smart Loading for Third-Party Scripts
+
+Law firm sites are often weighed down by marketing bloat that kills both LCP and INP:
+
+- **Live chat widgets** (Ngage, Intaker, Smith.ai) loading 300-500KB of JavaScript on every page
+- **Call tracking** (CallRail, WhatConverts) adding inline scripts to the `<head>`
+- **Heatmaps and session recording** (Hotjar, CrazyEgg, Microsoft Clarity) capturing every mouse movement
+- **Render-blocking CSS and JavaScript** from heavy WordPress themes with 15+ plugins
+
+**The fix: lazy-load all non-critical scripts.** Don't allow the chat widget to load until the user scrolls 20% down the page or moves their mouse. This prevents the widget from stealing resources from LCP. Here's the pattern:
+
+```js
+// Lazy-load chat widget on user interaction
+let chatLoaded = false;
+function loadChat() {
+  if (chatLoaded) return;
+  chatLoaded = true;
+  const s = document.createElement('script');
+  s.src = 'https://chat-provider.com/widget.js';
+  s.async = true;
+  document.body.appendChild(s);
+}
+window.addEventListener('scroll', loadChat, { once: true });
+window.addEventListener('mousemove', loadChat, { once: true });
+```
+
+Apply the same pattern to heatmap scripts, call tracking pixels, and any other third-party tool that isn't needed for the initial page render.
+
+**Other common speed killers:**
 
 - **Unoptimized hero images.** That full-width photo of your office or city skyline is often 2-5MB. Compress it, serve it in WebP or AVIF format, and add explicit width/height attributes to prevent layout shift.
-- **Live chat widgets.** Most chat tools load 300-500KB of JavaScript on every page, whether the visitor uses it or not. Delay chat script loading until after the page is interactive, or load it on scroll/click.
-- **Tracking and analytics scripts.** Google Tag Manager, Facebook Pixel, CallRail, chat tracking, heatmaps. Each one adds load time. Audit which scripts are actually providing value and remove the rest.
-- **Render-blocking CSS and JavaScript.** If your site uses a heavy WordPress theme with 15 plugins, you're likely loading CSS and JS files that aren't needed on most pages. Critical CSS inlining and deferred script loading make a measurable difference.
 - **No CDN.** If your hosting serves from a single server location, visitors in other regions wait longer. A CDN (Cloudflare, Fastly, or your host's built-in CDN) distributes your content across edge servers globally.
 
 **How to check:** Run your homepage and a practice area page through [Google PageSpeed Insights](https://pagespeed.web.dev). Focus on the field data (real user metrics), not just the lab data. If you don't have enough field data, the lab scores give you a starting point.
@@ -149,17 +183,36 @@ Crawl budget is the number of pages Google will crawl on your site within a give
 
 **How to check indexation:** In Google Search Console, go to Pages > Indexed pages. Compare the number of indexed pages to the number you expect. If there's a large gap, investigate which pages are being excluded and why.
 
+### The 2MB HTML Cutoff
+
+In 2026, Googlebot has tightened its efficiency. Google now only crawls and indexes the first approximately 2MB of any individual page's raw HTML. Content beyond that cutoff may never be seen or indexed.
+
+**The risk for law firms:** If you have massive "Ultimate Guide" pages or practice area pages bloated with excessive inline CSS, heavy JavaScript, or unoptimized SVGs, the content at the bottom of the page (where your contact form, internal links, or FAQ section usually sits) may never be indexed by Google.
+
+**How to stay under the limit:**
+
+- **Externalize scripts and styles.** Move all CSS and JavaScript to external files so they don't count toward the HTML size limit. Inline styles and script blocks are the biggest offenders.
+- **Segment long content.** If a practice area page exceeds 2MB, break it into a hub-and-spoke model. One main page for "Car Accidents" with sub-pages for "Evidence," "Insurance Claims," "Settlement Timeline," etc.
+- **Reduce DOM size.** Aim for fewer than 1,500 DOM nodes per page. Every unnecessary wrapper `<div>`, every hidden mobile menu duplicated in the HTML, and every unused component inflates your DOM. Audit with Lighthouse.
+- **Check your page size.** In Chrome DevTools, open the Network tab, reload the page, and look at the "Size" column for the document request. If it's approaching 1.5MB, you're in the danger zone.
+
 <div style={{ height: 1, background: "linear-gradient(to right, #EE6C13, transparent)", margin: "48px 0 40px", borderRadius: 1 }} />
 
 ## Schema Markup for Attorneys
 
 Schema markup (structured data) helps search engines understand the entities on your page: your firm, your attorneys, your services, your locations. It can also unlock rich results like FAQ dropdowns, review stars, and enhanced business listings.
 
+### Move from LocalBusiness to Entity Schema
+
+Search engines in 2026 no longer just match keywords. They identify **entities**: the firm, the attorney, the case result, the practice area. Your schema markup needs to reflect this shift.
+
+The most important change: use `LegalService` schema instead of generic `LocalBusiness`. And use the `sameAs` property to connect your attorneys to their official State Bar profiles, LinkedIn, and Avvo listings. This "closes the loop" for Google's E-E-A-T algorithms by proving your attorneys are real, credentialed professionals.
+
 Most law firm SEO guides say "add schema markup" but never show you the actual code. Here are the JSON-LD examples you can adapt for your site.
 
 ### Attorney Schema
 
-Place this on each attorney's bio page:
+Place this on each attorney's bio page. Note the `sameAs` property linking to official bar and professional profiles:
 
 ```json
 {
@@ -186,6 +239,11 @@ Place this on each attorney's bio page:
         "name": "California State Bar"
       }
     }
+  ],
+  "sameAs": [
+    "https://www.calbar.ca.gov/attorneys/jane-smith-123456",
+    "https://www.linkedin.com/in/jane-smith-attorney",
+    "https://www.avvo.com/attorneys/jane-smith.html"
   ],
   "areaServed": {
     "@type": "City",
@@ -279,6 +337,48 @@ Place this on any page with a frequently asked questions section:
 If your firm has multiple offices, each location page should have its own `LocalBusiness` or `LegalService` schema with unique address, phone number, and geo coordinates. Link them together using the `parentOrganization` property pointing to your main firm entity.
 
 **How to validate:** Use [Google's Rich Results Test](https://search.google.com/test/rich-results) to check any page for valid structured data. Fix errors before deploying.
+
+### Case Results Schema
+
+Case results are one of the most powerful trust signals a law firm can display. Use `ItemList` markup to help AI Overviews cite your firm as a successful authority in specific litigation:
+
+```json
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "Personal Injury Case Results",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "item": {
+        "@type": "CreativeWork",
+        "name": "$2.4M Settlement - Truck Accident",
+        "description": "Secured a $2.4 million settlement for a client injured in a commercial truck collision on I-405.",
+        "author": {
+          "@type": "Attorney",
+          "name": "Jane Smith"
+        }
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "item": {
+        "@type": "CreativeWork",
+        "name": "$850K Verdict - Premises Liability",
+        "description": "Jury verdict for a slip and fall injury at a commercial property in downtown Los Angeles.",
+        "author": {
+          "@type": "Attorney",
+          "name": "Jane Smith"
+        }
+      }
+    }
+  ]
+}
+```
+
+This structured markup gives AI systems specific, citable data about your firm's track record rather than relying on them to extract it from unstructured text.
 
 <div style={{ height: 1, background: "linear-gradient(to right, #EE6C13, transparent)", margin: "48px 0 40px", borderRadius: 1 }} />
 
@@ -411,6 +511,43 @@ For more on this topic, read our guide on [generative engine optimization for le
 
 <div style={{ height: 1, background: "linear-gradient(to right, #EE6C13, transparent)", margin: "48px 0 40px", borderRadius: 1 }} />
 
+## Semantic HTML for AI Discovery
+
+Generative Engine Optimization (GEO) is the 2026 evolution of SEO. To show up in AI-generated answers like Google's AI Overviews, ChatGPT responses, and Perplexity answers, your HTML needs to be machine-scannable.
+
+The problem with most law firm websites: everything is wrapped in generic `<div>` tags. AI crawlers use semantic HTML5 elements to quickly categorize which part of your page is the "answer" to a user's legal question, and which parts are navigation, sidebars, or boilerplate.
+
+**Use strict semantic HTML5:**
+
+- `<article>` for the main content of blog posts and practice area descriptions
+- `<section>` for distinct topical sections within a page
+- `<aside>` for supplementary content like attorney credentials, related links, or callout boxes
+- `<nav>` for navigation menus and breadcrumbs
+- `<header>` and `<footer>` for page-level and section-level headers/footers
+- `<main>` to wrap the primary content area (only one per page)
+
+**Why this matters:** When an AI system scans your personal injury page, it needs to distinguish between the attorney bio sidebar, the navigation menu, and the actual content about car accident claims. Semantic tags make that distinction explicit. A page full of nested `<div>`s forces the AI to guess.
+
+**Quick test:** View your page source and search for `<article>`, `<section>`, and `<main>`. If none of these appear and your page is 100% `<div>`-based, you're making it harder for AI systems to extract and cite your content.
+
+<div style={{ height: 1, background: "linear-gradient(to right, #EE6C13, transparent)", margin: "48px 0 40px", borderRadius: 1 }} />
+
+## Accessibility as a Technical SEO Signal
+
+Technical SEO in 2026 includes WCAG 2.2 compliance. Accessible websites perform better in search because accessibility and SEO share the same fundamentals: clear structure, descriptive labels, and content that works across devices and input methods.
+
+Google has increasingly signaled that page experience includes usability for all users. Sites with poor accessibility tend to have worse engagement metrics, higher bounce rates, and lower "quality" scores in Google's evaluation framework.
+
+**The accessibility fixes that overlap with SEO:**
+
+- **Focus states on all interactive elements.** Every button, link, and form input needs a visible focus ring when navigating via keyboard. This is a WCAG 2.2 requirement and affects the 10-15% of users who navigate without a mouse.
+- **Aria-labels on action buttons.** Every "Call Now" button, chat widget trigger, and form submission button needs an `aria-label` that describes the action for screen reader users. Example: `aria-label="Call Smith & Associates at 555-123-4567"`.
+- **Color contrast ratios.** Ensure text-to-background contrast is at least 4.5:1 for body text and 3:1 for large text. Many law firm sites use light gray text on white backgrounds that fail this test. Run your site through the [WebAIM Contrast Checker](https://webaim.org/resources/contrastchecker/).
+- **Alt text on all images.** Attorney headshots, office photos, and infographics all need descriptive alt text. This helps screen readers *and* gives Google additional context about your page content.
+- **Proper heading hierarchy.** Don't skip heading levels (jumping from H1 to H4). Use H1 for the page title, H2 for main sections, H3 for subsections. This is both an accessibility requirement and an SEO best practice.
+
+<div style={{ height: 1, background: "linear-gradient(to right, #EE6C13, transparent)", margin: "48px 0 40px", borderRadius: 1 }} />
+
 ## Technical SEO Audit Checklist for Law Firms
 
 <div style={{ background: "#F0FDF4", border: "1px solid #86EFAC", borderRadius: "12px", padding: "16px 20px", marginBottom: "24px", display: "flex", alignItems: "center", gap: "12px" }}>
@@ -422,16 +559,18 @@ For more on this topic, read our guide on [generative engine optimization for le
 
 Use this checklist to audit your law firm's technical SEO. Work through it systematically. The items are grouped by category and ordered by impact.
 
-### Site Speed
+### Site Speed and Performance
 
 - [ ] Homepage LCP under 2.5 seconds (test with PageSpeed Insights)
 - [ ] All practice area pages LCP under 2.5 seconds
 - [ ] CLS under 0.1 across all templates
-- [ ] INP under 200ms on interactive pages (contact forms, chat)
+- [ ] INP under 200ms on all interactive elements (forms, calculators, chat)
+- [ ] Raw HTML under 2MB on all pages (check in DevTools Network tab)
+- [ ] DOM nodes under 1,500 per page
 - [ ] Images compressed and served in modern formats (WebP/AVIF)
 - [ ] All images have explicit width and height attributes
-- [ ] JavaScript deferred or async where possible
-- [ ] Third-party scripts audited and non-essential ones removed
+- [ ] Chat widgets and heatmaps lazy-loaded (not blocking initial render)
+- [ ] Call tracking scripts deferred or loaded async
 - [ ] CDN configured and serving static assets
 
 ### Crawlability and Indexing
@@ -443,12 +582,14 @@ Use this checklist to audit your law firm's technical SEO. Work through it syste
 - [ ] Canonical tags present and correct on all pages
 - [ ] No accidental noindex tags on pages that should be indexed
 - [ ] Search Console coverage report reviewed for errors
+- [ ] 100% of desktop content visible on mobile version (no hidden mobile content)
 
-### Schema Markup
+### Schema and Entity Markup
 
-- [ ] LegalService or LocalBusiness schema on homepage
-- [ ] Attorney schema on each attorney bio page
+- [ ] LegalService schema on homepage (not generic LocalBusiness)
+- [ ] Attorney schema on each attorney bio page with `sameAs` links to State Bar profiles
 - [ ] FAQPage schema on pages with FAQ sections
+- [ ] Case results marked up with ItemList/CreativeWork schema
 - [ ] BreadcrumbList schema matching visible breadcrumbs
 - [ ] All schema validated with Google's Rich Results Test
 - [ ] Multi-location firms have unique schema per location page
@@ -469,6 +610,15 @@ Use this checklist to audit your law firm's technical SEO. Work through it syste
 - [ ] No horizontal scrolling on any page
 - [ ] Forms usable on mobile (proper input types, adequate field sizes)
 - [ ] No intrusive interstitials blocking content on mobile
+
+### Semantic HTML and Accessibility
+
+- [ ] Pages use `<article>`, `<section>`, `<main>`, `<nav>` (not all `<div>`s)
+- [ ] Heading hierarchy is correct (H1 > H2 > H3, no skipped levels)
+- [ ] All images have descriptive alt text
+- [ ] Focus states visible on all interactive elements
+- [ ] Aria-labels on all action buttons ("Call Now," "Submit," chat triggers)
+- [ ] Text-to-background contrast at least 4.5:1
 
 ### Architecture and Internal Links
 
