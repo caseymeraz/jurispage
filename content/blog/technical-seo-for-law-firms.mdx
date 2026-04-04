@@ -15,13 +15,19 @@ Most law firm SEO conversations focus on keywords, content, and links. Those are
 This guide covers the technical SEO fundamentals that matter most for law firm websites, with specific examples and code you can actually use.
 
 <div style={{ background: "linear-gradient(135deg, #FFF7ED 0%, #FEF3C7 100%)", border: "1px solid #FDBA74", borderRadius: "12px", padding: "24px 28px", margin: "32px 0" }}>
-  <p style={{ fontWeight: 700, fontSize: "15px", color: "#9A3412", margin: "0 0 8px", display: "flex", alignItems: "center", gap: "8px" }}>
-    <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 2L12.09 7.26L18 8.27L14 12.14L14.18 18.02L10 15.77L5.82 18.02L6 12.14L2 8.27L7.91 7.26L10 2Z" fill="#F59E0B" stroke="#D97706" strokeWidth="1"/></svg>
-    Key Takeaway
+  <p style={{ fontWeight: 700, fontSize: "16px", color: "#9A3412", margin: "0 0 12px", display: "flex", alignItems: "center", gap: "8px" }}>
+    <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 1L13 7H19L14 11L16 18L10 14L4 18L6 11L1 7H7L10 1Z" fill="#F59E0B" stroke="#D97706" strokeWidth="1"/></svg>
+    TL;DR for Busy Attorneys
   </p>
-  <p style={{ margin: 0, color: "#92400E", fontSize: "15px", lineHeight: 1.7 }}>
-    Technical SEO isn't a one-time project. It's an ongoing practice that requires quarterly audits and continuous monitoring. This guide includes an interactive checklist you can use to audit your own site, actual JSON-LD code you can copy, and a section on AI bot management that almost no other guide covers.
-  </p>
+  <div style={{ margin: 0, color: "#92400E", fontSize: "15px", lineHeight: 1.8 }}>
+    <p style={{ margin: "0 0 8px", fontWeight: 600 }}>The 3 things you need to do right now:</p>
+    <ol style={{ margin: 0, paddingLeft: "20px" }}>
+      <li style={{ marginBottom: "6px" }}><strong>Check your page size.</strong> Google only crawls the first ~2MB of HTML. If your pages are bloated with inline scripts, your contact form may be invisible to Google.</li>
+      <li style={{ marginBottom: "6px" }}><strong>Lazy-load your chat widget.</strong> That live chat tool is loading 300-500KB of JavaScript before your content even renders. Defer it until the user scrolls or moves their mouse.</li>
+      <li style={{ marginBottom: "6px" }}><strong>Test your INP score.</strong> FID is dead. Google now measures every click on your site, not just the first one. If your settlement calculator takes over 200ms to respond, your rankings suffer.</li>
+    </ol>
+    <p style={{ margin: "12px 0 0", fontSize: "13px", color: "#B45309" }}>This guide includes an interactive audit checklist, copy-paste schema code, and a section on AI bot management that almost no other guide covers. Use the table of contents to jump to what matters most for your firm.</p>
+  </div>
 </div>
 
 <div style={{ height: 1, background: "linear-gradient(to right, #EE6C13, transparent)", margin: "48px 0 40px", borderRadius: 1 }} />
@@ -72,7 +78,14 @@ Google uses three Core Web Vitals as ranking signals. Here's what they measure a
 
 ### INP Replaced FID in 2024
 
-FID (First Input Delay) is dead. Google replaced it with INP (Interaction to Next Paint) as an official Core Web Vital. The difference matters: FID only measured the delay of the *first* interaction. INP measures *every* interaction throughout the entire page session and reports the worst one.
+FID (First Input Delay) is dead. Google replaced it with INP (Interaction to Next Paint) as an official Core Web Vital. The difference matters:
+
+| | FID (Retired) | INP (Current) |
+|---|---|---|
+| **What it measures** | Delay of the first interaction only | Delay of every interaction on the page |
+| **Reported value** | Single measurement | Worst interaction across the session |
+| **Why it changed** | A fast first click doesn't mean the 10th click is fast | Users interact with pages throughout their visit |
+| **Impact on law firms** | Could pass with a slow calculator if first click was fast | Settlement calculators and multi-step forms now exposed |
 
 **Why this hits law firms hard:** Many firms use interactive tools like settlement calculators, lead qualification forms, or complex intake wizards. If any of those tools take more than 200ms to respond to a click, your INP score drops to "Poor" and your rankings suffer.
 
@@ -112,6 +125,13 @@ Apply the same pattern to heatmap scripts, call tracking pixels, and any other t
 - **No CDN.** If your hosting serves from a single server location, visitors in other regions wait longer. A CDN (Cloudflare, Fastly, or your host's built-in CDN) distributes your content across edge servers globally.
 
 **How to check:** Run your homepage and a practice area page through [Google PageSpeed Insights](https://pagespeed.web.dev). Focus on the field data (real user metrics), not just the lab data. If you don't have enough field data, the lab scores give you a starting point.
+
+<div style={{ background: "#EFF6FF", border: "1px solid #BFDBFE", borderRadius: "10px", padding: "16px 20px", margin: "32px 0", display: "flex", alignItems: "center", gap: "12px", flexWrap: "wrap" }}>
+  <svg width="20" height="20" viewBox="0 0 20 20" fill="none" style={{ flexShrink: 0 }}><path d="M10 18a8 8 0 100-16 8 8 0 000 16zm-1-5h2v2H9v-2zm0-8h2v6H9V5z" fill="#3B82F6"/></svg>
+  <p style={{ margin: 0, fontSize: "14px", color: "#1E40AF", flex: 1 }}>
+    <strong>Is your firm failing INP or LCP?</strong> We can run a free Core Web Vitals diagnostic and show you exactly what's slowing your site down. <a href="/contact/" style={{ color: "#1D4ED8", fontWeight: 600 }}>Get your free speed report</a>
+  </p>
+</div>
 
 <div style={{ height: 1, background: "linear-gradient(to right, #EE6C13, transparent)", margin: "48px 0 40px", borderRadius: 1 }} />
 
@@ -196,6 +216,51 @@ In 2026, Googlebot has tightened its efficiency. Google now only crawls and inde
 - **Reduce DOM size.** Aim for fewer than 1,500 DOM nodes per page. Every unnecessary wrapper `<div>`, every hidden mobile menu duplicated in the HTML, and every unused component inflates your DOM. Audit with Lighthouse.
 - **Check your page size.** In Chrome DevTools, open the Network tab, reload the page, and look at the "Size" column for the document request. If it's approaching 1.5MB, you're in the danger zone.
 
+<div style={{ background: "#F9FAFB", border: "1px solid #E5E7EB", borderRadius: "12px", padding: "24px", margin: "32px 0" }}>
+  <p style={{ fontWeight: 700, fontSize: "14px", color: "#374151", margin: "0 0 16px", textTransform: "uppercase", letterSpacing: "0.05em" }}>How the 2MB Cutoff Works</p>
+  <div style={{ position: "relative", background: "white", borderRadius: "8px", border: "1px solid #E5E7EB", overflow: "hidden" }}>
+    <div style={{ display: "flex", alignItems: "stretch" }}>
+      <div style={{ flex: 1, padding: "16px 20px" }}>
+        <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "8px" }}>
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" stroke="#16A34A" strokeWidth="2"/><path d="M5 8L7 10L11 6" stroke="#16A34A" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
+          <span style={{ fontWeight: 600, fontSize: "13px", color: "#16A34A" }}>INDEXED BY GOOGLE</span>
+        </div>
+        <div style={{ fontSize: "13px", color: "#6B7280", lineHeight: 1.6 }}>
+          <div style={{ padding: "4px 0", borderBottom: "1px dashed #E5E7EB" }}>Navigation &amp; Header</div>
+          <div style={{ padding: "4px 0", borderBottom: "1px dashed #E5E7EB" }}>H1, Meta Tags, Hero Section</div>
+          <div style={{ padding: "4px 0", borderBottom: "1px dashed #E5E7EB" }}>Practice Area Content</div>
+          <div style={{ padding: "4px 0", borderBottom: "1px dashed #E5E7EB" }}>Attorney Bios &amp; Credentials</div>
+          <div style={{ padding: "4px 0" }}>FAQ Section &amp; Schema Markup</div>
+        </div>
+      </div>
+    </div>
+    <div style={{ background: "linear-gradient(to right, #DC2626, #EF4444)", padding: "6px 20px", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+      <span style={{ color: "white", fontWeight: 700, fontSize: "12px", letterSpacing: "0.05em" }}>2MB CUTOFF LINE</span>
+      <span style={{ color: "#FCA5A5", fontSize: "11px" }}>Googlebot stops here</span>
+    </div>
+    <div style={{ padding: "16px 20px", background: "#FEF2F2" }}>
+      <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "8px" }}>
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" stroke="#DC2626" strokeWidth="2"/><path d="M5.5 5.5L10.5 10.5M10.5 5.5L5.5 10.5" stroke="#DC2626" strokeWidth="2" strokeLinecap="round"/></svg>
+        <span style={{ fontWeight: 600, fontSize: "13px", color: "#DC2626" }}>NOT INDEXED</span>
+      </div>
+      <div style={{ fontSize: "13px", color: "#991B1B", lineHeight: 1.6 }}>
+        <div style={{ padding: "4px 0", borderBottom: "1px dashed #FECACA" }}>Contact Form &amp; Lead Capture</div>
+        <div style={{ padding: "4px 0", borderBottom: "1px dashed #FECACA" }}>Internal Links to Related Pages</div>
+        <div style={{ padding: "4px 0", borderBottom: "1px dashed #FECACA" }}>Testimonials &amp; Case Results</div>
+        <div style={{ padding: "4px 0" }}>Footer Navigation &amp; Office Locations</div>
+      </div>
+    </div>
+  </div>
+  <p style={{ margin: "12px 0 0", fontSize: "13px", color: "#6B7280", lineHeight: 1.5 }}>Pages bloated with inline CSS, JavaScript, and unnecessary DOM nodes push your most important conversion elements past the cutoff. Keep raw HTML under 2MB.</p>
+</div>
+
+<div style={{ background: "#EFF6FF", border: "1px solid #BFDBFE", borderRadius: "10px", padding: "16px 20px", margin: "32px 0", display: "flex", alignItems: "center", gap: "12px", flexWrap: "wrap" }}>
+  <svg width="20" height="20" viewBox="0 0 20 20" fill="none" style={{ flexShrink: 0 }}><path d="M10 2C5.58 2 2 5.58 2 10s3.58 8 8 8 8-3.58 8-8-3.58-8-8-8zm1 13H9v-2h2v2zm0-4H9V5h2v6z" fill="#3B82F6"/></svg>
+  <p style={{ margin: 0, fontSize: "14px", color: "#1E40AF", flex: 1 }}>
+    <strong>Not sure if your site is at risk?</strong> Our technical team can run a free page-size diagnostic for your firm. <a href="/contact/" style={{ color: "#1D4ED8", fontWeight: 600 }}>Get a free technical audit</a>
+  </p>
+</div>
+
 <div style={{ height: 1, background: "linear-gradient(to right, #EE6C13, transparent)", margin: "48px 0 40px", borderRadius: 1 }} />
 
 ## Schema Markup for Attorneys
@@ -213,6 +278,14 @@ Most law firm SEO guides say "add schema markup" but never show you the actual c
 ### Attorney Schema
 
 Place this on each attorney's bio page. Note the `sameAs` property linking to official bar and professional profiles:
+
+<div className="not-prose blog-faq" style={{ marginBottom: "32px" }}>
+<details>
+<summary>
+  View Attorney Schema JSON-LD (click to expand)
+  <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6L8 10L12 6" stroke="#9CA3AF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
+</summary>
+<div className="faq-answer">
 
 ```json
 {
@@ -256,9 +329,21 @@ Place this on each attorney's bio page. Note the `sameAs` property linking to of
 }
 ```
 
+</div>
+</details>
+</div>
+
 ### LegalService Schema
 
 Place this on your homepage or main service page:
+
+<div className="not-prose blog-faq" style={{ marginBottom: "32px" }}>
+<details>
+<summary>
+  View LegalService Schema JSON-LD (click to expand)
+  <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6L8 10L12 6" stroke="#9CA3AF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
+</summary>
+<div className="faq-answer">
 
 ```json
 {
@@ -301,9 +386,21 @@ Place this on your homepage or main service page:
 }
 ```
 
+</div>
+</details>
+</div>
+
 ### FAQPage Schema
 
 Place this on any page with a frequently asked questions section:
+
+<div className="not-prose blog-faq" style={{ marginBottom: "32px" }}>
+<details>
+<summary>
+  View FAQPage Schema JSON-LD (click to expand)
+  <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6L8 10L12 6" stroke="#9CA3AF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
+</summary>
+<div className="faq-answer">
 
 ```json
 {
@@ -330,6 +427,10 @@ Place this on any page with a frequently asked questions section:
 }
 ```
 
+</div>
+</details>
+</div>
+
 **Important:** Only use FAQPage schema for genuine FAQ content that's visible on the page. Google penalizes sites that add FAQ schema for content that doesn't actually appear on the page.
 
 ### Schema for Multi-Location Firms
@@ -341,6 +442,14 @@ If your firm has multiple offices, each location page should have its own `Local
 ### Case Results Schema
 
 Case results are one of the most powerful trust signals a law firm can display. Use `ItemList` markup to help AI Overviews cite your firm as a successful authority in specific litigation:
+
+<div className="not-prose blog-faq" style={{ marginBottom: "32px" }}>
+<details>
+<summary>
+  View Case Results Schema JSON-LD (click to expand)
+  <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6L8 10L12 6" stroke="#9CA3AF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
+</summary>
+<div className="faq-answer">
 
 ```json
 {
@@ -378,7 +487,18 @@ Case results are one of the most powerful trust signals a law firm can display. 
 }
 ```
 
+</div>
+</details>
+</div>
+
 This structured markup gives AI systems specific, citable data about your firm's track record rather than relying on them to extract it from unstructured text.
+
+<div style={{ background: "#EFF6FF", border: "1px solid #BFDBFE", borderRadius: "10px", padding: "16px 20px", margin: "32px 0", display: "flex", alignItems: "center", gap: "12px", flexWrap: "wrap" }}>
+  <svg width="20" height="20" viewBox="0 0 20 20" fill="none" style={{ flexShrink: 0 }}><path d="M4 4h12v2H4V4zm0 5h12v2H4V9zm0 5h8v2H4v-2z" fill="#3B82F6"/></svg>
+  <p style={{ margin: 0, fontSize: "14px", color: "#1E40AF", flex: 1 }}>
+    <strong>Need help implementing schema markup?</strong> Most law firm websites have broken or missing structured data. We audit and fix it as part of every SEO engagement. <a href="/contact/" style={{ color: "#1D4ED8", fontWeight: 600 }}>Schedule a schema audit</a>
+  </p>
+</div>
 
 <div style={{ height: 1, background: "linear-gradient(to right, #EE6C13, transparent)", margin: "48px 0 40px", borderRadius: 1 }} />
 
@@ -508,6 +628,13 @@ If you want Google's AI Overviews to cite your content, structure it for extract
 - Maintain strong topical authority across related pages (a single blog post is less likely to be cited than a site with comprehensive coverage of a topic)
 
 For more on this topic, read our guide on [generative engine optimization for legal marketing](/generative-engine-optimization-legal-marketing/).
+
+<div style={{ background: "#F0FDF4", border: "1px solid #86EFAC", borderRadius: "10px", padding: "16px 20px", margin: "32px 0", display: "flex", alignItems: "center", gap: "12px", flexWrap: "wrap" }}>
+  <svg width="20" height="20" viewBox="0 0 20 20" fill="none" style={{ flexShrink: 0 }}><path d="M10 2a8 8 0 100 16 8 8 0 000-16zm3.5 6.5l-4.5 4.5L6.5 10.5" fill="none" stroke="#16A34A" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
+  <p style={{ margin: 0, fontSize: "14px", color: "#166534", flex: 1 }}>
+    <strong>Want to know if your firm shows up in AI search?</strong> We run AI visibility audits across ChatGPT, Perplexity, and Google AI Overviews for your practice area and market. <a href="/ai-search-report/" style={{ color: "#15803D", fontWeight: 600 }}>Get your free AI visibility report</a>
+  </p>
+</div>
 
 <div style={{ height: 1, background: "linear-gradient(to right, #EE6C13, transparent)", margin: "48px 0 40px", borderRadius: 1 }} />
 
