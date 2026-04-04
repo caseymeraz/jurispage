@@ -1,6 +1,10 @@
 import { prisma } from "@/lib/db";
+import type { Prisma } from "@prisma/client";
 
 export const dynamic = "force-dynamic";
+
+type ReportWithLead = Prisma.MarketGapReportGetPayload<{ include: { lead: true } }>;
+type AiReportWithLead = Prisma.AiSearchReportGetPayload<{ include: { lead: true } }>;
 
 const STATUS_STYLES: Record<string, string> = {
   pending: "bg-yellow-100 text-yellow-800",
@@ -50,8 +54,8 @@ function summarizeData(type: string, data: Record<string, unknown>): string {
 }
 
 export default async function AdminPage() {
-  let reports: Awaited<ReturnType<typeof prisma.marketGapReport.findMany<{ include: { lead: true } }>>> = [];
-  let aiReports: Awaited<ReturnType<typeof prisma.aiSearchReport.findMany<{ include: { lead: true } }>>> = [];
+  let reports: ReportWithLead[] = [];
+  let aiReports: AiReportWithLead[] = [];
   let formSubmissions: Awaited<ReturnType<typeof prisma.formSubmission.findMany>> = [];
   let quotes: Awaited<ReturnType<typeof prisma.launchpadQuote.findMany>> = [];
 
