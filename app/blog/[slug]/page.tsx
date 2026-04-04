@@ -203,7 +203,7 @@ export default async function BlogPostPage({ params }: Props) {
             <MDXRemote
               source={post.content}
               options={{ mdxOptions: { remarkPlugins: [remarkGfm] } }}
-              components={mdxComponents as Record<string, React.ComponentType>}
+              components={mdxComponents}
             />
           </article>
 

@@ -1,6 +1,6 @@
-"use client";
-
-import { useState, type ReactNode, type DetailedHTMLProps, type HTMLAttributes, type TableHTMLAttributes, type TdHTMLAttributes, type ThHTMLAttributes } from "react";
+import type { ReactNode, DetailedHTMLProps, HTMLAttributes, TableHTMLAttributes, TdHTMLAttributes, ThHTMLAttributes } from "react";
+import CopyButton from "./CopyButton";
+import ChecklistItem from "./ChecklistItem";
 
 /* ── Heading with anchor link ──────────────────────────────────────── */
 
@@ -22,20 +22,29 @@ function extractText(children: ReactNode): string {
   return "";
 }
 
-function AnchorHeading({
-  as: Tag,
-  children,
-  ...props
-}: { as: "h2" | "h3"; children?: ReactNode } & HTMLAttributes<HTMLHeadingElement>) {
+function H2({ children, ...props }: HTMLAttributes<HTMLHeadingElement> & { children?: ReactNode }) {
   const text = extractText(children);
   const id = slugify(text);
   return (
-    <Tag id={id} className="group scroll-mt-24" {...props}>
+    <h2 id={id} className="group scroll-mt-24" {...props}>
       <a href={`#${id}`} className="no-underline text-inherit hover:text-inherit">
         {children}
         <span className="opacity-0 group-hover:opacity-100 transition-opacity ml-2 text-[#EE6C13]">#</span>
       </a>
-    </Tag>
+    </h2>
+  );
+}
+
+function H3({ children, ...props }: HTMLAttributes<HTMLHeadingElement> & { children?: ReactNode }) {
+  const text = extractText(children);
+  const id = slugify(text);
+  return (
+    <h3 id={id} className="group scroll-mt-24" {...props}>
+      <a href={`#${id}`} className="no-underline text-inherit hover:text-inherit">
+        {children}
+        <span className="opacity-0 group-hover:opacity-100 transition-opacity ml-2 text-[#EE6C13]">#</span>
+      </a>
+    </h3>
   );
 }
 
@@ -67,67 +76,16 @@ function Tr(props: DetailedHTMLProps<HTMLAttributes<HTMLTableRowElement>, HTMLTa
 
 /* ── Code block with copy button ───────────────────────────────────── */
 
-function CodeBlock({ children, ...props }: DetailedHTMLProps<HTMLAttributes<HTMLPreElement>, HTMLPreElement>) {
-  const [copied, setCopied] = useState(false);
-
+function CodeBlock({ children, ...props }: DetailedHTMLProps<HTMLAttributes<HTMLPreElement>, HTMLPreElement> & { children?: ReactNode }) {
   const code = extractText(children);
-
-  const handleCopy = () => {
-    navigator.clipboard.writeText(code);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
-  };
 
   return (
     <div className="relative group my-6">
-      <button
-        onClick={handleCopy}
-        className="absolute top-3 right-3 px-2.5 py-1 rounded text-xs font-medium bg-white/10 text-gray-400 hover:text-white hover:bg-white/20 transition-all opacity-0 group-hover:opacity-100 z-10 border border-white/10"
-        aria-label="Copy code"
-      >
-        {copied ? "Copied!" : "Copy"}
-      </button>
+      <CopyButton text={code} />
       <pre className="rounded-lg !bg-gray-900 !text-gray-100 p-5 overflow-x-auto text-sm leading-relaxed" {...props}>
         {children}
       </pre>
     </div>
-  );
-}
-
-/* ── Interactive checklist ─────────────────────────────────────────── */
-
-function ChecklistItem({ children }: { children?: ReactNode }) {
-  const [checked, setChecked] = useState(false);
-  const text = extractText(children);
-  const isCheckbox = text.startsWith("[ ] ") || text.startsWith("[x] ");
-
-  if (!isCheckbox) {
-    return <li>{children}</li>;
-  }
-
-  const label = text.replace(/^\[[ x]\] /, "");
-
-  return (
-    <li className="list-none -ml-6 flex items-start gap-3 py-1.5">
-      <button
-        onClick={() => setChecked(!checked)}
-        className={`mt-0.5 flex-shrink-0 w-5 h-5 rounded border-2 transition-all flex items-center justify-center ${
-          checked
-            ? "bg-[#EE6C13] border-[#EE6C13]"
-            : "border-gray-300 hover:border-[#EE6C13]"
-        }`}
-        aria-label={`Mark "${label}" as ${checked ? "incomplete" : "complete"}`}
-      >
-        {checked && (
-          <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
-            <path d="M2.5 6L5 8.5L9.5 3.5" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-          </svg>
-        )}
-      </button>
-      <span className={`${checked ? "line-through text-gray-400" : "text-gray-700"} transition-colors`}>
-        {label}
-      </span>
-    </li>
   );
 }
 
@@ -144,9 +102,10 @@ function Callout(props: DetailedHTMLProps<HTMLAttributes<HTMLQuoteElement>, HTML
 
 /* ── Export all components ─────────────────────────────────────────── */
 
-export const mdxComponents = {
-  h2: (props: HTMLAttributes<HTMLHeadingElement>) => <AnchorHeading as="h2" {...props} />,
-  h3: (props: HTMLAttributes<HTMLHeadingElement>) => <AnchorHeading as="h3" {...props} />,
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export const mdxComponents: Record<string, React.ComponentType<any>> = {
+  h2: H2,
+  h3: H3,
   table: Table,
   thead: Thead,
   th: Th,
