@@ -7,6 +7,7 @@ import CaseStudyCard from "@/components/CaseStudyCard";
 import ReviewRibbon from "@/components/ReviewRibbon";
 import YouTubeFacade from "@/components/YouTubeFacade";
 import CountUpStats from "@/components/CountUpStats";
+import HeroSearchAnimation from "@/components/HeroSearchAnimation";
 import { caseStudies } from "@/data/caseStudies";
 
 export const metadata: Metadata = {
@@ -151,49 +152,59 @@ export default function HomePage() {
       {/* ══════════════════════════════════════════
           1. HERO — The Character (Above the Fold)
           ══════════════════════════════════════════ */}
-      <section className="bg-white py-20 px-6">
-        <div className="max-w-5xl mx-auto text-center">
-          {/* Google reviews badge */}
-          <a
-            href={GBP_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 bg-white border border-gray-200 rounded-full px-4 py-2 shadow-sm no-underline hover:shadow-md transition-shadow mb-8"
-          >
-            <svg width="16" height="16" viewBox="0 0 48 48"><path fill="#4285F4" d="M45.12 24.5c0-1.56-.14-3.06-.4-4.5H24v8.51h11.84c-.51 2.75-2.06 5.08-4.39 6.64v5.52h7.11c4.16-3.83 6.56-9.47 6.56-16.17z" /><path fill="#34A853" d="M24 46c5.94 0 10.92-1.97 14.56-5.33l-7.11-5.52c-1.97 1.32-4.49 2.1-7.45 2.1-5.73 0-10.58-3.87-12.31-9.07H4.34v5.7C7.96 41.07 15.4 46 24 46z" /><path fill="#FBBC05" d="M11.69 28.18C11.25 26.86 11 25.45 11 24s.25-2.86.69-4.18v-5.7H4.34C2.85 17.09 2 20.45 2 24c0 3.55.85 6.91 2.34 9.88l7.35-5.7z" /><path fill="#EA4335" d="M24 10.75c3.23 0 6.13 1.11 8.41 3.29l6.31-6.31C34.91 4.18 29.93 2 24 2 15.4 2 7.96 6.93 4.34 14.12l7.35 5.7c1.73-5.2 6.58-9.07 12.31-9.07z" /></svg>
-            <span className="text-yellow-400 text-sm leading-none">★★★★★</span>
-            <span className="text-gray-700 text-sm font-semibold">4.9</span>
-            <span className="text-gray-400 text-xs">on Google</span>
-          </a>
+      <section className="bg-white py-16 md:py-20 px-6">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            {/* Left: Copy */}
+            <div>
+              {/* Google reviews badge */}
+              <a
+                href={GBP_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 bg-white border border-gray-200 rounded-full px-4 py-2 shadow-sm no-underline hover:shadow-md transition-shadow mb-6"
+              >
+                <svg width="16" height="16" viewBox="0 0 48 48"><path fill="#4285F4" d="M45.12 24.5c0-1.56-.14-3.06-.4-4.5H24v8.51h11.84c-.51 2.75-2.06 5.08-4.39 6.64v5.52h7.11c4.16-3.83 6.56-9.47 6.56-16.17z" /><path fill="#34A853" d="M24 46c5.94 0 10.92-1.97 14.56-5.33l-7.11-5.52c-1.97 1.32-4.49 2.1-7.45 2.1-5.73 0-10.58-3.87-12.31-9.07H4.34v5.7C7.96 41.07 15.4 46 24 46z" /><path fill="#FBBC05" d="M11.69 28.18C11.25 26.86 11 25.45 11 24s.25-2.86.69-4.18v-5.7H4.34C2.85 17.09 2 20.45 2 24c0 3.55.85 6.91 2.34 9.88l7.35-5.7z" /><path fill="#EA4335" d="M24 10.75c3.23 0 6.13 1.11 8.41 3.29l6.31-6.31C34.91 4.18 29.93 2 24 2 15.4 2 7.96 6.93 4.34 14.12l7.35 5.7c1.73-5.2 6.58-9.07 12.31-9.07z" /></svg>
+                <span className="text-yellow-400 text-sm leading-none">★★★★★</span>
+                <span className="text-gray-700 text-sm font-semibold">4.9</span>
+                <span className="text-gray-400 text-xs">on Google</span>
+              </a>
 
-          <h1 className="font-heading font-extrabold text-gray-900 text-5xl md:text-7xl leading-[1.1] mb-6">
-            Get More Cases.
-          </h1>
+              <h1 className="font-heading font-extrabold text-gray-900 text-5xl md:text-6xl lg:text-7xl leading-[1.1] mb-6">
+                Get More Cases.
+              </h1>
 
-          <p className="text-gray-600 text-xl md:text-2xl leading-relaxed max-w-2xl mx-auto mb-10">
-            We build and market law firm websites that actually bring in clients. No jargon. No guesswork. Just cases.
-          </p>
+              <p className="text-gray-600 text-xl leading-relaxed mb-8 max-w-lg">
+                We build and market law firm websites that actually bring in clients. No jargon. No guesswork. Just cases.
+              </p>
 
-          <div className="flex flex-wrap items-center justify-center gap-4 mb-4">
-            <Link
-              href="/contact/"
-              className="inline-block font-heading font-bold text-white text-lg px-10 py-5 rounded-full no-underline hover:opacity-90 transition-opacity shadow-lg shadow-orange-200"
-              style={{ background: "linear-gradient(135deg, #EE6C13, #982A0B)" }}
-            >
-              Get My Growth Plan
-            </Link>
-            <Link
-              href="/case-studies/"
-              className="inline-block font-heading font-bold text-lg px-10 py-5 rounded-full no-underline border-2 transition-colors hover:bg-[#FEF3EC]"
-              style={{ borderColor: "#EE6C13", color: "#EE6C13" }}
-            >
-              See Our Results
-            </Link>
+              <div className="flex flex-wrap items-center gap-4 mb-4">
+                <Link
+                  href="/contact/"
+                  className="inline-block font-heading font-bold text-white text-lg px-10 py-5 rounded-full no-underline hover:opacity-90 transition-opacity shadow-lg shadow-orange-200"
+                  style={{ background: "linear-gradient(135deg, #EE6C13, #982A0B)" }}
+                >
+                  Get My Growth Plan
+                </Link>
+                <Link
+                  href="/case-studies/"
+                  className="inline-block font-heading font-bold text-lg px-10 py-5 rounded-full no-underline border-2 transition-colors hover:bg-[#FEF3EC]"
+                  style={{ borderColor: "#EE6C13", color: "#EE6C13" }}
+                >
+                  See Our Results
+                </Link>
+              </div>
+
+              <p className="text-gray-400 text-sm">
+                No contracts. Transparent pricing. 113+ law firms served.
+              </p>
+            </div>
+
+            {/* Right: Interactive search animation */}
+            <div className="hidden md:block">
+              <HeroSearchAnimation />
+            </div>
           </div>
-
-          <p className="text-gray-400 text-sm">
-            No contracts. Transparent pricing. 113+ law firms served.
-          </p>
         </div>
       </section>
 
