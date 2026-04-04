@@ -62,8 +62,8 @@ function Thead(props: DetailedHTMLProps<HTMLAttributes<HTMLTableSectionElement>,
   return <thead className="bg-gray-900 text-white text-left" {...props} />;
 }
 
-function Th(props: DetailedHTMLProps<ThHTMLAttributes<HTMLTableCellElement>, HTMLTableCellElement>) {
-  return <th className="px-4 py-3 font-semibold text-xs uppercase tracking-wider whitespace-nowrap" {...props} />;
+function Th({ style, ...props }: DetailedHTMLProps<ThHTMLAttributes<HTMLTableCellElement>, HTMLTableCellElement>) {
+  return <th className="px-4 py-3 font-semibold text-xs uppercase tracking-wider whitespace-nowrap" style={{ color: "white", ...style }} {...props} />;
 }
 
 function Td(props: DetailedHTMLProps<TdHTMLAttributes<HTMLTableCellElement>, HTMLTableCellElement>) {

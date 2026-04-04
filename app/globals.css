@@ -68,6 +68,21 @@
   animation: scorecard-grade-pop 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
 }
 
+/* Blog FAQ details/summary styling */
+details > summary {
+  list-style: none;
+}
+details > summary::-webkit-details-marker {
+  display: none;
+}
+details > summary::marker {
+  display: none;
+  content: "";
+}
+details[open] > summary svg {
+  transform: rotate(180deg);
+}
+
 /* Hide public chrome on standalone report pages */
 body:has([data-report-layout]) > header,
 body:has([data-report-layout]) > footer,
