@@ -506,6 +506,17 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
 
+      {
+        source: "/free-law-firm-website-analysis",
+        destination: "/see-my-market-gap/",
+        permanent: true,
+      },
+      {
+        source: "/free-law-firm-website-analysis/",
+        destination: "/see-my-market-gap/",
+        permanent: true,
+      },
+
       // ── Author & misc page redirects ──
       {
         source: "/author/will-chan",
