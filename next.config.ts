@@ -96,6 +96,11 @@ const nextConfig: NextConfig = {
         hostname: "jurispage.com",
         pathname: "/wp-content/uploads/**",
       },
+      {
+        protocol: "https",
+        hostname: "jurisdigital.com",
+        pathname: "/wp-content/uploads/**",
+      },
     ],
   },
   async redirects() {
