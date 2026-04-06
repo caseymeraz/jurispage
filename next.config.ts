@@ -572,6 +572,198 @@ const nextConfig: NextConfig = {
         destination: "/law-firm-content-writing/",
         permanent: true,
       },
+      // ── 404 log cleanup (April 2026) ──
+      {
+        source: "/services/law-firm-seo",
+        destination: "/law-firm-seo/",
+        permanent: true,
+      },
+      {
+        source: "/services/law-firm-seo/",
+        destination: "/law-firm-seo/",
+        permanent: true,
+      },
+      {
+        source: "/platform/pricing",
+        destination: "/services/pricing/",
+        permanent: true,
+      },
+      {
+        source: "/platform/pricing/",
+        destination: "/services/pricing/",
+        permanent: true,
+      },
+      {
+        source: "/contact-us",
+        destination: "/contact/",
+        permanent: true,
+      },
+      {
+        source: "/contact-us/",
+        destination: "/contact/",
+        permanent: true,
+      },
+      {
+        source: "/kickstart-legal-marketing/:path*",
+        destination: "/",
+        permanent: true,
+      },
+      {
+        source: "/criminal-defense-law-firm-website-statistics",
+        destination: "/practice-areas/",
+        permanent: true,
+      },
+      {
+        source: "/criminal-defense-law-firm-website-statistics/",
+        destination: "/practice-areas/",
+        permanent: true,
+      },
+      {
+        source: "/google-business-profile-law-firm",
+        destination: "/local-seo-for-law-firms/",
+        permanent: true,
+      },
+      {
+        source: "/google-business-profile-law-firm/",
+        destination: "/local-seo-for-law-firms/",
+        permanent: true,
+      },
+      {
+        source: "/google-business-profile-optimization-lawyers",
+        destination: "/local-seo-for-law-firms/",
+        permanent: true,
+      },
+      {
+        source: "/google-business-profile-optimization-lawyers/",
+        destination: "/local-seo-for-law-firms/",
+        permanent: true,
+      },
+      {
+        source: "/schedule-a-call-with-kevin-pham",
+        destination: "/contact/",
+        permanent: true,
+      },
+      {
+        source: "/schedule-a-call-with-kevin-pham/",
+        destination: "/contact/",
+        permanent: true,
+      },
+      {
+        source: "/sitemap_index.xml",
+        destination: "/sitemap.xml",
+        permanent: true,
+      },
+      {
+        source: "/page-sitemap.xml",
+        destination: "/sitemap.xml",
+        permanent: true,
+      },
+      {
+        source: "/best-live-chat-lawyers",
+        destination: "/",
+        permanent: true,
+      },
+      {
+        source: "/best-live-chat-lawyers/",
+        destination: "/",
+        permanent: true,
+      },
+      {
+        source: "/lawyer-website-case-studies/:path*",
+        destination: "/case-studies/",
+        permanent: true,
+      },
+      {
+        source: "/local-landing-pages-law-firms",
+        destination: "/local-seo-for-law-firms/",
+        permanent: true,
+      },
+      {
+        source: "/local-landing-pages-law-firms/",
+        destination: "/local-seo-for-law-firms/",
+        permanent: true,
+      },
+      {
+        source: "/how-to-sell-your-legal-services-ethically",
+        destination: "/",
+        permanent: true,
+      },
+      {
+        source: "/how-to-sell-your-legal-services-ethically/",
+        destination: "/",
+        permanent: true,
+      },
+      {
+        source: "/law-firm-seo-definitive-guide",
+        destination: "/law-firm-seo/",
+        permanent: true,
+      },
+      {
+        source: "/law-firm-seo-definitive-guide/",
+        destination: "/law-firm-seo/",
+        permanent: true,
+      },
+      {
+        source: "/schema-law-firm-seo",
+        destination: "/law-firm-seo/",
+        permanent: true,
+      },
+      {
+        source: "/schema-law-firm-seo/",
+        destination: "/law-firm-seo/",
+        permanent: true,
+      },
+      {
+        source: "/reputation-management-for-lawyers",
+        destination: "/services/",
+        permanent: true,
+      },
+      {
+        source: "/reputation-management-for-lawyers/",
+        destination: "/services/",
+        permanent: true,
+      },
+      {
+        source: "/elevate-seo-for-criminal-defense",
+        destination: "/practice-areas/",
+        permanent: true,
+      },
+      {
+        source: "/elevate-seo-for-criminal-defense/pricing",
+        destination: "/services/pricing/",
+        permanent: true,
+      },
+      {
+        source: "/elevate-seo-for-criminal-defense/pricing/",
+        destination: "/services/pricing/",
+        permanent: true,
+      },
+      {
+        source: "/elevate-seo-for-criminal-defense/:path*",
+        destination: "/practice-areas/",
+        permanent: true,
+      },
+      {
+        source: "/webinar-top-strategies-for-improving-your-firms-client-intake",
+        destination: "/",
+        permanent: true,
+      },
+      {
+        source: "/webinar-top-strategies-for-improving-your-firms-client-intake/",
+        destination: "/",
+        permanent: true,
+      },
+      {
+        source: "/legal",
+        destination: "/",
+        permanent: true,
+      },
+      {
+        source: "/legal/",
+        destination: "/",
+        permanent: true,
+      },
+
       // ── Old WordPress URL patterns (catch-alls, last) ──
       {
         source: "/2013/:path*",
