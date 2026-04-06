@@ -397,12 +397,12 @@ export default function HomepageB() {
       <section className="bg-gray-50 py-24 px-6 border-y border-gray-100">
         <div className="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-5 gap-14 items-center">
           <div className="lg:col-span-3">
-            <span className="text-xs font-heading font-bold uppercase tracking-[0.2em] mb-3 block" style={{ color: "#EE6C13" }}>Now backed by Juris Digital</span>
+            <span className="text-xs font-heading font-bold uppercase tracking-[0.2em] mb-3 block" style={{ color: "#EE6C13" }}>Now backed by <a href="https://jurisdigital.com" target="_blank" rel="noopener noreferrer" style={{ color: "#EE6C13" }} className="no-underline hover:underline">Juris Digital</a></span>
             <h2 className="font-heading font-extrabold text-gray-900 text-3xl md:text-4xl mb-5 leading-tight">
               Two legal-only teams. One mission.
             </h2>
             <p className="text-gray-600 text-lg leading-relaxed mb-6">
-              In 2026, JurisPage joined the Juris Digital family. Led by CEO Casey Meraz, President Leann Pickard, and CSO Matt Green, we now have more firepower, more research capability, and the same laser focus on law firms.
+              In 2026, JurisPage joined the <a href="https://jurisdigital.com" target="_blank" rel="noopener noreferrer" className="text-gray-900 font-semibold underline hover:no-underline">Juris Digital</a> family. Led by CEO Casey Meraz, President Leann Pickard, and CSO Matt Green, we now have more firepower, more research capability, and the same laser focus on law firms.
             </p>
             <Link href="/about-us/" className="inline-block font-heading font-bold text-white text-sm px-7 py-3.5 rounded-full no-underline hover:opacity-90 transition-opacity" style={{ background: "#EE6C13" }}>
               Meet the Team

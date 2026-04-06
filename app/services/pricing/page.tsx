@@ -90,7 +90,7 @@ export default function PricingPage() {
                 className="inline-block text-xs font-heading font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-5 self-start"
                 style={{ background: "#333", color: "#fff" }}
               >
-                Juris Digital
+                <a href="https://jurisdigital.com" target="_blank" rel="noopener noreferrer" className="text-white no-underline">Juris Digital</a>
               </span>
               <h2 className="font-heading font-extrabold text-white text-2xl mb-3">
                 Market Dominance &amp; Bespoke Scale.
@@ -176,7 +176,7 @@ export default function PricingPage() {
               className="inline-block text-xs font-heading font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-5 text-white"
               style={{ background: "#1a1a1a" }}
             >
-              Juris Digital
+              <a href="https://jurisdigital.com" target="_blank" rel="noopener noreferrer" className="text-white no-underline">Juris Digital</a>
             </span>
             <h2 className="font-heading font-extrabold text-gray-900 text-4xl mb-4">
               Custom Strategies for Firms Ready to Take the Lion&apos;s Share.

@@ -101,7 +101,7 @@ export default function JurispageNowBackedPage() {
           </h1>
 
           <p className="text-gray-600 text-lg leading-relaxed max-w-2xl mx-auto mb-8">
-            In February 2026, JurisPage joined the Juris Digital family. Same
+            In February 2026, JurisPage joined the <a href="https://jurisdigital.com" target="_blank" rel="noopener noreferrer" className="text-gray-900 font-semibold underline hover:no-underline">Juris Digital</a> family. Same
             legal-only focus. Deeper research. Stronger execution. More clarity
             on what&apos;s working and what&apos;s not.
           </p>

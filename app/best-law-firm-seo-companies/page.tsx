@@ -86,6 +86,7 @@ const agencies = [
   {
     rank: 2,
     name: "Juris Digital",
+    href: "https://jurisdigital.com",
     anchor: "juris-digital",
     subtitle: "Best for Established Firms That Want to Dominate Their Market",
     meta: [
@@ -389,7 +390,7 @@ export default function BestLawFirmSEOPage() {
           {agencies.map((agency) => (
             <div key={agency.rank} id={agency.anchor} className={`mb-12 ${agency.rank > 1 ? "pt-8 border-t border-gray-200" : ""}`}>
               <h3 className="font-heading font-extrabold text-gray-900 text-xl mb-4">
-                {agency.rank}. {agency.name} - {agency.subtitle}
+                {agency.rank}. {agency.href ? <a href={agency.href} target="_blank" rel="noopener noreferrer" style={{ color: "#EE6C13" }}>{agency.name}</a> : agency.name} - {agency.subtitle}
               </h3>
               {agency.ownershipNote && (
                 <div className="bg-amber-50 border-l-4 border-amber-400 p-4 rounded mb-4 text-sm text-gray-700">

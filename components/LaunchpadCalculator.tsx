@@ -144,7 +144,7 @@ export default function LaunchpadCalculator() {
               With 5+ attorneys, your firm doesn&apos;t need a foundation. You need a full-service growth partner that can help you dominate your market, sign more cases, and build a lasting legacy.
             </p>
             <p className="text-gray-600 leading-relaxed mb-6">
-              That&apos;s exactly what Juris Digital does. Same ownership, same data-driven approach, but built for established firms investing $5K–$20K+/month in growth.
+              That&apos;s exactly what <a href="https://jurisdigital.com" target="_blank" rel="noopener noreferrer" className="text-gray-900 font-semibold underline hover:no-underline">Juris Digital</a> does. Same ownership, same data-driven approach, but built for established firms investing $5K–$20K+/month in growth.
             </p>
 
             <div className="bg-gray-50 rounded-xl p-5 border border-gray-200 mb-6">
@@ -290,7 +290,7 @@ export default function LaunchpadCalculator() {
           </select>
           {isCustom && (
             <p className="text-sm text-gray-500 mt-3 p-3 rounded-lg bg-gray-50">
-              With 5 or more attorneys, your firm has outgrown a foundation package. You need a full-service growth partner. Fill in your details below and our Juris Digital team will reach out within one business day.
+              With 5 or more attorneys, your firm has outgrown a foundation package. You need a full-service growth partner. Fill in your details below and our <a href="https://jurisdigital.com" target="_blank" rel="noopener noreferrer" className="text-gray-700 font-semibold underline hover:no-underline">Juris Digital</a> team will reach out within one business day.
             </p>
           )}
         </div>

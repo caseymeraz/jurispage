@@ -178,7 +178,7 @@ export default function AiChatbotPage() {
       {/* ── 2. Award Banner ── */}
       <section className="py-5 px-6" style={{ background: "#1a1a1a" }}>
         <p className="text-center text-sm text-gray-300 max-w-3xl mx-auto">
-          Built by the team behind Juris Digital, recognized by{" "}
+          Built by the team behind <a href="https://jurisdigital.com" target="_blank" rel="noopener noreferrer" className="text-gray-100 underline hover:text-white">Juris Digital</a>, recognized by{" "}
           <span className="text-white font-semibold">Fast Company&apos;s 2025 Most Innovative Companies</span>{" "}
           in the AI category.
         </p>
