@@ -16,7 +16,7 @@ export default function LocalPackExplainer() {
           </h2>
           <p className="text-gray-500 text-lg max-w-2xl mx-auto">
             When someone searches &ldquo;personal injury lawyer near me,&rdquo;
-            the first thing they see is the map pack — three firms with ratings,
+            the first thing they see is the map pack: three firms with ratings,
             a map, and a direct call button. Everything else is below the fold.
           </p>
         </div>
@@ -50,7 +50,7 @@ export default function LocalPackExplainer() {
               </p>
               <p className="text-gray-500 text-xs leading-relaxed">
                 Nearly half of everyone searching for a lawyer in your city
-                clicks one of these three results — before ever scrolling down.
+                clicks one of these three results, before ever scrolling down.
               </p>
             </div>
 
@@ -129,7 +129,7 @@ export default function LocalPackExplainer() {
               </div>
               <p className="text-gray-500 text-xs leading-relaxed">
                 Star ratings and review counts are visible right in the results.
-                Firms with more reviews and higher ratings win the click — before
+                Firms with more reviews and higher ratings win the click, before
                 anyone reads a single word on your website.
               </p>
             </div>

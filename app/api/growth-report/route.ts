@@ -144,7 +144,7 @@ export async function POST(req: NextRequest) {
           </div>
           <p style="color: #555; line-height: 1.7;">Your report will include a competitive analysis, visibility score, keyword opportunities, and a clear recommendation tailored to your firm's goals and budget.</p>
           <p style="color: #6b7280; font-size: 14px; margin-top: 24px;">Questions in the meantime? Call us at <a href="tel:+18555936935" style="color: #EE6C13;">(855) 593-6935</a></p>
-          <p style="color: #555; font-size: 14px; margin-top: 16px;">— The JurisPage Team</p>
+          <p style="color: #555; font-size: 14px; margin-top: 16px;">The JurisPage Team</p>
         </div>
         <div style="background: #f5f5f5; padding: 16px 32px; text-align: center;">
           <p style="color: #9ca3af; font-size: 12px; margin: 0;">JurisPage · Law Firm Marketing</p>

@@ -8,7 +8,7 @@ const services = [
   { label: "Google Ads for Law Firms", href: "/google-ads-for-law-firms/", desc: "Case inquiries within 24-48 hours of launch" },
   { label: "Law Firm Websites", href: "/law-firm-websites/", desc: "WordPress sites you own, built to convert" },
   { label: "Local SEO for Law Firms", href: "/local-seo-for-law-firms/", desc: "Dominate the Google Maps 3-Pack in your market" },
-  { label: "Launchpad (New Firms)", href: "/launchpad/", desc: "Full digital presence launched in 30 days" },
+  { label: "Launchpad (New Firms)", href: "/launchpad/", desc: "Full digital presence launched in 45 days" },
   { label: "GEO / AI Search", href: "/generative-engine-optimization-legal-marketing/", desc: "Get cited by ChatGPT, Perplexity, and Gemini" },
   { label: "AI Chatbot", href: "/ai-chatbot-for-law-firm-website/", desc: "Convert after-hours visitors into consultations" },
   { label: "Email Marketing", href: "/law-firm-email-marketing/", desc: "Stay top-of-mind with your referral network" },

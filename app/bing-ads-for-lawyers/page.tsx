@@ -257,7 +257,7 @@ export default function BingAdsPage() {
               { feature: "Published pricing", us: true, them: false },
               { feature: "No % of ad spend markup", us: true, them: false },
               { feature: "Take your data if you leave", us: true, them: false },
-              { feature: "Month-to-month contracts", us: true, them: false },
+              { feature: "No upfront setup fee", us: true, them: false },
               { feature: "Bing + Google under one strategy", us: true, them: false },
             ].map((row, i) => (
               <div key={row.feature} className={`grid grid-cols-3 text-sm ${i % 2 === 0 ? "bg-white" : "bg-gray-50/50"}`}>

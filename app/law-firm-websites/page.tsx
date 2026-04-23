@@ -255,7 +255,7 @@ export default function LawFirmWebsitesPage() {
               {
                 num: "2",
                 title: "We Build Your Conversion Engine",
-                desc: "Custom WordPress site designed mobile-first with attorney-reviewed content, E-E-A-T signals, and bar-compliant messaging. Live in 30 days.",
+                desc: "Custom StoryBrand-driven WordPress site designed mobile-first with attorney-reviewed content, E-E-A-T signals, and bar-compliant messaging. Live inside the 45-day Launchpad setup window.",
                 cta: "You review. We build.",
               },
               {

@@ -147,7 +147,7 @@ export default function CompetitorDensityCard({
                   <span className="text-white font-medium">
                     {topReviewComp.reviewCount} reviews
                   </span>
-                  . Google reviews are one of the strongest local ranking signals — firms with
+                  . Google reviews are one of the strongest local ranking signals, and firms with
                   more genuine reviews consistently outrank those without.
                 </p>
               </div>

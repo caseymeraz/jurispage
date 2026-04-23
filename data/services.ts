@@ -52,7 +52,7 @@ export const services: ServiceData[] = [
       { question: "Why should I trust you when I'm pitched by a new agency every week?", answer: "You should not trust us based on a pitch. You should evaluate us the same way you evaluate opposing counsel: on the record. Ask us for client references in your practice area. Ask for specific examples of firms where we increased organic case volume and by how much. Ask to see a sample monthly report so you know exactly what deliverables and metrics you will receive. We publish our pricing, we charge no upfront setup fee, and we give you access to every tool and account we use on your behalf. If an agency will not do all of those things, that tells you what you need to know." },
       { question: "How do you handle bar advertising compliance across different states?", answer: "Every piece of content, review request template, and marketing claim we produce is checked against your state bar's specific advertising rules before it goes live. Bar rules vary significantly; what is permissible in Texas may trigger a disciplinary complaint in New York. We maintain a reference library of state-specific requirements covering testimonials, case results, specialization claims, and solicitation rules. We have worked with firms in 40+ states. If you have been burned by an agency that published content your bar would not approve, you already know why this matters." },
     ],
-    whyMatters: "Three numbers explain why law firm SEO is not optional.\n\nFirst, cost per case. Google Ads for legal keywords run $50-$300 per click. At a 5-8% conversion rate, that is $600-$6,000 per consultation request — and the leads stop when you stop paying.\n\nOur clients reach an average cost per organic case inquiry of $412 by month 12, and that number keeps dropping. Over three years, blended organic cost per case runs 60-75% lower than paid acquisition.\n\nSecond, the compounding advantage. SEO is the only marketing channel that builds equity instead of renting attention. Every page, link, and review makes the next ranking easier.\n\nThe firms dominating your local results are not necessarily better lawyers — they started SEO earlier, and the gap compounds. A competitor cannot close that gap by simply outspending you on ads.\n\nThird, AI search is already sending referrals. Google AI Overviews appear on over 30% of legal searches. ChatGPT and Perplexity users are asking for lawyer recommendations by name and city.\n\nThese tools pull from the same trust signals as traditional SEO. Building real authority for traditional search automatically builds your visibility in AI search.\n\nFirms that ignore this are not just missing a new channel — they are ceding it to competitors who will be very difficult to displace later.",
+    whyMatters: "Three numbers explain why law firm SEO is not optional.\n\nFirst, cost per case. Google Ads for legal keywords run $50-$300 per click. At a 5-8% conversion rate, that is $600-$6,000 per consultation request, and the leads stop when you stop paying.\n\nOur clients reach an average cost per organic case inquiry of $412 by month 12, and that number keeps dropping. Over three years, blended organic cost per case runs 60-75% lower than paid acquisition.\n\nSecond, the compounding advantage. SEO is the only marketing channel that builds equity instead of renting attention. Every page, link, and review makes the next ranking easier.\n\nThe firms dominating your local results are not necessarily better lawyers, they started SEO earlier, and the gap compounds. A competitor cannot close that gap by simply outspending you on ads.\n\nThird, AI search is already sending referrals. Google AI Overviews appear on over 30% of legal searches. ChatGPT and Perplexity users are asking for lawyer recommendations by name and city.\n\nThese tools pull from the same trust signals as traditional SEO. Building real authority for traditional search automatically builds your visibility in AI search.\n\nFirms that ignore this are not just missing a new channel, they are ceding it to competitors who will be very difficult to displace later.",
     process: [
       {
         step: "Technical Audit",
@@ -68,7 +68,7 @@ export const services: ServiceData[] = [
       },
       {
         step: "Content Publishing",
-        detail: "We publish content targeting the exact questions your potential clients search. Each piece references specific state statutes, realistic timelines, and practical guidance — because thin generic content does not rank in legal categories. Every piece is structured for AI citation too.",
+        detail: "We publish content targeting the exact questions your potential clients search. Each piece references specific state statutes, realistic timelines, and practical guidance, because thin generic content does not rank in legal categories. Every piece is structured for AI citation too.",
       },
       {
         step: "Link Building",
@@ -80,7 +80,7 @@ export const services: ServiceData[] = [
       },
       {
         step: "Monthly Reporting",
-        detail: "Your monthly report answers one question: is SEO generating cases? You see qualified leads, cost per lead, and cases signed — not 20 slides of keyword charts. If a tactic is not producing results after 90 days, we change the approach and explain why.",
+        detail: "Your monthly report answers one question: is SEO generating cases? You see qualified leads, cost per lead, and cases signed, not 20 slides of keyword charts. If a tactic is not producing results after 90 days, we change the approach and explain why.",
       },
     ],
     stats: [
@@ -90,7 +90,7 @@ export const services: ServiceData[] = [
       { value: "$0", label: "Upfront setup fee" },
     ],
     signs: [
-      "You searched for your own practice area and city on Google and you are not on the first page — even though you have been practicing in that market for years.",
+      "You searched for your own practice area and city on Google and you are not on the first page, even though you have been practicing in that market for years.",
       "You spent $8,000 on Google Ads last month and signed three cases. $2,600 per client is not sustainable when competitors are getting leads from organic search for free.",
       "Your website gets 1,000+ monthly visitors but fewer than 5 consultation requests. The traffic is informational browsers, not people ready to hire a lawyer.",
       "Your last agency sent reports full of charts and jargon but could not answer a simple question: how many phone calls came from organic search last month?",
@@ -365,7 +365,7 @@ export const services: ServiceData[] = [
     tagline: "Get found by clients searching near you.",
     primaryKeyword: "local SEO for law firms",
     description: "Get into the Google map pack and dominate local search in your market. Google Business Profile optimization, citation building, review generation for law firms. 44% of local clicks go to the map pack.",
-    intro: "Local SEO for law firms gets your firm into the Google map pack — the three results with a map pin that appear at the very top of the page when someone searches 'personal injury lawyer near me' or 'divorce attorney [city].'\n\nIt includes optimizing your Google Business Profile, building consistent citations across legal directories, generating reviews, and creating location-specific content.\n\nGoogle reports that 46% of all searches carry local intent. For legal searches, that number is even higher.\n\nThe map pack captures 44% of all clicks for local queries. If your firm is not in that pack for your primary practice area and city, you are losing nearly half of the available cases before anyone even visits your website.",
+    intro: "Local SEO for law firms gets your firm into the Google map pack, the three results with a map pin that appear at the very top of the page when someone searches 'personal injury lawyer near me' or 'divorce attorney [city].'\n\nIt includes optimizing your Google Business Profile, building consistent citations across legal directories, generating reviews, and creating location-specific content.\n\nGoogle reports that 46% of all searches carry local intent. For legal searches, that number is even higher.\n\nThe map pack captures 44% of all clicks for local queries. If your firm is not in that pack for your primary practice area and city, you are losing nearly half of the available cases before anyone even visits your website.",
     features: [
       "Google Business Profile setup and ongoing optimization",
       "Local citation building (directories, legal listings)",
@@ -378,15 +378,15 @@ export const services: ServiceData[] = [
       { question: "How important is the Google map pack for law firms?", answer: "Extremely. Studies show that map pack results receive 44% of all clicks for local searches. For practice areas like personal injury, criminal defense, and family law, most clients search with local intent." },
       { question: "How do reviews affect local SEO rankings?", answer: "Review quantity, recency, and rating are all ranking signals for the map pack. We build a systematic review generation strategy as part of every local SEO engagement." },
     ],
-    whyMatters: "The map pack sits above every organic result on the page — above the ten blue links, above paid ads, and directly below the search bar where attention is highest.\n\nA firm that holds a top-three position for 'car accident lawyer [city]' is the first thing a potential client sees. That positioning alone drives call volume that paid search struggles to match.\n\nGoogle Business Profile optimization is the foundation. Selecting the correct primary category, setting accurate hours, uploading office photos, and publishing regular posts all signal an active, relevant practice.\n\nGoogle Reviews are a direct ranking factor. Firms with 4.5-star averages and 50+ reviews consistently outrank competitors with higher domain authority but fewer reviews.\n\nCitation consistency is the variable most firms underestimate. Your name, address, and phone number must match exactly across Avvo, Justia, FindLaw, Yelp, Bing Places, Apple Maps, and 70+ directories. Even minor variations suppress your rankings.\n\nCompared to Google Ads at $30-$150 per click, a sustained local SEO program typically produces a cost per case that is 40-60% lower once rankings stabilize.",
+    whyMatters: "The map pack sits above every organic result on the page, above the ten blue links, above paid ads, and directly below the search bar where attention is highest.\n\nA firm that holds a top-three position for 'car accident lawyer [city]' is the first thing a potential client sees. That positioning alone drives call volume that paid search struggles to match.\n\nGoogle Business Profile optimization is the foundation. Selecting the correct primary category, setting accurate hours, uploading office photos, and publishing regular posts all signal an active, relevant practice.\n\nGoogle Reviews are a direct ranking factor. Firms with 4.5-star averages and 50+ reviews consistently outrank competitors with higher domain authority but fewer reviews.\n\nCitation consistency is the variable most firms underestimate. Your name, address, and phone number must match exactly across Avvo, Justia, FindLaw, Yelp, Bing Places, Apple Maps, and 70+ directories. Even minor variations suppress your rankings.\n\nCompared to Google Ads at $30-$150 per click, a sustained local SEO program typically produces a cost per case that is 40-60% lower once rankings stabilize.",
     process: [
       {
         step: "Google Business Profile Audit and Optimization",
-        detail: "We audit your existing GBP or build one from scratch — covering category selection, business hours, services, photos, Q&A, and description. Most profiles we inherit score below 60% completion. We bring every profile to 100%, which alone produces measurable increases in views within 30-45 days.",
+        detail: "We audit your existing GBP or build one from scratch, covering category selection, business hours, services, photos, Q&A, and description. Most profiles we inherit score below 60% completion. We bring every profile to 100%, which alone produces measurable increases in views within 30-45 days.",
       },
       {
         step: "Citation Building and NAP Consistency",
-        detail: "We submit your firm to the highest-authority directories: Avvo, Justia, Martindale-Hubbell, FindLaw, Yelp, Bing Places, Apple Maps, and the four major data aggregators. Every submission matches your GBP exactly. We also audit and correct existing citations — 30 accurate citations outperform 200 inconsistent ones.",
+        detail: "We submit your firm to the highest-authority directories: Avvo, Justia, Martindale-Hubbell, FindLaw, Yelp, Bing Places, Apple Maps, and the four major data aggregators. Every submission matches your GBP exactly. We also audit and correct existing citations, 30 accurate citations outperform 200 inconsistent ones.",
       },
       {
         step: "Review Generation Workflow",
@@ -412,10 +412,10 @@ export const services: ServiceData[] = [
       { value: "113+", label: "Law firms helped dominate their local markets" },
     ],
     signs: [
-      "You Google your practice area and city and your firm does not appear in the map pack — even though smaller, newer competitors do.",
+      "You Google your practice area and city and your firm does not appear in the map pack, even though smaller, newer competitors do.",
       "Your Google Business Profile has fewer than 20 reviews. Your top competitor has 150+, with new ones every week.",
       "Your firm shows up on Google with an incorrect address, old phone number, or slightly different business name.",
-      "You practice in multiple cities but only have one office listed on Google — so you rank nowhere in the others.",
+      "You practice in multiple cities but only have one office listed on Google, so you rank nowhere in the others.",
       "Your GBP profile is missing photos, the services section is blank, and the description just says 'Law firm.'",
       "A client almost did not call because they saw an unanswered one-star review sitting at the top of your profile.",
     ],

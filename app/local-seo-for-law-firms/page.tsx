@@ -276,7 +276,7 @@ export default function LocalSeoPage() {
               "Local bar association link building",
               "Review generation integrated with intake",
               "Citation audit across 70+ directories",
-              "Month-to-month contracts",
+              "No upfront setup fee (costs spread over 24 months)",
               "Published pricing on website",
             ].map((feature, i) => (
               <div key={feature} className={`grid grid-cols-3 text-sm ${i % 2 === 0 ? "bg-white" : "bg-gray-50/50"}`}>

@@ -421,7 +421,7 @@ export default function ContentWritingB() {
               { feature: "Bar advertising rule compliance", us: true, them: false },
               { feature: "Content brief before writing starts", us: true, them: false },
               { feature: "90-day performance guarantee", us: true, them: false },
-              { feature: "Month-to-month contracts", us: true, them: false },
+              { feature: "No upfront setup fee (costs spread over 24 months)", us: true, them: false },
               { feature: "Published pricing on website", us: true, them: false },
               { feature: "FAQ schema for rich results", us: true, them: false },
               { feature: "You own all content if you leave", us: true, them: false },
@@ -608,7 +608,7 @@ export default function ContentWritingB() {
               See Full Pricing
             </Link>
           </div>
-          <p className="text-gray-500 text-xs mt-6">Month-to-month. 90-day guarantee. You own everything.</p>
+          <p className="text-gray-500 text-xs mt-6">24-month engagement, no upfront fee. 90-day guarantee. You own everything.</p>
         </div>
       </section>
     </>

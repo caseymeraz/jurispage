@@ -3,7 +3,7 @@ const steps = [
     number: "01",
     title: "Tell Us Where You Want to Grow",
     description:
-      "Book a free strategy call. Tell us your practice areas, your target markets, and how many cases you want to sign per month. No pitch deck — just a conversation about your goals.",
+      "Book a free strategy call. Tell us your practice areas, your target markets, and how many cases you want to sign per month. No pitch deck. Just a conversation about your goals.",
     icon: (
       <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
         <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
@@ -29,7 +29,7 @@ const steps = [
     number: "03",
     title: "Sign More Cases, Predictably",
     description:
-      "We execute the plan, report on cases generated — not vanity metrics — and optimize every month. You get a growing pipeline of qualified consultations that compounds over time, not a bill for clicks that stop the moment you stop paying.",
+      "We execute the plan, report on cases generated (not vanity metrics), and optimize every month. You get a growing pipeline of qualified consultations that compounds over time, not a bill for clicks that stop the moment you stop paying.",
     icon: (
       <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
         <polyline points="22 7 13.5 15.5 8.5 10.5 2 17" />

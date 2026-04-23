@@ -17,7 +17,7 @@ const comparisons: ComparisonItem[] = [
   {
     painPoint: "What Happens After You Sign",
     them: "Enthusiastic onboarding call, then radio silence. Your account gets handed to a junior coordinator. You email your 'strategist' and hear back 4 days later with a templated response.",
-    us: "Dedicated strategist with a named Slack channel. 90-day checkpoints with specific benchmarks. If we miss one, we change the strategy and explain why — same week.",
+    us: "Dedicated strategist with a named Slack channel. 90-day checkpoints with specific benchmarks. If we miss one, we change the strategy and explain why, same week.",
   },
   {
     painPoint: "How They Handle Your Content",

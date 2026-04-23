@@ -15,7 +15,7 @@ export default function RedPenVideo() {
             See What Your Competitors Don&apos;t Want You to Know
           </h2>
           <p className="text-gray-400 text-lg max-w-xl mx-auto">
-            We&apos;ll show you exactly where you&apos;re losing cases to competitors — and how to take them back.
+            We&apos;ll show you exactly where you&apos;re losing cases to competitors, and how to take them back.
           </p>
         </div>
 

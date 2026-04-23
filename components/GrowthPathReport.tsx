@@ -216,7 +216,7 @@ export default function GrowthPathReport({ data }: Props) {
             What your market looks like
           </h2>
           <p className="text-gray-400 text-sm mb-4">
-            Here&apos;s what potential clients in {city} are searching for — and where the opportunities are.
+            Here&apos;s what potential clients in {city} are searching for, and where the opportunities are.
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <MarketOpportunityCard
@@ -282,7 +282,7 @@ export default function GrowthPathReport({ data }: Props) {
             What people see when they search
           </h2>
           <p className="text-gray-400 text-sm mb-4">
-            This is what potential clients see when they search — this is what you&apos;re competing against.
+            This is what potential clients see when they search. This is what you&apos;re competing against.
           </p>
           <SerpScreenshotCard
             screenshots={serpScreenshots}
