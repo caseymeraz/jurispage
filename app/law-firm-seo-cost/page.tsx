@@ -193,7 +193,7 @@ export default function LawFirmSEOCostPage() {
               { item: "Guaranteed rankings", detail: "No ethical agency guarantees specific Google positions. Google controls rankings. Any guarantee is a red flag." },
               { item: "Content or websites you don't own", detail: "You should always own your website files and every piece of content published under your name. Ask explicitly before signing." },
               { item: "Vague monthly deliverables", detail: "If the agency can't tell you exactly what they will deliver each month, you're paying for effort rather than output." },
-              { item: "Multi-year contracts for a new relationship", detail: "A 24-month commitment to an agency you've never worked with is a significant financial risk. Prefer month-to-month or short initial terms." },
+              { item: "Huge upfront setup fees", detail: "An agency that demands thousands of dollars before your marketing has a chance to work shifts all the risk onto your firm. Well-designed engagements front-load the work but spread costs across the term, so you do not write a massive check before seeing a single lead." },
             ].map((item) => (
               <div key={item.item} className="flex gap-3 items-start bg-red-50 border border-red-100 rounded-xl p-4">
                 <span className="flex-shrink-0 text-red-500 font-bold mt-0.5">&#10005;</span>
@@ -216,15 +216,15 @@ export default function LawFirmSEOCostPage() {
             <div className="flex gap-4 items-center bg-gray-50 border border-gray-200 rounded-xl p-4">
               <div className="flex-shrink-0 w-24 font-heading font-bold text-gray-900 text-sm">Launchpad</div>
               <div className="font-heading font-bold text-xl" style={{ color: "#EE6C13" }}>$2,000+/mo</div>
-              <div className="text-gray-600 text-sm">For firms with 1–4 attorneys. Month-to-month, no long-term contracts.</div>
+              <div className="text-gray-600 text-sm">For small or startup firms with little to no online presence. 24-month engagement with no upfront setup fee. Full marketing foundation live in 45 days.</div>
             </div>
             <div className="flex gap-4 items-center bg-gray-50 border border-gray-200 rounded-xl p-4">
               <div className="flex-shrink-0 w-24 font-heading font-bold text-gray-900 text-sm">Juris Digital</div>
-              <div className="font-heading font-bold text-xl" style={{ color: "#EE6C13" }}>$5,000+/mo</div>
-              <div className="text-gray-600 text-sm">Full-service engagements for established firms with 5+ attorneys. <a href="https://jurisdigital.com" target="_blank" rel="noopener noreferrer" style={{ color: "#EE6C13" }}>jurisdigital.com</a></div>
+              <div className="font-heading font-bold text-xl" style={{ color: "#EE6C13" }}>$5,000 to $50,000+/mo</div>
+              <div className="text-gray-600 text-sm">Full-service engagements for established firms. <a href="https://jurisdigital.com" target="_blank" rel="noopener noreferrer" style={{ color: "#EE6C13" }}>jurisdigital.com</a></div>
             </div>
           </div>
-          <p className="text-gray-600 text-sm">Launchpad is month-to-month. <Link href="/services/pricing/" style={{ color: "#EE6C13" }}>See full Launchpad details and pricing →</Link></p>
+          <p className="text-gray-600 text-sm">Launchpad costs are spread evenly across the 24-month engagement, not charged as a large day-one fee. <Link href="/services/pricing/" style={{ color: "#EE6C13" }}>See full Launchpad details and pricing →</Link></p>
         </div>
       </article>
 

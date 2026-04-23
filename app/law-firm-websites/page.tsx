@@ -19,19 +19,19 @@ const D = "#1a1a2e";
 
 export const metadata: Metadata = {
   title: "Law Firm Website Design That Wins Cases, Not Just Compliments",
-  description: "Custom law firm websites that rank in Google, convert visitors into consultations, and make your phone ring. Live in 30 days. No contracts. You own everything.",
+  description: "Custom StoryBrand-driven law firm websites that rank in Google, convert visitors into consultations, and make your phone ring. Live in 45 days. No upfront fee. You own everything.",
   alternates: { canonical: "https://jurispage.com/law-firm-websites/" },
   openGraph: {
     title: "Law Firm Website Design That Wins Cases, Not Just Compliments",
-    description: "Custom law firm websites that rank in Google, convert visitors into consultations, and make your phone ring. Live in 30 days. No contracts. You own everything.",
+    description: "Custom StoryBrand-driven law firm websites that rank in Google, convert visitors into consultations, and make your phone ring. Live in 45 days. No upfront fee. You own everything.",
     url: "https://jurispage.com/law-firm-websites/",
   },
 };
 
 export default function LawFirmWebsitesPage() {
   const allFaqs = [
-    { question: "How much does a custom law firm website cost?", preview: "Launchpad starts at $2,000/mo. Includes website, content, SEO, and GBP setup.", answer: "JurisPage Launchpad starts at $2,000 per month and includes a custom WordPress website, practice area content, Google Business Profile setup, and ongoing SEO. For established firms with 5+ attorneys, JurisPage Pro partnerships start at $5,000 per month with a fully bespoke design and content strategy. All pricing is published on our website. No discovery calls required." },
-    { question: "How long does it take to design and launch a law firm website?", preview: "30 days for Launchpad. 45-60 days for custom redesigns.", answer: "Launchpad websites are live within 30 days of kickoff. That includes discovery, wireframes, design, content writing, development, and launch. Custom redesigns for established firms working with JurisPage Pro typically take 45 to 60 days depending on content readiness and revision cycles. We build attorney review time into the timeline so publication dates don't slip." },
+    { question: "How much does a custom law firm website cost?", preview: "Launchpad starts at $2,000/mo with no upfront fee. Includes brand design, StoryBrand website, content, SEO, and GBP setup.", answer: "JurisPage Launchpad starts at $2,000 per month over a 24-month engagement with no upfront setup fee. It includes brand design, a custom StoryBrand-driven WordPress website, practice area content, Google Business Profile setup, Yelp, Apple Maps, weekly social posting, and ongoing SEO. For established firms ready to invest $5,000 to $50,000+/month, Juris Digital partnerships deliver a fully bespoke design and content strategy. All Launchpad pricing is published on our website. No discovery calls required." },
+    { question: "How long does it take to design and launch a law firm website?", preview: "45 days for the full Launchpad foundation. 45-60 days for custom redesigns.", answer: "Launchpad websites go live inside the 45-day full setup window alongside brand design, GBP, Yelp, Apple Maps, citations, social profiles, weekly posting, and tracking. That includes discovery, wireframes, design, content writing, development, and launch. Custom redesigns for established firms working with Juris Digital typically take 45 to 60 days depending on content readiness and revision cycles. We build attorney review time into the timeline so publication dates don't slip." },
     { question: "Do I own the website once it's built?", preview: "Yes. 100%. Your domain, your WordPress site, your content. Take it anywhere.", answer: "Always. Your domain, your WordPress installation, your content. All 100% yours. Unlike agencies that host on proprietary platforms (Scorpion, FindLaw, Martindale), you can take your website to any hosting provider or any developer at any time. We don't hold websites hostage. If you leave, everything transfers cleanly." },
     { question: "Why WordPress instead of a proprietary platform?", preview: "Full ownership, massive developer ecosystem, and SEO control you can't get elsewhere.", answer: "WordPress powers over 40% of the web and gives you three things proprietary platforms can't: full ownership (you control the code, hosting, and content), a massive developer ecosystem (any developer can work on your site if you ever change agencies), and complete SEO control (custom schema, server-side caching, Core Web Vitals optimization). Proprietary platforms lock you into their ecosystem and limit what you can do with your own site." },
     { question: "What makes a law firm website different from a regular business website?", preview: "YMYL classification, bar advertising rules, and E-E-A-T requirements that most designers have never heard of.", answer: "Three things. First, Google classifies legal content as YMYL (Your Money or Your Life) and applies stricter quality standards. Your content needs verifiable attorney credentials and real legal expertise, not marketing copy. Second, bar advertising rules vary by state and restrict what you can say about case results, qualifications, and testimonials. Violations trigger disciplinary action. Third, E-E-A-T signals (Experience, Expertise, Authoritativeness, Trustworthiness) must be woven into every page. Attorney bio pages, case result formatting, and practice area depth all factor into how Google evaluates your site." },
@@ -222,8 +222,8 @@ export default function LawFirmWebsitesPage() {
         <div className="max-w-4xl mx-auto">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {[
-              { value: "30 days", label: "From kickoff to live website" },
-              { value: "100%", label: "You own your domain, site, and content" },
+              { value: "45 days", label: "From kickoff to full marketing foundation live" },
+              { value: "100%", label: "You own your domain, site, and all IP we create" },
               { value: "3x", label: "Average increase in contact form submissions" },
               { value: "113+", label: "Law firms we've built websites for" },
             ].map((stat) => (
@@ -323,12 +323,12 @@ export default function LawFirmWebsitesPage() {
               "YMYL and E-E-A-T expertise",
               "Bar advertising compliance built in",
               "You own the WordPress site",
-              "Month-to-month contracts",
+              "No upfront setup fee (costs spread across 24 months)",
               "Published pricing on website",
               "Attorney-reviewed content",
               "Practice area page architecture",
               "Schema markup (Attorney, FAQ, LawFirm)",
-              "30-day launch timeline",
+              "45-day full launch (website, GBP, Yelp, Apple Maps, social, tracking)",
             ].map((feature, i) => (
               <div key={feature} className={`grid grid-cols-3 text-sm ${i % 2 === 0 ? "bg-white" : "bg-gray-50/50"}`}>
                 <div className="px-5 py-3 text-gray-700 font-medium">{feature}</div>
@@ -394,11 +394,11 @@ export default function LawFirmWebsitesPage() {
               <div className="px-5 py-4 border-b border-gray-100">
                 <div className="text-[10px] font-bold uppercase tracking-widest mb-1" style={{ color: O }}>Launchpad</div>
                 <div className="font-heading font-extrabold text-gray-900 text-xl">$2,000<span className="text-sm font-normal text-gray-400">/mo</span></div>
-                <div className="text-xs text-gray-500 mt-1">Website included. Monthly service.</div>
+                <div className="text-xs text-gray-500 mt-1">Everything included. 24-month engagement, no upfront fee.</div>
               </div>
               <div className="px-5 py-4 space-y-2.5 text-sm flex-1">
-                <p className="text-gray-600 text-xs leading-relaxed mb-3">Best for solo attorneys and small firms (1-4 attorneys) who need a professional online presence fast.</p>
-                {["Custom WordPress website", "Practice area pages with SEO content", "Google Business Profile setup", "Local SEO foundation", "Attorney-reviewed content", "Live in 30 days", "Month-to-month. Cancel anytime."].map((f) => (
+                <p className="text-gray-600 text-xs leading-relaxed mb-3">Best for small or startup law firms with little to no online presence that need a professional foundation fast.</p>
+                {["Brand design (logo, typography, photography, graphics, brand guidelines)", "StoryBrand-driven WordPress website", "Practice area pages with SEO content", "Google Business Profile setup", "Yelp, Apple Maps, Bing, Avvo, and 30+ directories", "Weekly social media posting", "Attorney-reviewed content", "Full setup live in 45 days", "No upfront fee. Costs spread over 24 months."].map((f) => (
                   <div key={f} className="flex items-start gap-2 text-xs"><span style={{ color: "#27ae60" }}>&#x2713;</span> {f}</div>
                 ))}
               </div>
@@ -420,8 +420,8 @@ export default function LawFirmWebsitesPage() {
                 <div className="text-xs text-gray-500 mt-1">One-time build. You own everything.</div>
               </div>
               <div className="px-5 py-4 space-y-2.5 text-sm flex-1">
-                <p className="text-gray-600 text-xs leading-relaxed mb-3">For firms that want a custom StoryBrand-driven website or a highly interactive build tailored to their brand.</p>
-                {["Fully custom design and UX", "StoryBrand messaging framework", "Interactive elements and tools", "Attorney bios with full E-E-A-T", "Bar-compliant content throughout", "SEO architecture from day one", "Price depends on size and complexity"].map((f) => (
+                <p className="text-gray-600 text-xs leading-relaxed mb-3">For firms that want a fully bespoke website build or a highly interactive experience tailored to their brand (beyond the StoryBrand layout already included with Launchpad).</p>
+                {["Fully custom design and UX", "Custom messaging framework", "Interactive elements and tools", "Attorney bios with full E-E-A-T", "Bar-compliant content throughout", "SEO architecture from day one", "Price depends on size and complexity"].map((f) => (
                   <div key={f} className="flex items-start gap-2 text-xs"><span style={{ color: "#27ae60" }}>&#x2713;</span> {f}</div>
                 ))}
               </div>
@@ -432,15 +432,15 @@ export default function LawFirmWebsitesPage() {
               </div>
             </div>
 
-            {/* JurisPage Pro Ongoing */}
+            {/* Juris Digital Ongoing */}
             <div className="rounded-xl overflow-hidden flex flex-col" style={{ background: D }}>
               <div className="px-5 py-4 border-b border-gray-700">
-                <div className="text-[10px] font-bold uppercase tracking-widest mb-1" style={{ color: O }}>JurisPage Pro</div>
-                <div className="font-heading font-extrabold text-white text-xl">$5,000+<span className="text-sm font-normal text-gray-400">/mo</span></div>
+                <div className="text-[10px] font-bold uppercase tracking-widest mb-1" style={{ color: O }}>Juris Digital</div>
+                <div className="font-heading font-extrabold text-white text-xl">$5,000 to $50,000+<span className="text-sm font-normal text-gray-400">/mo</span></div>
                 <div className="text-xs text-gray-400 mt-1">Full-service marketing with website.</div>
               </div>
               <div className="px-5 py-4 space-y-2.5 text-sm text-gray-300 flex-1">
-                <p className="text-gray-400 text-xs leading-relaxed mb-3">For established firms (5+ attorneys) who want a custom website plus ongoing SEO, ads, and content strategy.</p>
+                <p className="text-gray-400 text-xs leading-relaxed mb-3">For established firms ready to invest $5,000 to $50,000+/month in a custom website plus ongoing SEO, ads, and content strategy.</p>
                 {["Everything in Launchpad, plus:", "Fully bespoke website design", "Full content strategy with topic mapping", "Google Ads management", "Link building and authority development", "Dedicated account strategist"].map((f) => (
                   <div key={f} className="flex items-start gap-2 text-xs"><span style={{ color: O }}>&#x2713;</span> {f}</div>
                 ))}
@@ -533,7 +533,7 @@ export default function LawFirmWebsitesPage() {
       {/* CTA */}
       <CTASection
         heading="Ready to Build a Website That Wins Cases?"
-        subtext="Custom law firm website in 30 days. 100% ownership. No long-term contracts. 113+ law firms served."
+        subtext="Custom StoryBrand-driven law firm website with full marketing foundation in 45 days. 100% ownership. No upfront setup fee. 113+ law firms served."
         primaryLabel="Book a Free Website Review"
         primaryHref="/contact/"
         secondaryLabel="See Transparent Pricing"

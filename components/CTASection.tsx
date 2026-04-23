@@ -11,7 +11,7 @@ interface CTASectionProps {
 
 export default function CTASection({
   heading = "Book Your Strategy Session",
-  subtext = "No long-term contracts. Transparent pricing. 113+ law firms served.",
+  subtext = "No upfront fee. Transparent pricing. 113+ law firms served.",
   primaryLabel = "Book Your Strategy Session",
   primaryHref = "/contact/",
   secondaryLabel = "See Pricing",

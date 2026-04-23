@@ -4,7 +4,7 @@ import SchemaOrg from "@/components/SchemaOrg";
 
 export const metadata: Metadata = {
   title: "Law Firm Content Writing That Converts Visitors Into Cases",
-  description: "Legal content that ranks in Google and makes your phone ring. Attorney-reviewed, jurisdiction-specific, bar-compliant. No contracts.",
+  description: "Legal content that ranks in Google and makes your phone ring. Attorney-reviewed, jurisdiction-specific, bar-compliant. No upfront fee.",
   alternates: { canonical: "https://jurispage.com/law-firm-content-writing/" },
 };
 
@@ -523,15 +523,16 @@ export default function ContentWritingB() {
               <div className="px-6 py-5 border-b border-gray-100">
                 <div className="text-xs font-bold uppercase tracking-widest mb-1" style={{ color: O }}>JurisPage Launchpad</div>
                 <div className="font-heading font-extrabold text-gray-900 text-2xl">Starting at $2,000<span className="text-base font-normal text-gray-400">/mo</span></div>
-                <div className="text-xs text-gray-500 mt-1">For solo attorneys and small firms (1-4 attorneys)</div>
+                <div className="text-xs text-gray-500 mt-1">For small or startup firms with little to no online presence</div>
               </div>
               <div className="px-6 py-5 space-y-3 text-sm">
-                <div className="flex items-start gap-2"><span style={{ color: "#27ae60" }}>&#x2713;</span> Custom law firm website</div>
+                <div className="flex items-start gap-2"><span style={{ color: "#27ae60" }}>&#x2713;</span> Brand design included (logo, typography, photography)</div>
+                <div className="flex items-start gap-2"><span style={{ color: "#27ae60" }}>&#x2713;</span> StoryBrand-driven WordPress website</div>
                 <div className="flex items-start gap-2"><span style={{ color: "#27ae60" }}>&#x2713;</span> Monthly SEO blog posts</div>
                 <div className="flex items-start gap-2"><span style={{ color: "#27ae60" }}>&#x2713;</span> Practice area page creation</div>
                 <div className="flex items-start gap-2"><span style={{ color: "#27ae60" }}>&#x2713;</span> Google Business Profile setup</div>
                 <div className="flex items-start gap-2"><span style={{ color: "#27ae60" }}>&#x2713;</span> Attorney review on all content</div>
-                <div className="flex items-start gap-2"><span style={{ color: "#27ae60" }}>&#x2713;</span> Month-to-month. No contracts.</div>
+                <div className="flex items-start gap-2"><span style={{ color: "#27ae60" }}>&#x2713;</span> No upfront setup fee. Costs spread across 24 months.</div>
               </div>
               <div className="px-6 pb-6">
                 <Link href="/launchpad/" className="block text-center px-6 py-3 rounded-full text-white font-bold text-sm no-underline" style={{ background: O }}>
@@ -540,12 +541,12 @@ export default function ContentWritingB() {
               </div>
             </div>
 
-            {/* JurisPage Pro */}
+            {/* Juris Digital */}
             <div className="rounded-xl overflow-hidden" style={{ background: D }}>
               <div className="px-6 py-5 border-b border-gray-700">
-                <div className="text-xs font-bold uppercase tracking-widest mb-1" style={{ color: O }}>JurisPage Pro</div>
-                <div className="font-heading font-extrabold text-white text-2xl">Starting at $5,000<span className="text-base font-normal text-gray-400">/mo</span></div>
-                <div className="text-xs text-gray-400 mt-1">For established firms (5+ attorneys) ready to dominate</div>
+                <div className="text-xs font-bold uppercase tracking-widest mb-1" style={{ color: O }}>Juris Digital</div>
+                <div className="font-heading font-extrabold text-white text-2xl">$5,000 to $50,000+<span className="text-base font-normal text-gray-400">/mo</span></div>
+                <div className="text-xs text-gray-400 mt-1">For established firms ready to dominate</div>
               </div>
               <div className="px-6 py-5 space-y-3 text-sm text-gray-300">
                 <div className="flex items-start gap-2"><span style={{ color: O }}>&#x2713;</span> Everything in Launchpad, plus:</div>
@@ -598,7 +599,7 @@ export default function ContentWritingB() {
       <section className="py-20 px-6 text-center" style={{ background: D }}>
         <div className="max-w-2xl mx-auto">
           <h2 className="font-heading font-extrabold text-white text-3xl mb-4">Ready to Build Content That Actually Works?</h2>
-          <p className="text-gray-400 mb-8">No contracts. No pressure. We will respond within one business day.</p>
+          <p className="text-gray-400 mb-8">No upfront fee. No pressure. We will respond within one business day.</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/contact/" className="px-8 py-4 rounded-full text-white font-bold text-sm no-underline transition-opacity hover:opacity-90" style={{ background: O }}>
               Book Your Strategy Session

@@ -307,7 +307,7 @@ export default function LocalSeoPage() {
                 <div className="text-xs text-gray-500 mt-1">Local SEO included with website, content, and GBP</div>
               </div>
               <div className="px-6 py-5 space-y-3 text-sm">
-                {["Google Business Profile optimization", "Citation building (70+ directories)", "Review generation workflow", "NAP consistency audit", "Local content pages", "Month-to-month. No contracts."].map((f) => (
+                {["Google Business Profile optimization", "Citation building (Yelp, Apple Maps, Bing, Avvo, and 70+ directories)", "Review generation workflow", "NAP consistency audit", "Local content pages", "No upfront setup fee. Costs spread across the 24-month Launchpad engagement."].map((f) => (
                   <div key={f} className="flex items-start gap-2"><span style={{ color: G }}>&#x2713;</span> {f}</div>
                 ))}
               </div>
@@ -317,8 +317,8 @@ export default function LocalSeoPage() {
             </div>
             <div className="rounded-xl overflow-hidden" style={{ background: D }}>
               <div className="px-6 py-5 border-b border-gray-700">
-                <div className="text-xs font-bold uppercase tracking-widest mb-1" style={{ color: O }}>JurisPage Pro</div>
-                <div className="font-heading font-extrabold text-white text-2xl">Starting at $5,000<span className="text-base font-normal text-gray-400">/mo</span></div>
+                <div className="text-xs font-bold uppercase tracking-widest mb-1" style={{ color: O }}>Juris Digital</div>
+                <div className="font-heading font-extrabold text-white text-2xl">$5,000 to $50,000+<span className="text-base font-normal text-gray-400">/mo</span></div>
                 <div className="text-xs text-gray-400 mt-1">Advanced local SEO with full marketing suite</div>
               </div>
               <div className="px-6 py-5 space-y-3 text-sm text-gray-300">
@@ -384,7 +384,7 @@ export default function LocalSeoPage() {
 
       <CTASection
         heading="Ready to Own the Map Pack in Your Market?"
-        subtext="Local SEO that produces a cost per case 40-60% lower than Google Ads. No contracts."
+        subtext="Local SEO that produces a cost per case 40-60% lower than Google Ads. No upfront fee."
         primaryLabel="Grade Your Local SEO Free"
         primaryHref="#scorecard"
         secondaryLabel="See Transparent Pricing"

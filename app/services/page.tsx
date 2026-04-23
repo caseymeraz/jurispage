@@ -50,7 +50,7 @@ export default function ServicesPage() {
             Law Firm Marketing Services
           </h1>
           <p className="text-gray-600 text-xl leading-relaxed">
-            Every service built for one industry. No generalist guesswork, no long-term contracts, no vanity metrics. Just transparent marketing that drives cases.
+            Every service built for one industry. No generalist guesswork, no upfront setup fee, no vanity metrics. Just transparent marketing that drives cases.
           </p>
         </div>
       </section>

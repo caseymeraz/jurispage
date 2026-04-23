@@ -25,9 +25,9 @@ const comparisons: ComparisonItem[] = [
     us: "Every page references specific statutes, realistic timelines, and practical guidance. Content is checked against your state bar's advertising rules before it goes live.",
   },
   {
-    painPoint: "Their Contract Structure",
-    them: "12-month contract with an auto-renewal buried in the fine print. You want to leave at month 6 because nothing is working? Pay the remaining 6 months anyway.",
-    us: "Month-to-month. No long-term contracts. We earn your business every 30 days. If we are not generating cases, you should leave — and you can.",
+    painPoint: "How They Structure Cost",
+    them: "Massive upfront setup fee on day one, plus a long contract with auto-renewal buried in the fine print. You pay thousands before the marketing has a chance to work.",
+    us: "No upfront fee. Costs spread across the 24-month engagement so you keep your cash. We front-load the work, not the billing, and your website is live in 45 days.",
   },
   {
     painPoint: "How They Build Links",
@@ -188,7 +188,7 @@ export default function ThemVsUs() {
           </div>
           <div>
             <p className="font-heading font-extrabold text-2xl md:text-3xl mb-1" style={{ color: "#EE6C13" }}>$0</p>
-            <p className="text-gray-400 text-xs">Long-term contract required</p>
+            <p className="text-gray-400 text-xs">Upfront setup fee required</p>
           </div>
           <div>
             <p className="font-heading font-extrabold text-2xl md:text-3xl text-white mb-1">40+</p>

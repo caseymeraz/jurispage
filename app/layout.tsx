@@ -67,7 +67,7 @@ export const metadata: Metadata = {
     default: "JurisPage - Law Firm Marketing That Gets Cases, Not Just Clicks",
     template: "%s | JurisPage",
   },
-  description: "JurisPage provides transparent, ethical digital marketing for law firms. SEO, Google Ads, website design, and GEO optimization. Month-to-month contracts, pricing published online.",
+  description: "JurisPage provides transparent, ethical digital marketing for law firms. SEO, Google Ads, website design, and GEO optimization. No upfront fee, pricing published online.",
   keywords: ["law firm marketing", "law firm SEO", "legal marketing agency", "attorney marketing", "lawyer SEO"],
   authors: [{ name: "JurisPage" }],
   creator: "JurisPage",

@@ -137,7 +137,7 @@ export default function ThreeStepProcess() {
             Book Your Free Strategy Call
           </a>
           <p className="text-gray-400 text-xs mt-3">
-            No contracts. No commitment. We respond within one business day.
+            Transparent pricing. No upfront fee. We respond within one business day.
           </p>
         </div>
       </div>

@@ -8,7 +8,6 @@ const PER_ATTORNEY = 500;
 const BIG_CITY_ADD = 1500;
 const PI_CITY_ADD = 1000;
 const CHATBOT_ADD = 299;
-const LOGO_ONETIME = 999;
 
 const PRACTICE_AREAS = [
   "Personal Injury",
@@ -46,13 +45,12 @@ function buildBreakdown(
   attorneys: number,
   practiceArea: string,
   citySize: CitySize,
-  chatbot: boolean,
-  logo: boolean
+  chatbot: boolean
 ): { label: string; amount: number; recurring: boolean }[] {
   const items: { label: string; amount: number; recurring: boolean }[] = [];
   const baseLabel =
     attorneys <= 2
-      ? "Base rate (1–2 attorneys)"
+      ? "Base rate (includes brand design, website, GBP, citations, social, tracking)"
       : `Base + ${attorneys - 2} additional ${attorneys - 2 === 1 ? "attorney" : "attorneys"}`;
   const baseAmount =
     attorneys <= 2 ? BASE_PRICE : BASE_PRICE + (attorneys - 2) * PER_ATTORNEY;
@@ -63,8 +61,6 @@ function buildBreakdown(
     items.push({ label: "Personal Injury competitive market", amount: PI_CITY_ADD, recurring: true });
   if (chatbot)
     items.push({ label: "AI Chatbot", amount: CHATBOT_ADD, recurring: true });
-  if (logo)
-    items.push({ label: "Custom Logo Design", amount: LOGO_ONETIME, recurring: false });
   return items;
 }
 
@@ -73,7 +69,6 @@ export default function LaunchpadCalculator() {
   const [practiceArea, setPracticeArea] = useState("");
   const [citySize, setCitySize] = useState<CitySize>("small");
   const [chatbot, setChatbot] = useState(false);
-  const [logo, setLogo] = useState(false);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [turnstileToken, setTurnstileToken] = useState("");
@@ -85,11 +80,11 @@ export default function LaunchpadCalculator() {
     () => (isCustom ? null : computeMonthly(attorneys, practiceArea, citySize, chatbot)),
     [attorneys, practiceArea, citySize, chatbot, isCustom]
   );
-  const oneTime = logo ? LOGO_ONETIME : 0;
+  const oneTime = 0;
 
   const breakdown = useMemo(
-    () => (isCustom ? [] : buildBreakdown(attorneys, practiceArea, citySize, chatbot, logo)),
-    [attorneys, practiceArea, citySize, chatbot, logo, isCustom]
+    () => (isCustom ? [] : buildBreakdown(attorneys, practiceArea, citySize, chatbot)),
+    [attorneys, practiceArea, citySize, chatbot, isCustom]
   );
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -105,7 +100,7 @@ export default function LaunchpadCalculator() {
           attorneys,
           practiceArea: practiceArea || "Not specified",
           citySize,
-          addons: { chatbot, logo },
+          addons: { chatbot, logo: false },
           monthlyTotal: monthly,
           oneTimeTotal: oneTime,
           isCustom,
@@ -144,7 +139,7 @@ export default function LaunchpadCalculator() {
               With 5+ attorneys, your firm doesn&apos;t need a foundation. You need a full-service growth partner that can help you dominate your market, sign more cases, and build a lasting legacy.
             </p>
             <p className="text-gray-600 leading-relaxed mb-6">
-              That&apos;s exactly what <a href="https://jurisdigital.com" target="_blank" rel="noopener noreferrer" className="text-gray-900 font-semibold underline hover:no-underline">Juris Digital</a> does. Same ownership, same data-driven approach, but built for established firms investing $5K–$20K+/month in growth.
+              That&apos;s exactly what <a href="https://jurisdigital.com" target="_blank" rel="noopener noreferrer" className="text-gray-900 font-semibold underline hover:no-underline">Juris Digital</a> does. Same ownership, same data-driven approach, but built for established firms investing $5,000 to $50,000+/month in growth.
             </p>
 
             <div className="bg-gray-50 rounded-xl p-5 border border-gray-200 mb-6">
@@ -225,9 +220,9 @@ export default function LaunchpadCalculator() {
                 <span className="text-gray-400 ml-1">/month</span>
               </div>
               <div className="text-right">
-                <p className="text-xs text-gray-500">Month-to-month</p>
-                <p className="text-xs text-gray-500">No long-term contract</p>
-                <p className="text-xs text-gray-500">90-day guarantee</p>
+                <p className="text-xs text-gray-500">24-month engagement</p>
+                <p className="text-xs text-gray-500">No upfront fee</p>
+                <p className="text-xs text-gray-500">Full setup in 45 days</p>
               </div>
             </div>
             {oneTime > 0 && (
@@ -356,7 +351,7 @@ export default function LaunchpadCalculator() {
         {!isCustom && (
           <div>
             <p className="text-sm font-bold text-gray-800 mb-1">Optional add-ons</p>
-            <p className="text-xs text-gray-400 mb-3">Enhance your campaign with these high-impact extras.</p>
+            <p className="text-xs text-gray-400 mb-3">Brand design, StoryBrand website, and weekly social posting are already included in your base price. Logo, typography, photography, graphics, social assets, and brand guidelines ship with every Launchpad engagement.</p>
             <div className="space-y-3">
               {[
                 {
@@ -366,14 +361,6 @@ export default function LaunchpadCalculator() {
                   label: "AI Lead Capture Chatbot",
                   price: "+$299/mo",
                   desc: "A 24/7 chatbot trained on your firm's practice areas. It answers questions, qualifies visitors, and routes hot leads directly to you, even at 2am.",
-                },
-                {
-                  key: "logo",
-                  checked: logo,
-                  toggle: () => setLogo((v) => !v),
-                  label: "Custom Logo & Brand Design",
-                  price: "+$999 one-time",
-                  desc: "A professionally designed logo, color palette, and typography system for your firm. Delivered within 10 business days.",
                 },
               ].map((addon) => (
                 <label
@@ -472,7 +459,7 @@ export default function LaunchpadCalculator() {
 
         <TurnstileWidget onVerify={setTurnstileToken} />
         <p className="text-center text-xs text-gray-400">
-          No commitment required. No spam. Just your pricing.
+          No strings attached. No spam. Just your pricing.
         </p>
       </form>
     </div>

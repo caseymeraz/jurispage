@@ -7,13 +7,12 @@ import CaseStudyCard from "@/components/CaseStudyCard";
 import ReviewRibbon from "@/components/ReviewRibbon";
 import YouTubeFacade from "@/components/YouTubeFacade";
 import CountUpStats from "@/components/CountUpStats";
-import HeroSearchAnimation from "@/components/HeroSearchAnimation";
 import { caseStudies } from "@/data/caseStudies";
 
 export const metadata: Metadata = {
   title: "Law Firm Marketing | Get More Cases | JurisPage",
   description:
-    "We help law firms show up online and get more cases. SEO, Google Ads, websites, and AI search built exclusively for attorneys. Month-to-month. Pricing published online.",
+    "We help law firms show up online and get more cases. SEO, Google Ads, websites, and AI search built exclusively for attorneys. No upfront fee. Pricing published online.",
   alternates: { canonical: "https://jurispage.com/" },
   openGraph: {
     title: "Law Firm Marketing | Get More Cases | JurisPage",
@@ -108,10 +107,10 @@ const wallOfProof = [
 const services = [
   { icon: "seo", title: "Law Firm SEO", description: "Rank higher in Google for the keywords that bring in qualified case inquiries. Technical, on-page, and link building done right.", href: "/law-firm-seo/" },
   { icon: "ads", title: "Google Ads", description: "Stop wasting budget on bad clicks. We build law firm PPC campaigns that convert searches into signed cases.", href: "/google-ads-for-law-firms/" },
-  { icon: "website", title: "Law Firm Websites", description: "Fast, credible, conversion-optimized websites built for law firms. Live in 30 days with the Launchpad package.", href: "/law-firm-websites/" },
+  { icon: "website", title: "Law Firm Websites", description: "Fast, credible, StoryBrand-driven websites built for law firms. Live in 45 days with the Launchpad package.", href: "/law-firm-websites/" },
   { icon: "local", title: "Local SEO", description: "Get into the Google map pack for searches in your market. The most cost-effective source of local legal leads.", href: "/local-seo-for-law-firms/" },
   { icon: "geo", title: "GEO / AI Search", description: "Get your firm cited inside ChatGPT, Perplexity, and AI Overviews. First-mover advantage before your competitors figure it out.", href: "/generative-engine-optimization-legal-marketing/" },
-  { icon: "launchpad", title: "Launchpad", description: "The complete marketing package for attorneys opening a new firm. Website, GBP, local SEO - live in 30 days.", href: "/launchpad/" },
+  { icon: "launchpad", title: "Launchpad", description: "The complete marketing package for small or startup law firms. Brand design, website, GBP, Yelp, Apple Maps, and weekly social all live in 45 days.", href: "/launchpad/" },
 ];
 
 const serviceIcons: Record<string, React.ReactNode> = {
@@ -152,59 +151,49 @@ export default function HomePage() {
       {/* ══════════════════════════════════════════
           1. HERO — The Character (Above the Fold)
           ══════════════════════════════════════════ */}
-      <section className="bg-white py-16 md:py-20 px-6">
-        <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-            {/* Left: Copy */}
-            <div>
-              {/* Google reviews badge */}
-              <a
-                href={GBP_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 bg-white border border-gray-200 rounded-full px-4 py-2 shadow-sm no-underline hover:shadow-md transition-shadow mb-6"
-              >
-                <svg width="16" height="16" viewBox="0 0 48 48"><path fill="#4285F4" d="M45.12 24.5c0-1.56-.14-3.06-.4-4.5H24v8.51h11.84c-.51 2.75-2.06 5.08-4.39 6.64v5.52h7.11c4.16-3.83 6.56-9.47 6.56-16.17z" /><path fill="#34A853" d="M24 46c5.94 0 10.92-1.97 14.56-5.33l-7.11-5.52c-1.97 1.32-4.49 2.1-7.45 2.1-5.73 0-10.58-3.87-12.31-9.07H4.34v5.7C7.96 41.07 15.4 46 24 46z" /><path fill="#FBBC05" d="M11.69 28.18C11.25 26.86 11 25.45 11 24s.25-2.86.69-4.18v-5.7H4.34C2.85 17.09 2 20.45 2 24c0 3.55.85 6.91 2.34 9.88l7.35-5.7z" /><path fill="#EA4335" d="M24 10.75c3.23 0 6.13 1.11 8.41 3.29l6.31-6.31C34.91 4.18 29.93 2 24 2 15.4 2 7.96 6.93 4.34 14.12l7.35 5.7c1.73-5.2 6.58-9.07 12.31-9.07z" /></svg>
-                <span className="text-yellow-400 text-sm leading-none">★★★★★</span>
-                <span className="text-gray-700 text-sm font-semibold">4.9</span>
-                <span className="text-gray-400 text-xs">on Google</span>
-              </a>
+      <section className="bg-white py-20 px-6">
+        <div className="max-w-5xl mx-auto text-center">
+          {/* Google reviews badge */}
+          <a
+            href={GBP_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 bg-white border border-gray-200 rounded-full px-4 py-2 shadow-sm no-underline hover:shadow-md transition-shadow mb-8"
+          >
+            <svg width="16" height="16" viewBox="0 0 48 48"><path fill="#4285F4" d="M45.12 24.5c0-1.56-.14-3.06-.4-4.5H24v8.51h11.84c-.51 2.75-2.06 5.08-4.39 6.64v5.52h7.11c4.16-3.83 6.56-9.47 6.56-16.17z" /><path fill="#34A853" d="M24 46c5.94 0 10.92-1.97 14.56-5.33l-7.11-5.52c-1.97 1.32-4.49 2.1-7.45 2.1-5.73 0-10.58-3.87-12.31-9.07H4.34v5.7C7.96 41.07 15.4 46 24 46z" /><path fill="#FBBC05" d="M11.69 28.18C11.25 26.86 11 25.45 11 24s.25-2.86.69-4.18v-5.7H4.34C2.85 17.09 2 20.45 2 24c0 3.55.85 6.91 2.34 9.88l7.35-5.7z" /><path fill="#EA4335" d="M24 10.75c3.23 0 6.13 1.11 8.41 3.29l6.31-6.31C34.91 4.18 29.93 2 24 2 15.4 2 7.96 6.93 4.34 14.12l7.35 5.7c1.73-5.2 6.58-9.07 12.31-9.07z" /></svg>
+            <span className="text-yellow-400 text-sm leading-none">★★★★★</span>
+            <span className="text-gray-700 text-sm font-semibold">4.9</span>
+            <span className="text-gray-400 text-xs">on Google</span>
+          </a>
 
-              <h1 className="font-heading font-extrabold text-gray-900 text-5xl md:text-6xl lg:text-7xl leading-[1.1] mb-6">
-                Get More Cases.
-              </h1>
+          <h1 className="font-heading font-extrabold text-gray-900 text-5xl md:text-7xl leading-[1.1] mb-6">
+            Get More Cases.
+          </h1>
 
-              <p className="text-gray-600 text-xl leading-relaxed mb-8 max-w-lg">
-                We build and market law firm websites that actually bring in clients. No jargon. No guesswork. Just cases.
-              </p>
+          <p className="text-gray-600 text-xl md:text-2xl leading-relaxed max-w-2xl mx-auto mb-10">
+            We build and market law firm websites that actually bring in clients. No jargon. No guesswork. Just cases.
+          </p>
 
-              <div className="flex flex-wrap items-center gap-4 mb-4">
-                <Link
-                  href="/growth-report/"
-                  className="inline-block font-heading font-bold text-white text-lg px-10 py-5 rounded-full no-underline hover:opacity-90 transition-opacity shadow-lg shadow-orange-200"
-                  style={{ background: "linear-gradient(135deg, #EE6C13, #982A0B)" }}
-                >
-                  Get My Growth Plan
-                </Link>
-                <Link
-                  href="/case-studies/"
-                  className="inline-block font-heading font-bold text-lg px-10 py-5 rounded-full no-underline border-2 transition-colors hover:bg-[#FEF3EC]"
-                  style={{ borderColor: "#EE6C13", color: "#EE6C13" }}
-                >
-                  See Our Results
-                </Link>
-              </div>
-
-              <p className="text-gray-400 text-sm">
-                No contracts. Transparent pricing. 113+ law firms served.
-              </p>
-            </div>
-
-            {/* Right: Interactive search animation */}
-            <div className="hidden md:block">
-              <HeroSearchAnimation />
-            </div>
+          <div className="flex flex-wrap items-center justify-center gap-4 mb-4">
+            <Link
+              href="/growth-report/"
+              className="inline-block font-heading font-bold text-white text-lg px-10 py-5 rounded-full no-underline hover:opacity-90 transition-opacity shadow-lg shadow-orange-200"
+              style={{ background: "linear-gradient(135deg, #EE6C13, #982A0B)" }}
+            >
+              Get My Growth Plan
+            </Link>
+            <Link
+              href="/case-studies/"
+              className="inline-block font-heading font-bold text-lg px-10 py-5 rounded-full no-underline border-2 transition-colors hover:bg-[#FEF3EC]"
+              style={{ borderColor: "#EE6C13", color: "#EE6C13" }}
+            >
+              See Our Results
+            </Link>
           </div>
+
+          <p className="text-gray-400 text-sm">
+            No upfront fees. Transparent pricing. 113+ law firms served.
+          </p>
         </div>
       </section>
 
@@ -287,7 +276,7 @@ export default function HomePage() {
             <div className="space-y-4">
               {[
                 { title: "Pricing Published Online", body: "We put our pricing on the website. No 45-minute sales call required to find out what anything costs." },
-                { title: "Month-to-Month Contracts", body: "No 12-month lock-ins. You stay because the results are there. You leave with 30 days notice if they're not." },
+                { title: "No Upfront Setup Fee", body: "We spread costs across the 24-month Launchpad engagement instead of charging a huge day-one fee. Keep your cash, get your marketing live in 45 days." },
                 { title: "100% Legal Focus", body: "We don't do e-commerce or restaurants. Every person on our team lives in legal marketing. That specialization is what makes the difference." },
               ].map((item) => (
                 <div key={item.title} className="bg-gray-50 rounded-xl p-5 border border-gray-200">
@@ -497,9 +486,9 @@ export default function HomePage() {
           ══════════════════════════════════════════ */}
       <CTASection
         heading="Ready to start getting the cases you deserve?"
-        subtext="No contracts. No jargon. Just a clear path to more cases."
+        subtext="No upfront fee. No jargon. Just a clear path to more cases."
         primaryLabel="Get My Growth Plan"
-        primaryHref="/growth-report/"
+        primaryHref="/contact/"
         secondaryLabel="See Pricing"
         secondaryHref="/services/pricing/"
       />

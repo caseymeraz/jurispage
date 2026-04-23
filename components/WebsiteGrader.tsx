@@ -161,7 +161,7 @@ export default function WebsiteGrader() {
           >
             Book a Free Website Review
           </Link>
-          <p className="text-xs text-gray-400">We will audit your site and show you exactly what to fix. No contracts. No obligation.</p>
+          <p className="text-xs text-gray-400">We will audit your site and show you exactly what to fix. No upfront fee. No obligation.</p>
         </div>
 
         {/* Retake */}

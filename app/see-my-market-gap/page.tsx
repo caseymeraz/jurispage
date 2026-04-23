@@ -71,7 +71,7 @@ const faqs = [
   {
     question: "Is this really free?",
     answer:
-      "Yes, completely free with no obligation. We built this tool because we believe law firms deserve to see real data before making any marketing decisions. There's no credit card, no contract, and no sales call required.",
+      "Yes, completely free with no obligation. We built this tool because we believe law firms deserve to see real data before making any marketing decisions. There's no credit card, no upfront fee, and no sales call required.",
   },
   {
     question: "What data sources do you use?",

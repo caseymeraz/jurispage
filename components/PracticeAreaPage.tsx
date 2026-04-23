@@ -404,7 +404,7 @@ export default function PracticeAreaPage({ practiceArea: pa }: PracticeAreaPageP
             ) : (
               <HeroForm
                 ctaLabel="Book Your Strategy Session"
-                subtext="No contracts. No commitment. We'll respond within one business day."
+                subtext="Transparent pricing. No upfront fee. We'll respond within one business day."
                 defaultPracticeArea={pa.primaryKeyword.split(" ")[0]}
               />
             )}
@@ -556,7 +556,7 @@ export default function PracticeAreaPage({ practiceArea: pa }: PracticeAreaPageP
           </div>
           <div className="mt-8 pt-8 border-t border-gray-700 grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
-              { color: "#EE6C13", title: "Month-to-Month", body: "No long-term contracts. Cancel anytime with 30 days notice." },
+              { color: "#EE6C13", title: "No Upfront Fee", body: "We spread costs across the 24-month Launchpad engagement, so you never pay a large setup fee up front." },
               { color: "#982A0B", title: "Published Pricing", body: "See exactly what you pay. No sales calls required." },
               { color: "#EE6C13", title: "90-Day Guarantee", body: "Results within 90 days or we work for free the next month." },
             ].map((item) => (
@@ -798,7 +798,7 @@ export default function PracticeAreaPage({ practiceArea: pa }: PracticeAreaPageP
       ) : (
         <CTASection
           heading={pa.ctaOverride?.heading ?? "Book Your Strategy Session"}
-          subtext={pa.ctaOverride?.subtext ?? `No long-term contracts. Transparent pricing. We've helped 113+ law firms grow - including ${displayKw.toLowerCase()} practices.`}
+          subtext={pa.ctaOverride?.subtext ?? `No upfront fee. Transparent pricing. We've helped 113+ law firms grow, including ${displayKw.toLowerCase()} practices.`}
           primaryLabel={pa.ctaOverride?.primaryLabel ?? "Book Your Strategy Session"}
           primaryHref="/contact/"
           secondaryLabel={pa.ctaOverride?.secondaryLabel ?? "See Pricing"}

@@ -108,7 +108,7 @@ export default function GoogleAdsForLawFirmsPage() {
             </div>
             <HeroForm
               ctaLabel="Get a Free Account Audit"
-              subtext="No contracts. No commitment. We'll respond within one business day."
+              subtext="Transparent pricing. No upfront fee. We'll respond within one business day."
               defaultPracticeArea=""
             />
           </div>
@@ -508,7 +508,7 @@ export default function GoogleAdsForLawFirmsPage() {
       {/* ── 14. CTA ── */}
       <CTASection
         heading="Ready to Stop Wasting Ad Spend?"
-        subtext="No long-term contracts. Transparent management. Results tracked to signed cases."
+        subtext="No upfront fee. Transparent management. Results tracked to signed cases."
         primaryLabel="Get a Free Account Audit"
         primaryHref="/contact/"
         secondaryLabel="See Our Results"

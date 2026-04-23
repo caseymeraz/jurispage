@@ -12,7 +12,7 @@ const G = "#27ae60";
 
 export const metadata: Metadata = {
   title: "Law Firm Email Marketing: Turn Past Clients Into Your Best Referral Source",
-  description: "Email marketing for law firms that turns dormant contact lists into a steady referral pipeline. Bar-compliant campaigns. $36 return per $1 spent. No contracts.",
+  description: "Email marketing for law firms that turns dormant contact lists into a steady referral pipeline. Bar-compliant campaigns. $36 return per $1 spent. No upfront fee.",
   alternates: { canonical: "https://jurispage.com/law-firm-email-marketing/" },
 };
 
@@ -344,7 +344,7 @@ export default function EmailMarketingPage() {
               "CRM integration and automation setup",
               "Monthly performance reporting",
               "100% legal industry focus",
-              "No long-term contracts",
+              "No upfront setup fee",
             ].map((feature, i) => (
               <div key={feature} className={`grid grid-cols-3 text-sm ${i % 2 === 0 ? "bg-white" : "bg-gray-50/50"}`}>
                 <div className="px-5 py-3 text-gray-700 font-medium">{feature}</div>
@@ -372,7 +372,7 @@ export default function EmailMarketingPage() {
                 <div className="text-xs text-gray-500 mt-1">Email marketing included with website, SEO, and GBP</div>
               </div>
               <div className="px-6 py-5 space-y-3 text-sm">
-                {["Monthly newsletter campaigns", "List setup and segmentation", "Bar-compliant templates", "CRM integration", "Performance reporting", "Month-to-month. No contracts."].map((f) => (
+                {["Monthly newsletter campaigns", "List setup and segmentation", "Bar-compliant templates", "CRM integration", "Performance reporting", "No upfront setup fee. Costs spread across the 24-month engagement."].map((f) => (
                   <div key={f} className="flex items-start gap-2"><span style={{ color: G }}>&#x2713;</span> {f}</div>
                 ))}
               </div>
@@ -385,8 +385,8 @@ export default function EmailMarketingPage() {
 
             <div className="rounded-xl overflow-hidden" style={{ background: D }}>
               <div className="px-6 py-5 border-b border-gray-700">
-                <div className="text-xs font-bold uppercase tracking-widest mb-1" style={{ color: O }}>JurisPage Pro</div>
-                <div className="font-heading font-extrabold text-white text-2xl">Starting at $5,000<span className="text-base font-normal text-gray-400">/mo</span></div>
+                <div className="text-xs font-bold uppercase tracking-widest mb-1" style={{ color: O }}>Juris Digital</div>
+                <div className="font-heading font-extrabold text-white text-2xl">$5,000 to $50,000+<span className="text-base font-normal text-gray-400">/mo</span></div>
                 <div className="text-xs text-gray-400 mt-1">Advanced email strategy with full marketing suite</div>
               </div>
               <div className="px-6 py-5 space-y-3 text-sm text-gray-300">

@@ -28,7 +28,7 @@ interface HeroFormProps {
 
 export default function HeroForm({
   ctaLabel,
-  subtext = "No contracts. No commitment.",
+  subtext = "Transparent pricing. No upfront fee.",
   defaultPracticeArea = "",
   formType = "standard",
 }: HeroFormProps) {

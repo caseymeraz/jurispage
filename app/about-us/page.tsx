@@ -29,8 +29,8 @@ const differences = [
     body: "We don't do e-commerce SEO. We don't run campaigns for restaurants or HVAC companies. Every single thing we do is built for law firms - the compliance considerations, the YMYL standards, the local map pack tactics that actually move the needle.",
   },
   {
-    title: "Month-to-Month Contracts",
-    body: "We don't lock you into 12-month agreements and collect a check whether you're happy or not. We operate month-to-month because we believe we should earn your business every single month.",
+    title: "No Upfront Setup Fee",
+    body: "We don't demand a huge day-one check before your marketing has a chance to work. We front-load the work (website, brand design, GBP, citations, social, tracking all live in 45 days) but spread the cost across the 24-month Launchpad engagement.",
   },
   {
     title: "Ethical SEO - No Shortcuts",
@@ -223,10 +223,10 @@ export default function AboutPage() {
               <tbody className="bg-white">
                 {[
                   ["Pricing transparency", "Published online", "Requires sales call", "Varies widely"],
-                  ["Contract terms", "Month-to-month", "12-month lock-in", "Month-to-month"],
+                  ["Upfront setup fee", "$0 (costs spread over 24 months)", "Thousands before launch", "Sometimes, sometimes not"],
                   ["Law firm focus", "100% legal only", "General or 'legal team'", "Rarely specialized"],
                   ["Proven results", "113+ law firms served", "Varies by team", "Hard to verify"],
-                  ["Starting price", "Starting at $2,000/mo", "$5,000 – $15,000+/mo", "Low cost, high risk"],
+                  ["Starting price", "$2,000/mo (Launchpad)", "$5,000 to $50,000+/mo", "Low cost, high risk"],
                 ].map(([feature, juris, large, free], i) => (
                   <tr key={feature} className={i % 2 === 0 ? "bg-gray-50" : "bg-white"}>
                     <td className="p-4 font-semibold text-gray-800">{feature}</td>
@@ -305,7 +305,7 @@ export default function AboutPage() {
 
       <CTASection
         heading="Ready to Grow Your Firm?"
-        subtext="No long-term contracts. No mystery pricing. No runaround. Just a straightforward conversation about what digital marketing can do for your law firm."
+        subtext="No upfront setup fee. No mystery pricing. No runaround. Just a straightforward conversation about what digital marketing can do for your law firm."
         primaryLabel="Book Your Strategy Session"
         primaryHref="/contact/"
       />

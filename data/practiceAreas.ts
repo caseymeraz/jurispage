@@ -125,7 +125,7 @@ export const practiceAreas: PracticeAreaData[] = [
       heading: "JurisPage vs. Big Legal Marketing Agencies",
       intro: "PI firms have options. Here is how we compare to the agencies spending millions on their own Google Ads to sell you on long-term contracts.",
       rows: [
-        { feature: "Contract Terms", jurispage: "Month-to-month. Cancel with 30 days notice.", bigAgency: "12-24 month contracts with auto-renewal clauses" },
+        { feature: "Cost Structure", jurispage: "No upfront fee. Costs spread across the 24-month Launchpad engagement.", bigAgency: "Large setup fees charged before any marketing goes live, then monthly fees on top" },
         { feature: "Pricing Transparency", jurispage: "Published pricing on our website. No sales call required.", bigAgency: "Custom quotes only after high-pressure sales process" },
         { feature: "Reporting Metrics", jurispage: "Signed cases, cost-per-case, intake call recordings", bigAgency: "Impressions, clicks, and traffic volume" },
         { feature: "Ad Account Ownership", jurispage: "You own your Google Ads and LSA accounts. Always.", bigAgency: "Agency owns accounts. You lose everything if you leave." },
@@ -158,7 +158,7 @@ export const practiceAreas: PracticeAreaData[] = [
     ],
     ctaOverride: {
       heading: "Talk to a PI Growth Strategist",
-      subtext: "Get a zero-risk audit of your current marketing. We will show you exactly where leads are leaking and what it would take to fix it. No contracts, no obligation. You will talk to a real person who understands PI, not a high-pressure salesperson.",
+      subtext: "Get a zero-risk audit of your current marketing. We will show you exactly where leads are leaking and what it would take to fix it. No upfront fee, no obligation. You will talk to a real person who understands PI, not a high-pressure salesperson.",
       primaryLabel: "Get Your Free Audit",
       secondaryLabel: "See Pricing",
     },

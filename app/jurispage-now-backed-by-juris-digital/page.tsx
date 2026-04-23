@@ -43,7 +43,7 @@ const changes = [
   {
     title: "Same mindset",
     description:
-      "Transparent pricing. Month-to-month contracts. Territory exclusivity. Nothing changes about how we work.",
+      "Transparent pricing. No upfront setup fee. Territory exclusivity. Nothing changes about how we work.",
   },
 ];
 
@@ -59,9 +59,9 @@ const standOutReasons = [
       "Competitors make you sit through a 45-minute call before telling you what anything costs. We publish our pricing.",
   },
   {
-    title: "Month-to-month",
+    title: "No upfront setup fee",
     description:
-      "No 12-month lockups. You stay because the results are there.",
+      "We spread costs across the 24-month Launchpad engagement so small and startup firms can afford the work without a massive day-one check.",
   },
 ];
 

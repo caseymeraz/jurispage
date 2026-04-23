@@ -85,7 +85,7 @@ export default async function NewsPage({ params }: Props) {
           <MDXRemote source={post.content} />
         </div>
       </article>
-      <CTASection heading="Meet the New JurisPage Team" subtext="We're building something worth trusting. No long-term contracts, transparent pricing, 100% legal focus." primaryLabel="Learn About JurisPage" primaryHref="/about-us/" />
+      <CTASection heading="Meet the New JurisPage Team" subtext="We're building something worth trusting. No upfront setup fee, transparent pricing, 100% legal focus." primaryLabel="Learn About JurisPage" primaryHref="/about-us/" />
     </>
   );
 }

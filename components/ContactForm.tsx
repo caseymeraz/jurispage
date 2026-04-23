@@ -269,7 +269,7 @@ export default function ContactForm() {
         <span>· 27 Google reviews</span>
       </a>
       <TurnstileWidget onVerify={setTurnstileToken} />
-      <p className="text-xs text-gray-500 text-center">No spam. No long-term commitment required to chat.</p>
+      <p className="text-xs text-gray-500 text-center">No spam. No obligation to have a conversation.</p>
     </form>
   );
 }

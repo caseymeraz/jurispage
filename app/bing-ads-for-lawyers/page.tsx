@@ -17,7 +17,7 @@ const B = "#0f4c81";
 
 export const metadata: Metadata = {
   title: "Bing Ads for Lawyers: Capture High-Asset Cases at 40% Lower Cost",
-  description: "Microsoft Advertising for law firms. 30-50% lower CPCs than Google, LinkedIn audience targeting, and Copilot AI integration. No contracts. You own your account.",
+  description: "Microsoft Advertising for law firms. 30-50% lower CPCs than Google, LinkedIn audience targeting, and Copilot AI integration. No upfront fee. You own your account.",
   alternates: { canonical: "https://jurispage.com/bing-ads-for-lawyers/" },
 };
 
@@ -300,11 +300,11 @@ export default function BingAdsPage() {
             <div className="rounded-xl bg-white border border-gray-200 overflow-hidden">
               <div className="px-6 py-5 border-b border-gray-100">
                 <div className="text-xs font-bold uppercase tracking-widest mb-1" style={{ color: O }}>Bing Ads Add-On</div>
-                <div className="font-heading font-extrabold text-gray-900 text-2xl">Included in JurisPage Pro</div>
-                <div className="text-xs text-gray-500 mt-1">Starting at $5,000/mo (total marketing investment)</div>
+                <div className="font-heading font-extrabold text-gray-900 text-2xl">Included in Juris Digital</div>
+                <div className="text-xs text-gray-500 mt-1">$5,000 to $50,000+/mo (total marketing investment)</div>
               </div>
               <div className="px-6 py-5 space-y-3 text-sm">
-                {["Microsoft Ads campaign setup", "LinkedIn audience targeting", "Copilot AI integration", "Cross-platform reporting", "Bing Places optimization (free bonus)", "Typical ad spend: $500-2,000/mo", "Month-to-month. No contracts."].map((f) => (
+                {["Microsoft Ads campaign setup", "LinkedIn audience targeting", "Copilot AI integration", "Cross-platform reporting", "Bing Places optimization (free bonus)", "Typical ad spend: $500-2,000/mo", "No upfront setup fee."].map((f) => (
                   <div key={f} className="flex items-start gap-2"><span style={{ color: G }}>&#x2713;</span> {f}</div>
                 ))}
               </div>

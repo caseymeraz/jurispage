@@ -22,7 +22,7 @@ const itemListSchema = {
   url: "https://jurispage.com/best-law-firm-seo-companies/",
   numberOfItems: 11,
   itemListElement: [
-    { "@type": "ListItem", position: 1, name: "JurisPage", url: "https://jurispage.com", description: "Transparent pricing, month-to-month contracts, 100% law firm focus. Best for small to mid-market firms." },
+    { "@type": "ListItem", position: 1, name: "JurisPage", url: "https://jurispage.com", description: "Transparent pricing, no upfront setup fee, 100% law firm focus. Best for small or startup law firms with little to no online presence." },
     { "@type": "ListItem", position: 2, name: "Juris Digital", url: "https://jurisdigital.com", description: "Full-service legal marketing for firms serious about market domination. Sister company to JurisPage under the same ownership." },
     { "@type": "ListItem", position: 3, name: "Rankings.io", url: "https://rankings.io", description: "Strong legal SEO agency with content-first approach for PI and mass tort firms." },
     { "@type": "ListItem", position: 4, name: "Grow Law Firm", url: "https://growlawfirm.com", description: "Data-driven legal marketing with measurable ROI reporting." },
@@ -44,7 +44,7 @@ const faqSchema = {
     { "@type": "Question", name: "How long does SEO take to work for law firms?", acceptedAnswer: { "@type": "Answer", text: "Most law firms see meaningful movement in rankings within 3-6 months, with significant lead flow improvements at the 6-12 month mark." } },
     { "@type": "Question", name: "Should I hire a law firm-specific SEO agency or a general agency?", acceptedAnswer: { "@type": "Answer", text: "For most law firms, a legal-specific SEO agency is the better choice due to E-E-A-T requirements, bar advertising rules, and practice area keyword structures." } },
     { "@type": "Question", name: "Do law firm SEO companies guarantee rankings?", acceptedAnswer: { "@type": "Answer", text: "No reputable SEO agency guarantees specific rankings. Google controls rankings, not agencies. Treat any ranking guarantee as a red flag." } },
-    { "@type": "Question", name: "What should I look for in a law firm SEO contract?", acceptedAnswer: { "@type": "Answer", text: "Look for month-to-month flexibility or at most a 6-month initial commitment. Confirm you own all content, website assets, and data if you leave." } },
+    { "@type": "Question", name: "What should I look for in a law firm SEO contract?", acceptedAnswer: { "@type": "Answer", text: "Look for transparent published pricing and an engagement structure that does not require a huge upfront setup fee before any marketing has a chance to work. Confirm you own all content, website assets, and IP if the relationship ends." } },
     { "@type": "Question", name: "How do I know if my law firm SEO agency is actually doing work?", acceptedAnswer: { "@type": "Answer", text: "Ask for monthly reports showing specific deliverables: content published, links built, technical fixes completed, and ranking changes for target keywords." } },
     { "@type": "Question", name: "What's the difference between a legal SEO agency and a general SEO agency?", acceptedAnswer: { "@type": "Answer", text: "Legal SEO has specific requirements: bar advertising ethics rules, E-E-A-T requirements for YMYL legal content, practice area keyword structures, and local map pack strategies specific to legal. Agencies that also do HVAC and dental have split focus and generic strategies." } },
     { "@type": "Question", name: "How do I evaluate whether a law firm SEO agency's case studies are real?", acceptedAnswer: { "@type": "Answer", text: "Look for case studies that name the client, state the specific market and practice area, show actual keyword rankings or traffic numbers, and include before-and-after comparisons. Ask if you can speak directly with current or former clients in your practice area." } },
@@ -55,7 +55,7 @@ const faqs = [
   { question: "How much does law firm SEO cost per month?", answer: "Law firm SEO costs typically range from $2,000 to $10,000+ per month depending on market competitiveness, practice area, and scope of work. Smaller firms in less competitive markets can see real results starting around $2,000/month. Firms in major metros competing for high-value personal injury keywords often need $5,000-$10,000/month or more." },
   { question: "How long does SEO take to work for law firms?", answer: "Most law firms see meaningful movement in rankings within 3-6 months of starting a solid SEO program, with significant lead flow improvements typically appearing at the 6-12 month mark. Competitive markets and high-authority practice areas like personal injury can take 12-18 months to reach top-3 rankings." },
   { question: "Should I hire a law firm-specific SEO agency or a general agency?", answer: "For most law firms, a legal-specific SEO agency is the better choice. Legal SEO has unique considerations: ethical advertising rules, E-E-A-T requirements for YMYL content, practice area keyword structures, and local map pack optimization that general agencies simply don't deal with every day." },
-  { question: "What should I look for in a law firm SEO contract?", answer: "Look for month-to-month flexibility or at most a 6-month initial commitment. Be cautious of 12-24 month contracts with steep cancellation penalties. Confirm that you own all content, website assets, and data if you leave." },
+  { question: "What should I look for in a law firm SEO contract?", answer: "Look for transparent published pricing and an engagement structure that does not require a huge upfront setup fee. Well-designed engagements spread setup costs across the term so small and startup firms can afford the work without a large day-one check. Be cautious of contracts that bill thousands before a single marketing asset goes live. Confirm that you own all content, website assets, and IP we create if the relationship ends." },
   { question: "Do law firm SEO companies guarantee rankings?", answer: "No reputable SEO agency guarantees specific rankings, and you should treat any guarantee as a red flag. Google controls rankings, not agencies. Agencies that promise 'Page 1 in 90 days' are either targeting very low-competition keywords or making promises they cannot keep." },
   { question: "How do I know if my law firm SEO agency is actually doing work?", answer: "Ask for monthly reports that show specific deliverables: how many pages of content were published, which links were built and from where, what technical fixes were completed, and how rankings changed for your target keywords. Vague reports showing only traffic graphs are a warning sign." },
   { question: "What's the difference between a legal SEO agency and a general SEO agency?", answer: "Legal SEO has specific requirements that general agencies often miss: state bar advertising rules that vary by jurisdiction, E-E-A-T requirements for YMYL (Your Money or Your Life) legal content, practice area keyword structures that differ completely from other industries, and local map pack optimization strategies that are specific to legal. An agency that also does HVAC, dental, and e-commerce has split attention and generic strategies. The best outcomes for law firms consistently come from agencies that work exclusively in legal." },
@@ -69,15 +69,15 @@ const agencies = [
     anchor: "jurispage",
     subtitle: "Best Overall for Small to Mid-Market Law Firms",
     meta: [
-      { label: "Best For", val: "Small to mid-market firms ($2,000–$5,000/month)" },
+      { label: "Best For", val: "Small or startup firms ($2,000 to $4,000/month)" },
       { label: "Starting Price", val: "Starting at $2,000/month" },
       { label: "Specialization", val: "100% law firms only" },
-      { label: "Contract", val: "Month-to-month" },
+      { label: "Cost Structure", val: "No upfront fee (costs spread across 24 months)" },
     ],
-    body: "JurisPage works exclusively with law firms and publishes its pricing publicly - something almost no other legal SEO agency does. With 113+ law firm clients and a strict month-to-month contract policy, the agency is built around earning retention rather than locking clients in.",
-    pros: ["Only major legal SEO agency with publicly listed pricing - no sales games", "Month-to-month contracts with no cancellation penalties", "100% legal focus means benchmarking against real legal competitors"],
-    cons: ["Not the right fit for firms with $10,000+/month enterprise budgets", "Newer brand name - long experience behind it, but less legacy name recognition", "Less name recognition than legacy agencies for committee-based vendor approval"],
-    bestFor: "Solo attorneys, small firms, and mid-market practices that want professional SEO without opaque pricing or long-term commitments.",
+    body: "JurisPage works exclusively with law firms and publishes its pricing publicly, something almost no other legal SEO agency does. With 113+ law firm clients, Launchpad is priced for small or startup firms with little to no online presence. We do not front-load costs: instead of a huge day-one setup fee, we spread costs evenly across a 24-month engagement so small firms can afford the work.",
+    pros: ["Only major legal SEO agency with publicly listed pricing, no sales games", "No upfront setup fee: costs spread across the 24-month engagement", "100% legal focus means benchmarking against real legal competitors", "Full marketing foundation live in 45 days (brand design, StoryBrand website, GBP, Yelp, Apple Maps, weekly social, tracking)"],
+    cons: ["Not the right fit for firms with $5,000+/month enterprise budgets (use Juris Digital instead)", "Newer brand name: long experience behind it, but less legacy name recognition", "Less name recognition than legacy agencies for committee-based vendor approval"],
+    bestFor: "Small or startup law firms with little to no online presence that want professional SEO without opaque pricing or a large upfront setup fee.",
     ctaHref: "/services/pricing/",
     ctaText: "See JurisPage Pricing",
     highlight: true,
@@ -90,7 +90,7 @@ const agencies = [
     anchor: "juris-digital",
     subtitle: "Best for Established Firms That Want to Dominate Their Market",
     meta: [
-      { label: "Best For", val: "Established and growth-stage firms ($5,000–$20,000+/month)" },
+      { label: "Best For", val: "Established and growth-stage firms ($5,000 to $50,000+/month)" },
       { label: "Starting Price", val: "Custom pricing (typically $5,000+/month)" },
       { label: "Specialization", val: "100% law firms" },
       { label: "Contract", val: "Flexible, ask about terms" },
@@ -334,7 +334,7 @@ export default function BestLawFirmSEOPage() {
             {[
               { flag: "Guaranteed rankings", detail: "No agency controls Google's algorithm. Any agency guaranteeing specific rankings is either targeting meaningless keywords or making a promise they have no ability to keep. This should be a hard stop in your evaluation." },
               { flag: "You don't own your website", detail: "Some agencies build your site on proprietary platforms. When you leave, you lose everything - the site, the content, the domain configuration. Always confirm in writing that you own your website files and can take them with you at any time." },
-              { flag: "Multi-year contracts for a new relationship", detail: "A 12- or 24-month contract with an agency you've never worked with is a significant financial risk. Reputable agencies with real results don't need long contracts to retain clients. Shorter initial commitments (month-to-month or 6 months maximum) are a better arrangement." },
+              { flag: "Huge upfront setup fees", detail: "An agency that demands thousands of dollars before your marketing has a chance to work shifts the risk entirely onto your firm. Well-designed engagements front-load the work but spread the cost across the term, so you are not writing a massive check before you see a single lead. Ask specifically: what do I owe on day one, and what is live 45 days after signing?" },
               { flag: "Vague monthly reports", detail: "If your monthly report shows a traffic graph and the phrase 'we continued optimizing your site,' you have a problem. You should know exactly what was delivered each month: which pages went live, which links were built and from where, and which technical issues were resolved." },
               { flag: "Promises about how fast SEO will work", detail: "Real legal SEO takes time. Agencies promising significant ranking improvements within 30 days are either targeting low-competition terms that won't generate business or misleading you. Expect 3-6 months before meaningful ranking movement and 6-12 months for lead flow improvement in most markets." },
               { flag: "Pricing that requires a sales call", detail: "If the agency can't put a number on their website, ask yourself why. The answer is almost always that pricing is negotiated based on what they think you'll pay, not what services actually cost. Published pricing is a transparency signal." },
@@ -361,7 +361,7 @@ export default function BestLawFirmSEOPage() {
               </thead>
               <tbody>
                 {[
-                  { name: "JurisPage ⭐", price: "From $2,000/mo", legal: "Yes", contract: "Month-to-month", best: "Small to mid-market", highlight: true },
+                  { name: "JurisPage ⭐", price: "From $2,000/mo (no upfront fee)", legal: "Yes", contract: "24-month engagement, costs spread", best: "Small or startup firms", highlight: true },
                   { name: "Juris Digital ⚠️ (sister co.)", price: "$5,000+/mo", legal: "Yes", contract: "Flexible", best: "Enterprise & market dominators", highlight: false },
                   { name: "Rankings.io", price: "~$5,000/mo", legal: "Yes", contract: "6-12 month", best: "PI firms", highlight: false },
                   { name: "Grow Law Firm", price: "~$3,000/mo", legal: "Yes", contract: "Varies", best: "Data-focused firms", highlight: false },
@@ -497,7 +497,7 @@ export default function BestLawFirmSEOPage() {
 
       <CTASection
         heading="Ready to See What JurisPage Can Do for Your Firm?"
-        subtext="No long-term contracts. No hidden pricing. Just straightforward SEO built exclusively for law firms."
+        subtext="No upfront setup fee. No hidden pricing. Just straightforward SEO built exclusively for law firms."
         primaryLabel="See Transparent Pricing"
         primaryHref="/services/pricing/"
         secondaryLabel="Book Your Strategy Session"

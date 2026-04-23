@@ -151,7 +151,7 @@ export default function PracticeAreaServicePage({
 
             <HeroForm
               ctaLabel="Book Your Strategy Session"
-              subtext="No contracts. No commitment. We'll respond within one business day."
+              subtext="Transparent pricing. No upfront fee. We'll respond within one business day."
               defaultPracticeArea={pa.primaryKeyword.split(" ")[0]}
             />
           </div>
@@ -422,7 +422,7 @@ export default function PracticeAreaServicePage({
       {/* ── CTA ──────────────────────────────────────────────────────────── */}
       <CTASection
         heading={`Ready to Grow Your ${pa.practiceNoun ?? pa.primaryKeyword} Practice?`}
-        subtext={`Get a custom ${service.heading.toLowerCase()} strategy built for your firm. No contracts, no fluff, just results.`}
+        subtext={`Get a custom ${service.heading.toLowerCase()} strategy built for your firm. No upfront fee, no fluff, just results.`}
         primaryLabel="Book a Free Strategy Session"
         primaryHref="/contact/"
         secondaryLabel={`See All ${pa.practiceNoun ?? pa.primaryKeyword} Marketing Services`}

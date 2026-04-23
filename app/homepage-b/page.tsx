@@ -11,7 +11,7 @@ import { caseStudies } from "@/data/caseStudies";
 export const metadata: Metadata = {
   title: "Law Firm Marketing Agency | JurisPage",
   description:
-    "Law firm marketing that measures success by cases signed, not rankings reported. SEO, Google Ads, websites, and AI search for attorneys. Month-to-month. Pricing published online.",
+    "Law firm marketing that measures success by cases signed, not rankings reported. SEO, Google Ads, websites, and AI search for attorneys. No upfront fee. Pricing published online.",
   robots: { index: false, follow: false },
 };
 
@@ -43,10 +43,10 @@ const services = [
   },
   {
     title: "Law Firm Websites",
-    description: "Fast, mobile-first, conversion-optimized. Built for attorneys, live in 30 days. You own the code.",
+    description: "Fast, mobile-first, StoryBrand-driven. Built for attorneys, live in 45 days alongside the full marketing foundation. You own the code.",
     href: "/law-firm-websites/",
-    stat: "30",
-    statLabel: "days to launch",
+    stat: "45",
+    statLabel: "days to full launch",
   },
   {
     title: "Local SEO",
@@ -64,7 +64,7 @@ const services = [
   },
   {
     title: "Launchpad",
-    description: "The complete marketing package for attorneys opening a new firm. Website, Google Business Profile, local SEO. Live in 30 days.",
+    description: "Complete marketing package for small or startup law firms. Brand design, StoryBrand website, GBP, Yelp, Apple Maps, weekly social. Live in 45 days.",
     href: "/launchpad/",
     stat: "$2K",
     statLabel: "/mo starting price",
@@ -180,7 +180,7 @@ export default function HomepageB() {
               </Link>
             </div>
 
-            <p className="text-gray-600 text-sm">No contracts. No mystery pricing. No wasted budget.</p>
+            <p className="text-gray-600 text-sm">No upfront fee. No mystery pricing. No wasted budget.</p>
           </div>
         </div>
 
@@ -247,7 +247,7 @@ export default function HomepageB() {
                 Every dollar we spend is tied to qualified leads generated, cost per lead, and cases signed. If we cannot connect our work to your intake, we have not done our job.
               </p>
               <p className="text-gray-600 leading-relaxed">
-                Month-to-month contracts mean we earn your business every 30 days. Pricing is published online. No discovery calls required.
+                No upfront setup fee. Costs are spread across a 24-month Launchpad engagement so small and startup firms can afford the work without a large day-one check. Pricing is published online. No discovery calls required.
               </p>
             </div>
           </div>
@@ -367,8 +367,8 @@ export default function HomepageB() {
               },
               {
                 number: "02",
-                title: "Month-to-month",
-                body: "No 12-month lock-ins. You stay because the results are there. Cancel with 30 days notice.",
+                title: "No upfront fee",
+                body: "We spread costs across the 24-month Launchpad engagement instead of charging a huge day-one setup fee. Keep your cash, get your marketing live in 45 days.",
                 link: null,
               },
               {

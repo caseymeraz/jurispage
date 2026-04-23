@@ -331,7 +331,7 @@ export default function GeoPage() {
       <section className="py-16 px-6 bg-gray-50">
         <div className="max-w-4xl mx-auto">
           <h2 className="font-heading font-extrabold text-gray-900 text-3xl mb-3 text-center">Pricing</h2>
-          <p className="text-gray-500 text-center mb-10">GEO is included in JurisPage Pro. Foundational GEO starts in Launchpad.</p>
+          <p className="text-gray-500 text-center mb-10">Full GEO is included in Juris Digital. Foundational GEO starts in Launchpad.</p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="rounded-xl bg-white border border-gray-200 overflow-hidden">
@@ -341,7 +341,7 @@ export default function GeoPage() {
                 <div className="text-xs text-gray-500 mt-1">Foundational GEO included with website and SEO</div>
               </div>
               <div className="px-6 py-5 space-y-3 text-sm">
-                {["Schema markup (LegalService, Person, FAQ)", "E-E-A-T content on attorney bios", "Structured Q&A content", "Google Business Profile optimization", "Month-to-month. No contracts."].map((f) => (
+                {["Schema markup (LegalService, Person, FAQ)", "E-E-A-T content on attorney bios", "Structured Q&A content", "Google Business Profile optimization", "No upfront setup fee. Costs spread across the 24-month engagement."].map((f) => (
                   <div key={f} className="flex items-start gap-2"><span style={{ color: G }}>&#x2713;</span> {f}</div>
                 ))}
               </div>
@@ -352,8 +352,8 @@ export default function GeoPage() {
 
             <div className="rounded-xl overflow-hidden" style={{ background: D }}>
               <div className="px-6 py-5 border-b border-gray-700">
-                <div className="text-xs font-bold uppercase tracking-widest mb-1" style={{ color: O }}>JurisPage Pro (Full GEO)</div>
-                <div className="font-heading font-extrabold text-white text-2xl">Starting at $5,000<span className="text-base font-normal text-gray-400">/mo</span></div>
+                <div className="text-xs font-bold uppercase tracking-widest mb-1" style={{ color: O }}>Juris Digital (Full GEO)</div>
+                <div className="font-heading font-extrabold text-white text-2xl">$5,000 to $50,000+<span className="text-base font-normal text-gray-400">/mo</span></div>
                 <div className="text-xs text-gray-400 mt-1">Complete GEO strategy with monitoring and digital PR</div>
               </div>
               <div className="px-6 py-5 space-y-3 text-sm text-gray-300">

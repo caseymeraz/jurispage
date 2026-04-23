@@ -73,7 +73,6 @@ export async function POST(req: NextRequest) {
             <tr><td style="padding: 8px 12px; border: 1px solid #e5e7eb; font-weight: bold; background: #f9fafb;">Practice Area</td><td style="padding: 8px 12px; border: 1px solid #e5e7eb; background: #f9fafb;">${practiceArea}</td></tr>
             <tr><td style="padding: 8px 12px; border: 1px solid #e5e7eb; font-weight: bold; background: #fff;">Target City</td><td style="padding: 8px 12px; border: 1px solid #e5e7eb; background: #fff;">${cityLabel}</td></tr>
             <tr><td style="padding: 8px 12px; border: 1px solid #e5e7eb; font-weight: bold; background: #f9fafb;">AI Chatbot</td><td style="padding: 8px 12px; border: 1px solid #e5e7eb; background: #f9fafb;">${addons?.chatbot ? "Yes (+$299/mo)" : "No"}</td></tr>
-            <tr><td style="padding: 8px 12px; border: 1px solid #e5e7eb; font-weight: bold; background: #fff;">Logo Design</td><td style="padding: 8px 12px; border: 1px solid #e5e7eb; background: #fff;">${addons?.logo ? "Yes (+$999 one-time)" : "No"}</td></tr>
             <tr style="background: #fef3ec;">
               <td style="padding: 10px 12px; border: 1px solid #e5e7eb; font-weight: bold;">Estimated Monthly</td>
               <td style="padding: 10px 12px; border: 1px solid #e5e7eb; font-weight: bold; color: #EE6C13; font-size: 18px;">${isCustom ? "Custom Pricing" : `$${monthlyTotal?.toLocaleString()}/mo`}</td>
@@ -114,7 +113,7 @@ export async function POST(req: NextRequest) {
           <div style="padding: 32px; background: #ffffff;">
             <p style="color: #374151;">Hi ${name},</p>
             <p style="color: #555; line-height: 1.7;">Thanks for reaching out. With 5+ attorneys, your firm has outgrown a foundation package. You need a full-service growth partner that can help you dominate your market, sign more cases, and build a lasting legacy.</p>
-            <p style="color: #555; line-height: 1.7;">That's where <strong>Juris Digital</strong> comes in. Same parent company as JurisPage, same data-driven approach, but built specifically for established firms investing <strong>$5,000 to $20,000+/month</strong> in growth.</p>
+            <p style="color: #555; line-height: 1.7;">That's where <strong>Juris Digital</strong> comes in. Same parent company as JurisPage, same data-driven approach, but built specifically for established firms investing <strong>$5,000 to $50,000+/month</strong> in growth.</p>
             <div style="background: #f9fafb; border-radius: 12px; padding: 20px 24px; margin: 24px 0; border: 1px solid #e5e7eb;">
               <p style="font-size: 11px; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; color: #9ca3af; margin: 0 0 12px;">What Juris Digital Delivers</p>
               <ul style="color: #555; font-size: 14px; margin: 0; padding-left: 18px; line-height: 2;">
@@ -145,7 +144,7 @@ export async function POST(req: NextRequest) {
           </div>
           <div style="padding: 32px; background: #ffffff;">
             <p style="color: #374151;">Hi ${name},</p>
-            <p style="color: #555; line-height: 1.7;">Here's your personalized Launchpad pricing based on what you told us. This is your all-in monthly investment: no hidden fees, no long-term contract.</p>
+            <p style="color: #555; line-height: 1.7;">Here's your personalized Launchpad pricing based on what you told us. This is your all-in monthly investment: no hidden fees, no upfront setup fee. Costs are spread across a 24-month engagement so small and startup firms can afford the work without a large day-one check.</p>
 
             <div style="background: #f9fafb; border-radius: 12px; padding: 24px; margin: 24px 0; border: 1px solid #e5e7eb;">
               <p style="font-size: 11px; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; color: #9ca3af; margin: 0 0 16px;">Your Pricing Details</p>
@@ -153,25 +152,27 @@ export async function POST(req: NextRequest) {
               <p style="margin: 6px 0; color: #555; font-size: 14px;">Practice area: <strong>${practiceArea}</strong></p>
               <p style="margin: 6px 0; color: #555; font-size: 14px;">Target market: <strong>${cityLabel}</strong></p>
               ${addons?.chatbot ? '<p style="margin: 6px 0; color: #555; font-size: 14px;">+ AI Lead Capture Chatbot: <strong>$299/mo</strong></p>' : ""}
-              ${addons?.logo ? '<p style="margin: 6px 0; color: #555; font-size: 14px;">+ Custom Logo Design: <strong>$999 one-time</strong></p>' : ""}
               <div style="border-top: 1px solid #e5e7eb; margin-top: 20px; padding-top: 20px;">
                 <p style="font-size: 36px; font-weight: 900; color: #EE6C13; margin: 0; font-family: Arial, sans-serif;">$${monthlyTotal?.toLocaleString()}<span style="font-size: 16px; color: #9ca3af; font-weight: normal;">/month</span></p>
-                ${oneTimeTotal > 0 ? `<p style="color: #6b7280; font-size: 14px; margin: 6px 0 0;">+ $${oneTimeTotal?.toLocaleString()} one-time</p>` : ""}
+                <p style="color: #6b7280; font-size: 13px; margin: 6px 0 0;">24-month engagement. No upfront fee. Full setup in 45 days.</p>
               </div>
             </div>
 
-            <p style="color: #555; font-size: 14px; line-height: 1.7;">This is a transparent, fixed price: no guesswork, no surprises. <strong>Month-to-month. Cancel anytime with 30 days notice.</strong> And if we don't show measurable results within 90 days, we work for free until we do.</p>
+            <p style="color: #555; font-size: 14px; line-height: 1.7;">How we keep the price this low: 15+ years of legal SEO expertise paired with automation and generative AI. We front-load the work (not the billing) so your website, GBP, citations, social profiles, and tracking are all live inside 45 days. Client time commitment: a 30-minute kickoff call plus roughly a few hours across the first 45 days to sign off on designs and content topics.</p>
+            <p style="color: #555; font-size: 14px; line-height: 1.7;">You will own everything we build. All IP we create for you is owned by you.</p>
             <p style="color: #555; font-size: 14px; line-height: 1.7;">Book a strategy call to confirm this pricing matches your firm's growth goals.</p>
 
             <div style="background: #f0fdf4; border-left: 4px solid #22c55e; padding: 16px 20px; border-radius: 0 8px 8px 0; margin: 24px 0;">
               <p style="color: #166534; font-size: 14px; font-weight: bold; margin: 0 0 4px;">What's included in Launchpad:</p>
               <ul style="color: #166534; font-size: 13px; margin: 0; padding-left: 18px; line-height: 1.8;">
-                <li>Professional website (live within 45 days)</li>
-                <li>Google Business Profile setup and optimization</li>
-                <li>Keyword research and SEO content production</li>
-                <li>Local directory and citation building</li>
-                <li>Social media profile setup</li>
-                <li>Ongoing monthly reporting and content updates</li>
+                <li>Brand Design: logo, typography, photography, graphics, social assets, brand guidelines</li>
+                <li>StoryBrand-driven WordPress website (live within 45 days)</li>
+                <li>Google Business Profile setup, verification, and optimization</li>
+                <li>Local ecosystem: Yelp, Apple Maps, Bing, Avvo, and 30+ directory listings</li>
+                <li>Social profile setup and weekly social media posting</li>
+                <li>Keyword research and content production for target practice areas</li>
+                <li>Performance tracking from day one</li>
+                <li>Monthly content refreshes and reporting</li>
               </ul>
             </div>
 

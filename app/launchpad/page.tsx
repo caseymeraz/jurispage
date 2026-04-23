@@ -8,7 +8,7 @@ import ReviewRibbon from "@/components/ReviewRibbon";
 
 export const metadata: Metadata = {
   title: "Launchpad: Law Firm Marketing Foundation Starting at $2,000/mo",
-  description: "Get instant pricing for JurisPage Launchpad: website, SEO, GBP, and ongoing management built for small law firms. Transparent pricing, no contracts. See your exact number now.",
+  description: "Get instant pricing for JurisPage Launchpad: brand design, StoryBrand website, SEO, GBP, Yelp, Apple Maps, and weekly social posting for small or startup law firms. Transparent pricing, no upfront fee. See your exact number now.",
   alternates: { canonical: "https://jurispage.com/launchpad/" },
 };
 
@@ -16,12 +16,15 @@ const faqSchema = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
   mainEntity: [
-    { "@type": "Question", name: "How is Launchpad priced?", acceptedAnswer: { "@type": "Answer", text: "Launchpad is priced based on your firm size and market. It starts at $2,000/month for firms with 1–2 attorneys. Use the pricing calculator on this page to see your exact number in under a minute." } },
-    { "@type": "Question", name: "Are there long-term contracts?", acceptedAnswer: { "@type": "Answer", text: "No. Launchpad is month-to-month. Give us 30 days notice and you're done." } },
-    { "@type": "Question", name: "How quickly can my campaign launch?", acceptedAnswer: { "@type": "Answer", text: "Full setup is completed within the first 45 days: website, GBP, local SEO, social profiles, and all initial content." } },
-    { "@type": "Question", name: "Will I own my website and content?", acceptedAnswer: { "@type": "Answer", text: "Always. Your domain, your website, your content. All yours. If you ever leave JurisPage, everything transfers cleanly." } },
+    { "@type": "Question", name: "How is Launchpad priced?", acceptedAnswer: { "@type": "Answer", text: "Launchpad starts at $2,000/month over a 24-month engagement, with a typical range of $2,000 to $4,000/month depending on firm size and market. There is no upfront setup fee: costs are spread across the 24 months so small and startup firms can afford the work without a large day-one check. Use the pricing calculator on this page to see your exact number in under a minute." } },
+    { "@type": "Question", name: "How long is the engagement?", acceptedAnswer: { "@type": "Answer", text: "Launchpad is a 24-month engagement. We front-load the work (website, brand design, GBP, Yelp, Apple Maps, citations, social profiles, tracking) so your full marketing foundation is live in 45 days. We do not front-load the billing." } },
+    { "@type": "Question", name: "How can you offer this price and produce results quickly?", acceptedAnswer: { "@type": "Answer", text: "Two reasons. First, we do not front-load costs. We spread them across your engagement instead of charging a large upfront fee. Second, we have fully embraced automation and generative AI. By pairing that technology with 15+ years of legal SEO expertise, we deliver highly effective marketing faster and cheaper than a bespoke service." } },
+    { "@type": "Question", name: "How much customization can I expect?", acceptedAnswer: { "@type": "Answer", text: "Launchpad is not a bespoke service. That is how we keep the price competitive. Your website ships with custom imagery, colors, marketing copy, and content on top of a proven StoryBrand-driven design layout. Customization is limited to keep this service affordable for small and startup firms." } },
+    { "@type": "Question", name: "How much involvement will be required from me?", acceptedAnswer: { "@type": "Answer", text: "Roughly a 30-minute kickoff call plus a few hours spread across the first 45 days to sign off on design elements and content topics, and help verify your Google Business Profile and other local listings. We designed Launchpad to require as little of your time as possible." } },
+    { "@type": "Question", name: "How quickly can my campaign launch?", acceptedAnswer: { "@type": "Answer", text: "Full setup is completed within the first 45 days: brand design, StoryBrand website, GBP, Yelp, Apple Maps, citations, social profiles with weekly posting, and performance tracking." } },
+    { "@type": "Question", name: "Will I own my website and content?", acceptedAnswer: { "@type": "Answer", text: "Yes, always. All IP we create for you is owned by you. Your domain, your website, your content. If you ever leave JurisPage, everything transfers cleanly." } },
     { "@type": "Question", name: "How does the 90-day guarantee work?", acceptedAnswer: { "@type": "Answer", text: "If you don't see measurable progress in your rankings, traffic, or leads within 90 days, we work for free for the following month." } },
-    { "@type": "Question", name: "What if my firm has 5 or more attorneys?", acceptedAnswer: { "@type": "Answer", text: "Launchpad is designed for firms with 1–4 attorneys. If your firm has 5 or more, we recommend Juris Digital, our sister brand for established firms investing $5,000–$20,000+/month. Same parent company, same team, but a full-service strategy scaled to your goals. Visit jurisdigital.com to learn more." } },
+    { "@type": "Question", name: "What if my firm's marketing budget is bigger than $4,000/month?", acceptedAnswer: { "@type": "Answer", text: "Launchpad is priced for small or startup law firms with little to no online presence, with a typical budget of $2,000 to $4,000/month. If your firm is established and ready to invest $5,000 to $50,000+/month, we recommend Juris Digital, our sister brand. Same parent company, same team, but a full-service strategy scaled to your goals. Visit jurisdigital.com to learn more." } },
   ],
 };
 
@@ -50,29 +53,33 @@ const wallOfProof = [
 ];
 
 const includedSetup = [
-  { icon: "🌐", title: "Professional Website", href: "/law-firm-websites/", desc: "Fast, mobile-optimized, built to rank and convert. Live within 45 days." },
-  { icon: "📍", title: "Google Business Profile", href: "/local-seo-for-law-firms/", desc: "Full GBP setup so you appear in local map results when clients search nearby." },
+  { icon: "🎨", title: "Brand Design", href: null, desc: "Logo, typography, photography, graphics, social assets, and brand guidelines. Included in the base price." },
+  { icon: "🌐", title: "StoryBrand Website", href: "/law-firm-websites/", desc: "Fast, mobile-optimized, built on a proven StoryBrand design layout. Live within 45 days." },
+  { icon: "📍", title: "Google Business Profile", href: "/local-seo-for-law-firms/", desc: "Full GBP setup and verification so you appear in local map results when clients search nearby." },
   { icon: "🔍", title: "Keyword Research & SEO Content", href: "/law-firm-content-writing/", desc: "We find exactly what your future clients search and create the content to rank for it." },
-  { icon: "📋", title: "Local Citation Building", href: "/local-seo-for-law-firms/", desc: "Your firm listed and verified on Yelp, Apple Maps, Bing, Avvo, and 30+ other directories." },
-  { icon: "📱", title: "Social Media Setup", href: null, desc: "Core profiles created and optimized for a professional, consistent presence everywhere." },
+  { icon: "📋", title: "Local Ecosystem", href: "/local-seo-for-law-firms/", desc: "Your firm listed and verified on Yelp, Apple Maps, Bing, Avvo, and 30+ other directories." },
+  { icon: "📱", title: "Social Profiles", href: null, desc: "Core social profiles created and optimized, with weekly social media posting from day one." },
   { icon: "📊", title: "Performance Tracking", href: "/law-firm-seo/", desc: "GA4, Search Console, and call tracking configured from day one." },
 ];
 
 const monthlyServices = [
-  "SEO content updates to improve and expand keyword rankings",
+  "SEO content refreshes to maximize traffic and expand keyword rankings",
   "Google Business Profile management and posting",
-  "Weekly social media content",
+  "Weekly social media posting (LinkedIn, Facebook, Instagram)",
   "Monthly performance reports with rankings, traffic, and lead data",
 ];
 
 const faqs = [
-  { question: "How is Launchpad priced?", answer: "It starts at $2,000/month for firms with 1–2 attorneys. Pricing scales based on firm size and market competitiveness. Use the pricing calculator on this page to get your exact number instantly." },
-  { question: "Are there long-term contracts?", answer: "No. Launchpad is month-to-month. Give us 30 days notice and you're done. We've never believed in locking clients in. The results should do that." },
-  { question: "How quickly can my campaign launch?", answer: "Full setup is completed within the first 45 days: website, GBP, local SEO foundation, social profiles, and all initial content production." },
-  { question: "Will I own my website and content?", answer: "Always. Your domain, your website, your content. All yours. If you ever leave JurisPage, everything transfers cleanly. We don't hold websites hostage." },
+  { question: "How is Launchpad priced?", answer: "It starts at $2,000/month over a 24-month engagement, with a typical range of $2,000 to $4,000/month depending on firm size and market. There is no upfront setup fee: costs are spread across the 24 months. Use the pricing calculator on this page to get your exact number instantly." },
+  { question: "How long is the engagement?", answer: "Launchpad is a 24-month engagement. We front-load the work (website, brand design, GBP, Yelp, Apple Maps, citations, social profiles, tracking) so your full marketing foundation is live in 45 days. We do not front-load the billing: costs are spread evenly across the engagement instead of charged up front." },
+  { question: "How can you offer this price and produce results quickly?", answer: "Two reasons. First, we do not front-load costs. We spread them across your engagement instead of charging a large upfront fee. Second, we have fully embraced automation and generative AI. By pairing that technology with 15+ years of legal SEO expertise, we deliver highly effective marketing faster and cheaper than a bespoke service." },
+  { question: "How much customization can I expect?", answer: "Launchpad is not a bespoke service. That is how we keep the price competitive. Your website ships with custom imagery, colors, marketing copy, and content on top of a proven StoryBrand-driven design layout. Customization is limited to keep this service affordable for small and startup firms." },
+  { question: "How much involvement will be required from me?", answer: "Roughly a 30-minute kickoff call plus a few hours spread across the first 45 days to sign off on design elements and content topics, and help verify your Google Business Profile and other local listings. We designed Launchpad to require as little of your time as possible." },
+  { question: "Who will I be working with?", answer: "Your campaign is driven by one of our lead strategists. You have email access to them (responded to promptly), and you may always request a phone call." },
+  { question: "Will I own my website and content?", answer: "Yes, always. All IP we create for you is owned by you. Your domain, your website, your content. If you ever leave JurisPage, everything transfers cleanly." },
   { question: "How does the 90-day guarantee work?", answer: "If you don't see measurable progress in your rankings, traffic, or leads within 90 days, we work free the following month. No fine print. No arguing. We either deliver or we earn it back." },
-  { question: "Can I add services later?", answer: "Yes. Many Launchpad clients add Google Ads, content writing, or GEO optimization once their foundation is established. Upgrade anytime with 30 days notice." },
-  { question: "What if my firm has 5 or more attorneys?", answer: "Launchpad is designed for firms with 1–4 attorneys. If your firm has 5 or more, we recommend Juris Digital, our sister brand for established firms investing $5,000–$20,000+/month. Same parent company, same team, but a full-service strategy scaled to your goals. Visit jurisdigital.com to learn more." },
+  { question: "Can I add services later?", answer: "Yes. Many Launchpad clients add Google Ads, additional content writing, or GEO optimization once their foundation is established." },
+  { question: "What if my firm's marketing budget is bigger than $4,000/month?", answer: "Launchpad is priced for small or startup law firms with little to no online presence, with a typical budget of $2,000 to $4,000/month. If your firm is established and ready to invest $5,000 to $50,000+/month, we recommend Juris Digital, our sister brand. Same parent company, same team, but a full-service strategy scaled to your goals. Visit jurisdigital.com to learn more." },
 ];
 
 export default function LaunchpadPage() {
@@ -91,21 +98,21 @@ export default function LaunchpadPage() {
                 className="inline-block text-xs font-heading font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-5 text-white"
                 style={{ background: "#EE6C13" }}
               >
-                Launchpad: For Small Law Firms
+                Launchpad: For Small and Startup Law Firms
               </span>
               <h1 className="font-heading font-extrabold text-gray-900 text-4xl md:text-5xl leading-tight mb-5">
-                Your Law Firm&apos;s Digital Foundation.<br />
+                Launch Your Firm&apos;s Marketing and Gain New Clients Fast.<br />
                 <span style={{ color: "#EE6C13" }}>Instant, Transparent Pricing.</span>
               </h1>
               <p className="text-gray-600 text-xl leading-relaxed mb-8">
-                Website, SEO, Google Business Profile, and ongoing management. Built specifically for small firms. Answer a few questions and see your exact pricing in under a minute.
+                Brand design, StoryBrand website, SEO, Google Business Profile, Yelp, Apple Maps, weekly social posting, and ongoing management. Built specifically for small or startup firms with little to no online presence. Answer a few questions and see your exact pricing in under a minute.
               </p>
               <div className="space-y-3 mb-8">
                 {[
-                  "Month-to-month. No long-term contracts.",
+                  "No upfront setup fee. Costs spread across a 24-month engagement.",
                   "Full setup completed within 45 days",
                   "90-day results guarantee. Or we work free.",
-                  "You own your website, content, and data",
+                  "You own your website, content, and all IP we create",
                 ].map((item) => (
                   <div key={item} className="flex items-center gap-3">
                     <span
@@ -138,7 +145,7 @@ export default function LaunchpadPage() {
             <div id="get-quote">
               <LaunchpadCalculator />
               <p className="text-center text-xs text-gray-400 mt-4">
-                No commitment required. No spam. Just your pricing.
+                No strings attached. No spam. Just your pricing.
               </p>
             </div>
 
@@ -179,9 +186,9 @@ export default function LaunchpadPage() {
             </div>
             <div className="space-y-4">
               {[
-                { problem: "Paid $5,000+/mo for minimal results", fix: "Transparent pricing scaled to your firm size" },
-                { problem: "Locked into 12-month contracts", fix: "Month-to-month: stay because it's working, not because you have to" },
-                { problem: "Lost the website when you switched agencies", fix: "You own your site, content, and data. Always." },
+                { problem: "Paid $5,000+/mo for minimal results", fix: "Transparent pricing starting at $2,000/mo, scaled to your firm size" },
+                { problem: "Hit with a huge upfront setup fee", fix: "No upfront fee. Costs spread evenly across the 24-month engagement." },
+                { problem: "Lost the website when you switched agencies", fix: "You own your site, content, and all IP we create. Always." },
                 { problem: "Waited months just to find out the price", fix: "Instant, transparent pricing in under 60 seconds" },
               ].map((item) => (
                 <div key={item.problem} className="bg-white rounded-xl p-4 border border-gray-200 flex gap-4 items-start">
@@ -217,7 +224,7 @@ export default function LaunchpadPage() {
 
           <div className="mb-12">
             <p className="text-xs font-bold uppercase tracking-widest text-gray-400 mb-6 text-center">
-              One-Time Setup (Completed in 45 Days)
+              Step 1: Campaign Setup (Completed in 45 Days)
             </p>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
               {includedSetup.map((item) => (
@@ -238,7 +245,7 @@ export default function LaunchpadPage() {
 
           <div className="rounded-2xl p-8" style={{ background: "#1a1a1a" }}>
             <p className="text-xs font-bold uppercase tracking-widest text-gray-400 mb-5">
-              Ongoing Monthly Services
+              Step 2: Ongoing Monthly Services
             </p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {monthlyServices.map((item) => (
@@ -248,6 +255,19 @@ export default function LaunchpadPage() {
                 </div>
               ))}
             </div>
+          </div>
+
+          {/* How we keep the price this low */}
+          <div className="mt-10 rounded-2xl p-8 bg-[#FEF3EC] border border-orange-100">
+            <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: "#982A0B" }}>
+              How We Keep the Price This Low
+            </p>
+            <p className="text-gray-800 text-base leading-relaxed mb-3">
+              Two things make $2,000/mo possible for a service that would cost five times as much at a traditional agency. First, we don&apos;t front-load costs. We spread them across your 24-month engagement instead of charging a large upfront fee, so you keep your cash when you need it most.
+            </p>
+            <p className="text-gray-800 text-base leading-relaxed">
+              Second, we have fully embraced automation and generative AI. By pairing that technology with 15+ years of legal SEO expertise, we deliver highly effective marketing faster and cheaper than a bespoke service. Client time commitment: a 30-minute kickoff call plus a few hours spread across the first 45 days.
+            </p>
           </div>
         </div>
       </section>
@@ -403,7 +423,7 @@ export default function LaunchpadPage() {
             Your Firm Is Ready for More Than a Foundation.
           </h2>
           <p className="text-gray-600 text-lg leading-relaxed mb-10 max-w-2xl mx-auto">
-            If your firm has 5+ attorneys and you&apos;re already signing cases, you don&apos;t need a foundation. You need a full-service growth partner built for market domination.
+            If your firm is already established and ready to invest $5,000 to $50,000+/month, you don&apos;t need a foundation. You need a full-service growth partner built for market domination.
           </p>
           <div className="bg-gray-50 rounded-xl p-6 border border-gray-100 text-left max-w-lg mx-auto mb-10">
             <p className="text-xs font-bold uppercase tracking-widest text-gray-400 mb-3">Juris Digital Delivers</p>
@@ -433,7 +453,7 @@ export default function LaunchpadPage() {
             Explore Juris Digital →
           </a>
           <p className="text-gray-400 text-sm mt-4">
-            Or scroll up to get instant Launchpad pricing for firms with 1–4 attorneys.
+            Or scroll up to get instant Launchpad pricing for small or startup firms.
           </p>
         </div>
       </section>
@@ -468,7 +488,7 @@ export default function LaunchpadPage() {
             </a>
           </div>
           <p className="text-orange-200 text-sm mt-5">
-            Month-to-month · 45-day setup · 90-day results guarantee ·{" "}
+            No upfront fee · 45-day setup · 90-day results guarantee ·{" "}
             <Link href="/contact/" className="underline text-white">
               Or book a strategy call
             </Link>

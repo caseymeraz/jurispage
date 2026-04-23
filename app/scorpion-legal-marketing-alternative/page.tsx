@@ -6,15 +6,15 @@ import CTASection from "@/components/CTASection";
 
 export const metadata: Metadata = {
   title: "Scorpion Legal Marketing Alternative - JurisPage",
-  description: "Looking for a Scorpion alternative for your law firm? JurisPage offers transparent pricing, month-to-month contracts, and you own your website. See how we compare.",
+  description: "Looking for a Scorpion alternative for your law firm? JurisPage offers transparent pricing, no upfront setup fee, and you own your website. See how we compare.",
   alternates: { canonical: "https://jurispage.com/scorpion-legal-marketing-alternative/" },
 };
 
 const faqs = [
-  { question: "What's the main difference between JurisPage and Scorpion?", answer: "The biggest difference is website ownership and contract flexibility. With Scorpion, they host your website on their platform - if you leave, your site disappears. With JurisPage, you own everything: your domain, your WordPress site, your content. We also publish our pricing online (Scorpion doesn't), and we operate month-to-month while Scorpion typically requires 12-24 month contracts." },
-  { question: "Is JurisPage cheaper than Scorpion?", answer: "Our pricing starts at $2,000/month. Scorpion doesn't publish pricing, but based on industry estimates, their services typically start around $3,500-$5,000/month or more. The cost comparison depends on your specific service needs - contact us for a side-by-side analysis for your firm." },
-  { question: "Can I switch from Scorpion to JurisPage without losing my website?", answer: "If your current Scorpion website is hosted on their platform (which is typical), you cannot transfer that website to another host. However, we can build you a new WordPress website that you own - typically live within 30 days on our Launchpad plan. You'll own everything going forward." },
-  { question: "Do you require long-term contracts?", answer: "No. Every JurisPage plan is month-to-month. You stay because the results are there. Cancel anytime with 30 days notice." },
+  { question: "What's the main difference between JurisPage and Scorpion?", answer: "The biggest difference is website ownership, cost structure, and focus. With Scorpion, they host your website on their platform, so if you leave, your site disappears. With JurisPage, you own everything: your domain, your WordPress site, your content. All IP we create for you is owned by you. We also publish our pricing online (Scorpion does not), and we charge no upfront setup fee. Costs are spread across a 24-month Launchpad engagement instead of front-loaded as a massive day-one check." },
+  { question: "Is JurisPage cheaper than Scorpion?", answer: "Our pricing starts at $2,000/month over a 24-month engagement, with no upfront setup fee. Scorpion does not publish pricing, but based on industry estimates, their services typically start around $3,500 to $5,000/month or more, often with a separate upfront setup fee. The cost comparison depends on your specific service needs. Contact us for a side-by-side analysis for your firm." },
+  { question: "Can I switch from Scorpion to JurisPage without losing my website?", answer: "If your current Scorpion website is hosted on their platform (which is typical), you cannot transfer that website to another host. However, we can build you a new StoryBrand-driven WordPress website that you own, with the full marketing foundation live within 45 days on our Launchpad plan. You own everything going forward." },
+  { question: "How long is the JurisPage engagement?", answer: "Launchpad is a 24-month engagement with no upfront setup fee. We front-load the work (brand design, StoryBrand website, GBP, Yelp, Apple Maps, citations, social profiles, tracking) so your full marketing foundation is live in 45 days. We do not front-load the billing. Costs are spread evenly across the 24 months so small and startup firms can afford the work without a large day-one check." },
 ];
 
 export default function ScorpionAlternativePage() {
@@ -59,10 +59,11 @@ export default function ScorpionAlternativePage() {
               <tbody>
                 {[
                   ["Pricing transparency", "Published online", "Requires sales call"],
-                  ["Website ownership", "You own it, always", "Scorpion hosts - disappears if you leave"],
-                  ["Contract terms", "Month-to-month", "Typically 12-24 months"],
+                  ["Website ownership", "You own it, always", "Scorpion hosts, disappears if you leave"],
+                  ["Upfront setup fee", "$0 (costs spread over 24 months)", "Typically thousands before launch"],
+                  ["Full setup timeline", "45 days", "60 to 90 days or longer"],
                   ["Legal-only focus", "100% legal", "Multiple industries"],
-                  ["Starting price", "Starting at $2,000/month", "~$3,500–$5,000+/month (estimated)"],
+                  ["Starting price", "$2,000/month (no upfront fee)", "~$3,500 to $5,000+/month (estimated)"],
                   ["Dedicated point of contact", "From day one", "Often rotates post-onboarding"],
                 ].map(([feature, jp, sc], i) => (
                   <tr key={feature} style={{ background: i % 2 === 0 ? "#f9fafb" : "#fff" }}>
@@ -81,10 +82,11 @@ export default function ScorpionAlternativePage() {
           <h2 className="font-heading font-extrabold text-gray-900 text-2xl mb-4">When JurisPage Makes More Sense</h2>
           <ul className="space-y-3 mb-8">
             {[
-              "You want to own your website and all assets - permanently",
-              "You need month-to-month flexibility with no long-term commitment",
+              "You want to own your website and all assets, permanently",
+              "You want to avoid a huge upfront setup fee and keep your cash for the first months of practice",
               "You want to see pricing before getting on a sales call",
-              "Your budget is $2,000–$5,000/month and you want specialized legal SEO, not a generalist platform",
+              "Your budget is $2,000 to $4,000/month and you want specialized legal SEO, not a generalist platform",
+              "You are a small or startup firm with little to no online presence and need the full marketing foundation live in 45 days",
               "You've been at Scorpion and felt like a small account inside a large agency",
             ].map((item) => (
               <li key={item} className="flex gap-3 items-start text-gray-700"><span style={{ color: "#EE6C13" }} className="flex-shrink-0 mt-0.5">✓</span><span>{item}</span></li>

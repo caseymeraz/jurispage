@@ -421,7 +421,7 @@ export default function AiChatbotPage() {
       {/* ── 9. Bottom CTA ── */}
       <CTASection
         heading="Ready to Stop Missing Leads?"
-        subtext="Flat monthly fee. No per-conversation charges. No contracts. Your AI assistant is ready when your visitors are."
+        subtext="Flat monthly fee. No per-conversation charges. No upfront setup fee. Your AI assistant is ready when your visitors are."
         primaryLabel="Get JD Assistant"
         primaryHref="/contact/"
         secondaryLabel="See the Demo"
