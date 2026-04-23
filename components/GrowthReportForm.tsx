@@ -337,7 +337,7 @@ export default function GrowthReportForm() {
             </div>
             <div>
               <label className={labelClass}>Do you have a monthly marketing budget in mind? *</label>
-              {radioGroup("budget", ["Under $2K", "$2K-$5K", "$5K-$10K", "$10K-$20K", "$20K+", "Not sure yet"], data.budget)}
+              {radioGroup("budget", ["$2K-$5K", "$5K-$10K", "$10K-$20K", "$20K+", "Not sure yet"], data.budget)}
             </div>
           </div>
         )}

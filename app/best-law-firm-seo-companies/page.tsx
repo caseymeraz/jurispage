@@ -40,7 +40,7 @@ const faqSchema = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
   mainEntity: [
-    { "@type": "Question", name: "How much does law firm SEO cost per month?", acceptedAnswer: { "@type": "Answer", text: "Law firm SEO costs typically range from $1,500 to $10,000+ per month depending on market competitiveness, practice area, and scope of work." } },
+    { "@type": "Question", name: "How much does law firm SEO cost per month?", acceptedAnswer: { "@type": "Answer", text: "Law firm SEO costs typically range from $2,000 to $10,000+ per month depending on market competitiveness, practice area, and scope of work." } },
     { "@type": "Question", name: "How long does SEO take to work for law firms?", acceptedAnswer: { "@type": "Answer", text: "Most law firms see meaningful movement in rankings within 3-6 months, with significant lead flow improvements at the 6-12 month mark." } },
     { "@type": "Question", name: "Should I hire a law firm-specific SEO agency or a general agency?", acceptedAnswer: { "@type": "Answer", text: "For most law firms, a legal-specific SEO agency is the better choice due to E-E-A-T requirements, bar advertising rules, and practice area keyword structures." } },
     { "@type": "Question", name: "Do law firm SEO companies guarantee rankings?", acceptedAnswer: { "@type": "Answer", text: "No reputable SEO agency guarantees specific rankings. Google controls rankings, not agencies. Treat any ranking guarantee as a red flag." } },
@@ -52,7 +52,7 @@ const faqSchema = {
 };
 
 const faqs = [
-  { question: "How much does law firm SEO cost per month?", answer: "Law firm SEO costs typically range from $1,500 to $10,000+ per month depending on market competitiveness, practice area, and scope of work. Smaller firms in less competitive markets can see real results starting around $1,500/month. Firms in major metros competing for high-value personal injury keywords often need $5,000-$10,000/month or more." },
+  { question: "How much does law firm SEO cost per month?", answer: "Law firm SEO costs typically range from $2,000 to $10,000+ per month depending on market competitiveness, practice area, and scope of work. Smaller firms in less competitive markets can see real results starting around $2,000/month. Firms in major metros competing for high-value personal injury keywords often need $5,000-$10,000/month or more." },
   { question: "How long does SEO take to work for law firms?", answer: "Most law firms see meaningful movement in rankings within 3-6 months of starting a solid SEO program, with significant lead flow improvements typically appearing at the 6-12 month mark. Competitive markets and high-authority practice areas like personal injury can take 12-18 months to reach top-3 rankings." },
   { question: "Should I hire a law firm-specific SEO agency or a general agency?", answer: "For most law firms, a legal-specific SEO agency is the better choice. Legal SEO has unique considerations: ethical advertising rules, E-E-A-T requirements for YMYL content, practice area keyword structures, and local map pack optimization that general agencies simply don't deal with every day." },
   { question: "What should I look for in a law firm SEO contract?", answer: "Look for month-to-month flexibility or at most a 6-month initial commitment. Be cautious of 12-24 month contracts with steep cancellation penalties. Confirm that you own all content, website assets, and data if you leave." },
@@ -468,7 +468,7 @@ export default function BestLawFirmSEOPage() {
 
           <h2 className="font-heading font-extrabold text-gray-900 text-2xl mt-10 mb-6">How to Choose the Right Law Firm SEO Company</h2>
           {[
-            { title: "Step 1: Know Your Budget", body: "$1,500–$3,000/month: Foundational SEO for solo and small firms. $3,000–$6,000/month: Growth-stage SEO with content velocity and link building. $6,000+/month: Aggressive growth or highly competitive markets like PI in major metros." },
+            { title: "Step 1: Know Your Budget", body: "$2,000–$3,000/month: Foundational SEO for solo and small firms. $3,000–$6,000/month: Growth-stage SEO with content velocity and link building. $6,000+/month: Aggressive growth or highly competitive markets like PI in major metros." },
             { title: "Step 2: Understand Your Market Competition", body: "A family law attorney in a mid-size city has a completely different competitive landscape than a PI firm trying to rank in Los Angeles. Before engaging any agency, ask them to pull a keyword difficulty analysis and competitor authority audit for your specific market." },
             { title: "Step 3: Prioritize Legal Specialization", body: "General marketing agencies that 'also do legal' are almost never the right choice. Legal SEO has specific considerations: bar advertising ethics rules, E-E-A-T requirements for YMYL content, and local map pack optimization for legal." },
             { title: "Step 4: Watch for Red Flags", body: "Guaranteed rankings. You don't own your website. Black-box reporting with no specific deliverables. Aggressive multi-year contracts at the first meeting. These are all warning signs to take seriously." },

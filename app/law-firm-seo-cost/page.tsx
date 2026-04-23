@@ -14,7 +14,7 @@ const faqSchema = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
   mainEntity: [
-    { "@type": "Question", name: "How much does law firm SEO cost per month?", acceptedAnswer: { "@type": "Answer", text: "Law firm SEO typically costs $1,500 to $10,000+ per month depending on market competitiveness, practice area, and scope. Most small and mid-market firms see solid results in the $1,500–$4,500/month range." } },
+    { "@type": "Question", name: "How much does law firm SEO cost per month?", acceptedAnswer: { "@type": "Answer", text: "Law firm SEO typically costs $2,000 to $10,000+ per month depending on market competitiveness, practice area, and scope. Most small and mid-market firms see solid results in the $2,000–$4,500/month range." } },
     { "@type": "Question", name: "Why does law firm SEO cost more than regular SEO?", acceptedAnswer: { "@type": "Answer", text: "Legal is a YMYL (Your Money or Your Life) category. Google applies stricter quality standards. The content requirements, E-E-A-T standards, and competitive landscape in legal all require more specialized expertise than typical SEO." } },
     { "@type": "Question", name: "What's included in a typical law firm SEO package?", acceptedAnswer: { "@type": "Answer", text: "A complete law firm SEO package typically includes: technical SEO audit and fixes, on-page optimization, keyword research, content creation (blog posts + practice area pages), link building from legal/local sources, Google Business Profile optimization, and monthly reporting." } },
     { "@type": "Question", name: "Is law firm SEO worth the cost?", acceptedAnswer: { "@type": "Answer", text: "Yes, for most law firms. The cost per acquired client through SEO is significantly lower than paid advertising over the long term, and unlike PPC, the rankings compound over time. A single PI case that pays $50,000+ makes a few months of SEO investment trivially justified." } },
@@ -22,7 +22,7 @@ const faqSchema = {
 };
 
 const faqs = [
-  { question: "How much does law firm SEO cost per month?", answer: "Law firm SEO typically costs $1,500 to $10,000+ per month depending on market competitiveness, practice area, and scope. Most small and mid-market firms see solid results in the $1,500–$4,500/month range. Highly competitive markets like PI in Los Angeles or New York can require $7,000–$15,000+/month to compete seriously." },
+  { question: "How much does law firm SEO cost per month?", answer: "Law firm SEO typically costs $2,000 to $10,000+ per month depending on market competitiveness, practice area, and scope. Most small and mid-market firms see solid results in the $2,000–$4,500/month range. Highly competitive markets like PI in Los Angeles or New York can require $7,000–$15,000+/month to compete seriously." },
   { question: "Why does law firm SEO cost more than regular SEO?", answer: "Legal is a YMYL (Your Money or Your Life) category. Google applies stricter quality standards to legal content, requiring higher E-E-A-T signals. The competitive landscape in legal is also more intense than most industries, and the content requirements (practice area pages, FAQ content, local pages) are more extensive." },
   { question: "What's included in a typical law firm SEO package?", answer: "A complete law firm SEO package typically includes: technical SEO audit and ongoing fixes, on-page optimization for all key pages, keyword research and competitive analysis, content creation (blog posts and practice area pages), link building from legal-relevant and local sources, Google Business Profile optimization, citation building, and monthly reporting tied to rankings and lead flow." },
   { question: "Is there a setup fee for law firm SEO?", answer: "Some agencies charge a one-time setup fee (typically $500–$2,000) that covers the initial audit, keyword research, and onboarding. Others roll these into the monthly rate. At JurisPage, our Launchpad plan starts at $2,000/month for firms with 1–4 attorneys. For established firms, Juris Digital (jurisdigital.com) provides full-service engagements starting at $5,000/month with no setup fees." },
@@ -47,7 +47,7 @@ export default function LawFirmSEOCostPage() {
 
       <article className="py-12 px-6">
         <div className="max-w-3xl mx-auto">
-          <p className="text-gray-700 text-lg leading-relaxed mb-6">Law firm SEO costs typically range from <strong>$1,500 to $10,000+ per month</strong>. That&apos;s a wide range, and the average cited by industry surveys ($7,500/month) is misleading for most firms. What you actually need depends on three things: your market, your practice area, and your growth goals. This guide explains all of it.</p>
+          <p className="text-gray-700 text-lg leading-relaxed mb-6">Law firm SEO costs typically range from <strong>$2,000 to $10,000+ per month</strong>. That&apos;s a wide range, and the average cited by industry surveys ($7,500/month) is misleading for most firms. What you actually need depends on three things: your market, your practice area, and your growth goals. This guide explains all of it.</p>
 
           <h2 className="font-heading font-extrabold text-gray-900 text-2xl mt-10 mb-4">What Drives Law Firm SEO Costs</h2>
           <p className="text-gray-700 mb-5">Understanding the pricing drivers is more useful than any single number. Here are the factors that will determine what you should actually pay:</p>
@@ -80,7 +80,7 @@ export default function LawFirmSEOCostPage() {
               </thead>
               <tbody>
                 {[
-                  { tier: "Foundational", cost: "$1,500–$3,000", best: "Solo attorneys, small firms, less competitive markets", items: "GBP optimization, citation building, on-page optimization for core pages, local keyword targeting, monthly reporting" },
+                  { tier: "Foundational", cost: "$2,000–$3,000", best: "Solo attorneys, small firms, less competitive markets", items: "GBP optimization, citation building, on-page optimization for core pages, local keyword targeting, monthly reporting" },
                   { tier: "Growth", cost: "$3,000–$5,000", best: "Established small to mid firms, moderate competition", items: "Everything in Foundational + content creation (2-4 pieces/month), link building, technical SEO, practice area page development" },
                   { tier: "Aggressive", cost: "$5,000–$10,000", best: "PI firms, major metro markets, multi-location", items: "Everything in Growth + high-volume content (6-10 pieces/month), aggressive link acquisition, location page expansion, conversion optimization" },
                   { tier: "Enterprise", cost: "$10,000+/month", best: "Mass tort, large PI firms, top 20 markets", items: "Dedicated team, daily content publishing, PR-level authority campaigns, full paid media integration, custom analytics infrastructure" },
@@ -111,8 +111,8 @@ export default function LawFirmSEOCostPage() {
               <tbody>
                 {[
                   { option: "DIY", cost: "$200–$500 (tools)", time: "15-20 hrs/month", outcome: "Basic improvements possible. Missing legal-specific expertise often results in slow progress or wasted effort." },
-                  { option: "General Agency", cost: "$1,500–$5,000", time: "1-2 hrs/month (your time)", outcome: "Inconsistent. Lacks legal-specific knowledge. May generate traffic without legal intent." },
-                  { option: "Legal SEO Specialist", cost: "$1,500–$10,000+", time: "1-2 hrs/month (your time)", outcome: "Fastest path to qualified lead growth. Deep understanding of legal keyword intent and bar ethics requirements." },
+                  { option: "General Agency", cost: "$2,000–$5,000", time: "1-2 hrs/month (your time)", outcome: "Inconsistent. Lacks legal-specific knowledge. May generate traffic without legal intent." },
+                  { option: "Legal SEO Specialist", cost: "$2,000–$10,000+", time: "1-2 hrs/month (your time)", outcome: "Fastest path to qualified lead growth. Deep understanding of legal keyword intent and bar ethics requirements." },
                 ].map((row, i) => (
                   <tr key={row.option} style={{ background: i % 2 === 0 ? "#f9fafb" : "#fff" }}>
                     <td style={{ padding: "12px 16px", border: "1px solid #e5e7eb", fontWeight: 600 }}>{row.option}</td>
@@ -130,7 +130,7 @@ export default function LawFirmSEOCostPage() {
           <div className="space-y-6 mb-8">
             {[
               {
-                range: "$1,500–$3,000/month",
+                range: "$2,000–$3,000/month",
                 color: "#EE6C13",
                 includes: [
                   "Google Business Profile full optimization and ongoing management",
