@@ -215,7 +215,7 @@ export default function GrowthPathLoadingPage() {
     progress.completed === 0
       ? STAGES[stageIndex]
       : progress.completed < progress.total
-        ? `${progress.completed} of ${progress.total} scans complete — ${STAGES[stageIndex]}`
+        ? `${progress.completed} of ${progress.total} scans complete: ${STAGES[stageIndex]}`
         : "Finalizing your recommendations...";
 
   return (
