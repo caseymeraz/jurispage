@@ -11,7 +11,7 @@ Launchpad is the Juris Digital Launchpad package (jurisdigital.com/services/laun
 That means:
 
 - Any pricing page, calculator, service card, or FAQ on jurispage.com that describes what a client can buy from JurisPage should describe **Launchpad** (brand design + StoryBrand website + GBP + Yelp + Apple Maps + citations + weekly social + tracking, starting at $2,000/mo over a 24-month engagement, full setup in 45 days, no upfront fee).
-- Firms whose budget or stage exceeds Launchpad get handed off to **Juris Digital** ($5,000 to $50,000+/mo). We do not sell a separate "JurisPage Pro" tier. If you see that name anywhere, it's stale and should be renamed to "Juris Digital."
+- Firms whose budget or stage exceeds Launchpad get handed off to **Juris Digital** ($5,000 to $50,000+/mo). On jurisdigital.com, this upper-tier product is specifically called **Ascend** (at `/services/ascend/`), but on jurispage.com we refer to it generically as "Juris Digital" per decision #3 below. Don't rename to "Ascend" on jurispage.com without an explicit product decision from the operator. We do not sell a "JurisPage Pro" tier. If you see that name anywhere, it's stale.
 - Individual service pages (`/law-firm-seo/`, `/google-ads-for-law-firms/`, `/local-seo-for-law-firms/`, `/law-firm-content-writing/`, `/law-firm-email-marketing/`, `/law-firm-websites/`, `/generative-engine-optimization-legal-marketing/`, `/ai-chatbot-for-law-firm-website/`, `/bing-ads-for-lawyers/`) exist for SEO and lead-gen, but every pricing tile on them should route to Launchpad or Juris Digital — not a standalone service SKU.
 
 ## Source of truth
@@ -31,7 +31,7 @@ All eight resolved to "match the Juris Digital source." Do not reintroduce the o
 3. **Upper tier name:** Juris Digital (not "JurisPage Pro").
 4. **Upper tier price:** $5,000 to $50,000+/mo (not $5K–$20K or $5K–$15K).
 5. **Website timeline:** 45 days for full setup (website + GBP + Yelp + Apple Maps + citations + social + tracking). Not 30 days.
-6. **Differentiator framing:** advertise automation + generative AI + 15+ years of legal SEO expertise as the price-justification.
+6. **Differentiator framing:** advertise automation + generative AI + **12 years of legal SEO expertise** as the price-justification. "12 years" is the canonical number on jurisdigital.com/services/launchpad/. Copy about Casey Meraz personally (about-us, blog bios) can use "15 years" or "16 years" since that references his individual tenure, not the Juris Digital company expertise claim.
 7. **Target buyer copy:** "small or startup law firms with little to no online presence" (not "1–4 attorneys" as a hard gate). The LaunchpadCalculator still forks 5+ attorneys to Juris Digital because the budget math exceeds Launchpad's $2K–$4K range, but copy shouldn't exclude larger firms categorically.
 8. **StoryBrand-driven design:** included on every Launchpad site. Not a premium-tier upsell.
 

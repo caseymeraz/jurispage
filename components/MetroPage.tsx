@@ -120,7 +120,7 @@ export default function MetroPage({ metro, service }: MetroPageProps) {
     ...serviceFaqs[service],
     { question: `What does ${serviceLabel.toLowerCase()} cost for ${metro.city} law firms?`, answer: `Our pricing starts at $2,000/month. We'll give you a straight answer on cost during your first conversation. No runaround, no mystery packages. We'll recommend the right plan after a free consultation.` },
     { question: "How long is the engagement?", answer: "Launchpad is a 24-month engagement. We front-load the work (website, Google Business Profile, Yelp, Apple Maps, citations, social profiles, content foundation, and tracking all live in 45 days) but spread the cost across the full term so you never pay a large upfront fee. Established firms on the Juris Digital tier work on a different commitment structure." },
-    { question: "What makes JurisPage different from other legal marketing agencies?", answer: "Three things: we work exclusively with law firms (100% legal focus), we publish our pricing online (no mystery sales calls), and we charge no upfront setup fee (costs spread across the 24-month engagement). We have served 113+ law firms, with 15+ years of legal SEO expertise paired with automation and generative AI to deliver rapid results at this price." },
+    { question: "What makes JurisPage different from other legal marketing agencies?", answer: "Three things: we work exclusively with law firms (100% legal focus), we publish our pricing online (no mystery sales calls), and we charge no upfront setup fee (costs spread across the 24-month engagement). We have served 113+ law firms, with 12 years of legal SEO expertise paired with automation and generative AI to deliver rapid results at this price." },
   ];
 
   return (

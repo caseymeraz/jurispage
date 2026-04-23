@@ -32,7 +32,9 @@
 | Up-front fee | **None** — "No large up-front cost" |
 | Cost model | "We don't front-load costs. Instead, we spread those costs out over the course of your engagement." |
 | Guarantee | None explicitly stated on source page |
-| Larger sister tier | "Established Law Firm Marketing" at **$5,000–$50,000+/mo** for established firms. Separate product. |
+| Larger sister tier | **"Ascend"** (sometimes labeled "Established Law Firm Marketing") at **$5,000–$50,000+/mo** for established firms. Lives at `https://jurisdigital.com/services/ascend/`. Separate product under the Juris Digital brand. |
+
+> **Naming note:** On jurisdigital.com, the upper-tier product is specifically called **Ascend**. On jurispage.com, per the locked product decision (see `CLAUDE.md` decision #3), we refer to the upper tier simply as **"Juris Digital"** without naming Ascend, because Juris Digital is both the parent brand and the handoff destination. If the operator ever wants to name-check Ascend directly on jurispage.com, the URL `/services/ascend/` on jurisdigital.com is the canonical link.
 
 > **Consistency requirement:** Every mention of "Launchpad" or "JurisPage Launchpad" pricing on jurispage.com must show $2,000/mo floor. The upper-tier sister brand (Juris Digital / JurisPage Pro / whatever it's called on jurispage.com) must be positioned at $5,000+ (the source page says $5,000–$50,000+, but jurispage.com currently says $5,000–$20,000+ — flag this as a delta).
 
@@ -104,7 +106,7 @@
 **Differentiators:**
 - Low monthly investment + rapid implementation
 - "We have fully embraced automation and generative AI"
-- Backed by "12 years of legal SEO expertise"
+- Backed by **"12 years of legal SEO expertise"** (verbatim from the source page; treat this as the canonical number when paraphrasing the automation+AI rationale)
 - Front-load the work, not the cost
 - NOT bespoke — templated to stay affordable
 

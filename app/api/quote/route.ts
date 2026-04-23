@@ -158,7 +158,7 @@ export async function POST(req: NextRequest) {
               </div>
             </div>
 
-            <p style="color: #555; font-size: 14px; line-height: 1.7;">How we keep the price this low: 15+ years of legal SEO expertise paired with automation and generative AI. We front-load the work (not the billing) so your website, GBP, citations, social profiles, and tracking are all live inside 45 days. Client time commitment: a 30-minute kickoff call plus roughly a few hours across the first 45 days to sign off on designs and content topics.</p>
+            <p style="color: #555; font-size: 14px; line-height: 1.7;">How we keep the price this low: 12 years of legal SEO expertise paired with automation and generative AI. We front-load the work (not the billing) so your website, GBP, citations, social profiles, and tracking are all live inside 45 days. Client time commitment: a 30-minute kickoff call plus roughly a few hours across the first 45 days to sign off on designs and content topics.</p>
             <p style="color: #555; font-size: 14px; line-height: 1.7;">You will own everything we build. All IP we create for you is owned by you.</p>
             <p style="color: #555; font-size: 14px; line-height: 1.7;">Book a strategy call to confirm this pricing matches your firm's growth goals.</p>
 
