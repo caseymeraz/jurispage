@@ -127,7 +127,7 @@ export async function POST(req: NextRequest) {
             </div>
             <p style="color: #555; line-height: 1.7;">A member of the Juris Digital team will reach out within one business day to discuss your firm's goals and build a custom strategy.</p>
             <div style="margin: 28px 0;">
-              <a href="https://jurisdigital.com" style="display: inline-block; background: #EE6C13; color: white; font-weight: bold; padding: 14px 28px; border-radius: 100px; text-decoration: none; font-size: 15px;">Explore Juris Digital →</a>
+              <a href="https://jurisdigital.com/services/ascend/" style="display: inline-block; background: #EE6C13; color: white; font-weight: bold; padding: 14px 28px; border-radius: 100px; text-decoration: none; font-size: 15px;">Explore Juris Digital →</a>
             </div>
             <p style="color: #6b7280; font-size: 14px;">Or call us directly: <a href="tel:+18555936935" style="color: #EE6C13;">(855) 593-6935</a></p>
             <p style="color: #555; font-size: 14px; margin-top: 24px;">- The JurisPage + Juris Digital Team</p>

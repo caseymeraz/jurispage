@@ -221,7 +221,7 @@ export default function LawFirmSEOCostPage() {
             <div className="flex gap-4 items-center bg-gray-50 border border-gray-200 rounded-xl p-4">
               <div className="flex-shrink-0 w-24 font-heading font-bold text-gray-900 text-sm">Juris Digital</div>
               <div className="font-heading font-bold text-xl" style={{ color: "#EE6C13" }}>$5,000 to $50,000+/mo</div>
-              <div className="text-gray-600 text-sm">Full-service engagements for established firms. <a href="https://jurisdigital.com" target="_blank" rel="noopener noreferrer" style={{ color: "#EE6C13" }}>jurisdigital.com</a></div>
+              <div className="text-gray-600 text-sm">Full-service engagements for established firms. <a href="https://jurisdigital.com/services/ascend/" target="_blank" rel="noopener noreferrer" style={{ color: "#EE6C13" }}>jurisdigital.com/services/ascend/</a></div>
             </div>
           </div>
           <p className="text-gray-600 text-sm">Launchpad costs are spread evenly across the 24-month engagement, not charged as a large day-one fee. <Link href="/services/pricing/" style={{ color: "#EE6C13" }}>See full Launchpad details and pricing →</Link></p>

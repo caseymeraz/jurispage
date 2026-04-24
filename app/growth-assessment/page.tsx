@@ -28,7 +28,7 @@ export default function GrowthAssessmentPage() {
             className="inline-block text-xs font-heading font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-5 text-white"
             style={{ background: "#1a1a1a" }}
           >
-            <a href="https://jurisdigital.com" target="_blank" rel="noopener noreferrer" className="text-white no-underline">Juris Digital</a>
+            <a href="https://jurisdigital.com/services/ascend/" target="_blank" rel="noopener noreferrer" className="text-white no-underline">Juris Digital</a>
           </span>
           <h1 className="font-heading font-extrabold text-gray-900 text-4xl mb-4">
             Apply for a Growth Strategy Session

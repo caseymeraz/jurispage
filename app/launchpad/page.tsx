@@ -444,7 +444,7 @@ export default function LaunchpadPage() {
             </div>
           </div>
           <a
-            href="https://jurisdigital.com"
+            href="https://jurisdigital.com/services/ascend/"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-block font-heading font-bold text-white text-base px-8 py-4 rounded-[40px] no-underline transition-opacity hover:opacity-90"

@@ -55,7 +55,7 @@ export default function RecommendationHeroCard({
               </div>
               <div>
                 <p className="text-white text-sm font-heading font-bold">
-                  <a href="https://jurisdigital.com" target="_blank" rel="noopener noreferrer" className="text-white no-underline hover:underline">Juris Digital</a>
+                  <a href="https://jurisdigital.com/services/ascend/" target="_blank" rel="noopener noreferrer" className="text-white no-underline hover:underline">Juris Digital</a>
                 </p>
                 <p className="text-gray-400 text-xs">
                   Delivered by our parent company
