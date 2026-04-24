@@ -34,9 +34,9 @@ const faqs = [
   { question: "How much customization can I expect?", answer: "Launchpad is not a bespoke service. That is how we keep the price competitive. Your website ships with custom imagery, colors, marketing copy, and content on top of a proven StoryBrand-driven design layout. Customization is limited to keep this service affordable for small and startup firms." },
   { question: "How much involvement will be required from me?", answer: "Roughly a 30-minute kickoff call plus a few hours spread across the first 45 days to sign off on design elements and content topics, and help verify your Google Business Profile and other local listings." },
   { question: "How quickly can my campaign launch?", answer: "Full setup is completed within the first 45 days. That includes brand design, StoryBrand website, Google Business Profile, Yelp, Apple Maps, citations, social profiles with weekly posting, and performance tracking." },
-  { question: "What's the difference between JurisPage and Juris Digital?", answer: "JurisPage Launchpad is built for small or startup law firms with little to no online presence, with a typical budget of $2,000 to $4,000/month. Juris Digital is our full-service brand for established firms investing $5,000 to $50,000+/month in SEO, Google Ads, content strategy, and market domination. Same parent company, same expertise, different scale." },
-  { question: "How much does Juris Digital cost?", answer: "Juris Digital partnerships are fully bespoke and typically run $5,000 to $50,000+/month. Investment is based on your firm size, practice areas, markets, and growth goals. Apply for a Growth Strategy Session to receive a custom proposal." },
-  { question: "Do I need to be a certain size for Juris Digital?", answer: "Juris Digital is typically best suited for established firms with a monthly marketing budget of at least $5,000. If you're a small or startup firm with little to no online presence, JurisPage Launchpad is designed specifically for you." },
+  { question: "What's the difference between JurisPage and Juris Digital?", answer: "JurisPage Launchpad is built for small or startup law firms with little to no online presence, with a typical budget of $2,000 to $4,000/month. [Juris Digital](https://jurisdigital.com/services/ascend/) is our full-service brand for established firms investing $5,000 to $50,000+/month in SEO, Google Ads, content strategy, and market domination. Same parent company, same expertise, different scale." },
+  { question: "How much does Juris Digital cost?", answer: "[Juris Digital](https://jurisdigital.com/services/ascend/) partnerships are fully bespoke and typically run $5,000 to $50,000+/month. Investment is based on your firm size, practice areas, markets, and growth goals. Apply for a Growth Strategy Session to receive a custom proposal." },
+  { question: "Do I need to be a certain size for Juris Digital?", answer: "[Juris Digital](https://jurisdigital.com/services/ascend/) is typically best suited for established firms with a monthly marketing budget of at least $5,000. If you're a small or startup firm with little to no online presence, JurisPage Launchpad is designed specifically for you." },
   { question: "How does the 90-day guarantee work?", answer: "If you don't see measurable progress in your rankings, traffic, or leads within 90 days, we work for free for the following month. No fine print. No arguing. We either deliver or we earn it back." },
   { question: "Will I own my website and content?", answer: "Yes, always. All IP we create for you is owned by you. Your domain, your website, your content. If you ever leave, everything transfers cleanly." },
 ];
@@ -247,7 +247,7 @@ export default function PricingPage() {
       <section className="py-16 px-6" style={{ background: "#1a1a1a" }}>
         <div className="max-w-5xl mx-auto">
           <h2 className="font-heading font-extrabold text-white text-3xl text-center mb-12">
-            The Juris Digital Family Advantage
+            The <a href="https://jurisdigital.com" target="_blank" rel="noopener noreferrer" className="text-white no-underline hover:underline">Juris Digital</a> Family Advantage
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[

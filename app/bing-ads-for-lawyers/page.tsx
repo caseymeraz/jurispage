@@ -296,22 +296,7 @@ export default function BingAdsPage() {
         <div className="max-w-4xl mx-auto">
           <h2 className="font-heading font-extrabold text-gray-900 text-3xl mb-3 text-center">Pricing That Makes the Math Easy</h2>
           <p className="text-gray-500 text-center mb-10">Most clients generate 15-25% additional leads at 30-45% lower cost per lead by adding Bing to their existing Google campaigns.</p>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="rounded-xl bg-white border border-gray-200 overflow-hidden">
-              <div className="px-6 py-5 border-b border-gray-100">
-                <div className="text-xs font-bold uppercase tracking-widest mb-1" style={{ color: O }}>Bing Ads Add-On</div>
-                <div className="font-heading font-extrabold text-gray-900 text-2xl">Included in Juris Digital</div>
-                <div className="text-xs text-gray-500 mt-1">$5,000 to $50,000+/mo (total marketing investment)</div>
-              </div>
-              <div className="px-6 py-5 space-y-3 text-sm">
-                {["Microsoft Ads campaign setup", "LinkedIn audience targeting", "Copilot AI integration", "Cross-platform reporting", "Bing Places optimization (free bonus)", "Typical ad spend: $500-2,000/mo", "No upfront setup fee."].map((f) => (
-                  <div key={f} className="flex items-start gap-2"><span style={{ color: G }}>&#x2713;</span> {f}</div>
-                ))}
-              </div>
-              <div className="px-6 pb-6">
-                <Link href="/contact/" className="block text-center px-6 py-3 rounded-full text-white font-bold text-sm no-underline" style={{ background: O }}>Get Your Free Bing Opportunity Report</Link>
-              </div>
-            </div>
+          <div className="max-w-2xl mx-auto">
             <div className="rounded-xl overflow-hidden" style={{ background: D }}>
               <div className="px-6 py-5 border-b border-gray-700">
                 <div className="text-xs font-bold uppercase tracking-widest mb-1" style={{ color: O }}>Already Running Google Ads?</div>
@@ -328,7 +313,10 @@ export default function BingAdsPage() {
               </div>
             </div>
           </div>
-          <p className="text-center text-xs text-gray-400 mt-6">
+          <p className="text-center text-sm text-gray-500 mt-8 max-w-xl mx-auto">
+            Bing Ads management is part of our parent company&apos;s full-service tier. <a href="https://jurisdigital.com/services/ascend/" target="_blank" rel="noopener noreferrer" style={{ color: O }} className="no-underline hover:underline">Juris Digital</a> runs engagements at $5,000 to $50,000+/mo, with Bing Ads included alongside Google Ads, SEO, and content.
+          </p>
+          <p className="text-center text-xs text-gray-400 mt-4">
             <Link href="/services/pricing/" className="no-underline hover:underline" style={{ color: O }}>See full pricing breakdown</Link> | You own your account | Cancel anytime
           </p>
         </div>

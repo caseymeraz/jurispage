@@ -24,7 +24,7 @@ const faqSchema = {
     { "@type": "Question", name: "How quickly can my campaign launch?", acceptedAnswer: { "@type": "Answer", text: "Full setup is completed within the first 45 days: brand design, StoryBrand website, GBP, Yelp, Apple Maps, citations, social profiles with weekly posting, and performance tracking." } },
     { "@type": "Question", name: "Will I own my website and content?", acceptedAnswer: { "@type": "Answer", text: "Yes, always. All IP we create for you is owned by you. Your domain, your website, your content. If you ever leave JurisPage, everything transfers cleanly." } },
     { "@type": "Question", name: "How does the 90-day guarantee work?", acceptedAnswer: { "@type": "Answer", text: "If you don't see measurable progress in your rankings, traffic, or leads within 90 days, we work for free for the following month." } },
-    { "@type": "Question", name: "What if my firm's marketing budget is bigger than $4,000/month?", acceptedAnswer: { "@type": "Answer", text: "Launchpad is priced for small or startup law firms with little to no online presence, with a typical budget of $2,000 to $4,000/month. If your firm is established and ready to invest $5,000 to $50,000+/month, we recommend Juris Digital, our sister brand. Same parent company, same team, but a full-service strategy scaled to your goals. Visit jurisdigital.com to learn more." } },
+    { "@type": "Question", name: "What if my firm's marketing budget is bigger than $4,000/month?", acceptedAnswer: { "@type": "Answer", text: "Launchpad is priced for small or startup law firms with little to no online presence, with a typical budget of $2,000 to $4,000/month. If your firm is established and ready to invest $5,000 to $50,000+/month, we recommend [Juris Digital](https://jurisdigital.com/services/ascend/), our sister brand. Same parent company, same team, but a full-service strategy scaled to your goals. Visit jurisdigital.com to learn more." } },
   ],
 };
 
@@ -79,7 +79,7 @@ const faqs = [
   { question: "Will I own my website and content?", answer: "Yes, always. All IP we create for you is owned by you. Your domain, your website, your content. If you ever leave JurisPage, everything transfers cleanly." },
   { question: "How does the 90-day guarantee work?", answer: "If you don't see measurable progress in your rankings, traffic, or leads within 90 days, we work free the following month. No fine print. No arguing. We either deliver or we earn it back." },
   { question: "Can I add services later?", answer: "Yes. Many Launchpad clients add Google Ads, additional content writing, or GEO optimization once their foundation is established." },
-  { question: "What if my firm's marketing budget is bigger than $4,000/month?", answer: "Launchpad is priced for small or startup law firms with little to no online presence, with a typical budget of $2,000 to $4,000/month. If your firm is established and ready to invest $5,000 to $50,000+/month, we recommend Juris Digital, our sister brand. Same parent company, same team, but a full-service strategy scaled to your goals. Visit jurisdigital.com to learn more." },
+  { question: "What if my firm's marketing budget is bigger than $4,000/month?", answer: "Launchpad is priced for small or startup law firms with little to no online presence, with a typical budget of $2,000 to $4,000/month. If your firm is established and ready to invest $5,000 to $50,000+/month, we recommend [Juris Digital](https://jurisdigital.com/services/ascend/), our sister brand. Same parent company, same team, but a full-service strategy scaled to your goals. Visit jurisdigital.com to learn more." },
 ];
 
 export default function LaunchpadPage() {
@@ -426,7 +426,7 @@ export default function LaunchpadPage() {
             If your firm is already established and ready to invest $5,000 to $50,000+/month, you don&apos;t need a foundation. You need a full-service growth partner built for market domination.
           </p>
           <div className="bg-gray-50 rounded-xl p-6 border border-gray-100 text-left max-w-lg mx-auto mb-10">
-            <p className="text-xs font-bold uppercase tracking-widest text-gray-400 mb-3">Juris Digital Delivers</p>
+            <p className="text-xs font-bold uppercase tracking-widest text-gray-400 mb-3"><a href="https://jurisdigital.com/services/ascend/" target="_blank" rel="noopener noreferrer" className="text-gray-400 no-underline hover:underline">Juris Digital</a> Delivers</p>
             <div className="space-y-2">
               {[
                 "Full-service SEO & content strategy",

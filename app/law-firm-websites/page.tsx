@@ -30,8 +30,8 @@ export const metadata: Metadata = {
 
 export default function LawFirmWebsitesPage() {
   const allFaqs = [
-    { question: "How much does a custom law firm website cost?", preview: "Launchpad starts at $2,000/mo with no upfront fee. Includes brand design, StoryBrand website, content, SEO, and GBP setup.", answer: "JurisPage Launchpad starts at $2,000 per month over a 24-month engagement with no upfront setup fee. It includes brand design, a custom StoryBrand-driven WordPress website, practice area content, Google Business Profile setup, Yelp, Apple Maps, weekly social posting, and ongoing SEO. For established firms ready to invest $5,000 to $50,000+/month, Juris Digital partnerships deliver a fully bespoke design and content strategy. All Launchpad pricing is published on our website. No discovery calls required." },
-    { question: "How long does it take to design and launch a law firm website?", preview: "45 days for the full Launchpad foundation. 45-60 days for custom redesigns.", answer: "Launchpad websites go live inside the 45-day full setup window alongside brand design, GBP, Yelp, Apple Maps, citations, social profiles, weekly posting, and tracking. That includes discovery, wireframes, design, content writing, development, and launch. Custom redesigns for established firms working with Juris Digital typically take 45 to 60 days depending on content readiness and revision cycles. We build attorney review time into the timeline so publication dates don't slip." },
+    { question: "How much does a custom law firm website cost?", preview: "Launchpad starts at $2,000/mo with no upfront fee. Includes brand design, StoryBrand website, content, SEO, and GBP setup.", answer: "JurisPage Launchpad starts at $2,000 per month over a 24-month engagement with no upfront setup fee. It includes brand design, a custom StoryBrand-driven WordPress website, practice area content, Google Business Profile setup, Yelp, Apple Maps, weekly social posting, and ongoing SEO. For established firms ready to invest $5,000 to $50,000+/month, [Juris Digital](https://jurisdigital.com/services/ascend/) partnerships deliver a fully bespoke design and content strategy. All Launchpad pricing is published on our website. No discovery calls required." },
+    { question: "How long does it take to design and launch a law firm website?", preview: "45 days for the full Launchpad foundation. 45-60 days for custom redesigns.", answer: "Launchpad websites go live inside the 45-day full setup window alongside brand design, GBP, Yelp, Apple Maps, citations, social profiles, weekly posting, and tracking. That includes discovery, wireframes, design, content writing, development, and launch. Custom redesigns for established firms working with [Juris Digital](https://jurisdigital.com/services/ascend/) typically take 45 to 60 days depending on content readiness and revision cycles. We build attorney review time into the timeline so publication dates don't slip." },
     { question: "Do I own the website once it's built?", preview: "Yes. 100%. Your domain, your WordPress site, your content. Take it anywhere.", answer: "Always. Your domain, your WordPress installation, your content. All 100% yours. Unlike agencies that host on proprietary platforms (Scorpion, FindLaw, Martindale), you can take your website to any hosting provider or any developer at any time. We don't hold websites hostage. If you leave, everything transfers cleanly." },
     { question: "Why WordPress instead of a proprietary platform?", preview: "Full ownership, massive developer ecosystem, and SEO control you can't get elsewhere.", answer: "WordPress powers over 40% of the web and gives you three things proprietary platforms can't: full ownership (you control the code, hosting, and content), a massive developer ecosystem (any developer can work on your site if you ever change agencies), and complete SEO control (custom schema, server-side caching, Core Web Vitals optimization). Proprietary platforms lock you into their ecosystem and limit what you can do with your own site." },
     { question: "What makes a law firm website different from a regular business website?", preview: "YMYL classification, bar advertising rules, and E-E-A-T requirements that most designers have never heard of.", answer: "Three things. First, Google classifies legal content as YMYL (Your Money or Your Life) and applies stricter quality standards. Your content needs verifiable attorney credentials and real legal expertise, not marketing copy. Second, bar advertising rules vary by state and restrict what you can say about case results, qualifications, and testimonials. Violations trigger disciplinary action. Third, E-E-A-T signals (Experience, Expertise, Authoritativeness, Trustworthiness) must be woven into every page. Attorney bio pages, case result formatting, and practice area depth all factor into how Google evaluates your site." },
@@ -388,11 +388,10 @@ export default function LawFirmWebsitesPage() {
           <h2 className="font-heading font-extrabold text-gray-900 text-3xl mb-3 text-center">Transparent Pricing. On the Website. Like We Promised.</h2>
           <p className="text-gray-500 text-center mb-10">No discovery calls required to see what you'll pay.</p>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-            {/* Launchpad */}
+          <div className="max-w-2xl mx-auto">
             <div className="rounded-xl bg-white border border-gray-200 overflow-hidden flex flex-col">
               <div className="px-5 py-4 border-b border-gray-100">
-                <div className="text-[10px] font-bold uppercase tracking-widest mb-1" style={{ color: O }}>Launchpad</div>
+                <div className="text-[10px] font-bold uppercase tracking-widest mb-1" style={{ color: O }}>JurisPage Launchpad</div>
                 <div className="font-heading font-extrabold text-gray-900 text-xl">$2,000<span className="text-sm font-normal text-gray-400">/mo</span></div>
                 <div className="text-xs text-gray-500 mt-1">Everything included. 24-month engagement, no upfront fee.</div>
               </div>
@@ -408,51 +407,11 @@ export default function LawFirmWebsitesPage() {
                 </Link>
               </div>
             </div>
-
-            {/* Custom One-Time Build */}
-            <div className="rounded-xl overflow-hidden flex flex-col relative border-2" style={{ borderColor: O }}>
-              <div className="absolute top-0 left-0 right-0 text-center py-1 text-[10px] font-bold uppercase tracking-widest text-white" style={{ background: O }}>
-                Most Popular
-              </div>
-              <div className="px-5 py-4 border-b border-gray-100 mt-6">
-                <div className="text-[10px] font-bold uppercase tracking-widest mb-1" style={{ color: O }}>Custom Website Build</div>
-                <div className="font-heading font-extrabold text-gray-900 text-xl">$5,000 - $100,000</div>
-                <div className="text-xs text-gray-500 mt-1">One-time build. You own everything.</div>
-              </div>
-              <div className="px-5 py-4 space-y-2.5 text-sm flex-1">
-                <p className="text-gray-600 text-xs leading-relaxed mb-3">For firms that want a fully bespoke website build or a highly interactive experience tailored to their brand (beyond the StoryBrand layout already included with Launchpad).</p>
-                {["Fully custom design and UX", "Custom messaging framework", "Interactive elements and tools", "Attorney bios with full E-E-A-T", "Bar-compliant content throughout", "SEO architecture from day one", "Price depends on size and complexity"].map((f) => (
-                  <div key={f} className="flex items-start gap-2 text-xs"><span style={{ color: "#27ae60" }}>&#x2713;</span> {f}</div>
-                ))}
-              </div>
-              <div className="px-5 pb-5">
-                <Link href="/contact/" className="block text-center px-5 py-2.5 rounded-full text-white font-bold text-xs no-underline" style={{ background: O }}>
-                  Get a Custom Quote
-                </Link>
-              </div>
-            </div>
-
-            {/* Juris Digital Ongoing */}
-            <div className="rounded-xl overflow-hidden flex flex-col" style={{ background: D }}>
-              <div className="px-5 py-4 border-b border-gray-700">
-                <div className="text-[10px] font-bold uppercase tracking-widest mb-1" style={{ color: O }}>Juris Digital</div>
-                <div className="font-heading font-extrabold text-white text-xl">$5,000 to $50,000+<span className="text-sm font-normal text-gray-400">/mo</span></div>
-                <div className="text-xs text-gray-400 mt-1">Full-service marketing with website.</div>
-              </div>
-              <div className="px-5 py-4 space-y-2.5 text-sm text-gray-300 flex-1">
-                <p className="text-gray-400 text-xs leading-relaxed mb-3">For established firms ready to invest $5,000 to $50,000+/month in a custom website plus ongoing SEO, ads, and content strategy.</p>
-                {["Everything in Launchpad, plus:", "Fully bespoke website design", "Full content strategy with topic mapping", "Google Ads management", "Link building and authority development", "Dedicated account strategist"].map((f) => (
-                  <div key={f} className="flex items-start gap-2 text-xs"><span style={{ color: O }}>&#x2713;</span> {f}</div>
-                ))}
-              </div>
-              <div className="px-5 pb-5">
-                <Link href="/growth-assessment/" className="block text-center px-5 py-2.5 rounded-full font-bold text-xs no-underline border-2 border-white text-white hover:bg-white hover:text-gray-900 transition-colors">
-                  Apply for a Strategy Session
-                </Link>
-              </div>
-            </div>
           </div>
-          <p className="text-center text-xs text-gray-400 mt-6">
+          <p className="text-center text-sm text-gray-500 mt-8 max-w-xl mx-auto">
+            Need a fully bespoke website or budget above $4,000/mo? Our parent company, <a href="https://jurisdigital.com/services/ascend/" target="_blank" rel="noopener noreferrer" style={{ color: O }} className="no-underline hover:underline">Juris Digital</a>, runs custom builds and full-service engagements at $5,000 to $50,000+/mo.
+          </p>
+          <p className="text-center text-xs text-gray-400 mt-4">
             <Link href="/services/pricing/" className="no-underline hover:underline" style={{ color: O }}>See full pricing breakdown</Link> | 90-day results guarantee | You own everything we build
           </p>
         </div>

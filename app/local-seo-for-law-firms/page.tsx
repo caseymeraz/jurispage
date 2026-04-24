@@ -299,7 +299,7 @@ export default function LocalSeoPage() {
         <div className="max-w-4xl mx-auto">
           <h2 className="font-heading font-extrabold text-gray-900 text-3xl mb-3 text-center">Transparent Pricing. On the Website.</h2>
           <p className="text-gray-500 text-center mb-10">Local SEO produces a cost per case 40-60% lower than Google Ads once rankings stabilize.</p>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="max-w-2xl mx-auto">
             <div className="rounded-xl bg-white border border-gray-200 overflow-hidden">
               <div className="px-6 py-5 border-b border-gray-100">
                 <div className="text-xs font-bold uppercase tracking-widest mb-1" style={{ color: O }}>Included in Launchpad</div>
@@ -315,23 +315,11 @@ export default function LocalSeoPage() {
                 <Link href="/launchpad/" className="block text-center px-6 py-3 rounded-full text-white font-bold text-sm no-underline" style={{ background: O }}>See Launchpad Pricing</Link>
               </div>
             </div>
-            <div className="rounded-xl overflow-hidden" style={{ background: D }}>
-              <div className="px-6 py-5 border-b border-gray-700">
-                <div className="text-xs font-bold uppercase tracking-widest mb-1" style={{ color: O }}>Juris Digital</div>
-                <div className="font-heading font-extrabold text-white text-2xl">$5,000 to $50,000+<span className="text-base font-normal text-gray-400">/mo</span></div>
-                <div className="text-xs text-gray-400 mt-1">Advanced local SEO with full marketing suite</div>
-              </div>
-              <div className="px-6 py-5 space-y-3 text-sm text-gray-300">
-                {["Everything in Launchpad, plus:", "Multi-location GBP management", "AI Local Pack optimization", "Local Services Ads management", "Local link building campaigns", "Dedicated strategist"].map((f) => (
-                  <div key={f} className="flex items-start gap-2"><span style={{ color: O }}>&#x2713;</span> {f}</div>
-                ))}
-              </div>
-              <div className="px-6 pb-6">
-                <Link href="/growth-assessment/" className="block text-center px-6 py-3 rounded-full font-bold text-xs no-underline border-2 border-white text-white hover:bg-white hover:text-gray-900 transition-colors">Apply for a Strategy Session</Link>
-              </div>
-            </div>
           </div>
-          <p className="text-center text-xs text-gray-400 mt-6">
+          <p className="text-center text-sm text-gray-500 mt-8 max-w-xl mx-auto">
+            Budget above $4,000/mo? Our parent company, <a href="https://jurisdigital.com/services/ascend/" target="_blank" rel="noopener noreferrer" style={{ color: O }} className="no-underline hover:underline">Juris Digital</a>, runs full-service engagements at $5,000 to $50,000+/mo.
+          </p>
+          <p className="text-center text-xs text-gray-400 mt-4">
             <Link href="/services/pricing/" className="no-underline hover:underline" style={{ color: O }}>See full pricing breakdown</Link> | 90-day results guarantee | You own everything
           </p>
         </div>

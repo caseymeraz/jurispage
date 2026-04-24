@@ -3,6 +3,7 @@ import Link from "next/link";
 import SchemaOrg from "@/components/SchemaOrg";
 import CTASection from "@/components/CTASection";
 import FAQAccordion from "@/components/FAQAccordion";
+import { renderLinkedText } from "@/lib/renderLinkedText";
 
 export const metadata: Metadata = {
   title: "Best Law Firm SEO Companies in 2026 (Ranked & Reviewed)",
@@ -76,7 +77,7 @@ const agencies = [
     ],
     body: "JurisPage works exclusively with law firms and publishes its pricing publicly, something almost no other legal SEO agency does. With 113+ law firm clients, Launchpad is priced for small or startup firms with little to no online presence. We do not front-load costs: instead of a huge day-one setup fee, we spread costs evenly across a 24-month engagement so small firms can afford the work.",
     pros: ["Only major legal SEO agency with publicly listed pricing, no sales games", "No upfront setup fee: costs spread across the 24-month engagement", "100% legal focus means benchmarking against real legal competitors", "Full marketing foundation live in 45 days (brand design, StoryBrand website, GBP, Yelp, Apple Maps, weekly social, tracking)"],
-    cons: ["Not the right fit for firms with $5,000+/month enterprise budgets (use Juris Digital instead)", "Newer brand name: long experience behind it, but less legacy name recognition", "Less name recognition than legacy agencies for committee-based vendor approval"],
+    cons: ["Not the right fit for firms with $5,000+/month enterprise budgets (use [Juris Digital](https://jurisdigital.com/services/ascend/) instead)", "Newer brand name: long experience behind it, but less legacy name recognition", "Less name recognition than legacy agencies for committee-based vendor approval"],
     bestFor: "Small or startup law firms with little to no online presence that want professional SEO without opaque pricing or a large upfront setup fee.",
     ctaHref: "/services/pricing/",
     ctaText: "See JurisPage Pricing",
@@ -95,14 +96,14 @@ const agencies = [
       { label: "Specialization", val: "100% law firms" },
       { label: "Contract", val: "Flexible, ask about terms" },
     ],
-    body: "Juris Digital is a full-service legal marketing agency with deep roots in the industry and a track record spanning over a decade. Where JurisPage is purpose-built for small firms, Juris Digital is the right partner for established practices that want market-wide dominance. Serious firepower in SEO, content, paid media, and brand strategy - all under one roof.",
+    body: "[Juris Digital](https://jurisdigital.com) is a full-service legal marketing agency with deep roots in the industry and a track record spanning over a decade. Where JurisPage is purpose-built for small firms, Juris Digital is the right partner for established practices that want market-wide dominance. Serious firepower in SEO, content, paid media, and brand strategy - all under one roof.",
     pros: ["Battle-tested track record across hundreds of law firms and highly competitive markets", "Full-service capability: SEO, paid media, content, GEO, and brand strategy in one team", "Deep expertise in practice areas that require aggressive authority-building over time"],
     cons: ["Higher investment threshold. Not the right fit for solo attorneys or firms early in their growth.", "Custom pricing means you'll need a strategy call to understand the specific scope and cost", "Breadth of services means you should clarify which team members own your account"],
     bestFor: "Established law firms ready to invest seriously in market domination, brand legacy, and long-term search authority.",
     ctaHref: null,
     ctaText: null,
     highlight: false,
-    ownershipNote: "Disclosure: Juris Digital and JurisPage are owned by the same parent company. We're including it here because it genuinely serves a different client profile. Weigh that context.",
+    ownershipNote: "Disclosure: [Juris Digital](https://jurisdigital.com) and JurisPage are owned by the same parent company. We're including it here because it genuinely serves a different client profile. Weigh that context.",
   },
   {
     rank: 3,
@@ -306,7 +307,7 @@ export default function BestLawFirmSEOPage() {
 
           <div className="bg-amber-50 border-l-4 border-amber-400 p-5 rounded mb-8">
             <strong className="text-gray-900">Transparency notice:</strong>
-            <span className="text-gray-700"> JurisPage is ranked #1 on this list and Juris Digital is ranked #2. We wrote this article and we own both companies. They operate under the same parent. That&apos;s an obvious conflict of interest, and we&apos;re disclosing it upfront. We&apos;ve done our best to give honest assessments of every company on this list, including their real weaknesses.</span>
+            <span className="text-gray-700"> JurisPage is ranked #1 on this list and <a href="https://jurisdigital.com" target="_blank" rel="noopener noreferrer" className="text-gray-900 font-semibold underline hover:no-underline">Juris Digital</a> is ranked #2. We wrote this article and we own both companies. They operate under the same parent. That&apos;s an obvious conflict of interest, and we&apos;re disclosing it upfront. We&apos;ve done our best to give honest assessments of every company on this list, including their real weaknesses.</span>
           </div>
 
           <h2 className="font-heading font-extrabold text-gray-900 text-2xl mt-10 mb-4">What to Look For in a Law Firm SEO Company</h2>
@@ -362,7 +363,7 @@ export default function BestLawFirmSEOPage() {
               <tbody>
                 {[
                   { name: "JurisPage ⭐", price: "From $2,000/mo (no upfront fee)", legal: "Yes", contract: "24-month engagement, costs spread", best: "Small or startup firms", highlight: true },
-                  { name: "Juris Digital ⚠️ (sister co.)", price: "$5,000+/mo", legal: "Yes", contract: "Flexible", best: "Enterprise & market dominators", highlight: false },
+                  { name: "[Juris Digital](https://jurisdigital.com/services/ascend/) ⚠️ (sister co.)", price: "$5,000+/mo", legal: "Yes", contract: "Flexible", best: "Enterprise & market dominators", highlight: false },
                   { name: "Rankings.io", price: "~$5,000/mo", legal: "Yes", contract: "6-12 month", best: "PI firms", highlight: false },
                   { name: "Grow Law Firm", price: "~$3,000/mo", legal: "Yes", contract: "Varies", best: "Data-focused firms", highlight: false },
                   { name: "Attorney Sync", price: "~$3,000/mo", legal: "Yes", contract: "Varies", best: "Technical SEO depth", highlight: false },
@@ -374,7 +375,7 @@ export default function BestLawFirmSEOPage() {
                   { name: "Omnizant", price: "~$1,500/mo", legal: "Yes", contract: "Varies", best: "Solo and very small firms", highlight: false },
                 ].map((row, i) => (
                   <tr key={row.name} style={{ background: row.highlight ? "#f0fff4" : i % 2 === 0 ? "#f9f9f9" : "#fff" }}>
-                    <td className="p-3 border border-gray-200 font-semibold">{row.name}</td>
+                    <td className="p-3 border border-gray-200 font-semibold">{renderLinkedText(row.name)}</td>
                     <td className="p-3 border border-gray-200">{row.price}</td>
                     <td className="p-3 border border-gray-200">{row.legal}</td>
                     <td className="p-3 border border-gray-200">{row.contract}</td>
@@ -394,7 +395,7 @@ export default function BestLawFirmSEOPage() {
               </h3>
               {agency.ownershipNote && (
                 <div className="bg-amber-50 border-l-4 border-amber-400 p-4 rounded mb-4 text-sm text-gray-700">
-                  <strong className="text-gray-900">⚠️ Ownership disclosure:</strong> {agency.ownershipNote}
+                  <strong className="text-gray-900">⚠️ Ownership disclosure:</strong> {renderLinkedText(agency.ownershipNote)}
                 </div>
               )}
               <div className="bg-gray-50 border border-gray-200 rounded-lg p-5 mb-4 grid grid-cols-2 gap-4">
@@ -405,14 +406,14 @@ export default function BestLawFirmSEOPage() {
                   </div>
                 ))}
               </div>
-              <p className="text-gray-700 leading-relaxed mb-4">{agency.body}</p>
+              <p className="text-gray-700 leading-relaxed mb-4">{renderLinkedText(agency.body)}</p>
               <p className="font-semibold text-gray-900 mb-2">Pros:</p>
               <ul className="space-y-1 mb-4">
-                {agency.pros.map((p) => <li key={p} className="text-gray-700 flex gap-2"><span className="text-green-600 mt-0.5">✓</span><span>{p}</span></li>)}
+                {agency.pros.map((p) => <li key={p} className="text-gray-700 flex gap-2"><span className="text-green-600 mt-0.5">✓</span><span>{renderLinkedText(p)}</span></li>)}
               </ul>
               <p className="font-semibold text-gray-900 mb-2">Cons:</p>
               <ul className="space-y-1 mb-4">
-                {agency.cons.map((c) => <li key={c} className="text-gray-700 flex gap-2"><span className="text-red-400 mt-0.5">✗</span><span>{c}</span></li>)}
+                {agency.cons.map((c) => <li key={c} className="text-gray-700 flex gap-2"><span className="text-red-400 mt-0.5">✗</span><span>{renderLinkedText(c)}</span></li>)}
               </ul>
               <p className="text-gray-600 text-sm"><strong>Best for:</strong> {agency.bestFor}</p>
               {agency.ctaHref && (
@@ -433,7 +434,7 @@ export default function BestLawFirmSEOPage() {
               </h2>
             </div>
             <p className="text-gray-500 text-sm mb-1">
-              <em>A personal list by <strong>Casey Meraz</strong>, CEO of Juris Digital &amp; JurisPage</em>
+              <em>A personal list by <strong>Casey Meraz</strong>, CEO of <a href="https://jurisdigital.com" target="_blank" rel="noopener noreferrer" className="text-gray-700 underline hover:text-gray-900">Juris Digital</a> &amp; JurisPage</em>
             </p>
             <p className="text-gray-700 mb-6 leading-relaxed">
               Beyond full-service agencies, there are individual consultants in the legal SEO world who operate at a high level. These are people whose thinking I respect and whose work I&apos;ve seen produce real results. If you&apos;re looking for an independent expert rather than an agency, this short list is a starting point.

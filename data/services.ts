@@ -160,7 +160,7 @@ export const services: ServiceData[] = [
       "Monthly reporting tied to call and form conversions",
     ],
     faqs: [
-      { question: "How much does Google Ads management cost?", answer: "Our Google Ads management is available as a Launchpad add-on or included in full-service Juris Digital engagements for established firms. Ad spend is separate and paid directly to Google - we don't mark it up." },
+      { question: "How much does Google Ads management cost?", answer: "Our Google Ads management is available as a Launchpad add-on. Ad spend is separate and paid directly to Google - we don't mark it up." },
       { question: "What's the difference between Google Ads and Local Service Ads?", answer: "Google Ads (traditional PPC) shows text ads across Google's network. Local Service Ads (LSAs) appear at the very top of results with a 'Google Screened' badge and charge per lead rather than per click. Most law firms benefit from running both." },
       { question: "How quickly do Google Ads generate leads?", answer: "Unlike SEO, Google Ads can generate calls and form submissions within 24-48 hours of launch. The first 30-60 days are typically a learning phase where we optimize bidding and targeting for your specific market." },
       { question: "Is PPC worth it for law firms?", answer: "Yes - PPC for lawyers is one of the highest-ROI channels available when managed correctly. Legal keywords are expensive ($50-$200+ per click), but the case values justify the spend: a single personal injury case can return $50,000-$500,000 in fees. The key is tight keyword targeting, aggressive negative keyword lists, and dedicated landing pages that convert clicks into consultations. Firms that run PPC without specialized legal management typically waste 40-60% of their ad spend on irrelevant clicks." },
@@ -267,7 +267,7 @@ export const services: ServiceData[] = [
     ],
     faqs: [
       { question: "Will I own my website?", answer: "Yes, always. Your domain, your WordPress installation, your content - all 100% yours. Unlike agencies that host on proprietary platforms, you can take your website anywhere at any time." },
-      { question: "How long does a new website take?", answer: "Launchpad websites go live within 45 days alongside the full marketing foundation (Google Business Profile, Yelp, Apple Maps, citations, social profiles, weekly posting, and tracking). Custom redesigns for established firms working with Juris Digital typically take 45-60 days depending on content readiness." },
+      { question: "How long does a new website take?", answer: "Launchpad websites go live within 45 days alongside the full marketing foundation (Google Business Profile, Yelp, Apple Maps, citations, social profiles, weekly posting, and tracking)." },
       { question: "Do you design on WordPress?", answer: "Yes. WordPress is the standard for law firm websites for good reason - it's flexible, SEO-friendly, and every developer can work with it if you ever need to change agencies." },
       { question: "Do you build landing pages for law firms?", answer: "Yes. A dedicated law firm landing page - built for a specific practice area, ad campaign, or geographic market - converts at 2-3x the rate of a generic homepage. We build landing pages as part of both website projects and Google Ads engagements, each with a single call to action, trust signals above the fold, and messaging matched to the traffic source driving visitors to it." },
     ],
@@ -315,7 +315,7 @@ export const services: ServiceData[] = [
     extendedFaqs: [
       {
         question: "How much does a law firm website cost?",
-        answer: "Law firm website design ranges from $3,000 for a basic WordPress site with a few practice area pages to $25,000 or more for a large multi-attorney firm with dozens of practice areas, multiple city pages, and full content writing included. The wide range comes down to page count, custom design complexity, and whether content writing is included. Our Launchpad plan delivers a professional StoryBrand-driven WordPress site at a fixed published price with the full marketing foundation live in 45 days. Established firms working with Juris Digital receive a full custom redesign as part of their engagement. Proprietary platforms from vendors like Scorpion or Martindale typically charge monthly fees indefinitely, and when you cancel, you lose the site. With WordPress, you own everything from day one.",
+        answer: "Law firm website design ranges from $3,000 for a basic WordPress site with a few practice area pages to $25,000 or more for a large multi-attorney firm with dozens of practice areas, multiple city pages, and full content writing included. The wide range comes down to page count, custom design complexity, and whether content writing is included. Our Launchpad plan delivers a professional StoryBrand-driven WordPress site at a fixed published price with the full marketing foundation live in 45 days. Proprietary platforms from vendors like Scorpion or Martindale typically charge monthly fees indefinitely, and when you cancel, you lose the site. With WordPress, you own everything from day one.",
       },
       {
         question: "How long does it take to build a law firm website?",
@@ -539,7 +539,7 @@ export const services: ServiceData[] = [
       },
       {
         question: "What comes after Launchpad - is there a next step?",
-        answer: "Launchpad is a foundation, not a long-term strategy. Most attorneys who open their firm with Launchpad grow into a full-service engagement with Juris Digital (jurisdigital.com) 6-12 months after launch once they have consistent case volume and cash flow. Juris Digital adds active SEO - link building, content publishing, technical monitoring - plus Google Ads management, custom web design, and a dedicated account strategist. Because your Launchpad site is built on the same technical foundation, upgrading requires no rebuild. We layer more activity on top of what is already in place.",
+        answer: "Launchpad is a foundation, not a long-term strategy. Most attorneys who open their firm with Launchpad grow into a full-service engagement with [Juris Digital](https://jurisdigital.com/services/ascend/) 6-12 months after launch once they have consistent case volume and cash flow. Juris Digital adds active SEO - link building, content publishing, technical monitoring - plus Google Ads management, custom web design, and a dedicated account strategist. Because your Launchpad site is built on the same technical foundation, upgrading requires no rebuild. We layer more activity on top of what is already in place.",
       },
       {
         question: "What if I already have a website but it is not working?",
@@ -551,7 +551,7 @@ export const services: ServiceData[] = [
       },
       {
         question: "What happens if I need to change my address or phone number after launch?",
-        answer: "We update your website, Google Business Profile, and notify the major data aggregators so the correction propagates to secondary directories. Address and phone number consistency across the web is a live SEO signal, not a one-time setup task. A number that is correct on your website but wrong on Avvo is still hurting your local rankings. If you grow into a full-service engagement with Juris Digital, citation maintenance - keeping your information current across 50+ directory sources - is included as a standard part of the service.",
+        answer: "We update your website, Google Business Profile, and notify the major data aggregators so the correction propagates to secondary directories. Address and phone number consistency across the web is a live SEO signal, not a one-time setup task. A number that is correct on your website but wrong on Avvo is still hurting your local rankings. Launchpad includes ongoing citation monitoring across the 30+ directories we submit to during setup.",
       },
     ],
     relatedServices: ["law-firm-websites", "local-seo-for-law-firms", "law-firm-seo"],
@@ -674,7 +674,7 @@ export const services: ServiceData[] = [
     ],
     faqs: [
       { question: "Is an AI chatbot compliant with bar advertising rules?", answer: "Properly configured, yes. We design chatbot conversations that follow bar advertising guidelines - including disclaimers that the chatbot does not create an attorney-client relationship and that information shared is for contact purposes only." },
-      { question: "How much does a law firm AI chatbot cost?", answer: "The AI chatbot is available as a Launchpad add-on for $299/month, or included in full-service Juris Digital engagements. Contact us for current pricing based on your practice area and website traffic volume." },
+      { question: "How much does a law firm AI chatbot cost?", answer: "The AI chatbot is available as a Launchpad add-on for $299/month. Contact us for current pricing based on your practice area and website traffic volume." },
       { question: "Can the chatbot handle complex legal questions?", answer: "The chatbot is designed for intake, not legal advice. It's trained to gather prospect information, answer basic FAQs about your firm, and route complex questions to a human - while keeping the conversation on track for case qualification." },
     ],
     stats: [

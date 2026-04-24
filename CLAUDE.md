@@ -48,3 +48,10 @@ All eight resolved to "match the Juris Digital source." Do not reintroduce the o
 - **No em dashes.** Use commas, periods, or parens.
 - **No AI-sounding filler** ("seamless," "robust," "leverage," "unlock," "in today's fast-paced world"). Prefer concrete claims.
 - **Don't invent new tier names.** JurisPage sells Launchpad. Juris Digital is the handoff for larger firms. That's the whole hierarchy.
+- **Keep Juris Digital mentions minimal.** This site is for JurisPage. Mention Juris Digital only when genuinely needed:
+  - Upsell routing: a prospect's budget/stage exceeds Launchpad ($4K/mo cap).
+  - Acquisition/trust story: "JurisPage joined the Juris Digital family," footer, about-us.
+  - Specific "difference between JurisPage and Juris Digital" FAQ on /services/pricing/ and /launchpad/.
+  Avoid mentioning JD in service-page FAQ answers about operational details (website timeline, chatbot pricing, citation maintenance). Those questions are about Launchpad, not the upsell path.
+- **Don't conflate the brands.** No "JurisPage + Juris Digital Team" sign-offs, no "from: Juris Digital <hello@jurispage.com>" email headers, no dual-brand footers. JurisPage is the site identity; Juris Digital is the parent company. Keep them visibly separate.
+- **Pricing tiles on individual service pages** (law-firm-content-writing, local-seo, email-marketing, generative-engine-optimization, law-firm-websites, bing-ads) should show **one Launchpad tile** and a compact upsell sentence below pointing to Juris Digital Ascend for bigger budgets. Do not display dual parallel tiles that imply JurisPage offers both products.

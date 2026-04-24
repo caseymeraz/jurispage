@@ -196,7 +196,7 @@ export const intersections: IntersectionData[] = [
       {
         question: "How long does it take to build a personal injury law firm website?",
         answer:
-          "A full custom website with dedicated practice area pages, case results section, attorney bios, and intake integration typically takes 8 to 12 weeks through Juris Digital. For small or startup firms with little to no online presence, our JurisPage Launchpad package launches the full marketing foundation (website, GBP, Yelp, Apple Maps, citations, social, and tracking) in 45 days. We use a structured discovery, design, content, and launch process with defined milestones and your feedback incorporated at each stage.",
+          "A full custom website with dedicated practice area pages, case results section, attorney bios, and intake integration typically takes 8 to 12 weeks through [Juris Digital](https://jurisdigital.com/services/ascend/). For small or startup firms with little to no online presence, our JurisPage Launchpad package launches the full marketing foundation (website, GBP, Yelp, Apple Maps, citations, social, and tracking) in 45 days. We use a structured discovery, design, content, and launch process with defined milestones and your feedback incorporated at each stage.",
       },
       {
         question: "Should I include my settlement results on my website?",
@@ -715,7 +715,7 @@ export const intersections: IntersectionData[] = [
       {
         question: "How long does it take to build a family law firm website?",
         answer:
-          "A complete family law firm website with practice area pages, attorney bios, a blog, consultation scheduling integration, and CRO-optimized design typically takes 8 to 12 weeks through Juris Digital. For small or startup firms with little to no online presence, our JurisPage Launchpad package launches the full marketing foundation (website, GBP, Yelp, Apple Maps, citations, social, and tracking) in 45 days. Complex projects with multiple attorneys or locations may require additional time. We provide a detailed timeline at the start of every project.",
+          "A complete family law firm website with practice area pages, attorney bios, a blog, consultation scheduling integration, and CRO-optimized design typically takes 8 to 12 weeks through [Juris Digital](https://jurisdigital.com/services/ascend/). For small or startup firms with little to no online presence, our JurisPage Launchpad package launches the full marketing foundation (website, GBP, Yelp, Apple Maps, citations, social, and tracking) in 45 days. Complex projects with multiple attorneys or locations may require additional time. We provide a detailed timeline at the start of every project.",
       },
       {
         question: "Does JurisPage include content writing with website design?",
